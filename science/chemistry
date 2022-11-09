@@ -26,10 +26,6 @@ Chemical - flammability
 Physical extensive - mass, volume
 Physical intensive - color, melting point, boiling point, electrical conductivity
 
-#Chemical change - creates/breaks bonds between atoms
-Combustion - reaction with oxygen, produces heat and light
-Rusting - reaction with oxygen, slow
-
 #SI units
 length: meter (m)
 mass: kilogram (kg)
@@ -38,6 +34,10 @@ temperature: kelvin (K)
 amount of substance: mol
 electric current: ampere (A)
 luminous intensity: candela (cd)
+
+#SI constants
+Avogadro constant: number of particles in mole = numer of C-12 atoms in 12g  (602kE)
+Speed of light (c): upper limit for the speed in vacuum (300Mm/s)
 
 #SI prefixes
 +18 exa (E)
@@ -65,7 +65,7 @@ Multiple proportions - ratios of element masses in compounds are in whole number
 #Elements
 Metals: good conductors, ductile, malleable, lustrous
 Nonmetals: poor conductors, brittle
-Semimetals:
+Semimetals/Metalloids: properties of both metals and nonmetals
 Alkali metals
 Alkaline earth metals
 Halogens
@@ -74,14 +74,71 @@ Lanthanides
 Actinides
 
 #Chemical bonds - single / double / triple
-Ionic: ions of opposite charges
-Covalent: shared pairs of electrons
+Ionic: ions of opposite charges, strong electrostatic forces, form crystalline solids
+Covalent: shared pairs of electrons, strong intramolecular and weak intermolecular forces
 Diatomic molecules: hydrogen, nitrogen, oxygen, fluorine, chlorine, bromine, iodine
 Polyatomic molecules: phosphorus (P4), sulphur (S8)
 
 #Molecule representation
+Empirical formula: relative numbers of atoms
+Molecular formula: absolute numbers of atoms
 Structural formula: atoms and lines representing bonds
 Condensed structural formula: omits lines between atoms
-Ball-and-stick: 3D, atoms and bonds
 Perspective drawing: shows above and below plane
+Ball-and-stick: 3D, atoms and bonds
 Space filling model: 3D, relative sizes of atoms, without bonds
+
+#Compounds
+Hydrates: contain specific ratios of loosely bound water molecules
+Acids: release hydrogen cations
+Bases: contain hydroxide anion and metal cation
+Hydrocarbons: contain only carbon and hydrogen
+
+#Hydrocarbons
+Alkanes: contain only carbon single bonds
+Alkenes: contain carbon double bond
+Alkynes: contain carbon triple bond
+Aromatic: contain ring of six carbons
+
+#Chemical change
+Combustion - reaction with oxygen, produces heat and light
+Rusting - reaction with oxygen, slow
+Combination - substances form more complex compound
+Decomposition - compound forms simpler substances
+
+#Chemical reaction
+represented by equation
+reactants turn into products
+creates/breaks bonds between atoms
+does not change number and type of atoms
+
+#Chemical equation
+g = gas
+s = solid
+l = liquid
+aq = aqueous solution
+
+#Combustion analysis
+method to determine empirical formula of compound
+combustion at high temperature and quantification of products
+usable for elements H->H20, C->CO2, N->NO2, S->SO2
+
+Stoichiometry: quantity of substances in chemical reactions
+
+#Solutions
+Solvent: substance in higher amount 
+Solute: substance in lower amount
+
+#Polar liquids
+adjacent moleculs are held by electrostatic forces
+good solvents for ionic compounds
+
+#Electrolyte
+substance containing ions
+electrically conductive through ions
+can be solid-state
+
+#Water (H20)
+polar substance, oxygen has partial negative and hydrogen partial positive charge
+electrically conductive only when containing ions
+
