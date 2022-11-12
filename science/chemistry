@@ -105,6 +105,13 @@ Combustion - reaction with oxygen, produces heat and light
 Rusting - reaction with oxygen, slow
 Combination - substances form more complex compound
 Decomposition - compound forms simpler substances
+Precipitation - double exchange
+Ion exchange - exchange of ions
+Condensation - compounds combine together, usually losing a small molecule e.g. H2O
+Cleavage - splitting of chemical bonds
+Acid-base - acid becomes negative ion and base becomes positive ion (e.g. transfer of H+)
+Oxidation-reduction - type of acid-base reaction
+
 
 #Chemical reaction
 represented by equation
@@ -128,6 +135,9 @@ Stoichiometry: quantity of substances in chemical reactions
 #Solutions
 Solvent: substance in higher amount 
 Solute: substance in lower amount
+Concentration: quantity of solute in a quantity of solution
+Molarity (M): number of moles of solute in 1L of solution
+Stock solution: concentrated solution that can be diluted
 
 #Polar liquids
 adjacent moleculs are held by electrostatic forces
@@ -142,3 +152,14 @@ can be solid-state
 polar substance, oxygen has partial negative and hydrogen partial positive charge
 electrically conductive only when containing ions
 
+#Precipitation
+two solutions react to produce insoluble product
+ions from different solutions combine into compound 
+used to isolate metals from ores
+
+#Redox reactions
+Synthesis: elements react to form compound
+Decomposition: compound decomposes to elements
+Combustion
+metal + acid -> salt + hydrogen
+Reactivity series: Li, K, Ca, Na, Mg, Al, Ti, Mn, Zn, Cr, Fe, Co, Ni, Sn, Pb, H, Sb, Cu, Ag, Hg, Pt, Au

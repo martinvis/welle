@@ -2,16 +2,38 @@
 Myths:
 - The Epic of Gilgamesh
 Gods: (wings)
-- Anu (sky) + Ki (earth) => Enki, Enlil
-- Dumuzid/Tammuz (shepherds) + Inanna/Ishtar (love, war) 
-- Enki/Ea (wisdom) + Ninhursag
-- Enlil (air) + Ninlil => Nanna
-- Marduk (water) + Sarpanit
-- Nanna/Sin (moon) + Ningal
-- Nergal (death) + Laz
-- Ninazu (underworld, snakes) + Ereshkigal
-- Ninurta (agriculture) + Gula (medicine)
-- Utu/Shamash (sun) + Aya
+- Anu (sky) + Ki (earth) => Enlil (air)
+- Anu (sky) + Nammu (water) => Enki/Ea (wisdom) + Ningikuga (wetland)
+- Enlil + Ninlil => Nanna/Sin (moon) + Nergal (death)
+- Enki/Ea + Ningikuga => Ningal (moon)
+- Enki/Ea + Duttur/Sirtur (sheep) => Tammuz/Dumuzid (shepherds)
+- Enki/Ea + Ninhursag (mountains) => Marduk (water) + Ninurta (agriculture)
+- Marduk + Sarpanit (birth) => Nabu (scribes)
+- Nanna/Sin + Ningal => Ereshkigal (underworld) + Inanna/Ishtar (love, war) + Utu/Shamash (sun)
+- Nergal + Laz
+- Gugalanna (bull) + Ereshkigal => Ninazu (underworld, snakes)
+- Ninazu + Ningirida => Ningishzida
+- Ninurta + Gula (medicine)
+- Tammuz/Dumuzid + Innana/Ishtar 
+- Utu/Shamash + Aya
+
+#Slavic
+Gods:
+- Perún (lightning)
+- Stribog (wind)
+- Svarog => Dažbog (sun) + Svarožič/Radogost (fire)
+- Veles (underworld)
+Godesses:
+- Devana (hunt, moon)
+- Mokoš (earth)
+- Morana (death, winter)
+- Živa (life)
+Monsters:
+- Ježibaba/Baba Jaga (black cat, fly on mortar/broom)
+- Leshy (forest)
+- Rusalka (water)
+- Striga (vampire, two hearts)
+- Vodník / Hastrman (water, frog)
 
 #Irish
 Banshee
@@ -41,12 +63,20 @@ Krampus
 Golem
 
 #Japanese
-Jorogumo
-Raiju
-
-#Slavic
-Rusalka
-Vodnik / Hastrman
+Yōkai:
+- Jorōgumo (spider woman)
+- Kappa (turtle, water in dish on head)
+- Kitsune (fox)
+- Oni (horns)
+- Raijū (lightning)
+- Yuki-onna (snow woman)
+Myths:
+- Creation Myth
+- Amaterasu and the Cave
+Gods (Kami):
+- Izanagi + Izanami => Ebisu/Hiruko (fishing) + Kagutsuchi (fire)
+- Izanagi => Amaterasu (sun) + Tsukuyomi (moon) + Susanoo (sea, storm)
+- Izanami => Fūjin (wind) + Raijin (lightning)
 
 #European
 Basilisk
@@ -63,6 +93,31 @@ Chimera
 Cyclops
 Medusa
 Minotaur
+
+Primordial:
+- Uranus (sky) + Gaia (earth) => 12 titans + cyclopes (one eye giants) + Hecatoncheires (50 heads, 100 arms)
+- Uranus => Erinyes/Furies + Aphrodite (love) + giants
+- Gaia => Python (dragon)
+Gods:
+- Hera => Hephaestus (metallurgy)
+- Zeus => Athena (wisdom)
+- Hephaestus + Aphrodite
+- Zeus + Hera => Ares (war) + Eris (discord) + Hebe (youth)
+- Zeus + Leto => Apollo (archery, music) + Artemis (hunt)
+- Zeus + oceanid Eurynome => three Charites/Graces
+- Ares + Aphrodite => Phobos + Deimos + Eros + Anteros
+- Apollo + Coronis => Asclepius (medicine)
+Titans:
+- Coeus + Phoebe => Leto + Asteria
+- Crius + Eurybia => Astraeus + Perses + Pallas
+- Cronus + Rhea => Poseidon (sea) + Hades (underworld) + Demeter (harvest) + Hestia (hearth) + Hera (marriage) + Zeus (lightning)
+- Hyperion + Theia => Helios (son) + Selene (moon) + Eos (dawn)
+- Mnemosyne (memory) + Zeus => Muses (arts)
+- Oceanus + Tethys => Oceanids
+- Themis (law) + Zeus => Moirai/Fates
+- Perses + Asteria => Hecate (magic)
+- Pallas + Styx => Bia (force) + Kratos (strength) + Nike (victory) + Zelus (zeal)
+- Astraeus + Eos => winds (Boreas/Eurus/Notus/Zephyrus)
 
 Myths:
 - Callisto and Zeus
@@ -125,54 +180,81 @@ Myths:
 - Ymir, the First Giant
 - Yggdrasil and the Nine Worlds
 - Odin, the All-father
-- The Creation of Mjolnir
+- The Creation of Mjölnir
 - The Binding of Fenrir
 - The Wall of Asgard
 - Thor and Utgarda-Loki
-- The Theft of Mjolnir
+- The Theft of Mjolnir and Freyja's Wedding
 - Valkyries and Valhalla
 - Idun and the Golden Apples
 - The Death of Baldur
-- Ragnarok
-Gods:
-
+- Ragnarök
+Worlds:
+- Asgard (aesir): Valhalla (deceased warriors, Valkyries)
+- Álfheimr (elves)
+- Hel (afterlife)
+- Jötunheimr (giants): Utgard (stronghold)
+- Midgard (human)
+- Múspellsheimr (fire)
+- Niflheimr (ice)
+- Svartálfheimr (dwarfs / dark elves)
+- Vanaheimr (vanir)
+Gods (Aesir):
+- Heimdall (rainbow bridge Bifröst)
+- Mímir (knowledge, head)
+- Odin + Frigg => Baldr + Hödr (blind)
+- Odin + Jörd (earth) => Thor (lightning, hammer Mjölnir)
+- Thor + Sif (golden hair)
+- Týr (hand bitten off by Fenrir)
+Gods (Vanir):
+- Njörd (sea, wind) => Freyja (love, beauty) + Freyr (peace, fertility)
+Giants (Jötunn, pl Jötnar):
+- Ymir
+- Borr + Bestla => Odin (wisdom, battle) + Vili + Vé
+- Fárbauti + Laufey => Loki (shape-shifter)
+- Loki + Angrboda => Fenrir (wolf) + Jörmungandr (serpent) + Hel (dead)
+- Loki + Svadilfari => Sleipnir (horse, 8 legs)
+- Surtr (flame sword)
+- Thiazi (eagle)
+Other:
+- Audhumbla (cow) => Búri => Borr
+- Garmr (dog, guards Hel's gate)
 
 #Egyptian
 Myths:
 - Ra Fights Apophis
 - Geb and Nut
-- Osiris and Isis
+- Osiris and Isis (14 pieces)
 - Horus Fights Seth
 - Sekhmet and Hathor
 - The Weighing of the Heart
 Gods:
-- Neith
-- Khepri / Ra / Atum + Hathor
-- Apophis
-- Shu + Tefnut
-- Geb + Nut
-- Khnum + Heqet
-- Set + Nephthys
-- Osiris + Isis
-- Sobek
-- Anubis
-- Horus
-- Bastet
-- Ptah + Sekhmet
-- Thoth + Maat
-- Ammit
-- Bes
+- Neith (cosmos, hunting) => Ra (sun) + Apep/Apophis (chaos, snake)
+- Khepri / Ra / Atum + Hathor (love) => Shu (air) + Tefnut (moisture)
+- Shu + Tefnut => Geb (earth) + Nut (sky)
+- Geb + Nut => Osiris (underworld, green) + Isis + Set (desert) + Nephthys
+- Khnum (ram, Nile) + Heqet (frog)
+- Osiris + Isis => Horus (sun/moon, falcon)
+- Set + Nephthys => Anubis (death)
+- Ptah (craftsmen) + Sekhmet (warrior, lioness) => Nefertem
+- Thoth (writing, ibis) + Maat (balance) => Seshat (scribe)
+- Ammit (devourer of dead, crocodile/lion/hippo)
+- Bastet (cat)
+- Bes (protector, dwarf)
+- Sobek (crocodile)
 
 #Hindu
 4 or 10 arms
 
 Deva
-- Brahma (creator, 4 heads)
+- Brahma (creator, 4 heads) => Marichi + Atri
 - Vishnu (protector, blue)
 - Shiva (destroyer, third eye)
 - Ganesha (luck, elephant head, Parvati+Shiva)
-- Hanuman (strength, monkey, Rama)
-- Indra (weather, on white elephant)
+- Atri + Anasuya =>  Chandra/Soma (moon)
+- Marichi => Kashyapa
+- Kashyapa => Agni (fire) + Indra (weather, on white elephant) + Surya (sun) + Varuna (water, on crocodile) + Vayu (wind)
+- Surya + Sanjna => Yama (death, on buffalo)
 
 Mahadevi
 - Saraswati (Brahma, knowledge, art)
@@ -180,8 +262,12 @@ Mahadevi
 - Parvati (Shiva, power, love)
 
 Vishnu
+- Buddha
 - Krishna
 - Rama
+
+Shiva
+- Hanuman (strength, monkey, Rama)
 
 Parvati
 - Durga (war, 10 arms)
@@ -190,8 +276,9 @@ Parvati
 Asura
 - Mahishasura (buffalo, killed by Durga)
 - Raktabija (duplicates from blood, killed by Kali)
-- Ravana (10 heads, 20 hands, killed by Rama, Rakshasa)
 - Rakshasa (shape-shifting, illusions)
+- Ravana (10 heads, 20 hands, killed by Rama, Rakshasa)
+- Vritra (serpent, drought, killed by Indra)
 
 Epics
 - Mahabharata
