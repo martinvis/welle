@@ -61,6 +61,7 @@ Speed of light (c): upper limit for the speed in vacuum (300Mm/s)
 Conservation of mass - total mass does not change by chemical reaction
 Definitive proportions - elements in compound are in fixed proportion
 Multiple proportions - ratios of element masses in compounds are in whole numbers
+Conservation of energy - total energy does not change
 
 #Elements
 Metals: good conductors, ductile, malleable, lustrous
@@ -116,8 +117,12 @@ Oxidation-reduction - type of acid-base reaction
 #Chemical reaction
 represented by equation
 reactants turn into products
-creates/breaks bonds between atoms
+makes/breaks bonds between atoms
+bond making always releases energy
+bond breaking always consumes energy
 does not change number and type of atoms
+exothermic: reaction produces heat
+endothermis: reaction consumes heat
 
 #Chemical equation
 g = gas
@@ -131,11 +136,14 @@ combustion at high temperature and quantification of products
 usable for elements H->H20, C->CO2, N->NO2, S->SO2
 
 Stoichiometry: quantity of substances in chemical reactions
+Tiration: determining quantity of substance by adding tirant
 
 #Solutions
 Solvent: substance in higher amount 
 Solute: substance in lower amount
+Solubility: amount of substance that can be dissolved
 Concentration: quantity of solute in a quantity of solution
+Dilution: lowering concentration by adding solvent
 Molarity (M): number of moles of solute in 1L of solution
 Stock solution: concentrated solution that can be diluted
 

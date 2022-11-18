@@ -1,0 +1,15 @@
+#toxic
+elements: As, Pb, Tl, Hg, Cd, Be
+compounds: chloroform, cyanide, DDT
+
+#essential (animals)
+amino-acids: O, C, H, N, S
+minerals: Ca, P, K, Cl, Na, Mg
+trace: Fe, Zn, Si, Cu, I, Se, Mn, Mo, Co
+
+#essential (plants)
+air macro: O, C, H
+primary macro: N, K, P
+secondary macro: Ca, Mg, S
+micro: Fe, Zn, Cu, Mn, Mo, B, Cl, Ni
+

@@ -1,11 +1,8 @@
-Pressure: force per area (P = F/A)
-Force: acceleration on mass (F = m*a)
-
 #Atoms
 Element: defined by number of protons
 Isotope: atomic variant (number of neutrons)
-Ion: electrically charged atom (number of electrons)
 Isobar: atoms of different element with same atomic number
+Ion: electrically charged atom (number of electrons)
 Cation: ion with more protons than electrons
 Anion: ion with more electrons than protons
 
@@ -13,6 +10,13 @@ Anion: ion with more electrons than protons
 Electron: negative charge, orbit nucleus
 Proton: positive charge, in nucleus, 1836 times mass of electron
 Neutron: neutral, in nucleus
+Photon: quantum of electromagnetic field, massless, chargeless
+Fermions: odd half-integer spin, quarks and leptons
+Bosons: integer spin, force carriers
+Quarks: up/down, top/bottom, strange/charm
+Leptons: do not affected by strong force
+Neutrinos: neutral leptons
+Spin: amount of angular momentum
 Atomic number (Z): number of protons
 Mass number (A): number of protons and neutrons
 Beta minus decay: neutron -> proton + electron + antineutrino
@@ -22,4 +26,38 @@ Beta plus decay: proton -> neutron + positron + neutrino
 Alpha: helium nucleus
 Beta: high speed electron
 Gama: high energy ray
+
+#Energy
+Pressure: force per area (P = F/A)
+Force: acceleration on mass (F = m*a)
+Work: force per displacement (W = F*s)
+Kinetic energy: energy caused by movement, 1/2 * m * v^2
+Potential energy: energy caused by position, m * a * s
+Thermal energy: energy caused by heat
+Joul (J): unit of energy [kg * m^2 / s^2]
+Calorie (cal): unit of energy, 4.18J
+
+#Laws of thermodynamics
+First: Total energy of isolated system is constant (conservation of energy)
+Second: Heat moves from hotter object to colder object (increase of entropy)
+Third: Entropy is lowest when temperature is absolute zero
+Hess's law: heat change in reaction is independent of sequence of steps in reaction
+
+#Heat capacity [J/K]
+amount of energy needed to change temperature
+specific = 1g of substance by 1K
+molar = 1mol of substance by 1K
+volumetric =  1m^3 of substance by 1K
+high capacity: hydrogen, helium, ammonia, water, lithium
+low capacity: lead, mercury, gold, platinum, tungsten
+
+#Gravity
+mutual attraction between all things
+F = G * m1 * m2 / r^2
+
+#General relativity
+gravity is curvature of spacetime
+gravivational lens: path of light follows curvature of spacetime
+gravitational time dilation: light moves slower when gravity increases
+gravitational waves: propagate at speed of light
 
