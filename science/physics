@@ -27,7 +27,81 @@ Alpha: helium nucleus
 Beta: high speed electron
 Gama: high energy ray
 
-#Energy
+#Mechanics: motion, forces, energy
+Energetics: energy
+Kinematics: motion
+Statics: forces
+Dynamics: motion and forces
+Motion: action of change in location
+Trajectory: path of motion
+Orbit: trajection around central mass
+Force: cause of change in motion or energy
+Work: action of change in energy
+
+#Kinematics
+Displacement (s): vector of interval between locations (shortest path)
+Distance: scalar of interval between locations (actual path)
+Chirality: asymmetry of reflection
+Speed: scalar of change of distance in time
+Velocity (v): vector of change of displacement in time (v = s/t)
+Mach number: ratio of velocity to speed of sound
+Acceleration (a): change of velocity in time (a = v/t)
+- change of speed or direction
+Jerk (j): change of acceleration in time (j = a/t)
+Instantaneous velocity: first derivative of position in time
+Instantaneous acceleration: second derivative of position in time
+Free fall: acceleration by gravity
+
+#Equations of motion (constant acceleration)
+First: v = v0 + a*t
+Second: s = v0*t + (a*t^2)/2 = (v0+v)*t/2
+Third: v^2 = v0^2 + 2*a*s
+
+#Equations of motion (constant jerk)
+First: v = v0 + a*t + (j*t^2)/2
+Second: s = v0*t + (a*t^2)/2 + (j*t^3)/6
+
+#Acceleration
+Gravitational on earth (g): 9.8 m/s^2
+Gravitational on sun: 270 m/s^2
+
+#Motion
+oscillatory: repetitive between locations
+random: chaotic
+rotational: spin around axis
+translational: change in location
+
+#Oscillation: one cycle in motion
+Period: time of one oscillation
+
+#Speed
+Sound in air: ~300 m/s (depends on altitude, temperature)
+Sound in water: ~1500 m/s
+Light in vacuum: 300 Mm/s
+Light in water: 225 Mm/s
+Light in diamond: 125 Mm/s
+Escape velocity: 11 km/s
+Earth around sun: 30 km/s
+Sun around galaxy: 230 km/s
+Nerve impulse: ~50 m/s
+Raindrop: ~10 m/s
+
+#Distance
+Angstrom (A): 100 pm
+Astronomical unit (AU): Sun to Earth = 150 Gm
+Light year (ly): distance light travels in year = 9.5 Pm
+Parsec (pc): distance at which 1AU takes angle of one second = 30 Pm
+Earth radius: 6.4 Mm
+Earth circumference: 40 Mm
+Jupiter radius: 70 Mm
+Earth to Moon: 360-400 Mm
+Sun radius: 700 Mm
+Betelgeuse radius: 600 Gm
+Sun to Jupiter: 740 Gm
+Sun to Sirius: 8.6 ly
+Sun to Betelguese: 650 ly
+
+#Energy: ability to do work
 Pressure: force per area (P = F/A)
 Force: acceleration on mass (F = m*a)
 Work: force per displacement (W = F*s)
@@ -54,6 +128,12 @@ low capacity: lead, mercury, gold, platinum, tungsten
 #Gravity
 mutual attraction between all things
 F = G * m1 * m2 / r^2
+
+#Mass
+Sun: 2 PEg
+Jupiter: 2 TEg
+Earth: 6 GEg
+Moon: 70 MEg
 
 #General relativity
 gravity is curvature of spacetime

@@ -13,3 +13,60 @@ primary macro: N, K, P
 secondary macro: Ca, Mg, S
 micro: Fe, Zn, Cu, Mn, Mo, B, Cl, Ni
 
+#sugars/saccharides
+glucose C6H12O6
+- source of energy, stored as polymer (starch/glycogen/cellulose/amylopectin), circulates in blood
+fructose C6H12O6
+- converted to glucose
+galactose C6H12O6
+- converted to glucose
+lactose = galactose + glucose
+maltose = glucose + glucose
+sucrose = fructose + glucose
+trehalose = glucose + glucose
+
+#fats/lipids
+linoleic acid COOH(CH2)7CH=CHCH2CH=CH(CH2)4CH3
+
+oxygenic photosynthesis: CO2 + H2O + light => O2 + glucose
+anoxygenic photosynthesis: CO2 + H2S + light => S + H2O + glucose
+aerobic resporation: O2 + glucose => CO2 + H2O + ATP
+anaerobic respiration: glucose => lactic acid + ATP
+alcoholic fermentation: glucose + yeast => ethanol + CO2 + ATP
+- dough rising, alcohol, biofuel
+glycolysis: glucose => pyruvate + ATP
+beta oxidation
+- breaks down fatty acids, produces acetyl coenzyme A, NADH and FADH2
+urea cycle: NH3 + CO2 + H2O + ATP => urea + ADP + AMP + P
+- occurs in liver and kidneys
+- ammonia => carbamoyl phosphate => citrulline => argininosuccinic acid => arginine => urea
+
+Krebs cycle / citric acid cycle
+- releases energy, occurs in mitochondria
+- consumes H2O and acetyl coenzyme A, produces CO2, reduces NAD+ to NADH
+- citric acid => aconitic acid => isocitric acid => oxalosuccinic acid => succinic acid => fumaric acid => malic acid => oxaloacetic acid => citric acid
+
+citric acid (COOH)CH2C(OH)(COOH)(CH2COOH)
+aconitic acid (COOH)CH=C(COOH)(CH2COOH)
+isocitric acid (COOH)CH(OH)CH(COOH)(CH2COOH)
+oxalosuccinic acid (COOH)CH2CH(COOH)C=O(COOH)
+succinic acid (COOH)CH2CH2(COOH)
+fumaric acid (COOH)CH=CH(COOH)
+malic acid (COOH)CH2CH(OH)(COOH)
+oxaloacetic acid (COOH)CH2C=O(COOH)
+
+#metabolism
+urea (NH2)2C=O
+nicotinamide adenine dinucleotide (NAD+/NADH)
+- carries electrons between reactions
+- provides energy for 2.5 ATP
+pyruvate (CH3C=OCOOH)
+- supplies energy
+- converted to acetyl coenzyme A
+adenosine triphosphate (ATP)
+- carries chemical energy
+adenosine diphosphate (ADP)
+- converted from/to ATP and AMP
+adenosine monophosphate (AMP)
+- converted from/to ATP and ADP
+
