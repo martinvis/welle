@@ -1,0 +1,34 @@
+Hertzsprung–Russell diagram: shows relationship between absolute magnitude and spectral class of stars
+Absolute magniture: apparent magnitude at distance of 10 parsecs
+Apparent magniture: brightness of star observed from Earth, reverse logarithmic
+
+#Apparent magnitudes
+Sun: -26
+Moon: -12
+Jupiter: -3/-1.7
+Sirius: -1.4
+Arcturus: 0
+Vega: 0
+Betelgeuse: 0.5
+Polaris: 2
+
+#Spectral class: temperature of shell
+Class O: blue, hottest, rarest
+Class B: blue (Rigel)
+Class A: white (Sirius, Deneb, Vega)
+Class F: white
+Class G: yellow (Sun)
+Class K: orange (Arcturus)
+Class M: red, most common (Betelgeuse)
+Class L: brown
+Class T: brown
+
+#Luminosity class
+0: hypergiant
+I: supergiant (Betelgeuse, Rigel, Deneb)
+II: bright giant
+III: giant (Arcturus)
+IV: subgiant
+V: dwarf (Sun, Sirius, Vega)
+VI: subdwarf
+VII: white dwarf

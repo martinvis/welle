@@ -113,6 +113,12 @@ Cleavage - splitting of chemical bonds
 Acid-base - acid becomes negative ion and base becomes positive ion (e.g. transfer of H+)
 Oxidation-reduction - type of acid-base reaction
 
+#Electrons
+Principal quantum number (n): shell, distance from nucleus, maximum 2*n^2 electrons
+Azimuthal quantum number (l): subshell, shape of orbital, s/p/d/f
+Magnetic quantum number: orbital, -l to l
+Spin quantum number: angular momentum, +1/2 or -1/2
+Pauli exclusion principle: two electrons in atom can not have same quantum numbers
 
 #Chemical reaction
 represented by equation

@@ -27,6 +27,11 @@ Alpha: helium nucleus
 Beta: high speed electron
 Gama: high energy ray
 
+#Basic
+Orthogonal: perpendicular, mutually independent
+Isotropic: independent of direction
+Homogeneous: independent of location
+
 #Mechanics: motion, forces, energy
 Energetics: energy
 Kinematics: motion
@@ -34,7 +39,9 @@ Statics: forces
 Dynamics: motion and forces
 Motion: action of change in location
 Trajectory: path of motion
-Orbit: trajection around central mass
+Projectile: object with horizontal velocity and accelerated by gravity only
+Orbit: curved trajectory around central mass
+Satellite: projectile whose trajectory is orbit
 Force: cause of change in motion or energy
 Work: action of change in energy
 
@@ -72,9 +79,14 @@ rotational: spin around axis
 translational: change in location
 
 #Oscillation: one cycle in motion
+Amplitude: maximum distance from center
+Frequency: number of cycles per second
 Period: time of one oscillation
+Wavelength (λ): displacement of one oscillation
 
 #Speed
+Raindrop: ~10 m/s
+Nerve impulse: ~50 m/s
 Sound in air: ~300 m/s (depends on altitude, temperature)
 Sound in water: ~1500 m/s
 Light in vacuum: 300 Mm/s
@@ -83,8 +95,7 @@ Light in diamond: 125 Mm/s
 Escape velocity: 11 km/s
 Earth around sun: 30 km/s
 Sun around galaxy: 230 km/s
-Nerve impulse: ~50 m/s
-Raindrop: ~10 m/s
+Milky Way: 600 km/s
 
 #Distance
 Angstrom (A): 100 pm
@@ -100,10 +111,28 @@ Betelgeuse radius: 600 Gm
 Sun to Jupiter: 740 Gm
 Sun to Sirius: 8.6 ly
 Sun to Betelguese: 650 ly
+Andromeda Galagy: 2.5 Mly
+
+#Dynamics
+Force: acceleration on mass (F = m*a)
+
+#Forces
+Weight: force of gravity
+Normal: between solids in contact, perpendicular
+Friction: between solids in contact, resists sliding
+Tension: object pulled from opposite ends
+Elasticity: object returning to original shape
+Buoyancy: object submerged in fluid
+Drag: resists motion through fluid
+Lift: fluid flowing around object
+Thrust: expelled fluid
+Electric: between charged particles
+Magnetic: between charged particles in motion
+Gravity: caused by mass
+
 
 #Energy: ability to do work
 Pressure: force per area (P = F/A)
-Force: acceleration on mass (F = m*a)
 Work: force per displacement (W = F*s)
 Kinetic energy: energy caused by movement, 1/2 * m * v^2
 Potential energy: energy caused by position, m * a * s
@@ -134,6 +163,47 @@ Sun: 2 PEg
 Jupiter: 2 TEg
 Earth: 6 GEg
 Moon: 70 MEg
+mouse: ~20 g
+bee: ~100 mg
+cell: ~1 ng
+proton: 1675 pfg
+electron: 0.91 pfg
+
+#Electromagnetic spectrum
+Ionizing: sufficient energy to detach electron from atom (Gamma rays, X rays, Extreme ultraviolet)
+Gamma rays: under 10 pm, radioactive decay
+X rays: 10 pm - 10 nm, radiology
+Extreme ultraviolet: 10-100 nm, litography, solar corona
+Ultraviolet: 100-400 nm, fluorescence, disinfection, sunburn, vitamin D
+Visible: 380-750 nm, colors, rainbow (violet/blue/cyan/green/yellow/orange/red)
+Infrared: 700 nm - 1 mm, heat, night vision
+Far infrared: 1 mm - 15 mm
+Microwaves: 10 mm - 1 m, microwave oven, wireless network
+Radio waves: over 10mm, radar, broadcasting
+
+#Spectral line: narrow frequency of light affected by photon emission/absorption in chemical substance
+photon energy is equivalent to enegy difference of electron energy levels
+atom-specific - can be used to identify substances (fingerprint)
+depend on temperature (energy levels) and density of substance (intensity)
+absorption line - when photons pass through cooler substance
+emission line - when photons pass through hotter substance
+Lyman series - hydrogen lines to n=1, ultraviolet emission
+Balmer series - hydrogen lines to n=2, visible emission
+Paschen series - hydrogen lines to n=3, infrared emission
+Ritz combination principle - describes relationship of spectral lines
+
+#Photoelectric effect
+emission of electrons by electromagnetic radiation
+photons need to have sufficient frequency (=energy)
+excess energy becomes electron's kinetic energy
+
+#Wave-particle duality
+matter wave: λ = h / (m*v)
+
+Planck relation: photon energy is proportional to frequency (E = h*f = h*c / λ)
+Planc constant: 663 aaJ/Hz
+Mass-energy equivalence: E = m * c^2
+Heisenberg's uncertainty principle: sum of uncertainties in position and momentum of particle is at least h / (4π)
 
 #General relativity
 gravity is curvature of spacetime
