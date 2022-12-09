@@ -1,0 +1,38 @@
+#movement
+extension: bending, increases angle
+flexion: bending, decreases angle
+abduction: pulls from midline
+adduction: pulls to midline
+rotation: around axis
+
+#muscles neck
+Splenius: back of neck, neck extensor and rotator
+Scalene muscles: sides of neck, neck flexor
+Sternocleidomastoid: sternum to skull, neck flex and rotator
+Platysma: front of neck, skin movement
+
+#muscles arm
+Deltoid: shoulder
+Biceps: shoulder to elbow on front, forearm flexor
+Triceps: upper arm on back, forearm extensor
+
+#musles torso
+Erector spinae: spine, spine extensor
+Gluteus: pelvis to femur, buttocks, hip extensor
+Latissimus dorsi: lower spine to humerus, arm extensor
+Pectoralis major: chest, humerus flexor
+Rectus abdominis: abdomen, lower spine flexor
+Rhomboids: upper to spatula, under trapezius, moves scapula
+Trapezius: upper spine to scapula, moves scapula, supports arm
+
+#muscles thigh
+Hamstring: hip to knee on back, knee flexor, hip extensor
+Quadriceps: hip to knee on front, knee extensor, hip flexor
+Sartorius: hip to knee on front, long and thin, synergist
+
+#muscles leg
+Gastrocnemius + Soleus: knee to heel on back, flexor
+Tibialis anterior: upper tibia to foot, dorsiflexor
+Tibialis posterior: between tibia and fibula, stabilizer
+Fibularis muscles: upper fibula to foot, plantar flexor
+

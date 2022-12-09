@@ -74,6 +74,10 @@ Noble gases: monatomic, unreactive
 Lanthanides
 Actinides
 
+#Periodic table (Mendeleev): ordering of elements into rows and columns by number of shells and electrons
+Period: row of elements, same number of shells
+Group: column of elements, same number of electrons in outermost shell, have similar chemical properties
+
 #Chemical bonds - single / double / triple
 Ionic: ions of opposite charges, strong electrostatic forces, form crystalline solids
 Covalent: shared pairs of electrons, strong intramolecular and weak intermolecular forces
@@ -119,6 +123,16 @@ Azimuthal quantum number (l): subshell, shape of orbital, s/p/d/f
 Magnetic quantum number: orbital, -l to l
 Spin quantum number: angular momentum, +1/2 or -1/2
 Pauli exclusion principle: two electrons in atom can not have same quantum numbers
+Aufbau principle: lower-energy orbitals are filled before higher-energy
+Hund's rule: every orbital in subshell is half-full before any is full, and with same spin
+Electron configuration: orbital energy rises with increasing n+l, with increasing n, full orbitals
+Valence electrons: electrons in outermost shell
+
+#Orbital shapes
+s: sphere
+p: 3x pair of lobes
+d: 1x doughnut + pair of lobes, 4x four lobes
+f: 1x pair of doughut+lobe, 4x six lobes, 2x eight lobes
 
 #Chemical reaction
 represented by equation
