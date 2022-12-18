@@ -1,0 +1,95 @@
+Arabic: ا ب ت ث ج ح خ د ذ ر ز ط ظ ك ل م ن ص ض ع غ ف ق س ش ه و ي ء
+Cyrillic: АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЫЭЮЯЪЬ
+Greek: ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+Latin: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+
+#Diacritics
+Acute (Á)
+Grave (À)
+Caron (Ǎ)
+Circumflex (Â)
+Macron (Ā)
+Tilde (Ã)
+Umlaut (Ä)
+Special: ÅŮĄĘÇÑŁŻ
+
+#English (latin)
+
+#Russian (cyrillic)
+- plus: Ё
+
+#Bulgarian (cyrillic)
+- minus: ЫЭ
+
+#Serbian (cyrillic)
+- plus: ЂЈЉЊЋЏ
+- minus: ЙЩЫЭЮЯЪЬ
+
+#Ukrainian (cyrillic)
+- plus: ҐЄІЇ
+- minus: ЫЭЪ
+
+#German (latin)
+- plus: ÄÖÜẞ
+- rare: XY
+
+#Dutch (latin)
+- plus: ÁÉÍÓÚÄËÏÖÜ
+- rare: QXY
+
+#Danish (latin)
+- plus: ÅÆØ
+- rare: QWXZ
+
+#Swedish (latin)
+- plus: ÅÄÖ
+- rare: QWZ
+
+#French (latin)
+- plus: ÉÀÈÙÂÊÎÔÛËÏÜŸÇÆŒ
+- rare: KW
+
+#Spanish (latin)
+- plus: ÑÁÉÍÓÚÝÜ
+- rare: KW
+
+#Portuguese (latin)
+- plus: ÁÉÍÓÚÀÈÌÒÙÂÊÔÃÕÇ
+- rare: KWY
+
+#Italian (latin)
+- plus: ÉÀÈÌÒÙ
+- rare: JKWXY
+
+#Romanian (latin)
+- plus: ĂÂÎȘȚ
+- rare: KQWY
+
+#Czech (latin)
+- plus: ÁÉÍÓÚÝĚŮČĎŇŘŠŤŽ
+- rare: QWX
+
+#Polish (latin)
+- plus: ĄĘĆŁŃŚŹŻ
+- rare: QVX
+
+#Slovak (latin)
+- plus: ÁÉÍÓÚÝÄÔČĎĹĽŇŔŠŤŽ
+- rare: QWX
+
+#Croatian (latin)
+- plus: ĆČĐŠŽ
+- rare: QWXY
+
+#Finnish (latin)
+- plus: ÄÖ
+- rare: BCFQWXZ
+
+#Hungarian (latin)
+- plus: ÁÉÍÓÖŐÚÜŰ
+- rare: QWX
+
+#Turkish (latin)
+- plus: ÇĞİÖŞÜ
+- rare: QWX
+

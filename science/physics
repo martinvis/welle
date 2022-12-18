@@ -45,6 +45,11 @@ Satellite: projectile whose trajectory is orbit
 Force: cause of change in motion or energy
 Work: action of change in energy
 
+#Newton's laws of motion
+1: object remains at rest or in motion at constant speed, unless acted upon by force
+2: change of momentum is equal to force acting upon object
+3: to every action there is equal reaction, forces are opposite in direction and acting on different objects 
+
 #Kinematics
 Displacement (s): vector of interval between locations (shortest path)
 Distance: scalar of interval between locations (actual path)
@@ -111,10 +116,10 @@ Betelgeuse radius: 600 Gm
 Sun to Jupiter: 740 Gm
 Sun to Sirius: 8.6 ly
 Sun to Betelguese: 650 ly
-Andromeda Galagy: 2.5 Mly
+Andromeda Galaxy: 2.5 Mly
 
 #Dynamics
-Force: acceleration on mass (F = m*a)
+Force: acceleration on mass (F = m*a), must come from outside (N = kg*m / s^2) 
 
 #Forces
 Weight: force of gravity
@@ -130,6 +135,10 @@ Electric: between charged particles
 Magnetic: between charged particles in motion
 Gravity: caused by mass
 
+#Fictitious forces
+Centrifugal: in rotating system, pulling from center of rotation
+Coriolis: moving objects in rotating system, deflecting
+G Forcel in accelerating system, gravitating
 
 #Energy: ability to do work
 Pressure: force per area (P = F/A)

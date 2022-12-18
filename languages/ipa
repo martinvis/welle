@@ -1,0 +1,133 @@
+bilabial: m b p ɸ β
+labiodental: ɱ f v
+dental: θ ð
+alveolar: n t d s z r l
+postalveolar: ʃ ʒ
+retroflex: ɳ ʈ ɖ ʂ ʐ
+palatal: ɲ c(ť) ɟ(ď) ɕ(š) ʑ(ž) ç(ch) j ʎ(ľ)
+velar: ŋ k g x ɣ
+uvular: χ ʁ q
+glottal: ʔ h ɦ
+
+nasal: m ɱ n ɳ ɲ ŋ
+plosive: b p t d ʈ ɖ c(ť) ɟ(ď) k g q ʔ
+fricative: ɸ β f v θ ð s z ʃ ʒ ʂ ʐ ɕ(š) ʑ(ž) ç j x ɣ χ ʁ h ɦ ɥ(y) w(u)
+thrill: r
+lateral: l ʎ(ľ)
+
+close: i/y ɨ/ʉ ɯ/u
+close-mid: e/ø ə/ɵ ɤ/o
+open-mid: ɛ/œ ɜ/ɞ ʌ/ɔ
+open: a/ɶ ɑ/ɒ
+
+Slovak
+bilabial: m b p
+labiodental: ɱ[m] f v ʋ[v]
+alveolar: d t n s z l r
+retroflex: ʂ ʐ
+palatal: ɟ(ď) c(ť) ɲ(ň) ʎ(ľ) j
+velar: g k x(ch) ɣ[x] ŋ[n]
+glottal: ɦ
+vowel: a e i ɔ u æ
+vowel: a: e: i: ɔ: u:
+
+Czech
+bilabial: m b p
+labiodental: f v
+alveolar: d t n s z l r
+postalveolar: ʃ ʒ
+palatal: ɟ(ď) c(ť) ɲ(ň) j
+velar: g k x ŋ[n]
+glottal: ɦ
+vowel: a ɛ ɪ o u
+vowel: a ɛ: i: o: u:
+
+Polish
+bilabial: m b p
+labiodental: f v
+alveolar: d t n s z l r
+retroflex: ʂ ʐ
+palatal: ɲ ɕ(š) ʑ(ž) j
+velar: g k x ɣ[x] ŋ[n] w
+vowel: a ɛ i ɔ u ɨ(y)
+vowel: ~ɛ ~ɔ
+
+Russian
+bilabial: m b p
+labiodental: f v
+alveolar: d t n s z l r
+retroflex: ʂ ʐ
+palatal: ɕ(š) ʑ(ž) j
+velar: g k x ɣ[x]
+vowel front: i e ɛ æ a
+vowel central: ɨ/ʉ ə/ɵ ɐ
+vowel back: u ʊ o
+
+Spanish
+bilabial: m b p β[b]
+labiodental: ɱ[m] f v[f]
+alveolar: d t n s z[s] l r
+postalveolar: ʃ
+dental: ð[d] θ
+palatal: ɲ ʎ j
+velar: g k x ɣ[g] ŋ[n]
+vowel: a e i o u
+
+French
+bilabial: m b p
+labiodental: f v
+alveolar: d t n s z l
+postalveolar: ʃ ʒ
+palatal: ɲ j ɥ(j)
+velar: g k ŋ[n] w
+uvular: ʁ(r)
+vowel front: i/y e/ø ɛ/œ a
+vowel central: ə
+vowel back: u o ɔ ɑ
+vowel long: ɛ:
+vowel nasal: ~ɛ ~œ ~ɔ ~ɑ
+
+English
+bilabial: m b p
+labiodental: f v
+dental: ð θ
+alveolar: d t n s z l ɹ(r)
+postalveolar: ʃ ʒ
+palatal: j
+velar: g k x ŋ w
+glottal: h
+vowel: ʌ(u) æ(a) ɛ ɪ ɒ(o) ʊ ə
+vowel: ɑ: i: ɔ: u: ɜ:
+diphthong: aɪ aʊ eɪ ɔɪ oʊ
+
+German
+bilabial: m b p
+labiodental: f v
+alveolar: d t n s z l
+postalveolar: ʃ ʒ
+palatal: j ç[x]
+velar: g k x ŋ
+uvular: ʁ(r)
+glottal: h
+vowel: a ɛ/œ ɪ/ʏ ɔ ʊ
+vowel central: ə ɐ
+vowel long: a: e: i: o: u: ø:(ö) y:(ü)
+diphthong: aɪ(ai/ei) aʊ(au) ɔʏ(eu)
+
+Mandarin
+bilabial: m p pʰ
+labiodental: f
+alveolar: t tʰ n s l
+retroflex: ʂ ʐ
+palatal: ɕ(š) j ɥ(j)
+velar: k kʰ x ŋ w
+vowel: a e i/y ɤ/o u ə ɛ(a-e) ʊ(o-u)
+diphthong: aɪ aʊ eɪ oʊ
+
+Japanese
+bilabial: m b p ɸ(f)
+alveolar: d t n s z r
+palatal: ɲ ɕ(š) ʑ(ž) j ç(x)
+velar: g k ŋ w
+glottal: h ʔ
+vowel: a e i o ɯ
