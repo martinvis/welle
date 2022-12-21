@@ -1,0 +1,71 @@
+#Sulfide
+Galena = PbS
+Sphalerite = (Zn,Fe)S
+Realgar = As4S4
+Orpiment = As2S3
+Stibnite = Sb2S3
+Millerite = NiS
+Pyrite = FeS2
+Chalcopyrite = CuFeS2
+Cinnabar = HgS
+Acanthite = Ag2S
+Chalcocite = Cu2S
+
+#Sulfate (SO4)
+Baryte = BaSO4
+Celestine = SrSO4
+Anglesite = PbSO4
+
+#Halide
+Halite = NaCl
+Fluorite = CaF2
+Sylvite = KCl
+Calomel = Hg2Cl2
+
+#Carbonate (CO3)
+Calcite = CaCO3
+Aragonite = CaCO3
+Smithsonite = ZnCO3
+Cerussite = PbCO3
+Magnesite = MgCO3
+Siderite = FeCO3
+Rhodochrosite = MnCO3
+Malachite = CuCO3(OH)2
+Azurite = Cu3(CO3)2(OH)2
+
+#Oxide
+Corundum = Al2O3
+- Ruby
+- Sapphire
+Hematite = Fe2O3
+Rutile = TiO2
+
+#Spinel (XY2O4)
+Spinel = MgAl2O4
+Magnetite = FeFe2O4
+
+#Silicate
+Quartz = SiO2
+- Amethyst
+- Citrine
+- Agate
+- Onyx
+Olivine = (Mg,Fe)2SiO4
+Peridot = Mg2SiO4
+Zircon = ZrSiO4
+Beryl = Be3Al2Si6O18
+Dioptase = CuSiO2(OH)2
+
+#Chromate
+Crocoite - PbCrO4
+
+#Native
+Graphite - C
+Diamond - C
+
+#Hydrate (H2O)
+Opal - SiO2
+
+#Pyroxene (XYZ2O6)
+Diopside = MgCaSi2O6
+Jadeite = NaAlSi2O6
