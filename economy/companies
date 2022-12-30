@@ -1,0 +1,204 @@
+#sectors
+Energy: oil, gas, coal
+Materials: paper, metals, steel, glass, fertilizers, chemicals
+Industrials: construction, defense, machinery, transportation
+Consumer Discretionary: automobiles, electronics, footwear, textiles, hotels, restaurants, retail
+Consumer Staples: food, beverages
+Health Care: pharmaceuticals, biotechnology
+Financials: banks, insurance
+Information Technology: software, hardware, semiconductors
+Communication Services: telecoms, media, entertainment
+Utilities: electricity, gas, water
+Real Estate: industrial, office, residential, retail
+
+#supermarket
+austria: Billa
+france: Carrefour
+germany: Aldi, Metro, Penny, Rewe, Schwarz (Kaufland, Lidl)
+netherlands: Ahold (Albert), SPAR
+uk: Tesco
+usa: 7-Eleven, Costco, Kroger, Target, Walmart
+
+#automobile
+france: Renault
+germany: Volkswagen (Audi, Porsche), BMW, Daimler (Mercedes-Benz)
+japan: Toyota, Honda, Mazda, Mitsubishi, Nissan, Subaru, Suzuki
+korea: Hyundai / Kia
+netherlands: Stellantis (Chrysler, Citroën, Fiat, Opel, Peugeot)
+usa: General Motors (Chevrolet), Ford
+
+#automotive
+france: Michelin
+germany: Continental
+italy: Pirelli
+japan: Bridgestone
+
+#food
+france: Danone
+germany: Haribo, Müller, Storck (Merci, nimm2, Toffifee)
+italy: Ferrero (Kinder, Nutella)
+swiss: Nestlé (Maggi, Nesquik, Orion), Lindt
+uk: Unilever (Magnum)
+usa: Hershey's, Kraft Heinz, Mars, Mondelez (Cadbury, Figaro, Milka, Toblerone)
+
+#fast food
+usa: Burger King, Domino's Pizza, McDonald's, Subway, Wendy's, Yum! (KFC, Pizza Hut, Taco Bell)
+
+#beverage
+belgium: AB InBev (Budweiser)
+netherlands: Heineken
+uk: Diageo (Guiness)
+usa: Coca-Cola, PepsiCo, Starbucks
+
+#footwear
+germany: Adidas, Puma
+usa: Crocs, Nike
+
+#clothing
+france: Decathlon, Dior, Kering (Gucci), LVMH (Louis Vuitton)
+germany: Zalando
+italy: Armani, Calzedonia, Geox, Prada
+spain: Inditex (Zara)
+sweden: H&M
+
+#chemical
+germany: BASF, Henkel (Persil, Perwoll, Silan)
+uk: Ineos, Unilever (Dove)
+usa: Dow, DuPont, Procter & Gamble (Ariel, Tide)
+
+#steel
+luxembourg: ArcelorMittal
+usa: Cleveland-Cliffs, Nucor
+
+#telecom
+france: Orange
+germany: Deutsche Telekom (T-Mobile)
+spain: Telefónica (O2)
+uk: Vodafone
+usa: AT&T, Comcast (NBC/Peacock), Verizon
+
+#bank
+austria: Erste
+germany: Commerzbank, Deutsche Bank, DZ Bank
+italy: Intesa Sanpaolo, UniCredit
+netherlands: ING
+russia: Sberbank
+spain: CaixaBank, Santander
+swiss: Credit Suisse, UBS
+uk: Barclays, HSBC, Lloyds
+usa: Bank of America, Citigroup, Goldman Sachs, JPMorgan Chase, Wells Fargo
+
+#insurance
+france: Axa
+germany: Allianz, Hannover Re, Munich Re
+netherlands: Aegon
+swiss: Swiss Re
+uk: Aviva
+usa: MetLife
+
+#hotel
+canada: Four Seasons
+france: Accor (Ibis)
+swiss: Kempinski
+uk: IHG (Crowne Plaza, Holiday Inn)
+usa: Hilton, Hyatt, Marriott (Sheraton)
+
+#electric appliance
+china: Huawei
+germany: Bosch, Braun, Miele
+japan: Hitachi, Omron, Panasonic, Toshiba
+korea: LG, Samsung
+netherlands: Philips
+slovenia: Gorenje
+sweden: Electrolux (AEG)
+usa: Whirlpool
+
+#computers
+china: Lenovo
+japan: Sony
+usa: Apple, Dell, HP
+
+#conglomerate
+germany: Siemens
+india: Tata Group
+usa: General Electric, Honeywell
+
+#semiconductors
+usa: AMD, Broadcom, Intel, Micron, Nvidia, Qualcomm
+
+#software
+germany: SAP
+usa: Adobe, Microsoft, Oracle, Salesforce
+
+#internet
+china: Alibaba, Baidu, ByteDance (TikTok), JD, Meituan, Tencent
+germany: Otto
+usa: Alphabet (Google, Waymo, YouTube), Amazon, Meta (Facebook, Instagram, WhatsApp)
+
+#pharmaceutics
+france: Sanofi
+germany: Bayer, Merck
+swiss: Novartis, Roche
+uk: AstraZeneca, GlaxoSmithKline
+usa: Abbvie, Johnson & Johnson, Merck, Pfizer
+
+#pharmacy
+usa: CVS, Walgreens
+
+#media
+usa: Disney (ABC), Netflix, Paramount (CBS), Warner Bros (HBO)
+
+#defense
+eu: Airbus
+france: Thales
+germany: MTU Aero Engines, Rheinmetall
+italy: Leonardo
+sweden: SAAB
+usa: Boeing, Lockheed Martin, Northrop Grumman, Raytheon
+
+#oil
+france: TotalEnergies
+italy: Eni
+russia: Gazprom, Lukoil
+saudi arabia: Saudi Aramco
+uk: BP, Shell
+usa: ExxonMobil, Chevron, Valero
+
+#publishers
+denmark: Egmont
+france: Hachette (Orbit)
+germany: Bertelsmann (Penguin Random), Holtzbrinck (Droemer Knaur, Macmillan, Tor)
+uk: Pearson
+usa: HarperCollins
+
+#transport
+denmark: Maersk
+
+#airline
+australia: Qantas
+germany: Lufthansa
+hungary: Wizz Air
+ireland: Ryanair
+uk: EasyJet
+usa: American Airlines, Delta Air Lines, Southwest Airlines, United Airlines
+
+#furniture
+denmark: Jysk
+sweden: IKEA
+
+#toys
+denmark: Lego
+usa: Hasbro (D&D), Mattel (Barbie)
+
+#accounting
+netherlands: KPMG
+uk: Deloitte, Ernst & Young, PricewaterhouseCoopers
+
+#finance
+us: Mastercard, PayPal, Visa
+
+#industrial
+japan: Komatsu
+sweden: Sandvik
+us: 3M, Caterpillar, Danaher, Deere, Emerson, Rockwell
+

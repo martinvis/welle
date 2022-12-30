@@ -32,3 +32,20 @@ IV: subgiant
 V: dwarf (Sun, Sirius, Vega)
 VI: subdwarf
 VII: white dwarf
+
+#Timezones
+UTC: UK, Ireland, Portugal, Iceland
++1: Europe (most), Morocco, Algeria, Tunis
++2: Finland, Baltics, Ukraine, Romania, Bulgaria, Greece, Egypt, South Africa
++3: Russia (Moscow), Turkey, Saudi Arabia
++3.5: Iran
++5.5: India
++7: Thailand, Vietnam
++8: China, Malaysia, Philippines, west Australia
++9: Korea, Japan
++10: east Australia
++12: New Zealand
+-8: west USA
+-6: Texas, Chicago, Mexico (most)
+-5: east USA, Colombia, Peru
+-3: Brazil (most), Argentina, Chile
