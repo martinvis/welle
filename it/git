@@ -1,0 +1,23 @@
+#start
+new: init
+existing: clone <repo>
+existing (one branch): clone -b <branch> --single-branch <repo>
+existing (without history): clone -depth=1 <repo>
+
+#info
+changed and new files: status
+see changes (unstaged): git diff
+see changes (staged): git diff --cached
+
+#change
+add to stage (whole): add <files>
+add to stage (partial): add --patch <files>
+save (staged): commit -m <message>
+save (all): commit -a -m <message>
+
+#remote
+local to server: push
+server to local: pull
+
+#fix
+update latest save: commit --amend -m <message>
