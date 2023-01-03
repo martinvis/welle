@@ -1,23 +1,72 @@
-#start
+#concepts
+branch: names line of commits
+commit: state of files in history
+reference: pointer to a specific commit
+stage: files prepared for next commit
+tag: named commit
+
+#references:
+<hash>: unique ID of commit (beginning is enough)
+HEAD: latest commit on current branch
+<branch>: latest commit on given branch
+<tag>: specified tag
+<>~: relative to commit, 1 commits backwards
+<>~X: relative to commit, X commits backwards
+
+#start (once only)
 new: init
 existing: clone <repo>
-existing (one branch): clone -b <branch> --single-branch <repo>
-existing (without history): clone -depth=1 <repo>
+existing (single branch): clone -b <branch> --single-branch <repo>
+existing (without history): clone --depth=1 <repo>
+
+#change
+add to stage (whole): add <files>
+add to stage (partial): add --patch <files>
+remove from stage (all): reset
+remove from stage (some): reset <files>
+save (staged): commit -m <message>
+save (all): commit -a -m <message>
+remove from git (unmodified): rm <files>
+remove from git (modified): rm --cached <files>
+remove from git (folder): rm -r <files>
 
 #info
 changed and new files: status
 see changes (unstaged): git diff
 see changes (staged): git diff --cached
+see history (messages only): log
+see history (with changes): log -p
+see history (X commits): log -X
 
-#change
-add to stage (whole): add <files>
-add to stage (partial): add --patch <files>
-save (staged): commit -m <message>
-save (all): commit -a -m <message>
+#branches
+list all: branch
+create new: branch <branch>
+switch: checkout <branch>
+create new and switch: checkout -b <branch>
+join branch (keep all commits): merge <branch>
+join branch (as single commit): merge --squash <branch>
+remove: branch --delete <branch>
 
 #remote
 local to server: push
 server to local: pull
 
-#fix
+#tagging
+list all: tag
+list matching: tag <search>
+create new (full): tag -a <name> -m <message>
+create new (basic): tag <name>
+create new (specific reference): tag -a <name> <reference>
+remove: tag -d <name>
+
+#temporary
+move changes into buffer: stash
+see changes in buffer: stash show
+return changes from buffer: stash pop
+remove changes from buffer: stash drop
+list buffer : stash list
+
+#fixing (local only)
+delete all local changes: reset --hard
 update latest save: commit --amend -m <message>
+move latest save to stage: reset --soft HEAD~
