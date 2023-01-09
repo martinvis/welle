@@ -1,0 +1,43 @@
+#variables
+data type: specifies valid values
+variable: storage of value
+
+#data types
+boolean: true / false
+character: symbol
+collection: complex data type
+float: decimal number
+integer: whole number
+string: sequence of characters
+
+#collections
+array/list: ordered collection of elements
+set: unordered collection of unique elements
+map/dictionary: collection of key-value pairs, unique keys
+
+#more collection
+multiset: unordered collection of elements
+multimap: collection of key-value pairs
+
+#special collections
+queue: list that adds and retrieves elements in different ends (FIFO)
+stack: list that adds and retrieves elements in the same end (LIFO) 
+tree
+
+#functions
+function: reusable sequence of instructions
+argument: input of function (concrete)
+parameter: input of function (abstract)
+return value: output of function
+
+#objects
+class: complex type (abstract)
+field: data in class
+method: function in class
+object: variable, instance of class (concrete)
+
+#standard methods
+constructor: creating new object
+serialization: converting object to string
+comparison: checking if two objects are equal
+

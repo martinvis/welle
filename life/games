@@ -1,6 +1,46 @@
 #chessboard
-chess
+chess (8x8)
+- 2 bishops: diagonal
+- 1 king: 1 straight / 1 diagonal
+- 2 knights: 2 + 1 straight
+- 8 pawns: 1 straight forward move / 1 diagonal forward capture
+- 1 queens: straight / diagonal
+- 2 rooks: straight
+chess piece alternatives
+- amazon: queen + knight
+- archbishop: bishop + knight
+- camel: 3 + 1 straight
+- chancellor: rook + knight
+- ferz: 1  diagonal
+- wazir: 1 straight
+- zebra: 3 + 2 straight
+chess variants
+- 3-check chess
+- chess 960 (fisher random)
+- king of the hill (king on one of 4 middle fields wins)
 checkers
+indian chess
+- no two-step pawn move
+- castling is by knight move
+- king does not move until checked once
+- pawn promotes to initial piece on that square, queen instead of king
+shogi (9x9)
+- 1 bishop -> dragon horse = bishop + king
+- 2 gold generals = 1 diagonal forward / 1 straight
+- 1 king
+- 2 knights = 1 straight forward + 1 diagonal forward -> gold general
+- 2 lances = straight forward -> gold general
+- 9 pawns = 1 straight forward -> gold general
+- 1 rook -> dragon king = rook + king
+- 2 silver generals = 1 straight forward / 1 diagonal -> gold general
+xiangqi (9x10)
+- 2x advisor = 1 diagonal, can not leave palace
+- 2x cannon = straight, capture only by jumping over a piece
+- 2x chariot = straight
+- 2x elephant = 2 diagonal, can not cross river
+- general = 1 straight, can not leave palace
+- 2x horse = 1 straight + 1 diagonal (away)
+- 5x soldier = 1 straight forward / (after river) 1 diagonal forward
 
 #standard cards (2-A)
 bridge

@@ -64,7 +64,7 @@ sweden: H&M
 #chemical
 germany: BASF, Henkel (Persil, Perwoll, Silan)
 uk: Ineos, Unilever (Dove)
-usa: Dow, DuPont, Procter & Gamble (Ariel, Tide)
+usa: Colgate-Palmolive, Dow, DuPont, Procter & Gamble (Ariel, Tide)
 
 #steel
 luxembourg: ArcelorMittal
@@ -132,7 +132,7 @@ usa: Adobe, Microsoft, Oracle, Salesforce
 
 #internet
 china: Alibaba, Baidu, ByteDance (TikTok), JD, Meituan, Tencent
-germany: Otto
+germany: Otto (Hermes)
 usa: Alphabet (Google, Waymo, YouTube), Amazon, Meta (Facebook, Instagram, WhatsApp)
 
 #pharmaceutics
@@ -173,6 +173,9 @@ usa: HarperCollins
 
 #transport
 denmark: Maersk
+france: La Poste (DPD)
+germany: Deutsche Post (DHL)
+usa: FedEx, UPS
 
 #airline
 australia: Qantas
