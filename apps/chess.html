@@ -43,9 +43,9 @@
 		}
 	</style>
 </head>
-<body onload="startGame();">
-	<canvas id="board" width="800" height="800"></canvas>
-	<button type="button" onclick="startGame();" style="vertical-align:top;">New game</button>
+<body onload="startGame(document.getElementById('board'), 75);">
+	<canvas id="board"></canvas>
+	<button type="button" onclick="startGame(document.getElementById('board'), 75);" style="vertical-align:top;">New game</button>
 	<div id="promotion" class="hidden">
 		<p>Choose new piece:</p>
 		<button type="button" onclick="canvas.board.endPromotion('Knight');">Knight</button>
@@ -72,28 +72,31 @@
 		getVisibleFields(board, field) {
 		}
 		getValidMovementFields(board, field) {
-			var availableFields = this.getVisibleFields(board, field);
-			availableFields = availableFields.filter(newField => {
-				var isChecked = false;
-				if (this instanceof King) {
-					var badFields = board.getAllVisibleFields(board.getOppositeColor(this.color));
-					badFields.forEach(aField => {
-						if (aField.equals(newField)) {
-							isChecked = true;
-						}
-					});
-				}
-
-				var chessMove = new ChessMove();
-				chessMove.startField = field;
-				chessMove.endField = newField;
-				board.movePiece(chessMove, true);
-				var isChecked = board.isChecked(this.color);
-				board.unmovePiece();
-				return !isChecked;
+			var validFields = this.getVisibleFields(board, field);
+			validFields = validFields.concat(this.getSpecialMoves(board, field));
+			validFields = validFields.filter(newField => {
+				return this.isMoveValid(board, field, newField);
 			});
-			availableFields = availableFields.concat(this.getSpecialMoves(board, field));
-			return availableFields;
+			return validFields;
+		}
+		isMoveValid(board, oldField, newField) {
+			return !this.isOwnPiece(board, newField) && this.isMoveWithoutCheck(board, oldField, newField);
+		}
+		isMoveWithoutCheck(board, oldField, newField) {
+			var noCheck = true;
+			var chessMove = new ChessMove();
+			chessMove.startField = oldField;
+			chessMove.endField = newField;
+			board.movePiece(chessMove, true);
+			if (board.isChecked(this.color)) {
+				noCheck = false;
+			}
+			board.unmovePiece();
+			return noCheck;
+		}
+		isOwnPiece(board, field) {
+			var piece = board.getPiece(field);
+			return piece != null && piece.color == this.color;
 		}
 		getSpecialMoves(board, field) {
 			return [];
@@ -163,22 +166,23 @@
 
 			return fields;
 		}
-		addFieldIfNotOwn(fields, board, field) {
-			var piece = board.getPiece(field);
-			if (piece == null || piece.color != this.color) {
-				fields.push(field);
-			}
-
-			if (piece != null) {
-				return false;
-			} else {
-				return true;
-			}
-		}
 	}
 
 	class Pawn extends ChessPiece {
-		getVisibleFields(board, field) {
+		isMoveValid(board, oldField, newField) {
+			var valid = false;
+			var sameColumn = oldField.column == newField.column;
+			var piece = board.getPiece(newField);
+			if (sameColumn && piece == null) {
+				valid = true;
+			} else if (!sameColumn && piece != null && piece.color != this.color) {
+				valid =  true;
+			} else if (!sameColumn && board.checkEnPassant(newField)) {
+				valid = true;
+			}
+			return valid && this.isMoveWithoutCheck(board, oldField, newField);
+		}
+		getSpecialMoves(board, field) {
 			var availableFields = [];
 
 			var fields = this.getFieldsInDirection(board, field, this.getForwardOrthogonalDirection());
@@ -195,24 +199,16 @@
 				}
 			}
 
+			return availableFields;
+		}
+		getVisibleFields(board, field) {
+			var availableFields = [];
+
 			for (var direction of this.getForwardDiagonalDirections()) {
 				var fields = this.getFieldsInDirection(board, field, direction);
 				if (fields.length > 0) {
 					var aField = fields[0];
-					var piece = board.getPiece(aField);
-					if (piece != null && piece.color != this.color) {
-						availableFields.push(aField);
-					}
-				}
-			}
-
-			for (var i of [-1, 1]) {
-				var nextField = new ChessField(field.column + i, field.row + this.getColumnDirection());
-				if (board.isFieldValid(nextField)) {
-					// en passant
-					if (board.checkEnPassant(nextField)) {
-						availableFields.push(nextField);
-					}
+					availableFields.push(aField);
 				}
 			}
 
@@ -225,7 +221,8 @@
 			var availableFields = [];
 			for (var direction of this.getDiagonalDirections()) {
 				for (var aField of this.getFieldsInDirection(board, field, direction)) {
-					if (!this.addFieldIfNotOwn(availableFields, board, aField)) {
+					availableFields.push(aField);
+					if (board.getPiece(aField) != null) {
 						break;
 					}
 				}
@@ -239,7 +236,8 @@
 			var availableFields = [];
 			for (var direction of this.getOrthogonalDirections()) {
 				for (var aField of this.getFieldsInDirection(board, field, direction)) {
-					if (!this.addFieldIfNotOwn(availableFields, board, aField)) {
+					availableFields.push(aField);
+					if (board.getPiece(aField) != null) {
 						break;
 					}
 				}
@@ -253,7 +251,7 @@
 		getVisibleFields(board, field) {
 			var availableFields = [];
 			for (var aField of this.getFieldsInJump(board, field, 2, 1)) {
-				this.addFieldIfNotOwn(availableFields, board, aField);
+				availableFields.push(aField);
 			}
 			return availableFields;
 		}
@@ -264,7 +262,8 @@
 			var availableFields = [];
 			for (var direction of this.getAllDirections()) {
 				for (var aField of this.getFieldsInDirection(board, field, direction)) {
-					if (!this.addFieldIfNotOwn(availableFields, board, aField)) {
+					availableFields.push(aField);
+					if (board.getPiece(aField) != null) {
 						break;
 					}
 				}
@@ -280,7 +279,7 @@
 				var fields = this.getFieldsInDirection(board, field, direction);
 				if (fields.length > 0) {
 					var aField = fields[0];
-					this.addFieldIfNotOwn(availableFields, board, aField);
+					availableFields.push(fields[0]);
 				}
 			}
 			return availableFields;
@@ -446,10 +445,10 @@
 			var visibleFields = [];
 			for (var i=1; i<=8; i++) {
 				for (var j=1; j<=8; j++) {
-					var piece = board.fields[i][j];
+					var piece = this.fields[i][j];
 					var field = new ChessField(i, j);
 					if (piece != null && piece.color == color) {
-						visibleFields = visibleFields.concat(piece.getVisibleFields(board, field));
+						visibleFields = visibleFields.concat(piece.getVisibleFields(this, field));
 					}
 				}
 			}
@@ -465,7 +464,7 @@
 
 			for (var i=1; i<=8; i++) {
 				for (var j=1; j<=8; j++) {
-					var piece = board.fields[i][j];
+					var piece = this.fields[i][j];
 					if (piece != null && piece.color == color && piece instanceof King) {
 						kingField = new ChessField(i, j);
 					}
@@ -487,7 +486,7 @@
 			if (chessMove.removedPiece != null) {
 				this.fields[chessMove.removedField.column][chessMove.removedField.row] = chessMove.removedPiece;
 			}
-			board.activeColor = board.getOppositeColor(board.activeColor);
+			this.activeColor = this.getOppositeColor(this.activeColor);
 			if (chessMove.firstMove) {
 				this.fields[chessMove.startField.column][chessMove.startField.row].movedAlready = false;
 			}
@@ -527,7 +526,7 @@
 			var piece = this.fields[oldField.column][oldField.row];
 			chessMove.startPiece = piece;
 			chessMove.endPiece = piece;
-			var targetPiece = board.getPiece(field);
+			var targetPiece = this.getPiece(field);
 
 			if (targetPiece != null) {
 				chessMove.removedField = field;
@@ -549,7 +548,7 @@
 
 			// en passant
 			if (piece instanceof Pawn) {
-				if (board.checkEnPassant(field)) {
+				if (this.checkEnPassant(field)) {
 					var enPassantField = new ChessField(field.column, oldField.row);
 					chessMove.removedField = enPassantField;
 					chessMove.removedPiece = this.getPiece(enPassantField);
@@ -569,36 +568,116 @@
 			// castling
 			if (piece instanceof King && Math.abs(oldField.column - field.column) == 2) {
 				if (field.column == 3) {
-					board.fields[4][field.row] = board.fields[1][field.row];
-					board.fields[1][field.row] = null;
+					this.fields[4][field.row] = this.fields[1][field.row];
+					this.fields[1][field.row] = null;
 				} else if (field.column == 7) {
-					board.fields[6][field.row] = board.fields[8][field.row];
-					board.fields[8][field.row] = null;
+					this.fields[6][field.row] = this.fields[8][field.row];
+					this.fields[8][field.row] = null;
 				} else {
 					alert("Invalid castling!");
 				}
 			}
 
-			board.moves.push(chessMove);
-			board.activeColor = board.getOppositeColor(board.activeColor);
+			this.moves.push(chessMove);
+			this.activeColor = this.getOppositeColor(this.activeColor);
 		}
 	}
 
 	class Canvas {
-		board;
-		ctx;
-		startX = 100;
-		startY = 700;
-		fieldSize = 75;
 		moveStartX;
 		moveStartY;
 		moveEndX;
 		moveEndY;
 		moving = false;
 
-		constructor(element) {
-			this.ctx = element.getContext("2d");
+		constructor(htmlElement, fieldSize) {
+			this.htmlElement = htmlElement;
+			this.ctx = htmlElement.getContext("2d");
 			this.board = new ChessBoard();
+			this.fieldSize = fieldSize;
+			this.startX = fieldSize;
+			this.startY = 9*fieldSize;
+
+			htmlElement.width = 10*fieldSize;
+			htmlElement.height = 10*fieldSize; 
+
+			htmlElement.onmousedown = function(e) {
+				if (canvas.board.active) {
+					var clickX = e.x - this.offsetLeft;
+					var clickY = e.y - this.offsetTop;
+					var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
+					var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
+					var field = new ChessField (column, row);
+					var piece = canvas.board.getPiece(field);
+					if (piece != null && piece.color == canvas.board.activeColor) {
+						canvas.board.selectedField = field;
+						canvas.board.validMoves = piece.getValidMovementFields(canvas.board, canvas.board.selectedField);
+						console.log("Selected field %s", field);
+						canvas.moveStartX = clickX;
+						canvas.moveStartY = clickY;
+						canvas.moveEndX = canvas.moveStartX;
+						canvas.moveEndY = canvas.moveStartY;
+						canvas.drawGame();
+						canvas.moving = true;
+					}
+				}
+			}
+			htmlElement.onmouseup = function(e) {
+				if (canvas.board.selectedField != null) {
+					var clickX = e.x - this.offsetLeft;
+					var clickY = e.y - this.offsetTop;
+					var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
+					var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
+
+					var newField = new ChessField(column, row);
+
+					canvas.board.getSelectedPiece().getValidMovementFields(canvas.board, canvas.board.selectedField).forEach(field => {
+						if (field.equals(newField)) {
+							var chessMove = new ChessMove();
+							chessMove.startField = canvas.board.selectedField;
+							chessMove.endField = newField;
+							canvas.board.movePiece(chessMove);
+							canvas.board.selectedField = null;
+						}
+					})
+
+					canvas.moving = false;
+					canvas.drawGame();
+
+					var noMove = true;
+					exit_all:
+					for (var i=1; i<=8; i++) {
+						for (var j=1; j<=8; j++) {
+							var piece = canvas.board.fields[i][j];
+							if (piece != null && piece.color == canvas.board.activeColor) {
+								if (piece.getValidMovementFields(canvas.board, new ChessField(i, j)).length != 0) {
+									noMove = false;
+									break exit_all;
+								}
+							}
+						}
+					}
+					if (noMove) {
+						canvas.board.active = false;
+						if (canvas.board.isChecked(canvas.board.activeColor)) {
+							var winnerColor = canvas.board.getOppositeColor(canvas.board.activeColor);
+							alert("Player with " + winnerColor + " pieces won!");
+						} else {
+							alert("Stalemate, no player wins!");
+						}
+					}
+
+				}
+			}
+			htmlElement.onmousemove = function(e) {
+				if (canvas.board.selectedField != null) {
+					canvas.moveEndX = e.x - this.offsetLeft;
+					canvas.moveEndY = e.y - this.offsetTop;
+					canvas.drawGame();
+				}
+			}
+
+			this.drawGame();
 		}
 
 		drawBoard() {
@@ -661,88 +740,8 @@
 
 	var canvas;
 
-	function startGame() {
-		var canvasElement = document.getElementById("board");
-		canvas = new Canvas(canvasElement);
-		board = canvas.board;
-
-		canvasElement.onmousedown = function(e) {
-			if (board.active) {
-				var clickX = e.x - this.offsetLeft;
-				var clickY = e.y - this.offsetTop;
-				var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
-				var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
-				var field = new ChessField (column, row);
-				var piece = board.getPiece(field);
-				if (piece != null && piece.color == board.activeColor) {
-					board.selectedField = field;
-					board.validMoves = piece.getValidMovementFields(board, board.selectedField);
-					console.log("Selected field %s", field);
-					canvas.moveStartX = clickX;
-					canvas.moveStartY = clickY;
-					canvas.moveEndX = canvas.moveStartX;
-					canvas.moveEndY = canvas.moveStartY;
-					canvas.drawGame();
-					canvas.moving = true;
-				}
-			}
-		}
-		canvasElement.onmouseup = function(e) {
-			if (board.selectedField != null) {
-				var clickX = e.x - this.offsetLeft;
-				var clickY = e.y - this.offsetTop;
-				var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
-				var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
-
-				var newField = new ChessField(column, row);
-
-				board.getSelectedPiece().getValidMovementFields(board, board.selectedField).forEach(field => {
-					if (field.equals(newField)) {
-						var chessMove = new ChessMove();
-						chessMove.startField = board.selectedField;
-						chessMove.endField = newField;
-						board.movePiece(chessMove);
-						board.selectedField = null;
-					}
-				})
-
-				canvas.moving = false;
-				canvas.drawGame();
-
-				var noMove = true;
-				exit_all:
-				for (var i=1; i<=8; i++) {
-					for (var j=1; j<=8; j++) {
-						var piece = board.fields[i][j];
-						if (piece != null && piece.color == board.activeColor) {
-							if (piece.getValidMovementFields(board, new ChessField(i, j)).length != 0) {
-								noMove = false;
-								break exit_all;
-							}
-						}
-					}
-				}
-				if (noMove) {
-					board.active = false;
-					if (board.isChecked(board.activeColor)) {
-						var winnerColor = board.getOppositeColor(board.activeColor);
-						alert("Player with " + winnerColor + " pieces won!");
-					} else {
-						alert("Stalemate, no player wins!");
-					}
-				}
-
-			}
-		}
-		canvasElement.onmousemove = function(e) {
-			if (board.selectedField != null) {
-				canvas.moveEndX = e.x - this.offsetLeft;
-				canvas.moveEndY = e.y - this.offsetTop;
-				canvas.drawGame();
-			}
-		}
-
-		canvas.drawGame();
+	function startGame(htmlElement, fieldSize) {
+		canvas = new Canvas(htmlElement, fieldSize);
 	}
 
 	</script>
