@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Game</title>
+	<script>
+		var images = new Map();
+
+		for (color of ["light", "dark"]) {
+			for (piece of ["Pawn", "Rook", "Knight", "Bishop", "Queen", "King"]) {
+				var image = new Image();
+				image.src = color + piece + ".png";
+				images.set(color + piece, image)
+			}
+		}
+	</script>
+	<style>
+		.disabled {
+			opacity: 0.5 !important;
+		}
+		.hidden {
+			display: none !important;
+		}
+		button {
+			background: #258;
+			color: #FFF;
+			padding: 10px;
+		}
+		#promotion {
+			background: #000;
+			color: #FFF;
+			display: inline-block;
+			padding: 20px;
+			margin: auto;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			text-align: center;
+			position: absolute;
+			width: 300px;
+			height: 120px;
+		}
+	</style>
+</head>
+<body onload="startGame();">
+	<canvas id="board" width="800" height="800"></canvas>
+	<button type="button" onclick="startGame();" style="vertical-align:top;">New game</button>
+	<div id="promotion" class="hidden">
+		<p>Choose new piece:</p>
+		<button type="button" onclick="canvas.board.endPromotion('Knight');">Knight</button>
+		<button type="button" onclick="canvas.board.endPromotion('Bishop');">Bishop</button>
+		<button type="button" onclick="canvas.board.endPromotion('Rook');">Rook</button>
+		<button type="button" onclick="canvas.board.endPromotion('Queen');">Queen</button>
+	</div>
+	<script>
+
+	class ChessPiece {
+		constructor(color, field) {
+			this.color = color;
+			this.field = field;
+		}
+		toString() {
+			return this.constructor.name + "(" + this.color + ")";
+		}
+		getColumnDirection() {
+			return this.color == "light" ? 1 : -1;
+		}
+		jumper = false;
+		active = true;
+		movedAlready = false;
+		getVisibleFields(board, field) {
+		}
+		getValidMovementFields(board, field) {
+			var availableFields = this.getVisibleFields(board, field);
+			availableFields = availableFields.filter(newField => {
+				var isChecked = false;
+				if (this instanceof King) {
+					var badFields = board.getAllVisibleFields(board.getOppositeColor(this.color));
+					badFields.forEach(aField => {
+						if (aField.equals(newField)) {
+							isChecked = true;
+						}
+					});
+				}
+
+				var chessMove = new ChessMove();
+				chessMove.startField = field;
+				chessMove.endField = newField;
+				board.movePiece(chessMove, true);
+				var isChecked = board.isChecked(this.color);
+				board.unmovePiece();
+				return !isChecked;
+			});
+			availableFields = availableFields.concat(this.getSpecialMoves(board, field));
+			return availableFields;
+		}
+		getSpecialMoves(board, field) {
+			return [];
+		}
+		getDiagonalDirections() {
+			var directions = [];
+			directions.push(new Direction(1, 1));
+			directions.push(new Direction(-1, 1));
+			directions.push(new Direction(1, -1));
+			directions.push(new Direction(-1, -1));
+			return directions;
+		}
+		getOrthogonalDirections() {
+			var directions = [];
+			directions.push(new Direction(1, 0));
+			directions.push(new Direction(0, 1));
+			directions.push(new Direction(-1, 0));
+			directions.push(new Direction(0, -1));
+			return directions;
+		}
+		getAllDirections() {
+			var directions = [];
+			directions = directions.concat(this.getDiagonalDirections());
+			directions = directions.concat(this.getOrthogonalDirections());
+			return directions;
+		}
+		getForwardAllDirections() {
+			var directions = directions.concat(this.getForwardDiagonalDirections());
+			directions.push(this.getForwardOrthogonalDirection());
+			return directions;
+		}
+		getForwardDiagonalDirections() {
+			var directions = [];
+			directions.push(new Direction(-1, this.getColumnDirection()));
+			directions.push(new Direction(1, this.getColumnDirection()));
+			return directions;
+		}
+		getForwardOrthogonalDirection() {
+			return new Direction(0, this.getColumnDirection());
+		}
+		getFieldsInDirection(board, field, direction) {
+			var fields = [];
+
+			var aField = field.moveInDirection(direction);
+			while (board.isFieldValid(aField)) {
+				fields.push(aField);
+				aField = aField.moveInDirection(direction);
+			}
+
+			return fields;
+		}
+		getFieldsInJump(board, field, jumpLength1, jumpLength2) {
+			var fields = [];
+
+			for (var i of [-1*jumpLength1, jumpLength1]) {
+				for (var j of [-1*jumpLength2 ,jumpLength2]) {
+					var aField = new ChessField(field.column + i, field.row + j);
+					if (board.isFieldValid(aField)) {
+						fields.push(aField);
+					}
+					var aField = new ChessField(field.column + j, field.row + i);
+					if (board.isFieldValid(aField)) {
+						fields.push(aField);
+					}
+				}
+			}
+
+			return fields;
+		}
+		addFieldIfNotOwn(fields, board, field) {
+			var piece = board.getPiece(field);
+			if (piece == null || piece.color != this.color) {
+				fields.push(field);
+			}
+
+			if (piece != null) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	}
+
+	class Pawn extends ChessPiece {
+		getVisibleFields(board, field) {
+			var availableFields = [];
+
+			var fields = this.getFieldsInDirection(board, field, this.getForwardOrthogonalDirection());
+			if (fields.length > 0) {
+				var aField = fields[0];
+				var piece = board.getPiece(aField);
+				if (piece == null) {
+					availableFields.push(aField);
+
+					// double-step
+					if (!this.movedAlready && board.getPiece(fields[1]) == null) {
+						availableFields.push(fields[1]);
+					}
+				}
+			}
+
+			for (var direction of this.getForwardDiagonalDirections()) {
+				var fields = this.getFieldsInDirection(board, field, direction);
+				if (fields.length > 0) {
+					var aField = fields[0];
+					var piece = board.getPiece(aField);
+					if (piece != null && piece.color != this.color) {
+						availableFields.push(aField);
+					}
+				}
+			}
+
+			for (var i of [-1, 1]) {
+				var nextField = new ChessField(field.column + i, field.row + this.getColumnDirection());
+				if (board.isFieldValid(nextField)) {
+					// en passant
+					if (board.checkEnPassant(nextField)) {
+						availableFields.push(nextField);
+					}
+				}
+			}
+
+			return availableFields;
+		}
+	}
+
+	class Bishop extends ChessPiece {
+		getVisibleFields(board, field) {
+			var availableFields = [];
+			for (var direction of this.getDiagonalDirections()) {
+				for (var aField of this.getFieldsInDirection(board, field, direction)) {
+					if (!this.addFieldIfNotOwn(availableFields, board, aField)) {
+						break;
+					}
+				}
+			}
+			return availableFields;
+		}
+	}
+
+	class Rook extends ChessPiece {
+		getVisibleFields(board, field) {
+			var availableFields = [];
+			for (var direction of this.getOrthogonalDirections()) {
+				for (var aField of this.getFieldsInDirection(board, field, direction)) {
+					if (!this.addFieldIfNotOwn(availableFields, board, aField)) {
+						break;
+					}
+				}
+			}
+			return availableFields;
+		}
+	}
+
+	class Knight extends ChessPiece {
+		jumper = true;
+		getVisibleFields(board, field) {
+			var availableFields = [];
+			for (var aField of this.getFieldsInJump(board, field, 2, 1)) {
+				this.addFieldIfNotOwn(availableFields, board, aField);
+			}
+			return availableFields;
+		}
+	}
+
+	class Queen extends ChessPiece {
+		getVisibleFields(board, field) {
+			var availableFields = [];
+			for (var direction of this.getAllDirections()) {
+				for (var aField of this.getFieldsInDirection(board, field, direction)) {
+					if (!this.addFieldIfNotOwn(availableFields, board, aField)) {
+						break;
+					}
+				}
+			}
+			return availableFields;
+		}
+	}
+
+	class King extends ChessPiece {
+		getVisibleFields(board, field) {
+			var availableFields = [];
+			for (var direction of this.getAllDirections()) {
+				var fields = this.getFieldsInDirection(board, field, direction);
+				if (fields.length > 0) {
+					var aField = fields[0];
+					this.addFieldIfNotOwn(availableFields, board, aField);
+				}
+			}
+			return availableFields;
+		}
+		getSpecialMoves(board, field) {
+			var availableFields = [];
+
+			// castling
+			if (this.movedAlready == false) {
+				var kingSideIntermediate = new ChessField(field.column + 1, field.row);
+				var kingSideCastle = new ChessField(field.column + 2, field.row);
+				var kingSideRook = board.getPiece(new ChessField(field.column + 3, field.row));
+				if (kingSideRook != null && !kingSideRook.movedAlready
+					&& board.getPiece(kingSideIntermediate) == null && board.getPiece(kingSideCastle) == null) {
+
+					var castling = true;
+					board.getAllVisibleFields(board.getOppositeColor(this.color)).forEach(aField => {
+						if (aField.equals(field) || aField.equals(kingSideIntermediate) || aField.equals(kingSideCastle)) {
+							castling = false;
+						}
+					});
+
+					if (castling) {
+						availableFields.push(kingSideCastle);
+					}
+				}
+
+				var queenSideIntermediate = new ChessField(field.column - 1, field.row);
+				var queenSideCastle = new ChessField(field.column - 2, field.row);
+				var queenSideExtra = new ChessField(field.column - 3, field.row);
+				var queenSideRook = board.getPiece(new ChessField(field.column - 4, field.row));
+				if (queenSideRook != null && !queenSideRook.movedAlready
+					&& board.getPiece(queenSideIntermediate) == null && board.getPiece(queenSideCastle) == null
+					&& board.getPiece(queenSideExtra) == null) {
+
+					var castling = true;
+					board.getAllVisibleFields(board.getOppositeColor(this.color)).forEach(aField => {
+						if (aField.equals(field) || aField.equals(queenSideIntermediate) || aField.equals(queenSideCastle)) {
+							castling = false;
+						}
+					});
+
+					if (castling) {
+						availableFields.push(queenSideCastle);
+					}
+				}
+
+			}
+
+			return availableFields;
+		}
+	}
+
+	class Direction {
+		constructor(columnMove, rowMove) {
+			this.columnMove = columnMove;
+			this.rowMove = rowMove;
+		}
+		toString() {
+			return "(" + this.columnMove + "," + this.rowMove + ")";
+		}
+	}
+	class ChessField {
+		constructor(column, row) {
+			this.column = column;
+			this.row = row;
+		}
+		toString() {
+			return "[" + String.fromCharCode(64 + this.column) + "," + this.row + "]";
+		}
+		equals(field) {
+			return field.column == this.column && field.row == this.row;
+		}
+		moveInDirection(direction) {
+			var field =  new ChessField(this.column + direction.columnMove, this.row + direction.rowMove);
+			return field;
+		}
+	}
+
+	class ChessMove {
+		startField = null;
+		endField = null;
+		startPiece = null;
+		endPiece = null;
+		removedField = null;
+		removedPiece = null;
+		firstMove = false;
+	}
+
+	class ChessBoard {
+		active = true;
+		activeColor = "light";
+		selectedField = null;
+		moves = [];
+		fields = Array.from(Array(9), () => new Array(9));
+		validMoves = [];
+
+		getLatestMove() {
+			if (this.moves.length == 0) {
+				return null;
+			} else {
+				return this.moves[this.moves.length - 1];
+			}
+		}
+		checkEnPassant(field) {
+			var latestMove = this.getLatestMove();
+			if (latestMove != null && latestMove.endPiece instanceof Pawn
+				&& latestMove.startField.column == field.column
+				&& Math.abs(latestMove.startField.row - field.row) == 1
+				&& Math.abs(latestMove.endField.row - field.row) == 1) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		getSelectedPiece() {
+			if (this.selectedField == null) {
+				return null;
+			} else {
+				return this.fields[this.selectedField.column][this.selectedField.row];
+			}
+		}
+		constructor() {
+			for (var i=1; i<=8; i++) {
+				for (var j=1; j<=8; j++) {
+					this.fields[i][j] = null;
+				}
+			}
+
+			this.fields[1][1] = new Rook("light");
+			this.fields[2][1] = new Knight("light");
+			this.fields[3][1] = new Bishop("light");
+			this.fields[4][1] = new Queen("light");
+			this.fields[5][1] = new King("light");
+			this.fields[6][1] = new Bishop("light");
+			this.fields[7][1] = new Knight("light");
+			this.fields[8][1] = new Rook("light");
+
+			this.fields[1][8] = new Rook("dark");
+			this.fields[2][8] = new Knight("dark");
+			this.fields[3][8] = new Bishop("dark");
+			this.fields[4][8] = new Queen("dark");
+			this.fields[5][8] = new King("dark");
+			this.fields[6][8] = new Bishop("dark");
+			this.fields[7][8] = new Knight("dark");
+			this.fields[8][8] = new Rook("dark");
+
+			for (var i = 1; i <= 8; i++) {
+				this.fields[i][2] = new Pawn("light");
+			}
+			for (var i = 1; i <= 8; i++) {
+				this.fields[i][7] = new Pawn("dark");
+			}
+		}
+
+		getPiece(field) {
+			return this.fields[field.column][field.row];
+		}
+		isFieldValid(field) {
+			return field.column >= 1 && field.column <= 8 && field.row >= 1 && field.row <= 8;
+		}
+		getAllVisibleFields(color) {
+			var visibleFields = [];
+			for (var i=1; i<=8; i++) {
+				for (var j=1; j<=8; j++) {
+					var piece = board.fields[i][j];
+					var field = new ChessField(i, j);
+					if (piece != null && piece.color == color) {
+						visibleFields = visibleFields.concat(piece.getVisibleFields(board, field));
+					}
+				}
+			}
+			return visibleFields;
+		}
+		getOppositeColor(color) {
+			return color == "light" ? "dark" : "light";
+		}
+		isChecked(color) {
+			var checked = false;
+			var kingField;
+			var enemyFields = [];
+
+			for (var i=1; i<=8; i++) {
+				for (var j=1; j<=8; j++) {
+					var piece = board.fields[i][j];
+					if (piece != null && piece.color == color && piece instanceof King) {
+						kingField = new ChessField(i, j);
+					}
+				}
+			}
+
+			this.getAllVisibleFields(this.getOppositeColor(color)).forEach(field => {
+				if (field.equals(kingField)) {
+					checked = true;
+				}
+			});
+
+			return checked;
+		}
+		unmovePiece() {
+			var chessMove = this.moves.pop();
+			this.fields[chessMove.startField.column][chessMove.startField.row] = chessMove.startPiece;
+			this.fields[chessMove.endField.column][chessMove.endField.row] = null;
+			if (chessMove.removedPiece != null) {
+				this.fields[chessMove.removedField.column][chessMove.removedField.row] = chessMove.removedPiece;
+			}
+			board.activeColor = board.getOppositeColor(board.activeColor);
+			if (chessMove.firstMove) {
+				this.fields[chessMove.startField.column][chessMove.startField.row].movedAlready = false;
+			}
+		}
+		startPromotion() {
+			this.active = false;
+			document.getElementById('board').classList.add('disabled');
+			document.getElementById('promotion').classList.remove('hidden');
+		}
+		endPromotion(newPiece) {
+			var promotionColor = this.getLatestMove().startPiece.color;
+			var promotedPiece;
+			if (newPiece == "Queen") {
+				var promotedPiece = new Queen(promotionColor);
+			} else if (newPiece == "Rook") {
+				var promotedPiece = new Rook(promotionColor);
+			} else if (newPiece == "Bishop") {
+				var promotedPiece = new Bishop(promotionColor);
+			} else if (newPiece == "Knight") {
+				var promotedPiece = new Knight(promotionColor);
+			} else {
+				alert("Invalid piece selected for promotion!");
+			}
+			var promotionField = this.getLatestMove().endField;
+			this.fields[promotionField.column][promotionField.row] = promotedPiece;
+			console.debug("Pawn promoted at %s to %s", promotionField, newPiece);
+
+			document.getElementById('board').classList.remove('disabled');
+			document.getElementById('promotion').classList.add('hidden');
+			this.active = true;
+			canvas.drawGame();
+		}
+		movePiece(chessMove, simulation = false) {
+			var oldField = chessMove.startField;
+			var field = chessMove.endField;
+
+			var piece = this.fields[oldField.column][oldField.row];
+			chessMove.startPiece = piece;
+			chessMove.endPiece = piece;
+			var targetPiece = board.getPiece(field);
+
+			if (targetPiece != null) {
+				chessMove.removedField = field;
+				chessMove.removedPiece = targetPiece;
+				if (!simulation) {
+					console.debug("Piece %s removed at %s", targetPiece, field);
+				}
+			}
+
+			this.fields[oldField.column][oldField.row] = null;
+			this.fields[field.column][field.row] = piece;
+			if (!piece.movedAlready) {
+				piece.movedAlready = true;
+				chessMove.firstMove = true;
+			}
+			if (!simulation) {
+				console.debug("Piece %s moved from %s to %s", piece, oldField, field);
+			}
+
+			// en passant
+			if (piece instanceof Pawn) {
+				if (board.checkEnPassant(field)) {
+					var enPassantField = new ChessField(field.column, oldField.row);
+					chessMove.removedField = enPassantField;
+					chessMove.removedPiece = this.getPiece(enPassantField);
+
+					this.fields[field.column][oldField.row] = null;
+					if (!simulation) {
+						console.debug("En passant!");
+					}
+				}
+			}
+
+			// pawn promotion
+			if (!simulation && piece instanceof Pawn && (field.row == 1 || field.row == 8)) {
+				this.startPromotion();
+			}
+
+			// castling
+			if (piece instanceof King && Math.abs(oldField.column - field.column) == 2) {
+				if (field.column == 3) {
+					board.fields[4][field.row] = board.fields[1][field.row];
+					board.fields[1][field.row] = null;
+				} else if (field.column == 7) {
+					board.fields[6][field.row] = board.fields[8][field.row];
+					board.fields[8][field.row] = null;
+				} else {
+					alert("Invalid castling!");
+				}
+			}
+
+			board.moves.push(chessMove);
+			board.activeColor = board.getOppositeColor(board.activeColor);
+		}
+	}
+
+	class Canvas {
+		board;
+		ctx;
+		startX = 100;
+		startY = 700;
+		fieldSize = 75;
+		moveStartX;
+		moveStartY;
+		moveEndX;
+		moveEndY;
+		moving = false;
+
+		constructor(element) {
+			this.ctx = element.getContext("2d");
+			this.board = new ChessBoard();
+		}
+
+		drawBoard() {
+			for (var i=1; i<=8; i++) {
+				for (var j=1; j<=8; j++) {
+					this.drawField(i, j);
+				}
+			}
+		}
+
+		drawField(column, row) {
+			this.ctx.fillStyle = (column + row) % 2 == 0 ? "#258" : "#FFF";
+			this.ctx.fillRect(this.startX + (column-1)*this.fieldSize, this.startY - (row)*this.fieldSize, this.fieldSize, this.fieldSize);			
+
+			var piece = this.board.fields[column][row];
+			var field = new ChessField(column, row);
+			if (piece != null && (!this.moving || this.board.selectedField == null || !this.board.selectedField.equals(field))) {
+				var image = images.get(piece.color + piece.constructor.name);
+				this.ctx.drawImage(image, this.startX + (column-1)*this.fieldSize, this.startY - (row)*this.fieldSize, this.fieldSize, this.fieldSize);
+			}
+		}
+
+		drawGame() {
+			this.ctx.fillStyle = "#CCC";
+			this.ctx.fillRect(0, 0, 800, 800);
+
+			this.drawBoard();
+
+			// highlight latest move
+			var latestMove = this.board.getLatestMove();
+			if (latestMove != null) {
+				this.ctx.fillStyle = "rgba(250, 150, 0, 0.4)";
+				this.ctx.fillRect(this.startX + (latestMove.startField.column-1)*this.fieldSize, this.startY - (latestMove.startField.row)*this.fieldSize, this.fieldSize, this.fieldSize);
+				this.ctx.fillRect(this.startX + (latestMove.endField.column-1)*this.fieldSize, this.startY - (latestMove.endField.row)*this.fieldSize, this.fieldSize, this.fieldSize);
+			}
+
+			// highlight valid moves
+			var selectedPiece = this.board.getSelectedPiece();
+			var selectedField = this.board.selectedField;
+			if (selectedPiece != null) {
+				this.board.validMoves.forEach(field => {
+					this.ctx.beginPath();
+					this.ctx.lineWidth = "1";
+					this.ctx.strokeStyle = "#A00";
+					this.ctx.fillStyle = "rgba(100, 0, 0, 0.2)";
+					this.ctx.rect(this.startX + (field.column-1)*this.fieldSize, this.startY - (field.row)*this.fieldSize, this.fieldSize, this.fieldSize);
+					this.ctx.fill()
+					this.ctx.stroke(); 
+				})
+				if (this.moving) {
+					var image = images.get(selectedPiece.color + selectedPiece.constructor.name);
+					this.ctx.drawImage(image, this.startX + (selectedField.column-1)*this.fieldSize + (this.moveEndX - this.moveStartX), this.startY - (selectedField.row)*this.fieldSize + (this.moveEndY - this.moveStartY), this.fieldSize, this.fieldSize);
+				}
+			}
+
+			this.ctx.restore();
+		}
+
+	}
+
+	var canvas;
+
+	function startGame() {
+		var canvasElement = document.getElementById("board");
+		canvas = new Canvas(canvasElement);
+		board = canvas.board;
+
+		canvasElement.onmousedown = function(e) {
+			if (board.active) {
+				var clickX = e.x - this.offsetLeft;
+				var clickY = e.y - this.offsetTop;
+				var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
+				var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
+				var field = new ChessField (column, row);
+				var piece = board.getPiece(field);
+				if (piece != null && piece.color == board.activeColor) {
+					board.selectedField = field;
+					board.validMoves = piece.getValidMovementFields(board, board.selectedField);
+					console.log("Selected field %s", field);
+					canvas.moveStartX = clickX;
+					canvas.moveStartY = clickY;
+					canvas.moveEndX = canvas.moveStartX;
+					canvas.moveEndY = canvas.moveStartY;
+					canvas.drawGame();
+					canvas.moving = true;
+				}
+			}
+		}
+		canvasElement.onmouseup = function(e) {
+			if (board.selectedField != null) {
+				var clickX = e.x - this.offsetLeft;
+				var clickY = e.y - this.offsetTop;
+				var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
+				var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
+
+				var newField = new ChessField(column, row);
+
+				board.getSelectedPiece().getValidMovementFields(board, board.selectedField).forEach(field => {
+					if (field.equals(newField)) {
+						var chessMove = new ChessMove();
+						chessMove.startField = board.selectedField;
+						chessMove.endField = newField;
+						board.movePiece(chessMove);
+						board.selectedField = null;
+					}
+				})
+
+				canvas.moving = false;
+				canvas.drawGame();
+
+				var noMove = true;
+				exit_all:
+				for (var i=1; i<=8; i++) {
+					for (var j=1; j<=8; j++) {
+						var piece = board.fields[i][j];
+						if (piece != null && piece.color == board.activeColor) {
+							if (piece.getValidMovementFields(board, new ChessField(i, j)).length != 0) {
+								noMove = false;
+								break exit_all;
+							}
+						}
+					}
+				}
+				if (noMove) {
+					board.active = false;
+					if (board.isChecked(board.activeColor)) {
+						var winnerColor = board.getOppositeColor(board.activeColor);
+						alert("Player with " + winnerColor + " pieces won!");
+					} else {
+						alert("Stalemate, no player wins!");
+					}
+				}
+
+			}
+		}
+		canvasElement.onmousemove = function(e) {
+			if (board.selectedField != null) {
+				canvas.moveEndX = e.x - this.offsetLeft;
+				canvas.moveEndY = e.y - this.offsetTop;
+				canvas.drawGame();
+			}
+		}
+
+		canvas.drawGame();
+	}
+
+	</script>
+</body>
+</html>
