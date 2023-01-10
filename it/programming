@@ -1,6 +1,6 @@
 #variables
-data type: specifies valid values
-variable: storage of value
+data type: specifies valid values (abstract)
+variable: storage of value (concrete)
 
 #data types
 boolean: true / false

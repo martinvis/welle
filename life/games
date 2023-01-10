@@ -1,4 +1,4 @@
-#chessboard
+#board
 chess (8x8)
 - 2 bishops: diagonal
 - 1 king: 1 straight / 1 diagonal
@@ -19,6 +19,7 @@ chess variants
 - chess 960 (fisher random)
 - king of the hill (king on one of 4 middle fields wins)
 checkers
+go
 indian chess
 - no two-step pawn move
 - castling is by knight move
@@ -43,6 +44,7 @@ xiangqi (9x10)
 - 5x soldier = 1 straight forward / (after river) 1 diagonal forward
 
 #standard cards (2-A)
+big two
 bridge
 canasta
 kent
@@ -78,6 +80,8 @@ sudoku (1 to 9 in each row, column and block)
 - sandwich sudoku (extra sums of digits between 1 and 9 in row/column)
 nonogram (coloring grid by numbers)
 Rubik's cube
+tangram (7 polygons)
+ubongo (polyominos)
 
 #problems
 rope burning
