@@ -376,6 +376,7 @@
 		moves = [];
 		fields = Array.from(Array(9), () => new Array(9));
 		validMoves = [];
+		validateMoves = true;
 
 		getLatestMove() {
 			if (this.moves.length == 0) {
@@ -579,7 +580,7 @@
 			}
 
 			this.moves.push(chessMove);
-			this.activeColor = this.getOppositeColor(this.activeColor);
+			this.activeColor = this.getOppositeColor(piece.color);
 		}
 	}
 
@@ -601,6 +602,11 @@
 			htmlElement.width = 10*fieldSize;
 			htmlElement.height = 10*fieldSize; 
 
+			document.onkeydown = function(e) {
+				if (e.key == 'v') {
+					canvas.board.validateMoves = !canvas.board.validateMoves;
+				}
+			}
 			htmlElement.onmousedown = function(e) {
 				if (canvas.board.active) {
 					var clickX = e.x - this.offsetLeft;
@@ -608,17 +614,19 @@
 					var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
 					var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
 					var field = new ChessField (column, row);
-					var piece = canvas.board.getPiece(field);
-					if (piece != null && piece.color == canvas.board.activeColor) {
-						canvas.board.selectedField = field;
-						canvas.board.validMoves = piece.getValidMovementFields(canvas.board, canvas.board.selectedField);
-						console.log("Selected field %s", field);
-						canvas.moveStartX = clickX;
-						canvas.moveStartY = clickY;
-						canvas.moveEndX = canvas.moveStartX;
-						canvas.moveEndY = canvas.moveStartY;
-						canvas.drawGame();
-						canvas.moving = true;
+					if (canvas.board.isFieldValid(field)) {
+						var piece = canvas.board.getPiece(field);
+						if (piece != null && (!canvas.board.validateMoves || piece.color == canvas.board.activeColor)) {
+							canvas.board.selectedField = field;
+							canvas.board.validMoves = piece.getValidMovementFields(canvas.board, canvas.board.selectedField);
+							console.log("Selected field %s", field);
+							canvas.moveStartX = clickX;
+							canvas.moveStartY = clickY;
+							canvas.moveEndX = canvas.moveStartX;
+							canvas.moveEndY = canvas.moveStartY;
+							canvas.drawGame();
+							canvas.moving = true;
+						}
 					}
 				}
 			}
@@ -628,18 +636,21 @@
 					var clickY = e.y - this.offsetTop;
 					var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
 					var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
-
 					var newField = new ChessField(column, row);
 
+					var validMove = false;
 					canvas.board.getSelectedPiece().getValidMovementFields(canvas.board, canvas.board.selectedField).forEach(field => {
 						if (field.equals(newField)) {
-							var chessMove = new ChessMove();
-							chessMove.startField = canvas.board.selectedField;
-							chessMove.endField = newField;
-							canvas.board.movePiece(chessMove);
-							canvas.board.selectedField = null;
+							validMove = true;
 						}
-					})
+					});
+					if (!canvas.board.selectedField.equals(newField) && (validMove || !canvas.board.validateMoves)) {
+						var chessMove = new ChessMove();
+						chessMove.startField = canvas.board.selectedField;
+						chessMove.endField = newField;
+						canvas.board.movePiece(chessMove);
+						canvas.board.selectedField = null;
+					}
 
 					canvas.moving = false;
 					canvas.drawGame();
