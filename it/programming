@@ -1,6 +1,18 @@
+#flow control
+conditional: decision based on condition
+switch: decision based on comparing variable against list of values
+for loop: loop repeated defined number of times
+while loop: loop repeated until condition changes
+foreach: loop repeated for each item in collection
+loop exit: end current iteration and start next iteration
+loop continuation: end current iteration and exit loop
+
 #variables
 data type: specifies valid values (abstract)
 variable: storage of value (concrete)
+
+#special variables
+flag: boolean variable enabling/disabling some feature
 
 #data types
 boolean: true / false

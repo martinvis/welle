@@ -1,0 +1,27 @@
+#graphics raster
+BMP: no compression
+GIF: lossless compression, 256 colors, animations
+JPEG: lossy compression (configurable), photos
+PNG: lossless compression, transparency
+WebP: lossy/lossless compression, transparency, animations
+
+#graphics vector
+SVG: no compression, XML, animations
+
+#video
+AVI: compatible
+FLV/F4V: Flash
+MKV (Matroska): flexible, open source
+MOV (QuickTime): Apple
+MP4: compatible, good compression
+WebM: HTML5, fast compression
+WMV: Windows
+
+#audio
+AAC: good compression
+FLAC: lossless compression
+MP3: compatible
+OGG (Vorbis): open source
+PCM: no compression, WAV
+WMA: Windows
+

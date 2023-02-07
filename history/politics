@@ -54,4 +54,59 @@ Nordic Council
 = Norway + Sweden + Denmark + Finland + Iceland
 
 Gulf Cooperation Council (GCC)
-= Saudi Arabia + UAE + Oman + Kuwait + Bahrain + Qatar 
+= Saudi Arabia + UAE + Oman + Kuwait + Bahrain + Qatar
+
+
+
+#systems
+democracy: elections, freedoms
+- direct: people decide
+- representative: elected officials decide on behalf of people
+monarchy: term for life, often hereditary
+- absolute
+- constitutional
+authoritarianism: limiting political plurality
+- totalitarian
+- authocratic
+- oligarchic
+
+#elections
+Condorcet winner: candidate that would win against all other candidates, if there were only two candidates
+wasted vote: vote not helping to elect a candidate
+plurality: majority of votes can be wasted 
+- single-member plurality (one winner)
+- plurality at large (multiple winners)
+majority
+- two-round (second round with 2 candidates only)
+- ranked choice / preferential (candidates are ordered)
+proportional
+- single transferable vote (candidates are ordered, multiple winners)
+- party-list proportional (seats per party by votes)
+
+
+#France
+National Assembly: 5y term, 2 round election (1 per constituency, 577 total)
+Senate
+President: 5y term (max 2 times)
+- residence: Élysée Palace
+
+#Germany
+Bundestag: population basis, 4y term (598+ total), elects president and chancellor
+Bundesrat: state basis (3-6 votes, 69 total)
+President: 5y term (max 2 times)
+- residence: Bellevue Palace
+Chancellor: 4y term
+
+#UK
+House of Commons: (650 total)
+House of Lords: term for life
+Prime Minister:
+- residence: 10 Downing Street
+
+#USA
+House of Representatives: population basis, 2y term
+Senate: state basis, 6y term, 2y election
+President: 4y term (max 2 times)
+- residence: White House
+legislation: House -> Senate -> President
+

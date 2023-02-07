@@ -14,10 +14,15 @@ Real Estate: industrial, office, residential, retail
 #supermarket
 austria: Billa
 france: Carrefour
-germany: Aldi, Metro, Penny, Rewe, Schwarz (Kaufland, Lidl)
+germany: Aldi, Edeka, Metro, Penny, Rewe, Schwarz (Kaufland, Lidl)
 netherlands: Ahold (Albert), SPAR
+swiss: Migros (Tegut)
 uk: Tesco
 usa: 7-Eleven, Costco, Kroger, Target, Walmart
+
+#retail
+germany: Hornbach, Tengelmann (KiK, Obi)
+usa: Home Depot, Lowe's
 
 #automobile
 france: Renault
@@ -63,22 +68,27 @@ sweden: H&M
 
 #chemical
 germany: BASF, Henkel (Persil, Perwoll, Silan)
-uk: Ineos, Unilever (Dove)
+uk: Ineos, Linde, Unilever (Dove)
 usa: Colgate-Palmolive, Dow, DuPont, Procter & Gamble (Ariel, Tide)
 
 #steel
+germany: ThyssenKrupp
 luxembourg: ArcelorMittal
 usa: Cleveland-Cliffs, Nucor
 
 #telecom
+china: China Mobile
 france: Orange
-germany: Deutsche Telekom (T-Mobile)
+germany: Deutsche Telekom (T-Mobile), 1&1
 spain: Telefónica (O2)
 uk: Vodafone
-usa: AT&T, Comcast (NBC/Peacock), Verizon
+usa: AT&T, Comcast (NBC/Peacock, Sky), Verizon
 
 #bank
 austria: Erste
+canada: Royal Bank of Canada, Toronto-Dominion Bank, Bank of Nova Scotia
+china: Industrial & Commercial Bank, Construction Bank, Agricultural Bank, Bank of China, Merchants Bank, Postal Savings Bank
+france: BNP Paribas (Cetelem)
 germany: Commerzbank, Deutsche Bank, DZ Bank
 italy: Intesa Sanpaolo, UniCredit
 netherlands: ING
@@ -91,10 +101,11 @@ usa: Bank of America, Citigroup, Goldman Sachs, JPMorgan Chase, Wells Fargo
 #insurance
 france: Axa
 germany: Allianz, Hannover Re, Munich Re
+italy: Generali
 netherlands: Aegon
-swiss: Swiss Re
+swiss: Chubb, Swiss Re
 uk: Aviva
-usa: MetLife
+usa: AIG, Cigna, MetLife, UnitedHealth
 
 #hotel
 canada: Four Seasons
@@ -113,10 +124,10 @@ slovenia: Gorenje
 sweden: Electrolux (AEG)
 usa: Whirlpool
 
-#computers
+#computer technology
 china: Lenovo
-japan: Sony
-usa: Apple, Dell, HP
+japan: Brother, Canon, Epson, Sony
+usa: Apple, Cisco, Dell, HP, Xerox
 
 #conglomerate
 germany: Siemens
@@ -124,11 +135,14 @@ india: Tata Group
 usa: General Electric, Honeywell
 
 #semiconductors
+taiwan: TSMC
 usa: AMD, Broadcom, Intel, Micron, Nvidia, Qualcomm
 
 #software
+canada: CGI
 germany: SAP
-usa: Adobe, Microsoft, Oracle, Salesforce
+ireland: Accenture
+usa: Adobe, IBM, Microsoft, Oracle, Salesforce
 
 #internet
 china: Alibaba, Baidu, ByteDance (TikTok), JD, Meituan, Tencent
@@ -140,12 +154,17 @@ france: Sanofi
 germany: Bayer, Merck
 swiss: Novartis, Roche
 uk: AstraZeneca, GlaxoSmithKline
-usa: Abbvie, Johnson & Johnson, Merck, Pfizer
+usa: Abbvie, Bristol Myers Squibb, Johnson & Johnson, Merck, Pfizer
 
 #pharmacy
 usa: CVS, Walgreens
 
+#healthcare
+ireland: Medtronic
+us: Abbott, Thermo Fisher
+
 #media
+canada: Thomson Reuters
 usa: Disney (ABC), Netflix, Paramount (CBS), Warner Bros (HBO)
 
 #defense
@@ -157,12 +176,20 @@ sweden: SAAB
 usa: Boeing, Lockheed Martin, Northrop Grumman, Raytheon
 
 #oil
+brasil: Petrobras
+china: PetroChina, Sinopec
 france: TotalEnergies
 italy: Eni
-russia: Gazprom, Lukoil
+norway: Equinor
+russia: Gazprom, Lukoil, Rosneft
 saudi arabia: Saudi Aramco
 uk: BP, Shell
 usa: ExxonMobil, Chevron, Valero
+
+#materials
+australia: BHP Group, Rio Tinto
+brazil: Vale
+swiss: Glencore
 
 #publishers
 denmark: Egmont
@@ -175,6 +202,7 @@ usa: HarperCollins
 denmark: Maersk
 france: La Poste (DPD)
 germany: Deutsche Post (DHL)
+uk: Royal Mail (GLS)
 usa: FedEx, UPS
 
 #airline
@@ -198,10 +226,17 @@ netherlands: KPMG
 uk: Deloitte, Ernst & Young, PricewaterhouseCoopers
 
 #finance
-us: Mastercard, PayPal, Visa
+us: American Express, Berkshire Hathaway, BlackRock, Mastercard, Morgan Stanley, PayPal (Venmo), Prudential, Square, Visa
+sweden: Klarna
 
 #industrial
 japan: Komatsu
 sweden: Sandvik
 us: 3M, Caterpillar, Danaher, Deere, Emerson, Rockwell
 
+#construction
+austria: Strabag
+france: Vinci
+germany: Hochtief
+spain: ACS Group
+sweden: Skanska

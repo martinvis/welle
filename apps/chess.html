@@ -603,25 +603,22 @@
 			htmlElement.height = 10*fieldSize; 
 
 			document.onkeydown = function(e) {
+				// settings
 				if (e.key == 'v') {
 					canvas.board.validateMoves = !canvas.board.validateMoves;
 				}
 			}
 			htmlElement.onmousedown = function(e) {
 				if (canvas.board.active) {
-					var clickX = e.x - this.offsetLeft;
-					var clickY = e.y - this.offsetTop;
-					var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
-					var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
-					var field = new ChessField (column, row);
+					var field = canvas.getFieldByCoords(e.x, e.y);
 					if (canvas.board.isFieldValid(field)) {
 						var piece = canvas.board.getPiece(field);
 						if (piece != null && (!canvas.board.validateMoves || piece.color == canvas.board.activeColor)) {
 							canvas.board.selectedField = field;
 							canvas.board.validMoves = piece.getValidMovementFields(canvas.board, canvas.board.selectedField);
 							console.log("Selected field %s", field);
-							canvas.moveStartX = clickX;
-							canvas.moveStartY = clickY;
+							canvas.moveStartX = e.x;
+							canvas.moveStartY = e.y;
 							canvas.moveEndX = canvas.moveStartX;
 							canvas.moveEndY = canvas.moveStartY;
 							canvas.drawGame();
@@ -632,11 +629,7 @@
 			}
 			htmlElement.onmouseup = function(e) {
 				if (canvas.board.selectedField != null) {
-					var clickX = e.x - this.offsetLeft;
-					var clickY = e.y - this.offsetTop;
-					var column = Math.ceil((clickX - canvas.startX) / canvas.fieldSize);
-					var row = Math.ceil((canvas.startY - clickY) / canvas.fieldSize);
-					var newField = new ChessField(column, row);
+					var newField = canvas.getFieldByCoords(e.x, e.y);
 
 					var validMove = false;
 					canvas.board.getSelectedPiece().getValidMovementFields(canvas.board, canvas.board.selectedField).forEach(field => {
@@ -682,13 +675,21 @@
 			}
 			htmlElement.onmousemove = function(e) {
 				if (canvas.board.selectedField != null) {
-					canvas.moveEndX = e.x - this.offsetLeft;
-					canvas.moveEndY = e.y - this.offsetTop;
+					canvas.moveEndX = e.x;
+					canvas.moveEndY = e.y;
 					canvas.drawGame();
 				}
 			}
 
 			this.drawGame();
+		}
+
+		getFieldByCoords(x, y) {
+			var clickX = x - this.htmlElement.offsetLeft;
+			var clickY = y - this.htmlElement.offsetTop;
+			var column = Math.ceil((clickX - this.startX) / this.fieldSize);
+			var row = Math.ceil((this.startY - clickY) / this.fieldSize);
+			return new ChessField (column, row);
 		}
 
 		drawBoard() {
