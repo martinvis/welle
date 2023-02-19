@@ -25,6 +25,7 @@ peninsulas
 others
 - Monument Valley (butte)
 - El Capitan + Yosemite Falls
+- Mexican Plateau
 
 #South America
 Isthmus of Panama + Darién Gap
@@ -36,7 +37,8 @@ mountains
 waters
 - Amazon + Madeira + Negro (Amazon rainforest)
 - Paraná (Iguazu Falls)
-- Orinoco
+- Orinoco (Angel Falls)
+- Kaieteur Falls
 - Lake Maracaibo
 
 #Africa
@@ -44,11 +46,13 @@ deserts
 - Sahara
 - Kalahari + Namib
 - Karoo
+- Ogaden
 mountains
 - Atlas
 - Ethiopian Highlands
 - Mount Kilimanjaro
 - Table Mountain
+- Great Escarpment (Drakensberg)
 waters
 - Great Rift Valley (Albert + Edward + Kivu + Tanganyika + Malawi + Turkana)
 - Nile (white + blue) + Lake Victoria
@@ -56,6 +60,9 @@ waters
 - Zambezi (Victoria Falls)
 - Limpopo
 - Orange
+- Okavango (to Kalahari)
+- Cunene (Ruacana Falls)
+- Cuanza (Calandula Falls)
 - Congo
 - Niger
 - Volta
@@ -74,8 +81,9 @@ India
 Middle east
 - deserts: Arabian + Syrian
 - mountains: Taurus + Zagros + Alborz + Caucasus
+- terrain: Anatolian Plateau + Armenian Highlands + Iranian Plateau
 - rivers: Euphrates + Tigris
-- lakes: Van + Urmia
+- lakes: Van + Urmia + Sevan
 - peninsulas: Anatolia (Asia Minor), Arabia, Sinai
 Central
 - deserts: Karakum + Kyzylkum
@@ -83,7 +91,7 @@ Central
 - rivers: Amu Darya + Syr Darya
 - lakes: Caspian Sea + Aral Sea + Balkhash + Issyk Kul
 East
-- deserts: Gobi + Taklamakan
+- deserts: Gobi + Taklamakan (Tarim Basin)
 - mountains: Kunlun + Tibetan Plateau
 - rivers: Yangtze + Huang He + Pearl River, Amur, Mekong + Irrawaddy
 - peninsulas: Malay, Korea
@@ -98,8 +106,19 @@ North
 - lakes: Vänern + Vättern, Onega + Ladoga, Saimaa, Peipus
 - peninsulas: Scandinavian + Jutland + Kola
 West
-- mountains: Alps + Black Forest, Pyrenees, Apennines, Cantabrian
-- peninsulas: Iberia, Italia + Calabria, Istria
+- mountains: Alps + Jura + Black Forest, Pyrenees + Cantabrian, Apennines, Central Massif, Eifel + Ardennes
+- rivers: Elbe/Labe + Oder/Odra, Weser + Rhine, Seine + Loire + Garonne, Rhone, Po, Tagus/Tejo, Thames
+- lakes: Geneva + Constance/Bodensee + Garda
+- peninsulas: Iberia, Italia + Calabria, Istria, Brittany
 East
-- mountains: Carpathians, Ural
+- mountains: Carpathians, Dinaric Alps, Ural
+- rivers: Danube, Vistula, Dnieper + Don + Volga
+- lakes: Balaton + Neusiedl
 - peninsulas: Peloponnese, Crimea
+
+#Australia
+deserts: Great Victoria + Great Sandy + Tanami + Simpson + Gibson
+mountains: Great Dividing Range, Uluru / Ayers Rock
+rivers: Murray + Darling
+lakes: Eyre + Torrens
+peninsulas: Cape York

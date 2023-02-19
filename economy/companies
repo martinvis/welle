@@ -207,10 +207,13 @@ usa: FedEx, UPS
 
 #airline
 australia: Qantas
-germany: Lufthansa
+france: Air France - KLM
+germany: Lufthansa (Austrian Airlines), Condor, TUI
 hungary: Wizz Air
 ireland: Ryanair
-uk: EasyJet
+poland: LOT
+turkey: Turkish Airlines, Pegasus
+uk: EasyJet, International Airlines Group (British Airways, Iberia, Vueling)
 usa: American Airlines, Delta Air Lines, Southwest Airlines, United Airlines
 
 #furniture
