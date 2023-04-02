@@ -1,0 +1,52 @@
+charter: leasing of vessel
+logictics: supply chain process
+terminal: designated area for (un)loading cargo
+
+#cargo
+bulk cargo: unpackaged in large quantity
+containers: truck-sized package, dry cargo
+
+#maritime: ~90% of international trade
+drydocking: out of service period for repair and maintenance
+
+#vessels
+tanker: oil transport
+container ship: container transport
+bulk carrier: bulk cargo transport
+roll-on/roll-off (RORO): wheeled, (un)loaded by ramp
+lift-on/lift-off (LOLO): (un)loaded by crane
+pure car carrier (PCC)
+
+#RORO
+lanes in meter (LIM): capacity in 2m wide strips of deck
+
+#container
+reefer: refrigerated container (food, pharmaceuticals)
+TEU: capacity of 20*8*8 ft
+FEU: capacity of 40*8*8 ft
+worldwide shipping ~1G TEU
+
+#container ship
+worldwide capacity ~25M TEU
+categories
+- Feeder: max 3k TEU
+- Panamax: max 5k TEU
+- Neopanamax: max 15k TEU
+- ULCV: ~20k TEU
+
+#bulk carrier
+categories
+- Panamax: max 50k DWT
+
+#tanker:
+crude tanker: bulk transport of crude oil 
+product tanker: smaller, bult transport of refined products
+DWT: max cargo weight in tons
+worldwide capacity ~600M DWT
+categories
+- product: max 60k DWT
+- Panamax: max 80k DWT
+- Aframax: max 120k DWT
+- Suezmax: max 200k DWT
+- VLCC: ~400k DWT
+
