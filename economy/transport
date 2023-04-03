@@ -8,6 +8,10 @@ containers: truck-sized package, dry cargo
 
 #maritime: ~90% of international trade
 drydocking: out of service period for repair and maintenance
+largest ports:
+- Asia: Shanghai, Singapore, Shenzen, Qingdao, Xiamen
+- Europe: Rotterdam, Antwerp, Hamburg, Valencia, Piraeus, Bremen
+- America: Los Angeles, New York
 
 #vessels
 tanker: oil transport
