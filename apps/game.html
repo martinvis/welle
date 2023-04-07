@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Game</title>
+	<script>
+		var images = new Map();
+
+		for (color of ["light", "dark"]) {
+			for (piece of ["Pawn", "Rook", "Knight", "Bishop", "Queen", "King"]) {
+				var image = new Image();
+				image.src = color + piece + ".png";
+				images.set(color + piece, image)
+			}
+		}
+	</script>
+	<script type="text/javascript" src="core.js"></script>
+	<script type="text/javascript" src="board.js"></script>
+	<script type="text/javascript" src="pieces.js"></script>
+	<script type="text/javascript" src="canvas.js"></script>
+	<style>
+		.disabled {
+			opacity: 0.5 !important;
+		}
+		.hidden {
+			display: none !important;
+		}
+		button {
+			background: #258;
+			color: #FFF;
+			padding: 10px;
+			display: block;
+			width: 100%;
+		}
+		#promotion {
+			background: #000;
+			color: #FFF;
+			display: inline-block;
+			padding: 20px;
+			margin: auto;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			text-align: center;
+			position: absolute;
+		}
+	</style>
+</head>
+<body onload="startGame(document.getElementById('board'), 75);">
+	<canvas id="board"></canvas>
+	<button type="button" onclick="startGame(document.getElementById('board'), 75);" style="vertical-align:top;">New game</button>
+	<div id="promotion" class="hidden">
+		<p>Choose the move:</p>
+		<div id="moves"></div>
+	</div>
+	<script>
+
+	var canvas;
+	function startGame(htmlElement, fieldSize) {
+		canvas = new Canvas(htmlElement, fieldSize);
+	}
+
+	</script>
+</body>
+</html>
