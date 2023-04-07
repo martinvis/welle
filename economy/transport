@@ -1,17 +1,55 @@
+convoy: group of vehicles, mutual protection
 charter: leasing of vessel
 logictics: supply chain process
 terminal: designated area for (un)loading cargo
 
-#cargo
-bulk cargo: unpackaged in large quantity
-containers: truck-sized package, dry cargo
+#transport: uses most of oil production
+shipping/freight transport: transport of commodities and goods
+passenger: transport of people, private or public
 
-#maritime: ~90% of international trade
+#passenger transport
+largest airports:
+- America: Atlanta, Dallas, Denver, Chicago, Los Angeles, Las Vegas
+- Europe: London, Paris, Amsterdam, Frankfurt, Madrid, Barcelona, Moscow
+- East Asia: Chengdu, Chongqing, Shenzen, Shanghai, Beijing, Xi'an, Tokyo
+- West Asia: Istanbul, Dubai, Delhi, Mumbai
+
+#cargo
+bulk cargo: unpackaged in large quantity, liquid or dry, ~70%
+- iron ore, coal, grains, fertilizers, steel
+containers: truck-sized package, dry cargo, ~20%
+
+#air
+largest airports
+- asia: Hong Kong, Shanghai, Seoul, Taiwan, Tokyo
+- america: Memphis, Anchorage, Louisville, Los Angeles
+
+#road
+
+#rail
+track gauge: distance between two rails
+
+#gauge
+historically different within a single countries 
+standard gauge: 1435mm, europe, north america, china, australia, 
+broad gauges: iberia, india, russia
+narrow gauges: brazil, southeast asia
+
+#maritime: waterways, ~90% of international trade, annually ~10G tons
 drydocking: out of service period for repair and maintenance
 largest ports:
-- Asia: Shanghai, Singapore, Shenzen, Qingdao, Xiamen
-- Europe: Rotterdam, Antwerp, Hamburg, Valencia, Piraeus, Bremen
+- Asia: Shanghai, Singapore, Shenzen, Busan, Qingdao, Tianjin, Xiamen, Dalian
+- Europe: Rotterdam, Antwerp, Hamburg, Amsterdam, Valencia, Piraeus, Algeciras, Bremen
 - America: Los Angeles, New York
+chokepoints: narrow passage
+- Malacca strait: 30% of trade, piracy risk
+- Suez canal: 30% of container traffic
+- Panama canal: extension in 2016, locks, Gatun lake - drought risk
+- Hormuz strait: 30% of oil, piracy risk
+- Bosphorus strait
+- Gibraltar strait
+- Danish straits
+- English channel
 
 #vessels
 tanker: oil transport
