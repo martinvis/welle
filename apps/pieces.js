@@ -25,7 +25,7 @@ class Pawn extends Piece {
 			var movePart = new MovePart(this, this, this.field, fields[0]);
 			moves.push(new GameMove(movePart));
 
-			if (!this.board.hasMovedAlready(this) && fields.length > 1 && this.board.getPiece(fields[1]) == null) {
+			if (!this.hasMovedAlready() && fields.length > 1 && this.board.getPiece(fields[1]) == null) {
 				var movePart = new MovePart(this, this, this.field, fields[1]);
 				moves.push(new GameMove(movePart));
 			}
@@ -148,56 +148,54 @@ class King extends Piece {
 		return availableFields;
 	}
 
-	/*
-		Castling
-		TODO: refactor / prepare for Fischer random
-	*/
+	getCastlingMove(king, rook) {
+		// final castling position is fixed
+		var row = king.field.row;
+		var newKingField = new BoardField(3, row);
+		var newRookField = new BoardField(4, row);
+		if (king.field.column < rook.field.column) {
+			newKingField = new BoardField(7, row);
+			newRookField = new BoardField(6, row);
+		}
+
+		var unsafeFields = this.board.getAllVisibleFields(Colors.getOppositeColor(this.color));
+		for (var i = Math.min(king.field.column, newKingField.column); i <= Math.max(king.field.column, newKingField.column); i++) {
+			// king must not be in check
+			var aField = new BoardField(i, row);
+			for (var field of unsafeFields) {
+				if (field.equals(aField)) {
+					return;
+				}
+			}
+			// king must move through empty fields
+			if (i != king.field.column && i != rook.field.column && this.board.getPiece(aField) != null) {
+				return;
+			}
+		}
+		for (var i = Math.min(rook.field.column, newRookField.column); i <= Math.max(rook.field.column, newRookField.column); i++) {
+			// rook must move through empty fields
+			var aField = new BoardField(i, row);
+			if (i != king.field.column && i != rook.field.column && this.board.getPiece(aField) != null) {
+				return;
+			}
+		}
+
+		var kingPart = new MovePart(king, king, king.field, newKingField);
+		var rookPart = new MovePart(rook, rook, rook.field, newRookField);
+		return new GameMove(kingPart, rookPart, 'Castling');
+	}
 	getSpecialMoves() {
 		var moves = [];
 
-		if (this.board.hasMovedAlready(this) == false) {
-			var kingSideIntermediate = new BoardField(this.field.column + 1, this.field.row);
-			var kingSideCastle = new BoardField(this.field.column + 2, this.field.row);
-			var kingSideRook = this.board.getPiece(new BoardField(this.field.column + 3, this.field.row));
-			if (kingSideRook != null && !this.board.hasMovedAlready(kingSideRook)
-				&& this.board.getPiece(kingSideIntermediate) == null && this.board.getPiece(kingSideCastle) == null) {
-
-				var castling = true;
-				this.board.getAllVisibleFields(Colors.getOppositeColor(this.color)).forEach(aField => {
-					if (aField.equals(this.field) || aField.equals(kingSideIntermediate) || aField.equals(kingSideCastle)) {
-						castling = false;
+		if (this.hasMovedAlready() == false) {
+			for (piece of this.board.pieces) {
+				if (piece instanceof Rook && piece.color == this.color && !piece.hasMovedAlready()) {
+					var move = this.getCastlingMove(this, piece);
+					if (move != null) {
+						moves.push(move);
 					}
-				});
-
-				if (castling) {
-					var kingMove = new MovePart(this, this, this.field, kingSideCastle);
-					var rookMove = new MovePart(kingSideRook, kingSideRook, kingSideRook.field, kingSideIntermediate);
-					moves.push(new GameMove(kingMove, rookMove, 'Castling'));
 				}
 			}
-
-			var queenSideIntermediate = new BoardField(this.field.column - 1, this.field.row);
-			var queenSideCastle = new BoardField(this.field.column - 2, this.field.row);
-			var queenSideExtra = new BoardField(this.field.column - 3, this.field.row);
-			var queenSideRook = this.board.getPiece(new BoardField(this.field.column - 4, this.field.row));
-			if (queenSideRook != null && !this.board.hasMovedAlready(queenSideRook)
-				&& this.board.getPiece(queenSideIntermediate) == null && this.board.getPiece(queenSideCastle) == null
-				&& this.board.getPiece(queenSideExtra) == null) {
-
-				var castling = true;
-				this.board.getAllVisibleFields(Colors.getOppositeColor(this.color)).forEach(aField => {
-					if (aField.equals(this.field) || aField.equals(queenSideIntermediate) || aField.equals(queenSideCastle)) {
-						castling = false;
-					}
-				});
-
-				if (castling) {
-					var kingMove = new MovePart(this, this, this.field, queenSideCastle);
-					var rookMove = new MovePart(queenSideRook, queenSideRook, queenSideRook.field, queenSideIntermediate);
-					moves.push(new GameMove(kingMove, rookMove, 'Castling'));
-				}
-			}
-
 		}
 
 		return moves;

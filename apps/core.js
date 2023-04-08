@@ -132,6 +132,9 @@ class Piece {
 		this.board = board;
 	}
 
+	hasMovedAlready() {
+		return this.board.hasMovedAlready(this);
+	}
 	getDiagonalDirections() {
 		return Directions.getAllCombinations(1, 1);
 	}
