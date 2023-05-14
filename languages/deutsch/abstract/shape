@@ -1,28 +1,41 @@
 =tvar, e Form/en
-=čiara, e Linie/n + r Strich/e
 
-=roh, e Ecke/n
 =strana, e Seite/n
-=špička, e Spitze/n
+=uhol, r Winkel
 hrana, e Kante/n
 okraj, r Saum/ä-e
+sklon, e Neigung/en
 
 =diera, s Loch/ö-er
+trhlina, s Leck/s
+štrbina, r Schlitz/e, r Spalt/e
 
 šikmý, schräg + schief
+=rovný, eben
+rovný, gerade
 krivý, krumm
-priamy, gerade
 strmý, steil + schroff
+=okrúhly, rund
+=hranatý, eckig
+plochý, platt
+oblý, rundlich
+dutý, hohl
 
 #1D
+=čiara, e Linie/n + r Strich/e
+krivka, e Kurve
+špirála, e Spirale/n
+oblúk, r Bogen
 =hák, r Haken
 =tyč, e Stange/n
 
 #2D
+=roh, e Ecke/n
 =koleso, s Rad/ä-er
 =plachta, e Plane/n
 =doska, s Brett/er
 =sieť, s Netz/e
+cíp, r Zipfel
 
 #geometria 2D
 =kríž, s Kreuz/e
@@ -32,14 +45,17 @@ strmý, steil + schroff
 =obdĺžnik, s Rechteck/e
 lichobežník, s Trapez/e
 kosoštvorec, r Rhombus/Rhomben
+elipsa, e Ellipse/n
+ovál, s Oval/e
 
-#geometria 3D
+#3D
+=kvapka, r Tropfen
+=hrot, e Spitze/n
 =guľa, e Kugel/n
 =kocka, r Würfel
 =kužeľ, r Kegel
+=kotúč, e Rolle/n
 kváder, r Quader
 ihlan, e Pyramide/n
 valec, r Zylinder
 
-=okrúhly, rund
-=hranatý, eckig

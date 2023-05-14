@@ -1,42 +1,113 @@
-#mouth
-=bozkať, küssen
-vybozkávať, abküssen
+#head
+=vraštiť (čelo), runzeln
+=krčiť (nos), rümpfen
+=prikývnuť, nicken
+
+#eyes
+=žmurkať, zwinkern
+mrkať, blinzeln
+zažmurkať, zuzwinkern + zublinzeln
+
+#teeth
+=žuť, kauen
+požuť, zerkauen
+=hrýzť, beissen
+odhryznúť, abbeissen
+nahryznúť, anbeissen
+rozhryznúť, aufbeissen
+zahryznúť, zubeissen
+ceriť (zuby), fletschen
+
+#tongue
 =lízať, lecken
 oliznúť, belecken
 zlízať, ablecken
 vylízať, auslecken
+mľaskať, schmatzen
+mľasknúť (jazykom), schnalzen
 vyplaziť (jazyk), herausstrecken
+
+#lips
+=bozkať, küssen
+vybozkávať, abküssen
 cucať (prst), nuckeln
 cmúľať, lutschen
 sať, saugen
 
-=vraštiť (čelo), runzeln
-=krčiť (nos), rümpfen
-=usmiať sa, lächeln
-pousmiať sa, belächeln
-=žmurkať, zwinkern / blinzeln
-zažmurkať, zuzwinkern / zublinzeln
+=bozk, r Kuss/ü-e
+hlt, r Happen
 
-lusknúť (prstami/jazykom), schnalzen
+#throat
+=prehltnúť, schlucken
+vracať, speien + erbrechen
+vyvracať sa, ausspeien
+grgať, aufstossen
 
-#hands
+#hands hard
+=chytiť, greifen + ergreifen
 =držať, halten
 =pevne držať, festhalten
+=štipnúť (prstami), kneifen
+=zamávať, winken
+zadrapiť, krallen
+lúskať (prstami), schnippen
+chňapnúť, schnappen
+uchopiť, packen + anpacken
+oháňať sa, fuchteln
+vytrhnúť, entwinden
+hmatať, tasten (nach)
+
+#hands soft
+=objať, umarmen
+=pohladiť, streichen
+=hladkať, streicheln
+pritúliť sa, kuscheln sich
+maznať sa, schmusen
+
+#skin
+=svrbieť, jucken
+=štekliť, kitzeln
+
+
+=usmiať sa, lächeln
+pousmiať sa, belächeln
+
+
+=pľuť, spucken
+opľuť, bespucken
+vypľuť, ausspucken
+
+
 uchopiť, anfassen
+mávať, schwenken
+
+odštipnúť, abkneifen
 
 =biť, schlagen
 =škrtiť, würgen
 zaškrtiť, abwürgen
+zaškrtiť, erwürgen
 fackať, ohrfeigen
 búchať, bumsen gegen
 načiahnuť, ausholen
+klbčiť sa, balgen sich
 
 bitka, e Schlägerei/en
 facka, e Ohrfeige/n
+úder, r Hieb/e
+=potlesk, r Beifall
+postrčenie, r Rempler
+=chmat, r Griff/e
+
+zmlátiť, verdreschen
+zapchať ústa, knebeln
+obesiť, erhängen
+obesiť, aufknüpfen
 
 =krok, r Schritt/e, r Tritt/e
 =beh, r Lauf/ä-e
 =skok, r Sprung/ü-e
+poklona, r Knicks/e
 
 #legs
 prechádzať sa, spazieren
@@ -45,8 +116,10 @@ prechádzať sa, spazieren
 =skočiť, springen
 =preskočiť, überspringen
 =poskakovať, hüpfen
+brodiť sa, stapfen
 motať sa, trödeln
 =vrhnúť sa, stürzen sich
+prikrádať sa, pirschen
 vliecť sa, schlendern
 knísať sa, watscheln
 
@@ -56,6 +129,7 @@ rozšliapnuť, zertreten
 dupať, trampeln + stampfen
 cupkať, trappeln / trippeln
 
+pokloniť sa, knicksen
 =potknúť sa, stolpern
 =potácať sa, wanken
 =krívať, hinken / humpeln
@@ -89,4 +163,6 @@ nemotorný, unbeholfen
 #body
 šťuchnúť, stupsen + anstossen
 tresnúť, schmettern
+=vziať, nehmen, holen, aufnehmen
+=vziať so sebou, mitnehmen
 

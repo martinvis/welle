@@ -1,0 +1,15 @@
+#vowels
+short: before 2+ consonants
+long: before 1 consonant, before H
+
+aa = a:
+ee = e:
+ie = i:
+oo = o:
+
+ei = ai
+eu = ɔʏ
+äu = ɔʏ
+
+-er = ɐ
+-e = ə
