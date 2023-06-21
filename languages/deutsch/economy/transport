@@ -5,6 +5,7 @@
 =prevziať, übernehmen
 =odovzdať, übergeben
 =prepraviť, befördern
+dovliecť, bugsieren
 navigovať, lotsen
 =pristáť, landen
 kotviť, ankern
@@ -17,6 +18,12 @@ preprava, e Beförderung
 =jazdiť, fahren
 =jazda, e Fahrt/en
 
+jazdiť na koni, reiten
+klus, r Trab
+cval, r Galopp
+klusať, traben
+cválať, galoppieren
+
 =dopravný prostriedok, s Verkehrsmittel
 =premávka, r Verkehr
 =doprava, r Transport/e
@@ -25,6 +32,7 @@ preprava, e Beförderung
 
 =koleso, s Rad/ä-er
 oje, e Deichsel/n
+chodúľ, e Stelze/n
 
 =sedadlo, r Sitz/e
 =brzda, e Bremse/n
@@ -63,6 +71,7 @@ osobný automobil, r Personenkraftwagen (Pkw)
 dodávka, r Lieferwagen
 =motocykel, s Motorrad/ä-er
 =bicykel, s Fahrrad/ä-er
+moped,s  Mofa/s
 =kolobežka, r Roller
 =sane, r Schlitten / r Rodel
 =príves, r Anhänger

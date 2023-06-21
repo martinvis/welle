@@ -88,6 +88,7 @@ Amplitude: maximum distance from center
 Frequency: number of cycles per second
 Period: time of one oscillation
 Wavelength (λ): displacement of one oscillation
+Bandwidth: range of frequencies
 
 #Speed
 Raindrop: ~10 m/s
@@ -138,7 +139,12 @@ Gravity: caused by mass
 #Fictitious forces
 Centrifugal: in rotating system, pulling from center of rotation
 Coriolis: moving objects in rotating system, deflecting
-G Forcel in accelerating system, gravitating
+G Force: in accelerating system, gravitating
+
+#Center of mass
+point at which applied force causes linear acceleration, without angular
+point at which entire mass can be assumed to be concentrated
+may be located outside of object's body (e.g. horseshoe)
 
 #Energy: ability to do work
 Pressure: force per area (P = F/A)
@@ -206,6 +212,18 @@ emission of electrons by electromagnetic radiation
 photons need to have sufficient frequency (=energy)
 excess energy becomes electron's kinetic energy
 
+#Stimulated emission
+- photon of specific frequency interacts with excited electron, dropping it to lower energy level
+- released energy creates photon with identical direction, frequency and polarization
+Population inversion: rate of stimulated emission exceeds absorption, enables optical amplification
+
+#Spontaneous emission
+transition from excited to lower energy level, emits energy as photon
+luminescence: by light, chemical reaction, mechanical action, electrocity, radiation, heat
+
+#Pair production
+high energy photon near nucleus producing particle-antiparticle pair
+
 #Wave-particle duality
 matter wave: λ = h / (m*v)
 
@@ -220,3 +238,11 @@ gravivational lens: path of light follows curvature of spacetime
 gravitational time dilation: light moves slower when gravity increases
 gravitational waves: propagate at speed of light
 
+#Electron capture
+radioactive decay caused by weak interaction
+electron from inner orbital is captured by nucleus
+proton and electron fuse into neutron and emit electron neutrino
+emitted neutrino has characteristic energy
+missing electron is afterwards replaced by outer electron
+- either one or more characteristic X-rays are emitted or Augur effect occurs
+Auger effect: electron is ejected from shell, atom becomes positive ion

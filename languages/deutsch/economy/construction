@@ -1,5 +1,6 @@
 lešenie, s Gerüst
 žeriav, r Kran
+trosky, e Trümmer
 
 stavba, r Bau
 prístavba, r Anbau
@@ -45,7 +46,7 @@ hobľovať, hobeln
 spálňa, s Schlafzimmer
 obývačka, s Wohnzimmer
 kúpelňa, s Badezimmer
-chodba, r Korridor/e
+chodba, r Korridor/e + r Flur/e
 špajza, e Speisekammer/n
 predsieň, e Diele/n
 

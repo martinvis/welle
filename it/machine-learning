@@ -1,0 +1,34 @@
+Supervised learning
+- labeled training data, input-output pairs
+- produces inferred function
+- performance measured on test data, that are separate from training data
+Semi-supervised learning
+- small amount of labeled and large amount of unlabeled training data
+- assumes continuity, cluster or manifold distribution
+Reinforcement learning
+- modeled by Markov decision process
+- gets performance score as guidance
+Unsupervised learning
+- learns without training data
+- can analyze data or generate new data
+
+#Support-vector machine
+supervised learning
+
+#Decision tree
+- supervised learning
+- at each step choose variable that best splits objects
+- problems: overfitting, non-robust
+Classification tree: target variable has discrete values
+Regression tree: target variable has continuous values
+
+#Neural network
+supervised learning
+
+#Clustering
+- grouping similar objects into clusters
+density based: finds high density areas, low density areas are noise
+k-mean clustering: k cluster centers with minimal square distance of object to center
+- median can be used instead of mean
+fuzzy clustering: object can belong to multiple clusters
+distribution based: finds object from same distribution - e.g. Gaussian

@@ -1,4 +1,36 @@
-United Nations
+#United Nations (UN)
+General Assembly
+Security council
+- permanent members (P5): China, France, Russia, UK, USA
+- want to be permanent members (G4): Brazil, Germany, Japan, India
+Secretariat
+International Court of Justice: Hague
+Economic and Social Council: New York + Geneva
+--
+Food and Agriculture Organization: Rome
+International Fund for Agricultural Development: Rome
+International Civil Aviation Organization: Montreal
+World Bank Group: Washington D.C.
+International Monetary Fund: Washington D.C.
+World Tourism Organization: Madrid
+Educational, Scientific and Cultural Organization: Paris
+Industrial Development Organization: Vienna
+International Maritime Organization: London
+International Labour Organization: Geneva
+International Telecommunication Union: Geneva
+Universal Postal Union: Bern
+World Health Organization: Geneva
+World Intellectual Property Organization: Geneva
+World Meteorological Organization: Geneva
+--
+Children's Fund (UNICEF): New York
+Capital Development Fund: New York
+Development Programme: New York
+World Food Programme: Rome
+Environment Programme: Nairobi
+Population Fund: New York
+Human Settlements Programme: Nairobi
+Volunteers: Bonn
 
 African Union (AU)
 Council of Europe
@@ -74,21 +106,36 @@ authoritarianism: limiting political plurality
 Condorcet winner: candidate that would win against all other candidates, if there were only two candidates
 wasted vote: vote not helping to elect a candidate
 plurality: majority of votes can be wasted 
-- single-member plurality (one winner)
+- single-member plurality / first past the post (one winner)
 - plurality at large (multiple winners)
-majority
-- two-round (second round with 2 candidates only)
-- ranked choice / preferential (candidates are ordered)
+majority: minority is unrepresented
+- two-round / runoff (second round with 2 candidates only)
+- ranked choice / preferential / instant-runoff (candidates are ordered)
 proportional
 - single transferable vote (candidates are ordered, multiple winners)
 - party-list proportional (seats per party by votes)
 
+#Spain
+Parties
+- PSOE (Partido Socialista Obrero Español): social-democratic
+- PP (Partido Popular): conservative
+- Vox: nationalism
+
+#Poland
+Parties
+- PiS (Prawo i Sprawiedliwość): nationalism, Kaczyński
+- PO (Platforma Obywatelska): liberal-conservative, Donald Tusk
 
 #France
 National Assembly: 5y term, 2 round election (1 per constituency, 577 total)
 Senate
 President: 5y term (max 2 times)
 - residence: Élysée Palace
+Parties
+- Les Républicains: liberal-conservative, Chirac, Sarkozy
+- Socialist Party: social-democratic
+- Renaissance: liberal, Macron
+- Rassemblement National: far-right, populism, Le Pen
 
 #Germany
 Bundestag: population basis, 4y term (598+ total), elects president and chancellor
@@ -96,12 +143,47 @@ Bundesrat: state basis (3-6 votes, 69 total)
 President: 5y term (max 2 times)
 - residence: Bellevue Palace
 Chancellor: 4y term
+Parties
+- CDU (Christlich Demokratische Union): liberal-conservative, Kohl, Merkel
+- SPD (Sozialdemokratische Partei): social-democratic, Schröder, Scholz
+- Die Grünen
+- FDP (Freie Demokratische Partei): liberal
+- AfD (Alternative für Deutschland): far-right, populism
+
+#Italy
+President: 7y term, elected by parliament
+Senate: upper house, 200 members, region basis, mixed system, 5y term
+Chamber of Deputies: lower house, 400 members, mixed system, 5y term
 
 #UK
-House of Commons: (650 total)
-House of Lords: term for life
+British monarchy
+Parliament: opposing benches
+- House of Commons: (650 total)
+- House of Lords: term for life
 Prime Minister:
 - residence: 10 Downing Street
+Parties
+- Conservative party (Tories): Margaret Thatcher, David Cameron, Boris Johnson
+- Labour party: Tony Blair
+
+#Australia: federation
+British monarchy
+Senate: 76 senators, 12 per state, single transferable vote, 6y term
+House of Representatives: ~150 electors, division basis, instant-runoff voting
+Parties
+- Australian Labor Party: social democracy
+- Liberal Party
+- National Party
+- Australian Greens
+
+#Canada: federation
+British monarchy
+Parliament: opposing benches
+- Senate: 105 senators, until 75yo, chosen by prime minister, province basis
+- House of Commons: 338 MPs, district basis, 4y term, first past the post
+Parties
+- Liberal: Trudeau
+- Conservative
 
 #USA
 House of Representatives: population basis, 2y term
@@ -109,4 +191,30 @@ Senate: state basis, 6y term, 2y election
 President: 4y term (max 2 times)
 - residence: White House
 legislation: House -> Senate -> President
+Parties
+- Republican: conservative, Ronald Reagan, Bush, Donald Trump
+- Democratic: liberal, Bill Clinton, Barack Obama
 
+#Brazil
+Parties
+- MDB (Movimento Democrático Brasileiro): big tent
+- PL (Partido Liberal): conservative, Jair Bolsonaro
+- PT (Partido dos Trabalhadores): social democracy, Lula da Silva
+- União Brasil: liberal conservative
+
+#India
+President: elected by parliament
+Governor: appointed by president
+Rajya Sabha: upper house, 250 MPs, 6y term, union territory basis, single transferable vote, elections every 2y
+Lok Sabha: lower house, ~550 MPs, 5y term, constituency basis, first-past-the-post
+Parties
+- BJP (Bharatiya Janata): nationalism, Narendra Modi
+- INC (Indian National Congress): Mahatma Gandhi
+
+#Japan
+House of Councillors: upper house, 248 members, 6y term, elections every 3y, district+nationwide basis
+House of Representatives: lower house, 465 members, 4y term
+Parties
+- Liberal Democratic Party: Shinzo Abe
+- Constitutional Democratic Party
+- Japan Innovation Party: libertarian

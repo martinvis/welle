@@ -16,6 +16,31 @@ Mesosphere: meteor incineration, 50-85km
 Thermosphere: ionization, 85-700km
 Exosphere: outer space
 
+#Atmosphere
+Earth rotates west to east
+Earth is warmest at equatest, coldest at poles 
+Earth rotation is fastest at equator, slowest at poles
+warm air has lower density and rises
+warm air cools at higher altitudes and sinks
+Coriolis effect
+- rotating object keeps angular velocity
+- movement to poles causes relative movement with rotation
+- movement from poles causes relative movement against rotation
+Polar cell: pole to 60th parallel
+- lower: from pole, westwards
+- upper: to pole, eastwards
+Hadley cell: equator to 30th parallel
+- lower: to equator, westwards, trade winds
+- upper: from equator, eastwards
+Ferrel cell: 30to to 60th parallel, weak
+- lower: equator to pole, eastwards, westerlies
+- upper: pole to equator, westwards
+Horse latitudes: around 30th parallel
+- high pressure, calm winds, low precipitation, desets
+Jet stream
+- fast narrow eastwards air current between cells
+- speed 150-200 km/h, at height 10-15 km
+
 #Atmosphere composition
 Nitrogen: 78%
 Oxygen: 21%
@@ -24,8 +49,63 @@ Carbon dioxide: 0.04%
 Neon, Helium, Methane
 Water vapor
 
+#Wind
+Monsoon
+- India, Indochina
+- seasonal, rainy and dry phases
+- wind from southwest brings heavy rainfall
+- caused by difference in pressure
+- land surface warms and cools quicker
+- lower temperate means higher pressure
+Tropical cyclone
+- rotating storm, low pressure center, heavy rain
+- hurricane in Atlantic, typhoon in Pacific
+- forms over large body of warm water
+- strong over water, weaken over land
+Tornado
+- fast rotating air column
+- last minutes to hour
+- central North America
+- energy supplied by cloud (cumulonimbus)
+Katabatic
+- high density air flow from higher elevation down by gravity
+
+#Cloud
+High level: 3-8 km in polar, 6-18 km in tropics
+- Cirrus
+- Cirrocumulus: small patches, short lived
+- Cirrostratus
+Mid level
+- Altocumulus: larger patches
+- Altostratus
+Low level: up to 2km
+- Stratocumulus: large patches, light precipitation
+- Stratus: foggy
+- Cumulus: fluffy, light precipitation, precursor to cumulonimbus
+Cumulonimbus: towering, precipitation (heavy), lightning
+Nimbostratus: dark grey, continuous precipitation, no lightning
+
+#Lightning
+electrostatic discharge through atmosphere
+caused by storm or volcanic eruption
+produces heat, brilliant light and thunder (shock wave)
+positive or negative
+80% is cloud-to-cloud
+electric current: 30 kA and 300 MV
+worldwide: 3M strikes per day
+distance: average ~5km, max 100+km
+temperatute: 30kC
+formation:
+- cold air ice crystals and hot air water drops make charge
+- bottom of cloud has negative and top has positive charge
+- air insulates cloud and ground
+- air is ionized (plasma) and conductive
+
 #Hydrosphere
-water cycle: evaporation -> condensation -> precipitation -> infiltration -> runoff
+Water cycle: evaporation -> condensation -> precipitation -> infiltration -> runoff
+- continuous movement of water
+Transpiration: water movement through plant (evaporation)
+Infiltration: surface water enters soil
 
 #Theories
 Continental drift: continents are moving over geological periods
@@ -47,6 +127,69 @@ Philippine
 
 #Plate tectonics
 plate boundaries: earthquakes, volcanoes
-Mid-Atlantic Ridge: Iceland
-Circum-Pacific Belt / Ring of Fire: New Zealand - Japan - California - Andes
-Alpine-Himalayan Belt: Alpes - Caucasus - Himalayas - Java
+divergent boundary: between plates moving away from each other
+- mid-ocean ridge: seafloor mountain system, seafloor spreading
+- rift valley: within continents, often filled with lakes
+- Mid-Atlantic Ridge: Iceland
+- East African Rift: African/Somali plate, lakes Albert + Tanganyika + Malawi
+convergent boundary: between plates colliding
+- subduction: oceanic plate sliding under another plate
+- orogeny: mountain building on continents
+- Circum-Pacific Belt / Ring of Fire: New Zealand - Japan - California - Andes
+- Alpine-Himalayan Belt: Alpes - Caucasus - Himalayas - Java
+
+#Land biome
+Grassland
+- Prairie: central North America
+- Steppes: Eurasia (Hungary, Romania, Ukraine, Kazakhstan, Mongolia)
+- Pampas: eastern Argentina
+Savanna: scattered trees
+- Cerrado: eastern Brazil
+- Mediterranean
+- Victoria Basin
+- South Africa
+Rain Forest
+- Amazonia: jaguar, monkey, sloth, macaw, caiman, anaconda, poison dart frog, piranha
+Forest
+Taiga: coniferous forest
+Tundra: moss, lichen, grass, permafrost
+- Arctic
+- Antarctic
+- Alpine: mountains
+Desert
+- Gobi
+Shrubland
+- Caatinga: northeastern Brazil
+
+#Marine biomes
+Pelagic zone: open water column
+- Photic zone: up to 200m depth, sunlight, phytoplankton
+- Aphotic zone: below photic, minimum sunlight, bioluminescence, marine snow
+- Bathyal zone: below 1000m, midnight zone
+- Abyssal zone: below 4000m
+- Hadal zone: below 6000m, narrow depressions, <1% seafloor
+Demersal zone: water column near to benthos
+Benthic zone: seafloor
+Hydrothermal vents: bathyal/abyssal seafloor, chemosynthetic bacteria
+- black smoker: sulfides
+- white smoker: calcium
+
+#Glacier: persistent ice body on land
+Firn: snow from past seasons, denser
+Moraine: accumulation of debris carried by glacier
+Cirque: valley formed by glacier erosion
+Fjord: long narrow coast with steep sides formed by glacier
+Calving: breaking of chunks from edge of glacier
+Ablation: melting snow/ice off glacier
+Crevasse: deep crack in glacier, result of shear stress
+
+#Weathering: deterioration by water or air
+Erosion: surface process removing material
+- Abrasion: erosion of material by friction
+- Plucking: erosion of bedrock under glacier
+Deposition: buildup of sediments
+- Cementation: water ions forming new material
+- Aggradation: increase in land elevation by river
+- Progradation: growth of river delta into sea
+Aeolian processes: erosion/deposit by wind
+Sediment: broken down and transported material 

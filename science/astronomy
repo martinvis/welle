@@ -50,5 +50,95 @@ UTC: UK, Ireland, Portugal, Iceland
 -5: east USA, Colombia, Peru
 -3: Brazil (most), Argentina, Chile
 
+Cosmic microwave background: uniform thermal energy from all parts of sky
+
+#Cosmic ray
+high energy particles from star
+moving close to speed of light
+90% solitary protons, 9% alfa particles, 1% heavier nuclei + solitary electrons + antimatter
+produce pions + muons + neutrinos in atmosphere
+Spallation: production of unstable isotops in atmosphere
+- N14 to C14
+- N/O to Be / B / Li
+- Ar to various lighter nuclei
+
+#K40
+radioactive, long life-time ~1Gy
+largest source of natural radioactivity
+K40 isotope decays to Ca40 (90%) or Ar40 (10%)
+used in K–Ar dating by measuring K40/Ar40 ration in minerals
+produces Ar40 in atmosphere
+
+#Star
+luminous spheroid of plasma
+10^24 stars in universe, 10^10 stars in Milky way
+lifetime
+- gravitational collapse of gaseous nebula
+- hot core with high pressure
+- hydrostatic equilibrium: gravity balanced by pressure
+- composed primarily of hydrogen and helium
+- radiation by thermonuclear fusion of hydrogen to helium in core
+- collapse as supernova, can result in nebula
+Supernova
+- luminous explosion of star, comparable to galaxy
+- source of heavy elements
+- Kepler's in 1604, Tycho's in 1572
+Kilonova: merge of neutron stars
+White dwarf
+- Sirius B, Procyon B
+- collapsed core of small mass star
+- low luminosity by residual thermal energy
+- electron degenerate matter (Pauli exclusion principle)
+- mass of Sun, volume of Earth
+- Chandrasekhar limit: maximum mass
+Neutron star
+- collapsed core of medium mass star
+- neutron degenerate matter
+- mass 1.5 of Sun, radius ~10km
+- Tolman–Oppenheimer–Volkoff limit: maximum mass
+- Pulsar: regular quick rotation, emits radiation out of magnetic poles
+- Magnetar: powerful magnetic field
+Black hole
+- Cygnus X-1
+- collapsed core of large mass star
+- light can not escape it
+- Event horizon: boundary where light can not escape
+- Hawking radiation: radiation outside of event horizon, reduces mass of black hole
+Accretion disc: diffuse material orbiting star
+
+#Planet: spherical body with mass smaller than star and orbiting star
+Brown dwarf: fuse deuterium, mass 20x of Jupiter
+
+#Galaxy
+Milky way: galaxy including Solar system
+Large and Small Magellanic Cloud: satellite galaxies of Milky way
+Classes
+- Starburst: high rate of star formation (Cigar, Sculptor)
+- Elliptical
+- Lenticular: Spindle
+- Spiral: Pinwheel, Sunflower, Black Eye, Bode's
+- Barred spiral: Milky way, Andromeda
+
+#Quasar
+very luminous active galactic nucleus
+powered by supermassive black hole
+luminosity 100x of galaxy
+
+#Nebula: luminous interstellar medium, often star-forming
+Supernova remnant: Crab
+Dark nebula: dense, obscures visible light, Coalsack, Horsehead
+Emission nebula: gas ionized by young star, Ring, Omega
+Planetary nebula: ionized gas of red giant, Cat's Eye, Helix
+Reflection nebula: reflects light of nearby star
+
+Orbit: regularly repeating elliptic trajectory of body around center of mass
+Barycenter: center of mass of two or more orbiting bodies
+Satellite: smaller body orbiting larger body, star and planet, planet and moon
 Trojan: celestial body sharing orbit of larger body, ahead/behind by 60°
-Accretion disc:
+Tidal locking
+- rotation around partner takes as long as around own axis
+- rotation slowed down by gravitation
+- only satellite if body mass is different, both bodies if comparable mass
+Roche limit
+- distance where satellite will disintegrate and form ring
+- tidal forces exceed satellite self-gravitation

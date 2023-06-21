@@ -6,6 +6,15 @@ Mixture - consists of multiple pure substances
 - Homogenous/Solution - uniform composition
 - Heterogenous - not uniform composition
 
+#Mixture
+Colloid: microscopically dispersed insoluble particles of one substance in another
+- Foam: gas dispersed in liquid
+- Aerogel: gas dispersed in solid
+- Aerosol: liquid or solid dispersed in gas, e.g. cloud
+- Emulsion: liquid dispersed in liquid, e.g. mayonnaise
+- Gel: liquid dipsersed in solid, e.g. jelly
+- Sol: solid dispersed in liquid, e.g. blood / paint / mud
+
 #Matter states - depend on temperature and pressure
 Solid - fixed shape and volume
 Liquid - fixed volume
@@ -83,6 +92,11 @@ Ionic: ions of opposite charges, strong electrostatic forces, form crystalline s
 Covalent: shared pairs of electrons, strong intramolecular and weak intermolecular forces
 Diatomic molecules: hydrogen, nitrogen, oxygen, fluorine, chlorine, bromine, iodine
 Polyatomic molecules: phosphorus (P4), sulphur (S8)
+
+#Van der Waals force
+weak interaction between atoms at short distance
+repulsive under contact distance because of electron clouds
+attractive over contact distance because of variable electron density
 
 #Molecule representation
 Empirical formula: relative numbers of atoms

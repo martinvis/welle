@@ -1,7 +1,8 @@
 #head
-=vraštiť (čelo), runzeln
-=krčiť (nos), rümpfen
+=vraštiť čelo, runzeln
+=krčiť nos, rümpfen
 =prikývnuť, nicken
+prevrátiť oči, verdrehen
 
 #eyes
 =žmurkať, zwinkern
@@ -41,7 +42,7 @@ hlt, r Happen
 =prehltnúť, schlucken
 vracať, speien + erbrechen
 vyvracať sa, ausspeien
-grgať, aufstossen
+grgať, aufstossen + rülpsen
 
 #hands hard
 =chytiť, greifen + ergreifen
@@ -56,6 +57,8 @@ uchopiť, packen + anpacken
 oháňať sa, fuchteln
 vytrhnúť, entwinden
 hmatať, tasten (nach)
+prejsť rukou po, wischen (über)
+vykĺznuť, entgleiten
 
 #hands soft
 =objať, umarmen
@@ -63,6 +66,9 @@ hmatať, tasten (nach)
 =hladkať, streicheln
 pritúliť sa, kuscheln sich
 maznať sa, schmusen
+
+#tool
+špárať, stochern
 
 #skin
 =svrbieť, jucken
@@ -72,6 +78,8 @@ maznať sa, schmusen
 =usmiať sa, lächeln
 pousmiať sa, belächeln
 
+mňaukať, miauen / maunzen
+prskať (zvuk), prusten
 
 =pľuť, spucken
 opľuť, bespucken
@@ -97,6 +105,7 @@ facka, e Ohrfeige/n
 úder, r Hieb/e
 =potlesk, r Beifall
 postrčenie, r Rempler
+štuchanec, r Knuff/ü-e
 =chmat, r Griff/e
 
 zmlátiť, verdreschen
@@ -113,21 +122,25 @@ poklona, r Knicks/e
 prechádzať sa, spazieren
 =kráčať, schreiten
 =bežať, laufen
+ponáhľať sa, beeilen sich
 =skočiť, springen
 =preskočiť, überspringen
 =poskakovať, hüpfen
 brodiť sa, stapfen
 motať sa, trödeln
 =vrhnúť sa, stürzen sich
+prikradnúť sa, schleichen
 prikrádať sa, pirschen
 vliecť sa, schlendern
 knísať sa, watscheln
+šúchať (nohy), schlurfen
 
 =kopnúť, treten
 =šliapnúť, treten
 rozšliapnuť, zertreten
 dupať, trampeln + stampfen
 cupkať, trappeln / trippeln
+trieliť, preschen
 
 pokloniť sa, knicksen
 =potknúť sa, stolpern
@@ -152,12 +165,15 @@ nasadnúť, aufsitzen
 =šplhať sa, klettern
 =vznášať sa, schweben
 brodiť sa, waten
+rozvaliť sa, lümmeln sich
 
+vyhrnúť, schürzen
 =pokloniť sa, verbeugen sich
 =poklona, e Verbeugung/en
 
 nemotorný, tapsig
-vrtký (obratný), flink
+vrtký (obratný), flink + hurtig
+svižný, flott
 nemotorný, unbeholfen
 
 #body

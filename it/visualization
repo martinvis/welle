@@ -1,0 +1,36 @@
+#Chart
+bar chart: columns, numeric measurement per category
+pie chart: circle wedges, percentage of a whole
+line chart: change over time / trend (e.g. stock price)
+treemap: hierarchical data as nested rectangles (e.g. stock market) 
+candlestick chart: start/end and range (e.g. stock price movement)
+progress bar: percentage, single item
+Gantt chart: task schedule (e.g. project plan)
+timeline: events within period
+
+#Table: rows and columns
+
+#Map
+Choropleth map: measurement within spatial unit (e.g. population density)
+Heat map: magnitude as color intensity (e.g. temperature/precipitation)
+Proportional symbol map: symbol size represents quantity (e.g. cities)
+
+#Diagram
+Venn diagram: overlapping circles, display what is common
+Sankey diagram: flow diagram, width represents flow size (e.g. customer flow)
+Tree structure: tree (e.g. phylogenetic)
+Flowchart: step-by-step process flow (e.g. algorithm)
+
+#BPMN diagram: advanced flowchart for business process
+activity: user task, service task, business rule task, manual task, subprocess
+event: timer, conditional, message, signal, escalation, error, compensation
+gateway: parallel, inclusive, exclusive
+
+#UML Diagrams
+Sequence diagram: interaction in time, show use case scenario
+Use case diagram: user's interactions with system
+State machine: state transitions of entity
+Activity diagram: flowchart
+
+#Dashboard: set of multiple data visualizations
+
