@@ -5,6 +5,7 @@ Isobar: atoms of different element with same atomic number
 Ion: electrically charged atom (number of electrons)
 Cation: ion with more protons than electrons
 Anion: ion with more electrons than protons
+Isoelectronic: same number of electron but different element
 
 #Particles
 Electron: negative charge, orbit nucleus
@@ -19,13 +20,28 @@ Neutrinos: neutral leptons
 Spin: amount of angular momentum
 Atomic number (Z): number of protons
 Mass number (A): number of protons and neutrons
-Beta minus decay: neutron -> proton + electron + antineutrino
-Beta plus decay: proton -> neutron + positron + neutrino
 
 #Radiation
 Alpha: helium nucleus
-Beta: high speed electron
+Beta: high speed electron or positron
+- caused by weak interaction
+- emmitted by atomic nucleus
+- atom obtains more stable ration of protons and neutrons
+- change of atomic number
+- continuous spectrum
+Beta minus decay: neutron -> proton + electron + antineutrino
+Beta plus decay: proton -> neutron + positron + neutrino
 Gama: high energy ray
+Bremsstrahlung: produced by electron deceleration, continuous spectrum
+
+#Electron capture
+radioactive decay caused by weak interaction
+electron from inner orbital is captured by nucleus
+proton and electron fuse into neutron and emit electron neutrino
+emitted neutrino has characteristic energy
+missing electron is afterwards replaced by outer electron
+- either one or more characteristic X-rays are emitted or Augur effect occurs
+Auger effect: electron is ejected from shell, atom becomes positive ion
 
 #Basic
 Orthogonal: perpendicular, mutually independent
@@ -147,13 +163,98 @@ point at which entire mass can be assumed to be concentrated
 may be located outside of object's body (e.g. horseshoe)
 
 #Energy: ability to do work
-Pressure: force per area (P = F/A)
+Pressure: force per area (P = F/A), Pa = N/m^2
 Work: force per displacement (W = F*s)
 Kinetic energy: energy caused by movement, 1/2 * m * v^2
 Potential energy: energy caused by position, m * a * s
 Thermal energy: energy caused by heat
 Joul (J): unit of energy [kg * m^2 / s^2]
 Calorie (cal): unit of energy, 4.18J
+
+#Pressure
+- max 10m column of water at 1atm
+Atmospheric pressure: ~101kPa = 1atm
+torr: mm of Hg, 1atm = 760mm
+Barometer: measures pressure of atmosphere
+Manometer: measures pressure of gas, U shape
+
+#Gases
+- at constant temperate all gas particles have same average kinetic energy
+- at constant temperate gas particles speed depends on their weight (lighter=faster)
+Boyle's law: at constant temperature volume of gas is inversely proportional to pressure
+Charles's law: at constant pressure volume of gas is proportional to temperature
+Avogadro's law: at constant pressure and temperature volume of gas is proportional to mass
+Dalton's law: pressure of gas mixture equals to sum of gas pressures
+Boltzmann distribution: probability of gas particles kinetic energy 
+Diffusion: gradual mixing of gas particles due to motion, depends on particle speed
+Effusion: escape of gas particles through microscopic holes, depends on particle speed
+Graham's law: effusion rate is inversely proportional to square root of particle mass
+Mean free path: average distance travelled by particle between collisions, depends on density
+Ideal gas: ignores gas molecule volume and intermolecular interactions
+- at high pressure gas molecule volume increase volume
+- at low temperate intermolecular interactions decrease pressure
+Ideal gas law: p*V = n*T*R where R is gas-specific constant
+Van der Waals equation: considers also gas molecule volume and intermolecular interactions
+
+#Liquids
+- adjust to shape of container
+- slowed diffusion than in gases
+- fixed volume, small thermal expansion
+Surface tension: energy required to increase surface area, depends on intermolecular forces
+Capillary action: adhesive forces between liquid and container are smaller/greater than cohesive forces in liquid
+Viscosity: resistance to flow, depends on intermolecular forces
+Volatility: speed of vaporization
+
+Adhesion: forces between different particles
+Cohesion: forces between same particles
+
+#Fluid dynamics
+tea leaf paradox
+- stirring causes centrifugal force
+- near bottom water is slowed down by friction
+- secondary flow goes down on edges and up in center
+
+#Solids
+- crystalline or amorphous
+- some are amorphous only when cooled down fast
+
+#Solid types
+Ionic: ionic bond between atoms
+Molecular: inter-molecular forces
+Metallic: continuous metallic bonds, lustrous, good conductors
+Network: continuous covalent bond, e.g. graphite / diamond / quartz
+
+#Crystal systems
+Cubic: 2 right angles, 3 same sides (common in binary ionic compounds)
+Tetragonal: 2 right angles, 2 same sides
+Orthorhombic: 2 right angles, all sides different
+Monoclinic: 1 right angle, all sides different
+Triclinic: no right angles, all sides different
+Rhombohedral: no right angles, 3 same sides
+Hexagonal: 6 sided, 120 degrees angle
+
+#Single component crystals (common in metals)
+Hexagonal close-packed: 74% space occupied, A-B layers
+Cubic close-packed: 74% space occupied, A-B-C layers
+Body-centered cubic: 68% space occupied, 8 corners + 1 in center
+
+#Van der Waals force
+London dispersion force: short-lived
+- dipoles, even between nonpolar molecules
+- caused by temporary fluctuations in electron distribution
+- stronger in bigger molecules
+- depends on shape of molecule (surface area)
+- causes higher boiling point
+Casimir effect
+- physical force caused by quantum fluctuations
+- e.g. between plates nanometers apart in vacuum
+
+#Hydrogen bond
+strong intermolecular force in polar molecule
+between H and C/O/F
+causes higher boiling point
+e.g. in H2O and proteins
+causes ice to be less dense than water, ice has four bonds per molecule which increase space between molecules
 
 #Laws of thermodynamics
 First: Total energy of isolated system is constant (conservation of energy)
@@ -184,7 +285,7 @@ cell: ~1 ng
 proton: 1675 pfg
 electron: 0.91 pfg
 
-#Electromagnetic spectrum
+#Electromagnetic spectrum: range of wavelengths
 Ionizing: sufficient energy to detach electron from atom (Gamma rays, X rays, Extreme ultraviolet)
 Gamma rays: under 10 pm, radioactive decay
 X rays: 10 pm - 10 nm, radiology
@@ -232,17 +333,52 @@ Planc constant: 663 aaJ/Hz
 Mass-energy equivalence: E = m * c^2
 Heisenberg's uncertainty principle: sum of uncertainties in position and momentum of particle is at least h / (4π)
 
+#Special relativity
+time dilation: time slows down with greater velocity
+relativistic mass: mass increases with greater velocity
+Lorentz contraction: length decreases with greater velocity, only in direction of movement
+relativity of simultaneity: two spacially separated events do not occur at same time for every observerr
+inertial frame of reference: not undergoing acceleration, objects in same constant linear motion
+
 #General relativity
 gravity is curvature of spacetime
 gravivational lens: path of light follows curvature of spacetime
 gravitational time dilation: light moves slower when gravity increases
 gravitational waves: propagate at speed of light
 
-#Electron capture
-radioactive decay caused by weak interaction
-electron from inner orbital is captured by nucleus
-proton and electron fuse into neutron and emit electron neutrino
-emitted neutrino has characteristic energy
-missing electron is afterwards replaced by outer electron
-- either one or more characteristic X-rays are emitted or Augur effect occurs
-Auger effect: electron is ejected from shell, atom becomes positive ion
+#Electron
+- has specific allowed energy states in atom
+- lower energy states are more stable 
+- can change state by absorbing/emitting radiant energy
+- has both particle and wave properties
+Ground state: lowest energy
+Excited state: higher energy
+
+#Antimatter
+particles with reversed charge, parity and time
+antiparticles and particles have same mass
+collision of antiparticle and particle causes annihilation producing gamma rays and neutrinos
+present in cosmic rays, produced in high energy collisions
+
+#Electrical conductivity
+- slightly decreases with temperature in conductors
+- greatly increases with temperatute in semiconductors
+
+#Band theory
+- overlap of high number of orbitals in solids creates continuous range of energy levels
+Band: energy range with valid electron states
+Band gap: energy range between bands, without valid electron states
+Valence band: highest range of energy levels with electrons
+Conduction band: lowest range of energy levels without electrons
+Conductors: valence and conduction band overlap
+Semiconductors: gap between valence and conduction band is small
+- n-type: doping with electron donnor, new band under conduction band 
+- p-type: doping with electron acceptor, new band over valence band
+Insulators: gap between valence and conduction band is big
+
+#Semicondactors
+- very pure material needed
+elements: Si, Ge
+n-type doping: P, As, Sb
+p-type doping: B, Al, Ga
+compounds: GaAs, GaN, SiC

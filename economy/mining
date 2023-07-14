@@ -1,0 +1,47 @@
+#Iron
+hematite, magnetite
+Australia, Brazil, China, India
+
+#Copper
+chalcopyrite, chalcocite
+Chile, Peru, China
+
+#Aluminium
+bauxite
+China
+
+#Titanium
+ilmenite
+China, Australia, Canada, Mozambique, South Africa
+
+#Lithium
+Australia, Chile, China
+
+#Nickel
+Indonesia, Philippines, Russia
+
+#Chromium
+South Africa, Turkey, Kazakhstan
+
+#Platinum (PGM)
+South Africa, Russia
+
+#Cobalt
+DR Congo
+
+#Uranium
+production: Kazakhstan, Namibia, Canada
+reserves: Australia, Kazakhstan, Canada, Russia
+
+#Rare-earth element (REE): lanthanides
+production: China, Australia
+reserves: Brazil, Vietnam
+
+#Mineral resource: concentration of material of reasonable quality+quantity
+Inferred: estimated with low confidence,
+Indicated: estimated with medium confidence
+Measured: estimated with high confidence
+
+#Mineral reserve: economically mineable mineral resource
+Probable: indicated mineral resource
+Proved: measured mineral resource

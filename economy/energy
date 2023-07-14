@@ -1,0 +1,19 @@
+#sources
+fossil
+- oil: 30%
+- gas: 25%
+- coal: 25%
+nuclear
+renewables
+- solar
+- wind
+- hydro
+- biomass
+- geothermal
+
+#electricity
+20% of energy consumption
+source: 30% renewables, 10% nuclear, 25% natural gas, 35% coal
+
+#oil
+50% on road transport

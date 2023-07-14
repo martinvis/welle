@@ -96,7 +96,7 @@ russia: Sberbank
 spain: CaixaBank, Santander
 swiss: Credit Suisse, UBS
 uk: Barclays, HSBC, Lloyds
-usa: Bank of America, Citigroup, Goldman Sachs, JPMorgan Chase, Wells Fargo
+usa: Bank of America, Citigroup, JPMorgan Chase, Wells Fargo
 
 #insurance
 france: Axa
@@ -105,7 +105,7 @@ italy: Generali
 netherlands: Aegon
 swiss: Chubb, Swiss Re
 uk: Aviva
-usa: AIG, Cigna, MetLife, UnitedHealth
+usa: AIG, Cigna, MetLife, UnitedHealth, Prudential
 
 #hotel
 canada: Four Seasons
@@ -230,9 +230,14 @@ usa: Hasbro (D&D), Mattel (Barbie)
 netherlands: KPMG
 uk: Deloitte, Ernst & Young, PricewaterhouseCoopers
 
-#finance
-us: American Express, Berkshire Hathaway, BlackRock, Mastercard, Morgan Stanley, PayPal (Venmo), Prudential, Square, Visa
+#payment
+usa: American Express, PayPal (Venmo), Mastercard, Visa, Square
+netherlands: PayU
 sweden: Klarna
+
+#finance
+usa: Berkshire Hathaway, BlackRock, Morgan Stanley, Goldman Sachs
+japan: Nomura Group
 
 #industrial
 japan: Komatsu

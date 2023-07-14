@@ -1,0 +1,131 @@
+#general
+arbitrage: taking advantage of price difference without risk
+hedge: position used to offset potential losses
+insolvency: inability to pay debt
+leverage: multiplies gains and losses, uses borrowed funds
+AUM (assets under management): total market value of assets
+
+#debt
+bond
+loan
+mortgage: loan secured by real estate
+
+#debt
+principal: amount loaned
+interest: payment from borrower to lender
+repayment
+credit bureau: agency gathering account information from creditors
+credit rating agency: company assigning credit ratings
+credit rating: evaluation of credit risk of debtor
+credit risk: likelihood of debtor defaulting
+default: failure to meet obligations of debt
+bankruptcy: process enabling debtor in default to seek relief from part of debt
+
+#investment
+advisory shares: equity compensation to non-employee
+venture debt: loan to fund capital combined with warrants
+venture capital: funds in exchange for ownership stake
+
+#security: tradable financial asset
+bond: issuer owes holder debt and pays interest
+commodity: raw materials, agricultural products
+currency: 
+derivatives: contract with value depending on underlying asset
+- used for hedging or speculation
+ETF (exchange traded fund): traded on stock exchange, most are index funds
+futures: contract to buy or sell at predetermined price and date
+stock: 
+
+#stock
+common: vote rights, dividend
+preferred: no vote rights, priority over common
+
+#stocks
+share: fractional ownership of company, voting power
+buyback: re-acquisition of shares by company
+dividend: distribution of profits to shareholders
+- monthly
+- quarterly (usa)
+- semi-annually (japan)
+- annually (germany)
+option: derivative, right to buy or sell shares at predetermined price until some date
+- call: right to buy shares
+- put: right to sell shares
+
+#fund
+hedge fund: use leverage, short selling, derivatives, not for retail investors
+mutual fund: professionally managed investment fund
+
+#bonds
+corporate / government
+coupon: interest payment on bond
+maturity date: due date of payment of principal 
+
+#stock
+blue chip: profitable with good reputation
+
+#stock market indices
+- tracked by index funds
+- market cap weighted
+- price weighted
+
+#stock exchanges
+Europe
+- Deutsche Börse (Frankfurt)
+- Euronext (Amsterdam, Paris)
+- London
+- Nasdaq Nordic
+- SIX (Zurich)
+America
+- B3 (São Paulo)
+- Nasdaq (New York)
+- NYSE (New York): largest
+- Toronto
+Asia
+- Hong Kong
+- Shanghai
+- Shenzen
+- Taiwan
+- Tokyo
+
+#stock market indices
+DAX (40, germany)
+Dow Jones (30, USA)
+Euro Stoxx 50
+Hang Seng (Hong Kong)
+MSCI
+Nasdaq (USA)
+Nikkei (Japan)
+Russell (USA)
+S&P (S&P 500 - USA)
+
+#regulation
+SEC (Securities and Exchange Commission): USA agency, against market manipulation
+
+#reports
+annual report: for shareholders
+10K: annual report, for SEC
+10Q: quarterly report, for SEC 
+
+license: permission to use something
+franchising: business expansion via licenses
+trademark: intellectual property identification
+royalty payment: percentage of revenue or fixed price per unit
+
+revenue: total income from sales
+gross income: revenue minus expenses
+EBITDA: earnings before interest, taxes, depreciation and amortization (operating profitability)
+EBIT: earnings before interest, taxes (operating profit)
+net income: revenue minus expenses, interest, taxes, depreciation and amortization
+amortization: acquisition cost minus residual value of intangible assets
+depreciation: acquisition cost minus residual value of tangible assets
+OPEX / operating expense: ongoing cost of business
+CAPEX / capital expense: cost to buy or improve fixed assets
+
+CAGR (compound annual growth rate): average business growth
+EPS (earnings per share)
+P/E ratio: share price divided by EPS
+PEG ratio: P/E divided by EPS growth
+Market cap: total value of company shares
+EV (enterprise value): market value, shareholders + creditors
+Book value: value based on balance sheet, assets minus liabilities

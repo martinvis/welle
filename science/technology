@@ -1,0 +1,83 @@
+#Pulley
+- wheel on axle with groove for cable
+- supports movement and change of direction
+- decreases required force by half
+- used on cranes, sailing ships
+Block and tackle: system of multiple pulleys
+
+#Lever
+- consist of rigid rod pivoted at fixed fulcrum
+- small force at large distance causes large force at small distance
+Class I: fulcrum between effort and resistance, crowbar or scissors, head
+Class II: resistance between effort and fulcrum, advantage over 1, wheelbarrow or nutcracker, foot
+Class III: effort between resistance and fulcrum, advantage below 1, tongs, mandible
+
+#Turbine
+- rotatory device with blades
+- static part is stator, moving part is rotor
+- extracts energy from fluid flow and converts it to work
+- windmill or waterwheel
+Impulse turbine: change direction of flow, diminishing kinetic energy, fixed nozzle
+Reaction turbine: develop torque by lowering pressure of fluid, rotating nozzle
+
+Nozzle: controls direction / pressure / speed of fluid
+
+#Generator
+- converts motive or chemical power into electricity
+- rotor and stator form magnetic circuit
+Dynamo: generate direct current
+Alternator: generate alternating current
+
+Photovoltaics: converts light into electricity
+
+#Fuel cell
+- converts chemical energy of fuel into electricity
+- requires continuous source of fuel and oxygen
+- consists of catode, anode and electrolyte
+
+#Pump
+- moves fluid by mechanical action
+Positive-displacement pump: trap fixed amount of volume
+- linear: long pipe, bottom immersed, fluid pulled along rope with knots
+- rotary: rotating screws or gears, e.g. Archimedes screw
+- reciprocating: high pressure seal and piston / plunger
+- peristaltic: flexible tube in circular casing, rotary motion
+Centrifugal pump: movement by rotational energy, high flow rate
+
+#Centrifuge
+- spinning fluid in container at high speed
+- separation by density
+- less dense displaced to center / top
+
+#Siphon
+- flow of liquid through tube, above surface and then below surface
+- causes liquid to flow upward without pump
+
+Screw: helical groove around outside, converts motion from rotational to linear
+
+#Laser
+- emits coherent light by optical amplification
+- stimulated emission of electromagnetic radiation
+- laser printers, fiber-optic, optical litography, surgery, welding
+Three-level laser: ineffective
+Four-level laser: L1 (ground state), L2, L3, L4
+- fast radiationless transition from L4 to L3, and from L2 to L1
+- slow transition from L3 to L2
+- L3 population higher than L2
+- pump transition from L1 to L4
+
+#Antenna
+- conductors connected to transmitter or receiver
+- converts electrical signals to electromagnetic waves (transmission)
+- captures electromagnetic waves as electric signal (reception)
+
+#Radio: information transmitted on radio waves
+AM: amplitude modulation, longer distance
+FM: frequency modulation, better quality
+
+#Enriched uranium
+- high percentage of U-235 isotope
+- naturally occuring uranium is 99% isotope U-238
+- fuel in nuclear reactors
+- old method: gaseous diffusion of UF6, use of effusion
+- new method: gas centrifuge of UF6

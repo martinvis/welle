@@ -1,0 +1,16 @@
+KYC (Know Your Customer): customer verification and risk assessment
+- customer identification
+- risk assessment: possible financial, legal and operational damage
+- customer acceptance: due diligence based on risk profile
+- transactions monitoring: alerts about suspicious transfers
+
+#Transfer monitoring
+AML (Anti Money Laundering): detecting suspicious transactions
+CFT (Counter Financing Terrorism): detecting suspicious transactions
+
+CDD (Customer Due Diligence): identity verification and background checks
+- Adverse media: news about customer's involvement in unlawful activity
+- Sanctions: checking government list of prohibited individuals/companies
+- PEP (Politically Exposed Person): person with public function (higher risk for AML)
+- UBO (Ultimate Beneficial Owner): person(s) controlling the customer (legal entity)
+

@@ -1,0 +1,272 @@
+Domain
+Kingdom
+Phylum
+Class
+Order
+Superfamily: -oidea
+Family: -idae
+Subfamily: -inae
+Genus
+Species
+
+
+
+#Archaea
+
+#Bacteria
+
+#Eukaryota
+Plantae
+Fungi
+- Basidiomycota
+- Ascomycota
+Animalia
+- Porifera: sponges, aquatic, adults are sessile
+- Cnidaria: aquatic
+- Deuterostomia
+- Lophotrochozoa
+- Ecdysozoa
+
+#Cnidaria
+Anthozoa: corals, marine, adults are sessile, colonial, predatory
+Medusozoa: jellyfish
+
+#Deuterostomia
+Echinodermata
+- Asteroidea: starfish
+- Ophiuroidea: brittle star
+- Echinoidea: sea urchin
+- Crinoidea: sea lily
+- Holothuroidea: sea cucumber
+Hemichordata
+Chordata
+
+#Lophotrochozoa
+Annelida: segmented worms, paired lateral outgrows (parapodium) with chitinous bristle (chaeta)
+Brachiopoda: bivalve molluscs
+Mollusca
+
+#Ecdysozoa
+Nematoda
+Onychophora: velvet worms, segmented, conical feet, pair of antennae
+Priapulida: penis worms
+Tardigrada
+Arthropoda: exoskeleton (chitin)
+
+#Arthropoda
+Trilobita
+Chelicerata
+- Arachnida: eight legs, chelicerae, pedipalps, body = cephalothorax + abdomen
+- Pycnogonida: sea spiders, eight legs
+- Eurypterida: sea scorpions, predators
+- Xiphosura: horseshoe crabs, ten legs, semicircular cephalothorax, abdomen with long mobile spine
+Insecta: six legs, most have 4 wings, metamorphosis, body = head + thorax + abdomen, usually 2 compound eyes and 3 ocelli
+- Zygentoma: silverfish, 3 long caudal filaments (2 cerci + epiproct), no ocelli
+- Archaeognatha: 3 caudal filaments - medial is longer
+- Ephemeroptera: mayflies, aquatic larvae, 2 cerci and optional epiproct
+- Odonata: dragonflies, aquatic larvae, insectivorous, 2 pairs of transparent wings
+- Dermaptera: earwigs, pincer-like cerci
+- Zoraptera: angel insects, small, short cerci, beaded antennae
+- Plecoptera: stoneflies, long antennae and cerci, nymphs aquatic and sensitive to pollution
+- Orthoptera: grasshoppers, elongated hindlegs
+- Phasmatodea: stick insects
+- Mantodea: mantises, ambush predators, grasping forelegs, sexual cannibalism
+- Blattodea: cockroaches, termites
+- Paraneoptera: no cerci
+- Endopterygota: complete metamorphosis
+Myriapoda
+- Chilopoda: centipedes, one pair of legs per segment, nocturnal predators, many legs, poisonous
+- Diplopoda: millipedes, two pairs of legs per segment, herbivores, many legs
+Crustacea
+- Decapoda: crabs, ten legs, front pair with claws, scavengers or predators
+- Branchiopoda: tadpole shrimps, oval body, long flexible abdomen with forked tail
+- Cirripedia: barnacles, covered with hard plates
+
+#Arachnida
+Opiliones: harvesters, long legs, no venom or silk glands
+Scorpiones: grasping pincers, tail stinger with venom
+Pseudoscorpiones: pincer-like pedipalps
+Araneae: spiders, most have 8 eyes
+- Mygalomorphae: trapdoor spiders, tarantulas, large chelicerae, longer lifespan
+- Araneomorphae
+Solifugae
+Acariformes: mites
+Parasitiformes: ticks
+
+#Paraneoptera
+Psocodea: lice
+Hemiptera: true bugs
+- Sternorrhyncha: aphids, whiteflies
+- Auchenorrhyncha: cicadas
+- Coleorrhyncha: moss bugs
+- Heteroptera
+Thysanoptera: thrips
+
+#Endopterygota
+Panorpida
+- Diptera: flies, single pair of wings
+- Mecoptera: scorpionflies
+- Siphonaptera: fleas
+- Trichoptera: caddisflies
+- Lepidoptera: butterflies
+Hymenoptera
+- Symphyta: sawflies
+- Apocrita: wasps, bees, ants
+Neuropterida
+- Raphidioptera: snakeflies, prolongated mobile head
+- Neuroptera: lacewings
+- Megaloptera: alderflies
+Coleopterida
+- Coleoptera: beetles
+- Strepsiptera: endoparasites
+
+#Coleoptera
+Adephaga
+- Carabidae: ground beetles, mostly carnivorous, most have ridged wing covers
+Polyphaga
+- Cerambycidae: longhorn beetles, long antennae
+- Coccinellidae: ladybugs
+- Curculionoidea: weevils
+
+#Chordata
+Cyclostomi: jawless fish
+Thelodonti
+Placodermi: armoured fish
+Acanthodii
+Chondrichthyes
+Osteichthyes: bony fish
+- Sarcopterygii: lobe-finned fish
+- Actinopterygii: ray-finned fish
+Tetrapoda: four legs
+- Amphibia
+- Mammalia
+- Reptilia
+- Aves
+
+#Actinopterygii
+Acipenseriformes: sturgeons
+Zeiformes: dories, dorsal fin spines
+Gadiformes: cods, spineless fins
+Esociformes: pikes, freshwater predators
+Salmoniformes: predators, spawn in freshwater
+Lophiiformes: anglerfish, seawater predators, luminescent, fin modified to lure (illicium)
+Tetraodontiformes: rigid body, slow
+Scorpaeniformes: predators, spiny heads
+Syngnathiformes: narrow body and tubular mouth, males house eggs
+Anguilliformes: eels, nocturnal, elongated, without pelvis fins, dorsal + caudal + anal fins fused 
+...
+
+#Reptilia
+Rhynchocephalia: tuatara
+Squamata
+- Gekkota: geckos
+- Scincomorpha: skinks
+- Laterata: lizards
+- Serpentes: snakes
+- Iguania: iguanas, chameleons
+- Anguimorpha: varans
+Testudines: turtles, hard shell
+- Cryptodira: hidden-necked
+- Pleurodira: side-necked
+Crocodilia: crocodiles
+- Crocodylidae
+- Alligatoridae
+- Gavialidae
+
+#Aves
+Bucerotiformes
+- Upupidae: hoopoes, feather crown, old world
+- Bucerotidae: hornbills, long curved beak with casque, africa + orient
+Piciformes
+- Picidae: woodpeckers, except australia
+- Ramphastidae: toucans, dark or green, colorful beak and around eyes, large beak, neotropic
+Coraciiformes
+- Meropidae: bee-eaters
+- Alcedinidae: kingfishers
+- Coraciidae: rollers
+--
+Strigiformes: owls, solitary nocturnal predators, silent flight
+- Tytonidae: barn owls
+- Strigidae
+Accipitriformes: carnivorous, hooked beaks
+- Accipitridae: eagles, hawks, vultures
+- Sagittariidae: secretary bird, long legs
+- Cathartidae: condors, scavengers, bald head, america
+- Pandionidae: ospreys, eat fish
+--
+Falconiformes
+Psittaciformes
+Passeriformes
+
+#Passeriformes
+Estrildidae
+- Taeniopygia: zebra finch
+
+#Mammalia
+Monotremata
+- Ornithorhynchidae: platypus
+- Tachyglossidae: echidnas
+Marsupialia
+- Didelphimorphia: opossums
+- Dasyuromorphia: quolls, numbat
+- Peramelemorphia: bandicoots
+- Diprotodontia: wombats, koala, kangaroos
+Placentalia
+- Xenarthra
+- Afrotheria
+- Laurasiatheria
+- Euarchontoglires
+
+#Xenarthra: neotropic
+Cingulata: armadillos
+Vermilingua: anteater
+Folivora: sloths
+
+#Afrotheria
+Tubulidentata: aardvark
+Afrosoricida: tenrecs
+Macroscelidea: elephant shrews
+Hyracoidea: hyrax
+Proboscidea: elephant
+Sirenia: manatees
+
+#Euarchontoglires
+Lagomorpha
+- Ochotonidae: pika
+- Leporidae: rabbits, hares
+Rodentia
+- Sciuromorpha: squirrels
+- Myomorpha: mice, rats
+- Hystricomorpha: capybara
+- Castorimorpha: beavers
+- Anomaluromorpha
+Dermoptera: colugo
+Primates
+- Simiiformes: monkeys
+- Tarsiiformes: tarsiers
+- Lemuriformes
+
+#Laurasiatheria
+Eulipotyphla
+- Solenodontidae
+- Erinaceidae: hedgehogs
+- Soricidae: shrews
+- Talpidae: moles
+Chiroptera: bats
+Carnivora
+- Feloidea: cats
+- Viverroidea: civets
+- Herpestoidea: hyenas
+- Caniformia: dogs
+- Ursoidea: bears
+- Phocoidea: seals, walrus
+- Musteloidea: skunks, weasels
+Perissodactyla
+- Equidae: horses
+- Tapiridae
+- Rhinocerotidae
+Artiodactyla
+- Tylopoda: camels
+- Suina: pigs
+- Whippomorpha: hippopotamus, whales, dolphins
+- Ruminantia: deers, giraffe

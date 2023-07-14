@@ -16,15 +16,31 @@ Colloid: microscopically dispersed insoluble particles of one substance in anoth
 - Sol: solid dispersed in liquid, e.g. blood / paint / mud
 
 #Matter states - depend on temperature and pressure
+Phase diagram: state as function of temperature and pressure
+- triple point: equilibrium of three states
+- critical point: supercritical fluid
 Solid - fixed shape and volume
 Liquid - fixed volume
 Gas - expand to fill space
 Plasma - contains ions and electrons
+Supercritical fluid
+- at high pressure and temperature
+- properties between liquid and gas
+- in black smokers or atmosphere of Venus + gas giants
 
 #Phase transition - change in state of matter
+- temperatute does not change during change
 Melting/Freezing - Solid/Liquid
 Vaporisation/Condensation - Liquid/Gas
 Ionization/Deionization - Gas/Plasma
+Sublimation/Deposition - Solid/Gas (e.g. CO2)
+Melting/freezing point: temperature at which solid becomes liquid 
+- increases with higher pressure if liquid is denser, otherwise decreases
+Boiling point: temperature at which liquid becomed gas
+- increases with higher pressure
+
+Supercooling: cooling liquid below freezing point but remaining liquid (e.g. water in clouds)
+Superheating: heating liquid over boiling point but remaining liquid
 
 #Separation methods - separate solutions into components
 Distillation - uses difference in boiling temperature
@@ -76,22 +92,130 @@ Conservation of energy - total energy does not change
 Metals: good conductors, ductile, malleable, lustrous
 Nonmetals: poor conductors, brittle
 Semimetals/Metalloids: properties of both metals and nonmetals
-Alkali metals
+Alkali metals: very reactive
 Alkaline earth metals
-Halogens
+Halogens: very reactive
 Noble gases: monatomic, unreactive
 Lanthanides
 Actinides
 
-#Periodic table (Mendeleev): ordering of elements into rows and columns by number of shells and electrons
-Period: row of elements, same number of shells
-Group: column of elements, same number of electrons in outermost shell, have similar chemical properties
+#Alkali metals
+Lithium: red color in fire
+Sodium: yellow color in fire
+Potassium: purple color in fire
 
-#Chemical bonds - single / double / triple
+#Alkaline earth metals
+Calcium: orange color in fire
+Strontium: red color in fire
+
+#Periodic table (Mendeleev): ordering of elements into rows and columns by number of shells and electrons
+Period: row of elements
+- same number of shells
+- ionization energy increases
+Group: column of elements
+- same number of electrons in outermost shell, have similar chemical properties
+- ionization energy decreases
+
+#Atomic radius
+- measured as half of distance between nuclei
+- smallest: He (30 pm), Ne, F, O, N, H, C
+- largest: Cs (300pm), Rb, K, I-
+- larger radius usually means lower ionization energy
+- increases as number of shells grows
+- decreases as nuclear charge increases (# of protons)
+ionic radius: cations are smaller and anions are larger than neutral atom
+van der Waals radius: between unbonded atoms
+
+#Chemical bonds
+- normally only valence electrons are involved in bond
+- bond length decreases and strength increases with higher orders
+- bonds between smaller atoms are usually stronger (bond distance is smaller)
+Lone pair: pair of valence electron not in bond
+Bond order: multiplicity of shared electron pairs, single / double / triple
+Bond polarity: determined by electronegativity
+Bond angle: angle between bonds of atom, depends on number of lone pairs
+Dissociation energy: strength of bond, energy required to break bond
 Ionic: ions of opposite charges, strong electrostatic forces, form crystalline solids
 Covalent: shared pairs of electrons, strong intramolecular and weak intermolecular forces
+Metallic: bonding electrons free to move
 Diatomic molecules: hydrogen, nitrogen, oxygen, fluorine, chlorine, bromine, iodine
 Polyatomic molecules: phosphorus (P4), sulphur (S8)
+Octet rule: bond is stable when atoms get 8 valence electrons (s/p blocks)
+Electronegativity: relative ability of atom to attract electrons in compound
+- highest: F, O, N, Cl, Br
+Oxidation state: hypothetical charge atom in compound would have if every bond was ionic
+Lewis structure: diagram showing bonds in molecule and electron lone pairs
+
+#Molecular orbitals
+- combinations of atomic orbitals
+- delocalized, extend over molecule
+- molecular and atomic orbital counts equal
+- odd number of electrons creates non-integer bond order (e.g. NO)
+Bonding orbital: by adding, lower energy in molecule than atom, contains bond electrons
+Antibonding orbital: by substracting, higher energy in molecule than atom, empty unless excited, marked with * symbol
+Bond order: (bonding - antibonding electrons) / 2
+- e.g. for He2+ bonding order is 1/2 (i.e. stable)
+- e.g. for He2 bonding order is 0 (i.e. not stable)
+Sigma bond: strong, formed by overlapping of single lobes
+Pi bond: formed by overlapping of two lobes
+Delta bond: formed by overlapping of four lobes
+Phi bond: formed by overlapping of six lobes
+
+#Conjugated system
+Resonance/Mesomerisml: combination of several structures, non-integer bond order
+- alternating single and multiple bonds
+- starts and ends with pi bond
+- decreases energy and increases stability
+- electrons are delocalized
+- overlap of orbitals to multiple atoms
+- longer system can capture longer wavelength (lower energy)
+- can absorb visible light to give strong color
+- present in many organical dyes (beta-carotene, porphyrins, phthalocyanine)
+- e.g. benzene or ozone
+
+#Dipole moment
+- vector of electric charge difference (highest in ionic bond, H2O)
+- depends on electronegativity
+- in molecule also depends on bond angles
+- bond dipole moments can cancel in molecule (e.g. CO2)
+- molecule orients itself in electric field
+
+#Free radical
+- molecule containing unpaired electron
+- usually unstable and reactive
+- exhibit paramagnetism
+- e.g. O2 or NO
+
+Diamagnetism: weak repellence from magnetic field
+Paramagnetism: attraction to magnetic field
+
+#Bond angle
+- VSEPR theory: valence shell electron pair repulsion
+- geometry minimizing repulsion between electrons
+- lone pairs take places of bonds
+- double bond repels more than single bond
+- simple model has many exceptions (e.g. H2S)
+2 pairs: linear (180°)
+3 pairs: trigonal planar (120°)
+4 pairs: tetrahedral (109.5°)
+5 pairs: trigonal bipyramidal (120°/90°)
+6 pairs: octahedral (90°)
+
+#Ionic bond
+between metal (cation) and non-metal (anion)
+usually very exothermic
+substance is organized in ordered lattice
+substance is usually brittle, with high melting point
+
+#Covalent bond
+Nonpolar: equally shared electrons
+Polar: one atom has greater attraction
+
+#Hybridization
+- combination of orbitals with similar energy
+- new orbitals have energy and shape in between of originals
+- electron promotion is needed which requires energy
+- new orbitals participate in chemical bonds
 
 #Van der Waals force
 weak interaction between atoms at short distance
@@ -107,10 +231,24 @@ Perspective drawing: shows above and below plane
 Ball-and-stick: 3D, atoms and bonds
 Space filling model: 3D, relative sizes of atoms, without bonds
 
+=Stereochemistry: spatial arrangement of atoms in molecule
+
+#Isomer: same molecular formula but different arrangement of atoms
+Allotropy: element existing in multiple forms in same conditions (e.g. carbon)
+Polymorphism: compoung existing in multiple crystal structures
+Stereoisomerism: isomers differing by 3D molecular structure
+Enantiomer: isomers by mirror image
+
+#Tacticity: position of groups in polymer chain
+Isotactic: all chiral centers with same configuration
+Syndiotactic: alternative configuration along chain
+Atactic: random configuration along chain
+
+
 #Compounds
 Hydrates: contain specific ratios of loosely bound water molecules
-Acids: release hydrogen cations
-Bases: contain hydroxide anion and metal cation
+Acids: contains hydrogen cation, can donate proton
+Bases: contain hydroxide anion and metal cation, can accept proton
 Hydrocarbons: contain only carbon and hydrogen
 
 #Hydrocarbons
@@ -141,6 +279,8 @@ Aufbau principle: lower-energy orbitals are filled before higher-energy
 Hund's rule: every orbital in subshell is half-full before any is full, and with same spin
 Electron configuration: orbital energy rises with increasing n+l, with increasing n, full orbitals
 Valence electrons: electrons in outermost shell
+Shielding effect: inner electrons reduce nuclear charge on outer electrons
+Penetration: proximity of electrons in orbital to nucleus, affected by shielding, determines orbital energy
 
 #Orbital shapes
 s: sphere
@@ -155,6 +295,7 @@ makes/breaks bonds between atoms
 bond making always releases energy
 bond breaking always consumes energy
 does not change number and type of atoms
+energy change is difference between bond energies
 exothermic: reaction produces heat
 endothermis: reaction consumes heat
 
@@ -203,5 +344,32 @@ used to isolate metals from ores
 Synthesis: elements react to form compound
 Decomposition: compound decomposes to elements
 Combustion
-metal + acid -> salt + hydrogen
 Reactivity series: Li, K, Ca, Na, Mg, Al, Ti, Mn, Zn, Cr, Fe, Co, Ni, Sn, Pb, H, Sb, Cu, Ag, Hg, Pt, Au
+
+#Metals
+metal + acid -> salt + hydrogen (M + 2HCl -> MCl2 + H2)
+metal oxid + acid -> salt + water (MO + 2HCl -> MCl2 + H2O)
+
+#Ionization energy
+- energy required to remove electron from atom
+- increases for successive electrons
+- increases drastically for lower shells (noble gas)
+- electrons can be removed in different order than filled (e.g. 4s before 3d)
+Pseudo noble gas configuration: particularly stable (Xd10)
+
+#Electron affinity
+- energy change when electron is added to atom
+- first can be negative (energy is released) or positive
+- second is always positive
+- most negative in halogens
+
+#Chemical vapor deposition
+produces high-quality solid materials
+substrate is exposed to volatile precursors
+byproducts removed by gas flow
+Siemens process: polysilicone production
+- Si + HCl -> SiHCl3 + H2
+- SiHCl3 + HCl -> SiCl4 + H2 (byproducts)
+- SiHCl3 -> Si + HCl + Cl2
+Silane process
+- SiH4 -> Si + H2

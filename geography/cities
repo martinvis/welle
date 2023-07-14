@@ -1,0 +1,60 @@
+#Po
+Torino
+.Milano
+.Parma
+.Modena
+.Ferrara
+
+#Rhine
+Rotterdam
+Düsseldorf
+Cologne
+Bonn
+Main
+- *Mainz/Wiesbaden
+- Frankfurt
+- Hanau [Kinzig]
+- Aschaffenburg
+- Würzburg
+- Bamberg
+- Nuremberg
+Neckar
+- *Mannheim
+- Heidelberg
+- Stuttgart
+Basel
+
+#Weser
+Bremen
+Kassel
+Fulda
+
+#Elbe
+Hamburg
+Magdeburg
+Dresden
+Ústí nad Labem
+.Karlovy Vary [Eger]
+.Prague [Vltava]
+Pardubice
+Hradec Králové
+
+#Danube
+Belgrade
+Budapest
+Komárno
+Bratislava
+Morava
+- .Brno
+- .Zlín
+- Olomouc
+Vienna
+Linz
+Inn
+- *Passau
+- .Salzburg [Salzach]
+- Innsbruck
+Regensburg
+Ingolstadt
+.Augsburg [Lech]
+Ulm

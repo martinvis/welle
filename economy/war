@@ -1,0 +1,221 @@
+NORAD: USA+Canada air defense command, HQ Colorado Springs
+
+#USA
+FBI (Federal Bureau of Investigation): domestic intelligence, Washington DC
+CIA (Central Intelligence Agency): foreign intelligence, Langley, Virginia
+DIA (Defense Intelligence Agency): military intelligence, Washington DC
+NSA (National Security Agency): intelligence, Maryland
+
+#United States bases
+USA
+- Fort Liberty (Bragg), North Carolina
+- Fort Moore (Benning), Alabama/Georgia
+- Fort Cavazos (Hood), Texas
+- Fort Campbell, Kentucky/Tennessee
+Thule, Greenland
+Carribean
+- Guantanamo Bay, Cuba
+Pacific
+- Kadena, Japan
+- Misawa, Japan
+- Yokota, Japan
+Europe
+- Aviano, Italy
+- Ramstein, Germany
+- Spangdahlem, Germany
+- Incirlik, Turkey
+- Lakenheath, UK
+
+#Russia
+GRU: military intelligence agency, Armed Forces
+FSB: security agency, successor to KGB
+
+#Russia bases
+Sevastopol, Crimea (Black Sea fleet)
+Kaliningrad (Baltic fleet)
+Rostov-on-Don (Southern district)
+Yekaterinburg (Central district)
+Saint Petersburg (Western district)
+Severomorsk (Northern district)
+- Murmansk
+Khabarovsk (Eastern district)
+- Vladivostok
+
+#UK
+MI5: domestic intelligence agency
+MI6/SIS: foreign intelligence agency
+
+#Army
+Air force: air warfare
+Air defence: anti-air warfare
+Infantry: ground combat
+Armoured force: armoured vehicles
+Artillery: ranged warfare
+Airborne force: airdropped ground combat
+Navy: naval warfare
+Special forces
+
+#Soldiers
+Paratrooper: airborne forces
+Marine: naval infantry
+Sapper: military engineering, demolition, clearing minefields
+
+#Firearm: barreled ranged weapon
+Revolver: repeating handgun, revolving cylinder with chambers for cartridges
+- Colt
+- Smith and Wesson
+Semi-automatic pistol: handgun, automatic reload
+- Glock: Austria
+- Makarov: USSR
+Semi-automatic rifle: automatic reload
+- M1 Garand: USA
+- Marlin Model 60: USA
+- SKS: USSR
+Sniper rifle: long-range rifle
+Shotgun: numerous small pellet discharge
+Assault rifle: detachable magazine, selective fire
+- Kalashnikov AK-47: USSR
+- M16: USA
+Submachine gun: automatic
+- Uzi: Israel
+- PPSh-41: USSR
+- Thompson: USA
+Machine gun: fully automatic, sustained direct fire
+- M2 Browning: USA
+
+#Artillery
+Cannon: flat trajectory
+Mortar: high-arc trajectory
+Howitzer: between cannon and mortar
+
+#Explosives
+Bomb: explosive weapon, usually airdropped
+Grenade: hand-thrown explosive weapon
+Cluster munition: bomb ejecting explosive bomblets
+Mine: concealed, detonated by pressure
+- Anti-personnel
+- Anti-tank
+- Naval
+
+#Tank: 
+- offensive armoured ground vehicle
+- rotating gun turret
+- tracks instead of wheels for mobility
+#Main battle tank (MBT)
+First generation
+- T34/T54/T55, Soviet Union
+- M47/M48, USA
+- M4 Sherman, USA
+- Panzer/Panther, Germany
+Second generation: night-fighting, NBC protection
+- T62/T64/T72 Soviet Union
+- M60, USA
+- Leopard 1, Germany
+Third generation: composite armour, computer stabilized fire control
+- T80, Soviet Union
+- Leopard 2, Germany
+- Challenger, UK
+- M1 Abrams, USA
+Fourth generation
+- K2 Black Panther, South Korea
+
+#ATGM: Anti-tank guided missile
+Javelin, USA
+Spike, Israel
+Stugna/Skif, Ukraine
+Kornet, Russia
+
+#MANPADS: man-portable surface-to-air missiles
+- threat to low flying aircraft
+Stinger, USA
+Mistral, France
+Igla, USSR
+Verba, Russia
+
+#AGM: air-to-ground missile
+Hellfire: USA
+
+#AAM: Air-to-air missile
+IRIS-T: Germany, also surface-to-air
+
+#Missile guidance: target tracker, missile tracker, guidance computer
+Remote control guidance: guidance computer on launcher, radio
+Homing guidance: guidance computer in missile
+
+#Ballistic missile
+- Tactical: range up to 300km
+- Short-range: up to 1Mm
+- Medium-range: up to 3Mm
+- Intercontinental: range over 5Mm
+Trident, USA, submarine-launched
+Topol, Russia, intercontinental
+Sarmat, Russia, intercontinental
+Minuteman, USA, intercontinental
+Iskander, Russia, short-range
+Kinzhal, Russia, air-based
+Tochka, USSR, tactical
+
+#Cruise missile: against terrestrial or naval targets
+Tomahawk: USA
+Kalibr: Russia
+
+#Missile systems
+S-300/S-400: SAM system, Russia
+Patriot: SAM system, Russia
+THAAD: anti-ballistic missile, USA
+Iron Dome: air defense, Israel
+
+#Warship: naval
+Aircraft carrier: serving as airbase
+Amphibious: landing ground forces
+Battleship: large, armored, powerful guns
+Corvette: small, anti-submarine, patrolling
+Cruiser: medium size
+Destroyer: small size
+Submarine: underwater
+
+Torpedo: underwater, self-propelled
+
+#MLR (Multiple rocket launcher)
+Smerch: USSR
+Grad: USSR
+Uragan: USSR
+Tornado: Russia
+HIMARS: USA, 6 GMLRS / 1 ATACMS missiles
+
+#UAV: unmanned aerial vehicle / drone
+Reaper: USA, high-altitude, reconnaissance
+Bayraktar: Turkey, reconnaissance
+
+#SPAAG: self-propelled anti-aircraft gun
+Gepard: Germany
+Stryker (modified): Canada
+
+#Attack helicopter: against infantry
+Boeing Apache: USA
+Bell Cobra: USA
+Bell Viper: USA
+Kamov Ka-50/52: Russia
+Mil Mi-24/28: Russia
+
+#Utility helicopter: multi-purpose
+Sikorsky Black Hawk: USA
+Mil Mi-8/17: Russia
+
+#Fighter aircraft: air-to-air combat
+Second generation:
+- Mikoyan MiG-21: USSR
+Fourth generation:
+- Mikoyan MiG-29: USSR
+- Sukhoi Su-27/30: USSR
+- McDonnell Douglas F-15: USA
+- General Dynamics F-16: USA
+- Saab Gripen: Sweden
+Fifth generation:
+- Sukhoi Su-57: Russia, stealth
+- Lockheed Martin F-22: USA, stealth
+- Lockheed Martin F-35: USA, stealth
+
+#Electronic warfare: EM spectrum
+Krasukha: Russia
+Borisoglebsk: Russia
