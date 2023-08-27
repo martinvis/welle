@@ -1,6 +1,5 @@
 Pasta with peas and ham/bacon
 Spaghetti ala carbonara
-Pizza
 Risotto
 Fried rice
 
@@ -10,7 +9,10 @@ Sushi
 Ramen
 Pho
 Nasi goreng
+Tandoori Chicken
+Butter Chicken
 Chicken Tikka Masala
+Naan
 Baklava
 Pad Thai
 
@@ -30,7 +32,8 @@ ground meat in ball
 stew: meat + beans
 
 #Chili con carne (Mexico)
-stew: meat + beans + chili
+stew: meat + beans + chili + tomato sauce (+ corn)
+garlic + onion + cumin + sugar
 
 #Coq au vin (France)
 chicken + wine + onion + garlic + mushroom + bacon + bay leaf + thyme
@@ -100,3 +103,9 @@ pan fried
 
 #Jägerschnitzel
 unbreaded cutlet + mushroom sauce
+
+#Potatoes
+Rösti
+- raw grated, squeeze water, pan fry 10-15min / side
+Mashed
+- mash boiled + butter + milk

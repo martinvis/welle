@@ -11,6 +11,40 @@ Communication Services: telecoms, media, entertainment
 Utilities: electricity, gas, water
 Real Estate: industrial, office, residential, retail
 
+#market size
+fertilizers: 200 B$
+soft drinks: 500 B$
+coal: 500 B$
+gambling: 500 B$
+illegal drugs: 500 B$
+pharmaceuticals: 500B$
+- oncology: 100 B$
+advertising: 500 B$
+semiconductors: 500 B$
+plastics: 500 B$
+chemicals: 700 B$
+- sulfuric acid: 15 B$
+furniture: 500 B$
+defense: 700 B$
+- missiles: 50 B$
+tobacco: 1 T$
+electronics: 1 T$
+transportation: 1 T$
+IT: 1 T$
+alcohol: 1.5 T$
+textile: 1.5 T$
+steel: 1.5 T$
+electricity: 2T$
+telecommunication: 2 T$
+media: 2 T$
+automotive: 3 T$
+banking: 7 T$
+oil and gas: 7 T$
+insurance: 10 T$
+agriculture: 10 T$
+healthcare: 10 T$
+construction: 10 T$
+
 #supermarket
 austria: Billa
 france: Carrefour

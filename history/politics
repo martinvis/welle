@@ -1,3 +1,7 @@
+Pan-African colours: green, yellow, red
+Pan-Arab colors: black, white, green, red
+Pan-Slavic colors: blue, white, red
+
 #United Nations (UN)
 General Assembly
 Security council
@@ -61,6 +65,10 @@ OPEC+
 European Union
 = Europe - UK - Norway - Switzerland - Serbia - Bosnia and Herzegovina - Albania - Moldova - Ukraine - Belarus - Russia
 
+EFTA (European Free Trade Association)
+= Norway + Iceland + Switzerland
+part of European Single Market and Schengen Area
+
 Organisation for Economic Co-operation and Development (OECD)
 = NAFTA + UK + EU + Switzerland + Norway + Turkey + Israel + Japan + South Korea + Australia + New Zealand + Chile + Colombia
 
@@ -90,6 +98,10 @@ Gulf Cooperation Council (GCC)
 
 
 
+#ideologies
+Chauvinism: belief in superiority of own group, excessive nationalism
+Nepotism: granting advantage to relatives/friends
+
 #systems
 democracy: elections, freedoms
 - direct: people decide
@@ -114,6 +126,27 @@ majority: minority is unrepresented
 proportional
 - single transferable vote (candidates are ordered, multiple winners)
 - party-list proportional (seats per party by votes)
+
+#ministries
+Agriculture
+Commerce, Economy
+Culture
+Defense, Armed forces
+Education, Science
+Energy
+Environment, Ecology
+Family affair
+Finance, Treasury
+Foreign affairs
+Housing
+Health
+Information, Communications
+Interior, Police
+Justice
+Labour
+Sport
+Tourism
+Transportation
 
 #Spain
 17 communities + 2 autonomous cities (Ceuta, Melilla), 50 provinces

@@ -33,6 +33,12 @@ white solid
 production: CaCO3 -> CaO + CO2 (temperature 900°C)
 basic oxygen steelmaking, cement making, glass making
 
+Calcium chloride (E509)
+CaCl2
+white crystalline solid
+highly soluble in water
+deicing agent (-50°C), dessicant (hygroscopic), dirt road dust control
+
 Sulfuric acid
 H2SO4
 colorless odorless liquid
@@ -58,6 +64,11 @@ highly corrosive
 production: CaF2 + H2SO4 -> 2 HF + CaSO4
 stored in PTFE containers
 
+Hydrochloric acid
+HCl + H2O (up to 38% solution)
+colorless solution, pungent smell
+highly corrosive, component of gastric acid
+
 Nitric acid
 HNO3
 colorless liquid
@@ -67,7 +78,7 @@ production: 3 NO2 + H2O -> 2 HNO3 + NO
 fertilizer production
 
 Formaldehyde
-CH2O
+CH2=O
 colorless gas, pungent smell
 production: 2 CH3OH + O2 -> 2 CH2O + 2 H2O
 aqueous solution (formalin) used to store animal specimens
@@ -79,9 +90,18 @@ sulfuric acid production, ferrovanadium production
 
 Sodium hydroxide
 NaOH
-white solid
-production
-- Chloralkali process: 2NaCl + 2H2O -> Cl2 + H2 + 2NaOH
+white solid, corrosive base, desiccant
+production of paper, bar soap
+drain cleaner (converts fats to soap)
+Chloralkali process: 2NaCl + 2H2O -> Cl2 + H2 + 2NaOH
+- electrolysis, high energy consumption
+
+Potassium hydroxide
+KOH
+white solid, corrosive base, desiccant
+production of liquid soap
+electrolyte in alkaline batteries
+produced by electrolysis of KCl solution
 
 Sodium chlorate
 NaClO3
@@ -191,3 +211,41 @@ refrigerant, banned, damages ozone layer
 Phthalocyanine
 four isoindole units linked in ring by nitrogens
 applications: dyes and pigments
+
+Ethylene glycol
+(CH2-OH)2
+colorless liquid
+antifreeze in coolant
+
+Ammonium nitrate
+NH4 NO3
+white crystalline solid
+highly soluble in water, hygroscopic
+high-nitrogen fertilizer, component in explosives
+
+Methanol
+CH3-OH
+colorless flammable liquid
+ingestion can cause permanent blindness
+production: CO + H2 -> CH3-OH
+
+Ethanol
+CH2-CH2-OH
+colorless flammable liquid
+alcohol, recreational drug
+universal solvent, engine fuel
+disinfectant - dissolves microbe membrane
+produced from sugarcane/corn by fermentation
+
+Acetaldehyde
+CH3-CH=O
+colorless liquid/gas
+precursor to acetic acid, acetate esters
+Wacker process: CH2=CH2 + O2 => CH3-CH=O
+- PdCl2 and CuCl2 as catalysts
+
+Pentaerythritol
+C(CH2-OH)4
+white solid
+synthesis: acetaldehyde + formaldehyde
+used in production of explosives, plastics, paints

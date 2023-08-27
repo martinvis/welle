@@ -102,6 +102,10 @@ S&P (S&P 500 - USA)
 #regulation
 SEC (Securities and Exchange Commission): USA agency, against market manipulation
 
+#US
+FED (Federal Reserve): central banking system
+Fort Knox, Kentucky: vault with gold reserves
+
 #reports
 annual report: for shareholders
 10K: annual report, for SEC
@@ -129,3 +133,52 @@ PEG ratio: P/E divided by EPS growth
 Market cap: total value of company shares
 EV (enterprise value): market value, shareholders + creditors
 Book value: value based on balance sheet, assets minus liabilities
+
+#currencies
+Dinar: Iraq (IQD), Lybia (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denarius]
+Dirham: Morocco (MAD), UAE (AED) [Drachma]
+Dollar: Eastern Caribbean dollar (XCD), Australia (AUD), US (USD), Canada (CAD), New Zealand (NZD), Singapore (SGD) [Taler]
+Euro: Europe (EUR)
+Franc: Switzerland (CHF), West African CFA (XOF), Central African CFA (XAF)
+Krone: Denmark (DKK), Norway (NOK), Sweden (SEK) [crown]
+Leu: Romania (RON), Bulgaria (BGN)
+Peso: Argentina (ARS), Chile (CLP), Colombia (COP), Mexico (MXN), Philippines (PHP) [piece of eight]
+Pound: UK (GBP), Egypt (EGP), Sudan (SDG), Syria (SYP) [libra]
+Rial: Saudi Arabia (SAR), Iran (IRR) [Real]
+Ruble: Russia (RUB)
+Rupee: India (INR), Pakistan (PKR), Indonesia (IDR)
+Shilling: Kenya (KES), Somalia (SOS), Tanzania (TZS), Uganda (UGX)
+Baht: Thailand (THB)
+Birr: Ethiopia (ETB)
+Forint: Hungary (HUF) [Florin]
+Hryvnia: Ukraine (UAH)
+Koruna: Czechia (CZK)
+Lira: Turkey (TRY)
+Naira: Nigeria (NRN)
+Rand: South Africa (ZAR)
+Real: Brazilia (BRL)
+Shekel: Israel (ILR)
+Sol: Peru (PEN)
+Won: Korea (KRW)
+Yen: Japan (JPY)
+Yuan: China (CNY)
+Złoty: Poland (PLN) [gold]
+
+#historic currencies
+Drachma: Greece (GRD)
+Escudo: Spain, Portugal (PTE)
+Frank: France (FRF), Belgium (BEF)
+Guilder: Netherlands (NLG) [gold]
+Kuna: Croatia (HRK)
+Lira: Italy (ITL) [libra]
+Mark: Germany (DEM), Finland (FIM)
+Peseta: Spain (ESP)
+Schilling: Austria (ATS)
+Tolar: Slovenia (SIT)
+Denarius: Roman Empire
+Doubloon: Spain [double]
+Ducat/Sequin: Venice [duke's coin]
+Florin: Florence
+Real: Spain [royal]
+Shekel: Mesopotamia
+Taler: Holy Roman Empire [Joachimsthal]

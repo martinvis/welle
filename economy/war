@@ -1,6 +1,11 @@
 NORAD: USA+Canada air defense command, HQ Colorado Springs
 
 #USA
+Arlington National Cemetery, Virginia
+Gettysburg National Cemetery, Pennsylvania
+West Point, New York: military academy
+
+#USA
 FBI (Federal Bureau of Investigation): domestic intelligence, Washington DC
 CIA (Central Intelligence Agency): foreign intelligence, Langley, Virginia
 DIA (Defense Intelligence Agency): military intelligence, Washington DC
@@ -44,6 +49,43 @@ Khabarovsk (Eastern district)
 #UK
 MI5: domestic intelligence agency
 MI6/SIS: foreign intelligence agency
+
+#UK bases
+HMNB (His Majesty'y Naval Base)
+- Clyde (Scotland, nuclear submarines)
+- Devonport (nuclear repair facility)
+- Portsmouth
+RAF (Royal Air Force)
+
+#Israel
+Mossad: national intelligence agency
+
+#Ranks
+Private/Trooper/Corporal: lowest
+Sergeant: non-commissioned official
+Junior
+- Lieutenant
+Senior
+- Captain
+- Major
+- Colonel
+Flag
+- Brigadier: army
+- Commodore: navy
+- General: army, air forces
+- Admiral: navy, highest
+- Field marshal: army, highest
+
+#Formations
+Squad: <10 soldiers
+Section: 10-20 soldiers
+Platoon: 20-50 soldiers, lieutenant
+Company: 100-250 soldiers, captain
+Battalion: 300-1000 soldiers, major
+Brigade/Regiment: several battalions, lieutenant colonel
+Division: several brigades, colonel
+Corps: several divisions, lieutenant general
+Field army: several corps, general
 
 #Army
 Air force: air warfare
@@ -156,8 +198,12 @@ Kinzhal, Russia, air-based
 Tochka, USSR, tactical
 
 #Cruise missile: against terrestrial or naval targets
+- can fly on non-ballistic and low-altitude trajectory
+Taurus: Europe
 Tomahawk: USA
-Kalibr: Russia
+Kalibr: Russia, supersonic
+Zircon: Russia, hypersonic, anti-ship
+Neptune: Ukraine, anti-ship
 
 #Missile systems
 S-300/S-400: SAM system, Russia
@@ -176,11 +222,12 @@ Submarine: underwater
 
 Torpedo: underwater, self-propelled
 
-#MLR (Multiple rocket launcher)
-Smerch: USSR
-Grad: USSR
-Uragan: USSR
-Tornado: Russia
+#MLRS (Multiple rocket launcher)
+Smerch: USSR, 12 rockets
+Grad: USSR, 40 rockets
+Uragan: USSR, 16 rockets, cluster munition
+Tornado: Russia, 12/40 rockets, cluster munition
+TOS-1: USSR, 24 rockets, thermobaric warheads
 HIMARS: USA, 6 GMLRS / 1 ATACMS missiles
 
 #UAV: unmanned aerial vehicle / drone
@@ -211,6 +258,7 @@ Fourth generation:
 - McDonnell Douglas F-15: USA
 - General Dynamics F-16: USA
 - Saab Gripen: Sweden
+- Eurofighter Typhoon: Europe
 Fifth generation:
 - Sukhoi Su-57: Russia, stealth
 - Lockheed Martin F-22: USA, stealth
@@ -219,3 +267,9 @@ Fifth generation:
 #Electronic warfare: EM spectrum
 Krasukha: Russia
 Borisoglebsk: Russia
+HARM: USA, radar targeting system
+Zoopark: Russia, counter-battery radar
+COBRA: Europe, counter-battery radar
+
+Espionage: obtaining intelligence
+Propaganda: influence

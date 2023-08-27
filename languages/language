@@ -82,9 +82,6 @@ Balochi
 
 #Isolates
 Basque
-Japanese
-Korean
-Mongolian
 
 #Kra–Dai
 Thai
@@ -100,7 +97,7 @@ Yoruba
 Chinese
 Burmese
 
-#Turkic
+#Altaic - Turkic
 Turkish
 Azeri
 Kazakh
@@ -109,6 +106,11 @@ Tatar
 Turkmen
 Uyghur
 Uzbek
+
+#Altaic
+Japanese
+Korean
+Mongolian
 
 #Uralic
 Finnish

@@ -1,3 +1,10 @@
+#
+Gene/Cistron: region of DNA encoding function
+Allele: variation of nucleotides at same position
+Locus: chromosomal position of gene
+
+
+
 #Connective tissue
 Elastic fibers = Fibrillin (FBN1) + Elastin (ELN)
 Collagen fibers = Collagen (COL1)
@@ -32,8 +39,15 @@ Intermediate filament
 Microtubule
 
 
+Mucins (MUC)
+- high molecular weight proteins
+- produced by epithelial tissues
+- form gels, control mineralization
+- defense against infections
+
 Ferritin (FTL/FTH) - intracellular protein, stores iron
 Hemoglobin (HBA/HBB) - transport protein, in erythrocytes, carries oxygen
+- highly soluble in water
 - heme degrades into bilirubin
 
 
@@ -62,6 +76,8 @@ regulatory
 
 Perforin (PRF1), cytolytic protein in granules of cytotoxic lymphocytes
 
+#Proteins
+Myoglobin (MB), in muscle tissue, binds iron and oxygen, stores oxygen
 
 
 Melatonin, controls sleep-wake cycle, synthesized from serotonin
@@ -80,18 +96,24 @@ operates via feedback loops
 ##Pancreas
 Insulin (INS), produced by beta cells in pancreatic islets, lowers glucose level
 Glucagon (GCG), produced by alpha cells in pancreatic islets, raises glucose level
+##Gastrointestinal tract
+Ghrelin (GHRL), increases drive to eat, stimulates secretion of gastric acid
+Somatostatin (SST), produced by delta cells, inhibits INS, GCG, TSH, GH, PRL
 ##Hypothalamus
 links nervous and endocrine systems via hypophysis
 controls body temperature, hunger, thirst, fatigue, circadian rhythm
 Oxytocin (OXT) - role in childbirth, social bonding
-Vasopressin (AVP) - increases amount of water reabsorbed into circulation in kidneys
+Vasopressin (AVP)
+- released in response to hypertonicity
+- increases amount of water reabsorbed into circulation in kidneys
+- constricts arterioles -> raises blood pressure
 Releasing hormons - stimulate/inhibit hormone secretion in hypophysis
 Dopamine
 ##Hypophysis / Pituitary gland
 controls growth, blood pressure, sex organs, temperature regulation, metabolism, pain relief
 releases oxytocin, vasopressin
-Somatotropin/Growth hormone
-Thyroid-stimulating hormone
+Somatotropin/Growth hormone (GHRH)
+Thyroid-stimulating hormone (TSH)
 Prolactin (PRL)
 Adrenocorticotropic hormone - produced in biological stress, stimulates production of melanin
 Gonadotropins - glycoprotein hormones
@@ -101,14 +123,20 @@ Gonadotropins - glycoprotein hormones
 produces melatonin, simulated by darkness and inhibited by light
 has profuse blood flow
 ##Thyroid
-butterfly shaped, two connected lobes
+- butterfly shaped, two connected lobes
 Triiodothyronine (T3) + Thyroxine (T4), tyrosine-based, regulate metabolism, contain iodine
 Levothyroxine = manufactured form of Thyroxine
+Calcitonin, reduces blood calcium
+#Paratryroid
+Parathyrin (PTH), increases blood calcium
 Hashimoto's thyroiditis = autoimmune disease, destroys Thyroid
 #Adrenal glands - above kidneys
 Adrenaline
+Noradrenaline
 Cortisol
 Aldosterone - stimulates Na+ and water reabsorption, K+ and H+ secretion
+#Kidneys
+Erythropoietin (EPO): stimulates red blood cell production
 
 #Huntington's chorea
 type: neurodegenerative disease

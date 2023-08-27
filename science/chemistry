@@ -314,13 +314,62 @@ Stoichiometry: quantity of substances in chemical reactions
 Tiration: determining quantity of substance by adding tirant
 
 #Solutions
+Solvation
+- forces between solvent and solute greater than within solute
+- psysical process, does not involve chemical transformation
+- solids with strong intermolecular bonding are usually insoluble
+- ionic substances are soluble in polar solvents
+- solubility of gases in liquids decreases with temperature
+Hydration: solvation in water
 Solvent: substance in higher amount 
 Solute: substance in lower amount
-Solubility: amount of substance that can be dissolved
+Solubility: amount of substance that can be dissolved, usually increases with temperature
+Saturated solution: solution with maximum amount of solute
 Concentration: quantity of solute in a quantity of solution
 Dilution: lowering concentration by adding solvent
-Molarity (M): number of moles of solute in 1L of solution
 Stock solution: concentrated solution that can be diluted
+Miscibility: ability to mix in all proportions (e.g. water and ethanol)
+Hydrophilic solute: polar, forms hydrogen bonds, soluble in water
+Hydrophobic solute: insoluble in water (soluble in non-polar solvents)
+Relative permittivity / dielectric constant: factor of decrease in electric field between charged particles (high in H2O)
+Henry's law: solubility of gases increases with pressure
+Molarity (M): number of moles of solute in 1L of solution
+Mole fraction: moles of solute to moles of solution
+Mass percentage: mass of solute to mass of solution
+- ppb: parts per billion
+- ppm: parts per million
+Solvation shell: solvent interface of solute, solvent molecules surrounding solute particle
+- Hydration number: number of water molecules bonded to ion
+
+#Heterogenous mixtures
+Colloid: larger particles than in solution, scatters light (smoke, fog, milk, butter)
+Suspension: larger particles than in colloid, separate on standing (blood, paint)
+Micelle
+- lipids soluble in water, e.g. soap
+- lipids aggregate to spheres or cylinders with hydrophobic tails inside
+- phospholipid bilayer in cell membrane
+Tyndall effect: light scattering by colloid particles, shorter wavelength (blue) scatters more
+Coagulation: aggregation of colloid particles
+Dialysis: separation of colloid particles from solution
+
+#Colligative properties
+depend on mass percentage of solutions instead of solute properties
+assumes ideal solution, ignores intermolecular forces
+Raoult's law: decres of vapor pressure (surface area occupied by solute)
+elevation of boiling point
+depression of boiling point
+osmotic pressure
+
+#Osmotic pressure
+pressure to solution preventing flow of solvent through semipermeable membrane
+semipermeable membrane: allows flow of solvent but prevents flow of solute
+osmosis: flow of solvent into solution with higher solute concentration
+- sugar/salt prevent bacteria growth by dehydration (preservatives)
+- salt allows meat to keep more water when cooking (brining)
+reverse osmosis: flow of solvent from solution with higher solute concentration
+- seawater desalinization by applying pressure
+isotonic: no pressure difference between solutions
+hypotonic/hypertonic: solution with lower/higher pressure
 
 #Polar liquids
 adjacent moleculs are held by electrostatic forces
@@ -373,3 +422,44 @@ Siemens process: polysilicone production
 - SiHCl3 -> Si + HCl + Cl2
 Silane process
 - SiH4 -> Si + H2
+
+#Reaction types
+carbonylation: introduces CO
+oxidation: introduces O2
+hydrogenation: introduces H2
+
+#Chemical kinetics
+Reaction rate: change in concentration of reactants and products with time
+- depends on temperature, surface area, concentration, presence of catalyst
+- increases with temperature, can produce different product
+- increases with concentration and surface area
+- decreases with time as reactant concentrations decrease
+- collision frequency * steric factor * fraction of collisions with activation energy
+Zeroth-order reaction: rate is independent of concentration, A = A0 - kt
+- when there is another limiting compound, e.g. catalyst)
+First-order reaction: rate is directly proportional to concentration, ln(A) = ln(A0) - kt
+- when compound is limiting reaction
+Second-order reaction: rate is proportional to square of concentration, 1/A = 1/A0 - kt
+- when two units of compound react together to create product
+- in A+B -> C reactions where A and B are of first-order
+Collision model: reaction can occur only when reactants collide
+- collision frequency increases with reactant size, density and velocity
+- collision frequency = N1*N2 * (r1+r2)^2 * sqrt[(8*π*T*k)/μ] where k = Boltzman constant and μ = reduced mass
+Activation energy: energy particles need to have to react on collision
+Steric factor: fraction of molecule orientations resulting in reaction
+Arrhenius equation: dependence of reaction rate on temperature
+Reaction mechanism: sequece of elementary reactions (intermediate products)
+- slowest step determines reaction rate
+Catalyst: substance increasing reaction rate but not consumed by reaction
+- participates only in same of elementary reactions
+- heterogenous: in different phase, creates adsorption layer on solid (e.g. H2 on metal)
+- homogenous: in same phase, uniformly dispersed
+
+#Chemical equilibrium
+- stable composition in time
+- forward and backward reactions at equal rate
+Law of mass action: reaction rate is proportional to product of concentrations of substances
+Reaction quotient: relative amount of products and reactants for reaction
+Equilibrium constant: value of reaction quatient at equilibrium
+- high when products dominates, low when reactants dominates
+- depends on temperature

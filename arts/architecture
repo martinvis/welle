@@ -56,6 +56,8 @@ Parthenon, Athens
 Erechtheion, Athens
 Temple of Hephaestus, Athens
 
+Herat Citadel, Afghanistan (rebuilt)
+
 #Ancient Arab
 Petra/Raqmu, Jordan
 
@@ -87,8 +89,12 @@ Basilica of Saint Paul Outside the Walls, Rome
 Mausoleum of Qin Shi Huang + Terracotta Army, Xi'an
 Great Wall of China (万里长城)
 
-#Chinese Han
+#Chinese Han (202BC - 220)
 White Horse Temple (白马寺), Luoyang, Henan
+
+#Chinese Northern Wei (386-535)
+Longmen Grottoes (龙门石窟), Luoyang, Henan
+Yungang Grottoes (云冈石窟), Shanxi
 
 #Byzantine (4th-15th century)
 Hagia Sophia, Istanbul
@@ -98,6 +104,8 @@ St. Martin's Cathedral, Mainz
 Speyer Cathedral, Germany
 Trier Cathedral, Germany
 Maria Laach Abbey, Germany
+Naumburg Cathedral, Germany
+Pisa Cathedral + Leaning Tower
 
 #Umayyad (7th-8th century)
 Dome of the Rock, Jerusalem
@@ -107,6 +115,9 @@ Great Mosque of Samarra, Iraq
 Mustansiriya Madrasah, Baghdad
 Mosque of Ibn Tulun, Cairo
 
+#Muslim
+Mausoleums of Multan, Pakistan
+
 #Moorish (711-1492)
 Alhambra + Generalife, Granada
 Mosque–Cathedral of Córdoba
@@ -115,7 +126,6 @@ Mosque–Cathedral of Córdoba
 Three Pagodas of Chongsheng Temple, Dali, Yunnan
 Giant and Small Wild Goose Pagodas, Xi'an
 Leshan Giant Buddha (乐山大佛), Sichuan
-Longmen Grottoes (龙门石窟), Luoyang, Henan
 Anji Bridge (安济桥), Hebei
 
 #Chinese Song (10th-13th century)
@@ -137,7 +147,11 @@ Ranthambore Fort, Rajasthan
 Cliff Palace, Colorado
 
 #Kievan Rus (11-12th century)
-Dormition Cathedral, Vladimir, Russia
+Russia
+- Dormition Cathedral, Vladimir
+- Cathedral of St. Sophia, Novgorod
+Ukraine
+- Cathedral of St. Sophia, Kyiv
 
 #Seljuk (11-13th century)
 Jameh Mosque, Isfahan, Iran
@@ -173,7 +187,8 @@ Shah-i-Zinda, Samarkand, Uzbekistan
 Gur-e-Amir, Samarkand, Uzbekistan
 Hazrat Ali Mazar, Afghanistan
 Mausoleum of Khoja Ahmed Yasawi, Kazakhstan
-Goharshad Mosque, Iran
+Goharshad Mosque, Mashad, Iran
+Amir Chakhmaq Complex, Yazd, Iran
 
 #Chinese Ming (14th-17th century)
 Great Wall of China
@@ -184,6 +199,7 @@ Temple of Heaven (天坛), Beijing
 Kremlin, Moscow
 Saint Basil's Cathedral, Moscow
 Novodevichy Convent, Moscow
+Pochaiv Lavra, Ukraine
 
 #Ottoman (14th-17th century)
 Blue Mosque, Istanbul
@@ -193,18 +209,27 @@ Süleymaniye Mosque, Istanbul
 Machu Picchu, Peru
 
 #Renaissance (15-16th century)
-Château de Chambord, France
-Château de Chenonceau, France
-El Escorial, Madrid
+France - Loire
+- Château d'Amboise
+- Château de Chambord
+- Château de Chenonceau
 Florence Cathedral, Florence
 Basilica Palladiana, Vicenza, Italy
 St. Peter's Basilica, Vatican
 Marciana Library, Venice
 Esztergom Basilica, Hungary
+Schloss Johannisburg, Aschaffenburg
 
 #Manueline (16th century)
 Belém Tower, Lisbon
 Jerónimos Monastery, Lisbon
+
+#Herrerian (16th century)
+Spain
+- Alcázar de Segovia
+- Valladolid Cathedral
+- El Escorial, Madrid
+- Palacio Real de Aranjuez, Madrid
 
 #Safavid (1501-1722)
 Ali Qapu Palace, Isfahan, Iran (1597)
@@ -215,7 +240,8 @@ Shah Mosque, Isfahan, Iran (1611-1629)
 Taj Mahal, Agra
 Tomb of Itmad-ud-Daulah, Agra
 Agra Fort, Agra
-Badshahi Mosque, Lahore
+Badshahi Mosque + Lahore Fort, Lahore
+Tomb of Jahangir, Lahore
 Bibi Ka Maqbara, Aurangabad
 
 #Baroque (17th-18th century)
@@ -227,9 +253,27 @@ Grassalkovich Palace, Bratislava
 Versailles, Paris
 Louvre, Paris
 Les Invalides, Paris
-Fulda Cathedral, Germany
-Hercules Monument, Kassel
+Dresden
+- Dresden Castle
+- Zwinger
+- Frauenkirche
+Germany
+- Bad Homburg Castle (White Tower), Hessen
+- Neues Schloss, Stuttgart
+- Fulda Cathedral
+- Hercules Monument, Kassel
+- Moritzburg Castle
+- Würzburg Residence
+Kloster Einsiedeln, Switzerland
 Santiago de Compostela Cathedral, Spain
+Palacio Real, Madrid
+St. George's Cathedral, Lviv
+Reggia di Caserta, Italy
+
+#Rococo (18th century)
+Sanssouci, Potsdam, Germany
+Schloss Charlottenburg, Berlin
+Palácio de Queluz, Lisbon
 
 #Qajar (18-19th century)
 Nasir-ol-Molk Mosque, Shiraz, Iran
@@ -237,6 +281,7 @@ Nasir-ol-Molk Mosque, Shiraz, Iran
 #Neoclassical (18th-19th century)
 Arc de Triomphe du Carrousel, Paris
 Panthéon, Paris
+Victor Emmanuel II Monument, Rome
 British Museum, London
 St. Stephen's Basilica, Budapest
 Austrian Parliament Building, Vienna
@@ -250,13 +295,33 @@ United States Capitol, Washington D.C. (1793-1800)
 Statue of Liberty, New York (1886)
 Lincoln Memorial, Washington D.C. (1914–1922)
 
+#Eclecticism, mix of styles (19th century)
+Germany
+- Semperoper, Dresden
+- Schweriner Schloss
+Lednice–Valtice Area, Czechia
+Ascension Cathedral, Almaty
+
+#Byzantine Revival (19th century)
+St Volodymyr's Cathedral, Kyiv
+Alexander Nevsky Cathedral, Sofia
+Kronstadt Naval Cathedral, Kotlin, Saint Petersburg
+Sacré-Cœur, Montmartre, Paris
+
 #Gothic Revival (19th century)
-Palace of Westminster, London (1840–1876)
-Big Ben, London (1843-1859)
+London
+- Palace of Westminster (1840–1876)
+- Big Ben (1843-1859)
+- Tower Bridge (1886–1894)
 Votivkirche, Vienna (1856-1879)
 City Hall, Vienna (1872-1883)
 Hungarian Parliament, Budapest (1885–1904)
-Tower Bridge, London (1886–1894)
+Miramare Castle, Trieste, Italy
+Germany
+- Burg Hohenzollern
+- Marktkirche, Wiesbaden
+- Reichsburg Cochem
+Lednice Castle, Czechia
 
 #Baroque Revival
 Palais Garnier, Paris
@@ -265,12 +330,16 @@ Széchenyi thermal bath, Budapest
 #Romanesque Revival
 Fisherman's Bastion, Budapest (1851)
 Neuschwanstein Castle, Germany (1886)
+Schloss Wernigerode, Germany
+Church of the Redeemer, Bad Homburg, Germany (1908)
 
 #Russian Revival
 Cathedral of Christ the Saviour, Moscow
 State Historical Museum, Moscow
 Winter Palace, Saint Petersburg
 Church of the Savior on Spilled Blood, Saint Petersburg
+St. Panteleimon's Cathedral, Kyiv
+Uspenski Cathedral, Helsinki
 
 #Manueline Revival
 Quinta da Regaleira, Sintra (1904–1910)
@@ -387,13 +456,20 @@ Cantilever
 Through arch
 - Sydney Harbour Bridge, Australia
 - Chaotianmen Bridge, Chongqing, China
-Arch
 - Most Apollo, Bratislava
+Arch
 - Rialto Bridge, Venice
 - Si-o-se-pol, Isfahan
 - Khaju Bridge, Isfahan
+- Alte Mainbrücke, Würzburg
+- Karlův most, Prague
+- Ponte Sant'Angelo, Rome
+Tied arch
+- Hohenzollern Bridge, Cologne
 Bascule/Suspension
 - Tower Bridge, London
+Double-deck
+- Oberbaum Bridge
 Double-deck arch
 - Dom Luís I Bridge, Porto, Portugal
 Truss arch
@@ -440,25 +516,34 @@ Mysore Palace, India
 Mehrangarh Fort, Jodhpur, India
 Himeji Castle, Japan
 Grottoes of Catullus, Sirmione, Italy
-Sanssouci, Potsdam, Germany
 Castles of Bellinzona, Switzerland
 Carcassonne, France
+
+#High Middle Ages - Castles (11th-14th century)
+Bratislava Castle, Slovakia
+Bojnice Castle, Slovakia
+Červený Kameň Castle, Slovakia
+Devín Castle, Slovakia
+Orava Castle, Slovakia
+Spiš Castle, Slovakia
+Trenčín Castle, Slovakia
+Mikulov Castle, Czechia
+Germany
+- Festung Marienberg, Würzburg
+- Heidelberger Schloss
+- Wartburg, Eisenach
+- Plassenburg, Kulmbach
+Burg Hochosterwitz, Austria
+Burg Kreuzenstein, Austria
+Burg Liechtenstein, Austria
+Festung Hohensalzburg, Austria
+Gravensteen, Ghent, Belgium
 
 #Romanesque+Gothic
 Corvin Castle, Romania
 
-#High Middle Ages - Castles (11th-14th century)
-Spiš Castle, Slovakia
-Bojnice Castle, Slovakia
-Devín Castle, Slovakia
-Orava Castle, Slovakia
-Červený Kameň Castle, Slovakia
-Trenčín Castle, Slovakia
-
 Bran Castle, Romania
 Peleș Castle, Romania
-Bratislava Castle, Slovakia
-Lednice–Valtice Area, Czechia
 Wawel Castle, Krakow
 Castillo de Coca, Spain
 Komárno fortification system
@@ -466,6 +551,7 @@ Baba Vida, Bulgaria
 Saint George's Castle, Lisbon
 Castle of Leiria, Portugal
 Klis Fortress, Split, Croatia
+Malbork Castle, Poland
 
 #Skyscrapers
 China: Hong Kong, Shenzen, Shanghai, Guangzhou, Wuhan, Chongqing, Chengdu, ...
