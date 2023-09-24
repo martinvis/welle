@@ -1,0 +1,308 @@
+#Mammalia
+Monotremata
+- Ornithorhynchidae: platypus
+- Tachyglossidae: echidnas
+Marsupialia
+- Didelphimorphia: opossums
+- Dasyuromorphia: quolls, numbat
+- Peramelemorphia: bandicoots
+- Diprotodontia: wombats, koala, kangaroos
+Placentalia
+- Xenarthra
+- Afrotheria
+- Laurasiatheria
+- Euarchontoglires
+
+#Xenarthra: neotropic
+Cingulata: armadillos
+Vermilingua: anteater
+Folivora: sloths
+
+#Afrotheria
+Tubulidentata: aardvark
+Afrosoricida: tenrecs
+Macroscelidea: elephant shrews
+Hyracoidea: hyrax
+Proboscidea: elephant
+Sirenia: manatees
+
+#Euarchontoglires
+Lagomorpha
+- Ochotonidae: pika
+- Leporidae: rabbits, hares
+Rodentia
+- Sciuromorpha: squirrels
+- Myomorpha: mice
+- Hystricomorpha: porcupines
+- Castorimorpha: beavers
+- Anomaluromorpha
+Dermoptera: colugo
+Primates
+- Simiiformes: monkeys
+- Tarsiiformes: tarsiers, small, big eyes
+- Lemuriformes
+
+#Sciuromorpha: hibernation
+Aplodontiidae: mountain beaver
+Gliridae: dormouse, nocturnal
+Sciuridae: squirrels
+- Cynomys: prairie dog
+- Marmota: marmots, large ground squirrels
+- Tamias: chipmunks, ground squirrels
+- Pteromys: flying squirrels, nocturnal
+- Ratufa: cat-sized, tree squirrels
+- Sciurus: bushy-tailed, tree squirrels
+
+#Castorimorpha
+Castoridae: beaver, large, semiaquatic, construct dam
+Geomyidae: gopher, burrowing
+Heteromyidae: kangaroo mice, pocket mice
+
+#Hystricomorpha
+Erethizontidae: new world porcupines, large
+Hystricidae: porcupines, large
+Caviidae
+- Hydrochoerus: capybara, large
+- Cavia: guinea pigs
+- Dolichotis: mara, large
+Chinchillidae
+Octodontidae: degus
+Echimyidae: spiny rats
+Dasyproctidae: agoutis
+Cuniculidae: pacas, dotted/striped, large
+Bathyergidae: mole rats, burrowing
+Thryonomyidae: cane rats
+
+#Myomorpha
+Dipodidae: jerboas
+Zapodidae: jumping mice
+Cricetidae
+- Cricetus: hamster
+- Ondatra: muskrat
+- Lemmus: lemming
+- Arvicola: water voles
+Muridae
+- Gerbillus
+- Mus: mouse
+- Rattus: rat
+- Acomys: spiny mouse
+
+#Simiiformes
+Hylobatidae
+- Symphalangus: siamang
+- Hylobates: gibbon
+Hominidae
+- Pongo: orangutan
+- Gorilla
+- Pan: chimpanzee
+Cercopithecidae
+- Papio: baboon
+- Theropithecus: gelada
+- Mandrillus
+- Macaca: macaque
+- Allenopithecus
+- Erythrocebus: patas monkeys
+- Colobus
+- Nasalis: proboscis monkey
+- Pygathrix: doucs
+--
+Atelidae
+- Ateles: spider monkey
+- Lagothrix: woolly monkey
+Pitheciidae
+- Pithecia: sakis
+- Cacajao: uakari (red facial skin)
+Cebidae
+- Cebus: capuchin monkeys
+- Saimiri: squirrel monkeys
+Callitrichidae
+- Saguinus: tamarins
+- Leontopithecus: lion tamarins
+
+#Lemuriformes
+Indriidae
+- Avahi: woolly lemurs
+- Indri
+- Propithecus: sifaka
+Lorisidae: loris
+Galagidae: galagos
+Lemuridae: lemurs
+Daubentonia: aye-aye
+Cheirogaleidae: mouse lemurs
+Lepilemuridae: sportive lemurs
+
+#Laurasiatheria
+Eulipotyphla
+- Solenodontidae
+- Erinaceidae: hedgehogs
+- Soricidae: shrews
+- Talpidae: moles
+--
+Chiroptera: bats
+--
+Carnivora
+- Cynoidea: dogs
+- Ursoidea: bears
+- Musteloidea: skunks, weasels
+--
+- Feloidea: cats
+- Viverroidea: civets
+- Herpestoidea: hyenas
+--
+- Phocoidea: walrus
+- Otarioidea: seals
+Pholidota: pangolins
+- Manidae
+Perissodactyla
+- Equidae: horses
+- Tapiridae
+- Rhinocerotidae
+Artiodactyla
+- Tylopoda: camels
+- Suina: pigs
+- Whippomorpha: whales
+- Ruminantia: deers
+
+#Viverroidea
+Nandiniidae: African palm civet
+Viverridae: civets
+
+#Otarioidea
+Odobenidae: walrus
+Otariidae: eared seals
+
+#Phocoidea
+Phocidae: earless seals
+
+#Herpestoidea
+Hyaenidae: hyenas
+- Crocuta: spotted hyena
+- Hyaena: striped hyena
+- Proteles: aardwolf
+Herpestidae
+- Suricata: meerkat
+- Herpestes: mongoose
+- Mungos
+Eupleridae
+- Cryptoprocta: fossa
+
+#Musteloidea
+Ailuridae: red panda
+Mephitidae: skunks
+Mustelidae
+- Meles: badger
+- Arctonyx: hog badger
+- Mellivora: honey badger
+- Mydaus: stink badger
+- Taxidea: american badger
+- Lutra: otter
+- Enhydra: sea otter
+- Gulo: wolverine
+- Martes: marten
+- Mustela: weasel
+Procyonidae
+- Procyon: raccoon
+- Nasua: coati
+- Bassaricyon: olingo
+- Potos: kinkajou
+
+#Feloidea
+Felidae
+- Panthera: lion, tiger, leopard, jaguar
+- Neofelis: clouded leopard
+- Acionyx: cheetah
+- Felis
+- Pardofelis: marbled cat
+- Caracal
+- Herpailurus: jaguarundi
+- Leopardus: ocelot
+- Leptailurus: serval
+- Lynx
+- Puma
+Prionodontidae: lisang
+
+#Cynoidea
+Canidae
+- Canis: wolf, jackal, coyote
+- Cuon: dhole
+- Lupulella: jackal
+- Lycaon: african wild dog
+- Chrysocyon: maned wolf
+- Nyctereutes: raccoon dog
+- Vulpes: fox, fennec
+- Otocyon: bat-eared fox
+
+#Ursoidea
+Ursidae
+- Ailuropoda: panda
+- Tremarctos: spectacled bear
+- Melursus: sloth bear
+- Helarctos: sun bear
+- Ursus: bear
+
+#Ruminantia
+Tragulidae: mouse-deer
+Antilocapridae: pronghorn
+Cervidae: deer
+- Alces: moose
+- Rangifer: reindeer
+- Odocoileus: white-tailed deer
+- Mazama: brocket
+- Pudu: small
+- Blastocerus: marsh deer
+- Elaphodus: tufted deer
+- Muntiacus
+- Dama: fallow deer
+- Axis: chital
+- Rucervus: barasingha
+- Cervus: deer
+Bovidae
+- Aepyceros: Impala
+--
+- Alcelaphus: Hartebeest
+- Connochaetes: Wildebeest
+- Beatragus: Hirola
+--
+- Antidorcas: Springbok
+- Antilope: Blackbuck
+- Gazella
+- Litocranius: Gerenuk
+- Saiga
+- Madoqua: Dik-dik
+--
+- Redunca: Reedbuck
+--
+- Oryx
+- Addax
+- Hippotragus
+--
+- Cephalophus: Duiker
+--
+- Ovis: Sheep
+- Ovibos: Muskox
+- Budorcas: Takin
+- Capra: Goat/Ibex
+- Rupicapra: Chamois
+- Pantholops: Tibetan antelope
+- Hemitragus: Tahr
+--
+- Bos: Yak
+- Bubalus: Water buffalo
+- Syncerus: African buffalo
+- Bison
+- Tragelaphus: Kudu/Nyala
+- Boselaphus: Nilgai
+- Pseudoryx: Saola
+- Taurotragus: Eland
+
+#Tylopoda
+Camelidae
+- Lama
+- Camelus
+
+#Suina
+Tayassuidae: peccary
+Suidae
+- Sus: pig/boar
+- Phacochoerus: warthog
+- Babyrousa

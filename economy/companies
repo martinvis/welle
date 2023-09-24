@@ -59,6 +59,7 @@ germany: Hornbach, Tengelmann (KiK, Obi)
 usa: Home Depot, Lowe's
 
 #automobile
+china: SAIC, Dongfeng, FAW, Chang'an, BAIC, BYD, GAC, Geely
 france: Renault
 germany: Volkswagen (Audi, Porsche), BMW, Daimler (Mercedes-Benz)
 japan: Toyota, Honda, Mazda, Mitsubishi, Nissan, Subaru, Suzuki
@@ -167,6 +168,7 @@ usa: Apple, Cisco, Dell, HP, Xerox
 germany: Siemens
 india: Tata Group
 usa: General Electric, Honeywell
+vietnam: Vingroup
 
 #semiconductors
 taiwan: TSMC

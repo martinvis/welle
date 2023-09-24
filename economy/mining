@@ -1,37 +1,53 @@
-#Iron
+#Iron: 2.5Gt
 hematite, magnetite
-Australia, Brazil, China, India
+production: Australia (1Gt), Brazil, China, India
 
-#Copper
-chalcopyrite, chalcocite
-Chile, Peru, China
-
-#Aluminium
+#Aluminium: 70Mt
 bauxite
-China
+production: Australia (20Mt), China
 
-#Titanium
+#Chromium: 45Mt
+production: South Africa (20Mt), Turkey, Kazakhstan, India
+
+#Copper: 20Mt
+chalcopyrite, chalcocite
+production: Chile (6Mt), Peru, China
+
+#Manganese: 20Mt
+production: South Africa (6Mt), China, Australia, Gabon
+
+#Zinc: 13Mt
+production: China (4Mt), Peru, Australia
+
+#Titanium: 10Mt
 ilmenite
-China, Australia, Canada, Mozambique, South Africa
+production: China (3.5Mt), Mozambique, South Africa, Australia
 
-#Lithium
-Australia, Chile, China
+#Nickel: 3Mt
+production: Indonesia (800kt), Philippines, Russia
 
-#Nickel
-Indonesia, Philippines, Russia
+#Tin: 300kt
+cassiterite
+production: China (85kt), Indonesia, Myanmar
 
-#Chromium
-South Africa, Turkey, Kazakhstan
+#Cobalt: 200kt
+production: DR Congo (130kt)
 
-#Platinum (PGM)
-South Africa, Russia
+#Lithium: 130kt
+production: Australia (60kt), Chile, China
 
-#Cobalt
-DR Congo
-
-#Uranium
-production: Kazakhstan, Namibia, Canada
+#Uranium: 50kt
+production: Kazakhstan (20kt), Namibia, Canada, Australia
 reserves: Australia, Kazakhstan, Canada, Russia
+
+#Silver: 25kt
+production: Mexico (6kt), China, Peru
+
+#Gold: 3kt
+production: China (300t), Australia, Russia, Canada
+
+#Platinum (PGM): 200t
+production: South Africa (120t), Russia, Zimbabwe
 
 #Rare-earth element (REE): lanthanides
 production: China, Australia

@@ -1,0 +1,109 @@
+#Realm
+Holarctic = Palearctic + Nearctic
+Palearctic: Europe + North Asia + North Africa
+- Sahara
+- Arabia
+- Mediterranean
+- British Isles
+- European Plain
+- European Mountains
+- Eurasian Steppe
+- Japanese Islands
+- Tibet
+- Manchuria
+- Chinese Plain
+- Gobi + Taklamakan
+- Scandinavia
+- Siberia
+- Persia
+- Central Asia
+Nearctic: North America
+- Coastal Plain
+- Appalachians
+- Great Lakes
+- Great Plains
+- Rocky Mountains
+- Canada + Alaska
+- Cascadia
+- California
+- Sonora + Mojave + Chihuahua
+Neotropic: Central and South America
+- Carribean
+- Isthmus: Central America
+- Amazonia
+- Cerrado
+- Andes
+- Pampas
+- Orinoco
+Afrotropic: Sub-Saharan Africa
+- Sahel
+- Horn of Africa
+- African Jungle
+- African Savanna
+- Madagascar
+- Kalahari + Karoo
+Indomalaya: South + Southeast Asia
+- India
+- Indochina
+- Philippines
+- Java + Sumatra + Borneo
+Australasia
+- Australia
+- New Guinea
+- New Zealand
+- Wallacea: Sulawesi
+Oceania
+Antarctica
+
+#Holarctic
+mammals: Wolf, Red fox, Brown bear, Red deer, Elk, Lynx
+
+#Palearctic
+reptiles: Vipers
+
+#Nearctic
+reptiles: Rattlesnakes
+
+#Wallacea
+mammals: Anoa (dwarf buffalo), Babirusa
+reptiles: Komodo dragon
+birds: Maleo
+
+#New Guinea
+mammals: Tree-kangaroos, Echidnas, marsupials, mice, bats
+birds: Crowned pigeon, Papuan eagle, Cassowary
+
+#Australia
+mammals: Platypus, Echidnas, Tasmanian devil, Koala, Kangaroo, marsupials, Dingo, mice, bats
+birds: Emu, Cassowary, Lyrebird, Cockatiel, cockatoos, Black swan
+reptiles: Taipans, Thorny devil
+
+#New Zealand
+birds: Kakapo, Kea, Kiwi
+reptiles: Tuatara
+
+#Indomalaya
+reptiles: King cobra, Pythons, Dracos
+
+#India
+mammals: Blackbuck, Bengal tiger
+birds: Peacock
+
+#Afrotropic
+mammals: Hippopotamus, African buffalo, Leopard, African elephant, Hyraxes, Aardvark, Honey badger, Cheetah, Warthog
+birds: Ostrich, Crowned crane, Secretary bird
+reptiles: Chameleons, Mambas, Pythons
+
+#African Savanna
+mammals: Lion, Giraffe, Zebra, Rhinoceros, Impala
+
+#African Jungle
+mammals: Chimpanze, Gorilla, Okapi
+birds: Grey parrot
+
+#Madagascar
+mammals: Lemurs, Fossa
+
+#Neotropic
+birds: Aras, Toucans
+reptiles: Boas

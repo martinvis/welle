@@ -19,7 +19,7 @@ credit rating agency: company assigning credit ratings
 credit rating: evaluation of credit risk of debtor
 credit risk: likelihood of debtor defaulting
 default: failure to meet obligations of debt
-bankruptcy: process enabling debtor in default to seek relief from part of debt
+bankruptcy: process enabling debtor in default to seek relief on part of debt
 
 #investment
 advisory shares: equity compensation to non-employee
@@ -101,6 +101,7 @@ S&P (S&P 500 - USA)
 
 #regulation
 SEC (Securities and Exchange Commission): USA agency, against market manipulation
+FINRA: self-regulatory organization, brokerage firms and exchange markets
 
 #US
 FED (Federal Reserve): central banking system
@@ -110,6 +111,12 @@ Fort Knox, Kentucky: vault with gold reserves
 annual report: for shareholders
 10K: annual report, for SEC
 10Q: quarterly report, for SEC 
+
+#financial statements
+balance sheet: summary of assets/liabilities at specific date
+cash flow statement: changes in balance sheet over period (operations view)
+income statement: profit and loss over period (earnings view)
+statement of equity: changes in equity over period (financial health view)
 
 license: permission to use something
 franchising: business expansion via licenses
@@ -182,3 +189,44 @@ Florin: Florence
 Real: Spain [royal]
 Shekel: Mesopotamia
 Taler: Holy Roman Empire [Joachimsthal]
+
+#banking families
+Medici: 15th century, Florence
+Fugger: 15-16th century, Augsburg
+Welser: 16th century, Augsburg + Nuremberg
+Warburg: 16th century, Hamburg
+Rothschild: 19th century, Frankfurt
+Mellon: 19-20th century, Pittsburgh
+Morgan: 19-20th century, New York
+
+#big companies
+UK, 19-20th century
+- De Beers: diamonds, Cecil Rhodes
+USA, 19-20th century
+- railroads, Cornelius Vanderbilt
+- Standard Oil: petroleum, John D. Rockefeller
+- U.S. Steel: steel, Andrew Carnegie
+- DuPont: chemicals, Éleuthère Irénée du Pont de Nemours
+- Bell System: telecommunication, Alexander Graham Bell
+- General Electric: appliances, Thomas Edison
+- Kodak: photography, George Eastman
+- Ford: vehicles, Henry Ford
+USA, 21th century
+- News Corporation: mass media, Rupert Murdoch
+- Microsoft: operating system, Bill Gates
+- Google: search engine, Larry Page + Sergey Brin
+- Apple: mobile phones, Steve Jobs
+- Amazon: e-commerce, Jeff Bezos
+- Facebook: social media, Mark Zuckerberg
+- Tesla: electric vehicles, Elon Musk
+
+#tax
+Progressive tax: increases with taxable amount, tax brackets
+Income tax: on personal income
+- tax withholding: paid by payer, on interests / dividends
+Corporate tax: on profit
+Value-added tax (VAT): on price of product
+- 19% to 25% in EU
+- often reduced on food, books etc
+Wealth tax: on assets / net worth
+Property tax: on property

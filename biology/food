@@ -169,3 +169,25 @@ Orange
 =Pomes
 Apple
 Pear
+
+=Food additives
+E1xx: colors
+- E100: curcumin
+- E101: riboflavin
+- E102: tetrazine
+- E120: carmine
+- E174: silver
+- E175: gold
+E2xx: preservatives
+- E249: potassium nitrite
+- E250: sodium nitrite
+- E251: sodium nitrate
+- E252: potassium nitrate
+E3xx: antioxidants, acidity regulators
+- E300: vitamin C
+E4xx: emulsifiers, stabilisers
+E5xx: acidity regulators, anticaking agents
+E6xx: flavor enhancers
+- E621: monosodium glutamate (MSG)
+E7xx: antibiotics
+E9xx: glazing agents, sweeteners

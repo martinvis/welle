@@ -10,8 +10,14 @@ Elastic fibers = Fibrillin (FBN1) + Elastin (ELN)
 Collagen fibers = Collagen (COL1)
 
 #Muscle tissue
+Striated: cardiac and skeletal
+- Sarcomere: smallest functional unit
+Cardiac: involuntary, wall of heart
+Skeletal: voluntary, attached to skeleton
+Smooth: walls of hollow organs
 Actin + Myosin: muscle contraction
-Troponin + Tropomyosin: regulatory
+Troponin + Tropomyosin: regulate muscle contraction
+- Troponin only in skeletal/cardiac muscles
 Titin (TTN), giant size, molecular spring
 
 #Nervous tissue
@@ -87,7 +93,7 @@ Niacin = Vitamin B3, synthesized from tryptophan via Kynurenine
 
 Norepinephrine = Noradrenaline, precursor is phenylalanine, increases alertness and heart rate / blood pressure
 Epinephrine = Adrenaline, precursor is phenylalanine, increases blood flow to muscles and blood sugar level
-Melanin, precursor is phenylalanine, pigment, protection against UV radiation
+Melanin, precursor is tyrosine, pigment, protection against UV radiation
 Dopamine (DA), precursor is phenylalanine, neurotransmitter, part of reward system, dysfunction causes Parkinson's disease
 
 ###Endocrine system
@@ -129,7 +135,6 @@ Levothyroxine = manufactured form of Thyroxine
 Calcitonin, reduces blood calcium
 #Paratryroid
 Parathyrin (PTH), increases blood calcium
-Hashimoto's thyroiditis = autoimmune disease, destroys Thyroid
 #Adrenal glands - above kidneys
 Adrenaline
 Noradrenaline
@@ -143,12 +148,6 @@ type: neurodegenerative disease
 symptoms: uncoordinated hyperkinetic movements, dementia
 cause: inherited, excessive CAG repeats in Huntingtin gene (HTT)
 mechanism: damage in basal ganglia
-
-#Parkinson's disease
-type: neurodegenerative
-symptoms: tremor, slowness of movement, dementia
-cause: misfolded proteins
-mechanism: cell death in basal ganglia
 
 #Tourette syndrome
 type: neurodevelopmental
@@ -175,6 +174,11 @@ symptoms: immunodeficiency, underdeveloped thymus
 mechanism: accumulation of deoxyadenosine, buildup of dATP in cells
 cause: recessive inherited, mutation in ADA gene
 
+#Wilson's disease
+symptoms: vomiting, edema, jaundice, tremors
+mechanism: copper buildup, liver damage
+cause: recessive inherited, mutation in WND gene
+
 ##Amino acids
 
 #non-essential
@@ -199,3 +203,6 @@ Isoleucine
 Histidine
 Lysine
 
+
+#Ascorbic acid / Vitamin C
+C4O-OH-OH=O-(CH-OH-CH2-OH)

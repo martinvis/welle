@@ -93,6 +93,17 @@ Solifugae
 Acariformes: mites
 Parasitiformes: ticks
 
+#Araneomorphae
+Araneidae: orb-weavers, flat webs
+Gnaphosidae: ground spiders, hunt at night, no webs
+Linyphiidae: sheet weavers, small, webs
+Lycosidae: wolf spiders, hunt, no webs
+Salticidae: jumping spiders, large central pair of eyes
+Sparassidae: huntsman spiders, big, hairy, no webs
+Theridiidae: tangle-web spiders
+Thomisidae: crab spiders, ambush predators, two front legs larger, no webs
+Zodariidae: ant spiders, mimic and hunt ants
+
 #Paraneoptera
 Psocodea: lice
 Hemiptera: true bugs
@@ -101,6 +112,12 @@ Hemiptera: true bugs
 - Coleorrhyncha: moss bugs
 - Heteroptera
 Thysanoptera: thrips
+
+#Heteroptera
+Cimicidae: bedbugs, parasitic, feed on blood
+Reduviidae: assassin bugs, ambush predators, curved proboscis
+Pentatomidae: shield bugs, mostly herbivore, triangular scutellum, pungent defensive spray
+Gerridae: water striders, walk on water, mostly freshwater, hydrophobic hair
 
 #Endopterygota
 Panorpida
@@ -163,7 +180,7 @@ Squamata
 - Scincomorpha: skinks
 - Laterata: lizards
 - Serpentes: snakes
-- Iguania: iguanas, chameleons
+- Iguanomorpha: iguanas
 - Anguimorpha: varans
 Testudines: turtles, hard shell
 - Cryptodira: hidden-necked
@@ -172,6 +189,28 @@ Crocodilia: crocodiles
 - Crocodylidae
 - Alligatoridae
 - Gavialidae
+
+#Iguanomorpha
+Agamidae: agamas
+- Agama
+- Moloch: thorny devil
+- Chlamydosaurus: frilled lizard
+- Draco: flying lizards
+Chamaeleonidae: chameleons
+Dactyloidae: anoles
+Iguanidae: iguanas
+
+#Serpentes
+Boidae: boas, not venomous
+Pythonidae: pythons, not venomous
+Viperidae: vipers, venomous
+- Crotalus: rattlesnakes
+- Vipera: Adder
+Colubridae: not venomous
+Elapidae: venomous
+- Naja: cobras
+- Dendroaspis: mambas
+- Oxyuranus: taipans
 
 #Aves
 Bucerotiformes
@@ -202,71 +241,3 @@ Passeriformes
 Estrildidae
 - Taeniopygia: zebra finch
 
-#Mammalia
-Monotremata
-- Ornithorhynchidae: platypus
-- Tachyglossidae: echidnas
-Marsupialia
-- Didelphimorphia: opossums
-- Dasyuromorphia: quolls, numbat
-- Peramelemorphia: bandicoots
-- Diprotodontia: wombats, koala, kangaroos
-Placentalia
-- Xenarthra
-- Afrotheria
-- Laurasiatheria
-- Euarchontoglires
-
-#Xenarthra: neotropic
-Cingulata: armadillos
-Vermilingua: anteater
-Folivora: sloths
-
-#Afrotheria
-Tubulidentata: aardvark
-Afrosoricida: tenrecs
-Macroscelidea: elephant shrews
-Hyracoidea: hyrax
-Proboscidea: elephant
-Sirenia: manatees
-
-#Euarchontoglires
-Lagomorpha
-- Ochotonidae: pika
-- Leporidae: rabbits, hares
-Rodentia
-- Sciuromorpha: squirrels
-- Myomorpha: mice, rats
-- Hystricomorpha: capybara
-- Castorimorpha: beavers
-- Anomaluromorpha
-Dermoptera: colugo
-Primates
-- Simiiformes: monkeys
-- Tarsiiformes: tarsiers
-- Lemuriformes
-
-#Laurasiatheria
-Eulipotyphla
-- Solenodontidae
-- Erinaceidae: hedgehogs
-- Soricidae: shrews
-- Talpidae: moles
-Chiroptera: bats
-Carnivora
-- Feloidea: cats
-- Viverroidea: civets
-- Herpestoidea: hyenas
-- Caniformia: dogs
-- Ursoidea: bears
-- Phocoidea: seals, walrus
-- Musteloidea: skunks, weasels
-Perissodactyla
-- Equidae: horses
-- Tapiridae
-- Rhinocerotidae
-Artiodactyla
-- Tylopoda: camels
-- Suina: pigs
-- Whippomorpha: hippopotamus, whales, dolphins
-- Ruminantia: deers, giraffe

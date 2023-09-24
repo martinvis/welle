@@ -1,0 +1,58 @@
+identifiers: schema / table / column names
+comments: -- (single line), /* ... */ (multi line)
+
+#operators
+comparison: <>=
+negation: NOT
+match interval: BETWEEN X AND Y
+match regex: LIKE '%name%'
+match list: IN (X,Y,Z)
+id AS name: rename table/column
+
+#queries
+SELECT *: get all columns
+SELECT col: get specific columns
+SELECT DISTINCT col: get without duplicates
+FROM table: choose table
+JOIN table: connect tables
+WHERE expr: condition
+WHERE EXISTS (query): subquery
+WHERE value IN (query): subquery
+WHERE value <>= ANY/ALL (query): subquery
+GROUP BY col: aggregation
+HAVING expr: aggregation condition
+ORDER BY col ASC/DESC: ordering
+OFFSET i FETCH FIRST j: paging
+
+#aggregate functions
+AVG
+COUNT
+MIN
+MAX
+SUM
+
+#updates
+INSERT INTO table (col) VALUES (x)
+UPDATE table SET col = value WHERE expr
+DELETE FROM table WHERE expr
+
+#transactions
+COMMIT
+ROLLBACK
+
+#data types
+NULL
+CHAR(n): fixed-length string
+VARCHAR(n): variable length string
+CLOB(n): long text
+BLOB(n): binary data
+BOOLEAN: TRUE/FALSE
+INT: number
+FLOAT: decimal number
+DECIMAL(precision, scale): money value
+NUMERIC(precision, scale): money value
+DATE: date
+TIME: time
+TIMESTAMP: date + time
+XML
+JSON

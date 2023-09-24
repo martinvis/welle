@@ -252,17 +252,21 @@ Mil Mi-8/17: Russia
 #Fighter aircraft: air-to-air combat
 Second generation:
 - Mikoyan MiG-21: USSR
+Third generation:
+- Mikoyan MiG-23/27: USSR
+- Sukhoi Su-24: USSR
 Fourth generation:
 - Mikoyan MiG-29: USSR
-- Sukhoi Su-27/30: USSR
+- Sukhoi Su-27/30/34: USSR
+- Mikoyan MiG-25/31: USSR
 - McDonnell Douglas F-15: USA
 - General Dynamics F-16: USA
 - Saab Gripen: Sweden
 - Eurofighter Typhoon: Europe
 Fifth generation:
-- Sukhoi Su-57: Russia, stealth
-- Lockheed Martin F-22: USA, stealth
-- Lockheed Martin F-35: USA, stealth
+- Sukhoi Su-57: Russia, stealth, twin-engine
+- Lockheed Martin F-22: USA, stealth, twin-engine
+- Lockheed Martin F-35: USA, stealth, single-engine
 
 #Electronic warfare: EM spectrum
 Krasukha: Russia
@@ -273,3 +277,4 @@ COBRA: Europe, counter-battery radar
 
 Espionage: obtaining intelligence
 Propaganda: influence
+Sabotage: deliberate subversion

@@ -14,11 +14,11 @@ secondary macro: Ca, Mg, S
 micro: Fe, Zn, Cu, Mn, Mo, B, Cl, Ni
 
 #sugars/saccharides
-glucose C6H12O6
+glucose C5O(-OH)4-CH2OH
 - source of energy, stored as polymer (starch/glycogen/cellulose/amylopectin), circulates in blood
-fructose C6H12O6
+galactose C5O(-OH)4-CH2OH
 - converted to glucose
-galactose C6H12O6
+fructose C4O(-OH)3(-CH2OH)2
 - converted to glucose
 lactose = galactose + glucose
 maltose = glucose + glucose

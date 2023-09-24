@@ -1,0 +1,144 @@
+#personal data
+physical
+- color of eyes/hair/skin
+- gender
+biometrics
+- fingerprint
+- voice
+- photo
+political
+- nationality
+- ID card
+- passport
+- driver's license
+life
+- name
+- marital status
+- marriage date/place
+- birth date/place
+- death date/place
+- parents, husband/wife, children
+work
+- school
+- profession
+- industry
+residence
+- address
+- property type
+- ownership
+contact
+- email
+- phone number
+- bank account
+
+#phone numbers
+trunk prefix: before local number, usually 0
+- Hungary: 06
+- Czechia: none
+- Poland: none
+- Portugal: none
+- Spain: none
+international call prefix (+): before global number, usually 00
+- USA/Canada: 011
+- Japan: 010
+- Australia: 0011
+- Russia: 810
+- Kenya/Tanzania/Uganda: 000
+country prefix
+- USA/Canada: 1
+- Egypt: 20
+- South Africa: 27
+- Greece: 30
+- Netherlands: 31
+- Belgium: 32
+- France: 33
+- Spain: 34
+- Hungary: 36
+- Italy: 39
+- Romania: 40
+- Switzerland: 41
+- Austria: 43
+- UK: 44
+- Denmark: 45
+- Sweden: 46
+- Norway: 47
+- Poland: 48
+- Germany: 49
+- Peru: 51
+- Mexiko: 52
+- Argentina: 54
+- Brazil: 55
+- Chile: 56
+- Colombia: 57
+- Venezuela: 58
+- Malaysia: 60
+- Australia: 61
+- Indonesia: 62
+- Philippines: 63
+- New Zealand: 64
+- Russia: 7
+- Japan: 81
+- South Korea: 82
+- Vietnam: 84
+- China: 86
+- Turkey: 90
+- India: 91
+- Pakistan: 92
+- Iran: 98
+
+#country codes
+Argentina: AR/ARG
+Australia: AU/AUS
+Austria: AT/AUT
+Bulgaria: BG/BGR
+Brazil: BR/BRA
+Canada: CA/CAN
+China: CN/CHN
+Czechia: CZ/CZE
+Denmark: DK/DNK
+Egypt: EG/EGY
+Finland: FI/FIN
+France: FR/FRA
+Germany: DE/DEU
+Spain: ES/ESP
+Greece: GR/GRC
+Croatia: HR/HRV
+Hungary: HU/HUN
+India: IN/IND
+Indonesia: ID/IDN
+Iran: IR/IRN
+Italy: IT/ITA
+Japan: JP/JPN
+South Korea: KR/KOR
+Mexico: MX/MEX
+Netherlands: NL/NLD
+New Zealand: NZ/NZL
+Norway: NO/NOR
+Pakistan: PK/PAK
+Philippines: PH/PHL
+Poland: PL/POL
+Portugal: PT/PRT
+Romania: RO/ROU
+Russia: RU/RUS
+Sweden: SE/SWE
+Switzerland: CH/CHE
+Thailand: TH/THA
+Turkiye: TR/TUR
+Ukraine: UA/UKR
+USA: US/USA
+Vietnam: VN/VNM
+
+#Address
+Addressee
+Apartment number
+Street number
+Street name
+Street type
+Suburb / Neighbourhood
+City / Town
+Postal code
+State / Province
+Country
+
+#Administrative
+States: US, Australia, Austria, Brazil, Germany, India, Mexico
