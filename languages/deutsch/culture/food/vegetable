@@ -1,19 +1,19 @@
 zelenina, s Gemüse
 
 #zemiaky
-zemiak, e Kartoffel / r Erdapfel
-batata, e Süsskartoffel / e Batate
+zemiak, e Kartoffel + r Erdapfel
+batata, e Süsskartoffel + e Batate
 
 #plodová
 paradajka, e Tomate
-baklažán, e Aubergine / e Eierfrucht
+baklažán, e Aubergine + e Eierfrucht
 paprika, r Paprika
 uhorka, e Gurke
 tekvica, r Kürbis
 dyňa, e Wassermelone
 
 #listová
-šalát, r Kopfsalat / r Lattich
+šalát, r Kopfsalat + r Lattich
 artičok, e Artischocke
 špenát, r Spinat
 
@@ -22,24 +22,24 @@ repa, e Rübe
 cukrová repa, e Zuckerrübe
 
 #hlúbová
-kapusta, r Kopfkohl / r Kohl
+kapusta, r Kopfkohl + r Kohl
 kel, r Grünkohl
 kaleráb, r Kohlrabi
 brokolica, r Brokkoli
-karfiol, r Blumenkohl / r Karfiol
+karfiol, r Blumenkohl + r Karfiol
 ružičkový kel, r Rosenkohl
 
 #cibuľová
 cibuľa, e Zwiebel
 cesnak, r Knoblauch
-pór, r Lauch / r Porree
+pór, r Lauch + r Porree
 pažitka, r Schnittlauch
 medvedí cesnak, r Bärlauch
 
 #strukoviny
 strukovina, e Hülsenfrucht
 hrach, e Erbse
-fazuľa, e Bohne / e Fisole
+fazuľa, e Bohne + e Fisole
 šošovica, e Linse
 cícer, e Kichererbse
 sója, e Sojabohne
@@ -54,8 +54,8 @@ jačmeň, e Gerste
 proso, e Hirse
 
 #koreňová
-mrkva, e Karrote / e Möhre
+mrkva, e Karrote + e Möhre
 petržlen, e Petersilie
-zeler, r/e Sellerie
-reďkovka, s Radieschen / r Rettich
+zeler, r|e Sellerie
+reďkovka, s Radieschen + r Rettich
 chren, r Meerrettich/e

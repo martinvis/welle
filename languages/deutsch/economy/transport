@@ -1,34 +1,43 @@
-=naložiť, laden
-=poslať, senden
+=naložiť, laden/lädt/lud/geladen
+- vyložiť, ausladen/lädt/lud/ausgeladen
+=poslať, senden/sandte/gesandt
+- odoslať, absenden/sandte/abgesandt
+- vyslať, aussenden/sandte/ausgesandt
+- zásielka, e Sendung/en
 =poslať, schicken
 =dodávať, liefern
-=prevziať, übernehmen
-=odovzdať, übergeben
+- dodávka, e Lieferung/en
+=prevziať, übernehmen/übernimmt/übernahm/übernommen
+=odovzdať, übergeben/übergibt/übergab/übergeben
 =prepraviť, befördern
 dovliecť, bugsieren
 navigovať, lotsen
 =pristáť, landen
-kotviť, ankern
+
+=kotva, r Anker
+- kotviť, ankern
 
 =náklad, e Fracht/en
-=dodávka, e Lieferung/en
-zásielka, e Sendung/en
 preprava, e Beförderung
 
-=jazdiť, fahren
-=jazda, e Fahrt/en
+=jazdiť, fahren/fährt/fuhr/gefahren
+- jazda, e Fahrt/en
+- vodič, r Fahrer
+- vyjsť, ausfahren/fährt/fuhr/ausgefahren
+- odísť, abfahren/fährt/fuhr/abgefahren
+- prísť, einfahren/fährt/fuhr/eingefahren
+- vyraziť, losfahren/fährt/fuhr/losgefahren
 
-jazdiť na koni, reiten
+jazdiť na koni, reiten/ritt/geritten
 klus, r Trab
+- klusať, traben
 cval, r Galopp
-klusať, traben
-cválať, galoppieren
+- cválať, galoppieren
 
-=dopravný prostriedok, s Verkehrsmittel
 =premávka, r Verkehr
+- dopravný prostriedok, s Verkehrsmittel
 =doprava, r Transport/e
 =chodec, r Fussgänger
-=vodič, r Fahrer
 
 =koleso, s Rad/ä-er
 oje, e Deichsel/n
@@ -53,11 +62,11 @@ vrtuľa, r Propeller
 nástupište, r Bahnsteig/e
 koľaj, s Gleis/e
 vagón, r Waggon/s
-lokomotíva, e Lok/s / e Lokomotive/n
+lokomotíva, e Lok/s + e Lokomotive/n
 =železničná stanica, r Bahnhof/ö-e
 
 električka, e Strassenbahn/en
-trolejbus, r Oberleitungsomnibus/se / r Obus/se
+trolejbus, r Oberleitungsomnibus/se + r Obus/se
 semafor, e Ampel/n
 
 =vozidlo, r Wagen
@@ -74,16 +83,15 @@ dodávka, r Lieferwagen
 =bicykel, s Fahrrad/ä-er
 moped,s  Mofa/s
 =kolobežka, r Roller
-=sane, r Schlitten / r Rodel
+=sane, r Schlitten + r Rodel
 =príves, r Anhänger
 
 flotila, e Flotte/n
 =čln, s Boot/e
-ponorka, s Unterseeboot/e / s U-Boot/e
-jachta, e Jacht/en / e Yacht/en
+- ponorka, s Unterseeboot/e + s U-Boot/e
+jachta, e Jacht/en + e Yacht/en
 =loď, s Schiff/e
 loďka, r Kahn/ä-e
-=kotva, r Anker
 veslo, s Ruder
 kormidlo, s Steuer
 paluba, r Bord
@@ -93,14 +101,15 @@ zadok lode (korma), s Heck/e
 
 parník, r Dampfer
 
-plachetnica, s Segelboot/e + s Segelschiff/e
 =plachta, s Segel
+- plachetnica, s Segel|boot/e + s Segel|schiff/e
 sťažeň, r Mast/en
 rahno, e Rah/en
 sťažne + rahná + plachty, e Takelage
 
-=lietadlo, s Flugzeug/e
-=letisko, r Flughafen/ä
+=let, r Flug/ü-e
+- lietadlo, s Flugzeug/e
+- letisko, r Flughafen/ä
 =vrtuľník, r Hubschrauber
 helikoptéra, r Helikopter
 vzducholoď, s Luftschiff/e

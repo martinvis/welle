@@ -127,6 +127,7 @@ Philippine
 
 #Plate tectonics
 plate boundaries: earthquakes, volcanoes
+- earthquake light
 divergent boundary: between plates moving away from each other
 - mid-ocean ridge: seafloor mountain system, seafloor spreading
 - rift valley: within continents, often filled with lakes
@@ -153,30 +154,34 @@ Volcanic
 Plateau: high plain above surroundings
 - volcanic, tectonic or by erosion
 
-#Land biome
-Grassland
-- Prairie: central North America
-- Steppes: Eurasia (Hungary, Romania, Ukraine, Kazakhstan, Mongolia)
-- Pampas: eastern Argentina
+#Terrestrial biomes
+Tundra: moss, lichen, grass, permafrost
+- Arctic
+- Antarctic
+- Alpine: mountains
+Forest
+- Taiga: coniferous forest
 Savanna: scattered trees
 - Cerrado: eastern Brazil
 - Mediterranean
 - Victoria Basin
 - South Africa
-Rain Forest
-- Amazonia: jaguar, monkey, sloth, macaw, caiman, anaconda, poison dart frog, piranha
-Forest
-Taiga: coniferous forest
-Tundra: moss, lichen, grass, permafrost
-- Arctic
-- Antarctic
-- Alpine: mountains
-Desert
-- Gobi
 Shrubland
 - Caatinga: northeastern Brazil
+Grassland
+- Prairie: central North America
+- Steppes: Eurasia (Hungary, Romania, Ukraine, Kazakhstan, Mongolia)
+- Pampas: eastern Argentina
+Rain Forest
+- Amazon: jaguar, monkey, sloth, macaw, caiman, anaconda, poison dart frog, piranha
+- Congo
+Wetland
+- Mangroves
+Desert: low rainfall, temperature extremes
 
-#Marine biomes
+#Aquatic biomes
+Littoral zone: close to shore
+Neritic zone: shallow, well-illuminated
 Pelagic zone: open water column
 - Photic zone: up to 200m depth, sunlight, phytoplankton
 - Aphotic zone: below photic, minimum sunlight, bioluminescence, marine snow
@@ -188,6 +193,9 @@ Benthic zone: seafloor
 Hydrothermal vents: bathyal/abyssal seafloor, chemosynthetic bacteria
 - black smoker: sulfides
 - white smoker: calcium
+Cold seep: ocean floor, hydrocarbon-rich
+Kelp forest: seaweed
+Coral reef
 
 #Glacier: persistent ice body on land
 Firn: snow from past seasons, denser

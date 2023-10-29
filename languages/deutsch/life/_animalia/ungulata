@@ -9,7 +9,7 @@ zebra, s Zebra
 tapír, r Tapir
 
 #párnokopytníky
-=hroch, s Flusspferd / s Nilpferd
+=hroch, s Flusspferd + s Nilpferd
 =diviak, s Wildschwein
 =ťava, s Kamel
 ťava dvojhrbá, s Trampeltier
@@ -35,7 +35,7 @@ vidloroh, r Gabelbock
 =jeleň, r Hirsch
 srnec, s Reh
 daniel, r Damhirsch
-sob, s Ren / s Rentier
+sob, s Ren + s Rentier
 los, r Elch
 
 #turovité

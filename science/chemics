@@ -1,6 +1,7 @@
-Sodium bicarbonate
-Baking soda = E500
+Sodium bicarbonate (E500)
+Baking soda
 Na+HCO3-
+annual production 7Mt
 white solid
 production: Na2CO3 + CO2 + H2O -> 2 NaHCO3
 thermal decomposition: 2 NaHCO3 -> Na2CO3 + H2O + CO2
@@ -10,14 +11,15 @@ odor remover, cleaning agent
 
 Ammonia
 NH3
+annual production 150Mt
 colourless gas, pungent smell
 production
 - Haber process (high pressure and temperature): N2 + 3 H2 -> 2 NH3
 fertilizer production, fuel, coolant
 product of amino acid deamination, converted to urea
 
-Sodium carbonate
-Washing soda = E500
+Sodium carbonate (E500)
+Washing soda
 Na2CO3
 white solid
 production, Solvay process:
@@ -33,6 +35,11 @@ white solid
 production: CaCO3 -> CaO + CO2 (temperature 900°C)
 basic oxygen steelmaking, cement making, glass making
 
+Calcium hydroxide (E526)
+Ca(OH)2
+acidity regulator
+production: CaO + H2O -> Ca(OH)2
+
 Calcium chloride (E509)
 CaCl2
 white crystalline solid
@@ -41,6 +48,7 @@ deicing agent (-50°C), dessicant (hygroscopic), dirt road dust control
 
 Sulfuric acid
 H2SO4
+annual production 200Mt
 colorless odorless liquid
 highly corrosive
 fertilizer production
@@ -53,8 +61,18 @@ production, contact process:
 
 Phosphoric acid
 H3PO4
+annual production 100Mt
 colorless solid
 production, wet process: mineral treated with sulfuric acid
+fertilizer production
+
+Nitric acid
+HNO3
+annual production 60Mt
+colorless liquid
+highly corrosive
+light decomposition: 4 HNO3 -> 2 H2O + 4 NO2 + O2
+production: 3 NO2 + H2O -> 2 HNO3 + NO
 fertilizer production
 
 Hydrofluoric acid
@@ -69,16 +87,9 @@ HCl + H2O (up to 38% solution)
 colorless solution, pungent smell
 highly corrosive, component of gastric acid
 
-Nitric acid
-HNO3
-colorless liquid
-highly corrosive
-light decomposition: 4 HNO3 -> 2 H2O + 4 NO2 + O2
-production: 3 NO2 + H2O -> 2 HNO3 + NO
-fertilizer production
-
 Formaldehyde
 CH2=O
+annual production 20Mt
 colorless gas, pungent smell
 production: 2 CH3OH + O2 -> 2 CH2O + 2 H2O
 aqueous solution (formalin) used to store animal specimens
@@ -90,6 +101,7 @@ sulfuric acid production, ferrovanadium production
 
 Sodium hydroxide
 NaOH
+annual production: 70Mt
 white solid, corrosive base, desiccant
 production of paper, bar soap
 drain cleaner (converts fats to soap)
@@ -127,14 +139,31 @@ production: Anthraquinone process
 antiseptic, bleaching
 
 Anthracene
-C14H10
+C6|C6|C6
 three fused benzene rings
 precursor to dyes
 
+Anthraquinone
+C6|C6=O=O|C6
+dioxoanthracene
+yellow crystalline solid
+
 Alizarin
-C14H8O4
+C6-OH-OH|C6=O=O|C6
 dihydroxyanthraquinone isomer
 red dye
+
+Indole
+C6|C5-NH
+from isatin
+
+Isatin
+C6|C5=O=O-NH
+from indigo
+
+Indigo
+C6|C5=O-NH==C6|C5=O-NH
+blue dye
 
 Chloroform
 CHCl3
@@ -147,6 +176,24 @@ precursor to PTFE, anesthetic
 
 Benzene
 C6H6
+annual production 70Mt
+colorless flammable liquid
+used in production of styrene, cumene, nylon
+gasoline additive
+production: Toluene + H2 -> Benzene + CH4
+
+Toluene (Methylbenzene)
+C6H5-CH3
+annual production 30Mt
+colorless liquid
+used as solvent
+recreational inhalant
+
+Acetone
+CH3-CO-CH3
+annual production 7Mt, cumene process
+colorless flammable liquid
+used as organic solvent, precursor to plastics
 
 Polytetrafluoroethylene (PTFE)
 (C2F4)n
@@ -212,6 +259,10 @@ Phthalocyanine
 four isoindole units linked in ring by nitrogens
 applications: dyes and pigments
 
+Porphyrazine
+{pyrrol-N}4
+cyclic tetrapyrrole
+
 Ethylene glycol
 (CH2-OH)2
 colorless liquid
@@ -225,6 +276,7 @@ high-nitrogen fertilizer, component in explosives
 
 Methanol
 CH3-OH
+annual production 100Mt
 colorless flammable liquid
 ingestion can cause permanent blindness
 production: CO + H2 -> CH3-OH
@@ -249,3 +301,46 @@ C(CH2-OH)4
 white solid
 synthesis: acetaldehyde + formaldehyde
 used in production of explosives, plastics, paints
+
+Naphthalene
+C6|C6, pair of benzene rings
+white crystalline solid
+used in mothballs
+
+Xylene
+C6-CH3-CH3
+annual production 50Mt
+from benzene
+colorless flammable liquid
+precursor to PET
+
+Styrene
+C6-CH=CH2
+annual production 40Mt
+colorless liquid
+precursor to polystyrene
+from ethylbenzene
+
+Ethylbenzene
+C6-CH2-CH3
+colorless flammable liquid
+from benzene
+
+Paraaminobenzoic acid (PARA)
+NH2-{C6}-COOH
+
+Cumene process
+benzene + propylene -> phenol + acetone
+
+#Heterocyclic
+Pyrazine: {CCNCCN}
+Pyridazine: {CCNNCC}
+Pyrimidine: {CCNCNC}
+Pyrazole: {CCNNC}
+Imidazole: {CCNCN}
+Pyrrole: {CCNCC}
+Thiazole: {CCNCS}
+Oxazole: {CCNCO}
+Thiophene: {CCSCC}
+Furan: {CCOCC}
+

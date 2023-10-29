@@ -1,9 +1,15 @@
+#Cnidaria
+life cycle with sessile polyp and motile medusa
+Strobilation: polyp splits horizontally into juvenile medusas
+
 #
 Gene/Cistron: region of DNA encoding function
 Allele: variation of nucleotides at same position
 Locus: chromosomal position of gene
 
-
+#
+Protein dynamics: transition between protein states
+Intristically disordered proteins: lacking fixed 3D structure
 
 #Connective tissue
 Elastic fibers = Fibrillin (FBN1) + Elastin (ELN)
@@ -16,9 +22,6 @@ Cardiac: involuntary, wall of heart
 Skeletal: voluntary, attached to skeleton
 Smooth: walls of hollow organs
 Actin + Myosin: muscle contraction
-Troponin + Tropomyosin: regulate muscle contraction
-- Troponin only in skeletal/cardiac muscles
-Titin (TTN), giant size, molecular spring
 
 #Nervous tissue
 Central + Peripheral nervous system
@@ -35,41 +38,91 @@ Myelin sheath (covers some axons, speeds up electric impulse)
 
 ##Cell
 
-#Cytoskeleton
-Microfilament, double helix structure
-- Actin
-Intermediate filament
-- Keratin (KRT*) in hair, nail, beak, claw, horn, hoof, feather
-- Vimentin (VIM) in leukocytes, fibroblasts etc
-- Desmin (DES) in sarcomeres
-Microtubule
-
-
-Mucins (MUC)
-- high molecular weight proteins
-- produced by epithelial tissues
-- form gels, control mineralization
-- defense against infections
-
-Ferritin (FTL/FTH) - intracellular protein, stores iron
-Hemoglobin (HBA/HBB) - transport protein, in erythrocytes, carries oxygen
-- highly soluble in water
-- heme degrades into bilirubin
-
 
 ##Immune system : innate + adaptive
-#Leukocytes
-Macrophage, digest pathogens
-Lymphocyte
-- T cells, adaptive immune response
-- B cells, humoral immunity, produce antibodies
-- natural killer cells, release cytotoxic granules inducing apoptosis or cell lysis
-Granulocyte, innate
-- Neutrophil, most abundant, short-lived, highly mobile
-- Basophil, least common, largest, parasite defense, cause allergy
 
-#T cells
-helper CD4+
+#Lymphatic system: open, complementary to circulatory system
+Lymph: similar composition as blood plasma
+Lymph vessel: carry lymph, drain extracellular fluid and return it to bloodstream
+Lymph node: kidney-shaped, adaptive immune system (B and T cells)
+Spleen: blood filter, recycles iron, holds blood cells reserve
+Tonsils: defense against inhaled or ingested pathogens, B and T cells
+- Adenoid/Pharyngeal: back of nasopharynx
+- Tubal: pair, near Eustachian tube opening
+- Palatine: pair, sides at back of throat, can obstruct respiration
+- Lingual: root of tongue
+Thymus: behind sternum, two lobes, decreases in adolescence, adaptive immune system, T cells
+- positive (functional) and negative (dont attack body proteins) selection of T cells, apoptosis on failure
+
+#Complement system
+small proteins synthesized in liver, inactive circulating in blood
+on stimulation, protease cleaves protein to releases cytokines, initiates cascade
+opsionizes and kills pathogens
+stimulates phagocytes, inflammation, activates membrane attack complex
+classical pathway:
+- activation of C1 complex by IgM or IgG complexed with antigens
+- C1 complex: C1q + 2 C1r + 2 C1s (C1qr2s2)
+- C1 complex splits C4 and C2
+- C4b + C2b bind and cleave C3
+- C4b2b bind C3 and cleave C5
+alternative pathway:
+- C3 -> C3a + C3b
+- C3b binds microbe or is inactivated by factors H and I
+- C3b acts as opsonin, induces phagocytosis
+- bound C3b binds factor B, factor D cleaves Ba and leaves C3bBb
+- C3bBb binds factor P and cleaves C3
+- C3bBbC3bP cleaves C5 to C5a + C5b (initiates MAC)
+lectin pathway
+- opsonin MBL binds pathogen and splits C4 to C4a+C4b, C2 to C2a+C2b
+- C4b + C2b bind and cleave C3
+- C4b2b bind C3 and cleave C5
+membrane attack complex (MAC)
+- pores disrupting cell membrane
+- complements C5b + C6 + C7 + C8 with C9 ring
+- CD59 protein on cells inhibits complex
+
+#Inflammation: body response to harmful stimuli (pathogen, burn, insect bite, allergy)
+- clears necrotic cells, initiates tissue repair
+- increases blood flow
+- increases permeability of vessels: movement of plasma and leukocytes to tissue
+- signs: heat, pain, redness, swelling
+Acute: lasts few days, cytokines promote migration of macrophages and neutrophils
+Chronic: long lasting, macrophages and lymphocytes predominate
+
+Cytokine storm: uncontrolled release off cytokines, often caused by viruses
+
+#Leukocytes
+Phagocyte: ingest harmful particles
+Granulocyte: innate, specific granules in cytoplasm
+
+Macrophage: phagocyte, digest pathogens
+- Monocyte: bone marrow and blood
+- Kupffer cell: liver
+- Microglia: CNS
+- Langerhans cell: skin
+- Hofbauer cell: placenta
+- Osteoclast: bone
+Dendritic cell (DC): messenger, process antigen and present it on T cell
+- migrate to lymph nodes when activated
+- initate adaptive immune response
+
+Neutrophil: 50-60%, phagocyte+granulocyte
+- most abundant, short-lived, highly mobile
+- amplify inflammatory reaction
+- ingest pathogens coated in opsonins
+- release three types of antimicrobial granules
+- release weblike structures of DNA with serine proteases
+Eosinophil: granulocyte, parasite defense
+Basophil: granulocyte, least common, largest, parasite defense, cause allergy, lobated nucleus
+Mast cell: granulocyte, cause allergy, containe histamine and heparin granules, round nucleus
+
+Lymphocyte: 20-40%
+- T cells: adaptive immune response
+- B cells: humoral immunity, produce antibodies
+- natural killer cells: release cytotoxic granules inducing apoptosis or cell lysis
+
+#T cells: mature in thymus
+helper CD4+: release cytokines to aid other immune cells
 regulatory CD4+
 cytotoxic CD8+
 memory
@@ -83,8 +136,6 @@ regulatory
 Perforin (PRF1), cytolytic protein in granules of cytotoxic lymphocytes
 
 #Proteins
-Myoglobin (MB), in muscle tissue, binds iron and oxygen, stores oxygen
-
 
 Melatonin, controls sleep-wake cycle, synthesized from serotonin
 Cortisol, increased in stress, increases blood sugar, suppresses immune system, reduces bone formation
@@ -108,11 +159,15 @@ Somatostatin (SST), produced by delta cells, inhibits INS, GCG, TSH, GH, PRL
 ##Hypothalamus
 links nervous and endocrine systems via hypophysis
 controls body temperature, hunger, thirst, fatigue, circadian rhythm
-Oxytocin (OXT) - role in childbirth, social bonding
+Oxytocin (OXT)
+- CYIQNCPLG
+- role in childbirth, social bonding
 Vasopressin (AVP)
+- CYFQNCPRG
 - released in response to hypertonicity
 - increases amount of water reabsorbed into circulation in kidneys
 - constricts arterioles -> raises blood pressure
+- role in sexual motivation and pair bonding
 Releasing hormons - stimulate/inhibit hormone secretion in hypophysis
 Dopamine
 ##Hypophysis / Pituitary gland
@@ -152,6 +207,7 @@ mechanism: damage in basal ganglia
 #Tourette syndrome
 type: neurodevelopmental
 symptoms: movement and vocal tics
+Coprolalia: involuntary swearing
 
 #Fragile X syndrome
 symptoms: intellectual disability
@@ -180,29 +236,37 @@ mechanism: copper buildup, liver damage
 cause: recessive inherited, mutation in WND gene
 
 ##Amino acids
+R-CH-NH2-COOH
 
 #non-essential
-Asparagine
-Glutamine
-Serine
-Glycine, can be synthetized from Serine or Threonine
-Alanine
-Proline
-Tyrosine, can be synthetized from Phenylalanine
-Cysteine, can be synthetized from Methionine
-Arginine, can be synthetized from Glutamine
+Asparagine [-CH2-C=O-NH2]
+Glutamine [-CH2-CH2-C=O-NH2]
+Serine [-CH2-OH]
+Glycine [-H], can be synthetized from Serine or Threonine
+Alanine [-CH3]
+Proline [COOH-(C4N)]
+Tyrosine [-CH2-{C6}-OH], can be synthetized from Phenylalanine
+Cysteine [-CH2-SH], can be synthetized from Methionine
+Arginine [-CH2-CH2-CH2-NH-C-NH2-NH2], can be synthetized from Glutamine
 
 #essential
-Tryptophan
-Phenylalanine
-Methionine
-Threonine
-Valine
-Leucine
-Isoleucine
-Histidine
-Lysine
+Tryptophan [-CH2-{C4N}|{C6}]
+Phenylalanine [-CH2-{C6}]
+Methionine [-CH2-CH2-S-CH3]
+Threonine [-CH-OH-CH3]
+Valine [-CH-CH3-CH3]
+Leucine [-CH2-CH-CH3-CH3]
+Isoleucine [-CH-CH3-CH2-CH3]
+Histidine [-CH2-{CCNCN}]
+Lysine [-CH2-CH2-CH2-CH2-NH3]
 
 
 #Ascorbic acid / Vitamin C
 C4O-OH-OH=O-(CH-OH-CH2-OH)
+
+#Steroids
+Gonane: C6|C6\C6/C5
+Sterol: OH-C6|C6\C6/C5
+Cholesterol: integrity of cell membrane, vitamin D synthesis
+Testosterone: male sex hormone
+Vitamin D: secosteroid (broken ring)

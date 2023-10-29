@@ -1,77 +1,99 @@
-Zika virus
-- spread by mosquitoes
-- causes microcephaly to unborn babies
+=Varidnaviria
+DNA viruses
 
-Dengue virus
-- spread by mosquitoes
-- causes fever
-
-Yellow fever virus
-- spread by mosquitoes
-- can cause liver damage resulting in yellow skin
-
+#Adenoviridae
 Adenoviruses
 - spread through air droplets
 - causes fever
 
-HIV
-- spread through sexual contact
-- causes AIDS (acquired immunodeficiency syndrome)
+=Monodnaviria
+single stranded
 
-Varicella zoster virus
-- causes chickenpox: skin rash
-
-Rhinovirus
-- spread through air droplets
-- causes cold
-
-Coronaviruses
-- spread through air droplets
-- causes respiratory infections: SARS, MERS, COVID-19
-
-Ebola virus
-- spread through body fluids
-- causes fever and diarrhoea
-
-Hepatovirus A
-- spread by contaminated food
-- causes hepatitis A: vomiting, diarrhoea, jaundice
-
-Hepatovirus B
-- spread through body fluids
-- causes hepatitis B: jaundice, liver damage
-
-Herpes simplex virus
-- very contagious
-- can cause blisters
-
+#Papillomaviridae
 Human papillomavirus (HPV)
 - spread through sexual contact
 - can cause warts and cancer (HPV16/HPV18)
 
+=Duplodnaviria
+double stranded DNA viruses
+icosahedral capsid
+
+#Orthoherpesviridae
+Cytomegalovirus
+- high prevalence
+- usually no symptoms
+Herpes simplex virus
+- very contagious
+- can cause blisters
 Influenza A virus
 - spread through air droplets
 - causes influenza: fever, cough
 - classified by surface proteins hemagglutinin (H) and neuraminidase (N)
 - H1N1 caused spanish flu
 - H5N1 causes bird flu
+Varicella zoster virus
+- causes chickenpox: skin rash
 
+=Riboviria
+RNA viruses
+
+#Flaviviridae
+Dengue virus
+- spread by mosquitoes
+- causes fever
+Yellow fever virus
+- spread by mosquitoes
+- can cause liver damage resulting in yellow skin
+Zika virus
+- spread by mosquitoes
+- causes microcephaly to unborn babies
+
+#Retroviridae
+HIV
+- spread through sexual contact
+- causes AIDS (acquired immunodeficiency syndrome)
+
+#Picornaviridae
+Hepatovirus A
+- spread by contaminated food
+- causes hepatitis A: vomiting, diarrhoea, jaundice
+Poliovirus
+- very contagious
+- causes polio: fever, paresthesia
+Rhinovirus
+- spread through air droplets
+- causes cold
+
+#Coronaviridae
+Coronaviruses
+- spread through air droplets
+- causes respiratory infections: SARS, MERS, COVID-19
+
+#Filoviridae
+Ebola virus
+- spread through body fluids
+- causes fever and diarrhoea
+
+#Hepadnaviridae
+Hepatovirus B
+- spread through body fluids
+- causes hepatitis B: jaundice, liver damage
+
+#Paramyxoviridae
 Measles morbillivirus
 - spread through air droplets
 - causes measles: fever, cough, erythematous rash
-
 Mumps virus
 - spread through air droplets
 - causes mumps: fever, swelling
 
-Poliovirus
-- very contagious
-- causes polio: fever, paresthesia
-
+#Rhabdoviridae
 Rabies virus
-- spread through saliva
+- spread through saliva by animal bite
+- rabid animals behave aggressively or tamely
 - causes rabies: encephalitis and hydrophobia
 
+#Sedoreoviridae
 Rotavirus
 - very contagious
 - causes gastroenteritis

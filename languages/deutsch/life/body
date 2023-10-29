@@ -1,42 +1,42 @@
 =orgán, r Organ
 
 #dýchacia sústava
-=nos, e Nase
-=pľúca, e Lunge
+=nos, e Nase/n
+=pľúca, e Lunge/n
 hltan, r Rachen + r Schlund/ü-e + r Pharynx
-hrtan, r Kehlkopf / r Larynx
+hrtan, r Kehlkopf + r Larynx
 priedušnica, e Luftröhre
 prieduška, e Bronchie
 
 #obehová sústava
-=srdce, s Herz
+=srdce, s Herz/en
 =krv, s Blut
 predsieň, r Vorhof/ö-e
 komora, e Kammer/n
-cieva, s Blutgefäss / die Ader
-tepna, e Schlagader/ e Arterie
-žila, e Blutader / e Vene
-slezina, e Milz
+cieva, s Blutgefäss + die Ader/n
+tepna, e Schlagader + e Arterie
+žila, e Blutader + e Vene/n
+slezina, e Milz/en
 
 #nervová sústava
-=mozog, s Gehirn / s Hirn
+=mozog, s Gehirn + s Hirn
 miecha, s Rückenmark
 
 #pohybová sústava
-=sval, r Muskel
-=kĺb, s Gelenk
-šľacha, e Sehne / e Flechse
+=sval, r Muskel/n
+=kĺb, s Gelenk/e
+šľacha, e Sehne + e Flechse
 chrupavka, r Knorpel
 bránica, s Zwerchfell/e
 
 #oporná sústava
-=kostra, s Skelett, s Gerippe
+=kostra, s Skelett + s Gerippe
 =kosť, r Knochen
 =lebka, r Schädel
 =čeľusť, r Kiefer
 =stavec, r Wirbel
 =rebro, e Rippe
-chrbtica, e Wirbelsäule / s Rückgrat
+chrbtica, e Wirbelsäule + s Rückgrat
 platnička, e Bandscheibe/n
 panva, s Becken
 hrudný kôš, r Brustkorb
@@ -54,15 +54,15 @@ jabĺčko, e Kniescheibe/n
 #krycia sústava
 =koža, e Haut
 sliznica, e Schleimhaut
-=necht, r Nagel
-=chlp/vlas, s Haar
-=brada, r Bart / s Barthaar
+=necht, r Nagel/ä
+=chlp/vlas, s Haar/e
+=brada, r Bart + s Barthaar
 =fúzy, r Schnurrbart
 briadka, r Kinnbart
-obočie, e Augenbraue / e Braue
-mihalnica, e Augenwimper / e Wimper
+obočie, e Augenbraue + e Braue
+mihalnica, e Augenwimper + e Wimper
 chĺpok, s Härchen
-znamienko, s Mal(e/ä-er)
+znamienko, s Mal/e
 záder, r Niednagel
 
 #tráviaca sústava
@@ -70,15 +70,15 @@ pažerák, e Speiseröhre
 =pečen, e Leber
 žlčník, e Gallenblase
 =žalúdok, r Magen
-=črevo, r Darm
+=črevo, r Darm/ä-e
 tenké črevo, r Dünndarm
 hrubé črevo, r Dickdarm
 
 #ústna dutina
-=ústa, r Mund
-=pera, e Lippe
-=jazyk, e Zunge
-=zub, r Zahn
+=ústa, r Mund/ü-er
+=pera, e Lippe/n
+=jazyk, e Zunge/n
+=zub, r Zahn/ä-e
 slina, r Speichel
 rezák, r Schneidezahn
 očný zub, r Eckzahn
@@ -87,7 +87,7 @@ stolička, r Mahlzahn
 podnebie, r Gaumen
 
 #uši
-=ucho, s Ohr
+=ucho, s Ohr/en
 ušnica, e Ohrmuschel
 zvukovod, r Gehörgang
 bubienok, s Trommelfell
@@ -96,20 +96,20 @@ nákovka, r Amboss
 strmienok, r Steigbügel
 
 #oči
-=oko, s Auge
-šošovka, e Linse
-zrenica, e Pupille
+=oko, s Auge/n
+šošovka, e Linse/n
+zrenica, e Pupille/n
 rohovka, e Hornhaut
 dúhovka, e Regenbogenhaut
 sietnica, e Netzhaut
 sklovec, r Glaskörper
 
 #vylučovacia sústava
-=oblička, e Niere
+=oblička, e Niere/n
 močový mechúr, e Harnblase
 močovod, r Harnleiter
 močová rúra, e Harnröhre
-moč, r Harn / r Urin
+moč, r Harn + r Urin
 
 #rozmnožovacia sústava
 pošva, e Scheide/n

@@ -22,10 +22,11 @@ ožratý, besoffen
 ožierať sa, besaufen sich
 omámiť, betäuben
 vytriezvieť, ernüchtern
+slopať, saufen
 
 =nemocnica, s Krankenhaus/ä-er
 =lekáreň, e Apotheke/n
-=márnica, s Leichenhaus/ä-er / e Leichenhalle/n
+=márnica, s Leichenhaus/ä-er + e Leichenhalle/n
 
 =lekár, r Arzt/ä-e
 =zubár, r Zahnarzt/ä-e
@@ -34,21 +35,32 @@ vytriezvieť, ernüchtern
 =pacient, r Patient/en
 šarlatán, r Quacksalber
 
-=liek, e Arznei/en / e Medikament/e
-=tabletka, e Pille/n / e Tablette/n
+=liek, e Arznei/en + e Medikament/e
+=tabletka, e Pille/n + e Tablette/n
 =pitva, e Obduktion/en
 barla, e Krücke/n
+
+=triezvy, nüchtern
+- vytriezvieť, ernüchtern
+=opitý, betrunken
+podnapitý, beschwipst
+
+=fajčiť, rauchen
+=fetovať, schnüffeln
+
+=cigareta, e Zigarette/n
 
 =liečiť, heilen
 =zotaviť sa, erholen sich
 pomôcť zotaviť, aufpäppeln
 ošetrovať, päppeln
 ošetriť, behandeln
-vyliečiť, ausheilen / kurieren
-zahojiť sa, verheilen / abheilen
+vyliečiť, ausheilen + kurieren
+zahojiť sa, verheilen + abheilen
 =operovať, operieren
 =operácia, e Operation/en
 uzdravovanie, e Genesung
+napadnúť (choroba), befallen/befällt/befiel/befallen
 
 =striekačka, e Spritze/n
 skalpel, s Skalpell/e
@@ -67,8 +79,8 @@ vykrvácať, verbluten
 
 =krvácať, bluten
 
-=obväz, e Binde/n / r Verband/ä-e
-=obviazať, verbinden
+=obväz, e Binde/n + r Verband/ä-e
+=obviazať, verbinden/verband/verbunden
 
 =epidémia, e Seuche/n
 =nákaza, e Ansteckung/en
@@ -103,11 +115,12 @@ zhubný, bösartig
 pôvodca (choroby), r Erreger
 
 =zranenie, e Wunde
-=poranený, verletzt / verwundet
-=poraniť, verletzen / verwunden
+=poranený, verletzt + verwundet
+=poraniť, verletzen + verwunden
 =škrabanec, r Kratzer
 zmrzačiť, verstümmeln
 bolesť hlavy, s Kopfweh
+opuchnúť, schwellen/schwillt/schwoll/geschwollen
 
 =jazva, e Narbe/n
 mozoľ, e Schwiele/n
@@ -115,7 +128,7 @@ hnis, r Eiter
 hnisavý, eitrig
 vyrážka, r Ausschlag/ä-e
 opuch, e Anschwellung/en
-pomliaždenina, e Quetschung/en, e Prellung/en
+pomliaždenina, e Quetschung/en + e Prellung/en
 zápal, e Entzündung/en
 vred, s Geschwür/e
 opuchnutý, aufgedunsen

@@ -54,6 +54,31 @@ Centrifugal pump: movement by rotational energy, high flow rate
 - causes liquid to flow upward without pump
 
 Screw: helical groove around outside, converts motion from rotational to linear
+- Slot: single horizontal
+- Cross: two perpendicular
+- Robertson: square
+- Hex: hexagonal
+- Torx: hexalobular
+
+Gravity battery: potential energy stored by raising mass (pumped storage hydroelectricity)
+
+#Reflecting instruments: use mirrors, celestial navigation
+Octant: measure angular distance, up to 90 degrees
+Sextant: measure angular distance, up to 120 degrees
+
+#Microscope: magnified images of small objects
+Optical microscope: uses visible light and system of lenses
+Electron microscope: uses beam of electrons, higher resolution due to small electron wavelength
+Scanning probe microscope: uses sharp probe, slower, high resolution and height information
+Fluorescence microscope: uses fluorophores emitting absorbed light, high specificity, molecular localization
+X-ray microscope: uses X-rays and differences in absorption, higher penetration depth
+
+#Telescope: observing distant objects, may use parabolic antenna
+uses emission, absorption or reflection of EM radiation
+Optical telescope: uses visible light and system of lenses
+Infrared telescope
+Ultraviolet telescope
+X-ray telescope
 
 #Laser
 - emits coherent light by optical amplification
@@ -66,10 +91,19 @@ Four-level laser: L1 (ground state), L2, L3, L4
 - L3 population higher than L2
 - pump transition from L1 to L4
 
+#Photolitography:
+- uses ultraviolet light to produce patterned thin film
+- photoresist breaks down or hardens when exposed to light
+- softer parts are removed from substrate with solvent
+- photoresist consists of resin, sensitizer and solvent
+- integrated circuits fabrication
+
 #Antenna
 - conductors connected to transmitter or receiver
 - converts electrical signals to electromagnetic waves (transmission)
 - captures electromagnetic waves as electric signal (reception)
+Parabolic antenna: high-gain
+- parabolic reflector collects and projects waves
 
 #Radio: information transmitted on radio waves
 AM: amplitude modulation, longer distance
@@ -81,3 +115,10 @@ FM: frequency modulation, better quality
 - fuel in nuclear reactors
 - old method: gaseous diffusion of UF6, use of effusion
 - new method: gas centrifuge of UF6
+
+#Satellite geolocation
+- Multilateration: uses distances from multiple stations
+determines latitude, longitude and elevation
+intersection of satellite signal spheres determines position of receiver
+satellites broadcast their location and time
+satellites use atomic clocks to keep synchronized time

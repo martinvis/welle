@@ -191,6 +191,7 @@ king Mithridates, conquered Seleucid Empire
 
 #Roman Empire (27BC-395)
 Senatus populusque Romanus (SPQR)
+Praetorian guard: emperor bodyguards
 provinces:
 - Italia
 - Mauretania, Africa, Cyrenaica, Aegyptus
@@ -201,6 +202,12 @@ provinces:
 - Thracia, Macedonia, Achaia
 - Asia, Cappadocia, Pontus, Armenia
 - Syria, Mesopotamia, Babylonia, Judaea
+
+#Kingdom of Aksum (150BC-960): East Africa + South Arabia
+Christian religion, Ge'ez and Greek language
+Indian ocean trade
+
+Dorset (500BC-1000): arctic culture
 
 =Late Antiquity
 
@@ -255,6 +262,9 @@ Battle of Tours (732): Franks lead by Charles Martel defeat Umayyad army
 #Great Bulgaria (632-668): Turkic, Azov
 #Khazar Khaganate (650-969): Turkic, Crimea + Caucasus
 
+#Republic of Venice (697-1797): trading power ruled by Doge
+Overseas possessions: Istria, Dalmatia, Republic of Ragusa, Peloponnese, Crete, Cyprus
+
 #Reconquista (718-1492)
 christian wars against muslims in Hispania
 Battle of Covadonga (718), Umayyad army lost, Kingdom of Asturias established
@@ -283,7 +293,31 @@ Treaty of Verdun (843): Frankish empire divided into three
 Otto I (962): crowned by pope
 Charles IV (1355): King of Bohemia
 
+#Feudalism (9-15th century)
+Three Estates: nobility, clergy, peasantry
+Guilds: associations of artisans in craft/trade
+
 =High Middle Ages (11-13 century)
+
+Thule: arctic culture in Alaska and Canada, 10-12 century
+
+#Establishment of universities (Italy, UK, France)
+- Bologna in 1088
+- Oxford in 1096
+- Paris in 1150
+- Modena in 1175
+- Cambridge in 1209
+- Salamanca in 1218
+- Montpellier in 1220
+- Padua in 1222
+- Naples in 1224
+- Toulouse in 1229
+Faculties
+- Arts: trivium (grammar, rhetoric, dialectics) + quadrivium (arithmetic, astronomy, geometry, music)
+- Law, Medicine, Philosophy, Theology
+
+#Republic of Genoa (1096-1797): trading power ruled by Doge
+Colonies: Corsica, southern Crimea, Lesbos, Chios
 
 #Song dynasty (960-1279): China
 
@@ -358,6 +392,7 @@ Magna Carta (1215): grant of rights by King John of England
 #Crisis of the Late Middle Ages
 Great Famine (1315): bad weather
 Black Death (1346-1353): bubonic plague, deadliest pandemic, eurasia and north africa
+Peasants' Revolt (1381): led by Wat Tyler in England, demanded economic and social reforms
 Hundred Years' War (1337-1453): English claim to French throne
 - Siege of Orléans (1428): Joan of Arc
 Western Schism(1378-1417)
@@ -443,7 +478,7 @@ Partitions of Poland (1772-1795): three partitions, between Austria (Galicia), P
 #Habsburg monarchy: Austria, Bohemia, Moravia, Silesia, Croatia, Hungary
 Maximilian I: Burgundy + Burgundian Netherlands via marriage (1477)
 Charles: King of Spain after mother (1520)
-Philip II: Spain + Netherlands
+Philip II (1556-1598): Spain + Netherlands + Portugal + Naples + Sicily
 Ferdinand I (1521-1564): Austria + Bohemia + Hungary + Croatia
 Rudolf II
 Leopold I (1658-1705)
@@ -463,6 +498,10 @@ Henry VIII: king of England
 - attempts to annule first marriage, pope disagrees
 - English Reformation (1530s): break away from Catholic Church
 - six marriages
+
+Anglo-Spanish War (1585–1604): caused by Protestand movement in Spanish Netherlands
+- Spanish Armada (1588): planned to overthrow queen Elizabeth I, defeated by England
+- English Armada (1589): Spanish victory, prevented Portuguese uprising
 
 War of the Spanish Succession (1700)
 - after death of king Charles II (Habsburg)
@@ -490,9 +529,10 @@ Frederick the Great (1740-1786): increased territory (Silesia, Poland)
 #UK
 Wars of the Three Kingdoms (1639-1653): England / Scotland / Ireland
 - Execution of Charles I (1649)
-lord protector Oliver Cromwell (1653-1658): abolition of monarchy
+lord protector Oliver Cromwell (1653-1658): abolition of monarchy, dictatorship
 Stuart Restoration (1660): return of Charles II from exile
 Glorious Revolution (1688): replacement of James II (Catholic) by his daughter Mary II and William III of Orange (Protestant)
+Bill of Rights (1689): constitutional monarchy
 Act of Union (1707): union of England and Scotland
 
 #Imperialism
@@ -514,11 +554,38 @@ Third Wave
 - Germany: Cameroon, Namibia, Tanganika, Togo
 - Portugal: Angola, Mozambique
 
+Mutiny on Bounty: English vessel, settled on Tahiti and Pitcairn Islands
+
+#Companies
+Dutch East India Company / VOC (1602-1799): first joint stock company
+- Malukan spice trade, capital in Batavia (Jakarta)
+Dutch West India Company / WIC (1621-1792)
+British East India Company / EIC (1600-1874): joint stock company
+- Indian subcontinent, Hong Kong
+- Battle of Plassey (1757): victory over french in Bengal
+- Indian Rebellion (1857): resulted in nazionalization of company
+
+#South Africa
+black natives: Zulu, Xhosa
+Boers: Dutch colonists, moved from Cape to north when British took over
+First Boer War (1880): Transvaal victory over British
+Second Boer War (1899): British victory over Transvaal + Orange Free State
+British South Africa Company (1889-1965): Rhodesia, Cecil Rhodes
+Apartheid (1948-1991): racial segregation, dominated by white minority
+Nelson Mandela: anti-apartheid activist, first president 1994-1999
+
 Seven Years' War (1756): France+Austria against Britain+Prussia+Hanover
 - Diplomatic Revolution: change in alliances
 - conflicts between France and Britain in North America
 - France cedes American territory to Britain and Spain
 - Spain cedes Florida to Britain
+
+#English colonies in America
+Roanoke Colony (1585): colonists disappeared
+Jamestown, Virginia (1607): first permanent settlement
+- led by Captain John Smith
+- Anglo-Powhatan Wars (1609-1646)
+- Pocahontas, daughter of Powhatan: captured
 
 =Late modern period
 
@@ -527,9 +594,10 @@ Elizabeth: enlightenment
 Catherine the Great (1762-1796): enlightenment
 - Russo-Turkish War: victory
 Russo-Circassian war (1763-1864): russian victory
-- Circassian genocide: ethnic cleansing,  expulsion to Turkey
-Alexander I
-Nicholas I
+- Circassian genocide: ethnic cleansing, expulsion to Turkey
+Alexander I (1801-1825)
+Nicholas I (1825-1855)
+- Decembrist revolt (1825): failed military coup
 Alexander II
 Alexander III
 Nicholas II
@@ -565,6 +633,7 @@ Third Coalition
 - Battle of Austerlitz (1805): France victory, collapse of Holy Roman Empire
 Fourth Coalition
 - Battle of Jena–Auerstedt (1806): defeat of Prussia, occupation
+Continental Blockade: embargo against British empire
 Peninsular War (1807)
 - Spain+Portugal+UK against french occupation of Iberian peninsula, guerilla warfare
 - Siege of Cádiz (1810): french defeat
@@ -574,6 +643,7 @@ Fifth Coalition
 - Treaty of Schönbrunn (1809): peace, Austria loses territory
 Invasion of Russia (1812)
 - Battle of Smolensk: French victory
+- marshal Mikhail Kutuzov, Patriotic War
 - Battle of Borodino: narrow French victory
 - Retreat: starvation, cold weather, guerilla warfare
 Sixth Coalition
@@ -585,9 +655,37 @@ Seventh Coalition / Hundred Days
 - Battle of Waterloo: coalition victory
 - Napoleon exiled to Saint Helena
 
+#Spanish American wars of independence
+Mexico
+- First Empire (1821-1823): monarchy, emperor Agustín
+- First Republic (1824-1835): president Santa Anna
+- Second Republic (1846-1863): indigenous president Benito Juárez
+- Second French intervention (1861-1867): invasion by French Empire of Napoleon III
+- Second Empire (1864-1867)
+- Restored Republic (1867-1876)
+Simón Bolívar: Venezuelan leader, independence of Gran Colombia + Peru + Bolivia from Spanish empire
+Paraguayan War (1864-1870): Paraguay defeated by Triple Alliance (Brazil+Argentina+Uruguay)
+War of the Pacific (1879-1884): Chile defeated Peru+Bolivia, Bolivia lost coastal territory
+
+#Mexiko
+president Porfirio Díaz (1884-1911)
+
+#South America
+Juan Perón (1946-1974): president of Argentina
+- public works, social welfare
+- Bombing of Plaza de Mayo (1955): massacre in Buenos Aires, failed coup d'état
+- 18 years exile
+- Ezeiza massacre (1973): right-wing attacking left-wing
+Cuban Revolution (1953-1959): Che Guevara, socialism
+- president Fidel Castro (1965-2011)
+Operation Condor (1968-1989): US-backed state coups / assassinations of socialist leaders
+Augusto Pinochet (1973-1990): president of Chile, dictator
+Hugo Chávez (1999-2013): president of Venezuela, socialism
+
 #United States
 Thomas Jefferson (1801-1809)
 - Louisiana Purchase (1803): bought from France
+James Madison
 James Monroe (1817-1825)
 - Monroe Doctrine: isolationism
 Andrew Jackson (1829-1837)
@@ -600,13 +698,13 @@ James Polk (1845-1849)
 Abraham Lincoln (1861-1865)
 - American Civil War: between Union (north) and Confederation (south)
 - Confederate general Robert Lee, capital Richmond
-- Union general Ulysses Grant
+- Union general Ulysses Grant (later president)
 - abolition of slavery
 - Battle of Fredericksburg (1862): Confederate victory
 - Siege of Vicksburg (1863): Union victory
 - Battle of Gettysburg (1863): Union victory
 - assassinated in theater
-Ku Klux Klan: white supremacy, pointed hats
+Ku Klux Klan (1865–1872): white supremacy, pointed hats
 
 #Century of humiliation: China
 Unequal treaties
@@ -615,6 +713,8 @@ Second Opium War (1856): British and French victory, Manchuria ceded to Russia
 First Sino-Japanese War (1894): Taiwan ceded to Japan
 Boxer Rebellion (1899): Eight Nation alliance victory
 Second Sino-Japanese War (1937-1945): second world war, Nanjing Massacre
+
+Luddites: textile workers opposing machines replacing them in England
 
 #Revolutions: nationalism
 Belgian Revolution (1830): secession from Netherlands
@@ -715,7 +815,9 @@ Joseph Stalin (1924): cult of personality
 - Holodomor (1932): man-made famine in Ukraine
 
 #USA
+Theodore Roosevelt (1901-1909): anti-trust policies, national parks, Panama canal
 Roaring Twenties: economic prosperity
+Ku Klux Klan (1915–1944)
 Prohibition (1920-1933): USA, ban on alcohol
 Great Depression (1929-1941): stock market crash, unemployment, poverty
 Franklin D. Roosevelt
@@ -737,10 +839,16 @@ Molotov–Ribbentrop Pact (1939): non-aggression between Germany and Soviet Unio
 Invasion of Poland (1939): occupation by Germany and Soviet Union
 Battle of Atlantic: submarine warfare
 Winter War (1939): invasion of Finland by Soviet Union, severe losses
+Western Front
+- Battle of France (1940): conquest of France and Low Countries by Germany
+- Free French Forces: led by general Charles de Gaulle
+- Battle of Britain (1940): air force attacks by Luftwaffe, British victory
+- Normandy landings (1944): D-Day, led by Dwight D. Eisenhower (later president), amphibious landing on five beaches
 Destroyers-for-bases deal (1940): US destroyers exchanged for UK bases
 Operation Barbarossa (1941): invasion of Soviet Union by Germany
 - Battle of Białystok–Minsk, geman victory
 - Battle of Smolensk: german victory
+- marshal Georgy Zhukov
 - Siege of Leningrad
 - Battle of Kiev
 - Battle of Moscow
@@ -773,9 +881,15 @@ Asia
 
 =Contemporary period
 
+#Civil rights movement
+Montgomery bus boycott (1955): Rosa Parks arrested for not releasing seat to white person
+March on Washington (1963): advocated rights of african americans
+- I Have a Dream: speech by Martin Luther King Jr
+Civil Rights Act (1964): no discrimination based on race, color, sex, religion
+
 #Cold War (1947-1991): between Soviet Union and USA
 Iron Curtain: walls between Warsaw Pact and NATO + Yugoslavia
-Truman Doctrine (1947): containment of communism
+Truman Doctrine (1947): Harry S. Truman, containment of communism
 Marshall Plan (1948): economic recovery program for Western Europe
 Space Race
 - German rocket missile V-2
@@ -788,6 +902,7 @@ Korean War (1950): proxy war
 Nikita Khrushchev (1953): destalinization
 Vietnam War (1955): proxy war
 - north supported by Soviet Union + China, south by USA
+- My Lai massacre (1968): mass murder of civilians by US soldiers
 - Fall of Saigon (1975): end of war, north wins
 Warsaw Pact (1955): defense treaty between USSR and Eastern Bloc republics
 - Invasion of Czechoslovakia (1968): stopped Prague Spring reforms of Alexander Dubček
@@ -808,6 +923,7 @@ Soviet–Afghan War (1979)
 - pro-soviet government asked for help, Leonid Brezhnev sent troops
 - USA supported rebel Mujahideens, surface-to-air Stringer missiles
 - soviet withdrawal in 1989
+Solidarity (1980): Polish anti-authoritarian movement, Lech Wałęsa
 Ronald Reagan (1981): USA president
 - Reaganomics: economic deregulation, cut taxes and spending
 Glasnost and Perestroika (1985): Mikhail Gorbachev, reforms
@@ -827,6 +943,9 @@ Six-Day War (1967): Israel victory over Egypt+Jordan+Syria
 Closure of Suez Canal
 Yom Kippur War (1973): Egypt+Syria attack, Sinai Peninsula and Golan Heights
 Oil Embargo (1973): on states supporting Israel - USA, UK, Canada, Japan, Netherlands
+Gaza-Israel conflict (2023)
+
+Islam Karimov (1989-2016): president of Uzbekistan, dictator
 
 #Iran
 White Revolution (1963): reforms, economic growth
@@ -847,12 +966,25 @@ Mao Zedong
 - Sino-Soviet split (1961)
 - Cultural Revolution (1966): purges
 - Banqiao Dam failure (1975): Typhoon Nina, deadly flood
+Gang of Four removed by Hua Guofeng
+Deng Xiaoping: market economy reforms
 Tiananmen Square Massacre (1989): suppressed student demonstrations
+Jiang Zemin
+Hu Jintao
+Li Keqiang (2012-2022)
+Xi Jinping (2012-)
 
 Bangladesh Liberation War (1971): East Pakistan independence
 - Bangladesh genocide / Gonohotta: against Bengali Hindus, 2M dead
 - Indo-Pakistani War: Indian victory, East Pakistan becomes Bangladesh
 Cambodian genocide (1975-1979): 2M dead, ethnic cleansing by communist Khmer Rouge led by Pol Pot
+
+#Russia
+Boris Yeltsin (1991-1999): market economy, privatization, inflation, oligarchs
+- First Chechen War (1994-1996)
+Vladimir Putin: economic and military reforms
+- Second Chechen War (1999-2009)
+- Russo-Georgian War (2008): self-proclaimed republics South Ossetia and Abkhazia
 
 War on drugs
 - Pablo Escobar: cocaine drug cartel leader from Colombia
@@ -871,11 +1003,19 @@ Yugoslav Wars (1991): breakup of Yugoslavia
 Tokyo subway sarin attack (1995): domestic terrorism by cult members
 
 #Africa
-Ikiza (1972): mass killing of educated Hutu by Tutsi, Burundi, 100k dead
-Burundian civil war (1993-2005): between Hutu majority and Tutsi
-Assassination of Rwandan and Burundian presidents (1994): aircraft shot down by missile
-Rwandan genocide (1994): Tutsi and Twa minorities killed by Hutu militias, 500k dead
-Congo wars (since 1996)
+Nigerian Civil War (1967-1970): failed Biafra secession
+Muammar Gaddafi (1969-2011): ruler of Libya, socialist
+Robert Mugabe (1987-2017): president of Zimbabwe, socialist, corruption, hyperinflation
+Charles Taylor (1997-2003): president of Liberia, war criminal, civil wars in Liberia and Sierra Leone
+Somali Civil War (since 1980s): Somaliland independence
+- Isaaq genocide (1987-1989), 100k dead
+Great Lakes
+- Ikiza (1972): mass killing of educated Hutu by Tutsi, Burundi, 100k dead
+- Burundian civil war (1993-2005): between Hutu majority and Tutsi
+- Assassination of Rwandan and Burundian presidents (1994): aircraft shot down by missile
+- Rwandan genocide (1994): Tutsi and Twa minorities killed by Hutu militias, 500k dead
+- Congo wars (since 1996)
+Hosni Mubarak (1981-2011): president of Egypt, resigned
 
 #European Union: economic and political
 single market: free movement of people, goods, services and capital
@@ -889,6 +1029,7 @@ Debt crisis (2009): Greece bailout
 Brexit
 - referendum to leave in 2016
 - UK leaves EU in 2020
+Catalan independence referendum (2017): suspended by court
 
 #War on Terror
 Embassy bombings (1998): truck bomb, Kenya+Tanzania 
@@ -905,7 +1046,6 @@ Arab Spring (2010-2012): protests and rebellions in Tunis, Lybia, Egypt, Syria, 
 Syrian civil war (since 2011): against president Bashar al-Assad
 Turkish coup d'état attempt (2016): against Recep Tayyip Erdogan
 
-Catalan independence referendum (2017): suspended by court
 
 #Russo-Ukrainian War
 Cassette Scandal (2000): president Kuchma ordered abduction of journalist

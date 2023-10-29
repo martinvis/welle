@@ -15,8 +15,8 @@ priestupný rok, s Schaltjahr/e
 =jeseň, r Herbst
 =zima, r Winter
 
-slnovrat, e Sonnenwende / e Sonnwende
-rovnodennosť, s Äquinoktium / e Tagundnachtgleiche
+slnovrat, e Sonnenwende + e Sonnwende
+rovnodennosť, s Äquinoktium + e Tagundnachtgleiche
 
 =január, r Januar
 =február, r Februar
@@ -36,7 +36,7 @@ rovnodennosť, s Äquinoktium / e Tagundnachtgleiche
 =streda, r Mittwoch
 =štvrtok, r Donnerstag
 =piatok, r Freitag
-=sobora, r Samstag / r Sonnabend
+=sobora, r Samstag + r Sonnabend
 =nedeľa, r Sonntag
 
 =ráno, r Morgen

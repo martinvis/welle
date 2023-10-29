@@ -1,15 +1,19 @@
 =mliekáreň, e Molkerei/en
 =pekáreň, e Bäckerei/en
-=mäsiarstvo, e Fleischerei/en / e Metzgerei/en
-=mäsiar, r Fleischer / r Metzger
+=mäsiarstvo, e Fleischerei/en + e Metzgerei/en
+=mäsiar, r Fleischer + r Metzger
 pekár, r Bäcker
 
 =recept, s Rezept/e
 
 =variť, kochen
-=piecť, backen
-=smažiť, braten
-=krájať, schneiden
+=piecť, backen/backte/gebacken
+zapiecť, überbacken/überbackte/überbacken
+=smažiť, braten/brät/briet/gebraten
+opražiť, anbraten/brät/briet/angebraten
+pripáliť, verbraten/verbrät/verbriet/verbraten
+=krájať, schneiden/schnitt/geschnitten
+roztopiť, zerlassen/zerlässt/zerliess/zerlassen
 
 naliať (načapovať), einschenken
 čapovať, ausschenken
@@ -18,18 +22,19 @@ pripraviť (jedlo), zubereiten
 dusiť, schmoren
 pražiť, rösten
 miesiť, kneten
-šľahať, schlagen
-strúhať, reiben
+šľahať, schlagen/schlägt/schlug/geschlagen
+strúhať, reiben/rieb/gerieben
 mlieť, mahlen
 odšťaviť, entsaften
 zahustiť, eindicken
 okoreniť, würzen
-kysnúť, aufgehen
+kysnúť, aufgehen/ging/aufgegangen
 kvasiť, gären
 cediť, seihen
 precediť, abseihen + durchseihen
 naložiť do soli, pökeln
 presoliť, versalzen
+rozdrviť, zerreiben/zerrieb/zerrieben
 
 kvasenie, e Gärung/en
 
@@ -62,7 +67,7 @@ kelímok, r Tiegel
 =sitko, s Sieb/e
 =mlynček, e Mühle/n
 cedidlo, r Seiher
-strúhadlo, s Reibeisen / e Raspel/n
+strúhadlo, s Reibeisen + e Raspel/n
 pekáč, e Bratpfanne/n
 kastról, e Kasserolle/n
 čajník, r Teekessel

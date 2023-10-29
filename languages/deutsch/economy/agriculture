@@ -8,20 +8,20 @@ pastier, r Hirt/en
 =kosiť, mähen
 slama, s Stroh
 seno, s Heu
-hnoj, r Mist / r Dung
+hnoj, r Mist + r Dung
 
 vinič, e Rebe/n
 slad, s Malz
 
 =ryť, wühlen
 =sadiť, pflanzen
-presadiť, verpflanzen / umpflanzen
-vysadiť, auspflanzen
-zasadiť, einpflanzen / anpflanzen
+- presadiť, ver|pflanzen + um|pflanzen
+- vysadiť, aus|pflanzen
+- zasadiť, ein|pflanzen + an|pflanzen
 trhať burinu, jäten
 
-=pestovať, züchten / anbauen
-=zalievať, giessen
+=pestovať, züchten + anbauen
+=zalievať, giessen/goss/gegossen
 =hnojiť, düngen
 =hnojivo, r Dün­ger
 
@@ -30,15 +30,15 @@ trhať burinu, jäten
 =sedliak, r Bauer
 =gazdovstvo, r Bauernhof
 =maštaľ/stajňa, r Stall/ä-e
-=pole, s Feld / r Acker
+=pole, s Feld + r Acker
 úhor (neobrábané pole), e Brache/n
 =siať, säen
-=žať, ernten
-oberať, pflücken
 =úroda, e Ernte
+- žať, ernten
+oberať, pflücken
 stodola, e Scheune/n
 krmivo, s Futter
-orať, pflügen / ackern
+orať, pflügen + ackern
 kypriť pole, eggen
 pluh, r Pflug
 kombajn, r Mähdrescher
@@ -50,7 +50,7 @@ výrub, e Abholzung/en
 vyrúbať, abholzen
 
 včelár, r Imker
-=pastier, r Hirt / r Hirte
+=pastier, r Hirt + r Hirte
 =dobytok, s Vieh
 jarmo, s Joch/e
 
@@ -61,29 +61,30 @@ krotký, zahm
 =kuriatko, s Küken
 
 =krava, e Kuh
-=býr, r Stier / r Bulle
+=býr, r Stier + r Bulle
 =teľa, s Kalb
 =prasa, s Schwein
 =sviňa, e Sau
-=prasiatko, s Ferkel / s Schweinchen
+=prasiatko, s Ferkel + s Schweinchen
 
 =ovca, s Schaf
 =jahňa, s Lamm
-baran, r Widder / r Schafbock
+baran, r Widder + r Schafbock
 =koza, e Ziege
-=kozľa, s Zicklein / s Kitz
+=kozľa, s Zicklein + s Kitz
 cap, r Ziegenbock
 
 =pes, r Hund/e
 =šťeňa, r Welpe/n
 suka, e Hündin
-=mačka, e Katze
+=mačka, e Katze/n
 =mačiatko, s Kätzchen
 kocúr, r Kater
+cica, e Mieze/n
 
-=kôň, s Pferd
-žrebec, r Hengst
-kobyla, e Stute
+=kôň, s Pferd/e
+žrebec, r Hengst/e
+kobyla, e Stute/n
 žriebä, s Fohlen
 vraník (čierny kôň), r Rappe/n
 šimeľ (biely kôň), r Schimmel
@@ -91,13 +92,14 @@ mul, s Maultier/e
 
 morka, e Pute/n
 
-=sedlo, r Sattel
+=sedlo, r Sattel/ä
 podkova,s Hufeisen
 uzda, r Zaum/ä-e
 opraty, r Zügel
 strmeň, r Steigbügel
 ostroha, r Sporn/Sporen
 bič, e Peitsche/n
+- šibať, peitschen
 bičík, e Gerte/n
 
 kanec, r Eber

@@ -20,10 +20,15 @@ Malaise: feeling of general discomfort
 Arrhythmia: irregularity in heartbeat
 - Bradycardia: decreased heart rate (under 60 beats), normal during sleep
 - Tachycardia: increased heart rate (over 100 beats), normal during exercise
-Anaphylaxis: rapid allergic reaction
+Anaphylaxis: rapid allergic reaction (to food, insect bite, medicine)
 Rhinorrhea: discharge of mucus fluid from nose, can be side effect of crying
 Rhinitis: irritation inside nose
 Erythema: redness of skin, caused by increased blood flow
+Colic: pain that starts and stops abruptly
+Hypoxia: insufficient oxygen in tissue
+Hypoxemia: low oxygen level in blood
+Ischemia: restriction of blood supply to tissue
+- Angina: chest pain caused by ischemia to heart muscle
 
 #Diagnosis
 Magnetic resonance imaging (MRI): uses strong magnetic fields
@@ -45,6 +50,11 @@ Body temperature
 Respiratory rate
 Pulse rate
 
+#Therapy
+Intravenous therapy: fluids administered into vein (water, electrolytes, nutritients etc)
+- Canulla: tube for repeated usage
+Catheter: tube inserted in body cavity allowing drainage of fluids or gases
+
 #allergies
 Alpha-gal syndrome: red meat allergy after tick bite, reaction to carbohydrate
 Milk allergy: reaction to milk proteins, 2% of population
@@ -63,6 +73,13 @@ Hashimoto's thyroiditis: affects thyroid
 - symptoms: weight gain, hair loss, depression
 Lupus
 - symptoms: swollen joints, hair loss, red rash
+Lichen planus
+- affects skin and mucous membranes
+- flat topped polygonal purple areas of papules and plaques
+Lichen sclerosus
+- anal and genital areas, white flat patches
+Vitiligo
+- patches of skin without pigment
 
 #neurodegenerative
 Alzheimer's disease: loss of neuronal connections, causes dementia
@@ -75,3 +92,42 @@ Multiple sclerosis: damage of myelin sheaths
 
 #other
 Lactose intolerance: common in east asia
+
+Urolithiasis (kidney stone): mineral crystal formed in kidney, can block ureter
+- symptoms: renal colic
+- risk factors: dehydration, high sugar or sodium intake
+- types: calcium oxalate (60%), calcium phosphate, uric acid
+
+Urinary incontinence: uncontrolled urine leakage
+
+Sepsis: blood poisoning, caused by microorganisms, high risk of death
+- symptoms: fever, increased heart rate
+
+#congitive disorder
+Agnosia: inability to process sensory information
+- Anosognosia: unawareness of disability
+- Prosopagnosia: inability to recognize faces
+Synesthesia: stimulation of one sensory pathways leads to involuntary experience in second
+
+Scoliosis: sideways curvature spine
+Kyphosis: excessive convex curvature of thoracic spine
+Lordosis: excessive concave curvature of lumbar spine
+
+#nail disease
+Koilonychia: spoon nails
+- sign of iron deficiency
+- thin nails that are flat or concave
+Paronychia
+- inflammation of skin around nail
+- caused by bacteria
+Melanonychia
+- dark pigmentation of nail
+Beau's lines
+- deep horizontal ridges on nail
+
+#respiratory disease
+Löffler's syndrome: eosinophils in lungs due to parasitic infection, difficult breathing
+
+#cardiovascular disease
+Eosinophilic myocarditis: eosinophils in heart, inflammation
+- Löffler's endocarditis: last stadium, connective tissue replaces damaged muscle, poor contractions

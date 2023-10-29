@@ -204,6 +204,7 @@ Surface tension: energy required to increase surface area, depends on intermolec
 Capillary action: adhesive forces between liquid and container are smaller/greater than cohesive forces in liquid
 Viscosity: resistance to flow, depends on intermolecular forces
 Volatility: speed of vaporization
+Mpemba effect: hot liquid can freeze faster than cold (due to evaporation etc)
 
 Adhesion: forces between different particles
 Cohesion: forces between same particles
@@ -376,9 +377,33 @@ Semiconductors: gap between valence and conduction band is small
 - p-type: doping with electron acceptor, new band over valence band
 Insulators: gap between valence and conduction band is big
 
+#Superconductivity
+properties in materials where electrical resistance vanishes
+resistance drops to zero at critical temperature
+Meissner effect: expulsion of magnetic field below critical temperature
+- exterior magnetic field around superconductor is increased
+- breaks when strength of magnetic field rises above critical value
+Type I: aluminium, mercury, lead
+Type II: niobium, YBCO (YBaCuO), BSCCO (BiSrCaCuO)
+
 #Semicondactors
 - very pure material needed
 elements: Si, Ge
 n-type doping: P, As, Sb
 p-type doping: B, Al, Ga
 compounds: GaAs, GaN, SiC
+
+Quantum fluctuation: random changes in amont of energy in space
+- virtual particles created in particle-antiparticle pairs
+Quantum tunnelling: object passing barrier due to wave nature of matter
+- probability decreases with object's mass and barrier size
+
+#Quantum dot
+few nanometer sized semiconductor particle
+artificial atoms, properties between semiconductors and atoms
+optical and electronic properties change with size and shape
+electron excited when illuminated by UV light and releases energy as light
+
+#Electromagnetism
+Gauss's law: electric field points from positive charge to negative charge, outflow is proportional to charge
+Gauss's law for magnetism: magnetic field forms loops, outflow is zero

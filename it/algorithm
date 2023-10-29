@@ -1,0 +1,2 @@
+Hamming distance: number of positions with different characters between two words
+Levenshtein distance: minimum number of single-character edits between two words (delete/replace/insert)

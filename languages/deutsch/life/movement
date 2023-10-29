@@ -12,11 +12,12 @@ zažmurkať, zuzwinkern + zublinzeln
 #teeth
 =žuť, kauen
 požuť, zerkauen
-=hrýzť, beissen
-odhryznúť, abbeissen
-nahryznúť, anbeissen
-rozhryznúť, aufbeissen
-zahryznúť, zubeissen
+=hrýzť, beissen/biss/gebissen
+odhryznúť, abbeissen/biss/abgebissen
+nahryznúť, anbeissen/biss/angebissen
+rozhryznúť, aufbeissen/biss/aufgebissen
+rozhrýzť, zerbeissen/biss/zerbissen
+zahryznúť, zubeissen/biss/zugebissen
 ceriť (zuby), fletschen
 
 #tongue
@@ -40,14 +41,14 @@ hlt, r Happen
 
 #throat
 =prehltnúť, schlucken
-vracať, speien + erbrechen
+vracať, speien + erbrechen/erbricht/erbrach/erbrochen
 vyvracať sa, ausspeien
-grgať, aufstossen + rülpsen
+grgať, aufstossen/stösst/stiess/aufgestossen + rülpsen
 
 #hands hard
-=chytiť, greifen + ergreifen
-=držať, halten
-=pevne držať, festhalten
+=chytiť, greifen/griff/gegriffen + ergreifen/ergriff/ergriffen
+=držať, halten/hält/hielt/gehalten
+=pevne držať, festhalten/hält/hielt/festgehalten
 =štipnúť (prstami), kneifen
 =zamávať, winken
 zadrapiť, krallen
@@ -58,10 +59,10 @@ oháňať sa, fuchteln
 vytrhnúť, entwinden
 hmatať, tasten (nach)
 prejsť rukou po, wischen (über)
-vykĺznuť, entgleiten
+vykĺznuť, entgleiten/entglitt/entglitten
 
 #hands soft
-=objať, umarmen
+=objať, umarmen + umfangen/umfängt/umfing/umfangen
 =pohladiť, streichen
 =hladkať, streicheln
 pritúliť sa, kuscheln sich
@@ -80,7 +81,7 @@ maznavý, verschmust
 =usmiať sa, lächeln
 pousmiať sa, belächeln
 
-mňaukať, miauen / maunzen
+mňaukať, miauen + maunzen
 prskať (zvuk), prusten
 
 =pľuť, spucken
@@ -93,7 +94,7 @@ mávať, schwenken
 
 odštipnúť, abkneifen
 
-=biť, schlagen
+=biť, schlagen/schlägt/schlug/geschlagen
 =škrtiť, würgen
 zaškrtiť, abwürgen
 zaškrtiť, erwürgen
@@ -115,18 +116,20 @@ zapchať ústa, knebeln
 obesiť, erhängen
 obesiť, aufknüpfen
 
-=krok, r Schritt/e, r Tritt/e
+=krok, r Schritt/e + r Tritt/e
 =beh, r Lauf/ä-e
 =skok, r Sprung/ü-e
 poklona, r Knicks/e
 
 #legs
 prechádzať sa, spazieren
-=kráčať, schreiten
-=bežať, laufen
+=kráčať, schreiten/schritt/geschritten
+=bežať, laufen/läuft/lief/gelaufen + rennen/rannte/gerannt
+vbehnúť, einlaufen/läuft/lief/eingelaufen
+vybehnúť, auslaufen/läuft/lief/ausgelaufen
 ponáhľať sa, beeilen sich
-=skočiť, springen
-=preskočiť, überspringen
+=skočiť, springen/sprang/gesprungen
+=preskočiť, überspringen/übersprang/übersprungen
 =poskakovať, hüpfen
 brodiť sa, stapfen
 motať sa, trödeln
@@ -137,34 +140,42 @@ vliecť sa, schlendern
 knísať sa, watscheln
 šúchať (nohy), schlurfen
 
-=kopnúť, treten
-=šliapnúť, treten
-rozšliapnuť, zertreten
+=kopnúť, treten/tritt/trat/getreten
+=šliapnúť, treten/tritt/trat/getreten
+rozšliapnuť, zertreten/zertritt/zertrat/zertreten
 dupať, trampeln + stampfen
-cupkať, trappeln / trippeln
+cupkať, trappeln + trippeln
 trieliť, preschen
 
 pokloniť sa, knicksen
 =potknúť sa, stolpern
 =potácať sa, wanken
-=krívať, hinken / humpeln
+=krívať, hinken + humpeln
 tackať sa, taumeln + torkeln
 vystierať sa, rekeln sich + räkeln sich
 
-=stáť, stehen
-=vstať, aufstehen
-=sedieť, sitzen
-=posadiť sa, setzen sich
-nasadnúť, aufsitzen
-=ležať, liegen
+=stáť, stehen/stand/gestanden
+=vstať, aufstehen/stand/aufgestanden
+=sedieť, sitzen/sass/gesessen
+=posadiť sa, setzen/sass/gesessen sich
+nasadnúť, aufsitzen/sass/aufgesessen
+=ležať, liegen/lag/gelegen
 =ľahnúť si, legen sich
 =kľačať, knien
 =kľaknúť si, niederknien
-čupieť, hocken / kauern
+čupieť, hocken + kauern
 
-=plávať, schwimmen
-=lietať, fliegen
-=plaziť sa, kriechen
+=plávať, schwimmen/schwamm/geschwommen
+=lietať, fliegen/flog/geflogen
+uletieť, entfliegen/entflog/entflogen
+odletieť, abfliegen/flog/abgeflogen
+priletieť, anfliegen/flog/angeflogen
+vzlietnuť, auffliegen/flog/aufgeflogen
+vyletieť, ausfliegen/flog/ausgeflogen
+vletieť, einfliegen/flog/eingeflogen
+preletieť, überfliegen/überflog/überflogen
+obletieť, umfliegen/umflog/umflogen
+=plaziť sa, kriechen/kroch/gekrochen
 =šplhať sa, klettern
 =vznášať sa, schweben
 brodiť sa, waten
@@ -180,9 +191,10 @@ svižný, flott
 nemotorný, unbeholfen
 
 #body
-šťuchnúť, stupsen + anstossen
+šťuchnúť, stupsen + anstossen/stösst/stiess/angestossen
 drgnúť, knuffen
 tresnúť, schmettern
-=vziať, nehmen, holen, aufnehmen
-=vziať so sebou, mitnehmen
+=vziať, nehmen/nimmt/nahm/genommen + holen + aufnehmen/nimmt/nahm/aufgenommen
+vybrať, ausnehmen/nimmt/nahm/ausgenommen
+=vziať so sebou, mitnehmen/nimmt/nahm/mitgenommen
 

@@ -1,12 +1,32 @@
 #Cognitive bias: persistant thought processing errors
 Anchoring bias: first (or last) acquired piece of information influencing decision
 Apophenia: seeing meaningful connection between unrelated things
+- Pareidolia: seeing object where none is, faces in inanimate objects (Face on Mars)
+- Clustering illlusion: considering clusters in small samples to be non-random (stock market)
 Confirmation bias: selecting information that confirms belief and ignoring contrary
 - Cherry picking
 Hard-Easy effect: overestimating success at hard task and underestimating success at easy task
 - Dunning–Kruger effect: beginners overestimating and experts underestimating their skill
-Narrative fallacy
-Hindsight bias: tendency to perceive past events as predictable
+- Illusion of control (casino)
+Narrative fallacy: creating story to explain events
+- Hindsight bias: tendency to perceive past events as predictable (history)
+Swimmer's body illusion: attributing trait to activity, instead of other way around
+Sunk cost fallacy: continuing only because of previous investment (Concorde)
+Contrast effect: effect of previous or simultaneos stimulus affecting perception (discounts)
+Availability bias: heuristic, relying on information we remember (media coverage)
+Outcome bias: evaluating decision when outcome is known (investments)
+Egocentric bias: relying on own perspective
+Loss aversion: loss more powerful than gain
+- Endowment effect: object ownership increasing object value
+Base rate fallacy: false positive vs true positive (medical test)
+
+Association: mental connection
+- Law of effect: rewarded behaviour repeats more and punished behaviour repeats less
+- Classical conditioning: Pavlov, pairing of physiological and neutral stimulus
+
+#Memory bias
+Fading affect bias: forgetting negative quicker than positive (good old times)
+Recency bias: favoring recent events over historic
 
 #Propaganda/influence techniques
 Ad hominem: attacking person instead of argument
@@ -27,17 +47,27 @@ Half-truth
 Lying
 
 #Influence
-Peer pressure: fear of social rejection
+Peer pressure: imitation, fear of social rejection
+- enforced by uncertainty and similar people
+- Werther effect: copycat suicides after publicized suicide (some looking as accident)
 Fear of missing out (FOMO): fear of regret, scarcity
+- enforced by competition (auctions)
+- Reactance: unpleasant reaction to limiting choice (banned books)
+- Reverse psychology: asserting belief opposite to desired one (dares)
 Reciprocity principle: responding to action with similar action (reward/punishment)
 - feeling of debt even in case of unwanted favor
 - reciprocal concessions: lowering request leads to concession from other side (compromise)
 - Door-in-the-face technique: make large request (denied) and then smaller one (accepted)
-Consistency principle: people want to be consistent with prior acts and statements
+Consistency principle: commitment, people want to be consistent with prior acts and statements
 - larger request more likely agreed after agreeing to smaller request
 - Foot-in-the-door technique: start with small request
-Liking principle
-Authority principle
+Association principle: connection (sports fans, celebrities)
+Liking principle: similarity, compliments, cooperation
+Authority principle: credibility (titles, cloths)
+
+Mass suicides
+- Jonestown in Guyana, Peoples Temple cult, cyanide poisoning following murder of US congressman, 1978
+- 47 rōnin, seppuku after avenging death of their master, 1703
 
 Conspiracy theory: ignores more probable explanations, resists falsification, faith
 
@@ -55,12 +85,15 @@ Cum hoc: correlation implying causation (lice are benefitial to health)
 Jumping to conclusions: deciding without having all facts
 Oversimplification: assuming single cause of outcome
 Post hoc: assuming action is caused by event (rooster causes sun to rise)
-- Regression: assuming action is responsible for change to normal (praise is bad/criticism is good)
+- Regression to mean: assuming action is responsible for change to normal (praise is bad/criticism is good)
 Texas sharpshooter: focusing on similarities in data, ignoring differences and randomness (Nostradamus prophecies)
+
+#Unintended consequences
+Perverse incentive: reward making issue worse (cobra effect)
 
 #Other
 Black swan: highly improbable consequential event
-Problem of induction: 
+Problem of induction (Hume): drawing certainty from observations (Thanksgiving turkey)
 Matthew effect
 - rich get richer and poor get poorer
 - preferential attachment: adding the most to the biggest
@@ -72,3 +105,19 @@ Fractal: detailed structure at arbitrarily small scale
 - Sierpiński triangle: recursively subdivided equilateral triangle
 - Menger sponge: recursively subdivided cube
 Occam's razor: simplest explanation is often correct, lowest amount of assumptions
+Diffusion of responsibility: person takes lower responsibility for action in group
+- Bystander effect: group of bystanders less likely to help than individual
+
+
+#Marketing tricks
+Christmas toys
+- advertise toy, parent promises it to child
+- toy is out of stock for christmas
+- parent buys another toy instead
+- advertise toy again after christmas
+- parent buys it because of previous promise
+Low balling
+- seller offers product at discount
+- customer becomes attached
+- seller cancels on discount
+- customer still buys

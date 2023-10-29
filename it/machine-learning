@@ -32,3 +32,17 @@ k-mean clustering: k cluster centers with minimal square distance of object to c
 - median can be used instead of mean
 fuzzy clustering: object can belong to multiple clusters
 distribution based: finds object from same distribution - e.g. Gaussian
+
+OCR (Optical character recognition): conversion of image to text
+- preprocessing: deskewing, despeckling, conversion to black-and-white, line and word detection, character isolation
+- two-pass: second pass uses high confidence letters from first pass
+- postprocessing: constrain words by lexicon
+
+#Markov chain: model describing sequence of possible events
+- set of discrete states and transitions between states
+- transitions and initial states have probabilities
+- probability of event depends only on previous state
+Hidden Markov model: observable process influenced by unobservable states
+- output transitions with probabilities between hidden state and observation
+- used in pattern recognition (speech), economics, physics
+

@@ -7,7 +7,7 @@
 =tu (miesto), hier
 =tam (miesto), dort
 =niekde, irgendwo
-=nikde, nirgends / nirgendwo
+=nikde, nirgends + nirgendwo
 =všade, überall
 =vnútri, drinnen
 =vonku, draussen
@@ -53,7 +53,7 @@ kdekoľvek, wo auch immer
 =pod, unterhalb
 =uprostred, inmitten
 
-=miesto, r Ort/e / e Stelle/n / r Platz/ä-e
+=miesto, r Ort/e + e Stelle/n + r Platz/ä-e
 =pozícia, e Position/en
 =oblasť, e Gegend/en
 =oblasť, r Bereich/e
@@ -62,8 +62,9 @@ kdekoľvek, wo auch immer
 =ľavý, link
 
 =vzdialený, entfernt
+- vzdialenosť, e Entfernung/en
 =blízkosť, e Nähe
-=vzdialenosť, e Entfernung/en
+- blížiť sa, nähern sich
 =ďaleký, weit
 =tunajší, hiesig
 

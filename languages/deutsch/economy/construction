@@ -2,26 +2,23 @@ lešenie, s Gerüst
 žeriav, r Kran
 trosky, e Trümmer
 
-stavba, r Bau
-prístavba, r Anbau
-vstavanie, r Einbau
 stavať, bauen
-stavebný, baulich
-stavenisko, e Baustelle
-stavebný pozemok, r Bauplatz
-stavebný materiál, r Baustoff
-
-stavebníctvo, s Bauwesen, e Bauwirtschaft
+- stavba, r Bau
+- prístavba, r An|bau
+- vstavanie, r Ein|bau
+- stavebný, baulich
+- stavenisko, e Bau|stelle
+- stavebný pozemok, r Bau|platz
+- stavebný materiál, r Bau|stoff
+- stavebníctvo, s Bau|wesen, e Bau|wirtschaft
+- zastavať, bebauen
+- zastavať/zatarasiť, verbauen
+- pristavať, zubauen
+- prístavba, r Zubau
+- stavebný sloh, r Bau|stil/e
 
 pozemok, s Grundstück
 budova, s Gebäude
-zastavať, bebauen
-zastavať/zatarasiť, verbauen
-
-pristavať, zubauen
-prístavba, r Zubau
-
-stavebný sloh, r Baustil/e
 
 =klinec, r Nagel/ä
 =rebrík, e Leiter/n
@@ -41,17 +38,19 @@ hobľovať, hobeln
 =podlaha, r (Fuss)Boden/ö
 
 =izba, s Zimmer
+- spálňa, s Schlafzimmer
+- obývačka, s Wohnzimmer
+- kúpelňa, s Badezimmer
 =kuchyňa, e Küche/n
 =komora, e Kammer/n
-spálňa, s Schlafzimmer
-obývačka, s Wohnzimmer
-kúpelňa, s Badezimmer
+- špajza, e Speisekammer/n
 chodba, r Korridor/e + r Flur/e
-špajza, e Speisekammer/n
 predsieň, e Diele/n
 
 =pivnica, r Keller
-povala, r Dachboden/ö
+
+=strecha, s Dach/ä-er
+- povala, r Dach|boden/ö
 
 =veža, r Turm/ü-e
 =múr, e Mauer/n
@@ -63,7 +62,6 @@ stĺp, e Säule/n
 pilier, r Pfeiler
 výklenok, e Nische/n
 
-=strecha, s Dach/ä-er
 komín, r Schornstein/e
 škridla, r Dachziegel
 odkvap, e Traufe/n

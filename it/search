@@ -1,0 +1,19 @@
+#Sorted array: O(log n)
+Binary search: comparing with middle element
+
+#Sorting array: O(n*log n)
+Heapsort: repeated selecting of largest element from heap, not stable
+Merge sort: recursive merging sorted subarrays
+Quicksort: recursive partitioning into two subarrays by pivot, not stable
+Tree sort: traversing binary search tree
+
+#Sorting array: O(n^2)
+Bubble sort: repeated passing of elements and swapping pairs as needed
+Comb sort: bubble sort with big initial gap, gradually shrinking gap to 1, not stable
+Cycle sort: finding index for item, moving it and finding index for replaced item, not stable
+Insert sort: sorting one item at time
+Selection sort: repeated finding of largest element
+
+#Sorting array
+Bucket sort: distributing into buckets, sorting buckets
+Radix sort: repeated sorting by digit

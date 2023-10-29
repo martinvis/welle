@@ -61,6 +61,9 @@ electric current: ampere (A)
 luminous intensity: candela (cd)
 
 #SI constants
+Boltzmann constant: 13.8 μaJ/K
+Planck constant: 663 aaJ*s
+Elementary charge: electric charge carried by single proton (160 maC)
 Avogadro constant: number of particles in mole = numer of C-12 atoms in 12g  (602kE)
 Speed of light (c): upper limit for the speed in vacuum (300Mm/s)
 
@@ -341,6 +344,11 @@ Mass percentage: mass of solute to mass of solution
 Solvation shell: solvent interface of solute, solvent molecules surrounding solute particle
 - Hydration number: number of water molecules bonded to ion
 
+#Gas mixture
+Partial pressure: pressure of gas if it occupied volume alone
+Total pressure: pressures of all gases in volume
+Dalton's law: total pressure is sum of partial pressures
+
 #Heterogenous mixtures
 Colloid: larger particles than in solution, scatters light (smoke, fog, milk, butter)
 Suspension: larger particles than in colloid, separate on standing (blood, paint)
@@ -427,6 +435,7 @@ Silane process
 carbonylation: introduces CO
 oxidation: introduces O2
 hydrogenation: introduces H2
+aromatization: dehydrogenation forming heterocyclic compound
 
 #Chemical kinetics
 Reaction rate: change in concentration of reactants and products with time
@@ -435,6 +444,7 @@ Reaction rate: change in concentration of reactants and products with time
 - increases with concentration and surface area
 - decreases with time as reactant concentrations decrease
 - collision frequency * steric factor * fraction of collisions with activation energy
+- for gases, concentration is expressed by partial pressure
 Zeroth-order reaction: rate is independent of concentration, A = A0 - kt
 - when there is another limiting compound, e.g. catalyst)
 First-order reaction: rate is directly proportional to concentration, ln(A) = ln(A0) - kt
@@ -463,3 +473,25 @@ Reaction quotient: relative amount of products and reactants for reaction
 Equilibrium constant: value of reaction quatient at equilibrium
 - high when products dominates, low when reactants dominates
 - depends on temperature
+- for reaction made by partial reactions, it is product of equilibrium constants of partial reactions
+Le Chatelier's principle: when system in equilibrium is subjected to change it changes to new equilibrium, partially counteracting change
+- Change in concentration: increase favors reaction consuming increased component
+- Change in pressure: affects equilibrium only if reaction involves gases and changes number of gas molecules, higher pressure favors less gas molecules
+- Change in temperature: increase favors endothermic reaction, decrease favors exothermic reaction
+
+Vulcanization: rubber hardening with sulfur
+
+#Functional groups
+Hydroxyl/Alcohol: -OH
+Phenyl/Benzene: -C6
+Alkyl/Alkane: C-C
+Alkenyl/Alkene: C=C
+Alkynyl/Alkyne: C≡C
+Ketone: -C=O
+- Aldehyde: -CH=O
+- Amide: -C=O-N-
+- Ester: -C=O-O-
+Carboxyl: -C=O-OH
+Ether: -O-
+Peroxide: -O-O-
+Cyanate: -O-C≡N

@@ -1,7 +1,7 @@
 =matematika, e Mathematik
 =počítať, zählen
 
-=číslo, e Nummer/e + e Zahl/en
+=číslo, e Nummer/n + e Zahl/en
 číslica, e Ziffer/n
 =percento, s Prozent/e
 
@@ -21,17 +21,17 @@ menšiteľ, r Subtrahend/en
 
 násobiť, multiplizieren
 súčin, s Produkt/e
-násobiteľ, r Faktor/en / r Multiplikator/en
+násobiteľ, r Faktor/en + r Multiplikator/en
 
 deliť, dividieren
 podiel, r Quotient/en
 delenec, r Dividend/en
-deliteľ, r Divisor/en / r Teiler
+deliteľ, r Divisor/en + r Teiler
 
 #geometria
 priamka, e Gerade
 úsečka, e Strecke
-polpriamka, r Strahl / e Halbgerade
+polpriamka, r Strahl + e Halbgerade
 bod, r Punkt
 opísaná kružnica, r Umkreis/e
 vpísaná kružnica, r Inkreis/e

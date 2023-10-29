@@ -1,12 +1,13 @@
 #groups
 =roj, r Schwarm/ä-e
-=kŕdeľ, r Schwarm/ä-e / e Schar/en
+=kŕdeľ, r Schwarm/ä-e + e Schar/en
 =stádo, e Herde/n
 =svorka, s Rudel
 =svorka psov, e Meute
 
 =žiť, leben
 tvor, s Geschöpf/e
+zviera, s Tier/e
 =život, s Leben
 =prežiť, überleben
 =zažiť, erleben
@@ -17,9 +18,11 @@ oživiť, beleben
 
 =bunka, e Zelle/n
 klíček, r Keim/e
-=rásť, wachsen
+=rásť, wachsen/wächst/wuchs/gewachsen
 =kvitnúť, blühen
-vyrásť, erwachsen
+vyrásť, erwachsen/erwächst/erwuchs/erwachsen
+zrásť, verwachsen/verwächst/verwuchs/verwachsen
+dorásť, nachwachsen/wächst/wuchs/nachgewachsen
 =narodený, geboren
 zvädnutý, welk
 klíčiť, keimen
@@ -30,30 +33,32 @@ oplodniť, befruchten
 množiť sa, fortpflanzen sich
 neresiť sa (ryby), laichen
 narodiť sa, geboren sein
-vyliahnuť sa, ausschlüpfen
+vyliahnuť sa, ausschlüpfen + auskriechen/kroch/ausgekrochen
 
-=pôrod, e Geburt/en / e Entbindung/en
-=porodiť, gebären / entbinden
+=pôrod, e Geburt/en + e Entbindung/en
+=porodiť, gebären + entbinden
 =tehotná, schwanger
 tehotenstvo, e Schwangerschaft/en
+dojčiť, stillen
 
 =pohlavie, s Geschlecht/er
 =vek, s Alter
 =starý, alt
 =mladý, jung
-=detstvo, r Kindheit
+=detstvo, e Kindheit
 starecký, greisenhaft
 postarší, betagt
 
 chradnúť, verkümmern
 starnúť, vergreisen
-=zomrieť, sterben
+=zomrieť, sterben/stirb/starb/gestorben
+vymrieť, aussterben/stirb/starb/ausgestorben
 =smrť, r Tod/e
 úmrtie, s Ableben
 =smrteľný, tödlich
 =mŕtvy, tot
 =mŕtvola, e Leiche/n
-=zabiť, töten
+=zabiť, töten + erschlagen/erschlägt/erschlug/erschlagen
 zdochlina, s Aas/e
 
 novorodenec, s Neugeborene/n

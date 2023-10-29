@@ -1,14 +1,21 @@
 =venovať, widmen
-=dať, geben
-=dostať, bekommen / erhalten / kriegen
+- venovanie, e Widmung/en
+
+=dať, geben/gibt/gab/gegeben
+=dostať, bekommen/bekam/bekommen + erhalten/erhält/erhielt/erhalten + kriegen
+nedoceniť, verkennen/verkannte/verkannt
 
 =kúpiť, kaufen
-=predať, verkaufen
+- predať, verkaufen
+- nakupovať, einkaufen
+- nákup, r Kauf/ä-e + r Einkauf/ä-e
+- predaj, r Verkauf/ä-e
+- predavač, r Verkäufer
+- nákupca, r Einkäufer
+
 predať (nepoctivo), verschachern
-=nakupovať, einkaufen
 dražiť, versteigern
-=predavač, r Verkäufer
-=obchod, r Handel / s Geschäft/e
+=obchod, r Handel + s Geschäft/e
 =predajňa, r Laden/ä
 
 =obchodovať, handeln
@@ -24,60 +31,66 @@ obchodovať v malom, verhökern
 =zákazník, r Kunde/n
 =inzerát, e Anzeige
 
-=nákup, r Kauf/ä-e
+=dlh, e Schuld/en
+- dlhovať, schulden
+- dlžník, r Schuldner
 
-=dlhovať, schulden
+vymáhať, beitreiben/trieb/beigetrieben + eintreiben/trieb/eingetrieben
 =rozpočet, r Etat/s
 veriteľ, r Gläubiger
-dlžník, r Schuldner
 
 =bankový účet, s Konto/Konten
 =hypotéka, e Hypothek/en
 
 účtenka, r Beleg/e
 =faktúra, e Rechnung/en
-=pôžička, e Anleihe/n / s Darlehen
-=vypožičat, leihen / ausleihen
-=požičať, borgen
+=pôžička, e Anleihe/n + s Darlehen
+=vypožičat, leihen/lieh/geliehen + ausleihen/lieh/ausgeliehen
+=požičať, borgen + verleihen/verlieh/verliehen
 
 =stáť (cena), kosten
 =zarobiť, verdienen
+- zárobok, r Verdienst
 =šetriť, sparen
-=ušetriť, ersparen
+- ušetriť, er|sparen
+- šetrný, sparsam
 =platiť, zahlen
-=zaplatiť, bezahlen
-odplatiť, vergelten
+- zaplatiť, bezahlen
+- vyplatiť, auszahlen
+- splácať, abzahlen
+- platba, e Zahlung/en
+- platidlo, s Zahlungs|mittel
+odplatiť, vergelten/vergilt/vergalt/vergolten
 vyplatiť, einlösen
-vyplatiť, auszahlen
-splácať, abzahlen
-splatiť, erstatten
+splatiť, begleichen/beglich/beglichen
+uhradiť, erstatten
+uhradiť, aufkommen/kam/aufgekommen (für)
+splatiť, abgelten/gilt/galt/abgegolten
 zhabať, pfänden
 hýriť, prassen
-prehýriť, verprassen
-premárniť, verschwenden
+- prehýriť, ver|prassen
 =sponzorovať, stiften
 =vyplatiť sa, lohnen sich
 preceniť, überschätzen
 
 =zjednávať cenu, feilschen
 
-platidlo, s Zahlungsmittel
 =peniaze, s Geld
+- hotovosť, s Bar|geld
+- drobné, s Klein|geld
+- prepitné, s Trink|geld
 =mena, e Währung/en
 =dolár, r Dollar/s
 prachy, r Zaster
 
-=hotovosť, s Bargeld
-=minca, e Münze/n / s Geldstück/e
-=bankovka, e Banknote/n / r Geldschein/e
+=minca, e Münze/n + s Geldstück/e
+=bankovka, e Banknote/n + r Geldschein/e
 =libra, s Pfund/e
 =šek, r Scheck/s
-drobné, s Kleingeld
 účet v reštaurácii, e Zeche/n
 
 =zisk, r Gewinn/e
 =strata, e Verlust/e
-=dlh, e Schuld/en
 =úrok, r Zins/en
 =splátka, e Rate/n
 
@@ -85,8 +98,9 @@ drobné, s Kleingeld
 =burza, e Börse/n
 
 =chudobný, arm
+- chudoba, e Armut
 =bohatý, reich
-=bohatstvo, r Reichtum/ü-er
+- bohatstvo, r Reichtum/ü-er
 prepych, r Prunk
 
 =mzdy, r Lohn/ö-e
@@ -95,21 +109,23 @@ honorár, e Gage/n
 =daň, e Steuer/n
 odpočty, r Abzug/ü-e
 =poplatok, e Gebühr/en
-zárobok, r Verdienst
 mýto, e Maut/en
 príjem, r Bezug/ü-e
 
-=poistenie, e Versicherung/en
 =poistiť, versichern
+- poistenie, e Versicherung/en
 
-=mať, haben
+=mať, haben/hat/hatte/gehabt
 =patriť, gehören
-=vlastniť, besitzen
+=vlastniť, besitzen/besass/besessen
 =majetok, s Vermögen
+zaobísť sa bez, entbehren
 odoprieť si, verkneifen sich
 dopriať si, gönnen sich
 
-žobrák, r Bettler
+=žobrať, betteln (um)
+- žobrák, r Bettler
+
 bankrot, e Pleite/n
 
 =poklad, r Schatz/ä-e

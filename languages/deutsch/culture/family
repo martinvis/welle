@@ -1,9 +1,11 @@
 =ľudstvo, e Menschheit
 =ľudia, e Leute
+=osoba, e Person/en
+- osobný, persönlich
 =človek, r Mensch/en
 =dievča, s Mädchen
 =chlapec, r Junge/n
-=pán, r Herr/(e)n
+=pán, r Herr/en
 =pani, e Frau/en
 
 =rodina, e Familie/n
@@ -12,9 +14,14 @@
 =potomok, r Nachkomme/n
 
 =otec, r Vater/ä
+- starý otec, r Gross|vater/ä
+- pradedo, r Urgross|vater/ä
 =matka, e Mutter/ü
-=ocko, r Vati/s / r Papa/s
-=mamka, e Mutti/s / e Mama/s
+- stará mama, e Gross|mutter/ü
+- prababka, e Urgross|mutter/ü
+
+=ocko, r Vati/s + r Papa/s
+=mamka, e Mutti/s + e Mama/s
 =rodičia, e Eltern
 =syn, r Sohn/ö-e
 =dcéra, e Tochter/ö
@@ -25,47 +32,45 @@
 =súrodenec, s Geschwister
 dvojča, r Zwilling/e
 
-=starý otec, r Grossvater/ä
-=stará mama, e Grossmutter/ü
-=dedko, r Opa/s / r Opi/s
-=babka, e Oma/s / e Omi/s
+=dedko, r Opa/s + r Opi/s
+=babka, e Oma/s + e Omi/s
 =vnuk, r Enkel
-=vnučka, e Enkelin/nen
-=vnúča, s Enkelkind/er
-=pradedo, r Urgrossvater/ä
-=prababka, e Urgrossmutter/ü
+- vnučka, e Enkelin/nen
+- vnúča, s Enkelkind/er
 
 =strýko, r Onkel
 =teta, e Tante/n
 =synovec, r Neffe/n
 =neter, e Nichte/n
 =bratranec, r Cousin/s
-=sesternica, e Cousine/n / e Kusine/n
+- sesternica, e Cousine/n + e Kusine/n
 =švagor, r Schwager/ä
-=švagriná, e Schwägerin/nen
+- švagriná, e Schwägerin/nen
 
 =svokrovci, r Schwiegereltern
 =svokor, r Schwiegervater/ä
 =svokra, e Schwiegermutter/ü
 =zať, r Schwiegersohn/ö-e
 =nevesta, e Schwiegertochter/ö
-družička, e Brautjungfer/n
 
 =svadba, e Hochzeit/en
+družička, e Brautjungfer/n
 veno, e Mitgift/en
 =rozvod, e Scheidung/en
 rozchod, e Trennung/en
 =manželstvo, e Ehe/n
-manžel, r Ehemann
+- manžel, r Ehemann
+- manželka, e Ehefrau/en
 manžel, r Gatte/n
 nevesta, e Braut/ä-e
 ženích, r Bräutigam/e
 vdova, e Witwe/n
 =oženiť sa, heiraten
-=ženatý, verheiratet
+- ženatý, verheiratet
+rozviesť, scheiden/schied/geschieden
 zasnúbiť sa, verloben sich
 zásnuby, e Verlobung/en
 zrušenie zásnub, e Entlobung/en
 
 kmotor, r Pate/n
-kmotra, e Patin/nen
+- kmotra, e Patin/nen

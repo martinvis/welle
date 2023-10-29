@@ -1,26 +1,30 @@
-=čítať, lesen
-=písať, schreiben
-=popísať, beschreiben
-=podpísať, unterschreiben
-prečítať, durchlesen
+=čítať, lesen/liest/las/gelesen
+- prečítať, durchlesen/liest/las/durchgelesen
+- čítať nahlas, vorlesen/liest/las/vorgelesen
+- čitateľ, r Leser
+- čitateľný, leserlich
+
+=písať, schreiben/schrieb/geschrieben
+- odpísať, abschreiben/schrieb/abgeschrieben
+- napísať, aufschreiben/schrieb/aufgeschrieben
+- popísať, beschreiben/beschrieb/beschrieben
+- podpísať, unterschreiben/unterschrieb/unterschrieben
+- pisár, r Schreiber
 
 čarbanica, s Gekritzel
 
-čitateľ, r Leser
-pisár, r Schreiber
-
-písomný, schriftlich
-čitateľný, leserlich
 
 =písmo, e Schrift/en
+- písomný, schriftlich
+
 =písmeno, r Buch­sta­be/n
 =abeceda, s Al­pha­bet
 azbuka, e Kyrilliza
 
 =čiarka, s Komma/s
 =bodka, r Punkt/e
-bodkočiarka, r Strichpunkt/e
-dvojbodka, r Doppelpunkt/e
+- bodkočiarka, r Strich|punkt/e
+- dvojbodka, r Doppel|punkt/e
 otáznik, s Fragezeichen
 výkričník, s Ausrufezeichen
 podčiarkovník, r Unterstrich/e
@@ -37,5 +41,6 @@ lomítko, r Schrägstrich/e
 kapitola, s Kapitel
 =kniha, s Buch/ü-er
 vydanie, e Ausgabe/n
-list, r Brief / s Schreiben
+list, r Brief + s Schreiben
+=lístok, r Zettel
 

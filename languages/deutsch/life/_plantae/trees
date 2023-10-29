@@ -1,7 +1,8 @@
+strom, r Baum/ä-e
 ihličnatý strom, r Nadelbaum/ä-e
 listnatý strom, r Laubbaum/ä-e
 
-ginko, r Ginkgo/s / r Ginko/s
+ginko, r Ginkgo/s + r Ginko/s
 
 =borovica, e Kiefer/n
 =jedľa, e Tanne/n
@@ -11,7 +12,7 @@ céder, e Zeder/n
 
 sekvoja, r Mammutbaum/ä-e
 cyprus, e Zypresse/n
-tuja, r Lebensbaum/ä-e / e Thuja/Thujen
+tuja, r Lebensbaum/ä-e + e Thuja/Thujen
 borievka, r Wacholder
 tis, e Eibe/n
 
@@ -47,13 +48,13 @@ muchovník, e Felsenbirne/n
 =dub, e Eiche/n
 =gaštan, e Kastanie/n
 
-=orech, e Wal­nuss/ü-e / r Nuss­baum/ä-e
+=orech, e Wal­nuss/ü-e + r Nuss­baum/ä-e
 hikória, r Hickory
 
 =breza, e Birke/n
 jelša, e Erle/n
 lieska, e Hasel/n
-hrab, e Hainbuche/n / e Hagebuche/n / e Weissbuche/n
+hrab, e Hainbuche/n + e Hagebuche/n + e Weissbuche/n
 
 =lipa, e Linde/n
 =javor, r Ahorn/e
@@ -62,7 +63,7 @@ pajaseň, r Götterbaum/ä-e
 
 =jaseň, e Esche/n
 orgován, r Flieder
-oliva, r Olivenbaum/ä-e / r Ölbaum/ä-e
+oliva, r Olivenbaum/ä-e + r Ölbaum/ä-e
 vtáčí zob, r Liguster
 baza, r Holunder
 

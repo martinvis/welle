@@ -7,7 +7,7 @@
 
 =javisko, e Bühne/n
 =hľadisko, r Zuschauerraum/ä-e
-=obecenstvo, s Publikum/Publika
+=obecenstvo, s Publikum
 
 =herec, r Schauspieler
 režisér, r Regisseur/e
@@ -19,16 +19,16 @@ režisér, r Regisseur/e
 =obraz, s Bild/er
 =maľovať, malen
 =maľba, s Gemälde
-=socha, e Statue/n / e Skulptur/en
+=socha, e Statue/n + e Skulptur/en
 plátno, e Leinwand/ä-e
 čmáranica, e Schmiererei
 
 sochár, r Bildhauer
 
-=tanec, r Tanz/ä-a
+=tanec, r Tanz/ä-e
 =tancovať, tanzen
 =spev, r Gesang
-=spievať, singen
+=spievať, singen/sang/gesungen
 =pieseň, s Lied/er
 =hlas, e Stimme/n
 
@@ -36,8 +36,10 @@ sochár, r Bildhauer
 =rým, r Reim/e
 
 tetovať, tätowieren
-tetovanie, r Tätowierung/en
+tetovanie, e Tätowierung/en
 
 =hudba, e Musik
 =klavír, s Klavier/e
 struna, e Saite/n
+ladiť, stimmen
+hrať (hud), spielen

@@ -19,13 +19,15 @@ vyschnúť, verdorren
 vody, s Gewässer
 
 =vzduch, e Luft
+- vánok, s Lüftchen
 =vietor, r Wind
 =víchrica, r Sturm
 =viať, wehen
-=fúkať, blasen
-odfúknuť, wegblasen
+=fúkať, blasen/bläst/blies/geblasen
+- odfúknuť, weg|blasen/bläst/blies/weggeblasen
+- nafúknuť, auf|blasen/bläst/blies/aufgeblasen
+- sfúknuť, aus|blasen/bläst/blies/ausgeblasen
 ovievať, fächeln
-vánok, s Lüftchen
 náraz vetra, e Bö/en
 vír, r Strudel
 
@@ -47,15 +49,29 @@ zrážky, r Niederschlag
 krúpy, r Hagel
 mrholenie, r Nieselregen, r Sprühregen
 mrholiť, nieseln
-lejak, r Platzregen / r Starkregen
+lejak, r Platzregen + r Starkregen
 
 =dúha, r Regenbogen
-=kaluž, e Pfütze / e Lache
+=kaluž, e Pfütze + e Lache
 =povodeň, s Hochwasser
 záplava, e Überschwemmung
 dusno, e Schwüle
 
 rosa, r Tau
-inovať, r Reif / r Raureif
-námraza, s Raueis / r Raufrost
+inovať, r Reif + r Raureif
+námraza, s Raueis + r Raufrost
+príliv a odliv, Gezeiten
 
+prameniť, entspringen/entsprang/entsprungen
+=tiecť, fliessen/floss/geflossen
+- tečúci, fliessend
+- odtekať, abfliessen/floss/abgeflossen
+- vtekať, einfliessen/floss/eingeflossen
+- vytekať, ausfliessen/floss/ausgeflossen
+- pretiecť, überfliessen/floss/übergeflossen
+- roztiecť, zerfliessen/zerfloss/zerflossen
+=liať, giessen/goss/gegossen
+- odliať, abgiessen/goss/abgegossen
+- naliať, eingiessen/goss/eingegossen
+- vyliať, ausgiessen/goss/ausgegossen
+- doliať, nachgiessen/goss/nachgegossen
