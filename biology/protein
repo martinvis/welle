@@ -2,21 +2,26 @@
 Defensin: antimicrobial and immune signaling
 Cytokine: small, do not cross cell membrane, interact with receptors on cell surface
 - Chemokine: guide direction of cell movement by change in concentration
-- Interferon: released by host cells in response to virus presence
+- Interferon: released by host cells in response to virus presence, inhibit protein synthesis, increase MHC expression
 - Interleukin: produced by leukocytes
 - Lymphokine: produced by lymphocytes
+- Pyrogene: interleukins, induce fever, migrate to brain (hypothalamus)
 
 #Antibody / Immunoglobulin (Ig)
-large, Y-shaped, immune system
+immune system
+large, Y-shaped, two antigen binding sites
 identifies and neutralizes foreign objects
 identifies antigen (unique molecule of pathogen)
 paratope of protein binds to epitope of antigen
+neutralize pathogen by blocking parts of its surface
+clump pathogens together (two binding sites)
+encourage complement system and attract phagocytosis
 
-IgA: mucous membranes
-IgD: membranes of B-lymphocytes
-IgE: plasma cells
-IgG: plasma cells, most common
-IgM: plasma cells
+IgA: mucous membranes, most numerous, 2 units, do not activate complement system, in maternal milk
+IgD: B cells membrane, activate other lymphocytes
+IgE: plasma cells, against parasitic worms, cause allergy
+IgG: plasma cells, most common, cross to fetus and protect newborn
+IgM: plasma cells, first response, 5 units, activate complement system
 
 #Muscle contraction
 Actin

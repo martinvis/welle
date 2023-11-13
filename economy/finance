@@ -71,9 +71,9 @@ blue chip: profitable with good reputation
 
 #stock exchanges
 Europe
-- Deutsche Börse (Frankfurt)
-- Euronext (Amsterdam, Paris)
-- London
+- Deutsche Börse / Xetra (Frankfurt): .DE
+- Euronext (Amsterdam, Paris): .P
+- London: .L
 - Nasdaq Nordic
 - SIX (Zurich)
 America
@@ -82,11 +82,11 @@ America
 - NYSE (New York): largest
 - Toronto
 Asia
-- Hong Kong
+- Hong Kong: .HK
 - Shanghai
 - Shenzen
 - Taiwan
-- Tokyo
+- Tokyo: .T
 
 #stock market indices
 DAX (40, germany)

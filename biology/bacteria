@@ -1,88 +1,122 @@
-Mycobacterium tuberculosis
-- rod shape
-- causes tuberculosis
-- spreads through air droplets
-- divides every 24h
+=Pseudomonadota
+gram negative
 
+#Pseudomonadales
 Acinetobacter baumannii
-- gram negative, rod shape
+- rod shape
 - in hospitals, antibiotic-resistant
 
+#Pasteurellales
 Haemophilus influenzae
-- gram negative, round shape
+- round shape
 - causes pneumonia and meningitis
 - often resistant to penicillin
 
+#Legionellales
 Legionella pneumophila
-- gram negative, rod shape
+- rod shape
+- invades macrophages
 
+#Enterobacterales
+Escherichia coli
+- rod shape
+- found in lower intestines
+- can cause food poisoning
+Salmonella enterica
+- rod shape
+- food infection (egg whites)
+Yersinia pestis
+- causes plague, spread by rat flea
+
+#Vibrionales
+Vibrio cholerae
+- spiral shape
+- causes cholera
+- from contaminated shellfish or water
+
+=Campylobacterota
+
+#Campylobacterales
 Campylobacter jejuni
 - gram negative, helical shape
 - food poisoning (poultry)
-
-Escherichia coli
-- gram negative, rod shape
-- found in lower intestines
-- can cause food poisoning
-
 Helicobacter pylori
 - gram negative, spiral shape
 - can cause gastritis or ulcers
 
-Salmonella enterica
-- gram negative, rod shape
-- food infection (egg whites)
+=Chlamydiota
 
-Vibrio cholerae
-- gram negative, spiral shape
-- causes cholera
-- from contaminated shellfish or water
-
+#Chlamydiales
 Chlamydia trachomatis
 - gram negative, rod shape
 - causes chlamydia
 - spreads through sexual contact
 
+=Spirochaetota
+
+#Spirochaetales
 Treponema pallidum
 - gram negative, helical shape
 - causes syphilis
 - spreads through sexual contact
+- before antibiotics treated by pyrotherapy (malaria-induced fever)
 
-Staphylococcus saprophyticus
-- gram positive, round shape
-- urinary tract infection
+=Bacillota
+gram positive
 
-Staphylococcus aureus
-- gram positive, round shape
-- spreads through skin contact
-- can cause skin or respiratory infection
-- antibiotic-resistant strains
-
+#Lactobacillales
 Streptococcus pyogenes
-- gram positive, round shape, chains
+- round shape, chains
 - spreads through air droplets and skin contact
 - can cause rheumatic fever
-
 Streptococcus pneumoniae
-- gram positive, round shape, pairs
+- round shape, pairs
 - spreads through air droplets
 - causes pneumonia and meningitis
 
+#Bacillales
 Bacillus anthracis
-- gram positive, rod shape
+- rod shape
 - causes anthrax
-
-Clostridium tetani
-- gram positive, rod shape
-- causes tetanus
-- in soil, through wound
-
+Staphylococcus saprophyticus
+- round shape
+- urinary tract infection
+Staphylococcus aureus
+- round shape
+- spreads through skin contact
+- can cause skin or respiratory infection
+- antibiotic-resistant strains
 Listeria monocytogenes
-- gram positive, rod shape
+- rod shape
 - causes listeriosis
 - from unpasteurized dairy
 
+#Eubacteriales
+Clostridium tetani
+- rod shape
+- causes tetanus
+- in soil, through wound
+Clostridioides difficile
+- rod shape
+- causes diarrhea
+- spores are resistant to heat and alcohol
+- fecal microbiota transplant (FMT): treatment by healthy fecal bacteria
+
+=Actinomycetota
+gram positive
+genome with high GC content
+
+#Mycobacteriales
+Mycobacterium tuberculosis
+- rod shape
+- causes tuberculosis
+- spreads through air droplets
+- divides every 24h
 Mycobacterium leprae
-- gram positive, rod shape
+- rod shape
 - causes leprosy
+
+#Streptomycetales
+Streptomyces
+- produces antibiotics for drugs
 

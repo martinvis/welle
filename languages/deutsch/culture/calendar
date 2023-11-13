@@ -1,11 +1,14 @@
-=storočie, s Jahrhundert/e
 =rok, s Jahr/e
-priestupný rok, s Schaltjahr/e
-=ročné obdobie, e Jahreszeit/en
+- ročné obdobie, e Jahres|zeit/en
+- storočie, s Jahr|hundert/e
+- priestupný rok, s Schalt|jahr/e
 =mesiac, r Monat/e
 =týždeň, e Woche/n
-=víkend, s Wochenende/n
+- víkend, s Wochen|ende/n
 =deň, r Tag/e
+- poludnie, r Mit|tag/e
+- dopoludnie, r Vor|mittag/e
+- odpoludnie, r Nach|mittag/e
 =hodina, e Stunde/n
 =minúta, e Minute/n
 =sekunda, e Sekunde/n
@@ -15,7 +18,7 @@ priestupný rok, s Schaltjahr/e
 =jeseň, r Herbst
 =zima, r Winter
 
-slnovrat, e Sonnenwende + e Sonnwende
+slnovrat, e Sonnen|wende + e Sonn|wende
 rovnodennosť, s Äquinoktium + e Tagundnachtgleiche
 
 =január, r Januar
@@ -23,7 +26,7 @@ rovnodennosť, s Äquinoktium + e Tagundnachtgleiche
 =marec, r März
 =apríl, r April
 =máj, r Mai
-=jún, r Juni
+=jún, r Juni + Juno
 =júl, r Juli
 =august, r August
 =september, r September
@@ -31,31 +34,28 @@ rovnodennosť, s Äquinoktium + e Tagundnachtgleiche
 =november, r November
 =december, r Dezember
 
-=pondelok, r Montag
-=utorok, r Dienstag
+=pondelok, r Mon|tag
+=utorok, r Diens|tag
 =streda, r Mittwoch
-=štvrtok, r Donnerstag
-=piatok, r Freitag
-=sobora, r Samstag + r Sonnabend
-=nedeľa, r Sonntag
+=štvrtok, r Donners|tag
+=piatok, r Frei|tag
+=sobora, r Sams|tag + r Sonn|abend
+=nedeľa, r Sonn|tag
 
 =ráno, r Morgen
-=dopoludnie, r Vormittag/e
-=poludnie, r Mittag/e
-=odpoludnie, r Nachmittag/e
+- každé ráno, morgens
 =večer, r Abend/e
+- po večeroch, abends
 =noc, e Nacht/ä-e
-=polnoc, e Mitternacht/ä-e
+- polnoc, e Mitter|nacht/ä-e
 
-=každé ráno, morgens
-=po večeroch, abends
 úsvit/súmrak, e Dämmerung/en
 
-=predvčera, vorgestern
 =včera, gestern
+- predvčera, vorgestern
 =dnes, heute
 =zajtra, morgen
-=pozajtra, übermorgen
+- pozajtra, übermorgen
 
 =kalendár, r Kalender
 =dátum, s Datum

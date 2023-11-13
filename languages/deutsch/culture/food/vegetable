@@ -1,7 +1,7 @@
 zelenina, s Gemüse
 
 #zemiaky
-zemiak, e Kartoffel + r Erdapfel
+zemiak, e Kartoffel + r Erd|apfel
 batata, e Süsskartoffel + e Batate
 
 #plodová
@@ -22,12 +22,12 @@ repa, e Rübe
 cukrová repa, e Zuckerrübe
 
 #hlúbová
-kapusta, r Kopfkohl + r Kohl
-kel, r Grünkohl
+kapusta, r Kopf|kohl + r Kohl
+kel, r Grün|kohl
 kaleráb, r Kohlrabi
 brokolica, r Brokkoli
-karfiol, r Blumenkohl + r Karfiol
-ružičkový kel, r Rosenkohl
+karfiol, r Blumen|kohl + r Karfiol
+ružičkový kel, r Rosen|kohl
 
 #cibuľová
 cibuľa, e Zwiebel
@@ -37,25 +37,25 @@ pažitka, r Schnittlauch
 medvedí cesnak, r Bärlauch
 
 #strukoviny
-strukovina, e Hülsenfrucht
-hrach, e Erbse
-fazuľa, e Bohne + e Fisole
-šošovica, e Linse
-cícer, e Kichererbse
-sója, e Sojabohne
+strukovina, e Hülsen|frucht
+hrach, e Erbse/n
+fazuľa, e Bohne/n + e Fisole
+šošovica, e Linse/n
+cícer, e Kicher|erbse/n
+sója, e Soja|bohne/n
 
 #obilniny
-ryža, r Reis
-kukurica, r Mais
+ryža, r Reis/e
+kukurica, r Mais/e
 pšenica, r Weizen
 raž, r Roggen
 ovos, r Hafer
-jačmeň, e Gerste
-proso, e Hirse
+jačmeň, e Gerste/n
+proso, e Hirse/n
 
 #koreňová
-mrkva, e Karrote + e Möhre
-petržlen, e Petersilie
-zeler, r|e Sellerie
-reďkovka, s Radieschen + r Rettich
-chren, r Meerrettich/e
+mrkva, e Karrote/n + e Möhre/n
+petržlen, e Petersilie/n
+zeler, e Sellerie/n
+reďkovka, s Radieschen + r Rettich/e
+chren, r Meer|rettich/e

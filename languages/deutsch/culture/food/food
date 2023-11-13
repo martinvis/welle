@@ -1,12 +1,12 @@
 #koreniny
 korenina, s Gewürz/e
-bylinka, s Küchenkraut/ä-er
+bylinka, s Küchen|kraut/ä-er
 =soľ, s Salz/e
 jedlá sóda, s Natron
 =korenie, r Pfeffer
 škorica, r Zimt/e
 vanilka, e Vanille
-klinček, e Gewürznelke/n
+klinček, e Gewürz|nelke/n
 zázvor, r Ingwer
 
 #sweet
@@ -24,12 +24,12 @@ plnka, e Füllung/en
 masť, s Schmalz/e
 
 =huba, r Pilz/e
-hríb, r Steinpilz/e + r Röhrling/e
-bedľa, r Schirmpilz/e + r Schirmling/e
+hríb, r Stein|pilz/e + r Röhrling/e
+bedľa, r Schirm|pilz/e + r Schirmling/e
 hliva, r Seitling/e
 šampiňón, r Champignon/s
 kuriatko, r Pfifferling/e
-plávka, e Täubling/e
+plávka, r Täubling/e
 
 =omrvinka, r Krümel
 
@@ -38,21 +38,21 @@ plávka, e Täubling/e
 =tuk, s Fett/e
 =kurča, s Hähnchen
 =hydina, s Geflügel
-hovädzina, s Rindfleisch
-teľacina, s Kalbfleisch
-bravčovina, s Schweinefleisch
-jahňacina, s Lammfleisch
+hovädzina, s Rind|fleisch
+teľacina, s Kalb|fleisch
+bravčovina, s Schweine|fleisch
+jahňacina, s Lamm|fleisch
 
 #spracované mäso
 =slanina, r Speck/e
 =klobása, e Wurst/ü-e
 =šunka, r Schinken
-jaternica, e Leberwurst/ü-e
+jaternica, e Leber|wurst/ü-e
 párok, s Würstchen
-údené, s Rauchfleisch
+údené, s Rauch|fleisch
 držky, e Kuttel/n
-solené mäso, s Pökelfleisch
-mleté mäso, s Hackfleisch
+solené mäso, s Pökel|fleisch
+mleté mäso, s Hack|fleisch
 rybí tuk, r Tran
 tlačenka, s Gesülze
 
@@ -65,6 +65,6 @@ tlačenka, s Gesülze
 
 #vajcia
 =vajce, s Ei/er
-=žĺtok, s Eigelb/e
-=bielok, s Eiweiss/e
+=žĺtok, s Ei|gelb/e
+=bielok, s Ei|weiss/e
 

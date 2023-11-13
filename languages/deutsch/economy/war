@@ -1,20 +1,20 @@
 =zbraň, e Waffe/n
-- strelná zbraň, e Schusswaffe
-- palná zbraň, e Feuerwaffe
+- strelná zbraň, e Schuss|waffe
+- palná zbraň, e Feuer|waffe
 - ozbrojiť, waffnen + bewaffnen
 - ozbrojený, bewaffnet
 - prímerie, r Waffen|stillstand + e Waffen|ruhe
 
 =pištoľ, e Pistole/n
 =puška, s Gewehr/e
-- vzduchovka, s Luftgewehr
+- vzduchovka, s Luft|gewehr
 
 kyjak, r Knüppel
 pošva, e Scheide/n
 čepeľ, e Klinge/n
 
 =strieľať, schiessen/schoss/geschossen
-- strelný prach, s Schiesspulver
+- strelný prach, s Schiess|pulver
 - vystreliť, abschiessen/schoss/abgeschossen
 - vystrieľať, verschiessen/verschoss/verschossen
 - postreliť, anschiessen/schoss/angeschossen
@@ -24,11 +24,11 @@ pošva, e Scheide/n
 doraziť (zabiť), Garaus machen
 
 streľba, r Schuss/ü-e
-- výstrel, r Abschuss/ü-e
-náboj, s Geschoss
+- výstrel, r Ab|schuss/ü-e
+náboj, s Geschoss/e
 
 delo, s Geschütz
-brokovnica, e Schrotflinte + e Flinte
+brokovnica, e Schrot|flinte + e Flinte
 lovecká puška, e Büchse
 hlaveň, r Lauf
 pažba, r Kolben
@@ -40,15 +40,15 @@ mína, e Mine/n
 utečenec, r Flüchtling/e
 
 =vojna, r Krieg/e
-šarvátka, s Schar­müt­zel
+šarvátka, s Scharmützel
 šarvátka, s Geplänkel
 krviprelievanie, s Gemetzel
 =mier, r Frieden
-=povstanie, r Aufstand/ä-e
-- povstať, aufstehen
+=povstanie, r Auf|stand/ä-e
+- povstať, auf|stehen
 =armáda, e Armee/n
 vzbura, e Meuterei/en
-prevaha, e Überlegenheit
+prevaha, e Über|legenheit
 
 premôcť, bezwingen/bezwang/bezwungen
 - premožiteľ, r Bezwinger
@@ -56,15 +56,15 @@ premôcť, bezwingen/bezwang/bezwungen
 =bojovať, kämpfen + kriegen
 =boj, s Gefecht/e + r Kampf/ä-e
 =bitka, e Schlacht/en
-bojisko, s Schlachtfeld/er + r Kampfplatz/ä-e
+bojisko, s Schlacht|feld/er + r Kampf|platz/ä-e
 
-=útok, r Angriff/e
+=útok, r An|griff/e
 =napadnúť, angreifen/griff/angegriffen + anfallen/fällt/fiel/angefallen
 =prepadnúť, überfallen/überfällt/überfiel/überfallen
-obliehať, belagern
-- obliehanie, e Belagerung/en
-obkľúčiť, umzingeln
-- obkľúčenie, e Umzingelung/en
+obliehať, be|lagern
+- obliehanie, e Be|lagerung/en
+obkľúčiť, um|zingeln
+- obkľúčenie, e Um|zingelung/en
 dobyť loď, entern
 ubrániť sa, erwehren sich
 
@@ -75,9 +75,9 @@ ubrániť sa, erwehren sich
 =brániť sa, wehren sich
 =brániť, verteidigen
 - obrana, e Verteidigung/en
-=ochrana, r Schutz/e
+=ochrana, r Schutz
 - chrániť, schützen
-- ochraňovať, beschützen
+- ochraňovať, be|schützen
 - ochranca, r Schützer
 - zákop, r Schützen|graben/ä
 vzbura, r Aufruhr/e
@@ -91,7 +91,7 @@ mlátiť, prügeln
 admirál, r Admiral/ǎ-e
 plukovník, r Oberst
 poručík, r Leutnant
-seržant, r Feldwebel
+seržant, r Feld|webel
 dôstojník, r Offizier
 
 špión, r Spion/e + r Spitzel

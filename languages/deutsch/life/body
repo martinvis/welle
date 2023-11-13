@@ -4,118 +4,122 @@
 =nos, e Nase/n
 =pľúca, e Lunge/n
 hltan, r Rachen + r Schlund/ü-e + r Pharynx
-hrtan, r Kehlkopf + r Larynx
-priedušnica, e Luftröhre
-prieduška, e Bronchie
+hrtan, r Kehl|kopf + r Larynx
+priedušnica, e Luft|röhre
+prieduška, e Bronchie/n
 
 #obehová sústava
 =srdce, s Herz/en
 =krv, s Blut
-predsieň, r Vorhof/ö-e
+predsieň, r Vor|hof/ö-e
 komora, e Kammer/n
-cieva, s Blutgefäss + die Ader/n
-tepna, e Schlagader + e Arterie
-žila, e Blutader + e Vene/n
+cieva, s Blut|gefäss + die Ader/n
+tepna, e Schlag|ader + e Arterie/n
+žila, e Blut|ader + e Vene/n
 slezina, e Milz/en
 
 #nervová sústava
-=mozog, s Gehirn + s Hirn
-miecha, s Rückenmark
+=mozog, s Ge|hirn/e + s Hirn/e
+miecha, s Rücken|mark
 
 #pohybová sústava
 =sval, r Muskel/n
 =kĺb, s Gelenk/e
 šľacha, e Sehne + e Flechse
 chrupavka, r Knorpel
-bránica, s Zwerchfell/e
+bránica, s Zwerch|fell/e
 
 #oporná sústava
 =kostra, s Skelett + s Gerippe
 =kosť, r Knochen
+- ramenná kosť, r Oberarm|knochen
+- stehenná hosť, r Oberschenkel|knochen
+dreň, s Mark
 =lebka, r Schädel
 =čeľusť, r Kiefer
 =stavec, r Wirbel
 =rebro, e Rippe
-chrbtica, e Wirbelsäule + s Rückgrat
-platnička, e Bandscheibe/n
+chrbtica, e Wirbel|säule + s Rückgrat
+platnička, e Band|scheibe/n
 panva, s Becken
 hrudný kôš, r Brustkorb
-hrudná kosť, s Brustbein
-kľúčna kosť, s Schüsselbein
-lopatka, s Schulterblatt
+hrudná kosť, s Brust|bein
+kľúčna kosť, s Schüssel|bein
+lopatka, s Schulter|blatt
 vretenná kosť, e Speiche
 lakťová kosť, e Elle
-ramenná kosť, r Oberarmknochen
-stehenná hosť, r Oberschenkelknochen
-píšťala, s Schienbein
-ihlica, s Wadenbein
-jabĺčko, e Kniescheibe/n
+píšťala, s Schien|bein
+ihlica, s Waden|bein
+jabĺčko, e Knie|scheibe/n
 
 #krycia sústava
 =koža, e Haut
-sliznica, e Schleimhaut
+- sliznica, e Schleim|haut
 =necht, r Nagel/ä
+- záder, r Nied|nagel
 =chlp/vlas, s Haar/e
-=brada, r Bart + s Barthaar
+- chĺpok, s Härchen
+=brada, r Bart + s Bart|haar
 =fúzy, r Schnurrbart
 briadka, r Kinnbart
-obočie, e Augenbraue + e Braue
-mihalnica, e Augenwimper + e Wimper
-chĺpok, s Härchen
+obočie, e Augen|braue + e Braue
+mihalnica, e Augen|wimper + e Wimper
 znamienko, s Mal/e
-záder, r Niednagel
 
 #tráviaca sústava
-pažerák, e Speiseröhre
+pažerák, e Speise|röhre
 =pečen, e Leber
-žlčník, e Gallenblase
-=žalúdok, r Magen
+žlč, e Galle/n
+- žlčník, e Gallen|blase
+=žalúdok, r Magen/ä
 =črevo, r Darm/ä-e
-tenké črevo, r Dünndarm
-hrubé črevo, r Dickdarm
+- tenké črevo, r Dünn|darm
+- hrubé črevo, r Dick|darm
 
 #ústna dutina
 =ústa, r Mund/ü-er
 =pera, e Lippe/n
 =jazyk, e Zunge/n
 =zub, r Zahn/ä-e
+- rezák, r Schneide|zahn
+- očný zub, r Eck|zahn
+- stolička, r Mahl|zahn
+- tesák, r Fang|zahn
+- kel, r Stoss|zahn
 slina, r Speichel
-rezák, r Schneidezahn
-očný zub, r Eckzahn
-stolička, r Mahlzahn
-ďasno, s Zahnfleisch
+ďasno, s Zahn|fleisch
 podnebie, r Gaumen
 
 #uši
 =ucho, s Ohr/en
-ušnica, e Ohrmuschel
-zvukovod, r Gehörgang
-bubienok, s Trommelfell
-kladivko, r Hammer
+- ušnica, e Ohr|muschel
+zvukovod, r Gehör|gang
+bubienok, s Trommel|fell
+kladivko, r Hammer/ä
 nákovka, r Amboss
-strmienok, r Steigbügel
+strmienok, r Steig|bügel
 
 #oči
 =oko, s Auge/n
 šošovka, e Linse/n
 zrenica, e Pupille/n
-rohovka, e Hornhaut
-dúhovka, e Regenbogenhaut
-sietnica, e Netzhaut
-sklovec, r Glaskörper
+rohovka, e Horn|haut
+dúhovka, e Regenbogen|haut
+sietnica, e Netz|haut
+sklovec, r Glas|körper
 
 #vylučovacia sústava
 =oblička, e Niere/n
-močový mechúr, e Harnblase
-močovod, r Harnleiter
-močová rúra, e Harnröhre
 moč, r Harn + r Urin
+- močový mechúr, e Harn|blase
+- močovod, r Harn|leiter
+- močová rúra, e Harn|röhre
 
 #rozmnožovacia sústava
 pošva, e Scheide/n
-maternica, e Gebärmutter
-vaječník, r Eierstock
-vajíčkovod, r Eileiter
+maternica, e Gebär|mutter
+vaječník, r Eier|stock
+vajíčkovod, r Ei|leiter
 semenník, r Hoden
-miešok, r Hodensack
+- miešok, r Hoden|sack
 

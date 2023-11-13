@@ -11,10 +11,10 @@ stavať, bauen
 - stavebný pozemok, r Bau|platz
 - stavebný materiál, r Bau|stoff
 - stavebníctvo, s Bau|wesen, e Bau|wirtschaft
-- zastavať, bebauen
-- zastavať/zatarasiť, verbauen
-- pristavať, zubauen
-- prístavba, r Zubau
+- zastavať, be|bauen
+- zastavať/zatarasiť, ver|bauen
+- pristavať, zu|bauen
+- prístavba, r Zu|bau
 - stavebný sloh, r Bau|stil/e
 
 pozemok, s Grundstück
@@ -25,7 +25,13 @@ budova, s Gebäude
 priečka rebríka, e Sprosse/n
 trám, r Balken
 poleno, r Klotz/ö-e
+
 =jama, e Grube/n
+=kopať, graben/gräbt/grub/gegruben
+- odkopať, ab|graben/gräbt/grub/abgegruben
+- vykopať, aus|graben/gräbt/grub/ausgegruben
+- zakopať, ein|graben/gräbt/grub/eingegruben
+
 moriť drevo, beizen
 kolík, r Pflock/ö-e
 zárez, e Kerbe/n
@@ -35,15 +41,15 @@ hobľovať, hobeln
 
 =miestnosť, r Raum/ä-e
 =stena, e Wand/ä-e
-=podlaha, r (Fuss)Boden/ö
+=podlaha, r Fuss|boden/ö
 
 =izba, s Zimmer
-- spálňa, s Schlafzimmer
-- obývačka, s Wohnzimmer
-- kúpelňa, s Badezimmer
+- spálňa, s Schlaf|zimmer
+- obývačka, s Wohn|zimmer
+- kúpelňa, s Bade|zimmer
 =kuchyňa, e Küche/n
 =komora, e Kammer/n
-- špajza, e Speisekammer/n
+- špajza, e Speise|kammer/n
 chodba, r Korridor/e + r Flur/e
 predsieň, e Diele/n
 
@@ -62,8 +68,8 @@ stĺp, e Säule/n
 pilier, r Pfeiler
 výklenok, e Nische/n
 
-komín, r Schornstein/e
-škridla, r Dachziegel
+komín, r Schorn|stein/e
+škridla, r Dach|ziegel
 odkvap, e Traufe/n
 
 =okno, s Fenster
@@ -77,8 +83,6 @@ rám, e Zarge/n
 
 =fontána, r Brunnen
 =studňa, r Brunnen
-=hrádza, r Staudamm/ä-e
-=priehrada, e Talsperre/n
-
-usadlosť, s Anwesen
+=hrádza, r Stau|damm/ä-e
+=priehrada, e Tal|sperre/n
 

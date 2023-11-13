@@ -1,0 +1,102 @@
+// --------------------------------------------------
+// Custom keyboard
+// /usr/share/X11/xkb/symbols
+// --------------------------------------------------
+
+default xkb_symbols "basic"	{
+
+	name[Group1] = "Slovak";
+	key.type[Group1]="EIGHT_LEVEL";
+
+	include "level3(ralt_switch)"
+	include "level5(rctrl_switch)"
+
+	key <FK01>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK02>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK03>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK04>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK05>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK06>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK07>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK08>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK09>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK10>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK11>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+	key <FK12>	{ [ voidsymbol,       voidsymbol,     voidsymbol, voidsymbol  ] };
+
+	key <TLDE>	{ [    asciitilde,       grave,                  grave,      asciitilde ] };
+
+	key <AE01>	{ [        exclam,           1,      Arabic_hamzaonwaw,        NoSymbol ] };
+	key <AE02>	{ [            at,           2,      Arabic_hamzaonyeh,        NoSymbol ] };
+	key <AE03>	{ [    numbersign,           3,  Arabic_hamzaunderalef,        NoSymbol ] };
+	key <AE04>	{ [        dollar,           4,     Arabic_maddaonalef,      dead_breve ] };
+	key <AE05>	{ [       percent,           5,     Arabic_hamzaonalef,        NoSymbol ] };
+	key <AE06>	{ [   asciicircum,           6,             dead_breve,        NoSymbol ] };
+	key <AE07>	{ [     ampersand,           7,          dead_abovedot,       0x100FF06 ] };	// big ＆
+	key <AE08>	{ [      asterisk,           8,             dead_grave,  dead_abovering ] };
+	key <AE09>	{ [     parenleft,           9,        dead_circumflex,     dead_ogonek ] };
+	key <AE10>	{ [    parenright,           0,         dead_diaeresis,     dead_macron ] };
+	key <AE11>	{ [         minus,  underscore,        dead_caron,      dead_tilde ] };
+	key <AE12>	{ [         equal,        plus,        dead_acute,    dead_cedilla ] };
+
+	key <AD01>	{ [             q,           Q,      Arabic_qaf,               W,   Greek_theta,   Greek_THETA, v, V ] };
+	key <AD02>	{ [             w,           W,      Arabic_waw, Arabic_tehmarbuta,   Greek_psi,     Greek_PSI, s, S ] };
+	key <AD03>	{ [             e,           E,       Arabic_ha,       0x1000259, Greek_epsilon, Greek_EPSILON ] };	// ə
+	key <AD04>	{ [             r,           R,       Arabic_ra,        EuroSign,     Greek_rho,     Greek_RHO ] };
+	key <AD05>	{ [             t,           T,      Arabic_teh,       0x10003B8,     Greek_tau,     Greek_TAU ] };	// θ
+	key <AD06>	{ [             z,           Z,     Arabic_zain,       0x1000292,    Greek_zeta,    Greek_ZETA ] };	// ʒ
+	key <AD07>	{ [             u,           U,      Arabic_tah, Arabic_alefmaksura ] };
+	key <AD08>	{ [             i,           I,      Arabic_yeh,       0x100025C,    Greek_iota,    Greek_IOTA ] };
+	key <AD09>	{ [             o,           O,      Arabic_hah,        NoSymbol, Greek_omicron, Greek_OMICRON ] };
+	key <AD10>	{ [             p,           P,     Arabic_khah,        NoSymbol,      Greek_pi,      Greek_PI ] };
+
+	key <AD11>	{ [   bracketleft,   braceleft,      Arabic_ain,        division ] };
+	key <AD12>	{ [  bracketright,  braceright,    Arabic_ghain,        multiply ] };
+
+	key <AC01>	{ [             a,           A,     Arabic_alef,       0x10000E6,   Greek_alpha,   Greek_ALPHA ] };	// æ
+	key <AC02>	{ [             s,           S,     Arabic_seen,       0x1000283,   Greek_sigma,   Greek_SIGMA ] };	// ʃ
+	key <AC03>	{ [             d,           D,      Arabic_dal,       0x10000F0,   Greek_delta,   Greek_DELTA ] };	// ð
+	key <AC04>	{ [             f,           F,      Arabic_feh,        NoSymbol,     Greek_phi,     Greek_PHI ] };
+	key <AC05>	{ [             g,           G,     Arabic_theh,        NoSymbol,   Greek_gamma,   Greek_GAMMA ] };
+	key <AC06>	{ [             h,           H,      Arabic_zah,          ntilde,     Greek_eta,     Greek_ETA ] };
+	key <AC07>	{ [             j,           J,     Arabic_jeem,          Ntilde ] };
+	key <AC08>	{ [             k,           K,      Arabic_kaf,         lstroke,   Greek_kappa,   Greek_KAPPA ] };
+	key <AC09>	{ [             l,           L,      Arabic_lam,         Lstroke,  Greek_lambda,  Greek_LAMBDA ] };
+
+	key <AC10>	{ [         colon,   semicolon,          dollar,   NoSymbol      ] };
+	key <AC11>	{ [    apostrophe,    quotedbl,      apostrophe,   ssharp        ] };
+	key <BKSL>	{ [     semicolon,   semicolon,    Arabic_hamza,   Arabic_shadda ] };
+
+	key <AB01>	{ [             y,           Y,      Arabic_sad,   NoSymbol,      Greek_upsilon, Greek_UPSILON ] };
+	key <AB02>	{ [             x,           X,    Arabic_sheen,   Nosymbol,          Greek_chi,     Greek_CHI ] };
+	key <AB03>	{ [             c,           C,     Arabic_thal,   ccedilla,           Greek_xi,      Greek_XI ] };
+	key <AB04>	{ [             v,           V,      Arabic_dad,   Ccedilla,        Greek_omega,   Greek_OMEGA ] };
+	key <AB05>	{ [             b,           B,      Arabic_beh,   NoSymbol,         Greek_beta,    Greek_BETA ] };
+	key <AB06>	{ [             n,           N,     Arabic_noon,   0x1000272,          Greek_nu,      Greek_NU ] };	// ɲ
+	key <AB07>	{ [             m,           M,     Arabic_meem,   0x100014B,          Greek_mu,      Greek_MU ] };	// ŋ
+
+	key <AB08>	{ [         comma,        less,   guillemotleft,   0x100FF1C ]	 };	// big ＜
+	key <AB09>	{ [        period,     greater,  guillemotright,   0x100FF1E ]	 };	// big ＞
+	key <AB10>	{ [      question,       slash,    questiondown,   Arabic_question_mark ]	 };
+	key <LSGT>	{ [     backslash,         bar,           slash,   NoSymbol ]	 };
+
+	key <SPCE>	{ [         space,       space,    nobreakspace,   nobreakspace ] };
+
+	key <KP0>	{ [ 0,     0,       0,       0        ]   };
+	key <KP1>	{ [ 1,     1,       1,       1        ]   };
+	key <KP2>	{ [ 2,     2,       2,       2        ]   };
+	key <KP3>	{ [ 3,     3,       3,       3        ]   };
+	key <KP4>	{ [ 4,     4,       4,       4        ]   };
+	key <KP5>	{ [ 5,     5,       5,       5        ]   };
+	key <KP6>	{ [ 6,     6,       6,       6        ]   };
+	key <KP7>	{ [ 7,     7,       7,       7        ]   };
+	key <KP8>	{ [ 8,     8,       8,       8        ]   };
+	key <KP9>	{ [ 9,     9,       9,       9        ]   };
+	key <KPDL>	{ [ comma,       comma,           comma,   comma ]	};
+	key <KPEN>	{ [ KP_Enter, KP_Enter,   b,      B       ]   };
+	key <KPAD>	{ [ KP_Add,   KP_Add,     c,      C       ]   };
+	key <KPSU>	{ [ KP_Subtract,  KP_Subtract,    d,      D       ]   };
+	key <KPMU>	{ [ KP_Multiply,  KP_Multiply,    e,      E       ]   };
+	key <KPDV>	{ [ KP_Divide,    KP_Divide,  f,      F       ]   };
+
+};

@@ -1,3 +1,5 @@
+#python ./parser.py book_file language_folder stats_file
+
 import re
 import os
 import sys
@@ -139,6 +141,7 @@ class Statistics:
       for item in stat.items:
         cat[item] = 0
       cat['total'] = 0
+      cat['none'] = 0
       self.cats[cat_name] = cat
 
 class LOL:
@@ -204,15 +207,22 @@ statistics = Statistics(stats)
 
 def calcStats(w):
   global statistics
+  matchAll = False
   for stat in stats:
     if re.match(stat.label, w):
       statistics.total = statistics.total + 1
       statistics.cats[stat.label]['total'] = statistics.cats[stat.label]['total'] + 1
+      match = False
       for item in stat.items:
         if re.match(item, w):
+          match = True
+          matchAll = True
           statistics.cats[stat.label][item] = statistics.cats[stat.label][item] + 1
-      break
-
+      if not match:
+        statistics.cats[stat.label]['none'] = statistics.cats[stat.label]['none'] + 1
+        #print(w)
+  if not matchAll:
+    print(w)
 
 def notBasic(w):
   type = evalType(w.lower(), types)
@@ -227,6 +237,7 @@ for file_name in set(glob.glob(sys.argv[2] + '**/**', recursive=True)):
 
   file = open(file_name, "r")
   lines = file.readlines()
+  print(file_name)
   for line in lines:
     parts = re.split(', ', line.strip())
     if len(parts) == 2:
@@ -248,19 +259,31 @@ for file_name in set(glob.glob(sys.argv[2] + '**/**', recursive=True)):
 print(statistics.total) 
 for cat in statistics.cats:
   print(cat + ': ' + str(statistics.cats[cat]['total']))
+  print(cat + ': ' + str(statistics.cats[cat]['none']))
   for cond in statistics.cats[cat]:
-    print('  ' + cond + ': ' + str(statistics.cats[cat][cond]))
+    ratio = round(statistics.cats[cat][cond]/statistics.cats[cat]['total']*100, 2)
+    print('  ' + cond + ': ' + str(statistics.cats[cat][cond]) + ' (' + str(ratio) + '%)')
 # parse book
 
-file_name = sys.argv[1]
-file = open(file_name, "r")
+book_name = sys.argv[1]
+book_file = open(book_name, "r")
 
-file_content = file.read()
+def listIgnoredWords(book_name):
+  ignored_words = []
+  ignore_file = open(book_name + '.ignore', "r")
+  ignore_words = re.compile('[\W]+').split(ignore_file.read())
+  for word in ignore_words:
+    ignored_words.append(word)
+    ignored_words.append(word + 's')
+  return ignored_words
+
+file_content = book_file.read()
 file_words = re.compile('[\W]+').split(file_content)
 
 # filter words
 
-#file_words = [w for w in file_words if len(w) > 1 and notBasic(w) and w not in words and (w[0].lower() + w[1:]) not in words]
+ignored_words = listIgnoredWords(book_name)
+#file_words = [w for w in file_words if len(w) > 1 and w not in ignored_words and notBasic(w) and w not in words and (w[0].lower() + w[1:]) not in words]
 
 # count words
 

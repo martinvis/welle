@@ -1,12 +1,12 @@
-=žiadosť, s Begehren
 =žiadať, begehren
-žiadostivý, begehrlich
+- žiadosť, s Begehren
+- žiadostivý, begehrlich
 
 =ľutovať, bedauern
 - poľutovanie, s Bedauern
 - poľutovaniahodný, bedauerlich
 
-=správať sa, verhalten/verhält/verhielt/verhalten sich
+=správať sa, ver|halten/verhält/verhielt/verhalten sich
 - správanie, s Verhalten
 - vzťah, s Verhältnis/se
 =správať sa, benehmen/benimmt/benahm/benommen sich
@@ -16,16 +16,16 @@
 - opatrnosť, e Vorsicht
 
 =smelý, kühn
-=obozretný, umsichtig
-=obozretnosť, e Umsicht
-=prezieravý, weit blickend
-=prezieravosť, r Weitblick
+=obozretnosť, e Um|sicht
+- obozretný, umsichtig
+=prezieravosť, r Weit|blick
+- prezieravý, weit blickend
 =nepozorný, achtlos
-=nepozornosť, e Achtlosigkeit
+- nepozornosť, e Achtlosigkeit
 =pozorný, aufmerksam
 pozorný, achtsam
-pozornosť, e Achtsamkeit
-nedbanlivý, schlu­derig
+- pozornosť, e Achtsamkeit
+nedbanlivý, schluderig
 
 =byť nápadný, auffallen/fällt/fiel/aufgefallen
 
@@ -38,31 +38,43 @@ lesť, e Hinterlist + e Arglist
 ľstivý, hinterlistig + arglistig + hinterhältig
 prešibaný, abgefeimt
 dobromyseľný, arglos
-pomstiť, rächen
-pomsta, e Rache
+=pomsta, e Rache
+- pomstiť, rächen
 
-=pokojný, ruhig
-- pokoj, e Ruhe
-- nepokojný, unruhig + ruhelos
-- upokojiť, beruhigen
+=pokoj, e Ruhe
+- pokojný, ruhig
+- nepokojný, un|ruhig + ruhelos
+- upokojiť, be|ruhigen
+- znepokojený, beunruhigt (über)
 utíšiť, beschwichtigen
 uzmiernenie, e Versöhnung/en
 
-pyšný, hochmütig
-- pýcha, r Hochmut
-namyslený, übermütig
+=pýcha, r Hoch|mut
+- pyšný, hoch|mütig
+- namyslený, über|mütig
 chvastať sa, protzen
 
-sebectvo, e Selbstsucht + e Ichsucht
+=veľkorysý, grosszügig
+
+ohľad, e Rück|sicht/en
+- ohľaduplný, rücksichtsvoll
+- bezohľadný, rücksichtslos
+- ohľaduplnosť, e Rücksichtnahme
+- bezohľadnosť, e Rücksichtslosigkeit
+
+samoľúby, süffisant
+pokrytecký, heuchlerisch
+
+sebectvo, e Selbst|sucht + e Ich|sucht
 sebecký, selbstsüchtich + ichsüchtig
-samoľúbosť, e Eigensucht + e Selbstgefälligkeit
-samoľúby, eigensüchtig + selbstgefällig
+samoľúbosť, e Eigen|sucht + e Selbst|gefälligkeit
+samoľúby, eigen|süchtig + selbst|gefällig
 nezištný, selbstlos
 - nezištnosť, e Selbstlosigkeit
 
 =podozrivý, verdächtig
 - podozrievať, verdächtigen
-- podozrenie, r Verdacht + e Verdächtigung
+- podozrenie, r Ver|dacht + e Ver|dächtigung
 podozrievať, argwöhnen
 - podozrievavý, argwöhnisch
 - nedôvera, r Argwohn
@@ -71,8 +83,6 @@ chvastať sa, prahlen
 - chvastavý, prahlerisch
 - chvastúnstvo, e Prahlerei
 
-rozrušiť, aufregen
-nadchnúť, begeistern
 ohromiť, erstaunen
 zaraziť, verblüffen
 potešiť, erfreuen
@@ -81,35 +91,30 @@ utešiť, trösten
 šokovať, schockieren
 nahnevať, verärgern
 
-zmiasť, verwirren
-- zmätený, verwirrt
-- zmätenie, e Verwirrung/en
-- zmätený, verworren
+zmiasť, ver|wirren
+- zmätený, ver|wirrt
+- zmätenie, e Ver|wirrung/en
+- zmätený, ver|worren
 
 =útecha, r Trost
 =trápiť, quälen
 
-nadchnutý, begeistert (von)
-nadchnutie, e Begeisterung/en
+nadchnúť, be|geistern
+- nadchnutý, be|geistert (von)
+- nadchnutie, e Be|geisterung/en
 
-sklamať, enttäuschen
-- sklamaný, enttäuscht (von)
-- sklamanie, e Enttäuschung/en
+sklamať, ent|täuschen
+- sklamaný, ent|täuscht (von)
+- sklamanie, e Ent|täuschung/en
 
-=šok, r Schock/s
+=šok, r Schock/e
 šokovaný, schockiert
 
 zmätený, abstrus
 
-znepokojený, beunruhigt (über)
-
-rozrušený, aufgeregt
-rozrušenie, e Aufregung/en
-
-udiviť, verwundern
-- údiv, e Verwunderung
-- udivený, verwundert
-- diviť sa, verwundern sich + wundern sich
+=rozrušiť, aufregen
+- rozrušený, aufgeregt
+- rozrušenie, e Aufregung/en
 
 =prekvapiť, überraschen
 - prekvapenie, e Überraschung
@@ -123,24 +128,23 @@ udiviť, verwundern
 - opovrhovanie, e Verachtung
 - pohŕdavý, verächtlich
 
-=ľahostajný, gleichgültig
-- ľahostajnosť, e Gleichgültigkeit
+=ľahostajný, gleich|gültig
+- ľahostajnosť, e Gleich|gültigkeit
 
 horlivý, eifrig
 zmätený, verdattert
 pretvarovať sa, heucheln
 - pokrytectvo, e Heuchelei
-namyslený, überheblich
-pohŕdavý, geringschätzig
+namyslený, über|heblich
+pohŕdavý, gering|schätzig
 úzkostlivý, bang(e)
 márnivý, eitel
 robiť si posmech, lästern (über)
-posmievať sa, verlachen
 =chúlostivý, heikel
 =nutkanie, r Drang/ä-e
 obťažovať, belästigen
 - obťažovanie, e Belästigung/en
-znechutený, überdrüssig
+znechutený, über|drüssig
 protiviť sa, anwidern
 hnusiť sa, ekeln + anekeln
 odporný, widerwärtig
@@ -164,13 +168,12 @@ namosúrený, verbiestert
 vášnivý, ungestüm
 líškať sa, anbiedern sich (bei)
 
-zážitok, s Erlebnis/se
 zvyk, e Sitte/n
 
 precitlivený, zimperlich
 vcítiť sa, einfühlen (in)
 
-=podporovať, unterstützen
+=podporovať, unter|stützen
 vyčítať, vorhalten/hält/hielt/vorgehalten
 
 =chváliť, loben
@@ -182,6 +185,6 @@ pokarhanie, e Rüge/n
 vychvaľovať, rühmen
 
 pokarhanie, r Rüffel
-=výčitka, r Vorwurf/ü-e
-- vyčítať, vorwerfen/wirft/warf/vorgeworfen
-- vyčítavý, vorwurfsvoll
+=výčitka, r Vor|wurf/ü-e
+- vyčítať, vor|werfen/wirft/warf/vorgeworfen
+- vyčítavý, vor|wurfsvoll

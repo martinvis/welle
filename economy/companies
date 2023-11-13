@@ -61,7 +61,7 @@ usa: Home Depot, Lowe's
 #automobile
 china: SAIC, Dongfeng, FAW, Chang'an, BAIC, BYD, GAC, Geely
 france: Renault
-germany: Volkswagen (Audi, Porsche), BMW, Daimler (Mercedes-Benz)
+germany: Volkswagen (Audi, Porsche, Cupra, Seat, Škoda), BMW, Daimler (Mercedes-Benz)
 japan: Toyota, Honda, Mazda, Mitsubishi, Nissan, Subaru, Suzuki
 korea: Hyundai / Kia
 netherlands: Stellantis (Chrysler, Citroën, Fiat, Opel, Peugeot)
@@ -286,3 +286,7 @@ france: Vinci
 germany: Hochtief
 spain: ACS Group
 sweden: Skanska
+
+#real estate
+us: CBRE, Prologis, Equinix, Digital Realty, Realty Income, Welltower, Crown Castle, American Tower, Simon Property Group
+germany: Vonovia

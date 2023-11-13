@@ -8,13 +8,13 @@ nedoceniť, verkennen/verkannte/verkannt
 =kúpiť, kaufen
 - predať, verkaufen
 - nakupovať, einkaufen
-- nákup, r Kauf/ä-e + r Einkauf/ä-e
-- predaj, r Verkauf/ä-e
-- predavač, r Verkäufer
-- nákupca, r Einkäufer
+- nákup, r Kauf/ä-e + r Ein|kauf/ä-e
+- predaj, r Ver|kauf/ä-e
+- predavač, r Ver|käufer
+- nákupca, r Ein|käufer
 
-predať (nepoctivo), verschachern
-dražiť, versteigern
+predať (nepoctivo), ver|schachern
+dražiť, ver|steigern
 =obchod, r Handel + s Geschäft/e
 =predajňa, r Laden/ä
 
@@ -26,6 +26,8 @@ obchodovať v malom, verhökern
 
 =cena, r Preis/e
 =hodnota, r Wert/e
+- zhodnotiť, werten
+- vyhodnotiť, aus|werten
 =zľava, r Rabatt/e
 
 =zákazník, r Kunde/n
@@ -38,8 +40,9 @@ obchodovať v malom, verhökern
 vymáhať, beitreiben/trieb/beigetrieben + eintreiben/trieb/eingetrieben
 =rozpočet, r Etat/s
 veriteľ, r Gläubiger
+výdavky, r Aufwand
 
-=bankový účet, s Konto/Konten
+=bankový účet, s Konto/s
 =hypotéka, e Hypothek/en
 
 účtenka, r Beleg/e
@@ -83,14 +86,14 @@ preceniť, überschätzen
 =dolár, r Dollar/s
 prachy, r Zaster
 
-=minca, e Münze/n + s Geldstück/e
-=bankovka, e Banknote/n + r Geldschein/e
+=minca, e Münze/n + s Geld|stück/e
+=bankovka, e Bank|note/n + r Geld|schein/e
 =libra, s Pfund/e
 =šek, r Scheck/s
 účet v reštaurácii, e Zeche/n
 
 =zisk, r Gewinn/e
-=strata, e Verlust/e
+=strata, r Verlust/e
 =úrok, r Zins/en
 =splátka, e Rate/n
 
@@ -107,13 +110,14 @@ prepych, r Prunk
 =plat, s Gehalt/ä-er
 honorár, e Gage/n
 =daň, e Steuer/n
-odpočty, r Abzug/ü-e
+odpočty, r Ab|zug/ü-e
 =poplatok, e Gebühr/en
 mýto, e Maut/en
-príjem, r Bezug/ü-e
+príjem, r Be|zug/ü-e
 
-=poistiť, versichern
-- poistenie, e Versicherung/en
+=poistiť, ver|sichern
+- poistenie, e Ver|sicherung/en
+- havarijné poistenie, Kasko|versicherung
 
 =mať, haben/hat/hatte/gehabt
 =patriť, gehören

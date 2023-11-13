@@ -51,7 +51,7 @@ prehadzovačka, e Gangschaltung/en
 pedál, s Pedal/e
 prevodovka, s Getriebe
 spojka, e Kupplung/en
-motor, r Motor/e(n)
+motor, r Motor/en
 turbína, e Turbine/n
 kapota, e Haube/n
 vrtuľa, r Propeller
@@ -61,9 +61,9 @@ vrtuľa, r Propeller
 =koľajnica, e Schiene/n
 nástupište, r Bahnsteig/e
 koľaj, s Gleis/e
-vagón, r Waggon/s
+vagón, r Waggon/e
 lokomotíva, e Lok/s + e Lokomotive/n
-=železničná stanica, r Bahnhof/ö-e
+=železničná stanica, r Bahn|hof/ö-e
 
 električka, e Strassenbahn/en
 trolejbus, r Oberleitungsomnibus/se + r Obus/se
@@ -74,13 +74,13 @@ semafor, e Ampel/n
 =autobus, r Bus/se
 =pneumatika, r Reifen
 volant, s Steuer
-nárazník, e Stossstange/n
+nárazník, e Stoss|stange/n
 puklica, e Radkappe/n
-nákladný automobil, r Lastkraftwagen (Lkw)
-osobný automobil, r Personenkraftwagen (Pkw)
-dodávka, r Lieferwagen
-=motocykel, s Motorrad/ä-er
-=bicykel, s Fahrrad/ä-er
+nákladný automobil, r Lastkraft|wagen (Lkw)
+osobný automobil, r Personenkraft|wagen (Pkw)
+dodávka, r Liefer|wagen
+=motocykel, s Motor|rad/ä-er
+=bicykel, s Fahr|rad/ä-er
 moped,s  Mofa/s
 =kolobežka, r Roller
 =sane, r Schlitten + r Rodel
@@ -88,9 +88,10 @@ moped,s  Mofa/s
 
 flotila, e Flotte/n
 =čln, s Boot/e
-- ponorka, s Unterseeboot/e + s U-Boot/e
+- ponorka, s Untersee|boot/e + s U-Boot/e
 jachta, e Jacht/en + e Yacht/en
 =loď, s Schiff/e
+- vzducholoď, s Luft|schiff/e
 loďka, r Kahn/ä-e
 veslo, s Ruder
 kormidlo, s Steuer
@@ -103,16 +104,15 @@ parník, r Dampfer
 
 =plachta, s Segel
 - plachetnica, s Segel|boot/e + s Segel|schiff/e
-sťažeň, r Mast/en
+sťažeň, r Mast/e
 rahno, e Rah/en
 sťažne + rahná + plachty, e Takelage
 
 =let, r Flug/ü-e
-- lietadlo, s Flugzeug/e
-- letisko, r Flughafen/ä
+- lietadlo, s Flug|zeug/e
+- letisko, r Flug|hafen/ä
 =vrtuľník, r Hubschrauber
 helikoptéra, r Helikopter
-vzducholoď, s Luftschiff/e
 letka, s Geschwader
 
 =prístav, r Hafen/ä
@@ -120,9 +120,9 @@ letka, s Geschwader
 lodenica, e Werft/en
 lávka, r Steg/e
 mólo, r Kai/s
-maják, r Leuchtturm/ü-e
+maják, r Leucht|turm/ü-e
 
-=parkovisko, r Parkplatz/ä-e
+=parkovisko, r Park|platz/ä-e
 
 =kapitán, r Kapitän/e
 námorník, r Seemann/-leute + r Matrose/n

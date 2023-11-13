@@ -1,7 +1,7 @@
 #Symptoms
 Jaundice: yellowish skin pigmentation, caused by high bilirubin level
 Diarrhea: loose watery stool, usually caused by infection
-Fever: body temperature above normal
+Fever: body temperature above normal (defense mechanism)
 Vomiting: stomach content expulsion through mouth or nose
 Bloating: excess buildup of gas in stomach
 Dysphagia: difficulty to swallow
@@ -29,6 +29,7 @@ Hypoxia: insufficient oxygen in tissue
 Hypoxemia: low oxygen level in blood
 Ischemia: restriction of blood supply to tissue
 - Angina: chest pain caused by ischemia to heart muscle
+Hypergraphia: intense desire to draw or write
 
 #Diagnosis
 Magnetic resonance imaging (MRI): uses strong magnetic fields
@@ -89,6 +90,11 @@ Parkinson's disease
 - cause: misfolded proteins
 - mechanism: cell death in basal ganglia
 Multiple sclerosis: damage of myelin sheaths
+
+#neurological
+Epilepsy: recurrent seizures due to excessive electrical discharges in brain
+- can be observed by EEG
+- temporal lobe epilepsy: causes changes in personality
 
 #other
 Lactose intolerance: common in east asia

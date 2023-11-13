@@ -3,7 +3,6 @@
 
 =drevorubač, r Holzfäller
 farmár, r Farmer
-pastier, r Hirt/en
 
 =kosiť, mähen
 slama, s Stroh
@@ -23,12 +22,12 @@ trhať burinu, jäten
 =pestovať, züchten + anbauen
 =zalievať, giessen/goss/gegossen
 =hnojiť, düngen
-=hnojivo, r Dün­ger
+- hnojivo, r Dünger
 
 #poľnohospodárstvo
 =poľnohospodárstvo, e Landwirtschaft
-=sedliak, r Bauer
-=gazdovstvo, r Bauernhof
+=sedliak, r Bauer/n
+- gazdovstvo, r Bauernhof
 =maštaľ/stajňa, r Stall/ä-e
 =pole, s Feld + r Acker
 úhor (neobrábané pole), e Brache/n
@@ -48,38 +47,41 @@ obilie, s Getreide
 priesek, e Schneise/n
 výrub, e Abholzung/en
 vyrúbať, abholzen
-
+Hirt
 včelár, r Imker
-=pastier, r Hirt + r Hirte
+=pastier, r Hirte/n
 =dobytok, s Vieh
 jarmo, s Joch/e
 
 krotký, zahm
 
-=sliepka, s Huhn
-=kohút, r Hahn
-=kuriatko, s Küken
+=sliepka, s Huhn/ü-er
+- kohút, r Hahn/ä-e
+- sliepka, e Henne/n
+- kuriatko, s Küken
 
-=krava, e Kuh
-=býr, r Stier + r Bulle
-=teľa, s Kalb
+=tur, s Rind
+- krava, e Kuh
+- býr, r Stier/e + r Bulle
+- teľa, s Kalb
 =prasa, s Schwein
-=sviňa, e Sau
-=prasiatko, s Ferkel + s Schweinchen
+- sviňa, e Sau
+- kanec, r Eber
+- prasiatko, s Ferkel + s Schweinchen
 
 =ovca, s Schaf
-=jahňa, s Lamm
-baran, r Widder + r Schafbock
+- baran, r Widder + r Schafbock
+- jahňa, s Lamm
 =koza, e Ziege
-=kozľa, s Zicklein + s Kitz
-cap, r Ziegenbock
+- cap, r Ziegenbock
+- kozľa, s Zicklein + s Kitz
 
 =pes, r Hund/e
+- suka, e Hündin
 =šťeňa, r Welpe/n
-suka, e Hündin
 =mačka, e Katze/n
-=mačiatko, s Kätzchen
-kocúr, r Kater
+- kocúr, r Kater
+- mačiatko, s Kätzchen
 cica, e Mieze/n
 
 =kôň, s Pferd/e
@@ -88,7 +90,7 @@ kobyla, e Stute/n
 žriebä, s Fohlen
 vraník (čierny kôň), r Rappe/n
 šimeľ (biely kôň), r Schimmel
-mul, s Maultier/e
+mul, s Maul|tier/e
 
 morka, e Pute/n
 
@@ -96,17 +98,16 @@ morka, e Pute/n
 podkova,s Hufeisen
 uzda, r Zaum/ä-e
 opraty, r Zügel
-strmeň, r Steigbügel
+strmeň, r Steig|bügel
 ostroha, r Sporn/Sporen
 bič, e Peitsche/n
 - šibať, peitschen
 bičík, e Gerte/n
 
-kanec, r Eber
 tátoš, s Ross/e
 
 búda, e Hundehütte
-náhubok, r Maulkorb/ö-e + r Beisskorb/ö-e
+náhubok, r Maul|korb/ö-e + r Beiss|korb/ö-e
 obojok, s Hundehalsband
 reťaz, e Kette
 

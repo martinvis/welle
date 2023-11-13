@@ -41,10 +41,21 @@ Myelin sheath (covers some axons, speeds up electric impulse)
 
 ##Immune system : innate + adaptive
 
+#MHC (Major histocompatibility complex): adaptive immunity, polymorphic genes, cell surface
+determine compatibilty for organ transplant
+sexual selection prefers diversity
+Class I: all cells except erythrocytes, present to killer T cells
+- immunity against intracellular pathogens (viruses)
+Class II: APC cells, present to T cells
+- immunity against extracellular pathogens (bacteria)
+APC (antigen presenting cell): bind antigen by MHC proteins on surface
+- B cells, macrophages, dendritic cells
+
 #Lymphatic system: open, complementary to circulatory system
 Lymph: similar composition as blood plasma
 Lymph vessel: carry lymph, drain extracellular fluid and return it to bloodstream
 Lymph node: kidney-shaped, adaptive immune system (B and T cells)
+- swell during infection
 Spleen: blood filter, recycles iron, holds blood cells reserve
 Tonsils: defense against inhaled or ingested pathogens, B and T cells
 - Adenoid/Pharyngeal: back of nasopharynx
@@ -102,9 +113,11 @@ Macrophage: phagocyte, digest pathogens
 - Langerhans cell: skin
 - Hofbauer cell: placenta
 - Osteoclast: bone
-Dendritic cell (DC): messenger, process antigen and present it on T cell
+Dendritic cell (DC): messenger, process antigen and present it to T cell
 - migrate to lymph nodes when activated
 - initate adaptive immune response
+- T cell must match antigen to activate
+Plasmacytoid dendritic cell: produce large amount of interferons in response to viral infection
 
 Neutrophil: 50-60%, phagocyte+granulocyte
 - most abundant, short-lived, highly mobile
@@ -119,18 +132,35 @@ Mast cell: granulocyte, cause allergy, containe histamine and heparin granules, 
 Lymphocyte: 20-40%
 - T cells: adaptive immune response
 - B cells: humoral immunity, produce antibodies
-- natural killer cells: release cytotoxic granules inducing apoptosis or cell lysis
+- NK cells (natural killer)
 
-#T cells: mature in thymus
+#NK cells: innate immunity
+fight virus infections and tumors
+recognize cell stress and absence of MHC class I
+release cytotoxic granules inducing apoptosis or cell lysis
+
+#T cells: mature in thymus, divide rapidly after activation by dendritic cell
+- recognize small antigens presented by APCs
 helper CD4+: release cytokines to aid other immune cells
+- activated by MHC class II
+- activate cytotoxic T cells, macrophages and B cells
+- deactivate immune response and undergo apoptis when antigen is cleared
+- some change to memory cells to provide rapid response in future
+memory: long lasting, repeated antigen encounters
 regulatory CD4+
-cytotoxic CD8+
-memory
+cytotoxic CD8+: killer T cell, kill cancerous cells and cells infected by pathogens
+- activated by MHC class I
+- two step activation, first by dentritic cell and second by T helper cell
 
-#B cells
-plasmablast, short-lived, generated early in infection
-plasma cell, long-lived, generated later in infection
-memory, initiate antibody response
+#B cells: mature in bone marrow, when activated rapidly produce antibodies to antigen
+- recognize antigens directly, wider range of antigens than T cells
+- recognition is easier when antigens are coated by complement system
+- aborbed antigen is broken down to various small pieces that are presented to T cells
+- two step activation, first by antigen and second by T helper cell
+Somatic hybermutation (SHM): affects variable regions of immunoglobulin genes to produce better antibodies
+plasmablast: short-lived, generated early in infection, after first activation
+plasma cell: long-lived, generated later in infection, after second activation
+memory: initiate antibody response
 regulatory
 
 Perforin (PRF1), cytolytic protein in granules of cytotoxic lymphocytes
@@ -270,3 +300,6 @@ Sterol: OH-C6|C6\C6/C5
 Cholesterol: integrity of cell membrane, vitamin D synthesis
 Testosterone: male sex hormone
 Vitamin D: secosteroid (broken ring)
+
+#Human DNA
+~10% of genome is remnants of viral DNA

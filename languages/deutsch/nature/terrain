@@ -2,17 +2,17 @@
 krajina, e Landschaft/en
 terén, s Terrain/s
 
-=pevnina, s Festland
-=kontinent, r Kontinent + r Erdteil
+=pevnina, s Fest|land
+=kontinent, r Kontinent + r Erd|teil
 =ostrov, e Insel
-=polostrov, e Halbinsel
+=polostrov, e Halb|insel
 =súostrovie, r Archipel
 
 =oceán, r Ozean
-=more, s Meer + e See
+=more, s Meer/e + e See
 =jazero, r See
 =záliv, e Bucht + r Golf
-zátoka, s Haff/s
+zátoka, s Haff/e
 
 =jaskyňa, e Höhle/n
 kráter, r Krater
@@ -22,7 +22,7 @@ kráter, r Krater
 =pláž, r Strand/ä-e
 =mys, s Kap/s
 
-=vodopád, r Wasserfall/ä-e
+=vodopád, r Wasser|fall/ä-e
 =rieka, r Fluss/ü-e
 =potok, r Bach/ä-e
 =prameň, e Quelle/n
@@ -38,9 +38,9 @@ prameniť, quellen
 duna, e Düne/n + e Wehe/n
 pustatina, e Einöde/n
 
-=les, r Wald/ä-er + r Forst/e(n)
+=les, r Wald/ä-er + r Forst/e
 =lúka, e Wiese/n
-=prales, r Urwald/ä-er
+=prales, r Ur|wald/ä-er
 =džungľa, r Dschungel
 =čistina, e Lichtung/en
 =močiar, r Sumpf/ü-e + s Moor/e + r Tümpel
@@ -56,27 +56,27 @@ kosa, e Nehrung/en
 =útes, e Klippe/n
 pohorie, s Gebirge
 roklina, e Schlucht/en
-priepasť, r Abgrund/ü-e + e Kluft/ü-e
+priepasť, r Ab|grund/ü-e + e Kluft/ü-e
 vrchol hory, e Kuppe/n
 hlbina, r Schlund/ü-e
 
-=sopka, r Vul­kan/e
+=sopka, r Vulkan/e
 =ľadovec, r Gletscher
-kráter, r Kra­ter
+kráter, r Krater
 
 =planina, e Ebene/n
 =dolina, s Tal/ä-er + e Senke/n
-svah, r Hang/ä-e + e Bö­schung/en
+svah, r Hang/ä-e + e Böschung/en
 
-nížina, e Tiefebene + s Tiefland
-vysočina, e Hochebene
-priesmyk, r Gebirgspass
+nížina, e Tief|ebene + s Tief|land
+vysočina, e Hoch|ebene
+priesmyk, r Gebirgs|pass
 
 rovník, r Äquator
-rovnobežka, r Breitenkreis
+rovnobežka, r Breiten|kreis
 poludník, r Meridian
-obratník, r Wendekreis
-polárna kružnica, r Polarkreis
+obratník, r Wende|kreis
+polárna kružnica, r Polar|kreis
 
 pustý, öde
 bujný, üppig

@@ -1,13 +1,28 @@
+=Virus
+Spike protein: rod shaped, on surface
+- interact with receptors on cell membrane
+Life cycle
+- Entry: makes hole in host cell membrane (spikes)
+- Replication: takes control of host cell
+- Shedding: leaves host cell
+- Latency: hides within host cell to avoid immune system
+
 =Varidnaviria
 DNA viruses
+genome size 20-200kb
 
 #Adenoviridae
 Adenoviruses
 - spread through air droplets
 - causes fever
 
+#Poxviridae
+Variola virus
+- causes smallpox (30% death rate, eradicated by vaccines)
+
 =Monodnaviria
-single stranded
+single stranded DNA viruses
+genome size 2-10kb
 
 #Papillomaviridae
 Human papillomavirus (HPV)
@@ -16,6 +31,7 @@ Human papillomavirus (HPV)
 
 =Duplodnaviria
 double stranded DNA viruses
+genome size 20-200kb
 icosahedral capsid
 
 #Orthoherpesviridae
@@ -36,6 +52,7 @@ Varicella zoster virus
 
 =Riboviria
 RNA viruses
+genome size 3-30kb
 
 #Flaviviridae
 Dengue virus
@@ -52,6 +69,7 @@ Zika virus
 HIV
 - spread through sexual contact
 - causes AIDS (acquired immunodeficiency syndrome)
+- no vaccine
 
 #Picornaviridae
 Hepatovirus A
@@ -73,6 +91,7 @@ Coronaviruses
 Ebola virus
 - spread through body fluids
 - causes fever and diarrhoea
+- death rate ~50%
 
 #Hepadnaviridae
 Hepatovirus B
@@ -91,7 +110,7 @@ Mumps virus
 Rabies virus
 - spread through saliva by animal bite
 - rabid animals behave aggressively or tamely
-- causes rabies: encephalitis and hydrophobia
+- causes rabies: encephalitis and hydrophobia, almost always fatal
 
 #Sedoreoviridae
 Rotavirus

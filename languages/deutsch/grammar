@@ -1,4 +1,57 @@
+BEFORE
+2-letters
+bl
+br
+dr
+fl
+fr
+gl
+gr
+zw
+kl
+kr
+kn
+
+AFTER
+2-letters
+ft
+bb
+dd
+ff (der)
+gg
+rb
+mm (der)
+nd (der)
+ng (die)
+pf (der)
+nz (der)
+tz (der)
+3-letters
+mpf (der)
+nft (die)
+nst (die)
+tsch (der)
+
 členy
+
+DAS
+cities
+countries (DIE: -ei, Schweiz, Ukraine)
+chemical elements (DER: Phosphor, Schwefel)
+s Wiesel, s Krokodil, s Zebra
+
+DIE
+fruit (DER: Apfel, Pfirsich)
+-ik/en
+
+DER
+fish (DIE: -e)
+
+SPECIAL
+-g (s Zeug, e Burg)
+-e (s Ende, s Knie, s Auge)
+-e (r Name, r Wille, r Glaube, r Gedanke, r Funke, r Buchstabe)
+-e (r Schnee, r Klee, r Tee, r Kaffee, r Käse, r Drache, r Krake, r Löwe, r Kojote, r Hase, r Falke, r Rabe, r Affe)
 
 DER
 -er
@@ -19,18 +72,12 @@ s Blei
 -schaft/+en
 -in/+nen
 -ade/+n
+-it (r Streit)
 -e/n
-r Tee
-r Kaffee
-r Krake
-r Drache
-r Affe
-r Löwe
-r Hase
-s Auge
-s Spiel
+r See
 
 DAS
+s Spiel
 -ier/e
 -nis/se
 
@@ -56,22 +103,100 @@ zmiešané skloňovanie podstatných mien
 2. pád jednotného čísla mužského a stredného rodu má koncovku -(e)s
 všetky pády množného čísla majú koncovku -(e)n
 
-Name, Buchstabe, Gedanke, Funke, Friede, Wille, Glaube, Herz
+Name, Buchstabe, Gedanke, Funke, Wille, Glaube, Herz
 2. pád jednotného čísla má koncovku -(e)ns
 3./4. pád jednotného čísla má koncovku -(e)n
 všetky pády množného čísla majú koncovku -(e)n
 
 množné číslo
+FRENCH
+Ch.*
+.*ui.*
+.*ai.*
+LATIN
+r -us => -en
+s -um => -en
+e -tion => -tionen (noun from verb)
+ENGLISH/FRENCH
+s -ment => -mente (noun from verb)
+.*ie
+DIE
+Schnur/Schnüre
+Mutter/ü
+Tochter/ö
+ä-e: (an.) Wand, Bank, Hand, Band; Nacht, Match, Naht, Stadt
+ü-e: (u*t) Kluft, Nuss, Wurst, Zunft, Gruft, Braut, Kunst, Axt, Wulst, Laus, Frucht, Brust, Faust, Angst, Brunft
+DAS
+-*ma => *men
+-*ma => *mata
+-*eon => *eons
+-*ain => *ains
+-*on => *onen
+Knie/-
+-s :Hotel, Restaurant, Terrain, Metier, Schach
+Auge/n
+Ende/n
+Knie/-
+Ohr/en
+Hemd/en
+Verb/en
+Bett/en
+Insekt/en
+Herz/en
+Wasser/ä
+Kloster/ö
+ä-er: Bad, Blatt, Gehalt, Kraut, Haus, Amt, Rad, Fass, Gras, Dach, Grab, Maul, Glas
+ö-er: Korn, Dorf, Wort, Horn, Volk, Loch, Schloss
+ü-er: Huhn, Buch, Tuch
+i-er: Licht, Kind, Bild, Lied, Glied, Gesitcht
+e-er: Brett, Ei, Schwert, Kleid, Geld, Geschlecht, Nest
+DER
+male/en
+-ist/en
+-i*/e
+-ant/en
+-ent/en
+-and/en
+-end/en
+-or/en
+-et/en
+-eur/e
+-iv/e
+-ig/e
+-ling/e
+-ir/e
+Meteor/e
+Kerl/e
+Schuft/e
+Popanz/e
+Zwerg/e
+-en: Zins, Schmerz, Bär, Strahl, Staat, Soldat, Typ, Graph, Graf, Held, Herr, Narr, Mensch, Prinz, Chirurg, Diamant, Patient, Elefant, Student, -ant, -ent
+Geist/er
+Bauer/n
+Muskel/n
+Nachbar/n
+Pantoffel/n
+-s: Champignon, Cousin, Slip, Etat, Dollar, Scheck, Bluff, Puck
+äöü-er: -tum, Gott, Rand, Wurm, Mund, Mann
+DER/DAS
+-s: Ketchup, Bonbon
+
+Irregular
+NO: fish, amphibian, birds, plants, Hund
+YES: body parts, mammals
+Baum, Frosch, Kraut, Ast, Blatt, Stamm, Wurm
+
+množné číslo
 Sepia/Sepien
 Thuja/Thujen
 Firma/Firmen
-Sporn/Sporen
-Museum/Museen
-Universum/Universen
-Zentrum/Zentren
+r Sporn/Sporen
 Thema/Themen
 Stadion/Stadien
 Risiko/Risiken
+s Reptil/Reptilien
+r Hai/e
+s Kai/s
 
 skloňovanie prídavných mien (určité)
 der / dieser / jeder / jener / mancher / welcher / solcher / alle / beide
@@ -153,26 +278,28 @@ verlieren
 wiegen
 ziehen (h->g)
 
-#ei[ss|ch|f|t] -> i -> i (+ doppel, d->t)
+#ei[ss|ch|d|f|t]en -> i -> i (+ doppel, d->t)
 beissen
 gleichen
 gleiten
 greifen
-*leiden
+kneifen
+leiden
 pfeifen
 reissen
 reiten
 schleichen
 schmeissen
-*schneiden
+schneiden
 schreiten
 streichen
 streiten
 weichen
 
-#ei -> ie -> ie
+#ei.en -> ie -> ie
 bleiben
 gedeihen
+heissen (geheissen)
 leihen
 meiden
 reiben
@@ -186,16 +313,21 @@ treiben
 verzeihen
 weisen
 
+#ang(en) -> i -> a
+fangen
+gehen (ging/gegangen)
+hängen
+
 #a[s|t|l]/au/o/u -> ie -> a/o/u
 blasen
 braten
-*fallen (fiel)
+fallen (fiel)
 halten
 lassen
 laufen
 raten
 rufen
-*schlafen
+schlafen
 stossen
 
 #a[b|d|g|f|XY] -> u -> a
@@ -208,42 +340,6 @@ tragen
 wachsen
 waschen
 
-#e[X] -> a -> e
-essen
-fressen
-geben
-geschehen
-lesen
-messen
-sehen
-treten
-vergessen
-
-#e[X]/ö/ü -> o -> o
-bewegen
-heben
-lügen
-schwellen
-schwören
-trügen
-
-#a[ng] -> i -> a
-fangen
-hängen
-
-#other
-bitten - bat - gebeten
-gehen - ging - gegangen
-haben - hatte - gehabt
-heissen - hiess - geheissen
-kommen - kam - gekommen
-liegen - lag - gelegen
-nehmen - nahm - genommen
-sein - war - gewesen
-sitzen - sass - gesessen
-stehen - stand - gestanden
-tun - tat - getan
-
 #e[XY]/i[nn|mm] -> a -> o
 befehlen
 beginnen
@@ -254,6 +350,7 @@ erschrecken
 gelten
 gewinnen
 helfen
+nehmen (genommen)
 schwimmen
 spinnen
 sprechen
@@ -265,7 +362,7 @@ verderben
 werben
 werfen
 
-#i[nX] -> a -> u
+#-in[dkg]en -> a -> u
 binden
 finden
 gelingen
@@ -273,14 +370,45 @@ klingen
 ringen
 schwinden
 schwingen
-singenn
+singen
 sinken
 springen
 stinken
 trinken
+winden
 zwingen
 
-#regular
+#e[X] -> a -> e
+bitten (bat/gebeten)
+essen (gegessen)
+fressen
+geben
+geschehen
+lesen
+liegen (lag/gelegen)
+messen
+sehen
+sitzen (sass/gesessen)
+treten
+vergessen
+
+#e[X]/ö/ü -> o -> o
+bewegen
+heben
+schwellen
+--
+lügen
+schwören
+trügen
+
+#other
+haben - hatte - gehabt
+kommen - kam - gekommen
+sein - war - gewesen
+stehen - stand - gestanden
+tun - tat - getan
+
+#regular -en[dn]en
 brennen -> brannte
 kennen -> kannte
 nennen -> nannte
@@ -290,6 +418,7 @@ wenden -> wandte
 --
 bringen -> brachte
 denken -> dachte
+--
 mögen -> mochte
 wissen -> wusste
 
@@ -332,3 +461,18 @@ sollen -> 1+3 soll
 wissen -> 1+3 weiss (wüsste)
 wollen -> 1+3 will
 #a->ä all except schaffen
+
+#new words
+noun + 'en' => verb
+verb + 'er' => r Noun
+verb + 'nis' => s Noun
+verb + 'ung' => e Noun
+verb + 'schaft' => e Noun
+verb + 'heit' => e Noun
+verb + 'keit' => e Noun
+verb + 'end' => adjective
+noun + 'los' => adjective
+noun + 'voll' => adjective
+verb/noun + 'lich' => adjective
+verb/noun + 'isch' => adjective
+verb/noun + 'ig' => adjective

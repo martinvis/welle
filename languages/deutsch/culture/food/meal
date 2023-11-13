@@ -1,19 +1,19 @@
-=raňajky, s Frühstück/e
-=obed, s Mittagessen
-=večera, s Abendessen
+=raňajky, s Früh|stück/e
+=obed, s Mittag|essen
+=večera, s Abend|essen
 =chod, r Gang/ä-e
 olovrant, e Jause/n + e Vesper/n
 
-predjedlo, e Vorspeise/n + s Vorgericht/e
-hlavný chod, s Hauptgericht/e
-
-=pokrm, s Gericht/e
 =jedlo, e Speise/n
+- predjedlo, e Vorspeise/n
+=pokrm, s Gericht/e
+- hlavný chod, s Haupt|gericht/e
+- predjedlo, s Vor|gericht/e
 
 #sauce
 =omáčka, e Sauce/n, e Sosse/n
 horčica, r Senf/e
-kečup, r Ketchup/s
+kečup, r|s Ketchup/s
 majonéza, e Mayonnaise/n
 pesto, s Pesto
 
@@ -29,12 +29,11 @@ obložený chlieb, e Stulle/n
 
 #cesto
 knedlík, r Knödel + r Kloss/ö-e
-šúľance, e Schupf­nu­del/n
-cestoviny, e Teigware/n
+šúľance, e Schupf|nudel/n
+cestoviny, e Teig|ware/n
 rezanec, e Nudel/n
-kolienka, s Hörn­chen(­nu­del) + s Hörnli
+kolienka, s Hörnchen(nudel) + s Hörnli
 halušky, e Spätzle
-palacinka, r Eierkuchen
 
 =polievka, e Suppe/n
 vývar, e Brühe/n
@@ -43,29 +42,30 @@ kompót, s Kompott/e
 kaša, s Mus/e, r Brei/e
 pretlak, s Mark
 pyré, s Püree/s
-nátierka, r Aufstrich/e
-nálev, r Aufguss/ü-e
+nátierka, r Auf|strich/e
+nálev, r Auf|guss/ü-e
 =prísada, e Zutat/en
 
 #iné
 =hranolky, e Pommes
-praženica, s Rührei/er
+praženica, s Rühr|ei/er
 omeleta, s Omelett/s + e Omelette/n
 
 =cukráreň, e Konditorei/en
 
 #sladké
-zákusok, r Nachtisch + e Nachspeise/n
+zákusok, r Nach|tisch + e Nach|speise/n
 =koláč, r Kuchen
+- bábovka, r Napf|kuchen
+- medovník, r Leb|kuchen
+- palacinka, r Eier|kuchen
+- trdelník, r Baum|kuchen
 =torta, e Torte/n
 =zmrzlina, s Eis
 =lízanka, r Lutscher
-=cukrík, r Bonbon/s
-=žuvačka, r Kaugummi/s
-=sušienka, r Keks/e
-bábovka, r Napfkuchen
-trdelník, r Baumkuchen
+=cukrík, r|s Bonbon/s
+=žuvačka, r Kau|gummi/s
+=sušienka, r|s Keks/e
 tyčinka, r Riegel
 pelendrek, e Lakritze/n
-medovník, r Lebkuchen
 venček, r Kringel

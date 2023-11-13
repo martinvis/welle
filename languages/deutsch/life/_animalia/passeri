@@ -5,17 +5,17 @@ krkavec, r Kolkrabe
 kavka, e Dohle
 straka, e Elster
 sojka, r Häher
-rajka, r Paradiesvogel
-lýrochvost, r Leierschwanz
+rajka, r Paradies|vogel
+lýrochvost, r Leier|schwanz
 vlha, r Pirol/e
 
 #sylvioidea
 =lastovička, e Schwalbe
-=sýkorka, r Meise
+=sýkorka, e Meise
 škovránok, e Lerche
 brhlík, r Kleiber
-murárik, r Mauerläufer
-oriešok, r Zaunkönig
+murárik, r Mauer|läufer
+oriešok, r Zaun|könig
 
 #muscicapoidea
 =slávik, e Nachtigall
@@ -26,10 +26,10 @@ drozd, e Drossel + e Amsel
 #passeroidea
 =vrabec, r Sperling + r Spatz
 pinka, r Fink
-zebrička, r Zebrafink
+zebrička, r Zebra|fink
 stehlík, r Stieglitz
 hýľ, r Gimpel
-glezg, r Kernbeisser
+glezg, r Kern|beisser
 strnádka, e Ammer
 ľabtuška, r Pieper
 trasochvost, e Stelze/n

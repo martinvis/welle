@@ -7,8 +7,6 @@ chvost, r Schweif/e
 =laba, e Pfote/n + e Tatze/n + e Pranke/n
 =chobot, r Rüssel
 parohy, s Geweih
-tesák, r Fangzahn
-kel, r Stosszahn
 vemeno, s Euter
 hrb, r Höcker
 chumáč, e Zottel/n
@@ -21,9 +19,9 @@ cecok, e Zitze/n
 =zobák, r Schnabel/ä
 =krídlo, r Flügel + r Fittich/e
 =pero, e Feder
-perie, s Gefieder + s Federkleid
-letka, e Schwungfeder/n
-páperko, e Flaumfeder/n
+- letka, e Schwung|feder/n
+- páperko, e Flaum|feder/n
+- perie, s Gefieder + s Feder|kleid
 brko, r Kiel/e
 trtáč, r Bürzel
 hrvoľ/struma, r Kropf/ö-e
@@ -40,8 +38,8 @@ rybia kosť, e Gräte/n
 #hmyz
 osteň/žihadlo, r Stachel
 tykadlo, r Fühler
-krovka, r Deckflügel
+krovka, r Deck|flügel
 
 #iné
-chápadlo, r Fangarm/e
+chápadlo, r Fang|arm/e
 

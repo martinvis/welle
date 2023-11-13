@@ -1,5 +1,5 @@
 =vták, r Vogel/ö
-=dravec, r Greifvogel/ö
+=dravec, r Greif|vogel/ö
 
 #bežce
 =pštros, r Strauss/e
@@ -12,16 +12,15 @@ emu, r Emu
 =labuť, r Schwan
 
 #kurotvaré
-=kura, s Huhn
 prepelica, e Wachtel
-jarabica, s Rebhuhn
-perlička, s Perlhuhn
-=páv, r  Pfau
+jarabica, s Reb|huhn
+perlička, s Perl|huhn
+=páv, r Pfau/e
 bažant, r Fasan
-morka, s Truthuhn
-tetrov, s Auerhuhn
+morka, s Trut|huhn
+tetrov, s Auer|huhn
 
-kolibrík, r Ko­li­b­ri
+kolibrík, r Kolibri
 
 #holubotvaré
 =holub, e Taube
@@ -31,7 +30,7 @@ drop, e Trappe
 #žeriavotvaré
 =žeriav, r Kranich
 chriašteľ, e Ralle
-lyska, s Blässhuhn
+lyska, s Bläss|huhn
 
 =plameniak, r Flamingo
 =čajka, e Möwe
@@ -65,16 +64,16 @@ zdochlinár, r Schmutzgeier
 =orol, r Adler
 jastrab, r Habicht + r Sperber
 myšiak, r Bussard
-kaňa, r Weihe
-kršiak, r Fischadler
-orliak, r Seeadler
+kaňa, e Weihe
+kršiak, r Fisch|adler
+orliak, r See|adler
 
 #sovy
 =sova, e Eule
 kuvik, r Kauz
 výr, r Uhu
-myšiarka, e Ohreule
-plamienka, e Schleiereule
+myšiarka, e Ohr|eule
+plamienka, e Schleier|eule
 
 =ďateľ, r Specht
 tukan, r Tukan
@@ -84,11 +83,11 @@ rybárik, r Eisvogel
 krakľa, e Racke
 
 =sokol, r Falke
-karakara, r Geierfalke
+karakara, r Geier|falke
 
 #papagáje
-=papagáj, r Papagei
-andulka, r Wellensittich/a
+=papagáj, r Papagei/e
+andulka, r Wellensittich/e
 korela, r Nymphensittich/e
 kakadu, r Kakadu
 

@@ -2,51 +2,50 @@ párnokopytník, r Paarhufer
 nepárnokopytník, r Unpaarhufer
 
 #nepárnokopytníky
-=nosorožec, s Nas­horn
+=nosorožec, s Nashorn
 =kôň, s Pferd, r Gaul/ä-e
 =somár, r Esel
 zebra, s Zebra
 tapír, r Tapir
 
 #párnokopytníky
-=hroch, s Flusspferd + s Nilpferd
-=diviak, s Wildschwein
+=hroch, s Fluss|pferd + s Nil|pferd
+=diviak, s Wild|schwein
 =ťava, s Kamel
-ťava dvojhrbá, s Trampeltier
+ťava dvojhrbá, s Trampel|tier
 ťava jednohrbá, s Dromedar
 lama, s Lama
 
 #veľryby
 =veľryba, r Wal
 =delfín, r Delfin
-kosatka, r Schwertwal
-sviňucha, r Schweinswal
-beluga, r Weisswal
-narval, r Narwal
-vorvaň, r Pottwal
+kosatka, r Schwert|wal
+sviňucha, r Schweins|wal
+beluga, r Weiss|wal
+narval, r Nar|wal
+vorvaň, r Pott|wal
 
 #prežúvavce
 =žirafa, e Giraffe
 antilopa, e Antilope
 gazela, e Gazelle
-vidloroh, r Gabelbock
+vidloroh, r Gabel|bock
 
 #jeleňovité
 =jeleň, r Hirsch
 srnec, s Reh
-daniel, r Damhirsch
-sob, s Ren + s Rentier
+daniel, r Dam|hirsch
+sob, s Ren + s Ren|tier
 los, r Elch
 
 #turovité
 =ovca, s Schaf
 =koza, e Ziege
-kozorožec, r Steinbock
+kozorožec, r Stein|bock
 kamzík, e Gämse
-pižmoň, r Moschusochse
-tur, s Rind
+pižmoň, r Moschus|ochse
 zubor, r Wisent
 bizón, r Bison
 pakôň, s Gnu
-byvol, r Büf­fel
+byvol, r Büffel
 

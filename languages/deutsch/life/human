@@ -30,8 +30,7 @@ pupok (bachor), r Wampe/n
 =lakeť, r Ellbogen
 =plece, e Schulter/n
 =ruka, e Hand/ä-e
-=prst(ruka), r Finger
-=dlaň, e Handfläche/n + r Handteller
+- dlaň, e Hand|fläche/n + r Hand|teller
 =päsť, e Faust/ä-e
 
 #dolné končatiny
@@ -41,11 +40,12 @@ pupok (bachor), r Wampe/n
 =lýtko, e Wade/n
 =noha, r Fuss/ü-e
 =päta, e Ferse/n
-=prst(noha), r Zeh/en
 
 #prsty
 =palec, r Daumen
-ukazovák, r Zeigefinger
-prostredník, r Mittelfinger
-prstenník, r Ringfinger
+=prst(ruka), r Finger
+- ukazovák, r Zeige|finger
+- prostredník, r Mittel|finger
+- prstenník, r Ring|finger
+=prst(noha), e Zehe/n
 
