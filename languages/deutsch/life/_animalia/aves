@@ -7,9 +7,9 @@ kazuár, r Kasuar
 emu, r Emu
 
 #husotvaré
-=hus, e Gans
-=kačica, e Ente
-=labuť, r Schwan
+=hus, e Gans/ä-e
+=kačica, e Ente/n
+=labuť, r Schwan/ä-e
 
 #kurotvaré
 prepelica, e Wachtel
@@ -23,7 +23,7 @@ tetrov, s Auer|huhn
 kolibrík, r Kolibri
 
 #holubotvaré
-=holub, e Taube
+=holub, e Taube/n
 kukučka, r Kuckuck
 drop, e Trappe
 
@@ -33,61 +33,61 @@ chriašteľ, e Ralle
 lyska, s Bläss|huhn
 
 =plameniak, r Flamingo
-=čajka, e Möwe
-rybár, e Seeschwalbe
+=čajka, e Möwe/n
+rybár, e See|schwalbe/n
 potápka, r Taucher
-alka, r Papageitaucher
-sluka, e Schnepfe
+alka, r Papagei|taucher
+sluka, e Schnepfe/n
 cíbik, r Kiebitz
-kulík, r Regenpfeifer
+kulík, r Regen|pfeifer
 
-=pelikán, r Pelikan
-člnozobec, r Schuhschnabel
+=pelikán, r Pelikan/e
+člnozobec, r Schuh|schnabel/ä
 sula, r Tölpel
-kormorán, r Kormoran
+kormorán, r Kormoran/e
 
 #bocianotvaré
-=bocian, r Storch
+=bocian, r Storch/ö-e
 =volavka, r Reiher
 ibis, r Ibis
 lyžičiak, r Löffler
 
-=tučniak, r Pinguin
+=tučniak, r Pinguin/e
 
-albatros, r Albatros
+albatros, r Albatros/se
 
 #dravce
 =sup, r Geier
-kondor, r Kondor
+kondor, r Kondor/e
 bradáň, r Bartgeier
 zdochlinár, r Schmutzgeier
 =orol, r Adler
 jastrab, r Habicht + r Sperber
-myšiak, r Bussard
-kaňa, e Weihe
+myšiak, r Bussard/e
+kaňa, e Weihe/n
 kršiak, r Fisch|adler
 orliak, r See|adler
 
 #sovy
-=sova, e Eule
-kuvik, r Kauz
-výr, r Uhu
-myšiarka, e Ohr|eule
-plamienka, e Schleier|eule
+=sova, e Eule/n
+kuvik, r Kauz/ä-e
+výr, r Uhu/s
+myšiarka, e Ohr|eule/n
+plamienka, e Schleier|eule/n
 
-=ďateľ, r Specht
-tukan, r Tukan
+=ďateľ, r Specht/e
+tukan, r Tukan/e
 dudok, r Wiedehopf
-včelárik, r Bienenfresser
-rybárik, r Eisvogel
+včelárik, r Bienen|fresser
+rybárik, r Eis|vogel/ö
 krakľa, e Racke
 
-=sokol, r Falke
-karakara, r Geier|falke
+=sokol, r Falke/n
+karakara, r Geier|falke/n
 
 #papagáje
-=papagáj, r Papagei/e
-andulka, r Wellensittich/e
-korela, r Nymphensittich/e
-kakadu, r Kakadu
+=papagáj, r Papagei/en
+andulka, r Wellen|sittich/e
+korela, r Nymphen|sittich/e
+kakadu, r Kakadu/s
 

@@ -1,5 +1,4 @@
 BEFORE
-2-letters
 bl
 br
 dr
@@ -7,45 +6,140 @@ fl
 fr
 gl
 gr
-zw
 kl
 kr
 kn
+pf
+pl
+pr
+sch
+schl
+schm
+schn
+schr
+schw
+sp
+st
+str
+tr
+zw
 
 AFTER
 2-letters
-ft
 bb
 dd
 ff (der)
 gg
-rb
+ll
 mm (der)
-nd (der)
-ng (die)
-pf (der)
-nz (der)
-tz (der)
-3-letters
-mpf (der)
-nft (die)
-nst (die)
-tsch (der)
+nn
+ss
+tt
+--
+ch
+cht (die)
+ck
+ft
+hl
+hm
+hn
+hr
+ld
+lk
+ls
+lt
+mp
+mpf
+nd
+nft
+ng
+nsch
+nst
+nt
+nz
+pf
+pt
+rb
+rd
+rn
+rsch
+sch
+tsch
+tz
+
+NO BEGIN: cqxy
+NO END: acjopqvwxy
 
 členy
+
+MIX
+r/e Kiefer
+r/e Leiter
+r/e See
+r/e Steuer
+r/s Tau
+r Strauss/e + Strauss/ä-e
+e Bank/en + Bank/ä-e
+r Mut / e Anmut
+s Wort / e Antwort
+e Lust / r Verlust
+Ge: r Gesang, r Gewinn, r Geruch, r Gestank, r Gedanke, e Gegend, e Gewalt, e Geschwulst, e Geschichte, e Gebühr, e Geburt, e Gefahr, e Geduld, e Gestalt, e Gemeinde
 
 DAS
 cities
 countries (DIE: -ei, Schweiz, Ukraine)
 chemical elements (DER: Phosphor, Schwefel)
 s Wiesel, s Krokodil, s Zebra
+Bein, Hirn, Horn, Kinn
+Mehl, Öl, Pferd, Seil, Spiel
+Bier, Haar, Jahr, Ohr, Tier, Ziel
+Bett, Blatt, Brot, Gift, Nest, Schwert
+Buch, Haus, Rad, Stück, Zelt, Heim
+Abenteuer, Alter, Feuer, Fenster, Fieber, Messer, Opfer, Pulver, Wasser, Wetter, Wunder, Zimmer
+Kamel, Mittel, Möbel, Rätsel, Segel, Siegel, Wiesel
+Becken, Kissen, Wesen
+Ge- (90%)
+-ment/e
+-um
+-lein
+-chen
+-sal/e
+-nis/se
 
 DIE
 fruit (DER: Apfel, Pfirsich)
+/en: Bahn, Stirn, Jagd
+/en: Burg, Milz
+/ä-e: Gans, Laus, Maus, Hand, Wand
+Gier, Tür, Uhr, Schuld, Heimat
+/ä-e: Angst, Braut, Faust, Macht, Nacht, Not, Post, Stadt
+Butter, Elster, Feder, Kammer, Leber, Leiter, Mauer, Nummer, Schulter, Steuer, Trauer, Wimper
+Gabel, Hantel, Kugel, Insel, Muschel, Nadel, Nudel, Regel, Sichel, Wurzel, Zwiebel
+-e/n (90%)
+-ie/n
+-ine/n
+-in/nen
 -ik/en
+-ei/en
+-enz/en
+-heit/en
+-keit/en
+-ung/en
+-schaft/en
+-tät/en
+-ur/en
+-tion/en
 
 DER
 fish (DIE: -e)
+Papagei, Streit, Schaft, Moment
+-ant
+-ast
+-ig
+-ling
+-us
+-or
+-ich/e
 
 SPECIAL
 -g (s Zeug, e Burg)
@@ -148,7 +242,7 @@ Kloster/ö
 ä-er: Bad, Blatt, Gehalt, Kraut, Haus, Amt, Rad, Fass, Gras, Dach, Grab, Maul, Glas
 ö-er: Korn, Dorf, Wort, Horn, Volk, Loch, Schloss
 ü-er: Huhn, Buch, Tuch
-i-er: Licht, Kind, Bild, Lied, Glied, Gesitcht
+i-er: Licht, Kind, Bild, Lied, Glied, Gesicht
 e-er: Brett, Ei, Schwert, Kleid, Geld, Geschlecht, Nest
 DER
 male/en

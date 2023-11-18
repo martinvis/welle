@@ -67,9 +67,12 @@ Zika virus
 
 #Retroviridae
 HIV
-- spread through sexual contact
-- causes AIDS (acquired immunodeficiency syndrome)
 - no vaccine
+- spread through sexual contact
+- infects immune cells: dendritic cells, helper T cells and macrophages
+- retrovirus: insert DNA copy of its RNA to host cell DNA, high mutation rate
+- stages: acute (mild symptoms, high transmission), chronic (no symptoms, low transmission), AIDS (acquired immunodeficiency syndrome)
+- AIDS: immune system can not fight off infections
 
 #Picornaviridae
 Hepatovirus A
@@ -100,7 +103,8 @@ Hepatovirus B
 
 #Paramyxoviridae
 Measles morbillivirus
-- spread through air droplets
+- spread through air droplets, very contagious
+- can kill memory cells of immune system
 - causes measles: fever, cough, erythematous rash
 Mumps virus
 - spread through air droplets

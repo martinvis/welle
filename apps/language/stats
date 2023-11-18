@@ -1,16 +1,22 @@
 =. (Ge|ge|Be|be|Ent|ent|Emp|emp|Ver|ver|Zer|zer|Ab|ab|Auf|auf|An|an|Aus|aus|Er|er)*[^ÄAEIOUaeiouyäöü/]*[AEIOUÄaeiouäöü]+[^aeiouyäöü/]+(e|er|el|en|ei|in|ig|ing|ung|chen|heit|keit|sam|tum|nis|eln|ern|lich)*(/.*)?$
 .*
 =. [\w\|]*/[äöü]-e(r)?$
+s [\w\|]*o[rl]./ö.*$
+. [\w\|]*au.*/[ersn]*$
+. [\w\|]*au.*/[ä]-e(r)?$
 . [\w\|]*au.h?/[ä]-e(r)?$
 . [\w\|]*aust/[ä]-e(r)?$
 . [\w\|]*ang/[ä]-e(r)?$
 . [\w\|]*and/[ä]-e(r)?$
+. [\w\|]*kn(a|au|u|o)[^aeiou]*/[äöü]-e(r)?$
 . [\w\|]*st(a|au|u|o)[^aeiou]/[äöü]-e(r)?$
 . [\w\|]*[rl](a|au|u|o)./[äöü]-e(r)?$
 . [\w\|]*[rl](a|au|u|o)(st|tt|ch|ss|tz|nd|nk|ft|ck|pf)/[äöü]-e(r)?$
 . [\w\|]*[bp]a./[ä]-e(r)?$
+r [\w\|]*(a|au|u|o)..?e[lnr]/[äöü]$
 . [\w\|]*(a|au|u|o)mpf/[äöü]-e(r)?$
-. [\w\|]*(a|au|u|o)pf/[äöü]-e(r)?$
+. [\w\|]*u[lnr]st/[äöü]-e(r)?$
+. [\w\|]*(a|au|u|o)[^f]?f/[äöü]-e(r)?$
 . [\w\|]*(a|au|u|o)ss/[äöü]-e(r)?$
 . [\w\|]*(a|au|u)n?[sf]t/[äü]-e(r)?$
 . [\w\|]*(a|au|u|o)[ngrlfstch]*[sdt]/[äöü]-e(r)?$

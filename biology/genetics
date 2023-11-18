@@ -125,9 +125,13 @@ Neutrophil: 50-60%, phagocyte+granulocyte
 - ingest pathogens coated in opsonins
 - release three types of antimicrobial granules
 - release weblike structures of DNA with serine proteases
-Eosinophil: granulocyte, parasite defense
+Eosinophil: granulocyte, parasite defense, cause allergy
 Basophil: granulocyte, least common, largest, parasite defense, cause allergy, lobated nucleus
-Mast cell: granulocyte, cause allergy, containe histamine and heparin granules, round nucleus
+- containe histamine and heparin granules
+- bind IgE antibodies, release granules on contact with antigens
+Mast cell: granulocyte, cause allergy, round nucleus, similar to basophil
+- containe histamine and heparin granules
+- bind IgE antibodies, release granules on contact with antigens
 
 Lymphocyte: 20-40%
 - T cells: adaptive immune response
@@ -147,7 +151,7 @@ helper CD4+: release cytokines to aid other immune cells
 - deactivate immune response and undergo apoptis when antigen is cleared
 - some change to memory cells to provide rapid response in future
 memory: long lasting, repeated antigen encounters
-regulatory CD4+
+regulatory CD4+: immunosuppresive, prevent autoimmune diseases
 cytotoxic CD8+: killer T cell, kill cancerous cells and cells infected by pathogens
 - activated by MHC class I
 - two step activation, first by dentritic cell and second by T helper cell
@@ -157,10 +161,11 @@ cytotoxic CD8+: killer T cell, kill cancerous cells and cells infected by pathog
 - recognition is easier when antigens are coated by complement system
 - aborbed antigen is broken down to various small pieces that are presented to T cells
 - two step activation, first by antigen and second by T helper cell
-Somatic hybermutation (SHM): affects variable regions of immunoglobulin genes to produce better antibodies
-plasmablast: short-lived, generated early in infection, after first activation
-plasma cell: long-lived, generated later in infection, after second activation
-memory: initiate antibody response
+Somatic hypermutation (SHM): affects variable regions of immunoglobulin genes to produce better antibodies
+plasma cell:
+- generated early in infection, short-lived type, during infection
+- generated later in infection, long-lived type, in bone marrow
+memory: long lasting, repeated antigen encounter
 regulatory
 
 Perforin (PRF1), cytolytic protein in granules of cytotoxic lymphocytes

@@ -95,16 +95,26 @@ germany: Adidas, Puma
 usa: Crocs, Nike
 
 #clothing
-france: Decathlon, Dior, Kering (Gucci), LVMH (Louis Vuitton)
+france: Decathlon
 germany: Zalando
-italy: Armani, Calzedonia, Geox, Prada
+italy: Calzedonia, Geox
 spain: Inditex (Zara)
 sweden: H&M
+us: Ralph Lauren, Levi Strauss, Guess
+
+#luxury
+france: LVMH (Louis Vuitton), Kering (Gucci), Chanel, Dior
+italy: Armani, Prada
 
 #chemical
 germany: BASF, Henkel (Persil, Perwoll, Silan)
 uk: Ineos, Linde, Unilever (Dove)
 usa: Colgate-Palmolive, Dow, DuPont, Procter & Gamble (Ariel, Tide)
+
+#cosmetics
+france: L'Oreal
+germany: Nivea
+us: Estée Lauder
 
 #steel
 germany: ThyssenKrupp
@@ -171,6 +181,7 @@ usa: General Electric, Honeywell
 vietnam: Vingroup
 
 #semiconductors
+netherlands: ASML
 taiwan: TSMC
 usa: AMD, Broadcom, Intel, Micron, Nvidia, Qualcomm
 
@@ -199,6 +210,10 @@ usa: CVS, Walgreens
 #healthcare
 ireland: Medtronic
 us: Abbott, Thermo Fisher
+
+#healthcare
+germany: Fresenius
+us: DaVita
 
 #media
 canada: Thomson Reuters
@@ -236,8 +251,15 @@ germany: Bertelsmann (Penguin Random), Holtzbrinck (Droemer Knaur, Macmillan, To
 uk: Pearson
 usa: HarperCollins
 
-#transport
+#shipping
+china: COSCO
 denmark: Maersk
+france: CMA CGM
+germany: Hapag-Lloyd
+swiss: MSC (Mediterranean Shipping Company)
+taiwan: Evergreen, Yang Ming
+
+#transport
 france: La Poste (DPD)
 germany: Deutsche Post (DHL)
 uk: Royal Mail (GLS)
