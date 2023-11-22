@@ -18,6 +18,11 @@ Gender: noun classes
 - masculine
 - feminine
 - neuter
+- common (masculine or feminine)
+common/neuter: dutch, swedisch, danish
+masculine/feminine: romance, arabic, hindi
+masculine/feminine/neuter: german, slavic
+none: english, chinese, japanese, korean, turkish, persian, indonesian
 
 Aspect: verb forms
 - perfect: completed / repeated
@@ -46,4 +51,8 @@ Case: noun/pronoun forms
 - accusative: direct object of verb
 - locative: location
 - instrumental: tool or companion in action
-
+none: english, romance, chinese, indonesian
+NGA: arabic
+NGDA: german
+6-7: slavic, turkish
+8-9: japanese, korean, hindi

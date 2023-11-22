@@ -205,24 +205,49 @@ adjectives = readLOLs('/home/martin/store/welle/languages/deutsch/_grammar/adjec
 stats = readLOLs(sys.argv[3])
 statistics = Statistics(stats)
 
+def readSegments():
+  segments = {}
+  file = open('regex', "r")
+  lines = file.readlines()
+  for line in lines:
+    parts = line.split(':')
+    segments['<'+parts[0]+'>'] = parts[1].strip()
+  return segments
+segments = readSegments()
+print(segments)
+
+def evaluateRegex(regex, word):
+  regex = regex.translate(segments)
+  for key in segments.keys():
+    regex = regex.replace(key, segments[key])
+
+  for reg in regex.split(' AND '):
+    negate = False
+    if (reg.startswith('NOT ')):
+      negate = True
+      reg = reg.removeprefix('NOT ')
+    if bool(re.match(reg, word.lower())) == negate:
+      return False
+  return True
+
 def calcStats(w):
   global statistics
   matchAll = False
   for stat in stats:
-    if re.match(stat.label, w):
+    if evaluateRegex(stat.label, w):
       statistics.total = statistics.total + 1
       statistics.cats[stat.label]['total'] = statistics.cats[stat.label]['total'] + 1
       match = False
       for item in stat.items:
-        if re.match(item, w):
+        if evaluateRegex(item, w):
           match = True
           matchAll = True
           statistics.cats[stat.label][item] = statistics.cats[stat.label][item] + 1
       if not match:
         statistics.cats[stat.label]['none'] = statistics.cats[stat.label]['none'] + 1
-        #print(w)
-  if not matchAll:
-    print(w)
+        print(w)
+  #if not matchAll:
+    #print(w)
 
 def notBasic(w):
   type = evalType(w.lower(), types)
@@ -230,40 +255,42 @@ def notBasic(w):
 
 # parse dictionary
 # word, e singular/plural + r singular/plural
-words = set()
-for file_name in set(glob.glob(sys.argv[2] + '**/**', recursive=True)):
-  if os.path.isdir(file_name):
-    continue
+def parseDictionary():
+  words = set()
+  for file_name in set(glob.glob(sys.argv[2] + '**/**', recursive=True)):
+    if os.path.isdir(file_name):
+      continue
 
-  file = open(file_name, "r")
-  lines = file.readlines()
-  print(file_name)
-  for line in lines:
-    parts = re.split(', ', line.strip())
-    if len(parts) == 2:
-      ws = re.split('\+', parts[1])
-      for w in ws:
-        w = re.sub(' sich', '', w)
-        w = re.sub('\([^\(\)]+\)', '', w)
-        w = w.strip()
-        calcStats(w)
-        word_type = evalType(w, types)
-        if word_type == 'verb':
-          words.update(evalForms(w, verbs))
-        elif word_type == 'noun':
-          words.update(evalForms(w, nouns))
-          evaluatePlural(w)
-        elif word_type == 'adjective':
-          words.update(evalForms(w, adjectives))
+    file = open(file_name, "r")
+    lines = file.readlines()
+    print(file_name)
+    for line in lines:
+      parts = re.split(', ', line.strip())
+      if len(parts) == 2:
+        ws = re.split('\+', parts[1])
+        for w in ws:
+          w = re.sub(' sich', '', w)
+          w = re.sub('\([^\(\)]+\)', '', w)
+          w = w.strip()
+          calcStats(w)
+          word_type = evalType(w, types)
+          if word_type == 'verb':
+            words.update(evalForms(w, verbs))
+          elif word_type == 'noun':
+            words.update(evalForms(w, nouns))
+            evaluatePlural(w)
+          elif word_type == 'adjective':
+            words.update(evalForms(w, adjectives))
 
-print(statistics.total) 
-for cat in statistics.cats:
-  print(cat + ': ' + str(statistics.cats[cat]['total']))
-  print(cat + ': ' + str(statistics.cats[cat]['none']))
-  for cond in statistics.cats[cat]:
-    ratio = round(statistics.cats[cat][cond]/statistics.cats[cat]['total']*100, 2)
-    print('  ' + cond + ': ' + str(statistics.cats[cat][cond]) + ' (' + str(ratio) + '%)')
+  #print(statistics.total) 
+  for cat in statistics.cats:
+    print(cat + ': ' + str(statistics.cats[cat]['total']))
+    print(cat + ': ' + str(statistics.cats[cat]['none']))
+    for cond in statistics.cats[cat]:
+      ratio = round(statistics.cats[cat][cond]/(statistics.cats[cat]['total'] + 0.01)*100, 2)
+      print('  ' + cond + ': ' + str(statistics.cats[cat][cond]) + ' (' + str(ratio) + '%)')
 # parse book
+parseDictionary()
 
 book_name = sys.argv[1]
 book_file = open(book_name, "r")
@@ -279,6 +306,7 @@ def listIgnoredWords(book_name):
 
 file_content = book_file.read()
 file_words = re.compile('[\W]+').split(file_content)
+
 
 # filter words
 

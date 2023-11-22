@@ -1,5 +1,5 @@
 #vývojové štádia
-larva, e Larve/n, e Made/n
+larva, e Larve/n + e Made/n
 kukla, e Puppe/n
 húsenica(motýľ), e Raupe/n
 pandrava(chrúst), r Engerling/e
@@ -15,6 +15,6 @@ mravenisko, r Ameisen|haufen
 termitisko, r Termiten|hügel
 
 #správanie
-ruja, e Brunft/ü-e, e Brunst/ü-e
+ruja, e Brunft/ü-e + e Brunst/ü-e
 párenie sa, e Begattung/en
 

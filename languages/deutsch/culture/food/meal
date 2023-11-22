@@ -5,13 +5,13 @@
 olovrant, e Jause/n + e Vesper/n
 
 =jedlo, e Speise/n
-- predjedlo, e Vorspeise/n
+- predjedlo, e Vor|speise/n
 =pokrm, s Gericht/e
 - hlavný chod, s Haupt|gericht/e
 - predjedlo, s Vor|gericht/e
 
 #sauce
-=omáčka, e Sauce/n, e Sosse/n
+=omáčka, e Sauce/n + e Sosse/n
 horčica, r Senf/e
 kečup, r|s Ketchup/s
 majonéza, e Mayonnaise/n
@@ -20,7 +20,7 @@ pesto, s Pesto
 #pečivo
 pečivo, s Gebäck/e
 chlieb, s Brot/e
-žemľa, e Semmel/n, s Brötchen
+žemľa, e Semmel/n + s Brötchen
 praclík, e Brezel/n
 rožok, s Hörnchen
 bochník, r Laib/e
@@ -39,7 +39,7 @@ halušky, e Spätzle
 vývar, e Brühe/n
 džem, e Konfitüre/n
 kompót, s Kompott/e
-kaša, s Mus/e, r Brei/e
+kaša, s Mus/e + r Brei/e
 pretlak, s Mark
 pyré, s Püree/s
 nátierka, r Auf|strich/e

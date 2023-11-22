@@ -22,13 +22,13 @@ obdĺžnik, прямоугольник
 =kvapka, капля
 =guľa, шар
 
-=roh, e Ecke/n
-=strana, e Seite/n
+=roh, угол
+=strana, сторона
 =špička, e Spitze/n
 hrana, e Kante/n
-okraj, r Saum/ä-e
+okraj, край
 
-=diera, s Loch/ö-er
+=diera, дыра
 
 šikmý, schräg + schief
 strmý, steil + schroff
@@ -38,11 +38,14 @@ lichobežník, s Trapez/e
 kosoštvorec, r Rhombus/Rhomben
 
 #geometria 3D
-=kocka, r Würfel
-=kužeľ, r Kegel
+=kocka, кубик
+=kužeľ, конус
 kváder, r Quader
 ihlan, e Pyramide/n
 valec, r Zylinder
 
 =okrúhly, rund
 =hranatý, eckig
+
+plný, полный
+prázdny, пустой

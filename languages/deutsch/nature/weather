@@ -1,10 +1,11 @@
 =počasie, s Wetter
-nečas, s Un|wetter
+- nečas, s Un|wetter
 
 atmosféra, e Atmosphäre/n
 =obloha, r Himmel
 
 =voda, s Wasser/ä
+- vody, s Gewässer
 =ľad, s Eis
 =vlna, e Welle/n + e Woge/n
 prúd, r Strom/ö-e
@@ -16,7 +17,6 @@ para, r Dampf/ä-e
 vločka, e Flocke/n
 kúdol, r Schwaden
 vyschnúť, verdorren
-vody, s Gewässer
 
 =vzduch, e Luft
 - vánok, s Lüftchen
@@ -33,25 +33,25 @@ vír, r Strudel
 
 =búrka, s Gewitter
 =blesk, r Blitz
+- blýskať sa, blitzen
 =hrom, r Donner
-blýskať sa, blitzen
-hrmieť, donnern
+- hrmieť, donnern
 
 =oblak, e Wolke
+- oblačnosť, e Be|wölkung
 =hmla, r Nebel
-oblačnosť, e Bewölkung
 
 zrážky, r Nieder|schlag
 =dážď, r Regen
-=pršať, regnen
+- pršať, regnen
+- dúha, r Regen|bogen
+- mrholenie, r Niesel|regen + r Sprüh|regen
+- lejak, r Platz|regen + r Stark|regen
 =sneh, r Schnee
-=snežiť, schneien
+- snežiť, schneien
 krúpy, r Hagel
-mrholenie, r Niesel|regen, r Sprüh|regen
 mrholiť, nieseln
-lejak, r Platz|regen + r Stark|regen
 
-=dúha, r Regen|bogen
 =kaluž, e Pfütze + e Lache
 =povodeň, s Hoch|wasser
 záplava, e Über|schwemmung

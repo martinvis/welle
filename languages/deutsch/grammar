@@ -28,16 +28,16 @@ AFTER
 2-letters
 bb
 dd
-ff (der)
+ff
 gg
 ll
-mm (der)
+mm
 nn
 ss
 tt
 --
 ch
-cht (die)
+cht
 ck
 ft
 hl
@@ -89,6 +89,7 @@ DAS
 cities
 countries (DIE: -ei, Schweiz, Ukraine)
 chemical elements (DER: Phosphor, Schwefel)
+material
 s Wiesel, s Krokodil, s Zebra
 Bein, Hirn, Horn, Kinn
 Mehl, Öl, Pferd, Seil, Spiel
@@ -107,6 +108,9 @@ Ge- (90%)
 -nis/se
 
 DIE
+Geisel
+snakes
+trees
 fruit (DER: Apfel, Pfirsich)
 /en: Bahn, Stirn, Jagd
 /en: Burg, Milz
@@ -131,6 +135,7 @@ Gabel, Hantel, Kugel, Insel, Muschel, Nadel, Nudel, Regel, Sichel, Wurzel, Zwieb
 -tion/en
 
 DER
+animals
 fish (DIE: -e)
 Papagei, Streit, Schaft, Moment
 -ant

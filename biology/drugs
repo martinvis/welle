@@ -1,3 +1,13 @@
+Drug patent: 20 years
+Generic drug: non-proprietary, after patent expiration
+Drug development: research and registration, ~10 years
+Research phases
+- preclinical: non-human subjects
+- phase I: 20-100 subjects, test safety
+- phase II: 100-300 subjects, test efficacy and side effects
+- phase III: 300-3000 subjects, test effectiveness
+Registration: FDA in USA, EMA in EU
+
 #Asparaginase
 enzyme breaking down asparagine
 used to tread lymphoblastic leukemia, many side effects
@@ -58,9 +68,46 @@ Genetic
 Experimental
 - dendritic cell
 - recombinant
+Mandatory/recommended
+- rotavirus
+- diphtheria
+- tetanus
+- pertussis
+- hepatitis B
+- haemophilus influenzae B
+- pneumococcal (Prevnar)
+- meningococcal
+- polio
+- measles
+- mumps
+- rubella
+- varicella (Varivax)
+Optional
+- influenza
+- corona (Comirnaty)
+- HPV (Gardasil)
+- tuberculosis
+- encephalitis
 
 Fialuridine: failed hepatitis B treatment, caused liver failure [1993]
 Theralizumab (TGN1412): failed immunomodulator, caused organ failure [2006]
+
+#Drugs
+Humira: monoclonal antibody (autoimmune diseases)
+Keytruda: humanized antibody (cancer)
+Paxlovid: covid-19
+Eliquis: anticoagulant
+Eylea: macular edema
+Biktarvy: HIV
+Revlimid: myeloma
+Stelara: monoclonal antibody
+Dupixent: allergies
+Imbruvica: leukemia
+Opdivo: cancer
+Darzalex: myeloma
+Trikafta: cystic fibrosis
+Xarelto: anticoagulant
+Trulicity: diabetes
 
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system

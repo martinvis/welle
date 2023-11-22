@@ -122,3 +122,13 @@ determines latitude, longitude and elevation
 intersection of satellite signal spheres determines position of receiver
 satellites broadcast their location and time
 satellites use atomic clocks to keep synchronized time
+
+#Jet engine: generates thrust by jet propulsion
+Jet propulsion: movement by ejecting jet of fluid in opposite direction (cephalopods, jellyfish)
+Airbreathing: takes in atmospheric air, compresses and heats it, exhaustion through nozzle
+Pulsejet: combustion in pulses, minimum moving parts
+Ramjet: at supersonic speed, takes in air using forward motion, requires assisted take-off
+Scramjet: at hypersonic speed, ramjet but compression uses forward motion
+Turbojet: compression by gas turbine, in aircraft
+Turbofan: turbojet with ducted fan, part of air bypasses engine, in aircraft, more efficient at lower speeds
+Rocket: without air, propellant is within rocket, in space
