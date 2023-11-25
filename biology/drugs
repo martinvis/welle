@@ -19,8 +19,8 @@ recreational drug, addictive
 #Barbiturates
 depressant, general anesthesia
 
-#Benzodiazepines
-depressant
+#Benzodiazepines: depressant
+Diazepam
 
 #Xanthines
 Caffeine: CNS stimulant
@@ -29,14 +29,6 @@ Theobromine
 #Lysergic acid diethylamide (LSD)
 psychedelic, hallucinations
 recreational drug
-
-#Benzocaine
-local anesthetic
-blocks sodium channels on neuron membrane
-
-#Lidocaine
-local anesthetic
-blocks sodium channels on neuron membrane
 
 #Artemisinin
 contains peroxide ring
@@ -48,12 +40,6 @@ Cephalosporin: inhibits cell wall synthesis
 Erythromycin: inhibits protein synthesis
 Streptomycin: inhibits protein synthesis
 Tetracycline: inhibits protein synthesis
-
-#Analgesics: pain relievers
-Morphine: recreational drug, found in opium, addictive
-Codeine: prodrug of morphine, found in opium
-Heroin: recreational drug, addictive
-Fentanyl: very strong, addictive
 
 #Vaccines: activate acquired immunity
 Attenuated: contain weakened live pathogen
@@ -88,7 +74,9 @@ Optional
 - HPV (Gardasil)
 - tuberculosis
 - encephalitis
+- yellow fever
 
+#History
 Fialuridine: failed hepatitis B treatment, caused liver failure [1993]
 Theralizumab (TGN1412): failed immunomodulator, caused organ failure [2006]
 
@@ -98,7 +86,6 @@ Keytruda: humanized antibody (cancer)
 Paxlovid: covid-19
 Eliquis: anticoagulant
 Eylea: macular edema
-Biktarvy: HIV
 Revlimid: myeloma
 Stelara: monoclonal antibody
 Dupixent: allergies
@@ -107,7 +94,98 @@ Opdivo: cancer
 Darzalex: myeloma
 Trikafta: cystic fibrosis
 Xarelto: anticoagulant
-Trulicity: diabetes
+
+#Antidiabetic
+Insulin
+For type 2:
+- Gliclazide (Diamicron)
+- Empagliflozin (Jardiance)
+- Metformin (Glucophage)
+- Dulaglutide (Trulicity)
+
+#Generics
+Amoxicillin: antibiotic
+Amlodipine: against high blood pressure
+Metoprolol: against high blood pressure
+Atorvastatin: prevent cardiovascular diseases
+Simvastatin: prevent cardiovascular diseases
+Fentanyl: analgesic
+Diclofenac: anti-inflammatory
+Venlafaxine: antidepressant
+
+#Antiulcer: against reflux
+Omeprazole: proton pump inhibitor
+Pantoprazole: proton pump inhibitor
+H2 blocker: block histamine receptors in stomach
+- Ranitidine: decrease stomach acid production
+
+#Antiasthmatic
+Epinephrine/adrenaline: anaphylaxis, cardiac arrest
+Salbutamol (Ventolin)
+Tiotropium (Spiriva)
+Budesonide (Pulmicort)
+
+#Analgesic: pain relievers
+Non-opioid
+- Paracetamol (Panadol): analgesic, antipyretic (overdose ~5g: liver failure)
+- Ibuprofen (Nurofen): anti-inflammatory
+- Aspirin: anti-inflammatory (overdose ~10g: brain/lungs edema)
+- Naproxen (Aleve): anti-inflammatory
+Opioid
+- Morphine: recreational drug, found in opium, addictive
+- Codeine: prodrug of morphine, found in opium
+- Heroin: recreational drug, addictive
+- Fentanyl: very strong, addictive
+
+#Anesthetic: block nerve receptors, unconsciousness when general
+General via inhalation
+- Nitrous oxide
+- Isoflurane
+- Halothane
+- Sevoflurane
+General
+- Ketamine
+- Propofol: intravenous
+- Thiopental: intravenous
+Local: blocks sodium channels on neuron membrane
+- Lidocaine
+- Benzocaine
+- Bupivacaine
+
+#Laxative
+Senna
+Bisacodyl
+
+#Contraceptive
+
+#Antifungal
+Clotrimazole
+Fluconazole
+Flucytosine
+Griseofulvin
+Itraconazole
+Micafungin: inhibits creation of fungal cell walls
+Miconazole
+Nystatin
+Terbinafine
+Voriconazole
+Selenium disulfide: SeS2
+
+#Antiviral
+Aciclovir: herpes
+HIV, transcriptase inhibitors:
+- Abacavir
+- Biktarvy
+- Efavirenz
+- Lamivudine
+- Nevirapine
+- Zidovudine
+HIV, protease inhibitors:
+- Darunavir
+- Ritonavir
+HIV, integrase inhibitors:
+- Dolutegravir
+- Raltegravir
 
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system

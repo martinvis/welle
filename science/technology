@@ -80,6 +80,11 @@ Infrared telescope
 Ultraviolet telescope
 X-ray telescope
 
+#Radar
+- continuous (CW) or pulsed
+Doppler radar: uses doppler effect to determine target's velocity
+Frequency modulated: continuously varies signal frequency
+
 #Laser
 - emits coherent light by optical amplification
 - stimulated emission of electromagnetic radiation
