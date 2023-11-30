@@ -1,51 +1,51 @@
-=tvar, форма
+=tvar, фо́рма
 
-=priamy, прямой
-=krivý, кривой
+=priamy, прямо́й
+=krivý, криво́й
 
 #1D
-=čiara, линия
-=tyč, стержень
-=hák, крючок
+=čiara, ли́ния
+=tyč, сте́ржень
+=hák, крючо́к
 
 #2D
-=koleso, колесо
+=koleso, колесо́
 =plachta, лист
-=doska, доска
+=doska, доска́
 =sieť, сеть
 =kríž, крест
 =kruh, круг
-=štvorec, квадрат
-obdĺžnik, прямоугольник
+=štvorec, квадра́т
+obdĺžnik, прямоуго́льник
 
 #3D
-=kvapka, капля
+=kvapka, ка́пля
 =guľa, шар
 
-=roh, угол
-=strana, сторона
+=roh, у́гол
+=strana, сторона́
 =špička, e Spitze/n
 hrana, e Kante/n
 okraj, край
 
-=diera, дыра
+=diera, дыра́
 
-šikmý, schräg + schief
-strmý, steil + schroff
+šikmý, косо́й
+strmý, круто́й
 
 #geometria 2D
 lichobežník, s Trapez/e
 kosoštvorec, r Rhombus/Rhomben
 
 #geometria 3D
-=kocka, кубик
-=kužeľ, конус
-kváder, r Quader
-ihlan, e Pyramide/n
-valec, r Zylinder
+=kocka, ку́бик
+=kužeľ, ко́нус
+kváder, параллелепи́пед
+ihlan, пирами́да
+valec, цили́ндр
 
-=okrúhly, rund
-=hranatý, eckig
+=okrúhly, кру́глый
+=hranatý, квадра́тный
 
-plný, полный
-prázdny, пустой
+plný, по́лный
+prázdny, пусто́й

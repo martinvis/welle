@@ -1,4 +1,4 @@
-Drug patent: 20 years
+Drug patent: 20 years (including trials)
 Generic drug: non-proprietary, after patent expiration
 Drug development: research and registration, ~10 years
 Research phases
@@ -7,6 +7,14 @@ Research phases
 - phase II: 100-300 subjects, test efficacy and side effects
 - phase III: 300-3000 subjects, test effectiveness
 Registration: FDA in USA, EMA in EU
+Blinded trial: prevent biases
+- Single-blind: only patient blind to treatment
+- Double-blind: researcher and patient blind
+- Unblinding: person deducing whether treatment group
+- Treatment group: receive treatment
+- Control group: receive placebo
+- Placebo: treatment replacement for control group
+- Active placebo: produces noticeable effects
 
 #Asparaginase
 enzyme breaking down asparagine
@@ -106,12 +114,25 @@ For type 2:
 #Generics
 Amoxicillin: antibiotic
 Amlodipine: against high blood pressure
-Metoprolol: against high blood pressure
 Atorvastatin: prevent cardiovascular diseases
 Simvastatin: prevent cardiovascular diseases
 Fentanyl: analgesic
 Diclofenac: anti-inflammatory
 Venlafaxine: antidepressant
+
+#Beta blocker: manage arrhytmia and high blood pressure, block receptors for adrenaline and noradrenaline
+Nonselective
+- Labetalol
+- Pindolol
+- Propranolol
+Selective
+- Acebutolol
+- Atenolol
+- Bisoprolol
+- Esmolol
+- Metoprolol
+- Nebivolol
+
 
 #Antiulcer: against reflux
 Omeprazole: proton pump inhibitor
