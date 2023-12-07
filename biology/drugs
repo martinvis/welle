@@ -16,6 +16,71 @@ Blinded trial: prevent biases
 - Placebo: treatment replacement for control group
 - Active placebo: produces noticeable effects
 
+#Activity
+Agonist: activates receptor
+Antagonist: blocks receptor
+Inverse agonist: action opposite to agonist
+Efficacy: functional response of drug compared to endogenous agonist
+- Superagonist: >100%
+- Full: 100
+- Partial: 0-100
+- Silent: 0
+- Inverse: <0
+
+ADME: absorption, distribution, metabolism, excretion
+- drug levels and kinetics
+
+#Metabolism
+First pass effect: reduction in drug concentration
+- oral dose needs to be higher if reduction is high
+- metabolism by enzymes in intestines and liver
+- uptake and gradual release in lungs for lipophilic
+- high for e.g. insulin, diazepam, ethanol, lidocaine, morphine
+
+#Pharmacokinetics: plasma concentration in time
+- longer elimination decreases fluctuations
+- shorted dosing interval decreases fluctuations
+- cumulative balance requires ~3x elimination half-time
+Dose: amount administered
+Dosing interval: time between administrations
+Bioavailability: available percentage of drug, depends on administration
+Fluctuation: change within one dosing interval
+Absorption half-life
+Elimination half-life
+Effective dose (ED50): concentration causing response in 50%
+Toxic dose (TD50): concentration causing toxicity in 50%
+Lethal dose (LD50): concentration causing death in 50%
+
+#Side effect
+adverse reaction: genetic factors, allergies
+selectivity: binding of drug to specific cells
+specificity: drug action directly on receptor
+drug interaction: caused by other drugs or food (grapefruit)
+- additive: sum of two
+- synergistic: more than sum of two
+- antagonistic: less than sum of two
+frequency
+- very common: <1/10
+- common: <1/100
+- uncommon: <1/1000
+- rare: <1/10000
+- very rare: <1/100000
+
+#Adverse reactions
+Severe cutaneous adverse reactions (SCAR): type IV
+- affect skin and mucous membranes, blisters, peeling skin
+- Toxic epidermal necrolysis (TEN): more severe
+- Stevens–Johnson syndrome (SJS): less severe
+Maculopapular rash (MPR): small red bumps on skin, type IV
+
+#Food interactions
+Avocado: inductor
+Broccoli: inductor
+Grapefruit: inhibitor
+Soya: inhibitor
+Garlic: antiplatelet
+Ginger: anticoagulant
+
 #Asparaginase
 enzyme breaking down asparagine
 used to tread lymphoblastic leukemia, many side effects
@@ -29,6 +94,7 @@ depressant, general anesthesia
 
 #Benzodiazepines: depressant
 Diazepam
+Lorazepam
 
 #Xanthines
 Caffeine: CNS stimulant
@@ -103,6 +169,9 @@ Darzalex: myeloma
 Trikafta: cystic fibrosis
 Xarelto: anticoagulant
 
+#Anticoagulant
+Warfarin
+
 #Antidiabetic
 Insulin
 For type 2:
@@ -119,6 +188,21 @@ Simvastatin: prevent cardiovascular diseases
 Fentanyl: analgesic
 Diclofenac: anti-inflammatory
 Venlafaxine: antidepressant
+Levothyroxine: synthetic thyroid hormone
+Sertraline: antidepressant
+Trazodone: antidepressant
+
+#ACE inhibitor: lower high blood pressure
+Benazepril
+Captopril
+Enalapril
+Lisinopril
+Ramipril
+
+#ARB: high blood pressure, block angiotensin receptor
+Irbesartan
+Losartan
+Valsartan
 
 #Beta blocker: manage arrhytmia and high blood pressure, block receptors for adrenaline and noradrenaline
 Nonselective
@@ -133,6 +217,8 @@ Selective
 - Metoprolol
 - Nebivolol
 
+#Corticosteroid
+Prednisone: decrease inflammation
 
 #Antiulcer: against reflux
 Omeprazole: proton pump inhibitor
@@ -140,11 +226,15 @@ Pantoprazole: proton pump inhibitor
 H2 blocker: block histamine receptors in stomach
 - Ranitidine: decrease stomach acid production
 
+#Antihistamine
+Cetirizine
+
 #Antiasthmatic
 Epinephrine/adrenaline: anaphylaxis, cardiac arrest
+Budesonide (Pulmicort)
+Montelukast (Singulair)
 Salbutamol (Ventolin)
 Tiotropium (Spiriva)
-Budesonide (Pulmicort)
 
 #Analgesic: pain relievers
 Non-opioid
@@ -191,6 +281,9 @@ Nystatin
 Terbinafine
 Voriconazole
 Selenium disulfide: SeS2
+
+#Anticonvulsant
+Gabapentin
 
 #Antiviral
 Aciclovir: herpes

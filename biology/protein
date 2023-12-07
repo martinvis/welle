@@ -1,3 +1,18 @@
+#Protein: activity depends on 3D structure
+
+#Signaling - Receptor: change cell behaviour when activated
+Transmembrane
+- Ion channel linked: controlled by neurotransmitters (Na+, K+, Ca+)
+- Enzyme-linked: catalytic, growth factors and insulin
+- G protein-coupled: 7 helices
+Intracellular
+- Transcription factors: control transcription from DNA to mRNA
+
+#Transcription factors
+Autoimmune regulator (AIRE): eliminates self-reactive T cells
+
+#Signaling - Transmitter
+
 #Signaling
 Defensin: antimicrobial and immune signaling
 Cytokine: small, do not cross cell membrane, interact with receptors on cell surface
@@ -22,9 +37,6 @@ IgD: B cells membrane, activate other lymphocytes
 IgE: plasma cells, against parasitic worms, cause allergy
 IgG: plasma cells, most common, cross to fetus and protect newborn
 IgM: plasma cells, first response, 5 units, activate complement system
-
-#Transcription factors: control transcription from DNA to mRNA
-Autoimmune regulator (AIRE): eliminates self-reactive T cells
 
 #Muscle contraction
 Actin

@@ -1,6 +1,16 @@
-#Antidote: against poisons
+#Toxin: small biomolecules (often proteins) interacting with body in negative way
+- depends on dose, even water/food/medicine are toxic at sufficient doses
+Poison: toxin delivered passively
+Venom: toxin delivered actively (bite/sting)
+Cytotoxin: affect cells
+Hemotoxin: affect red blood cells
+Hepatotoxin: affect liver
+Myotoxin: affect muscles
+Neurotoxin: affect nervous system
+
+#Antidote: against toxins
 Activated charcoal: small pores increase surface, adsorbs ingested poisons
-Antivenom: made by injecting toxin into animal and extracting antibodies from blood
+Antivenom: made by injecting venom into animal and extracting antibodies from blood
 
 #Bacteria
 Clostridium botulinum: botox (neurotoxin)
@@ -10,6 +20,7 @@ Toxalbumin: cytotoxic protein, disables ribosomes
 - Ricinus communis: ricin
 - Abrus precatorius: abrin
 Nerium oleander
+Heracleum mantegazzianum: phototoxic, serious skin inflammation
 
 #Fungi
 Amatoxin: disables RNA polymerase

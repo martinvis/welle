@@ -58,22 +58,41 @@ Catheter: tube inserted in body cavity allowing drainage of fluids or gases
 
 #allergies
 Alpha-gal syndrome: red meat allergy after tick bite, reaction to carbohydrate
-Milk allergy: reaction to milk proteins, 2% of population
-Fish allergy: 1% of population
-Egg allergy: 1% of population
-Allergic rhinitis: pollen, ~20% of population
+Milk allergy [1]: reaction to milk proteins, 2% of population
+Egg allergy [2]: 1% of population
+Fish allergy [3]: 1% of population
+Shellish allergy [4]: 1% of population
+Tree nut allergy [5]: 1% of population
+Peanut allergy [6]: 1% of population
+Allergic rhinitis (hay fever): pollen, ~20% of population
 Dust mite allergy
+Penicillin allergy
+Urticaria: skin rash with red itchy bumps
 
-#auto-immune
+#autoimmune
+Hypersensitivity
+- Type I: IgE antibodies, mast cells, histamine (allergy)
+- Type II: IgG/IgM antibodies
+- Type III: inflammation
+- Type IV: cell mediated (T cells, macrophages)
+
+#autoimmune type II
+Bullous pemphigoid: blisters and itchy skin, antigen in keratinocytes
+
+#autoimmune type III
+Lupus
+- symptoms: swollen joints, hair loss, red rash
+
+#autoimmune type IV
 Coeliac disease: intolerance to gluten, 1% of population
+Hashimoto's thyroiditis: affects thyroid
+- symptoms: weight gain, hair loss, depression
+
 Addison's disease: affects adrenal gland
 - inadequate production of steroid hormones
 - symptoms: darkening of skin, weakness
 - diagnosis: low sodium, high potassium
-Hashimoto's thyroiditis: affects thyroid
-- symptoms: weight gain, hair loss, depression
-Lupus
-- symptoms: swollen joints, hair loss, red rash
+
 Lichen planus
 - affects skin and mucous membranes
 - flat topped polygonal purple areas of papules and plaques

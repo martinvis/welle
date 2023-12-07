@@ -68,3 +68,7 @@ grand stairways
 mirrors
 twisted columns
 quadratura
+
+#fort
+bastion fort: polygon with bastions at corners
+polygonal fort: multiple in ring, no bastions
