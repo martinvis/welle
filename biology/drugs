@@ -30,6 +30,20 @@ Efficacy: functional response of drug compared to endogenous agonist
 ADME: absorption, distribution, metabolism, excretion
 - drug levels and kinetics
 
+#Absorption: administration site to action site
+Dosage
+- capsule: powder/pellets in shell
+- tablet: solid pill
+Administration method
+- Intravenous: into vein
+- Inhalation: breathing
+- Peroral: ingestion
+- Sublingual: under tongue
+- Dermatological: skin
+- Intramuscular
+- Rectal: anus
+- Subcutaneous: under skin
+
 #Metabolism
 First pass effect: reduction in drug concentration
 - oral dose needs to be higher if reduction is high

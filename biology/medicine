@@ -1,4 +1,6 @@
 #Symptoms
+Anemia: low number of red blood cells
+Arthritis: joints inflammation
 Jaundice: yellowish skin pigmentation, caused by high bilirubin level
 Diarrhea: loose watery stool, usually caused by infection
 Fever: body temperature above normal (defense mechanism)
@@ -8,7 +10,7 @@ Dysphagia: difficulty to swallow
 Dyspnea: difficulty to breathe
 Tinnitus: ringing in ears
 Amnesia: memory deficit
-Itching: desire to scratch
+Pruritus: itching, desire to scratch
 Fatigue: tiredness
 Fainting: loss of consciousness
 Vertigo: sensation of movement
@@ -76,8 +78,14 @@ Hypersensitivity
 - Type III: inflammation
 - Type IV: cell mediated (T cells, macrophages)
 
+#autoimmune type I
+Eosinophilic esophagitis: inflammation, difficult swallowing
+
 #autoimmune type II
 Bullous pemphigoid: blisters and itchy skin, antigen in keratinocytes
+Rheumatoid arthritis: joint capsule thickening, swollen warm joints
+Rheumatic fever: non-itchy rash, painful joints, heart failure
+Pernicious anemia: lack of intrinsic factor causes vitamin B12 deficiency
 
 #autoimmune type III
 Lupus

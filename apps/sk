@@ -39,44 +39,44 @@ default xkb_symbols "basic"	{
 	key <AE11>	{ [         minus,  underscore,        dead_caron,      dead_tilde ] };
 	key <AE12>	{ [         equal,        plus,        dead_acute,    dead_cedilla ] };
 
-	key <AD01>	{ [             q,           Q,      Arabic_qaf,               W,   Greek_theta,   Greek_THETA, v, V ] };
-	key <AD02>	{ [             w,           W,      Arabic_waw, Arabic_tehmarbuta,   Greek_psi,     Greek_PSI, s, S ] };
-	key <AD03>	{ [             e,           E,       Arabic_ha,       0x1000259, Greek_epsilon, Greek_EPSILON ] };	// ə
-	key <AD04>	{ [             r,           R,       Arabic_ra,        EuroSign,     Greek_rho,     Greek_RHO ] };
-	key <AD05>	{ [             t,           T,      Arabic_teh,       0x10003B8,     Greek_tau,     Greek_TAU ] };	// θ
-	key <AD06>	{ [             z,           Z,     Arabic_zain,       0x1000292,    Greek_zeta,    Greek_ZETA ] };	// ʒ
-	key <AD07>	{ [             u,           U,      Arabic_tah, Arabic_alefmaksura ] };
-	key <AD08>	{ [             i,           I,      Arabic_yeh,       0x100025C,    Greek_iota,    Greek_IOTA ] };
-	key <AD09>	{ [             o,           O,      Arabic_hah,        NoSymbol, Greek_omicron, Greek_OMICRON ] };
-	key <AD10>	{ [             p,           P,     Arabic_khah,        NoSymbol,      Greek_pi,      Greek_PI ] };
+	key <AD01>	{ [             q,           Q,     Cyrillic_yu,     Cyrillic_YU,    Arabic_qaf,               W,   Greek_theta,   Greek_THETA ] };
+	key <AD02>	{ [             w,           W,     Cyrillic_ie,     Cyrillic_IE,    Arabic_waw, Arabic_tehmarbuta,   Greek_psi,     Greek_PSI ] };
+	key <AD03>	{ [             e,           E,      Cyrillic_e,      Cyrillic_E,     Arabic_ha,       0x1000259, Greek_epsilon, Greek_EPSILON ] };	// ə
+	key <AD04>	{ [             r,           R,     Cyrillic_er,     Cyrillic_ER,     Arabic_ra,        EuroSign,     Greek_rho,     Greek_RHO ] };
+	key <AD05>	{ [             t,           T,     Cyrillic_te,     Cyrillic_TE,    Arabic_teh,       0x10003B8,     Greek_tau,     Greek_TAU ] };	// θ
+	key <AD06>	{ [             z,           Z,     Cyrillic_ze,     Cyrillic_ZE,   Arabic_zain,       0x1000292,    Greek_zeta,    Greek_ZETA ] };	// ʒ
+	key <AD07>	{ [             u,           U,      Cyrillic_u,      Cyrillic_U,    Arabic_tah, Arabic_alefmaksura ] };
+	key <AD08>	{ [             i,           I,      Cyrillic_i,      Cyrillic_I,    Arabic_yeh,       0x100025C,    Greek_iota,    Greek_IOTA ] };
+	key <AD09>	{ [             o,           O,      Cyrillic_o,      Cyrillic_O,    Arabic_hah,        NoSymbol, Greek_omicron, Greek_OMICRON ] };
+	key <AD10>	{ [             p,           P,     Cyrillic_pe,     Cyrillic_PE,   Arabic_khah,        NoSymbol,      Greek_pi,      Greek_PI ] };
 
-	key <AD11>	{ [   bracketleft,   braceleft,      Arabic_ain,        division ] };
-	key <AD12>	{ [  bracketright,  braceright,    Arabic_ghain,        multiply ] };
+	key <AD11>	{ [   bracketleft,   braceleft,    Cyrillic_che,    Cyrillic_CHE,    Arabic_ain,        division ] };
+	key <AD12>	{ [  bracketright,  braceright,    Cyrillic_zhe,    Cyrillic_ZHE,  Arabic_ghain,        multiply ] };
 
-	key <AC01>	{ [             a,           A,     Arabic_alef,       0x10000E6,   Greek_alpha,   Greek_ALPHA ] };	// æ
-	key <AC02>	{ [             s,           S,     Arabic_seen,       0x1000283,   Greek_sigma,   Greek_SIGMA ] };	// ʃ
-	key <AC03>	{ [             d,           D,      Arabic_dal,       0x10000F0,   Greek_delta,   Greek_DELTA ] };	// ð
-	key <AC04>	{ [             f,           F,      Arabic_feh,        NoSymbol,     Greek_phi,     Greek_PHI ] };
-	key <AC05>	{ [             g,           G,     Arabic_theh,        NoSymbol,   Greek_gamma,   Greek_GAMMA ] };
-	key <AC06>	{ [             h,           H,      Arabic_zah,          ntilde,     Greek_eta,     Greek_ETA ] };
-	key <AC07>	{ [             j,           J,     Arabic_jeem,          Ntilde ] };
-	key <AC08>	{ [             k,           K,      Arabic_kaf,         lstroke,   Greek_kappa,   Greek_KAPPA ] };
-	key <AC09>	{ [             l,           L,      Arabic_lam,         Lstroke,  Greek_lambda,  Greek_LAMBDA ] };
+	key <AC01>	{ [             a,           A,      Cyrillic_a,      Cyrillic_A,   Arabic_alef,       0x10000E6,   Greek_alpha,   Greek_ALPHA ] };	// æ
+	key <AC02>	{ [             s,           S,     Cyrillic_es,     Cyrillic_ES,   Arabic_seen,       0x1000283,   Greek_sigma,   Greek_SIGMA ] };	// ʃ
+	key <AC03>	{ [             d,           D,     Cyrillic_de,     Cyrillic_DE,    Arabic_dal,       0x10000F0,   Greek_delta,   Greek_DELTA ] };	// ð
+	key <AC04>	{ [             f,           F,     Cyrillic_ef,     Cyrillic_EF,    Arabic_feh,        NoSymbol,     Greek_phi,     Greek_PHI ] };
+	key <AC05>	{ [             g,           G,     Cyrillic_ya,     Cyrillic_YA,   Arabic_theh,        NoSymbol,   Greek_gamma,   Greek_GAMMA ] };
+	key <AC06>	{ [             h,           H,     Cyrillic_ha,     Cyrillic_HA,    Arabic_zah,          ntilde,     Greek_eta,     Greek_ETA ] };
+	key <AC07>	{ [             j,           J, Cyrillic_shorti, Cyrillic_SHORTI,   Arabic_jeem,          Ntilde ] };
+	key <AC08>	{ [             k,           K,     Cyrillic_ka,     Cyrillic_KA,    Arabic_kaf,         lstroke,   Greek_kappa,   Greek_KAPPA ] };
+	key <AC09>	{ [             l,           L,     Cyrillic_el,     Cyrillic_EL,    Arabic_lam,         Lstroke,  Greek_lambda,  Greek_LAMBDA ] };
 
-	key <AC10>	{ [         colon,   semicolon,          dollar,   NoSymbol      ] };
-	key <AC11>	{ [    apostrophe,    quotedbl,      apostrophe,   ssharp        ] };
+	key <AC10>	{ [         colon,   semicolon,    Cyrillic_sha,    Cyrillic_SHA,        dollar,   NoSymbol      ] };
+	key <AC11>	{ [    apostrophe,    quotedbl,  Cyrillic_shcha,  Cyrillic_SHCHA,    apostrophe,   ssharp        ] };
 	key <BKSL>	{ [     semicolon,   semicolon,    Arabic_hamza,   Arabic_shadda ] };
 
-	key <AB01>	{ [             y,           Y,      Arabic_sad,   NoSymbol,      Greek_upsilon, Greek_UPSILON ] };
-	key <AB02>	{ [             x,           X,    Arabic_sheen,   Nosymbol,          Greek_chi,     Greek_CHI ] };
-	key <AB03>	{ [             c,           C,     Arabic_thal,   ccedilla,           Greek_xi,      Greek_XI ] };
-	key <AB04>	{ [             v,           V,      Arabic_dad,   Ccedilla,        Greek_omega,   Greek_OMEGA ] };
-	key <AB05>	{ [             b,           B,      Arabic_beh,   NoSymbol,         Greek_beta,    Greek_BETA ] };
-	key <AB06>	{ [             n,           N,     Arabic_noon,   0x1000272,          Greek_nu,      Greek_NU ] };	// ɲ
-	key <AB07>	{ [             m,           M,     Arabic_meem,   0x100014B,          Greek_mu,      Greek_MU ] };	// ŋ
+	key <AB01>	{ [             y,           Y,   Cyrillic_yeru,   Cyrillic_YERU,     Arabic_sad,        NoSymbol,      Greek_upsilon, Greek_UPSILON ] };
+	key <AB02>	{ [             x,           X,     Cyrillic_ha,     Cyrillic_HA,   Arabic_sheen,        Nosymbol,      Greek_chi,     Greek_CHI ] };
+	key <AB03>	{ [             c,           C,    Cyrillic_tse,    Cyrillic_TSE,    Arabic_thal,        ccedilla,           Greek_xi,      Greek_XI ] };
+	key <AB04>	{ [             v,           V,     Cyrillic_ve,     Cyrillic_VE,     Arabic_dad,        Ccedilla,        Greek_omega,   Greek_OMEGA ] };
+	key <AB05>	{ [             b,           B,     Cyrillic_be,     Cyrillic_BE,     Arabic_beh,        NoSymbol,         Greek_beta,    Greek_BETA ] };
+	key <AB06>	{ [             n,           N,     Cyrillic_en,     Cyrillic_EN,    Arabic_noon,       0x1000272,          Greek_nu,      Greek_NU ] };	// ɲ
+	key <AB07>	{ [             m,           M,     Cyrillic_em,     Cyrillic_EM,    Arabic_meem,       0x100014B,          Greek_mu,      Greek_MU ] };	// ŋ
 
-	key <AB08>	{ [         comma,        less,   guillemotleft,   0x100FF1C ]	 };	// big ＜
-	key <AB09>	{ [        period,     greater,  guillemotright,   0x100FF1E ]	 };	// big ＞
+	key <AB08>	{ [         comma,        less,  Cyrillic_softsign,  Cyrillic_SOFTSIGN,  guillemotleft,   0x100FF1C ]	 };	// big ＜
+	key <AB09>	{ [        period,     greater,  Cyrillic_hardsign,  Cyrillic_HARDSIGN,  guillemotright,   0x100FF1E ]	 };	// big ＞
 	key <AB10>	{ [      question,       slash,    questiondown,   Arabic_question_mark ]	 };
 	key <LSGT>	{ [     backslash,         bar,           slash,   NoSymbol ]	 };
 
