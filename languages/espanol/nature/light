@@ -1,12 +1,12 @@
-color, farba
-teñido, zafarbený
+farba, color
+zafarbený, teñido
 
-rojo, červená
-blanco, biela
-negro, čierna
-verde, zelená
-azul, modrá
-marrón, hnedá
-gris, sivá
-morado, fialová
-amarillo, žltá
+červená, rojo
+biela, blanco
+čierna, negro
+zelená, verde
+modrá, azul
+hnedá, marrón
+sivá, gris
+fialová, morado
+žltá, amarillo

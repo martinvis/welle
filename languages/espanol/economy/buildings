@@ -1,14 +1,14 @@
-edificio, budova
-terreno, pozemok
-andamio, lešenie
-cuarto, izba
+budova, edificio
+pozemok, terreno
+lešenie, andamio
+izba, cuarto
 
-pared, stena
-techo, strecha
-ventana, okno
-puerta, dvere
-escombro, trosky
+stena, pared
+strecha, techo
+okno, ventana
+dvere, puerta
+trosky, escombro
 
-ladrillo, tehla
+tehla, ladrillo
 
-construir, stavať
+stavať, construir

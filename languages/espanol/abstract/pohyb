@@ -1,57 +1,57 @@
-cercano, blízky
-distante, ďaleký
-lejano, vzdialený
-remoto, odľahlý
+blízky, cercano
+ďaleký, distante
+vzdialený, lejano
+odľahlý, remoto
 
-mover, hýbať
-desplazar, premiestniť
-poner, položiť
-levantar, zdvihnúť
-tirar, ťahať
-empujar, tlačiť
-apretar, stlačiť
-relajar, uvoľniť
-trasladar, presunúť
-girar, točiť sa
-rodar, otáčať sa
-revolver, obrátiť
-ladear, nakloniť
-agachar, ohnúť
-volcar, prevrhnúť
+hýbať, mover
+premiestniť, desplazar
+položiť, poner
+zdvihnúť, levantar
+ťahať, tirar
+tlačiť, empujar
+stlačiť, apretar
+uvoľniť, relajar
+presunúť, trasladar
+točiť sa, girar
+otáčať sa, rodar
+obrátiť, revolver
+nakloniť, ladear
+ohnúť, agachar
+prevrhnúť, volcar
 
-mezclar, miešať
-agitar, triasť
-sacudir, zatriasť
-mecer, hojdať
-frotar, šúchať
-estregar, trieť
-restregar, trieť
-latir, pulzovať
+miešať, mezclar
+triasť, agitar
+zatriasť, sacudir
+hojdať, mecer
+šúchať, frotar
+trieť, estregar
+trieť, restregar
+pulzovať, latir
 
-sacar, vytiahnuť
-meter, vložiť
-insertar, vsunúť
+vytiahnuť, sacar
+vložiť, meter
+vsunúť, insertar
 
-gotear, kvapkať
-fluir, tiecť
-escurrir, vyžmýkať
+kvapkať, gotear
+tiecť, fluir
+vyžmýkať, escurrir
 
-exprimir, vytlačiť
-separar, oddeliť
-apartar, odtrhnúť
-quitar, odstrániť
-romper, zlomiť
-quebrar, rozbiť
-desgarrar, roztrhnúť
-estallar, vybuchnúť
+vytlačiť, exprimir
+oddeliť, separar
+odtrhnúť, apartar
+odstrániť, quitar
+zlomiť, romper
+rozbiť, quebrar
+roztrhnúť, desgarrar
+vybuchnúť, estallar
 
-enlazar, zviazať
-- desenlazar, rozviazať
-enredar, zamotať
-nudo, uzol
+zviazať, enlazar
+rozviazať, - desenlazar
+zamotať, enredar
+uzol, nudo
 
-vacío, prázdny
-- vaciar, vyprázdniť
-lleno, plný
-- llenar, naplniť
-colmar, naplniť povrch
+prázdny, vacío
+vyprázdniť, - vaciar
+plný, lleno
+naplniť, - llenar
+naplniť povrch, colmar

@@ -1,36 +1,36 @@
-llaga, otvorená rana
-cicatriz, jazva
-costra, chrasta
-cardenal, modrina
-moradura, modrina
-quemadura, popálenina
+otvorená rana, llaga
+jazva, cicatriz
+chrasta, costra
+modrina, cardenal
+modrina, moradura
+popálenina, quemadura
 
-curar, liečiť
-sanar, uzdraviť
+liečiť, curar
+uzdraviť, sanar
 
-salud, zdravie
-enfermedad, choroba
-peste, mor
-gripe, chrípka
-catarro, prechladnutie
-resfriado, nádcha
-constipado, nádcha
-sarampión, osýpky
+zdravie, salud
+choroba, enfermedad
+mor, peste
+chrípka, gripe
+prechladnutie, catarro
+nádcha, resfriado
+nádcha, constipado
+osýpky, sarampión
 
-hospital, nemocnica
-vendaje, obväz
+nemocnica, hospital
+obväz, vendaje
 
-enfermo, chorý
-sucio, špinavý
-limpio, čistý
-sano, zdravý
-ileso, nezranený
+chorý, enfermo
+špinavý, sucio
+čistý, limpio
+zdravý, sano
+nezranený, ileso
 
-vacuna, vakcína
-jeringa, injekčná striekačka
-bisturí, skalpel
+vakcína, vacuna
+injekčná striekačka, jeringa
+skalpel, bisturí
 
-limpiar, čistiť
-fregar, umyť
-lavar, prať
-planchar, žehliť
+čistiť, limpiar
+umyť, fregar
+prať, lavar
+žehliť, planchar

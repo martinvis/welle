@@ -1,76 +1,76 @@
-materia, hmota
-sustancia, látka
-elemento, prvok
+hmota, materia
+látka, sustancia
+prvok, elemento
 
-estado, skupenstvo
-líquido, kvapalný
-sólido, pevný
-gaseoso, plynný
+skupenstvo, estado
+kvapalný, líquido
+pevný, sólido
+plynný, gaseoso
 
-gas, plyn
-aire, vzduch
-agua, voda
-hielo, ľad
+plyn, gas
+vzduch, aire
+voda, agua
+ľad, hielo
 
-seda, hodváb
-algodón, bavlna
+hodváb, seda
+bavlna, algodón
 
-madera, drevo
-vidrio, sklo
-goma, guma
-papel, papier
-metal, kov
-acero, oceľ
+drevo, madera
+sklo, vidrio
+guma, goma
+papier, papel
+kov, metal
+oceľ, acero
 
-petróleo, ropa
-carbón, uhlie
-mármol, mramor
-mica, sľuda
-caliza, vápenec
-cuarzo, kremeň
-diamante, diamant
-esmeralda, smaragd
-arena, piesok
-hormigón, betón
+ropa, petróleo
+uhlie, carbón
+mramor, mármol
+sľuda, mica
+vápenec, caliza
+kremeň, cuarzo
+diamant, diamante
+smaragd, esmeralda
+piesok, arena
+betón, hormigón
 
-cobre, meď
-oro, zlato
-plata, striebro
-bronce, bronz
-latón, mosadz
-aleación, zliatina
+meď, cobre
+zlato, oro
+striebro, plata
+bronz, bronce
+mosadz, latón
+zliatina, aleación
 
-azufre, síra
-oxígeno, kyslík
-fósforo, fosfor
-nitrógeno, dusík
-carbono, uhlík
-hidrógeno, vodík
-calcio, vápnik
-silicio, kremík
-hierro, železo
-aluminio, hliník
-plomo, olovo
-mercurio, ortuť
+síra, azufre
+kyslík, oxígeno
+fosfor, fósforo
+dusík, nitrógeno
+uhlík, carbono
+vodík, hidrógeno
+vápnik, calcio
+kremík, silicio
+železo, hierro
+hliník, aluminio
+olovo, plomo
+ortuť, mercurio
 
-pegamento, lepidlo
-ácido, kyselina
-disolvente, rozpúšťadlo
-explosivo, výbušnina
+lepidlo, pegamento
+kyselina, ácido
+rozpúšťadlo, disolvente
+výbušnina, explosivo
 
-corroer, rozožrať
-pegar, lepiť
-resbalar, kĺzať sa
+rozožrať, corroer
+lepiť, pegar
+kĺzať sa, resbalar
 
-polvo, prach
-ceniza, popol
-hollín, sadza
+prach, polvo
+popol, ceniza
+sadza, hollín
 
-áspero, drsný
-suave, hebký
-pegajoso, lepkavý
-espeso + denso, hustý
-ralo, riedky
-frágil, krehký
-blando, mäkký
-elástico, pružný
+drsný, áspero
+hebký, suave
+lepkavý, pegajoso
+hustý, espeso + denso
+riedky, ralo
+krehký, frágil
+mäkký, blando
+pružný, elástico

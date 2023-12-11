@@ -1,36 +1,36 @@
-estrella, hviezda
-planeta, planéta
-luna, mesiac
-cometa, kométa
+hviezda, estrella
+planéta, planeta
+mesiac, luna
+kométa, cometa
 
-río, rieka
-arroyo, potok
-lago, jazero
-mar, more
-oceáno, oceán
-vado, brod
+rieka, río
+potok, arroyo
+jazero, lago
+more, mar
+oceán, oceáno
+brod, vado
 
-playa, pláž
-bahía, zátoka
-golfo, záliv
-canal, prieplav
-istmo, šija
-cabo, mys
+pláž, playa
+zátoka, bahía
+záliv, golfo
+prieplav, canal
+šija, istmo
+mys, cabo
 
-montaña, hora
-monte, hora
-sierra, pohorie
-cordillera, pohorie
-colina, kopec
-abismo, priepasť
-valle, údolie
-meseta, náhorná plošina
-arrecife, útes (koralový)
-acantilado, útes (morský)
-cueva, jaskyňa
-caverna, jaskyňa
-volcán, sopka
+hora, montaña
+hora, monte
+pohorie, sierra
+pohorie, cordillera
+kopec, colina
+priepasť, abismo
+údolie, valle
+náhorná plošina, meseta
+útes (koralový), arrecife
+útes (morský), acantilado
+jaskyňa, cueva
+jaskyňa, caverna
+sopka, volcán
 
-península, polostrov
-isla, ostrov
-archipiélago, súostrovie
+polostrov, península
+ostrov, isla
+súostrovie, archipiélago

@@ -1,15 +1,15 @@
-flor, kvet
-hoja, list
-fruto, plod
-semilla, semeno
-capullo, puk
-polen, peľ
+kvet, flor
+list, hoja
+plod, fruto
+semeno, semilla
+puk, capullo
+peľ, polen
 
-tronco, kmeň
-rama, konár
-tallo, stonka
-raíz, koreň
+kmeň, tronco
+konár, rama
+stonka, tallo
+koreň, raíz
 
-crecer, rásť
-florecer, kvitnúť
-marchitarse, vädnúť
+rásť, crecer
+kvitnúť, florecer
+vädnúť, marchitarse

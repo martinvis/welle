@@ -1,45 +1,45 @@
-paz, mier
-guerra, vojna
-tregua, prímerie
+mier, paz
+vojna, guerra
+prímerie, tregua
 
-luchar (contra), bojovať
-pugnar (por), bojovať
-pelear, zápasiť
-atacar (a), útočiť
-asaltar (a), napadnúť
-asediar, obliehať
+bojovať, luchar (contra)
+bojovať, pugnar (por)
+zápasiť, pelear
+útočiť, atacar (a)
+napadnúť, asaltar (a)
+obliehať, asediar
 
-arma, zbraň
-armamento, výzbroj
-puñal, dýka
-daga, dýka
-lanza, kopija
-venablo, oštep/kopija
-jabalina, oštep
-escudo, štít
-espada , meč
-estoque, kord
-alabarda, halapartňa
-armadura, brnenie
-flecha, šíp
-saeta, šíp
-arco, luk
+zbraň, arma
+výzbroj, armamento
+dýka, puñal
+dýka, daga
+kopija, lanza
+oštep/kopija, venablo
+oštep, jabalina
+štít, escudo
+meč, espada
+kord, estoque
+halapartňa, alabarda
+brnenie, armadura
+šíp, flecha
+šíp, saeta
+luk, arco
 
-trinchera, zákop
+zákop, trinchera
 
-metralleta, samopal
-ametralladora, guľomet
-lanzallamas, plameňomet
-lanzacohetes, raketomet
-escopeta, brokovnica
-cañón, delo
-fusil, puška
+samopal, metralleta
+guľomet, ametralladora
+plameňomet, lanzallamas
+raketomet, lanzacohetes
+brokovnica, escopeta
+delo, cañón
+puška, fusil
 
-tanque, tank
-mina, mína
+tank, tanque
+mína, mina
 bomba, bomba
 
-cartucho, náboj
-bala, guľka
-granada, granát
-obús, húfnica
+náboj, cartucho
+guľka, bala
+granát, granada
+húfnica, obús

@@ -1,27 +1,27 @@
-historia, dejiny
-prehistoria, pravek
-Antigüedad, starovek
-Medievo, stredovek
+dejiny, historia
+pravek, prehistoria
+starovek, Antigüedad
+stredovek, Medievo
 
-emperador, cisár
-emperatriz, cisárovná
-rey, kráľ
-reina, kráľovná
-príncipe, princ
-princesa, princezná
-nobleza, šľachta
-conde, gróf
-duque, vojvoda
-caballero, rytier
-noble, šľachtic
-hidalgo, šľachtic
+cisár, emperador
+cisárovná, emperatriz
+kráľ, rey
+kráľovná, reina
+princ, príncipe
+princezná, princesa
+šľachta, nobleza
+gróf, conde
+vojvoda, duque
+rytier, caballero
+šľachtic, noble
+šľachtic, hidalgo
 
-bufón, šašo
-verdugo, kat
+šašo, bufón
+kat, verdugo
 
-castillo, hrad
-palacio, zámok
+hrad, castillo
+zámok, palacio
 
-trono, trón
-cetro, žezlo
-corona, koruna
+trón, trono
+žezlo, cetro
+koruna, corona

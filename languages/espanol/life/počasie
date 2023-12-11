@@ -1,33 +1,33 @@
-tiempo, počasie
-nube, oblak
-cielo, obloha
+počasie, tiempo
+oblak, nube
+obloha, cielo
 
-lluvia, dážď
-nieve, sneh
-niebla, hmla
-bruma, hmla
-neblina, opar
-chubasco, prehánka
+dážď, lluvia
+sneh, nieve
+hmla, niebla
+hmla, bruma
+opar, neblina
+prehánka, chubasco
 
-viento, vietor
-vendaval, víchrica
-tormenta, búrka
-tempestad, búrka
-ventisca, fujavica
-brisa, vánok
-huracán, hurikán
+vietor, viento
+víchrica, vendaval
+búrka, tormenta
+búrka, tempestad
+fujavica, ventisca
+vánok, brisa
+hurikán, huracán
 
-escarcha, námraza
-rocío, rosa
-trueno, hrom
-relámpago, blesk
+námraza, escarcha
+rosa, rocío
+hrom, trueno
+blesk, relámpago
 
-llover, pršať
-nevar, snežiť
-soplar, fúkať
-ventear, viať
+pršať, llover
+snežiť, nevar
+fúkať, soplar
+viať, ventear
 
-diluvio, záplava
-inundación, povodeň
-incendio, požiar
-terremoto, zemetrasenie
+záplava, diluvio
+povodeň, inundación
+požiar, incendio
+zemetrasenie, terremoto

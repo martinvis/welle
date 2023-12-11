@@ -1,15 +1,15 @@
-ciudad, mesto
-pueblo, mestečko
-aldea, dedina
-casa, dom
-cabaña, chata
-choza, chatrč
-piso, byt
+mesto, ciudad
+mestečko, pueblo
+dedina, aldea
+dom, casa
+chata, cabaña
+chatrč, choza
+byt, piso
 
-habitar, obývať
+obývať, habitar
 
-dirección, adresa
+adresa, dirección
 
-huésped, hosť
-visita, návšteva
+hosť, huésped
+návšteva, visita
 

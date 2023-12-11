@@ -1,11 +1,11 @@
-acantilado, strmý
-llano, rovný
-plano, plochý
+strmý, acantilado
+rovný, llano
+plochý, plano
 
-directo, priamy
-corvo, krivý
+priamy, directo
+krivý, corvo
 
-macizo, masívny
-liso, hladký
+masívny, macizo
+hladký, liso
 
-arista, hrana
+hrana, arista
