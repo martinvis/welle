@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Dict</title>
+	<script>
+	var dict = [];
+
+	function loadDict() {
+		var xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = process;
+		xhr.open("GET", "https://raw.githubusercontent.com/martinvis/welle/main/apps/language/corpus", true);
+		xhr.send();
+		function process() {
+			if (xhr.readyState == 4) {
+				var lines = xhr.responseText.split('\n');
+				processLines(lines)
+			}
+		}
+	}
+	function processLines(lines) {
+		lines.forEach(function(line) {
+			if (line.length != 0) {
+				parts = line.split('\|');
+				word = {language: parts[0], topic: parts[1], source: parts[2], target: parts[3], frequent: parts[4], derived: parts[5]}
+				dict.push(word);
+			}
+		});
+	}
+	function search() {
+		results = []
+		needle = document.getElementById('word').value
+		dict.forEach(function(word) {
+			console.log(word);
+			if (word.target.indexOf(needle) !== -1) {
+				results.push(word);
+			}
+		});
+		resultsDiv = document.getElementById("results");
+		resultsDiv.innerHTML = '';
+		results.forEach(function(word) {
+			row = document.createElement("tr");
+
+			source = document.createElement("td");
+			source.innerText = word.source;
+			row.appendChild(source);
+
+			target = document.createElement("td");
+			target.innerText = word.target;
+			row.appendChild(target);
+
+			topic = document.createElement("td");
+			topic.innerText = word.topic;
+			row.appendChild(topic);
+
+			resultsDiv.appendChild(row);
+		});
+	}
+	</script>
+	<style>
+		body {
+			background-color: #000;
+			color: #FFF;
+		}
+		#results td {
+			width: 25%;
+		}
+		#search, #word {
+			background: #458;
+			color: #FFF;
+			padding: 10px;
+			display: block;
+			width: 100%;
+		}
+	</style>
+</head>
+<body onload="loadDict();">
+	<input type="text" id="word" />
+	<button type="button" id="search" onclick="search()" style="vertical-align:top;">Search</button>
+	<table id="results">
+	</div>
+</body>
+</html>
