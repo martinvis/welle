@@ -31,23 +31,27 @@ def parseFile(file):
         elif parts[0].startswith('- '):
           derived = True
         source = re.sub('=|- |', '', parts[0])
+        targets = re.sub('\|', '', parts[1])
 
-        target_raw = re.sub('\|', '', parts[1])
-        target_parts = re.split('[', target_raw]
-        target = target_parts[0]
-        pronunciation = ''
-        if len(target_parts) == 2:
-          pronunciation = re.sub('\[\]', '', target_parts[1])
+        for target_raw in targets.split('+'):
+          position = target_raw.find('[')
+          if position == -1:
+            position = len(target_raw)
+          target = target_raw[:position].strip()
+          pronunciation = re.sub('\[|\]', '', target_raw[position:])
 
-        word = {'language': language, 'path': path, 'source': source, 'target': target, 'pronunciation': pronunciation, 'frequent': frequent, 'derived': derived}
-        words.append(word)
+          word = {'language': language, 'path': path, 'source': source, 'target': target, 'pronunciation': pronunciation, 'frequent': frequent, 'derived': derived}
+          words.append(word)
     return words
 
 corpus = open('corpus', "w")
 
 words = parseDictionary(sys.argv[1])
+lines = []
 for word in words:
-  corpus.write(word['language'] + '|' + word['path'] + '|' + word['source'] + '|' + word['target'] + '|' + str(word['frequent']) + '|' + str(word['derived']) + '\n')
+  lines.append(word['language'] + '|' + word['path'] + '|' + word['source'] + '|' + word['target'] + '|' + word['pronunciation'] + '|' + str(word['frequent']) + '|' + str(word['derived']) + '\n')
+for line in sorted(lines):
+  corpus.write(line)
 
 corpus.close()
 
