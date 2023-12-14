@@ -22,7 +22,7 @@
 		lines.forEach(function(line) {
 			if (line.length != 0) {
 				parts = line.split('\|');
-				word = {language: parts[0], topic: parts[1], source: parts[2], target: parts[3], frequent: parts[4], derived: parts[5]}
+				word = {language: parts[0], topic: parts[1], source: parts[2], target: parts[3], pronunciation: parts[4], frequent: parts[5], derived: parts[6]}
 				dict.push(word);
 			}
 		});
@@ -31,8 +31,7 @@
 		results = []
 		needle = document.getElementById('word').value
 		dict.forEach(function(word) {
-			console.log(word);
-			if (word.target.indexOf(needle) !== -1) {
+			if (word.target.indexOf(needle) !== -1 || word.pronunciation.indexOf(needle) !== -1) {
 				results.push(word);
 			}
 		});
@@ -49,6 +48,10 @@
 			target.innerText = word.target;
 			row.appendChild(target);
 
+			pronunciation = document.createElement("td");
+			pronunciation.innerText = word.pronunciation;
+			row.appendChild(pronunciation);
+
 			topic = document.createElement("td");
 			topic.innerText = word.topic;
 			row.appendChild(topic);
@@ -62,15 +65,25 @@
 			background-color: #000;
 			color: #FFF;
 		}
+		#results {
+			width: 100%;
+		}
+		#results tr {
+			display: flex;
+			border-bottom: 1px solid #FFF;
+			padding: 2px;
+		}
 		#results td {
 			width: 25%;
 		}
 		#search, #word {
 			background: #458;
 			color: #FFF;
-			padding: 10px;
+			padding: 5px;
+			margin: 5px;
 			display: block;
 			width: 100%;
+			font-size: 2em;
 		}
 	</style>
 </head>

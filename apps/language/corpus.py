@@ -31,8 +31,15 @@ def parseFile(file):
         elif parts[0].startswith('- '):
           derived = True
         source = re.sub('=|- |', '', parts[0])
-        target = re.sub('\|', '', parts[1])
-        word = {'language': language, 'path': path, 'source': source, 'target': target, 'frequent': frequent, 'derived': derived}
+
+        target_raw = re.sub('\|', '', parts[1])
+        target_parts = re.split('[', target_raw]
+        target = target_parts[0]
+        pronunciation = ''
+        if len(target_parts) == 2:
+          pronunciation = re.sub('\[\]', '', target_parts[1])
+
+        word = {'language': language, 'path': path, 'source': source, 'target': target, 'pronunciation': pronunciation, 'frequent': frequent, 'derived': derived}
         words.append(word)
     return words
 
