@@ -258,3 +258,5 @@ RSF (Required Stable Funding)
 NSFR (Net stable funding ratio): ASF/RSF
 HQLA (High quality liquid assets): cash + bonds
 LCR (Liquidity coverage ratio): HQLA to 30 day cashflow
+
+schmuck insurance: if buyer resells company within given period over agreed price, original seller gets part of profit
