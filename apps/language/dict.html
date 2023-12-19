@@ -5,6 +5,10 @@
 	<title>Dict</title>
 	<script>
 	var dict = [];
+	var languages = new Set();
+	var topics = new Set();
+	var language;
+	var answer;
 
 	function loadDict() {
 		var xhr = new XMLHttpRequest();
@@ -24,7 +28,16 @@
 				parts = line.split('\|');
 				word = {language: parts[0], topic: parts[1], source: parts[2], target: parts[3], pronunciation: parts[4], frequent: parts[5], derived: parts[6]}
 				dict.push(word);
+				languages.add(parts[0]);
+				topics.add(parts[1]);
 			}
+		});
+		el_languages = document.getElementById("languages");
+		languages.forEach(function(lang) {
+			el_language = document.createElement("li");
+			el_language.innerText = lang;
+			el_language.addEventListener('click', function() {selectLanguage(lang)});
+			el_languages.appendChild(el_language);
 		});
 	}
 	function search() {
@@ -59,12 +72,83 @@
 			resultsDiv.appendChild(row);
 		});
 	}
+	function askLanguage() {
+		document.getElementById('footer').innerText = "Select a language";
+		document.getElementById('languages').classList.remove("hidden");
+		document.getElementById('options').classList.add("hidden");
+	}
+	function selectLanguage(aLanguage) {
+		language = aLanguage;
+		document.getElementById('languages').classList.add("hidden");
+		showQuestion();
+	}
+	function showQuestion() {
+		document.getElementById('footer').innerText = "Select correct option";
+		options = document.getElementById('options')
+		options.classList.remove("hidden");
+		options.textContent = '';
+
+		count = 4
+		all = dict.filter(word => word.language == language);
+		words = randomItems(all, count);
+		theAnswer = words[Math.floor(Math.random()*count)];
+		answer = theAnswer.target;
+
+		question = document.createElement("div");
+		question.innerText = theAnswer.source;
+		options.appendChild(question);
+
+		words.forEach(function(word) {
+			option = document.createElement("li");
+			option.innerText = word.target;
+			option.addEventListener('click', function() {answerQuestion(word.target)});
+			options.appendChild(option);
+		});
+	}
+	function answerQuestion(anAnswer) {
+		correct = false;
+		correctAnswer = answer;
+		if (answer == anAnswer) {
+			correct = true;
+		}
+		showQuestion();
+
+		if (correct) {
+			document.getElementById('footer').innerText = "Correct!";
+			document.getElementById('footer').classList.add("correct");
+			document.getElementById('footer').classList.remove("wrong");
+		} else {
+			document.getElementById('footer').innerText = "Wrong!";
+			document.getElementById('footer').classList.add("wrong");
+			document.getElementById('footer').classList.remove("correct");
+		}
+	}
+	function randomItems(list, count) {
+		items = [];
+		for (i=1; i<=count; i++) {
+			while (true) {
+				adept = list[Math.floor(Math.random()*list.length)];
+				if (!items.includes(adept)) {
+					items.push(adept);
+					break;
+				}
+			}
+		}
+		return items;
+	}
 	</script>
 	<style>
 		body {
 			background-color: #000;
 			color: #FFF;
 			font-size: 2em;
+		}
+		#footer {
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			padding: 3px;
 		}
 		#results {
 			width: 100%;
@@ -76,22 +160,54 @@
 		}
 		#results td {
 			width: 25%;
+			padding: 0.5em;
 		}
-		#search, #word {
+		button, input {
 			background: #458;
 			color: #FFF;
 			padding: 5px;
-			margin: 5px;
 			display: block;
 			width: 100%;
 			font-size: 2em;
+		}
+		button {
+			width: 50%;
+			display: inline-block;
+			box-sizing: border-box;
+			float: left;
+		}
+		ul {
+			flex-direction: column;
+			display: flex;
+			align-items: center;
+		}
+		li {
+			list-style: none;
+			cursor: pointer;
+			padding: 0.5em;
+			border: 1px solid;
+			margin: 3px;
+			text-align: center;
+			min-width: 15em;
+		}
+		.hidden {
+			display: none;
+		}
+		.correct {
+			color: #0A0;
+		}
+		.wrong {
+			color: #A00;
 		}
 	</style>
 </head>
 <body onload="loadDict();">
 	<input type="text" id="word" />
 	<button type="button" id="search" onclick="search()" style="vertical-align:top;">Search</button>
-	<table id="results">
-	</div>
+	<button type="button" id="play" onclick="askLanguage()" style="vertical-align:top;">Play</button>
+	<table id="results"></table>
+	<ul id="languages" class="hidden"></ul>
+	<ul id="options" class="hidden"></ul>
+	<div id="footer"></div>
 </body>
 </html>
