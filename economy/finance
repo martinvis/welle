@@ -39,7 +39,8 @@ stock:
 
 #stock
 common: vote rights, dividend
-preferred: no vote rights, priority over common
+preferred: priority over common
+non-voting: no vote rights
 
 #stocks
 share: fractional ownership of company, voting power

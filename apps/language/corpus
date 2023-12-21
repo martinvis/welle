@@ -23,6 +23,7 @@ chinese|abstract/beauty|strašný|糟糕|zāogāo|False|False
 chinese|abstract/beauty|zákerný|阴险|yīnxiǎn|False|False
 chinese|abstract/beauty|ľúbiť|爱|ài|False|False
 chinese|abstract/beauty|škaredý|丑陋|chǒulòu|False|False
+chinese|abstract/importance|ceniť si|珍惜|zhēnxī|False|False
 chinese|abstract/importance|chcieť|想要|xiǎngyào|False|False
 chinese|abstract/importance|cieľ|目标|mùbiāo|False|False
 chinese|abstract/importance|divný|奇怪|qíguài|False|False
@@ -46,13 +47,15 @@ chinese|abstract/importance|smieť|可以|kěyǐ|False|False
 chinese|abstract/importance|spôsobiť|使|shǐ|False|False
 chinese|abstract/importance|urgentný|紧迫|jǐnpò|False|False
 chinese|abstract/importance|užitočný|有用|yǒuyòng|False|False
+chinese|abstract/importance|vzácny|稀罕|xīhan|False|False
 chinese|abstract/importance|význam|意思|yìsi|False|False
 chinese|abstract/importance|zaujímavý|有趣|yǒuqù|False|False
 chinese|abstract/importance|zbytočný|无用|wúyòng|False|False
 chinese|abstract/importance|zvláštny|奇异|qíyì|False|False
 chinese|abstract/importance|základný|基本|jīběn|False|False
 chinese|abstract/information|odlíšiť|分辨|fēnbiàn|False|False
-chinese|abstract/number|-krát|_次|cì|False|False
+chinese|abstract/number|-krát|_倍|bèi|False|False
+chinese|abstract/number|-razy|_次|cì|False|False
 chinese|abstract/number|10 tisíc|万|wàn|False|False
 chinese|abstract/number|100 miliónov|亿|yì|False|False
 chinese|abstract/number|centi-|厘|lí|False|False
@@ -75,6 +78,9 @@ chinese|abstract/number|tisíc|千|qiān|False|False
 chinese|abstract/number|tri|三|sān|False|False
 chinese|abstract/number|šesť|六|liù|False|False
 chinese|abstract/number|štyri|四|sì|False|False
+chinese|abstract/shape|diera|洞|dòng|False|False
+chinese|abstract/shape|hrot|尖|jiān|False|False
+chinese|abstract/shape|medzera|缺口|quēkǒu|False|False
 chinese|abstract/size|dlhý|长|cháng|False|False
 chinese|abstract/size|hlboký|深|shēn|False|False
 chinese|abstract/size|krátky|短|duǎn|False|False
@@ -153,6 +159,7 @@ chinese|culture/law|advokát|律师|lǜshī|False|False
 chinese|culture/law|kradnúť|偷|tōu|False|False
 chinese|culture/law|kriminálny|犯罪|fànzuì|False|False
 chinese|culture/law|lupič|强盗|qiángdào|False|False
+chinese|culture/law|lúpež|抢劫|qiǎngjié|False|False
 chinese|culture/law|obviniť|控告|kònggào|False|False
 chinese|culture/law|odsúdiť|判刑|pànxíng|False|False
 chinese|culture/law|pirát|海盗|hǎidào|False|False
@@ -173,6 +180,7 @@ chinese|culture/law|zlodej|窃贼|qièzéi|False|False
 chinese|culture/law|zločin|罪行|zuìxíng|False|False
 chinese|culture/law|znásilniť|强奸|qiángjiān|False|False
 chinese|culture/law|zákon|法律|fǎlǜ|False|False
+chinese|culture/law|únos|劫持|jiéchí|False|False
 chinese|culture/law|ústava|宪法|xiànfǎ|False|False
 chinese|culture/politics|aristokracia|贵族|guìzú|False|False
 chinese|culture/politics|demokracia|民主主义|mínzhǔ zhǔyì|False|True
@@ -222,6 +230,7 @@ chinese|economy/construction|okno|窗|chuāng|False|False
 chinese|economy/construction|parkovisko|停车场|tíngchēchǎng|False|False
 chinese|economy/construction|poschodie|楼层|lóucéng|False|False
 chinese|economy/construction|schody|楼梯|lóutī|False|False
+chinese|economy/construction|stena|墙壁|qiángbì|False|False
 chinese|economy/construction|strecha|屋顶|wūdǐng|False|False
 chinese|economy/construction|ulica|街道|jiēdào|False|False
 chinese|economy/construction|veľkomesto|都市|dūshì|False|False
@@ -304,6 +313,7 @@ chinese|economy/health|nemocnica|医院|yīyuàn|False|False
 chinese|economy/health|nádor|肿瘤|zhǒngliú|False|False
 chinese|economy/health|obväz|绷带|bēngdài|False|False
 chinese|economy/health|operácia|手术|shǒushù|False|False
+chinese|economy/health|opitý|醉|zuì|False|False
 chinese|economy/health|opuch|水肿|shuǐzhǒng|False|False
 chinese|economy/health|osýpky|麻疹|mázhěn|False|False
 chinese|economy/health|pacient|病人|bìngrén|False|False
@@ -313,6 +323,7 @@ chinese|economy/health|vred|溃疡|kuìyáng|False|False
 chinese|economy/health|zdravie|健康|jiànkāng|False|False
 chinese|economy/health|zranenie|伤|shāng|False|False
 chinese|economy/health|zubár|牙医|yáyī|False|False
+chinese|economy/health|únava|疲劳|píláo|False|False
 chinese|economy/health|šialený|疯狂|fēngkuáng|False|False
 chinese|economy/manufacture|anténa|天线|tiānxiàn|False|False
 chinese|economy/manufacture|baterka|手电|shǒudiàn|False|False
@@ -325,6 +336,7 @@ chinese|economy/manufacture|kábel|电缆|diànlǎn|False|False
 chinese|economy/manufacture|kľúč|钥匙|yàoshi|False|False
 chinese|economy/manufacture|lampa|灯|dēng|False|False
 chinese|economy/manufacture|nožnice|剪刀|jiǎndāo|False|False
+chinese|economy/manufacture|perla|珍珠|zhēnzhū|False|False
 chinese|economy/manufacture|pero|笔|bǐ|False|False
 chinese|economy/manufacture|posteľ|床|chuáng|False|False
 chinese|economy/manufacture|pravítko|尺子|chǐzi|False|False
@@ -414,7 +426,8 @@ chinese|economy/work|povolanie|行业|hángyè|False|False
 chinese|economy/work|poľnohospodárstvo|农业|nóngyè|False|False
 chinese|economy/work|prepustiť|解雇|jiěgù|False|False
 chinese|economy/work|priemysel|工业|gōngyè|False|False
-chinese|economy/work|práca|工作|gōngzuò|False|False
+chinese|economy/work|práca|劳动|láodòng|False|False
+chinese|economy/work|práca|工作|gōngzuò |False|False
 chinese|economy/work|robiť|做|zuò|False|False
 chinese|economy/work|továreň|工厂|gōngchǎng|False|False
 chinese|economy/work|vyrobiť|制作|zhìzuò|False|False
@@ -701,9 +714,9 @@ chinese|priroda/počasie|víchrica|狂风|kuángfēng|True|False
 chinese|priroda/počasie|zore (červené oblaky pri západe slnka)|霞|xiá|False|False
 chinese|priroda/počasie|zrážky|降水|jiàngshuǐ|False|False
 chinese|priroda/počasie|ľad|冰|bīng|True|False
-chinese|priroda/rastliny|agáve|e Agave/n||False|False
+chinese|priroda/rastliny|agáve|龙舌兰|lóngshélán|False|False
 chinese|priroda/rastliny|aksamietnica|e Tagetes||False|False
-chinese|priroda/rastliny|aloe|e Aloe/n||False|False
+chinese|priroda/rastliny|aloe|芦荟|lúhuì|False|False
 chinese|priroda/rastliny|aníz|r Anis/e||False|False
 chinese|priroda/rastliny|astra|e Aster/n||False|False
 chinese|priroda/rastliny|azalka|e Azalee/n||False|False
@@ -713,13 +726,11 @@ chinese|priroda/rastliny|bolehlav|r Schierling/e||False|False
 chinese|priroda/rastliny|bolševník|e Bärenklau||False|False
 chinese|priroda/rastliny|brečtan|r Efeu||False|False
 chinese|priroda/rastliny|chryzantéma|e Chrysantheme/n||False|False
-chinese|priroda/rastliny|dracéna|r Drachenbaum/ä-e||False|False
+chinese|priroda/rastliny|dracéna|龙血树|lóngxuèshù|False|False
 chinese|priroda/rastliny|fenikel|r Fenchel||False|False
-chinese|priroda/rastliny|fialka|s Veilchen||True|False
 chinese|priroda/rastliny|gerbera|e Gerbera||False|False
 chinese|priroda/rastliny|hluchavka|e Taubnessel/n||False|False
 chinese|priroda/rastliny|karafiát|e Nelke/n||True|False
-chinese|priroda/rastliny|konvalinka|s Maiglöckchen||False|False
 chinese|priroda/rastliny|koriander|r Koriander||False|False
 chinese|priroda/rastliny|kostihoj|r Beinwell/e||False|False
 chinese|priroda/rastliny|kôpor|r Dill||True|False
@@ -727,16 +738,16 @@ chinese|priroda/rastliny|lekno|睡莲|shuìlián|False|False
 chinese|priroda/rastliny|levanduľa|r Lavendel||True|False
 chinese|priroda/rastliny|ligurček|r/s Liebstöckel||False|False
 chinese|priroda/rastliny|lopúch|e Klette/n||False|False
-chinese|priroda/rastliny|lotos|e Lotosblume/n||False|False
+chinese|priroda/rastliny|lotos|莲花|liánhuā|False|False
 chinese|priroda/rastliny|mach|苔藓|táixiǎn|True|False
 chinese|priroda/rastliny|mak|罂粟|yīngsù|True|False
 chinese|priroda/rastliny|mäta|薄荷|bòhe|True|False
-chinese|priroda/rastliny|narcis|e Narzisse/n||False|False
+chinese|priroda/rastliny|narcis|黄水仙|shuǐxiān|False|False
 chinese|priroda/rastliny|nechtík|e Ringelblume/n||False|False
 chinese|priroda/rastliny|nevädza|e Kornblume/n||False|False
 chinese|priroda/rastliny|nezábudka|s Vergissmeinnicht/e||False|False
 chinese|priroda/rastliny|opuncia|e Opuntie/n||False|False
-chinese|priroda/rastliny|orchidea|e Orchidee/n||True|False
+chinese|priroda/rastliny|orchidea|兰花|lánhuā|True|False
 chinese|priroda/rastliny|pivonka|e Pfingstrose/n||False|False
 chinese|priroda/rastliny|podbeľ|r Huflattich/e||False|False
 chinese|priroda/rastliny|praslička|r Schachtelhalm/e||False|False
@@ -752,12 +763,11 @@ chinese|priroda/rastliny|sedmokráska|s Gänseblümchen||False|False
 chinese|priroda/rastliny|skoroceľ|r Wegerich/e||False|False
 chinese|priroda/rastliny|slez|e Malve/n||False|False
 chinese|priroda/rastliny|slnečnica|e Sonnenblume/n||True|False
-chinese|priroda/rastliny|snežienka|s Schneeglöckchen||False|False
-chinese|priroda/rastliny|tulipán|e Tulpe/n||True|False
+chinese|priroda/rastliny|tulipán|郁金香|yùjīnxiāng|True|False
 chinese|priroda/rastliny|zvonček|e Glockenblume/n||False|False
 chinese|priroda/rastliny|ďatelina|r Klee||True|False
-chinese|priroda/rastliny|ľalia|e Lilie/n||True|False
-chinese|priroda/rastliny|šafrán|r Safran/e||False|False
+chinese|priroda/rastliny|ľalia|百合|bǎihé|True|False
+chinese|priroda/rastliny|šafrán|番红花|fānhónghuā|False|False
 chinese|priroda/rastliny|šalvia|r/e Salbei||False|False
 chinese|priroda/rastliny|žihľava|e Nessel/n||True|False
 chinese|priroda/stavba rastlín|blizna|e Narbe/n||False|False
@@ -798,59 +808,38 @@ chinese|priroda/stavba rastlín|čnelka|r Griffel||False|False
 chinese|priroda/stavba rastlín|šupka|e Schale/n||False|False
 chinese|priroda/stavba rastlín|šuška|r Zapfen||False|False
 chinese|priroda/stavba rastlín|šúľok|r Kolben||False|False
-chinese|priroda/stromy|agát|e Robinie/n||False|False
-chinese|priroda/stromy|albízia|r Seidenbaum/ä-e||False|False
-chinese|priroda/stromy|baza|r Holunder||False|False
-chinese|priroda/stromy|borievka|刺柏|cìbǎi|False|False
+chinese|priroda/stromy|borievka|刺柏|cìbǎi|False|True
 chinese|priroda/stromy|borovica|松树|sōngshù|True|False
-chinese|priroda/stromy|brest|e Ulme/n||False|False
-chinese|priroda/stromy|breza|e Birke/n||True|False
-chinese|priroda/stromy|buk|e Buche/n||True|False
-chinese|priroda/stromy|chmeľ|r Hopfen||False|False
-chinese|priroda/stromy|cyprus|e Zypresse/n||False|False
-chinese|priroda/stromy|céder|e Zeder/n||False|False
-chinese|priroda/stromy|datľovník|e Dattelpalme/n||False|False
+chinese|priroda/stromy|brest|榆树|yúshù|False|False
+chinese|priroda/stromy|breza|桦木|huàmù|True|False
+chinese|priroda/stromy|cyprus|柏|bǎi|False|False
+chinese|priroda/stromy|céder|雪松|xuěsōng|False|True
+chinese|priroda/stromy|datľovník|枣树|zǎoshù|False|False
 chinese|priroda/stromy|dub|橡树|xiàngshù|True|False
-chinese|priroda/stromy|figovník|e Feige/n||False|False
-chinese|priroda/stromy|gaštan|e Kastanie/n||True|False
-chinese|priroda/stromy|ginko|r Ginkgo/s / r Ginko/s||False|False
-chinese|priroda/stromy|gledíčia|e Gle­dit­schie/n||False|False
-chinese|priroda/stromy|hikória|r Hickory||False|False
-chinese|priroda/stromy|hloh|r Weissdorn/e||False|False
-chinese|priroda/stromy|hrab|e Hainbuche/n / e Hagebuche/n / e Weissbuche/n||False|False
+chinese|priroda/stromy|figovník|无花果|wúhuāguǒ|False|False
+chinese|priroda/stromy|gaštan|栗|lì|True|False
+chinese|priroda/stromy|ginko|银杏|yínxìng|False|False
+chinese|priroda/stromy|hloh|山楂|shānzhā|False|False
 chinese|priroda/stromy|ihličnatý strom|针叶树|zhēnyèshù|False|False
-chinese|priroda/stromy|jarabina|e Eberesche/n||False|False
-chinese|priroda/stromy|jaseň|e Esche/n||True|False
 chinese|priroda/stromy|javor|枫树|fēngshù|True|False
 chinese|priroda/stromy|jedľa|冷杉|lěngshān|True|False
-chinese|priroda/stromy|jelša|e Erle/n||False|False
-chinese|priroda/stromy|krušpán|r Buchs/e||False|False
-chinese|priroda/stromy|lieska|e Hasel/n||False|False
+chinese|priroda/stromy|jelša|桤木|qīmù|False|False
+chinese|priroda/stromy|lieska|榛|zhēn|False|False
 chinese|priroda/stromy|lipa|椴树|duànshù|True|False
 chinese|priroda/stromy|listnatý strom|阔叶树|kuòyèshù|False|False
-chinese|priroda/stromy|magnólia|e Magnolie/n||False|False
-chinese|priroda/stromy|mišpuľa|e Mispel/n||False|False
-chinese|priroda/stromy|moruša|e Maulbeere/n||False|False
-chinese|priroda/stromy|muchovník|e Felsenbirne/n||False|False
-chinese|priroda/stromy|oliva|r Olivenbaum/ä-e / r Ölbaum/ä-e||False|False
-chinese|priroda/stromy|orech|e Wal­nuss/ü-e / r Nuss­baum/ä-e||True|False
-chinese|priroda/stromy|orgován|r Flieder||False|False
-chinese|priroda/stromy|pagaštan|e Rosskastanie/n||False|False
-chinese|priroda/stromy|pajaseň|r Götterbaum/ä-e||False|False
-chinese|priroda/stromy|palma|e Palme/n||True|False
-chinese|priroda/stromy|platan|e Platane/n||True|False
-chinese|priroda/stromy|sekvoja|r Mammutbaum/ä-e||False|False
-chinese|priroda/stromy|smrekovec|e Lärche/n||False|False
+chinese|priroda/stromy|magnólia|木兰|mùlán|False|False
+chinese|priroda/stromy|orech|核桃|hétáo|True|False
+chinese|priroda/stromy|pagaštan|七叶树|qīyèshù|False|False
+chinese|priroda/stromy|palma|棕榈|zōnglǘ|True|False
+chinese|priroda/stromy|sekvoja|红杉|hóngshān|False|False
+chinese|priroda/stromy|smrekovec|落叶松|luòyèsōng|False|True
 chinese|priroda/stromy|smrek|云杉|yúnshān|True|False
-chinese|priroda/stromy|sofora|r Schnurbaum/ä-e||False|False
+chinese|priroda/stromy|sofora|槐|huái|False|False
 chinese|priroda/stromy|tis|紫杉|zǐshān|False|False
 chinese|priroda/stromy|topoľ|杨树|yángshù|True|False
-chinese|priroda/stromy|tuja|r Lebensbaum/ä-e / e Thuja/Thujen||False|False
-chinese|priroda/stromy|vavrín|r Lorbeer/en||False|False
-chinese|priroda/stromy|vtáčí zob|r Liguster||False|False
+chinese|priroda/stromy|tuja|崖柏|yábǎi|False|True
+chinese|priroda/stromy|vavrín|月桂|yuèguì|False|False
 chinese|priroda/stromy|vŕba|柳树|liǔshù|True|False
-chinese|priroda/stromy|ľaliovník|r Tulpenbaum/ä-e||False|False
-chinese|priroda/stromy|štedrec|r Goldregen||False|False
 chinese|priroda/terén|blato|泥|ní|False|False
 chinese|priroda/terén|drevo|木|mù|False|False
 chinese|priroda/terén|hlina|土|tǔ|False|False
@@ -949,60 +938,61 @@ chinese|spoločnosť/family|otec|父亲|fùqīn|False|False
 chinese|spoločnosť/family|priateľ|朋友|péngyou|False|False
 chinese|spoločnosť/family|staršia sestra|姐姐|jiějie|False|False
 chinese|spoločnosť/family|strýko|叔叔|shūshu|False|False
+chinese|spoločnosť/family|sused|隔壁|gébì|False|False
 chinese|spoločnosť/family|synovec|外甥|wàisheng|False|False
 chinese|spoločnosť/family|syn|儿子|érzi|False|False
 chinese|spoločnosť/family|teta|姨妈|yímā|False|False
 chinese|spoločnosť/family|teta|阿姨|āyí |False|False
 chinese|spoločnosť/family|vnuk|孙子|sūnzi|False|False
-chinese|spoločnosť/mestá|Amsterdam|s Amsterdam||True|False
+chinese|spoločnosť/mestá|Amsterdam|阿姆斯特丹|āmǔsītèdān|True|False
 chinese|spoločnosť/mestá|Atény|雅典|yǎdiǎn|True|False
 chinese|spoločnosť/mestá|Barcelona|巴塞罗那|bāsèluōnà|True|False
 chinese|spoločnosť/mestá|Benátky|威尼斯|wēinísī|True|False
 chinese|spoločnosť/mestá|Berlín|柏林|bólín|True|False
-chinese|spoločnosť/mestá|Brusel|s Brüssel||True|False
-chinese|spoločnosť/mestá|Budapešť|s Budapest||True|False
-chinese|spoločnosť/mestá|Bukurešť|s Bukarest||False|False
-chinese|spoločnosť/mestá|Florencia|s Florenz||False|False
-chinese|spoločnosť/mestá|Janov|s Genua||False|False
-chinese|spoločnosť/mestá|Kodaň|s Kopenhagen||True|False
-chinese|spoločnosť/mestá|Kolín|s Köln||True|False
-chinese|spoločnosť/mestá|Kyjev|s Kiew||False|False
+chinese|spoločnosť/mestá|Brusel|布鲁塞尔|bùlǔsàiěr|True|False
+chinese|spoločnosť/mestá|Budapešť|布达佩斯|bùdápèisī|True|False
+chinese|spoločnosť/mestá|Bukurešť|布加勒斯特|bùjiālèsītè|False|False
+chinese|spoločnosť/mestá|Florencia|佛罗伦萨|fóluólúnsà|False|False
+chinese|spoločnosť/mestá|Janov|热那亚|rènàyà|False|False
+chinese|spoločnosť/mestá|Kodaň|哥本哈根|gēběnhāgēn|True|False
+chinese|spoločnosť/mestá|Kolín|科隆|kēlóng|True|False
+chinese|spoločnosť/mestá|Kyjev|基辅|jīfǔ|False|False
 chinese|spoločnosť/mestá|Káhira|开罗|kāiluó|True|False
 chinese|spoločnosť/mestá|Lisabon|里斯本|lǐsīběn|True|False
 chinese|spoločnosť/mestá|Londýn|伦敦|lúndūn|True|False
 chinese|spoločnosť/mestá|Madrid|马德里|mǎdélǐ|True|False
 chinese|spoločnosť/mestá|Miláno|米兰|mǐlán|True|False
-chinese|spoločnosť/mestá|Mníchov|s München||True|False
+chinese|spoločnosť/mestá|Mníchov|慕尼黑|mìníhēi|True|False
 chinese|spoločnosť/mestá|Moskva|莫斯科|mòsīkē|True|False
-chinese|spoločnosť/mestá|Neapol|s Neapel||False|False
+chinese|spoločnosť/mestá|Neapol|拿波利|nábōlì|False|False
 chinese|spoločnosť/mestá|Paríž|巴黎|bālí|True|False
 chinese|spoločnosť/mestá|Peking|北京|běijīng|True|False
-chinese|spoločnosť/mestá|Praha|s Prag||True|False
+chinese|spoločnosť/mestá|Praha|布拉格|bùlāgé|True|False
 chinese|spoločnosť/mestá|Rím|罗马|luómǎ|True|False
 chinese|spoločnosť/mestá|Tokio|东京|dōngjīng|True|False
-chinese|spoločnosť/mestá|Varšava|s Warschau||True|False
+chinese|spoločnosť/mestá|Varšava|华沙|huáshā|True|False
 chinese|spoločnosť/mestá|Viedeň|维也纳|wéiyěnà|True|False
-chinese|spoločnosť/mestá|Zürich|s Zürich||False|False
-chinese|spoločnosť/mestá|Štokholm|s Stockholm||True|False
-chinese|spoločnosť/mestá|Ženeva|s Genf||False|False
+chinese|spoločnosť/mestá|Zürich|苏黎世|sūlíshì|False|False
+chinese|spoločnosť/mestá|Štokholm|斯德哥尔摩|sīdégēěrmó|True|False
+chinese|spoločnosť/mestá|Ženeva|日内瓦|rìnèiwǎ|False|False
 chinese|spoločnosť/štáty|Alžírsko|s Algerien||False|False
 chinese|spoločnosť/štáty|Argentína|阿根廷|āgēntíng|False|False
 chinese|spoločnosť/štáty|Austrália|澳大利亚|àodàlìyà|True|False
-chinese|spoločnosť/štáty|Belgicko|s Belgien||False|False
-chinese|spoločnosť/štáty|Bielorusko|s Weissrussland||False|False
-chinese|spoločnosť/štáty|Bolívia|s Bolivien||False|False
+chinese|spoločnosť/štáty|Belgicko|比利时|bǐlìshí|False|False
+chinese|spoločnosť/štáty|Bielorusko|白俄罗斯|báièluósī|False|False
+chinese|spoločnosť/štáty|Bolívia|玻利维亚|bōlìwéiyǎ|False|False
 chinese|spoločnosť/štáty|Brazília|巴西|bāxī|True|False
-chinese|spoločnosť/štáty|Bulharsko|s Bulgarien||False|False
+chinese|spoločnosť/štáty|Bulharsko|保加利亚|bǎojiālìyǎ|False|False
 chinese|spoločnosť/štáty|Chorvátsko|s Kroatien||False|False
-chinese|spoločnosť/štáty|Dánsko|s Dänemark||False|False
+chinese|spoločnosť/štáty|Dánsko|丹麦|dānmài|False|False
 chinese|spoločnosť/štáty|Egypt|s Ägypten||True|False
-chinese|spoločnosť/štáty|Ekvádor|s Ecuador||False|False
+chinese|spoločnosť/štáty|Ekvádor|厄瓜多尔|èguāduōěr|False|False
 chinese|spoločnosť/štáty|Estónsko|s Estland||False|False
 chinese|spoločnosť/štáty|Etiópia|s Äthiopien||False|False
 chinese|spoločnosť/štáty|Filipíny|菲律宾|fēilǜbīn|False|False
 chinese|spoločnosť/štáty|Francúzsko|法国|fǎguó|True|False
-chinese|spoločnosť/štáty|Fínsko|s Finnland||False|False
-chinese|spoločnosť/štáty|Grécko|s Griechenland||True|False
+chinese|spoločnosť/štáty|Fínsko|芬兰|fēnlán|False|False
+chinese|spoločnosť/štáty|Grécko|希腊|xīlà|True|False
 chinese|spoločnosť/štáty|Grónsko|格陵兰|gélínglán|False|False
 chinese|spoločnosť/štáty|Holandsko|荷兰|hélán|True|False
 chinese|spoločnosť/štáty|India|印度|yìndù|True|False
@@ -1014,25 +1004,25 @@ chinese|spoločnosť/štáty|Južná afrika|s Südafrika||True|False
 chinese|spoločnosť/štáty|Južná kórea|韩国|hánguó|True|False
 chinese|spoločnosť/štáty|Kanada|加拿大|jiānádà|True|False
 chinese|spoločnosť/štáty|Keňa|s Kenia||False|False
-chinese|spoločnosť/štáty|Kolumbia|s Kolumbien||False|False
+chinese|spoločnosť/štáty|Kolumbia|哥伦比亚|gēlúnbǐyǎ|False|False
 chinese|spoločnosť/štáty|Litva|s Litauen||False|False
 chinese|spoločnosť/štáty|Lotyšsko|s Lettland||False|False
 chinese|spoločnosť/štáty|Líbya|s Libyen||False|False
 chinese|spoločnosť/štáty|Malajzia|马来西亚|mǎláixīyà|False|False
 chinese|spoločnosť/štáty|Maroko|s Marokko||False|False
-chinese|spoločnosť/štáty|Maďarsko|s Ungarn||False|False
+chinese|spoločnosť/štáty|Maďarsko|匈牙利|xiōngyálì|False|False
 chinese|spoločnosť/štáty|Mexiko|墨西哥|mòxīgē|True|False
 chinese|spoločnosť/štáty|Mongolsko|蒙古|měnggǔ|False|False
 chinese|spoločnosť/štáty|Nemecko|德国|déguó|True|False
 chinese|spoločnosť/štáty|Nigéria|s Nigeria||False|False
 chinese|spoločnosť/štáty|Nový zéland|新西兰|xīnxīlán|True|False
-chinese|spoločnosť/štáty|Nórsko|s Norwegen||False|False
+chinese|spoločnosť/štáty|Nórsko|挪威|nuówēi|False|False
 chinese|spoločnosť/štáty|Pakistan|巴基斯坦|bājīsītǎn|False|False
 chinese|spoločnosť/štáty|Peru|秘鲁|bìlǔ|False|False
-chinese|spoločnosť/štáty|Portugalsko|s Por­tu­gal||False|False
+chinese|spoločnosť/štáty|Portugalsko|葡萄牙|pútáoyá|False|False
 chinese|spoločnosť/štáty|Poľsko|波兰|bōlán|True|False
-chinese|spoločnosť/štáty|Rakúsko|s Österreich||True|False
-chinese|spoločnosť/štáty|Rumunsko|s Rumänien||False|False
+chinese|spoločnosť/štáty|Rakúsko|奥地利|àodìlì|True|False
+chinese|spoločnosť/štáty|Rumunsko|罗马尼亚|luómǎníyǎ|False|False
 chinese|spoločnosť/štáty|Rusko|俄罗斯|èluósī|True|False
 chinese|spoločnosť/štáty|Saudská arábia|沙特阿拉伯|shātè ālābó|False|False
 chinese|spoločnosť/štáty|Slovensko|e Slowakei||False|False
@@ -1047,16 +1037,16 @@ chinese|spoločnosť/štáty|Tanzánia|s Tansania||False|False
 chinese|spoločnosť/štáty|Thajsko|泰国|tàiguó|False|False
 chinese|spoločnosť/štáty|Tunisko|s Tunesien||False|False
 chinese|spoločnosť/štáty|Turecko|土耳其|tǔěrqí|True|False
-chinese|spoločnosť/štáty|Ukrajina|e Ukraine||False|False
-chinese|spoločnosť/štáty|Venezuela|s Venezuela||False|False
+chinese|spoločnosť/štáty|Ukrajina|乌克兰|wūkèlán|False|False
+chinese|spoločnosť/štáty|Venezuela|委内瑞拉|wěinèiruìlā|False|False
 chinese|spoločnosť/štáty|Vietnam|越南|yuènán|False|False
-chinese|spoločnosť/štáty|Írsko|s Irland||False|False
-chinese|spoločnosť/štáty|Česko|s Tschechien||False|False
+chinese|spoločnosť/štáty|Írsko|爱尔兰|àiěrlán|False|False
+chinese|spoločnosť/štáty|Česko|捷克|jiékè|False|False
 chinese|spoločnosť/štáty|Čile|智利|zhìlì|False|False
 chinese|spoločnosť/štáty|Čína|中国|zhōngguó|True|False
 chinese|spoločnosť/štáty|Španielsko|西班牙|xībānyá|True|False
-chinese|spoločnosť/štáty|Švajčiarsko|e Schweiz||True|False
-chinese|spoločnosť/štáty|Švédsko|s Schweden||False|False
+chinese|spoločnosť/štáty|Švajčiarsko|瑞士|ruìshì|True|False
+chinese|spoločnosť/štáty|Švédsko|瑞典|ruìdiǎn|False|False
 chinese|veda/medicína|DNA|脱氧核糖核酸|tuōyǎng hétáng hésuān|False|False
 chinese|veda/medicína|bacteria|细菌|xìjùn|False|False
 chinese|veda/medicína|bunka|细胞|xìbāo|False|False
@@ -1328,6 +1318,7 @@ chinese|živé telo/feeling|strach|恐怕|kǒngpà|False|False
 chinese|živé telo/feeling|súcitiť|同情|tóngqíng|False|False
 chinese|živé telo/feeling|súcit|怜悯|liánmǐn|False|False
 chinese|živé telo/feeling|trápenie|烦恼|fánnǎo|False|False
+chinese|živé telo/feeling|trápny|别扭|bièniu|False|False
 chinese|živé telo/feeling|úzkosť|忧虑|yōulǜ|False|False
 chinese|živé telo/feeling|ľutovať|可怜|kělián|False|False
 chinese|živé telo/feeling|ľutovať|后悔|hòuhuǐ|False|False
@@ -10634,5 +10625,14 @@ russkiy|nature/weather|blesk|мо́лния||False|False
 russkiy|nature/weather|búrka|бу́ря||False|False
 russkiy|nature/weather|mrak|ту́ча||False|False
 russkiy|nature/weather|oblak|о́блако||False|False
-russkiy|phrases|začiatky sú ťažký|первый блин — комом||False|False
+russkiy|phrases|začiatky sú ťažké|первый блин — комом||False|False
 russkiy|pronoun|hlupák|дурак||False|False
+russkiy|pronoun|ja|я||False|False
+russkiy|pronoun|my|мы||False|False
+russkiy|pronoun|môj|мой||False|False
+russkiy|pronoun|náš|наш||False|False
+russkiy|pronoun|on|он||False|False
+russkiy|pronoun|tvoj|твой||False|False
+russkiy|pronoun|ty|ты||False|False
+russkiy|pronoun|vy|вы||False|False
+russkiy|pronoun|váš|ваш||False|False

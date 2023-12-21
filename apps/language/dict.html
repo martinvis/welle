@@ -9,6 +9,8 @@
 	var topics = new Set();
 	var language;
 	var answer;
+	var correctCount = 0;
+	var wrongCount = 0;
 
 	function loadDict() {
 		var xhr = new XMLHttpRequest();
@@ -88,7 +90,7 @@
 		options.classList.remove("hidden");
 		options.textContent = '';
 
-		count = 4
+		count = 5;
 		all = dict.filter(word => word.language == language);
 		words = randomItems(all, count);
 		theAnswer = words[Math.floor(Math.random()*count)];
@@ -114,17 +116,33 @@
 		showQuestion();
 
 		if (correct) {
-			document.getElementById('footer').innerText = "Correct!";
+			correctCount++;
+		} else {
+			wrongCount++;
+		}
+		text = " (" + correctCount + "/" + (correctCount+wrongCount) + ")";
+
+		if (correct) {
+			document.getElementById('footer').innerText = "Correct!" + text;
 			document.getElementById('footer').classList.add("correct");
 			document.getElementById('footer').classList.remove("wrong");
+			document.body.classList.add("correct");
+			document.body.classList.remove("wrong");
 		} else {
-			document.getElementById('footer').innerText = "Wrong!";
+			document.getElementById('footer').innerText = "Wrong!" + text;
 			document.getElementById('footer').classList.add("wrong");
 			document.getElementById('footer').classList.remove("correct");
+			document.body.classList.add("wrong");
+			document.body.classList.remove("correct");
 		}
 	}
 	function randomItems(list, count) {
 		items = [];
+		topic = list[Math.floor(Math.random()*list.length)].topic;
+		list = list.filter(w => w.topic == topic);
+		if (list.size < count) {
+			return;
+		}
 		for (i=1; i<=count; i++) {
 			while (true) {
 				adept = list[Math.floor(Math.random()*list.length)];
@@ -138,14 +156,19 @@
 	}
 	</script>
 	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			border: 0;
+		}
 		body {
 			background-color: #000;
 			color: #FFF;
 			font-size: 2em;
+			text-align: center;
 		}
 		#footer {
 			text-align: center;
-			position: absolute;
 			bottom: 0;
 			width: 100%;
 			padding: 3px;
@@ -177,16 +200,17 @@
 			float: left;
 		}
 		ul {
+			display: inline-flex;
 			flex-direction: column;
-			display: flex;
-			align-items: center;
+			align-items: stretch;
+			gap: 5px
 		}
 		li {
+			background-color: #000;
 			list-style: none;
 			cursor: pointer;
 			padding: 0.5em;
 			border: 1px solid;
-			margin: 3px;
 			text-align: center;
 			min-width: 15em;
 		}
@@ -194,10 +218,10 @@
 			display: none;
 		}
 		.correct {
-			color: #0A0;
+			background-color: #043;
 		}
 		.wrong {
-			color: #A00;
+			background-color: #502
 		}
 	</style>
 </head>
@@ -206,8 +230,8 @@
 	<button type="button" id="search" onclick="search()" style="vertical-align:top;">Search</button>
 	<button type="button" id="play" onclick="askLanguage()" style="vertical-align:top;">Play</button>
 	<table id="results"></table>
+	<div id="footer"></div>
 	<ul id="languages" class="hidden"></ul>
 	<ul id="options" class="hidden"></ul>
-	<div id="footer"></div>
 </body>
 </html>
