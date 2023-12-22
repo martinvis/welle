@@ -80,7 +80,10 @@ chinese|abstract/number|šesť|六|liù|False|False
 chinese|abstract/number|štyri|四|sì|False|False
 chinese|abstract/shape|diera|洞|dòng|False|False
 chinese|abstract/shape|hrot|尖|jiān|False|False
+chinese|abstract/shape|kocka|立方体|lìfāngtǐ|False|False
+chinese|abstract/shape|kruh|圆圈|yuánquān|False|False
 chinese|abstract/shape|medzera|缺口|quēkǒu|False|False
+chinese|abstract/shape|trojuholník|三角形|sānjiǎoxíng|False|False
 chinese|abstract/size|dlhý|长|cháng|False|False
 chinese|abstract/size|hlboký|深|shēn|False|False
 chinese|abstract/size|krátky|短|duǎn|False|False
@@ -551,7 +554,7 @@ chinese|potraviny/zelenina|baklažán|茄子|qiézi|False|False
 chinese|potraviny/zelenina|batata|地瓜|dìguā|False|False
 chinese|potraviny/zelenina|batata|红薯|hóngshǔ |False|False
 chinese|potraviny/zelenina|brokolica|西兰花|xī lánhuā|False|False
-chinese|potraviny/zelenina|cesnak||大蒜 dàsuàn|True|False
+chinese|potraviny/zelenina|cesnak|大蒜|dàsuàn|True|False
 chinese|potraviny/zelenina|cibuľa|洋葱|yángcōng|True|False
 chinese|potraviny/zelenina|cukrová repa|糖用甜菜|tángyòng tiáncài|False|False
 chinese|potraviny/zelenina|cícer|鹰嘴豆|yīngzuǐdòu|False|False
@@ -715,99 +718,60 @@ chinese|priroda/počasie|zore (červené oblaky pri západe slnka)|霞|xiá|Fals
 chinese|priroda/počasie|zrážky|降水|jiàngshuǐ|False|False
 chinese|priroda/počasie|ľad|冰|bīng|True|False
 chinese|priroda/rastliny|agáve|龙舌兰|lóngshélán|False|False
-chinese|priroda/rastliny|aksamietnica|e Tagetes||False|False
 chinese|priroda/rastliny|aloe|芦荟|lúhuì|False|False
-chinese|priroda/rastliny|aníz|r Anis/e||False|False
-chinese|priroda/rastliny|astra|e Aster/n||False|False
-chinese|priroda/rastliny|azalka|e Azalee/n||False|False
+chinese|priroda/rastliny|aníz|八角|bājiǎo|False|False
+chinese|priroda/rastliny|astra|紫菀|zǐwǎn|False|False
 chinese|priroda/rastliny|bazalka|罗勒|luólè|True|False
-chinese|priroda/rastliny|bodliak|e Distel/n||False|False
-chinese|priroda/rastliny|bolehlav|r Schierling/e||False|False
-chinese|priroda/rastliny|bolševník|e Bärenklau||False|False
-chinese|priroda/rastliny|brečtan|r Efeu||False|False
-chinese|priroda/rastliny|chryzantéma|e Chrysantheme/n||False|False
+chinese|priroda/rastliny|bodliak|薊|jì|False|False
+chinese|priroda/rastliny|brečtan|常春藤|chángchūnténg|False|False
+chinese|priroda/rastliny|chryzantéma|菊花|júhuā|False|False
 chinese|priroda/rastliny|dracéna|龙血树|lóngxuèshù|False|False
-chinese|priroda/rastliny|fenikel|r Fenchel||False|False
-chinese|priroda/rastliny|gerbera|e Gerbera||False|False
-chinese|priroda/rastliny|hluchavka|e Taubnessel/n||False|False
-chinese|priroda/rastliny|karafiát|e Nelke/n||True|False
-chinese|priroda/rastliny|koriander|r Koriander||False|False
-chinese|priroda/rastliny|kostihoj|r Beinwell/e||False|False
-chinese|priroda/rastliny|kôpor|r Dill||True|False
+chinese|priroda/rastliny|kaktus|仙人掌|xiānrénzhǎng|True|False
+chinese|priroda/rastliny|karafiát|石竹|shízhú|True|False
+chinese|priroda/rastliny|koriander|芫荽|yánsuī|False|False
+chinese|priroda/rastliny|kôpor|莳萝|shíluó|True|False
 chinese|priroda/rastliny|lekno|睡莲|shuìlián|False|False
-chinese|priroda/rastliny|levanduľa|r Lavendel||True|False
-chinese|priroda/rastliny|ligurček|r/s Liebstöckel||False|False
-chinese|priroda/rastliny|lopúch|e Klette/n||False|False
+chinese|priroda/rastliny|levanduľa|薰衣草|xūnyīcǎo|True|False
 chinese|priroda/rastliny|lotos|莲花|liánhuā|False|False
 chinese|priroda/rastliny|mach|苔藓|táixiǎn|True|False
 chinese|priroda/rastliny|mak|罂粟|yīngsù|True|False
 chinese|priroda/rastliny|mäta|薄荷|bòhe|True|False
 chinese|priroda/rastliny|narcis|黄水仙|shuǐxiān|False|False
-chinese|priroda/rastliny|nechtík|e Ringelblume/n||False|False
-chinese|priroda/rastliny|nevädza|e Kornblume/n||False|False
-chinese|priroda/rastliny|nezábudka|s Vergissmeinnicht/e||False|False
-chinese|priroda/rastliny|opuncia|e Opuntie/n||False|False
+chinese|priroda/rastliny|nechtík|万寿菊|wànshòujú|False|False
+chinese|priroda/rastliny|nezábudka|勿忘草|wùwàngcǎo|False|False
 chinese|priroda/rastliny|orchidea|兰花|lánhuā|True|False
-chinese|priroda/rastliny|pivonka|e Pfingstrose/n||False|False
-chinese|priroda/rastliny|podbeľ|r Huflattich/e||False|False
-chinese|priroda/rastliny|praslička|r Schachtelhalm/e||False|False
-chinese|priroda/rastliny|prvosienka|e Schlüsselblume/n||False|False
-chinese|priroda/rastliny|púpava|r Löwenzahn||True|False
-chinese|priroda/rastliny|rasca|r Kümmel||True|False
-chinese|priroda/rastliny|repík|r Odermennig/e||False|False
-chinese|priroda/rastliny|rododendron|r/s Rhododendron/-dren||False|False
-chinese|priroda/rastliny|rozmarín|r Rosmarin||False|False
-chinese|priroda/rastliny|rumanček|r Kamille/n||False|False
-chinese|priroda/rastliny|ruža|e Rose/n||True|False
-chinese|priroda/rastliny|sedmokráska|s Gänseblümchen||False|False
-chinese|priroda/rastliny|skoroceľ|r Wegerich/e||False|False
-chinese|priroda/rastliny|slez|e Malve/n||False|False
-chinese|priroda/rastliny|slnečnica|e Sonnenblume/n||True|False
+chinese|priroda/rastliny|pivonka|芍药|sháoyào|False|False
+chinese|priroda/rastliny|prvosienka|报春花|bàochūnhuā|False|False
+chinese|priroda/rastliny|púpava|蒲公英|púgōngyīng|True|False
+chinese|priroda/rastliny|rasca|茴香|huíxiāng|True|False
+chinese|priroda/rastliny|rododendron|杜鹃花|dùjuānhuā|False|False
+chinese|priroda/rastliny|rozmarín|迷迭香|mídiéxiāng|False|False
+chinese|priroda/rastliny|ruža|蔷薇|qiángwéi|True|False
+chinese|priroda/rastliny|sedmokráska|雏菊|chújú|False|False
+chinese|priroda/rastliny|slez|锦葵|jǐnkuí|False|False
+chinese|priroda/rastliny|slnečnica|向日葵|xiàngrìkuí|True|False
 chinese|priroda/rastliny|tulipán|郁金香|yùjīnxiāng|True|False
-chinese|priroda/rastliny|zvonček|e Glockenblume/n||False|False
-chinese|priroda/rastliny|ďatelina|r Klee||True|False
+chinese|priroda/rastliny|ďatelina|三叶草|sānyècǎo|True|False
 chinese|priroda/rastliny|ľalia|百合|bǎihé|True|False
 chinese|priroda/rastliny|šafrán|番红花|fānhónghuā|False|False
-chinese|priroda/rastliny|šalvia|r/e Salbei||False|False
-chinese|priroda/rastliny|žihľava|e Nessel/n||True|False
-chinese|priroda/stavba rastlín|blizna|e Narbe/n||False|False
-chinese|priroda/stavba rastlín|bobuľa|e Beere/n||True|False
-chinese|priroda/stavba rastlín|hľúza|e Knolle/n||False|False
-chinese|priroda/stavba rastlín|ihličie|e Nadeln||True|False
-chinese|priroda/stavba rastlín|jahňada|s Kätzchen||False|False
-chinese|priroda/stavba rastlín|kališný lístok|s Kelchblatt/ä-er||False|False
-chinese|priroda/stavba rastlín|klas|e Ähre/n||False|False
-chinese|priroda/stavba rastlín|kmeň|r Stamm/ä-e||True|False
-chinese|priroda/stavba rastlín|konár|r Ast/ä-e||True|False
-chinese|priroda/stavba rastlín|koreň|e Wurzel/n||True|False
-chinese|priroda/stavba rastlín|korunný lupienok|s Kronblatt/ä-er||False|False
-chinese|priroda/stavba rastlín|kvetné lôžko|r Blütenboden/ö||False|False
-chinese|priroda/stavba rastlín|kvet|e Blüte/n||True|False
-chinese|priroda/stavba rastlín|kôra|e Rinde/n||True|False
-chinese|priroda/stavba rastlín|kôstka|r Kern/e||True|False
-chinese|priroda/stavba rastlín|list|s Blatt/ä-er||True|False
-chinese|priroda/stavba rastlín|lístie|s Laub||True|False
-chinese|priroda/stavba rastlín|nažka|e Achäne/n||False|False
-chinese|priroda/stavba rastlín|nitka|r Staubfaden||False|False
-chinese|priroda/stavba rastlín|okolík|e Dolde/n||False|False
-chinese|priroda/stavba rastlín|okvetie|e Blütenhülle/n||False|False
-chinese|priroda/stavba rastlín|okvetný lístok|s Blütenblatt/ä-er||False|False
-chinese|priroda/stavba rastlín|peľnica|r Staubbeutel||False|False
-chinese|priroda/stavba rastlín|peľ|r Pollen / r Blütenstaub/ä-e||True|False
-chinese|priroda/stavba rastlín|piestik|r Stempel||False|False
-chinese|priroda/stavba rastlín|plod|e Frucht/ü-e||True|False
-chinese|priroda/stavba rastlín|puk|e Knospe/n||True|False
-chinese|priroda/stavba rastlín|semenník|r Fruchtknoten||False|False
-chinese|priroda/stavba rastlín|steblo|r Halm/e||False|False
-chinese|priroda/stavba rastlín|stonka|r Stängel / r Stiel/e||True|False
-chinese|priroda/stavba rastlín|strapec|e Traube/n||False|False
-chinese|priroda/stavba rastlín|struk|e Hülse/n||False|False
-chinese|priroda/stavba rastlín|tyčinka|s Staubblatt/ä-er||False|False
-chinese|priroda/stavba rastlín|vetva|r Zweig/e||True|False
-chinese|priroda/stavba rastlín|čnelka|r Griffel||False|False
-chinese|priroda/stavba rastlín|šupka|e Schale/n||False|False
-chinese|priroda/stavba rastlín|šuška|r Zapfen||False|False
-chinese|priroda/stavba rastlín|šúľok|r Kolben||False|False
+chinese|priroda/rastliny|šalvia|鼠尾草|shǔwěicǎo|False|False
+chinese|priroda/rastliny|žihľava|荨麻|xúnmá|True|False
+chinese|priroda/stavba rastlín|bobuľa|浆果|jiāngguǒ|False|True
+chinese|priroda/stavba rastlín|ihličie|针叶|zhēnyè|True|False
+chinese|priroda/stavba rastlín|kmeň|树干|shùgàn|True|False
+chinese|priroda/stavba rastlín|konár|树枝|shùzhī|True|False
+chinese|priroda/stavba rastlín|koreň|根|gēn|True|False
+chinese|priroda/stavba rastlín|kvet|花|huā|True|False
+chinese|priroda/stavba rastlín|kôra|树皮|shùpí|True|False
+chinese|priroda/stavba rastlín|kôstka|核|hé|True|False
+chinese|priroda/stavba rastlín|list|叶子|yèzi|True|False
+chinese|priroda/stavba rastlín|peľ|花粉|huāfěn|False|True
+chinese|priroda/stavba rastlín|plod|果|guǒ|True|False
+chinese|priroda/stavba rastlín|puk|花蕾|huālěi|False|True
+chinese|priroda/stavba rastlín|stonka|茎|jīng|True|False
+chinese|priroda/stavba rastlín|struk|豆荚|dòujiá|False|False
+chinese|priroda/stavba rastlín|šupka|果皮|guǒpí|False|True
+chinese|priroda/stavba rastlín|šuška|松果|sōngguǒ|False|True
 chinese|priroda/stromy|borievka|刺柏|cìbǎi|False|True
 chinese|priroda/stromy|borovica|松树|sōngshù|True|False
 chinese|priroda/stromy|brest|榆树|yúshù|False|False
@@ -869,19 +833,16 @@ chinese|priroda/terén|vodopád|瀑布|pùbù|False|False
 chinese|priroda/terén|zátoka|海湾|hǎiwān|False|False
 chinese|priroda/terén|údolie|谷|gǔ|False|False
 chinese|priroda/vesmir|Plejády|昴宿星团|mǎosù xīngtuán|False|False
-chinese|priroda/vesmir|galaxia|e Galaxie||True|False
-chinese|priroda/vesmir|hmlovina|r Nebelfleck||False|False
-chinese|priroda/vesmir|hmlovina|r Nebel||False|False
-chinese|priroda/vesmir|hviezda|r Stern||True|False
-chinese|priroda/vesmir|kométa|r Komet||True|False
-chinese|priroda/vesmir|mesiac|r Mond||True|False
-chinese|priroda/vesmir|meteor|e Sternschnuppe/n / r Meteor/e||True|False
-chinese|priroda/vesmir|planéta|r Planet||True|False
-chinese|priroda/vesmir|slnko|e Sonne||True|False
-chinese|priroda/vesmir|súhvezdie|s Sternbild||True|False
-chinese|priroda/vesmir|vesmír|r Weltraum||True|False
-chinese|priroda/vesmir|vesmír|s Universum/Universen||True|False
-chinese|priroda/vesmir|vesmír|s Weltall||True|False
+chinese|priroda/vesmir|galaxia|星系|xīngxì|True|False
+chinese|priroda/vesmir|hmlovina|星云|xīngyún|False|False
+chinese|priroda/vesmir|hviezda|星星|xīngxīng|True|False
+chinese|priroda/vesmir|kométa|彗星|huìxīng|True|False
+chinese|priroda/vesmir|mesiac|月亮|yuèliang|True|False
+chinese|priroda/vesmir|meteor|流星|liúxīng|True|False
+chinese|priroda/vesmir|planéta|行星|xíngxīng|True|False
+chinese|priroda/vesmir|slnko|太阳|tàiyáng|True|False
+chinese|priroda/vesmir|súhvezdie|星座|xīngzuò|True|False
+chinese|priroda/vesmir|vesmír|宇宙|yǔzhòu|True|False
 chinese|priroda/vesmir|zatmenie|e Finsternis||False|False
 chinese|spoločnosť/communication|diskutovať|讨论|tǎolùn|False|False
 chinese|spoločnosť/communication|dokázať|证明|zhèngmíng|False|False
@@ -975,7 +936,7 @@ chinese|spoločnosť/mestá|Viedeň|维也纳|wéiyěnà|True|False
 chinese|spoločnosť/mestá|Zürich|苏黎世|sūlíshì|False|False
 chinese|spoločnosť/mestá|Štokholm|斯德哥尔摩|sīdégēěrmó|True|False
 chinese|spoločnosť/mestá|Ženeva|日内瓦|rìnèiwǎ|False|False
-chinese|spoločnosť/štáty|Alžírsko|s Algerien||False|False
+chinese|spoločnosť/štáty|Alžírsko|阿尔及利亚|āěrjílìyǎ|False|False
 chinese|spoločnosť/štáty|Argentína|阿根廷|āgēntíng|False|False
 chinese|spoločnosť/štáty|Austrália|澳大利亚|àodàlìyà|True|False
 chinese|spoločnosť/štáty|Belgicko|比利时|bǐlìshí|False|False
@@ -983,12 +944,12 @@ chinese|spoločnosť/štáty|Bielorusko|白俄罗斯|báièluósī|False|False
 chinese|spoločnosť/štáty|Bolívia|玻利维亚|bōlìwéiyǎ|False|False
 chinese|spoločnosť/štáty|Brazília|巴西|bāxī|True|False
 chinese|spoločnosť/štáty|Bulharsko|保加利亚|bǎojiālìyǎ|False|False
-chinese|spoločnosť/štáty|Chorvátsko|s Kroatien||False|False
+chinese|spoločnosť/štáty|Chorvátsko|克罗地亚|kèluódìyà|False|False
 chinese|spoločnosť/štáty|Dánsko|丹麦|dānmài|False|False
-chinese|spoločnosť/štáty|Egypt|s Ägypten||True|False
+chinese|spoločnosť/štáty|Egypt|埃及|āijí|True|False
 chinese|spoločnosť/štáty|Ekvádor|厄瓜多尔|èguāduōěr|False|False
-chinese|spoločnosť/štáty|Estónsko|s Estland||False|False
-chinese|spoločnosť/štáty|Etiópia|s Äthiopien||False|False
+chinese|spoločnosť/štáty|Estónsko|爱沙尼亚|àishāníyǎ|False|False
+chinese|spoločnosť/štáty|Etiópia|埃塞俄比亚|āisāiébǐyǎ|False|False
 chinese|spoločnosť/štáty|Filipíny|菲律宾|fēilǜbīn|False|False
 chinese|spoločnosť/štáty|Francúzsko|法国|fǎguó|True|False
 chinese|spoločnosť/štáty|Fínsko|芬兰|fēnlán|False|False
@@ -1000,22 +961,22 @@ chinese|spoločnosť/štáty|Indonézia|印度尼西亚|yìndùníxīyà|False|F
 chinese|spoločnosť/štáty|Irak|伊拉克|yīlākè|False|False
 chinese|spoločnosť/štáty|Irán|伊朗|yīlǎng|False|False
 chinese|spoločnosť/štáty|Japonsko|日本|rìběn|True|False
-chinese|spoločnosť/štáty|Južná afrika|s Südafrika||True|False
+chinese|spoločnosť/štáty|Južná afrika|南非|nánfēi|True|False
 chinese|spoločnosť/štáty|Južná kórea|韩国|hánguó|True|False
 chinese|spoločnosť/štáty|Kanada|加拿大|jiānádà|True|False
-chinese|spoločnosť/štáty|Keňa|s Kenia||False|False
+chinese|spoločnosť/štáty|Keňa|肯尼亚|kěnníyǎ|False|False
 chinese|spoločnosť/štáty|Kolumbia|哥伦比亚|gēlúnbǐyǎ|False|False
-chinese|spoločnosť/štáty|Litva|s Litauen||False|False
-chinese|spoločnosť/štáty|Lotyšsko|s Lettland||False|False
-chinese|spoločnosť/štáty|Líbya|s Libyen||False|False
+chinese|spoločnosť/štáty|Litva|立陶宛|lìtáowǎn|False|False
+chinese|spoločnosť/štáty|Lotyšsko|拉脱维亚|lātuōwéiyǎ|False|False
+chinese|spoločnosť/štáty|Líbya|利比亚|lìbǐyǎ|False|False
 chinese|spoločnosť/štáty|Malajzia|马来西亚|mǎláixīyà|False|False
-chinese|spoločnosť/štáty|Maroko|s Marokko||False|False
+chinese|spoločnosť/štáty|Maroko|摩洛哥|móluògē|False|False
 chinese|spoločnosť/štáty|Maďarsko|匈牙利|xiōngyálì|False|False
 chinese|spoločnosť/štáty|Mexiko|墨西哥|mòxīgē|True|False
 chinese|spoločnosť/štáty|Mongolsko|蒙古|měnggǔ|False|False
 chinese|spoločnosť/štáty|Nemecko|德国|déguó|True|False
-chinese|spoločnosť/štáty|Nigéria|s Nigeria||False|False
-chinese|spoločnosť/štáty|Nový zéland|新西兰|xīnxīlán|True|False
+chinese|spoločnosť/štáty|Nigéria|尼日利亚|nírìlìyǎ|False|False
+chinese|spoločnosť/štáty|Nový Zéland|新西兰|xīnxīlán|True|False
 chinese|spoločnosť/štáty|Nórsko|挪威|nuówēi|False|False
 chinese|spoločnosť/štáty|Pakistan|巴基斯坦|bājīsītǎn|False|False
 chinese|spoločnosť/štáty|Peru|秘鲁|bìlǔ|False|False
@@ -1025,17 +986,17 @@ chinese|spoločnosť/štáty|Rakúsko|奥地利|àodìlì|True|False
 chinese|spoločnosť/štáty|Rumunsko|罗马尼亚|luómǎníyǎ|False|False
 chinese|spoločnosť/štáty|Rusko|俄罗斯|èluósī|True|False
 chinese|spoločnosť/štáty|Saudská arábia|沙特阿拉伯|shātè ālābó|False|False
-chinese|spoločnosť/štáty|Slovensko|e Slowakei||False|False
-chinese|spoločnosť/štáty|Somálsko|s Somalia||False|False
+chinese|spoločnosť/štáty|Slovensko|斯洛伐克|sīluòfákè|False|False
+chinese|spoločnosť/štáty|Somálsko|索马里|suǒmǎlǐ|False|False
 chinese|spoločnosť/štáty|Spojené kráľovstvo|英国|yīngguó|True|False
 chinese|spoločnosť/štáty|Spojené štáty|美国|měiguó|True|False
-chinese|spoločnosť/štáty|Srbsko|s Serbien||False|False
-chinese|spoločnosť/štáty|Sudán|s Sudan||False|False
+chinese|spoločnosť/štáty|Srbsko|塞尔维亚|sàiěrwéiyǎ|False|False
+chinese|spoločnosť/štáty|Sudán|苏丹|sūdān|False|False
 chinese|spoločnosť/štáty|Sýria|叙利亚|xùlìyà|False|False
 chinese|spoločnosť/štáty|Taliansko|意大利|yìdàlì|True|False
-chinese|spoločnosť/štáty|Tanzánia|s Tansania||False|False
+chinese|spoločnosť/štáty|Tanzánia|坦桑尼亚|tǎnsāngníyǎ|False|False
 chinese|spoločnosť/štáty|Thajsko|泰国|tàiguó|False|False
-chinese|spoločnosť/štáty|Tunisko|s Tunesien||False|False
+chinese|spoločnosť/štáty|Tunisko|突尼斯|túnísī|False|False
 chinese|spoločnosť/štáty|Turecko|土耳其|tǔěrqí|True|False
 chinese|spoločnosť/štáty|Ukrajina|乌克兰|wūkèlán|False|False
 chinese|spoločnosť/štáty|Venezuela|委内瑞拉|wěinèiruìlā|False|False
@@ -1223,35 +1184,24 @@ chinese|zvierata/hmyz|včela|蜜蜂|mìfēng|True|False
 chinese|zvierata/hmyz|čmeliak|熊蜂|xióngfēng|False|False
 chinese|zvierata/hmyz|škorpión|蝎子|xiēzi|True|False
 chinese|zvierata/hmyz|šváb|蟑螂|zhāngláng|True|False
-chinese|zvierata/tetrapoda|aligátor|r Alligator/en||False|False
-chinese|zvierata/tetrapoda|anakonda|e Anakonda/s||False|False
-chinese|zvierata/tetrapoda|chameleón|s Chamäleon/s||True|False
-chinese|zvierata/tetrapoda|gekón|r Gecko/s||False|False
-chinese|zvierata/tetrapoda|had|e Schlange/n||True|False
-chinese|zvierata/tetrapoda|jašterica|e Eidechse/n||False|False
-chinese|zvierata/tetrapoda|jašter|e Echse/n||False|False
-chinese|zvierata/tetrapoda|kajman|r Kaiman/e||False|False
-chinese|zvierata/tetrapoda|kobra|e Kobra/s||False|False
-chinese|zvierata/tetrapoda|korytnačka|e Schildkröte/n||True|False
-chinese|zvierata/tetrapoda|krokodíl|s Krokodil/e||True|False
-chinese|zvierata/tetrapoda|leguán|r Leguan/e||False|False
+chinese|zvierata/tetrapoda|anakonda|蚺|rán|False|False
+chinese|zvierata/tetrapoda|chameleón|变色龙|biànsèlóng|True|False
+chinese|zvierata/tetrapoda|gekón|壁虎|bìhǔ|False|False
+chinese|zvierata/tetrapoda|had|蛇|shé|True|False
+chinese|zvierata/tetrapoda|jašterica|蜥蜴|xīyì|False|False
+chinese|zvierata/tetrapoda|kobra|眼镜蛇|yǎnjìngshé|False|False
+chinese|zvierata/tetrapoda|korytnačka|龟|guī|True|False
+chinese|zvierata/tetrapoda|krokodíl|鳄鱼|èyú|True|False
 chinese|zvierata/tetrapoda|mlok|蝾螈|róngyuán|False|False
-chinese|zvierata/tetrapoda|morská korytnačka|e Meeresschildkröte/n||False|False
 chinese|zvierata/tetrapoda|obojživelník|两栖动物|liǎngqī dòngwù|True|False
-chinese|zvierata/tetrapoda|plaz|s Kriechtier/e||True|False
-chinese|zvierata/tetrapoda|plaz|s Reptil/ien||True|False
-chinese|zvierata/tetrapoda|pytón|er Python/s||False|False
+chinese|zvierata/tetrapoda|plaz|爬行动物|páxíng dòngwù|True|False
+chinese|zvierata/tetrapoda|pytón|蟒蛇|mǎngshé|False|False
 chinese|zvierata/tetrapoda|ropucha|蟾蜍|chánchú|True|False
 chinese|zvierata/tetrapoda|rosnička|雨蛙|yǔwā|False|False
-chinese|zvierata/tetrapoda|salamandra|r Salamander||False|False
-chinese|zvierata/tetrapoda|scink|r Skink/e||False|False
-chinese|zvierata/tetrapoda|slepúch|e Schleiche/n||False|False
-chinese|zvierata/tetrapoda|užovka|e Natter/n||False|False
-chinese|zvierata/tetrapoda|varan|r Waran/e||False|False
-chinese|zvierata/tetrapoda|veľhad|e Abgottschlange/n||False|False
-chinese|zvierata/tetrapoda|veľhad|e Königsschlange/n||False|False
-chinese|zvierata/tetrapoda|vretenica|e Viper/n||False|False
-chinese|zvierata/tetrapoda|štrkáč|e Klapperschlange/n||False|False
+chinese|zvierata/tetrapoda|užovka|水游蛇|shuǐyóushé|False|False
+chinese|zvierata/tetrapoda|varan|巨蜥|jùxī|False|False
+chinese|zvierata/tetrapoda|vretenica|蝰蛇|kuíshé|False|False
+chinese|zvierata/tetrapoda|štrkáč|响尾蛇|xiǎngwěishé|False|False
 chinese|zvierata/tetrapoda|žaba|蛙|wā|True|False
 chinese|živé telo/body|brada|胡须|húxū|False|False
 chinese|živé telo/body|chrbtica|脊柱|jǐzhù|False|False
@@ -7940,7 +7890,7 @@ espanol|abstract/pohyb|kvapkať|gotear||False|False
 espanol|abstract/pohyb|miešať|mezclar||False|False
 espanol|abstract/pohyb|nakloniť|ladear||False|False
 espanol|abstract/pohyb|naplniť povrch|colmar||False|False
-espanol|abstract/pohyb|naplniť|- llenar||False|False
+espanol|abstract/pohyb|naplniť|llenar||False|True
 espanol|abstract/pohyb|obrátiť|revolver||False|False
 espanol|abstract/pohyb|oddeliť|separar||False|False
 espanol|abstract/pohyb|odstrániť|quitar||False|False
@@ -7957,7 +7907,7 @@ espanol|abstract/pohyb|prázdny|vacío||False|False
 espanol|abstract/pohyb|pulzovať|latir||False|False
 espanol|abstract/pohyb|rozbiť|quebrar||False|False
 espanol|abstract/pohyb|roztrhnúť|desgarrar||False|False
-espanol|abstract/pohyb|rozviazať|- desenlazar||False|False
+espanol|abstract/pohyb|rozviazať|desenlazar||False|True
 espanol|abstract/pohyb|stlačiť|apretar||False|False
 espanol|abstract/pohyb|tiecť|fluir||False|False
 espanol|abstract/pohyb|tlačiť|empujar||False|False
@@ -7970,7 +7920,7 @@ espanol|abstract/pohyb|uzol|nudo||False|False
 espanol|abstract/pohyb|vložiť|meter||False|False
 espanol|abstract/pohyb|vsunúť|insertar||False|False
 espanol|abstract/pohyb|vybuchnúť|estallar||False|False
-espanol|abstract/pohyb|vyprázdniť|- vaciar||False|False
+espanol|abstract/pohyb|vyprázdniť|vaciar||False|True
 espanol|abstract/pohyb|vytiahnuť|sacar||False|False
 espanol|abstract/pohyb|vytlačiť|exprimir||False|False
 espanol|abstract/pohyb|vyžmýkať|escurrir||False|False
@@ -10176,8 +10126,8 @@ russkiy|economy/agriculture|hnojiť|удобрять||True|False
 russkiy|economy/agriculture|hnoj|навоз||False|False
 russkiy|economy/agriculture|jahňa|ягненок||True|False
 russkiy|economy/agriculture|jarmo|ярмо||False|False
-russkiy|economy/agriculture|kanec|r Eber||False|False
-russkiy|economy/agriculture|kobyla|e Stute||False|False
+russkiy|economy/agriculture|kanec|каба́н||True|False
+russkiy|economy/agriculture|kobyla|кобы́ла||False|False
 russkiy|economy/agriculture|kocúr|кот||False|False
 russkiy|economy/agriculture|kohút|петух||True|False
 russkiy|economy/agriculture|kombajn|комбайн||False|False
@@ -10188,19 +10138,19 @@ russkiy|economy/agriculture|krmivo|корм||False|False
 russkiy|economy/agriculture|krmivo|фураж||False|False
 russkiy|economy/agriculture|krotký|приручённый||False|False
 russkiy|economy/agriculture|kuriatko|цыплёнок||True|False
-russkiy|economy/agriculture|kôň|s Pferd||True|False
-russkiy|economy/agriculture|mačiatko|s Kätzchen||True|False
+russkiy|economy/agriculture|kôň|ло́шадь||True|False
+russkiy|economy/agriculture|mačiatko|котёнок||True|False
 russkiy|economy/agriculture|mačka|кошка||True|False
 russkiy|economy/agriculture|maštaľ|хлев||True|False
-russkiy|economy/agriculture|morka|e Pute/n||False|False
-russkiy|economy/agriculture|mul|s Maultier/e||False|False
+russkiy|economy/agriculture|morka|инде́йка||False|False
+russkiy|economy/agriculture|mul|мул||False|False
 russkiy|economy/agriculture|náhubok|намо́рдник||False|False
 russkiy|economy/agriculture|oberať|обирать||False|False
 russkiy|economy/agriculture|obilie|хлеб||False|False
 russkiy|economy/agriculture|obojok|оше́йник||False|False
-russkiy|economy/agriculture|opraty|r Zügel||False|False
+russkiy|economy/agriculture|opraty|во́жжи||False|False
 russkiy|economy/agriculture|orať|пахать||False|False
-russkiy|economy/agriculture|ostroha|r Sporn/Sporen||False|False
+russkiy|economy/agriculture|ostroha|шпо́ра||False|False
 russkiy|economy/agriculture|ovca|овца||True|False
 russkiy|economy/agriculture|pastier|пастух||False|False
 russkiy|economy/agriculture|pastier|пастух||True|False
@@ -10210,8 +10160,7 @@ russkiy|economy/agriculture|pluh|плуг||False|False
 russkiy|economy/agriculture|podkova|подко́ва||False|False
 russkiy|economy/agriculture|pole|поле||True|False
 russkiy|economy/agriculture|poľnohospodárstvo|земледелие||True|False
-russkiy|economy/agriculture|prasa|s Schwein||True|False
-russkiy|economy/agriculture|prasiatko|s Ferkel / s Schweinchen||True|False
+russkiy|economy/agriculture|prasiatko|поросёнок||True|False
 russkiy|economy/agriculture|presadiť|пересадить||False|False
 russkiy|economy/agriculture|priesek|просек||False|False
 russkiy|economy/agriculture|reťaz|цепь||False|False
@@ -10228,18 +10177,14 @@ russkiy|economy/agriculture|slama|солома||False|False
 russkiy|economy/agriculture|sliepka|курица||True|False
 russkiy|economy/agriculture|stajňa|конюшня||False|False
 russkiy|economy/agriculture|stodola|сарай||False|False
-russkiy|economy/agriculture|strmeň|r Steigbügel||False|False
-russkiy|economy/agriculture|suka|e Hündin||False|False
-russkiy|economy/agriculture|sviňa|e Sau||True|False
-russkiy|economy/agriculture|teľa|s Kalb||True|False
+russkiy|economy/agriculture|strmeň|стре́мя||False|False
+russkiy|economy/agriculture|suka|су́ка||False|False
+russkiy|economy/agriculture|sviňa|свинья́||True|False
+russkiy|economy/agriculture|teľa|телёнок||True|False
 russkiy|economy/agriculture|traktor|трактор||False|False
 russkiy|economy/agriculture|trávnik|газо́н||False|False
-russkiy|economy/agriculture|tátoš|s Ross/e||False|False
-russkiy|economy/agriculture|uviazať ku kolu|anpflocken||False|False
 russkiy|economy/agriculture|uzda|узда́||False|False
 russkiy|economy/agriculture|vinič|виноград||False|False
-russkiy|economy/agriculture|vraník (čierny kôň)|r Rappe/n||False|False
-russkiy|economy/agriculture|vypitvať|ausweiden||False|False
 russkiy|economy/agriculture|vyrúbať|вырубить||False|False
 russkiy|economy/agriculture|včelár|пасечник||False|False
 russkiy|economy/agriculture|včelár|пчеловод||False|False
@@ -10248,12 +10193,10 @@ russkiy|economy/agriculture|zasadiť|посадить||False|False
 russkiy|economy/agriculture|zver|дичь||False|False
 russkiy|economy/agriculture|úhor (neobrábané pole)|пар||False|False
 russkiy|economy/agriculture|úroda|урожай||True|False
-russkiy|economy/agriculture|šimeľ (biely kôň)|r Schimmel||False|False
-russkiy|economy/agriculture|štvať/poháňať|hetzen||False|False
 russkiy|economy/agriculture|šťeňa|щенок||True|False
 russkiy|economy/agriculture|žať|жать||True|False
-russkiy|economy/agriculture|žrebec|r Hengst||False|False
-russkiy|economy/agriculture|žriebä|s Fohlen||False|False
+russkiy|economy/agriculture|žrebec|конь||False|False
+russkiy|economy/agriculture|žriebä|жеребёнок||False|False
 russkiy|economy/cloth|bunda|ку́ртка||False|False
 russkiy|economy/cloth|golier|воротни́к||False|False
 russkiy|economy/cloth|gombík|пу́говица||False|False
@@ -10359,7 +10302,11 @@ russkiy|economy/transportation|kotva|я́корь||False|False
 russkiy|economy/transportation|lietadlo|самолёт||False|False
 russkiy|economy/transportation|nákladný|грузово́й||False|True
 russkiy|economy/transportation|náklad|груз||False|False
+russkiy|economy/war|delo|пу́шка||False|False
 russkiy|economy/war|napadnúť|напа́сть||False|False
+russkiy|economy/war|pištoľ|пистоле́т||False|False
+russkiy|economy/war|puška|ружьё||False|False
+russkiy|economy/war|zbraň|ору́жие||False|False
 russkiy|economy/war|útok|штурм||False|False
 russkiy|life/activity|existovať|существова́ть||False|False
 russkiy|life/activity|hľadať|искать||False|False

@@ -11,6 +11,7 @@
 	var answer;
 	var correctCount = 0;
 	var wrongCount = 0;
+	var el_options = [];
 
 	function loadDict() {
 		var xhr = new XMLHttpRequest();
@@ -75,7 +76,9 @@
 		});
 	}
 	function askLanguage() {
-		document.getElementById('footer').innerText = "Select a language";
+		correctCount = 0;
+		wrongCount = 0;
+		document.getElementById('footer').innerText = '';
 		document.getElementById('languages').classList.remove("hidden");
 		document.getElementById('options').classList.add("hidden");
 	}
@@ -85,7 +88,6 @@
 		showQuestion();
 	}
 	function showQuestion() {
-		document.getElementById('footer').innerText = "Select correct option";
 		options = document.getElementById('options')
 		options.classList.remove("hidden");
 		options.textContent = '';
@@ -94,26 +96,32 @@
 		all = dict.filter(word => word.language == language);
 		words = randomItems(all, count);
 		theAnswer = words[Math.floor(Math.random()*count)];
-		answer = theAnswer.target;
+		answer = theAnswer.target.split('/')[0];
 
 		question = document.createElement("div");
 		question.innerText = theAnswer.source;
 		options.appendChild(question);
 
+		el_options = [];
 		words.forEach(function(word) {
 			option = document.createElement("li");
-			option.innerText = word.target;
-			option.addEventListener('click', function() {answerQuestion(word.target)});
+			var targetShort = word.target.split('/')[0];
+			option.innerText = targetShort;
+			option.addEventListener('click', function(e) {answerQuestion(e, targetShort)});
 			options.appendChild(option);
+			el_options.push(option);
+		});
+		el_options.forEach(function(el) {
+			el.style.fontSize = el.offsetHeight * 0.4 + 'px';
+			el.style.lineHeight = el.offsetHeight * 0.5 + 'px';
 		});
 	}
-	function answerQuestion(anAnswer) {
+	function answerQuestion(e, anAnswer) {
 		correct = false;
 		correctAnswer = answer;
 		if (answer == anAnswer) {
 			correct = true;
 		}
-		showQuestion();
 
 		if (correct) {
 			correctCount++;
@@ -129,23 +137,32 @@
 			document.body.classList.add("correct");
 			document.body.classList.remove("wrong");
 		} else {
+			e.target.classList.add("wrong");
 			document.getElementById('footer').innerText = "Wrong!" + text;
 			document.getElementById('footer').classList.add("wrong");
 			document.getElementById('footer').classList.remove("correct");
 			document.body.classList.add("wrong");
 			document.body.classList.remove("correct");
 		}
+
+		el_options.forEach(function(el) {
+			if (el.innerText == correctAnswer) {
+				el.classList.add("correct");
+			}
+		});
+
+		setTimeout(function() {showQuestion()}, 1000);
 	}
 	function randomItems(list, count) {
 		items = [];
 		topic = list[Math.floor(Math.random()*list.length)].topic;
-		list = list.filter(w => w.topic == topic);
-		if (list.size < count) {
-			return;
+		shortList = list.filter(w => w.topic == topic);
+		if (shortList.length < count) {
+			return randomItems(list, count);
 		}
 		for (i=1; i<=count; i++) {
 			while (true) {
-				adept = list[Math.floor(Math.random()*list.length)];
+				adept = shortList[Math.floor(Math.random()*shortList.length)];
 				if (!items.includes(adept)) {
 					items.push(adept);
 					break;
@@ -208,6 +225,8 @@
 			align-items: stretch;
 			gap: 0.5em;
 			height: 75%;
+			min-width: 10em;
+			width: 50%;
 		}
 		li {
 			background-color: #000;
@@ -216,8 +235,10 @@
 			padding: 0.5em;
 			border: 1px solid;
 			text-align: center;
-			min-width: 15em;
+			width: 100%;
 			flex: 1;
+			align-self: center;
+			border-radius: 0.5em
 		}
 		li:active {
 			background-color: #333;
