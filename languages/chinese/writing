@@ -1,0 +1,9 @@
+#stroke order
+left to right
+top to bottom
+horizontal before vertical
+diagonals right to left before left to right
+outside top before inside
+inside before outside bottom
+top dot first
+non-top dot last
