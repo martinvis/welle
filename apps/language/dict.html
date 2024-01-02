@@ -29,7 +29,7 @@
 		lines.forEach(function(line) {
 			if (line.length != 0) {
 				parts = line.split('\|');
-				word = {language: parts[0], topic: parts[1], source: parts[2], target: parts[3], pronunciation: parts[4], frequent: parts[5], derived: parts[6]}
+				word = {language: parts[0], topic: parts[1], source: parts[2], target: parts[3], pronunciation: parts[4], frequent: parts[5], derived: parts[6], type: parts[7], article: parts[8]}
 				dict.push(word);
 				languages.add(parts[0]);
 				topics.add(parts[1]);
@@ -111,9 +111,15 @@
 			options.appendChild(option);
 			el_options.push(option);
 		});
+		min_height = 0
 		el_options.forEach(function(el) {
-			el.style.fontSize = el.offsetHeight * 0.4 + 'px';
-			el.style.lineHeight = el.offsetHeight * 0.5 + 'px';
+			if (min_height == 0 || min_height < el.offsetHeight) {
+				min_height = el.offsetHeight;
+			}
+		});
+		el_options.forEach(function(el) {
+			el.style.fontSize = min_height * 0.4 + 'px';
+			el.style.lineHeight = min_height * 0.5 + 'px';
 		});
 	}
 	function answerQuestion(e, anAnswer) {
@@ -155,10 +161,10 @@
 	}
 	function randomItems(list, count) {
 		items = [];
-		topic = list[Math.floor(Math.random()*list.length)].topic;
-		shortList = list.filter(w => w.topic == topic);
+		first_item = list[Math.floor(Math.random()*list.length)]
+		shortList = list.filter(w => w.topic == first_item.topic && w.type == first_item.type);
 		if (shortList.length < count) {
-			return randomItems(list, count);
+			shortList = list.filter(w => w.type == first_item.type);
 		}
 		for (i=1; i<=count; i++) {
 			while (true) {

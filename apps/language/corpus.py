@@ -32,6 +32,8 @@ def parseFile(file):
           derived = True
         source = re.sub('=|- |', '', parts[0])
         targets = re.sub('\|', '', parts[1])
+        type = 'other'
+        article = ''
 
         for target_raw in targets.split('+'):
           position = target_raw.find('[')
@@ -40,16 +42,28 @@ def parseFile(file):
           target = target_raw[:position].strip()
           pronunciation = re.sub('\[|\]', '', target_raw[position:])
 
-          word = {'language': language, 'path': path, 'source': source, 'target': target, 'pronunciation': pronunciation, 'frequent': frequent, 'derived': derived}
+          word = {'language': language, 'path': path, 'source': source, 'target': target, 'pronunciation': pronunciation, 'frequent': frequent, 'derived': derived, 'type': type, 'article': article}
+          word = processWordInLanguage(word, language)
           words.append(word)
     return words
+
+def processWordInLanguage(word, language):
+  if language == 'deutsch':
+    if word['target'].startswith(('r ', 's ', 'e ')):
+      word['type'] = 'noun'
+      word['article'] = word['target'][0:1]
+      word['target'] = word['target'][2:]
+    elif word['target'].split('/\(')[0].endswith(('en', 'ern', 'eln')):
+      word['type'] = 'verb'
+
+  return word
 
 corpus = open('corpus', "w")
 
 words = parseDictionary(sys.argv[1])
 lines = []
 for word in words:
-  lines.append(word['language'] + '|' + word['path'] + '|' + word['source'] + '|' + word['target'] + '|' + word['pronunciation'] + '|' + str(word['frequent']) + '|' + str(word['derived']) + '\n')
+  lines.append(word['language'] + '|' + word['path'] + '|' + word['source'] + '|' + word['target'] + '|' + word['pronunciation'] + '|' + str(word['frequent']) + '|' + str(word['derived']) + '|' + word['type'] + '|' + word['article'] + '\n')
 for line in sorted(lines):
   corpus.write(line)
 
