@@ -3,3 +3,19 @@ Stochastic model: with randomness
 
 Algorithm: finite sequence of instructions to solve problem
 Heuristic: simple approach to problem, leads to approximate solution
+
+System: quantity of space or matter
+- open: mass can change
+- close: mass can not change
+- isolated: no interactions
+Surroundings: everything outside of system
+Boundary: separates system and surroundings
+Property: measurable characteristic of system
+- extensive: additive, depends on system size (energy)
+- intensive: not additive, has value at point (velocity)
+State: complete description of system by properties
+Interaction: exchange between system and surroundings
+- transfer of extensive property
+Process: change of state / properties
+Conservation: some extensive properties are not created/destroyed
+- mass, energy, charge, linear/angular momentum

@@ -1,0 +1,99 @@
+#selectors
+all: *
+element: element
+class: .class
+ID: "#id"
+multiple: selector, selector
+descendant: selector selector
+child: selector>selector
+following: selector+selector
+preceding: selector~selector
+negation: ":not(selector)"
+attribute, exact value: [attribute=value]
+attribute, contains word: [attribute~=word]
+attribute, contains string: [attribute*=abc]
+attribute, starts with string: [attribute^=abc]
+attribute, ends with string: [attribute$=abc]
+keyboard input: ":focus"
+press down: ":active"
+mouse over: ":hover"
+unvisited link: ":link"
+visited link: ":visited"
+:first-child
+:last-child
+:nth-child(n)
+:nth-last-child(n)
+
+#flex
+parent
+- display: flex
+- flex-direction: row | row-reverse | column | column-reverse
+- justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly
+- align-items: stretch | flex-start | flex-end | center
+- row-gap
+- column-gap
+- gap: row-gap column-gap
+parent, multiline only
+- flex-wrap: nowrap | wrap | wrap-reverse
+- flex-flow: flex-direction flex-wrap
+- align-content: flex-start | flex-end | center | space-between | space-around | space-evenly | stretch
+child
+- order: X
+- flex-grow: X
+- flex: flex-grow flex-shrink flex-basis
+- align-self: flex-start | flex-end | center
+
+#element
+border-radius
+border-color
+border-width
+border-style: none | dotted | dashed | solid | double | hidden
+border: border-width border-style border-color
+
+#background
+background-color
+background-image
+background-repeat: horizontal vertical (repeat | no-repeat | space | round)
+background-attachment: fixed | scroll
+background-position: horizontal offset vertical offset
+background: background-color background-image background-repeat background-attachment background-position
+
+#text
+color
+font-family: serif | sans-serif | cursive | monospace
+font-style: normal | italic
+font-variant: normal | small-caps
+font-size: medium | xx-small | x-small | small | large | x-large | xx-large | smaller | larger | X
+font-weight: normal | bold | bolder | lighter | 100-900
+font: font-style font-variant font-weight font-size font-family
+letter-spacing
+line-height
+
+#color
+"#FFAA00"
+rgb(255,100,0)
+rgba(255,100,0,0.5)
+
+#position
+top
+bottom
+left
+right
+center
+
+#size
+absolute
+- pixel: px
+- milimeter: mm
+- centimeter: cm
+- point: pt
+- pica: pc (12pt)
+- inch: in (6pc)
+relative
+- font-size: em
+- font-size: rem (root)
+- parent: %
+- device: vw (width)
+- device: vh (height)
+- device: vmin
+- device: vmax

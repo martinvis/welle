@@ -56,3 +56,21 @@ NGA: arabic
 NGDA: german
 6-7: slavic, turkish
 8-9: japanese, korean, hindi
+
+=Part of speech
+Noun: object
+Pronoun: noun substitute
+Adjective: modifies noun
+Verb: action
+Adverb: modifies verb
+Preposition: space/time relation
+Conjunction: connection
+Interjection: feeling
+Determiner: with noun
+- Article
+- Demonstrative: this/that
+- Possessive: my/your
+- Cardinal: number
+- Quantifier: few/many
+- Distributive: none/every
+- Interrogative: what/who
