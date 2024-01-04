@@ -43,36 +43,75 @@
 			el_languages.appendChild(el_language);
 		});
 	}
+
+	function showTopic(topic) {
+		console.log(topic);
+		languages = new Set();
+		words = new Set();
+		dict.forEach(function(word) {
+			if (word.topic == topic) {
+				languages.add(word.language);
+				words.add(word.source);
+			}
+		});
+
+		languages = Array.from(languages);
+		words = Array.from(words);
+		resultsDiv = document.getElementById("results");
+		resultsDiv.innerHTML = '';
+
+		dict.forEach(function(word) {
+			if (word.topic == topic) {
+				div = document.createElement("div");
+				div.innerText = word.target;
+				div.style.gridArea = (words.indexOf(word.source) + 2) + ' / ' + (languages.indexOf(word.language) + 2);
+				resultsDiv.appendChild(div);
+			}
+		});
+		languages.forEach(function(language) {
+			div = document.createElement("div");
+			div.innerText = language;
+			div.style.gridArea =  1 + ' / ' + (languages.indexOf(language) + 2);
+			resultsDiv.appendChild(div);
+		});
+		words.forEach(function(word) {
+			div = document.createElement("div");
+			div.innerText = word;
+			div.style.gridArea = (words.indexOf(word) + 2) + ' / ' + 1;
+			resultsDiv.appendChild(div);
+		});
+	}
+
 	function search() {
 		results = []
 		needle = document.getElementById('word').value
 		dict.forEach(function(word) {
-			if (word.target.indexOf(needle) !== -1 || word.pronunciation.indexOf(needle) !== -1) {
+			if (word.source.indexOf(needle) !== -1 || word.target.indexOf(needle) !== -1 || word.pronunciation.indexOf(needle) !== -1) {
 				results.push(word);
 			}
 		});
 		resultsDiv = document.getElementById("results");
 		resultsDiv.innerHTML = '';
+		resultsDiv.style.gridTemplateColumns = '25% 25% 25% 25%';
 		results.forEach(function(word) {
-			row = document.createElement("tr");
 
-			source = document.createElement("td");
+			source = document.createElement("div");
 			source.innerText = word.source;
-			row.appendChild(source);
+			resultsDiv.appendChild(source);
 
-			target = document.createElement("td");
+			target = document.createElement("div");
 			target.innerText = word.target;
-			row.appendChild(target);
+			resultsDiv.appendChild(target);
 
-			pronunciation = document.createElement("td");
+			pronunciation = document.createElement("div");
 			pronunciation.innerText = word.pronunciation;
-			row.appendChild(pronunciation);
+			resultsDiv.appendChild(pronunciation);
 
-			topic = document.createElement("td");
+			topic = document.createElement("div");
 			topic.innerText = word.topic;
-			row.appendChild(topic);
+			topic.addEventListener('click', function(e) {showTopic(word.topic)});
+			resultsDiv.appendChild(topic);
 
-			resultsDiv.appendChild(row);
 		});
 	}
 	function askLanguage() {
@@ -202,14 +241,12 @@
 		#results {
 			width: 100%;
 		}
-		#results tr {
-			display: flex;
-			border-bottom: 1px solid #FFF;
-			padding: 2px;
+		#results {
+			display: grid;
+			gap: 0.5em;
 		}
-		#results td {
-			width: 25%;
-			padding: 0.5em;
+		#results div {
+			
 		}
 		button, input {
 			background: #458;
@@ -264,7 +301,7 @@
 	<input type="text" id="word" />
 	<button type="button" id="search" onclick="search()" style="vertical-align:top;">Search</button>
 	<button type="button" id="play" onclick="askLanguage()" style="vertical-align:top;">Play</button>
-	<table id="results"></table>
+	<div id="results"></div>
 	<div id="footer"></div>
 	<ul id="languages" class="hidden"></ul>
 	<ul id="options" class="hidden"></ul>

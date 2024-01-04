@@ -276,13 +276,20 @@ mutual attraction between all things
 F = G * m1 * m2 / r^2
 
 #Mass
+Dalton: atomic mass unit, 1/12 of C12
+
+#Mass
 Sun: 2 PEg
 Jupiter: 2 TEg
 Earth: 6 GEg
 Moon: 70 MEg
+elephant: ~4 Mg
+human: ~80 kg
 mouse: ~20 g
 bee: ~100 mg
+rice seed: ~20 mg
 cell: ~1 ng
+hemoglobin: 250 png
 proton: 1675 pfg
 electron: 0.91 pfg
 

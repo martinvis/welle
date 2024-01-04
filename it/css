@@ -24,6 +24,26 @@ visited link: ":visited"
 :nth-child(n)
 :nth-last-child(n)
 
+#grid
+parent
+- display: grid
+- grid-auto-columns: default size
+- grid-auto-rows: default size
+- grid-auto-flow: row | column | dense | row dense | column dense
+- grid-template-columns: size1 size2 ...
+- grid-template-rows: size1 size2 ...
+child
+- grid-area: grid-row-start / grid-column-start / grid-row-end / grid-column-end
+- grid-column: grid-column-start / grid-column-end
+- grid-column-start
+- grid-column-end
+- grid-row: grid-row-start / grid-row-end
+- grid-row-start
+- grid-row-end
+- (grid-)gap: both row and column
+- (grid-)column-gap
+- (grid-)row-gap
+
 #flex
 parent
 - display: flex
@@ -49,6 +69,18 @@ border-color
 border-width
 border-style: none | dotted | dashed | solid | double | hidden
 border: border-width border-style border-color
+padding/margin:
+- x: top right bottom left
+- x-top
+- x-right
+- x-bottom
+- x-left
+- x-block: start end
+- x-block-start
+- x-block-end
+- x-inline: start end
+- x-inline-start
+- x-inline-end
 
 #background
 background-color
@@ -68,6 +100,9 @@ font-weight: normal | bold | bolder | lighter | 100-900
 font: font-style font-variant font-weight font-size font-family
 letter-spacing
 line-height
+
+#controls
+accent-color: color
 
 #color
 "#FFAA00"

@@ -5,15 +5,16 @@ fossil
 - coal: 25%
 nuclear
 renewables
-- solar
-- wind
 - hydro
+- wind
+- solar
 - biomass
 - geothermal
 
 #electricity
 20% of energy consumption
-source: 30% renewables, 10% nuclear, 25% natural gas, 35% coal
+source: 30% renewables (15% hydro), 10% nuclear, 25% natural gas, 35% coal
+losses: 50% generation, 5% delivery
 
 #oil
 50% on road transport
