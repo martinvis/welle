@@ -170,20 +170,34 @@ chinese|abstract/size|úzky|窄|zhǎi|False|False|other|
 chinese|abstract/size|časť|部分|bùfen|True|False|other|
 chinese|abstract/size|široký|宽|kuān|False|False|other|
 chinese|abstract/space|blízky|近|jìn|True|False|other|
+chinese|abstract/space|dole|下|xià|True|False|other|
+chinese|abstract/space|do|到|dào|True|False|other|
+chinese|abstract/space|hore|上|shàng|True|False|other|
 chinese|abstract/space|kde|哪里|nǎlǐ|True|False|other|
 chinese|abstract/space|kraj|边|biān|True|False|other|
 chinese|abstract/space|ku|向|xiàng|True|False|other|
+chinese|abstract/space|medzi|之间|zhījiān|True|False|other|
+chinese|abstract/space|miesto|空间|kōngjiān|True|False|other|
+chinese|abstract/space|nad|上面|shàngmian|False|True|other|
+chinese|abstract/space|od|从|cóng|True|False|other|
+chinese|abstract/space|pod|下面|xiàmian|False|True|other|
+chinese|abstract/space|pozdĺž|沿|yán|False|False|other|
+chinese|abstract/space|pred|前|qián|True|False|other|
 chinese|abstract/space|smer|方向|fāngxiàng|True|False|other|
 chinese|abstract/space|strana|面|miàn|True|False|other|
+chinese|abstract/space|stred|中|zhōng|True|False|other|
 chinese|abstract/space|tam|那里|nàli|True|False|other|
 chinese|abstract/space|tu|这里|zhèlǐ|True|False|other|
 chinese|abstract/space|vedľa|旁边|pángbiān|True|False|other|
 chinese|abstract/space|vnútri|里|lǐ|True|False|other|
 chinese|abstract/space|vonku|外|wài|True|False|other|
+chinese|abstract/space|vpravo|右|yòu|True|False|other|
 chinese|abstract/space|vrstva|层|céng|True|False|other|
+chinese|abstract/space|vľavo|左|zuǒ|True|False|other|
 chinese|abstract/space|všade|到处|dàochù |True|False|other|
 chinese|abstract/space|všade|处处|chùchù |True|False|other|
 chinese|abstract/space|všade|遍地|biàndì|True|False|other|
+chinese|abstract/space|za|后|hòu|True|False|other|
 chinese|abstract/space|ďaleký|远|yuǎn|True|False|other|
 chinese|abstract/time|dnes|今天|jīntiān|False|False|other|
 chinese|abstract/time|dopoludnie|上午|shàngwǔ|True|False|other|
@@ -214,6 +228,7 @@ chinese|abstract/time|skorý|早|zǎo|True|False|other|
 chinese|abstract/time|starý|旧|jiù|True|False|other|
 chinese|abstract/time|teraz|现在|xiànzài|True|False|other|
 chinese|abstract/time|už|已经|yǐjīng|True|False|other|
+chinese|abstract/time|včasný|及时|jíshí|True|False|other|
 chinese|abstract/time|včera|昨天|zuótiān|False|False|other|
 chinese|abstract/time|vždy|总是|zǒngshì|True|False|other|
 chinese|abstract/time|zajtra|明天|míngtiān|False|False|other|
@@ -285,6 +300,122 @@ chinese|culture/art|televízia|电视|diànshì|True|False|other|
 chinese|culture/art|televízor|电视机|diànshìjī|False|True|other|
 chinese|culture/art|tragédia|悲剧|bēijù|False|False|other|
 chinese|culture/art|umenie|艺术|yìshù|False|False|other|
+chinese|culture/food/animal|bielok|蛋白|dànbái|True|False|other|
+chinese|culture/food/animal|bravčovina|猪肉|zhūròu|False|False|other|
+chinese|culture/food/animal|hovädzina|牛肉|niúròu|False|False|other|
+chinese|culture/food/animal|hydina|禽肉|qínròu|True|False|other|
+chinese|culture/food/animal|jahňacina|羊肉|yángròu|False|False|other|
+chinese|culture/food/animal|klobása|香肠|xiāngcháng|True|False|other|
+chinese|culture/food/animal|kurča|鸡肉|jīròu|True|False|other|
+chinese|culture/food/animal|maslo|牛油|niúyóu |True|False|other|
+chinese|culture/food/animal|maslo|黄油|huángyóu|True|False|other|
+chinese|culture/food/animal|mlieko|牛奶|niúnǎi|True|False|other|
+chinese|culture/food/animal|mäso|肉|ròu|True|False|other|
+chinese|culture/food/animal|párok|肠仔|chángzǐ|False|False|other|
+chinese|culture/food/animal|slanina|熏肉|xūn ròu|True|False|other|
+chinese|culture/food/animal|smotana|奶油|nǎiyóu|True|False|other|
+chinese|culture/food/animal|syr|芝士|zhīshì|True|False|other|
+chinese|culture/food/animal|syr|起司|qǐ sī |True|False|other|
+chinese|culture/food/animal|teľacina|小牛肉|xiǎo niúròu|False|False|other|
+chinese|culture/food/animal|tvaroh|凝乳|níngrǔ|True|False|other|
+chinese|culture/food/animal|vajce|鸡蛋|jīdàn|True|False|other|
+chinese|culture/food/animal|šunka|火腿|huǒtuǐ|True|False|other|
+chinese|culture/food/animal|žĺtok|蛋黄|dànhuáng|True|False|other|
+chinese|culture/food/drink|alkohol|酒|jiǔ|True|False|other|
+chinese|culture/food/drink|káva|咖啡|kāfēi|True|False|other|
+chinese|culture/food/drink|pivo|啤酒|píjiǔ|False|True|other|
+chinese|culture/food/drink|čaj|茶|chá|True|False|other|
+chinese|culture/food/fruit|ananás|菠萝|bōluó|False|False|other|
+chinese|culture/food/fruit|arašid|花生|huāshēng|False|False|other|
+chinese|culture/food/fruit|avokádo|鳄梨|èlí|False|False|other|
+chinese|culture/food/fruit|banán|香蕉|xiāngjiāo|False|False|other|
+chinese|culture/food/fruit|broskyňa|桃子|táozi|True|False|other|
+chinese|culture/food/fruit|brusnica|蔓越莓|mànyuèméi|False|False|other|
+chinese|culture/food/fruit|citrón|柠檬|níngméng|True|False|other|
+chinese|culture/food/fruit|datľa|枣|zǎo|False|False|other|
+chinese|culture/food/fruit|egreš|醋栗|cùlì|False|False|other|
+chinese|culture/food/fruit|figa|无花果|wúhuāguǒ|False|False|other|
+chinese|culture/food/fruit|gaštan|板栗|bǎnlì|False|False|other|
+chinese|culture/food/fruit|hrozno|葡萄|pútáo|False|False|other|
+chinese|culture/food/fruit|hruška|梨子|lízi|True|False|other|
+chinese|culture/food/fruit|jablko|苹果|píngguǒ|True|False|other|
+chinese|culture/food/fruit|jahoda|草莓|cǎoméi|False|False|other|
+chinese|culture/food/fruit|kaki|柿|shì|False|False|other|
+chinese|culture/food/fruit|kešu orech|腰果|yāoguǒ|False|False|other|
+chinese|culture/food/fruit|kiwi|猕猴桃|míhóutáo|False|False|other|
+chinese|culture/food/fruit|kokosový orech|椰子|yēzi|False|False|other|
+chinese|culture/food/fruit|lieskový orech|榛子|zhēnzi|False|False|other|
+chinese|culture/food/fruit|limetka|青柠|qīngníng|False|False|other|
+chinese|culture/food/fruit|malina|树莓|shùméi|False|False|other|
+chinese|culture/food/fruit|mandarinka|橘子|júzi|False|False|other|
+chinese|culture/food/fruit|mandľa|扁桃|biǎntáo|False|False|other|
+chinese|culture/food/fruit|mango|芒果|mángguǒ|False|False|other|
+chinese|culture/food/fruit|marhuľa|杏子|xìngzi|True|False|other|
+chinese|culture/food/fruit|moruša|桑树|sāngshù|False|False|other|
+chinese|culture/food/fruit|oliva|油橄榄|yóu gǎnlǎn|False|False|other|
+chinese|culture/food/fruit|orech|坚果|jiānguǒ|False|False|other|
+chinese|culture/food/fruit|ovocie|水果|shuǐguǒ|False|False|other|
+chinese|culture/food/fruit|para orech|巴西坚果|bāxī jiānguǒ|False|False|other|
+chinese|culture/food/fruit|pekanový orech|山核桃|shān hétáo|False|False|other|
+chinese|culture/food/fruit|pistácia|开心果|kāixīnguǒ|False|False|other|
+chinese|culture/food/fruit|pomaranč|橙子|chéngzi|False|False|other|
+chinese|culture/food/fruit|rebarbora|大黄|dàhuáng|False|False|other|
+chinese|culture/food/fruit|ríbezla|黑醋栗|hēi cùlì|False|False|other|
+chinese|culture/food/fruit|slivka|李子|lǐzǐ|True|False|other|
+chinese|culture/food/fruit|višňa|酸樱桃|suān yīngtáo|False|False|other|
+chinese|culture/food/fruit|vlašský orech|核桃|hétáo|False|False|other|
+chinese|culture/food/fruit|čerešňa|樱桃|yīngtáo|False|False|other|
+chinese|culture/food/fruit|černica|黑莓|hēiméi|False|False|other|
+chinese|culture/food/fruit|čučoriedka|蓝莓|lánméi|False|False|other|
+chinese|culture/food/meal|polievka|汤|tāng|True|False|other|
+chinese|culture/food/vegetable|artičok|洋蓟|yángjì|False|False|other|
+chinese|culture/food/vegetable|baklažán|茄子|qiézi|False|False|other|
+chinese|culture/food/vegetable|batata|地瓜|dìguā|False|False|other|
+chinese|culture/food/vegetable|batata|红薯|hóngshǔ |False|False|other|
+chinese|culture/food/vegetable|brokolica|西兰花|xī lánhuā|False|False|other|
+chinese|culture/food/vegetable|cesnak|大蒜|dàsuàn|True|False|other|
+chinese|culture/food/vegetable|cibuľa|洋葱|yángcōng|True|False|other|
+chinese|culture/food/vegetable|cukrová repa|糖用甜菜|tángyòng tiáncài|False|False|other|
+chinese|culture/food/vegetable|cícer|鹰嘴豆|yīngzuǐdòu|False|False|other|
+chinese|culture/food/vegetable|dyňa|西瓜|xīguā|False|False|other|
+chinese|culture/food/vegetable|fazuľa|红豆/紅豆|hóngdòu|False|False|other|
+chinese|culture/food/vegetable|fazuľa|菜豆|càidòu |False|False|other|
+chinese|culture/food/vegetable|hrach|豌豆|wāndòu|False|False|other|
+chinese|culture/food/vegetable|jačmeň|大麦|dàmài|False|False|other|
+chinese|culture/food/vegetable|kaleráb|苤蓝|piělán|False|False|other|
+chinese|culture/food/vegetable|kapusta|卷心菜|juǎnxīncài |False|False|other|
+chinese|culture/food/vegetable|kapusta|圆白菜|yuánbáicài |False|False|other|
+chinese|culture/food/vegetable|kapusta|洋白菜|yángbáicài|False|False|other|
+chinese|culture/food/vegetable|karfiol|花椰菜|huāyēcài|False|False|other|
+chinese|culture/food/vegetable|kel|羽衣甘蓝|yǔyī gānlán|False|False|other|
+chinese|culture/food/vegetable|kukurica|包谷|bāogǔ|False|False|other|
+chinese|culture/food/vegetable|kukurica|玉米|yùmǐ |False|False|other|
+chinese|culture/food/vegetable|mrkva|胡萝卜|hú luóbo|True|False|other|
+chinese|culture/food/vegetable|ovos|燕麦|yànmài|False|False|other|
+chinese|culture/food/vegetable|paprika|椒|jiāo|False|False|other|
+chinese|culture/food/vegetable|paradajka|番茄|fānqié|False|False|other|
+chinese|culture/food/vegetable|pažitka|韭菜|jiǔcài|False|False|other|
+chinese|culture/food/vegetable|petržlen|荷兰芹|hélánqín|False|False|other|
+chinese|culture/food/vegetable|proso|小米|xiǎomǐ|False|False|other|
+chinese|culture/food/vegetable|pór|韭葱|jiǔcōng|False|False|other|
+chinese|culture/food/vegetable|pšenica|小麦|xiǎomài|False|False|other|
+chinese|culture/food/vegetable|raž|黑麦|hēimài|False|False|other|
+chinese|culture/food/vegetable|repa|甜菜|tiáncài|False|False|other|
+chinese|culture/food/vegetable|reďkovka|水萝卜|shuǐ luóbo|False|False|other|
+chinese|culture/food/vegetable|ružičkový kel|抱子甘蓝|bàozǐ gānlán|False|False|other|
+chinese|culture/food/vegetable|ryža|白饭|báifàn|False|False|other|
+chinese|culture/food/vegetable|ryža|米饭|mǐfàn |False|False|other|
+chinese|culture/food/vegetable|strukovina|豆类|dòu lèi|False|False|other|
+chinese|culture/food/vegetable|sója|大豆|dàdòu |False|False|other|
+chinese|culture/food/vegetable|sója|黄豆|huángdòu|False|False|other|
+chinese|culture/food/vegetable|tekvica|南瓜|nánguā|False|False|other|
+chinese|culture/food/vegetable|uhorka|黄瓜|huángguā|False|False|other|
+chinese|culture/food/vegetable|zelenina|蔬菜|shūcài|False|False|other|
+chinese|culture/food/vegetable|zeler|芹菜|qíncài|False|False|other|
+chinese|culture/food/vegetable|zemiak|土豆|tǔdòu|False|False|other|
+chinese|culture/food/vegetable|šalát|生菜|shēngcài|False|False|other|
+chinese|culture/food/vegetable|šošovica|小扁豆|xiǎo biǎndòu|False|False|other|
+chinese|culture/food/vegetable|špenát|菠菜|bōcài|False|False|other|
 chinese|culture/history|antický|古老|gǔlǎo|False|False|other|
 chinese|culture/law|advokát|律师|lǜshī|False|False|other|
 chinese|culture/law|kradnúť|偷|tōu|False|False|other|
@@ -314,7 +445,6 @@ chinese|culture/law|znásilniť|强奸|qiángjiān|False|False|other|
 chinese|culture/law|zákon|法律|fǎlǜ|False|False|other|
 chinese|culture/law|únos|劫持|jiéchí|False|False|other|
 chinese|culture/law|ústava|宪法|xiànfǎ|False|False|other|
-chinese|culture/meal|polievka|汤|tāng|True|False|other|
 chinese|culture/politics|aristokracia|贵族|guìzú|False|False|other|
 chinese|culture/politics|demokracia|民主主义|mínzhǔ zhǔyì|False|True|other|
 chinese|culture/politics|diktatúra|独裁|dúcái|False|False|other|
@@ -348,6 +478,13 @@ chinese|culture/politics|vládnuť|执政|zhízhèng |False|False|other|
 chinese|culture/politics|vládnuť|治理|zhìlǐ|False|False|other|
 chinese|culture/politics|vládnuť|统治|tǒngzhì |False|False|other|
 chinese|culture/politics|štát|国家|guójiā|False|False|other|
+chinese|economy/agriculture|bič|鞭|biān|False|False|other|
+chinese|economy/agriculture|farma|农场|nóngchǎng|False|False|other|
+chinese|economy/agriculture|farmár|农民|nóngmín|True|False|other|
+chinese|economy/agriculture|hnojivo|肥料|féiliào|False|False|other|
+chinese|economy/agriculture|klietka|笼子|lóngzi|False|False|other|
+chinese|economy/agriculture|pole|田|tián|True|False|other|
+chinese|economy/agriculture|traktor|拖拉机|tuōlājī|False|False|other|
 chinese|economy/agriculture|tráva|草|cǎo|True|False|other|
 chinese|economy/cloth|golier|领子|lǐngzi|False|False|other|
 chinese|economy/cloth|gombík|纽扣|niǔkòu|False|True|other|
@@ -426,7 +563,8 @@ chinese|economy/education|škola|学校|xuéxiào|False|False|other|
 chinese|economy/education|študent|学生|xuésheng|False|False|other|
 chinese|economy/education|študovať|学习|xuéxí|False|False|other|
 chinese|economy/finance|bohatý|富|fù|True|False|other|
-chinese|economy/finance|cena|价格|jiàgé|False|False|other|
+chinese|economy/finance|cena|价格|jiàgé |True|False|other|
+chinese|economy/finance|cena|价钱|jiàqian|True|False|other|
 chinese|economy/finance|cenný|宝贵|bǎoguì|False|False|other|
 chinese|economy/finance|chudobný|穷|qióng|True|False|other|
 chinese|economy/finance|daň|税|shuì|False|False|other|
@@ -580,6 +718,7 @@ chinese|economy/transportation|bicykel|自行车|zìxíngchē|False|True|other|
 chinese|economy/transportation|električka|电车|diànchē|False|True|other|
 chinese|economy/transportation|jachta|快艇|kuàitǐng|False|False|other|
 chinese|economy/transportation|kotva|锚|máo|False|False|other|
+chinese|economy/transportation|lietadlo|飞机|fēijī|True|False|other|
 chinese|economy/transportation|loď|船|chuán|False|False|other|
 chinese|economy/transportation|metro|地铁|dìtiě|False|False|other|
 chinese|economy/transportation|ponorka|潜艇|qiántǐng|False|False|other|
@@ -597,7 +736,6 @@ chinese|economy/war|generál|将军|jiāngjūn|False|False|other|
 chinese|economy/war|granát|手雷|shǒuléi|False|False|other|
 chinese|economy/war|granát|榴弹|liúdàn |False|False|other|
 chinese|economy/war|letectvo|空军|kōngjūn|False|False|other|
-chinese|economy/war|lietadlo|飞机|fēijī|False|False|other|
 chinese|economy/war|luk|弓|gōng|False|False|other|
 chinese|economy/war|meč|剑|jiàn|False|False|other|
 chinese|economy/war|mier|和平|hépíng|False|False|other|
@@ -620,6 +758,7 @@ chinese|economy/war|vrtuľník|直升机|zhíshēngjī|False|False|other|
 chinese|economy/war|zbraň|武器|wǔqì|False|False|other|
 chinese|economy/war|zvíťaziť|胜利|shènglì|False|False|other|
 chinese|economy/war|útočiť|攻击|gōngjī|False|False|other|
+chinese|economy/war|špión|间谍|jiàndié|False|False|other|
 chinese|economy/work|dovolenka|假期|jiàqī|False|False|other|
 chinese|economy/work|ekonomika|经济|jīngjì|False|False|other|
 chinese|economy/work|firma|公司|gōngsī|False|False|other|
@@ -646,36 +785,442 @@ chinese|economy/work|zamestnať|雇佣|gùyōng|False|False|other|
 chinese|economy/work|zamestnávateľ|雇主|gùzhǔ|False|False|other|
 chinese|economy/work|zákazník|顾客|gùkè|False|False|other|
 chinese|economy/work|úloha|任务|rènwu|True|False|other|
-chinese|ludia|Abraham Lincoln|亚伯拉罕.林肯||False|False|other|
-chinese|ludia|Adolf Hitler|阿道夫.希特勒||False|False|other|
-chinese|ludia|Albert Einstein|阿尔伯特.爱因斯坦||False|False|other|
-chinese|ludia|Alexander Veľký|亚历山大大帝||False|False|other|
-chinese|ludia|Archimedes|阿基米德||False|False|other|
-chinese|ludia|Aristoteles|亚里士多德||False|False|other|
-chinese|ludia|Charles Darwin|查尔斯.达尔文||False|False|other|
-chinese|ludia|Cicero|西塞罗||False|False|other|
-chinese|ludia|Dmitrij Mendelejev|德米特里.门捷列夫||False|False|other|
-chinese|ludia|Džingischán|成吉思汗||False|False|other|
-chinese|ludia|Galileo Galilei|伽利略.伽利莱||False|False|other|
-chinese|ludia|Hatšepsut|哈特谢普苏特||False|False|other|
-chinese|ludia|Isaac Newton|艾萨克.牛顿||False|False|other|
-chinese|ludia|Jules Verne|儒勒.凡尔纳||False|False|other|
-chinese|ludia|Jurij Gagarin|尤里.加加林||False|False|other|
-chinese|ludia|Július Cézar|儒略.恺撒||False|False|other|
-chinese|ludia|Kleopatra|埃及艳后||False|False|other|
-chinese|ludia|Konfucius|孔子||False|False|other|
-chinese|ludia|Krištof Kolumbus|克里斯托弗.哥伦布||False|False|other|
-chinese|ludia|Leonardo da Vinci|列奥纳多.达.芬奇||False|False|other|
-chinese|ludia|Marcus Aurelius|马可.奥勒留||False|False|other|
-chinese|ludia|Napoleon Bonaparte|拿破仑.波拿巴||False|False|other|
-chinese|ludia|Nefertiti|娜芙蒂蒂||False|False|other|
-chinese|ludia|Pytagoras|毕达哥拉斯||False|False|other|
-chinese|ludia|Sokrates|苏格拉底||False|False|other|
-chinese|ludia|Spartakus|斯巴达克斯||False|False|other|
-chinese|ludia|Sun-c|孙武||False|False|other|
-chinese|ludia|Tolkien|托尔金||False|False|other|
-chinese|ludia|Tutanchamón|图坦卡蒙||False|False|other|
-chinese|ludia|William Shakespeare|威廉.莎士比亚||False|False|other|
+chinese|human/communication|diskutovať|讨论|tǎolùn|False|False|other|
+chinese|human/communication|dokázať|证明|zhèngmíng|False|False|other|
+chinese|human/communication|dovoliť|让|ràng|False|False|other|
+chinese|human/communication|hovoriť|谈|tán|False|False|other|
+chinese|human/communication|informácia|资讯|zīxùn|False|False|other|
+chinese|human/communication|interview|采访|cǎifǎng|False|False|other|
+chinese|human/communication|jazyk|语|yǔ|False|False|other|
+chinese|human/communication|klamať|说谎|shuōhuǎng|False|False|other|
+chinese|human/communication|klamstvo|谎话|huǎnghuà|False|False|other|
+chinese|human/communication|komentovať|评论|pínglùn|False|False|other|
+chinese|human/communication|komunikácia|交际|jiāojì|True|False|other|
+chinese|human/communication|konverzovať|交谈|jiāotán|False|False|other|
+chinese|human/communication|konzultovať|商量|shāngliang|True|False|other|
+chinese|human/communication|kritizovať|批评|pīpíng|False|False|other|
+chinese|human/communication|navrhnúť|建议|jiànyì|False|False|other|
+chinese|human/communication|náznak|暗示|ànshì|True|False|other|
+chinese|human/communication|názor|看法|kànfǎ|True|False|other|
+chinese|human/communication|odpovedať|回答|huídá|False|False|other|
+chinese|human/communication|odpustiť|原谅|yuánliàng|False|False|other|
+chinese|human/communication|oklamať|欺骗|qīpiàn|False|False|other|
+chinese|human/communication|otázka|问题|wèntí|False|False|other|
+chinese|human/communication|oznámiť|告诉|gàosu|False|False|other|
+chinese|human/communication|podvodník|骗子|piànzi|False|False|other|
+chinese|human/communication|povedať|说|shuō|False|False|other|
+chinese|human/communication|povoliť|允许|yǔnxǔ|False|False|other|
+chinese|human/communication|preložiť|翻译|fānyì|True|False|other|
+chinese|human/communication|presvedčiť|劝说|quànshuō|False|False|other|
+chinese|human/communication|prezradiť|透露|tòulù|False|False|other|
+chinese|human/communication|prijať|接受|jiēshòu|False|False|other|
+chinese|human/communication|prikázať|令|lìng|False|False|other|
+chinese|human/communication|privítať|欢迎|huānyíng|True|False|other|
+chinese|human/communication|prosiť|请|qǐng|False|False|other|
+chinese|human/communication|pýtať sa|询问|xúnwèn|False|False|other|
+chinese|human/communication|rada|忠告|zhōnggào|False|False|other|
+chinese|human/communication|radiť|劝告|quàngào|False|False|other|
+chinese|human/communication|reč|说话|shuōhuà|False|False|other|
+chinese|human/communication|rozprávať|讲|jiǎng|False|False|other|
+chinese|human/communication|správa|新闻|xīnwén|True|False|other|
+chinese|human/communication|spýtať sa|问|wèn|False|False|other|
+chinese|human/communication|sľub|诺言|nuòyán|False|False|other|
+chinese|human/communication|sľúbiť|许诺|xǔnuò|False|False|other|
+chinese|human/communication|sťažovať sa|投诉|tóusù|False|False|other|
+chinese|human/communication|uznať|承认|chéngrèn|False|False|other|
+chinese|human/communication|varovať|告诫|gàojiè|False|False|other|
+chinese|human/communication|verný|忠实|zhōngshí |False|False|other|
+chinese|human/communication|verný|忠诚|zhōngchéng|False|False|other|
+chinese|human/communication|vyhovoriť|劝阻|quànzǔ|False|False|other|
+chinese|human/communication|vypytovať sa|查询|cháxún|False|False|other|
+chinese|human/communication|vyvrátiť|反驳|fǎnbó|False|False|other|
+chinese|human/communication|výhovorka|借口|jièkǒu|False|False|other|
+chinese|human/communication|úprimný|真诚|zhēnchéng|False|False|other|
+chinese|human/communication|čestný|诚实|chéngshí|False|False|other|
+chinese|human/communication|žiadosť|请求|qǐngqiú|False|False|other|
+chinese|human/family|babka|奶奶|nǎinai|False|False|other|
+chinese|human/family|dcéra|女儿|nǚér|False|False|other|
+chinese|human/family|dedo|爷爷|yéye|False|False|other|
+chinese|human/family|džentlmen|男士|nánshì|False|False|other|
+chinese|human/family|frajer|男友|nányǒu|False|False|other|
+chinese|human/family|mama|妈妈|māma|False|False|other|
+chinese|human/family|manželia|夫妇|fūfù |True|False|other|
+chinese|human/family|manželia|夫妻|fūqī|True|False|other|
+chinese|human/family|manželka|妻子|qīzi|True|False|other|
+chinese|human/family|manžel|丈夫|zhàngfu|True|False|other|
+chinese|human/family|mladšia sestra|妹妹|mèimei|False|False|other|
+chinese|human/family|mladší brat|弟弟|dìdi|False|False|other|
+chinese|human/family|mládež|青年|qīngnián|True|False|other|
+chinese|human/family|muž|男人|nánrén|False|False|other|
+chinese|human/family|otec|父亲|fùqīn|False|False|other|
+chinese|human/family|otec|爸爸|bàba |False|False|other|
+chinese|human/family|priateľ|朋友|péngyou|False|False|other|
+chinese|human/family|rodičia|父母|fùmǔ|False|False|other|
+chinese|human/family|staršia sestra|姐姐|jiějie|False|False|other|
+chinese|human/family|starší brat|哥哥|gēge|False|False|other|
+chinese|human/family|strýko|叔叔|shūshu|False|False|other|
+chinese|human/family|sused|隔壁|gébì|False|False|other|
+chinese|human/family|synovec|外甥|wàisheng|False|False|other|
+chinese|human/family|syn|儿子|érzi|False|False|other|
+chinese|human/family|teenager|青少年|qīngshàonián|False|True|other|
+chinese|human/family|teta|姨妈|yímā|False|False|other|
+chinese|human/family|teta|阿姨|āyí |False|False|other|
+chinese|human/family|vnuk|孙子|sūnzi|False|False|other|
+chinese|human/mestá|Amsterdam|阿姆斯特丹|āmǔsītèdān|True|False|other|
+chinese|human/mestá|Atény|雅典|yǎdiǎn|True|False|other|
+chinese|human/mestá|Barcelona|巴塞罗那|bāsèluōnà|True|False|other|
+chinese|human/mestá|Benátky|威尼斯|wēinísī|True|False|other|
+chinese|human/mestá|Berlín|柏林|bólín|True|False|other|
+chinese|human/mestá|Brusel|布鲁塞尔|bùlǔsàiěr|True|False|other|
+chinese|human/mestá|Budapešť|布达佩斯|bùdápèisī|True|False|other|
+chinese|human/mestá|Bukurešť|布加勒斯特|bùjiālèsītè|False|False|other|
+chinese|human/mestá|Florencia|佛罗伦萨|fóluólúnsà|False|False|other|
+chinese|human/mestá|Janov|热那亚|rènàyà|False|False|other|
+chinese|human/mestá|Kodaň|哥本哈根|gēběnhāgēn|True|False|other|
+chinese|human/mestá|Kolín|科隆|kēlóng|True|False|other|
+chinese|human/mestá|Kyjev|基辅|jīfǔ|False|False|other|
+chinese|human/mestá|Káhira|开罗|kāiluó|True|False|other|
+chinese|human/mestá|Lisabon|里斯本|lǐsīběn|True|False|other|
+chinese|human/mestá|Londýn|伦敦|lúndūn|True|False|other|
+chinese|human/mestá|Madrid|马德里|mǎdélǐ|True|False|other|
+chinese|human/mestá|Miláno|米兰|mǐlán|True|False|other|
+chinese|human/mestá|Mníchov|慕尼黑|mìníhēi|True|False|other|
+chinese|human/mestá|Moskva|莫斯科|mòsīkē|True|False|other|
+chinese|human/mestá|Neapol|拿波利|nábōlì|False|False|other|
+chinese|human/mestá|Paríž|巴黎|bālí|True|False|other|
+chinese|human/mestá|Peking|北京|běijīng|True|False|other|
+chinese|human/mestá|Praha|布拉格|bùlāgé|True|False|other|
+chinese|human/mestá|Rím|罗马|luómǎ|True|False|other|
+chinese|human/mestá|Tokio|东京|dōngjīng|True|False|other|
+chinese|human/mestá|Varšava|华沙|huáshā|True|False|other|
+chinese|human/mestá|Viedeň|维也纳|wéiyěnà|True|False|other|
+chinese|human/mestá|Zürich|苏黎世|sūlíshì|False|False|other|
+chinese|human/mestá|Štokholm|斯德哥尔摩|sīdégēěrmó|True|False|other|
+chinese|human/mestá|Ženeva|日内瓦|rìnèiwǎ|False|False|other|
+chinese|human/society|dar|礼物|lǐwù|True|False|other|
+chinese|human/society|meeting|会议|huìyì|True|False|other|
+chinese|human/society|osamelý|孤独|gūdú|False|False|other|
+chinese|human/society|oslava|庆典|qìngdiǎn|False|False|other|
+chinese|human/society|rituál|典礼|diǎnlǐ|False|False|other|
+chinese|human/society|sláviť|庆祝|qìngzhù|True|False|other|
+chinese|human/society|slávnosť|节|jié|True|False|other|
+chinese|human/society|spoločenstvo|社团|shètuán|False|False|other|
+chinese|human/society|spoločnosť|社会|shèhuì|True|False|other|
+chinese|human/society|stretnutie|约会|yuēhuì|True|False|other|
+chinese|human/society|sviatok|节日|jiérì|False|True|other|
+chinese|human/society|zvyk|习惯|xíguàn|True|False|other|
+chinese|human/štáty|Alžírsko|阿尔及利亚|āěrjílìyǎ|False|False|other|
+chinese|human/štáty|Argentína|阿根廷|āgēntíng|False|False|other|
+chinese|human/štáty|Austrália|澳大利亚|àodàlìyà|True|False|other|
+chinese|human/štáty|Belgicko|比利时|bǐlìshí|False|False|other|
+chinese|human/štáty|Bielorusko|白俄罗斯|báièluósī|False|False|other|
+chinese|human/štáty|Bolívia|玻利维亚|bōlìwéiyǎ|False|False|other|
+chinese|human/štáty|Brazília|巴西|bāxī|True|False|other|
+chinese|human/štáty|Bulharsko|保加利亚|bǎojiālìyǎ|False|False|other|
+chinese|human/štáty|Chorvátsko|克罗地亚|kèluódìyà|False|False|other|
+chinese|human/štáty|Dánsko|丹麦|dānmài|False|False|other|
+chinese|human/štáty|Egypt|埃及|āijí|True|False|other|
+chinese|human/štáty|Ekvádor|厄瓜多尔|èguāduōěr|False|False|other|
+chinese|human/štáty|Estónsko|爱沙尼亚|àishāníyǎ|False|False|other|
+chinese|human/štáty|Etiópia|埃塞俄比亚|āisāiébǐyǎ|False|False|other|
+chinese|human/štáty|Filipíny|菲律宾|fēilǜbīn|False|False|other|
+chinese|human/štáty|Francúzsko|法国|fǎguó|True|False|other|
+chinese|human/štáty|Fínsko|芬兰|fēnlán|False|False|other|
+chinese|human/štáty|Grécko|希腊|xīlà|True|False|other|
+chinese|human/štáty|Grónsko|格陵兰|gélínglán|False|False|other|
+chinese|human/štáty|Holandsko|荷兰|hélán|True|False|other|
+chinese|human/štáty|India|印度|yìndù|True|False|other|
+chinese|human/štáty|Indonézia|印度尼西亚|yìndùníxīyà|False|False|other|
+chinese|human/štáty|Irak|伊拉克|yīlākè|False|False|other|
+chinese|human/štáty|Irán|伊朗|yīlǎng|False|False|other|
+chinese|human/štáty|Japonsko|日本|rìběn|True|False|other|
+chinese|human/štáty|Južná afrika|南非|nánfēi|True|False|other|
+chinese|human/štáty|Južná kórea|韩国|hánguó|True|False|other|
+chinese|human/štáty|Kanada|加拿大|jiānádà|True|False|other|
+chinese|human/štáty|Keňa|肯尼亚|kěnníyǎ|False|False|other|
+chinese|human/štáty|Kolumbia|哥伦比亚|gēlúnbǐyǎ|False|False|other|
+chinese|human/štáty|Litva|立陶宛|lìtáowǎn|False|False|other|
+chinese|human/štáty|Lotyšsko|拉脱维亚|lātuōwéiyǎ|False|False|other|
+chinese|human/štáty|Líbya|利比亚|lìbǐyǎ|False|False|other|
+chinese|human/štáty|Malajzia|马来西亚|mǎláixīyà|False|False|other|
+chinese|human/štáty|Maroko|摩洛哥|móluògē|False|False|other|
+chinese|human/štáty|Maďarsko|匈牙利|xiōngyálì|False|False|other|
+chinese|human/štáty|Mexiko|墨西哥|mòxīgē|True|False|other|
+chinese|human/štáty|Mongolsko|蒙古|měnggǔ|False|False|other|
+chinese|human/štáty|Nemecko|德国|déguó|True|False|other|
+chinese|human/štáty|Nigéria|尼日利亚|nírìlìyǎ|False|False|other|
+chinese|human/štáty|Nový Zéland|新西兰|xīnxīlán|True|False|other|
+chinese|human/štáty|Nórsko|挪威|nuówēi|False|False|other|
+chinese|human/štáty|Pakistan|巴基斯坦|bājīsītǎn|False|False|other|
+chinese|human/štáty|Peru|秘鲁|bìlǔ|False|False|other|
+chinese|human/štáty|Portugalsko|葡萄牙|pútáoyá|False|False|other|
+chinese|human/štáty|Poľsko|波兰|bōlán|True|False|other|
+chinese|human/štáty|Rakúsko|奥地利|àodìlì|True|False|other|
+chinese|human/štáty|Rumunsko|罗马尼亚|luómǎníyǎ|False|False|other|
+chinese|human/štáty|Rusko|俄罗斯|èluósī|True|False|other|
+chinese|human/štáty|Saudská arábia|沙特阿拉伯|shātè ālābó|False|False|other|
+chinese|human/štáty|Slovensko|斯洛伐克|sīluòfákè|False|False|other|
+chinese|human/štáty|Somálsko|索马里|suǒmǎlǐ|False|False|other|
+chinese|human/štáty|Spojené kráľovstvo|英国|yīngguó|True|False|other|
+chinese|human/štáty|Spojené štáty|美国|měiguó|True|False|other|
+chinese|human/štáty|Srbsko|塞尔维亚|sàiěrwéiyǎ|False|False|other|
+chinese|human/štáty|Sudán|苏丹|sūdān|False|False|other|
+chinese|human/štáty|Sýria|叙利亚|xùlìyà|False|False|other|
+chinese|human/štáty|Taliansko|意大利|yìdàlì|True|False|other|
+chinese|human/štáty|Tanzánia|坦桑尼亚|tǎnsāngníyǎ|False|False|other|
+chinese|human/štáty|Thajsko|泰国|tàiguó|False|False|other|
+chinese|human/štáty|Tunisko|突尼斯|túnísī|False|False|other|
+chinese|human/štáty|Turecko|土耳其|tǔěrqí|True|False|other|
+chinese|human/štáty|Ukrajina|乌克兰|wūkèlán|False|False|other|
+chinese|human/štáty|Venezuela|委内瑞拉|wěinèiruìlā|False|False|other|
+chinese|human/štáty|Vietnam|越南|yuènán|False|False|other|
+chinese|human/štáty|Írsko|爱尔兰|àiěrlán|False|False|other|
+chinese|human/štáty|Česko|捷克|jiékè|False|False|other|
+chinese|human/štáty|Čile|智利|zhìlì|False|False|other|
+chinese|human/štáty|Čína|中国|zhōngguó|True|False|other|
+chinese|human/štáty|Španielsko|西班牙|xībānyá|True|False|other|
+chinese|human/štáty|Švajčiarsko|瑞士|ruìshì|True|False|other|
+chinese|human/štáty|Švédsko|瑞典|ruìdiǎn|False|False|other|
+chinese|life/body|brada|胡须|húxū|False|False|other|
+chinese|life/body|chrbtica|脊柱|jǐzhù|False|False|other|
+chinese|life/body|chvost|尾巴|wěiba|False|False|other|
+chinese|life/body|dlaň|手掌|shǒuzhǎng|False|False|other|
+chinese|life/body|fúz|胡子|húzi|False|False|other|
+chinese|life/body|hlava|头|tóu|False|False|other|
+chinese|life/body|jazyk|舌头|shétou|False|False|other|
+chinese|life/body|koleno|膝盖|xīgài|False|False|other|
+chinese|life/body|končatina|肢体|zhītǐ|False|False|other|
+chinese|life/body|kopyto|蹄|tí|False|False|other|
+chinese|life/body|kosť|骨|gǔ|False|False|other|
+chinese|life/body|krvná plazma|血浆|xuèjiāng|False|True|other|
+chinese|life/body|krv|血|xuè|True|False|other|
+chinese|life/body|krv|血液|xuèyè|False|True|other|
+chinese|life/body|krídlo|翅膀|chìbǎng|False|False|other|
+chinese|life/body|lakeť|手肘|shǒuzhǒu|False|False|other|
+chinese|life/body|lebka|头骨|tóugǔ|False|False|other|
+chinese|life/body|lýtko|小腿|xiǎotuǐ|False|False|other|
+chinese|life/body|necht|指甲|zhǐjia|False|False|other|
+chinese|life/body|noha|脚|jiǎo|False|False|other|
+chinese|life/body|noha|足|zú |False|False|other|
+chinese|life/body|oblička|肾脏|shènzàng|False|False|other|
+chinese|life/body|oko|眼睛|yǎnjing|False|False|other|
+chinese|life/body|pera|嘴唇|zuǐchún|False|False|other|
+chinese|life/body|pero|羽毛|yǔmáo|False|False|other|
+chinese|life/body|pečeň|肝脏|gānzàng|False|False|other|
+chinese|life/body|plece|肩膀|jiānbǎng|False|False|other|
+chinese|life/body|pokožka|肌肤|jīfū|False|False|other|
+chinese|life/body|prst na nohe|脚趾|jiǎozhǐ|False|False|other|
+chinese|life/body|prst|手指|shǒuzhǐ|False|False|other|
+chinese|life/body|pľúca|肺|fèi|False|False|other|
+chinese|life/body|ruka|手|shǒu|False|False|other|
+chinese|life/body|slezina|脾脏|pízàng|False|False|other|
+chinese|life/body|slina|唾液|tuòyè|False|False|other|
+chinese|life/body|srdce|心脏|xīnzàng|False|False|other|
+chinese|life/body|srsť|毛皮|máopí|False|False|other|
+chinese|life/body|stavec|椎骨|zhuīgǔ|False|False|other|
+chinese|life/body|stehno|大腿|dàtuǐ|False|False|other|
+chinese|life/body|sval|肌肉|jīròu|False|False|other|
+chinese|life/body|telo|身体|shēntǐ|False|False|other|
+chinese|life/body|tvár|脸|liǎn|False|False|other|
+chinese|life/body|ucho|耳朵|ěrduo|False|False|other|
+chinese|life/body|vlasy|头发|tóufa|False|False|other|
+chinese|life/body|ústa|嘴|zuǐ|False|False|other|
+chinese|life/body|žlčník|胆|dǎn|False|False|other|
+chinese|life/feeling|báť sa|怕|pà|False|False|other|
+chinese|life/feeling|depresívny|沉闷|chénmèn|False|False|other|
+chinese|life/feeling|des|恐惧|kǒngjù|False|False|other|
+chinese|life/feeling|dúfať|希望|xīwàng|True|False|other|
+chinese|life/feeling|emócia|感情|gǎnqíng|False|False|other|
+chinese|life/feeling|hanbiť sa|惭愧|cánkuì|False|False|other|
+chinese|life/feeling|hanblivosť|胆怯|dǎnqiè|False|False|other|
+chinese|life/feeling|hnev|愤怒|fènnù|False|False|other|
+chinese|life/feeling|hrôza|恐怖|kǒngbù|False|False|other|
+chinese|life/feeling|láska|爱情|àiqíng|False|False|other|
+chinese|life/feeling|mať obavy|担心|dānxīn|False|False|other|
+chinese|life/feeling|melanchólia|忧郁|yōuyù|False|False|other|
+chinese|life/feeling|mizerný|惨|cǎn|False|False|other|
+chinese|life/feeling|nahnevaný|恼火|nǎohuǒ|False|False|other|
+chinese|life/feeling|nalákať|诱惑|yòuhuò|False|False|other|
+chinese|life/feeling|nenávidieť|仇恨|chóuhèn|False|False|other|
+chinese|life/feeling|nenávisť|怨恨|yuànhèn |False|False|other|
+chinese|life/feeling|nenávisť|憎恨|zēnghèn|False|False|other|
+chinese|life/feeling|nálada|心情|xīnqíng|False|False|other|
+chinese|life/feeling|návnada|诱饵|yòuěr|False|False|other|
+chinese|life/feeling|ohromiť|吃惊|chījīng|False|False|other|
+chinese|life/feeling|panikáriť|恐慌|kǒnghuāng|False|False|other|
+chinese|life/feeling|pocit|情|qíng|False|False|other|
+chinese|life/feeling|potešený|高兴|gāoxìng|True|False|other|
+chinese|life/feeling|prekvapenie|惊喜|jīngxǐ|False|False|other|
+chinese|life/feeling|radosť|喜悦|xǐyuè |False|False|other|
+chinese|life/feeling|radosť|愉悦|yúyuè|False|False|other|
+chinese|life/feeling|smutný|悲伤|bēishāng|False|False|other|
+chinese|life/feeling|strach|恐怕|kǒngpà|False|False|other|
+chinese|life/feeling|súcitiť|同情|tóngqíng|False|False|other|
+chinese|life/feeling|súcit|怜悯|liánmǐn|False|False|other|
+chinese|life/feeling|trápenie|烦恼|fánnǎo|False|False|other|
+chinese|life/feeling|trápny|别扭|bièniu|False|False|other|
+chinese|life/feeling|úzkosť|忧虑|yōulǜ|False|False|other|
+chinese|life/feeling|ľutovať|可怜|kělián|False|False|other|
+chinese|life/feeling|ľutovať|后悔|hòuhuǐ|False|False|other|
+chinese|life/feeling|šťastný|快乐|kuàilè |False|False|other|
+chinese|life/feeling|šťastný|愉快|yúkuài|False|False|other|
+chinese|life/pohyby|bežať|跑步|pǎobù|False|False|other|
+chinese|life/pohyby|cesta|道路|dàolù|False|False|other|
+chinese|life/pohyby|cestovať|游|yóu|True|False|other|
+chinese|life/pohyby|chytiť/zviazať|接|jiē|False|False|other|
+chinese|life/pohyby|chytiť|抓|zhuā|False|False|other|
+chinese|life/pohyby|cvičiť|练习|liànxí|True|False|other|
+chinese|life/pohyby|cúvať|退|tuì|True|False|other|
+chinese|life/pohyby|dupať|跺脚|duòjiǎo|False|False|other|
+chinese|life/pohyby|facka|耳光|ěrguāng|False|False|other|
+chinese|life/pohyby|hladkať|抚摸|fǔmō|False|False|other|
+chinese|life/pohyby|hodiť|投|tóu|False|False|other|
+chinese|life/pohyby|hrýzť|咬|yǎo|False|False|other|
+chinese|life/pohyby|kopnúť|踢|tī|False|False|other|
+chinese|life/pohyby|kopnúť|踢|tī|False|False|other|
+chinese|life/pohyby|kráčať|步行|bùxíng|False|False|other|
+chinese|life/pohyby|kľačať|跪|guì|False|False|other|
+chinese|life/pohyby|ležať na bruchu|趴|pā|False|False|other|
+chinese|life/pohyby|ležať|躺|tǎng|False|False|other|
+chinese|life/pohyby|lízať|舔|tiǎn|False|False|other|
+chinese|life/pohyby|navliecť|套|tào|True|False|other|
+chinese|life/pohyby|niesť|提|tí|False|False|other|
+chinese|life/pohyby|oprieť sa|靠|kào|False|False|other|
+chinese|life/pohyby|padať|跌落|diēluò|False|False|other|
+chinese|life/pohyby|plaziť sa|爬行|páxíng|False|False|other|
+chinese|life/pohyby|plesnúť|拍|pāi |False|False|other|
+chinese|life/pohyby|plesnúť|拍打|pāidǎ|False|False|other|
+chinese|life/pohyby|plávať|游泳|yóuyǒng|True|False|other|
+chinese|life/pohyby|potknúť sa|绊倒|bàndào|False|False|other|
+chinese|life/pohyby|prekročiť|跨越|kuàyuè|False|False|other|
+chinese|life/pohyby|prekročiť|跨过|kuàguò |False|False|other|
+chinese|life/pohyby|pritisnúť sa|靠近|kàojìn|False|False|other|
+chinese|life/pohyby|pustiť|掉|diào|False|False|other|
+chinese|life/pohyby|sedieť|坐|zuò|False|False|other|
+chinese|life/pohyby|skákať|跳跃|tiàoyuè|False|False|other|
+chinese|life/pohyby|stlačiť|按|àn|False|False|other|
+chinese|life/pohyby|stopovať|追踪|zhuīzōng|False|False|other|
+chinese|life/pohyby|stáť|站立|zhànlì|False|False|other|
+chinese|life/pohyby|stúpiť|踩|cǎi|False|False|other|
+chinese|life/pohyby|tlačiť|推动|tuīdòng|False|False|other|
+chinese|life/pohyby|uchopiť|抓紧|zhuājǐn|False|False|other|
+chinese|life/pohyby|udrieť|打|dǎ|False|False|other|
+chinese|life/pohyby|vliecť|拖|tuō|False|False|other|
+chinese|life/pohyby|vyjsť|出|chū|True|False|other|
+chinese|life/pohyby|vyjsť|出去|chūqu|False|True|other|
+chinese|life/pohyby|vyjsť|出来|chūlai|False|True|other|
+chinese|life/pohyby|vystopovať|跟踪|gēnzōng|False|False|other|
+chinese|life/pohyby|vzdialenosť|距离|jùlí|False|False|other|
+chinese|life/pohyby|zostať|留|liú|True|False|other|
+chinese|life/pohyby|ísť|去|qù|True|False|other|
+chinese|life/pohyby|úder|打击|dǎjī|False|False|other|
+chinese|life/pohyby|čupieť|蹲|dūn|False|False|other|
+chinese|life/pohyby|šliapať|践踏|jiàntà|False|False|other|
+chinese|life/pohyby|šplhať sa|爬|pá|False|False|other|
+chinese|life/senses|chuť|味|wèi|False|False|other|
+chinese|life/senses|cítiť|觉得|juéde|True|False|other|
+chinese|life/senses|dýchať|呼吸|hūxī|False|False|other|
+chinese|life/senses|grcať|呕吐|ǒutù|False|False|other|
+chinese|life/senses|horký|苦|kǔ|True|False|other|
+chinese|life/senses|hrýzť|咬|yǎo|False|False|other|
+chinese|life/senses|jesť|吃|chī|False|False|other|
+chinese|life/senses|kričať|叫喊|jiàohǎn|False|False|other|
+chinese|life/senses|kyslý|酸|suān|True|False|other|
+chinese|life/senses|nemý|哑巴|yǎba|False|False|other|
+chinese|life/senses|piť|喝|hē|False|False|other|
+chinese|life/senses|povzdych|叹息|tànxī|False|False|other|
+chinese|life/senses|počuť|听|tīng|False|False|other|
+chinese|life/senses|revať|吼|hǒu|False|False|other|
+chinese|life/senses|sladký|甜|tián|True|False|other|
+chinese|life/senses|slaný|咸|xián|True|False|other|
+chinese|life/senses|volať|叫|jiào|False|False|other|
+chinese|life/senses|vystrašiť|吓|xià|False|False|other|
+chinese|life/senses|zavolať si|召唤|zhàohuàn|False|False|other|
+chinese|life/senses|znieť|响|xiǎng|False|False|other|
+chinese|life/senses|čkať sa|呃逆|ènì|False|False|other|
+chinese|life/senses|žuť|嚼|jiáo|False|False|other|
+chinese|life/spravanie|dieťa|孩子|háizi|True|False|other|
+chinese|life/spravanie|divoký|野生|yěshēng|False|False|other|
+chinese|life/spravanie|hladný|饿|è|True|False|other|
+chinese|life/spravanie|narodiť sa|诞生|dànshēng|False|False|other|
+chinese|life/spravanie|plakať|哭|kū|True|False|other|
+chinese|life/spravanie|smiech|笑|xiào|True|False|other|
+chinese|life/spravanie|smrť|死亡|sǐwáng|False|True|other|
+chinese|life/spravanie|zomrieť|死|sǐ|True|False|other|
+chinese|life/spravanie|život|生活|shēnghuó|True|False|other|
+chinese|life/spravanie|žiť|活|huó|True|False|other|
+chinese|life/stromy|borievka|刺柏|cìbǎi|False|True|other|
+chinese|life/stromy|borovica|松树|sōngshù|True|False|other|
+chinese|life/stromy|brest|榆树|yúshù|False|False|other|
+chinese|life/stromy|breza|桦木|huàmù|True|False|other|
+chinese|life/stromy|cyprus|柏|bǎi|False|False|other|
+chinese|life/stromy|céder|雪松|xuěsōng|False|True|other|
+chinese|life/stromy|datľovník|枣树|zǎoshù|False|False|other|
+chinese|life/stromy|dub|橡树|xiàngshù|True|False|other|
+chinese|life/stromy|figovník|无花果|wúhuāguǒ|False|False|other|
+chinese|life/stromy|gaštan|栗|lì|True|False|other|
+chinese|life/stromy|ginko|银杏|yínxìng|False|False|other|
+chinese|life/stromy|hloh|山楂|shānzhā|False|False|other|
+chinese|life/stromy|ihličnatý strom|针叶树|zhēnyèshù|False|False|other|
+chinese|life/stromy|javor|枫树|fēngshù|True|False|other|
+chinese|life/stromy|jedľa|冷杉|lěngshān|True|False|other|
+chinese|life/stromy|jelša|桤木|qīmù|False|False|other|
+chinese|life/stromy|lieska|榛|zhēn|False|False|other|
+chinese|life/stromy|lipa|椴树|duànshù|True|False|other|
+chinese|life/stromy|listnatý strom|阔叶树|kuòyèshù|False|False|other|
+chinese|life/stromy|magnólia|木兰|mùlán|False|False|other|
+chinese|life/stromy|orech|核桃|hétáo|True|False|other|
+chinese|life/stromy|pagaštan|七叶树|qīyèshù|False|False|other|
+chinese|life/stromy|palma|棕榈|zōnglǘ|True|False|other|
+chinese|life/stromy|sekvoja|红杉|hóngshān|False|False|other|
+chinese|life/stromy|smrekovec|落叶松|luòyèsōng|False|True|other|
+chinese|life/stromy|smrek|云杉|yúnshān|True|False|other|
+chinese|life/stromy|sofora|槐|huái|False|False|other|
+chinese|life/stromy|tis|紫杉|zǐshān|False|False|other|
+chinese|life/stromy|topoľ|杨树|yángshù|True|False|other|
+chinese|life/stromy|tuja|崖柏|yábǎi|False|True|other|
+chinese|life/stromy|vavrín|月桂|yuèguì|False|False|other|
+chinese|life/stromy|vŕba|柳树|liǔshù|True|False|other|
+chinese|life/thinking|analyzovať|分析|fēnxī|True|False|other|
+chinese|life/thinking|dôvod|理由|lǐyóu|True|False|other|
+chinese|life/thinking|dôvod|缘故|yuángù|False|False|other|
+chinese|life/thinking|fakt|事实|shìshí|False|False|other|
+chinese|life/thinking|hlúpy|傻|shǎ|False|False|other|
+chinese|life/thinking|jednoduchý|容易|róngyì|True|False|other|
+chinese|life/thinking|myšlienka|思想|sīxiǎng|False|False|other|
+chinese|life/thinking|nezmysel|胡说|húshuō|False|False|other|
+chinese|life/thinking|nápad|主意|zhǔyi |True|False|other|
+chinese|life/thinking|nápad|想法|xiǎngfǎ|True|False|other|
+chinese|life/thinking|pamätať si|记得|jìde|True|False|other|
+chinese|life/thinking|pravda|实话|shíhuà|False|False|other|
+chinese|life/thinking|pravda|真话|zhēnhuà |False|False|other|
+chinese|life/thinking|predpovedať|预计|yùjì|True|False|other|
+chinese|life/thinking|predpoveď|预报|yùbào|True|False|other|
+chinese|life/thinking|preventívny|预防|yùfáng|True|False|other|
+chinese|life/thinking|rozhodnúť|决定|juédìng|False|False|other|
+chinese|life/thinking|skutočnosť|真实|zhēnshí|False|False|other|
+chinese|life/thinking|skutočný|现实|xiànshí|False|False|other|
+chinese|life/thinking|sprostý|笨|bèn|False|False|other|
+chinese|life/thinking|vedieť|知道|zhīdào|True|False|other|
+chinese|life/thinking|vyriešiť|解决|jiějué|False|False|other|
+chinese|life/thinking|vysvetlenie|解释|jiěshì|False|False|other|
+chinese|life/thinking|výnimka|例外|lìwài|True|False|other|
+chinese|life/thinking|zamýšľať|打算|dǎsuàn|True|False|other|
+chinese|life/thinking|zložitý|难|nán|True|False|other|
+chinese|life/thinking|zvážiť|衡量|héngliáng|False|False|other|
+chinese|life/vision|biely|白|bái|True|False|other|
+chinese|life/vision|farba|色|sè|True|False|other|
+chinese|life/vision|fialový|紫|zǐ|False|False|other|
+chinese|life/vision|jasný|亮|liàng|True|False|other|
+chinese|life/vision|modrý|蓝|lán|True|False|other|
+chinese|life/vision|pozerať|看|kàn|True|False|other|
+chinese|life/vision|sledovať|观看|guānkàn|True|False|other|
+chinese|life/vision|tmavý|暗|àn|True|False|other|
+chinese|life/vision|vidieť|看见|kànjiàn|True|False|other|
+chinese|life/vision|zelený|绿|lǜ|True|False|other|
+chinese|life/vision|červený|红|hóng|True|False|other|
+chinese|life/vision|čierny|黑|hēi|True|False|other|
+chinese|life/vision|žltý|黄|huáng|True|False|other|
 chinese|measures|dobytok|头|tóu|False|False|other|
 chinese|measures|druh|种|zhǒng|False|False|other|
 chinese|measures|fľaša|瓶|píng|False|False|other|
@@ -695,6 +1240,261 @@ chinese|measures|všeobecný|个|gè|False|False|other|
 chinese|measures|zviera|只|zhī|False|False|other|
 chinese|measures|úzke dlhé (cesta)|条|tiáo|False|False|other|
 chinese|measures|človek|名|míng|False|False|other|
+chinese|nature/fyzika|gravitácia|引力|yǐnlì|False|False|other|
+chinese|nature/fyzika|hmotnosť|重量|zhòngliàng|False|False|other|
+chinese|nature/fyzika|horúci|热|rè|False|False|other|
+chinese|nature/fyzika|ohnúť|弯|wān|False|False|other|
+chinese|nature/fyzika|otáčať|转|zhuǎn|False|False|other|
+chinese|nature/fyzika|padnúť|掉下|diàoxià|False|False|other|
+chinese|nature/fyzika|pohnúť|动|dòng|False|False|other|
+chinese|nature/fyzika|pohyb|动作|dòngzuò|False|False|other|
+chinese|nature/fyzika|pomaly|徐徐|xúxú|False|False|other|
+chinese|nature/fyzika|pomalý|慢|màn|False|False|other|
+chinese|nature/fyzika|prehnúť [napol]|折|zhé|False|False|other|
+chinese|nature/fyzika|pritlačiť|按|àn|False|False|other|
+chinese|nature/fyzika|rýchlosť|速度|sùdù|False|False|other|
+chinese|nature/fyzika|rýchly|快|kuài|False|False|other|
+chinese|nature/fyzika|sila|力量|lìliang|False|False|other|
+chinese|nature/fyzika|silný|坚强|jiānqiáng|False|False|other|
+chinese|nature/fyzika|slabý|脆弱|cuìruò|False|False|other|
+chinese|nature/fyzika|studený|冷|lěng|False|False|other|
+chinese|nature/fyzika|svetlo|光|guāng|False|False|other|
+chinese|nature/fyzika|teplota|温度|wēndù|False|False|other|
+chinese|nature/fyzika|teplý|温|wēn|False|False|other|
+chinese|nature/fyzika|tlak|压力|yālì|False|False|other|
+chinese|nature/fyzika|tlačiť|推|tuī|False|False|other|
+chinese|nature/fyzika|trieť|磨|mó|False|False|other|
+chinese|nature/fyzika|zlomiť|断|duàn|False|False|other|
+chinese|nature/fyzika|čas|时间|shíjiān|False|False|other|
+chinese|nature/fyzika|ľahký|轻|qīng|False|False|other|
+chinese|nature/fyzika|ťahať|扯|chě|False|False|other|
+chinese|nature/fyzika|ťažký|重|zhòng|False|False|other|
+chinese|nature/liquid|kvapalina|液体|yètǐ|False|False|other|
+chinese|nature/liquid|mrznúť|冻|dòng|True|False|other|
+chinese|nature/liquid|prúd|潮|cháo|True|False|other|
+chinese|nature/liquid|roztopiť|融化|rónghuà|False|False|other|
+chinese|nature/liquid|tiecť|流|liú|True|False|other|
+chinese|nature/liquid|zmrznúť|冻结|dòngjié|False|True|other|
+chinese|nature/material|arzén|砷|shēn|False|False|other|
+chinese|nature/material|bronz|青铜|qīngtóng|False|True|other|
+chinese|nature/material|chlór|氯气|lǜqì|False|False|other|
+chinese|nature/material|cín|锡|xī|False|False|other|
+chinese|nature/material|diamant|钻石|zuànshí|False|False|other|
+chinese|nature/material|drahokam|宝石|bǎoshí|False|False|other|
+chinese|nature/material|draslík|钾|jiǎ|False|False|other|
+chinese|nature/material|dusík|氮气|dànqì|False|False|other|
+chinese|nature/material|fluór|氟|fú|False|False|other|
+chinese|nature/material|fosfor|磷|lín|False|False|other|
+chinese|nature/material|hliník|铝|lǚ|False|False|other|
+chinese|nature/material|horčík|镁|měi|False|False|other|
+chinese|nature/material|hrdzavieť|锈|xiù|False|False|other|
+chinese|nature/material|hélium|氦|hài|False|False|other|
+chinese|nature/material|kov|金属|jīnshǔ|False|False|other|
+chinese|nature/material|kremík|硅|guī|False|False|other|
+chinese|nature/material|kyslík|氧气|yǎngqì|False|False|other|
+chinese|nature/material|materiál|材料|cáiliào|False|False|other|
+chinese|nature/material|meď|铜|tóng|False|False|other|
+chinese|nature/material|mosadz|黄铜|huángtóng|False|True|other|
+chinese|nature/material|nikel|镍|niè|False|False|other|
+chinese|nature/material|oceľ|钢铁|gāngtiě|False|True|other|
+chinese|nature/material|olovo|铅|qiān|False|False|other|
+chinese|nature/material|ortuť|水银|shuǐyín|False|True|other|
+chinese|nature/material|papier|纸张|zhǐzhāng|False|False|other|
+chinese|nature/material|plast|塑料|sùliào|False|False|other|
+chinese|nature/material|platina|白金|báijīn|False|True|other|
+chinese|nature/material|ropa|石油|shíyóu|False|False|other|
+chinese|nature/material|sklo|玻璃|bōli|False|False|other|
+chinese|nature/material|sodík|钠|nà|False|False|other|
+chinese|nature/material|striebro|白银|báiyín|False|False|other|
+chinese|nature/material|síra|硫|liú|False|False|other|
+chinese|nature/material|uhlie|煤炭|méitàn|False|False|other|
+chinese|nature/material|uhlík|碳|tàn|False|False|other|
+chinese|nature/material|urán|铀|yóu|False|False|other|
+chinese|nature/material|vodík|氢气|qīngqì|False|False|other|
+chinese|nature/material|vápnik|钙|gài|False|False|other|
+chinese|nature/material|zinok|锌|xīn|False|False|other|
+chinese|nature/material|zlato|黄金|huángjīn|False|False|other|
+chinese|nature/material|železo|铁|tiě|False|False|other|
+chinese|nature/movement|fixovať|固定|gùdìng|True|False|other|
+chinese|nature/movement|klesať|降落|jiàngluò|True|False|other|
+chinese|nature/movement|otvoriť|开|kāi|True|False|other|
+chinese|nature/movement|plynulý|流利|liúlì|True|False|other|
+chinese|nature/movement|stúpať|涨|zhǎng|False|False|other|
+chinese|nature/movement|vložiť|插|chā|False|False|other|
+chinese|nature/movement|zatvoriť|关|guān|True|False|other|
+chinese|nature/rastliny|agáve|龙舌兰|lóngshélán|False|False|other|
+chinese|nature/rastliny|aloe|芦荟|lúhuì|False|False|other|
+chinese|nature/rastliny|aníz|八角|bājiǎo|False|False|other|
+chinese|nature/rastliny|astra|紫菀|zǐwǎn|False|False|other|
+chinese|nature/rastliny|bazalka|罗勒|luólè|True|False|other|
+chinese|nature/rastliny|bodliak|薊|jì|False|False|other|
+chinese|nature/rastliny|brečtan|常春藤|chángchūnténg|False|False|other|
+chinese|nature/rastliny|chryzantéma|菊花|júhuā|False|False|other|
+chinese|nature/rastliny|dracéna|龙血树|lóngxuèshù|False|False|other|
+chinese|nature/rastliny|kaktus|仙人掌|xiānrénzhǎng|True|False|other|
+chinese|nature/rastliny|karafiát|石竹|shízhú|True|False|other|
+chinese|nature/rastliny|koriander|芫荽|yánsuī|False|False|other|
+chinese|nature/rastliny|kôpor|莳萝|shíluó|True|False|other|
+chinese|nature/rastliny|lekno|睡莲|shuìlián|False|False|other|
+chinese|nature/rastliny|levanduľa|薰衣草|xūnyīcǎo|True|False|other|
+chinese|nature/rastliny|lotos|莲花|liánhuā|False|False|other|
+chinese|nature/rastliny|mach|苔藓|táixiǎn|True|False|other|
+chinese|nature/rastliny|mak|罂粟|yīngsù|True|False|other|
+chinese|nature/rastliny|mäta|薄荷|bòhe|True|False|other|
+chinese|nature/rastliny|narcis|黄水仙|shuǐxiān|False|False|other|
+chinese|nature/rastliny|nechtík|万寿菊|wànshòujú|False|False|other|
+chinese|nature/rastliny|nezábudka|勿忘草|wùwàngcǎo|False|False|other|
+chinese|nature/rastliny|orchidea|兰花|lánhuā|True|False|other|
+chinese|nature/rastliny|pivonka|芍药|sháoyào|False|False|other|
+chinese|nature/rastliny|prvosienka|报春花|bàochūnhuā|False|False|other|
+chinese|nature/rastliny|púpava|蒲公英|púgōngyīng|True|False|other|
+chinese|nature/rastliny|rasca|茴香|huíxiāng|True|False|other|
+chinese|nature/rastliny|rododendron|杜鹃花|dùjuānhuā|False|False|other|
+chinese|nature/rastliny|rozmarín|迷迭香|mídiéxiāng|False|False|other|
+chinese|nature/rastliny|ruža|蔷薇|qiángwéi|True|False|other|
+chinese|nature/rastliny|sedmokráska|雏菊|chújú|False|False|other|
+chinese|nature/rastliny|slez|锦葵|jǐnkuí|False|False|other|
+chinese|nature/rastliny|slnečnica|向日葵|xiàngrìkuí|True|False|other|
+chinese|nature/rastliny|tulipán|郁金香|yùjīnxiāng|True|False|other|
+chinese|nature/rastliny|ďatelina|三叶草|sānyècǎo|True|False|other|
+chinese|nature/rastliny|ľalia|百合|bǎihé|True|False|other|
+chinese|nature/rastliny|šafrán|番红花|fānhónghuā|False|False|other|
+chinese|nature/rastliny|šalvia|鼠尾草|shǔwěicǎo|False|False|other|
+chinese|nature/rastliny|žihľava|荨麻|xúnmá|True|False|other|
+chinese|nature/stavba rastlín|bobuľa|浆果|jiāngguǒ|False|True|other|
+chinese|nature/stavba rastlín|ihličie|针叶|zhēnyè|True|False|other|
+chinese|nature/stavba rastlín|kmeň|树干|shùgàn|True|False|other|
+chinese|nature/stavba rastlín|konár|树枝|shùzhī|True|False|other|
+chinese|nature/stavba rastlín|koreň|根|gēn|True|False|other|
+chinese|nature/stavba rastlín|kvet|花|huā|True|False|other|
+chinese|nature/stavba rastlín|kôra|树皮|shùpí|True|False|other|
+chinese|nature/stavba rastlín|kôstka|核|hé|True|False|other|
+chinese|nature/stavba rastlín|list|叶子|yèzi|True|False|other|
+chinese|nature/stavba rastlín|peľ|花粉|huāfěn|False|True|other|
+chinese|nature/stavba rastlín|plod|果|guǒ|True|False|other|
+chinese|nature/stavba rastlín|puk|花蕾|huālěi|False|True|other|
+chinese|nature/stavba rastlín|stonka|茎|jīng|True|False|other|
+chinese|nature/stavba rastlín|struk|豆荚|dòujiá|False|False|other|
+chinese|nature/stavba rastlín|šupka|果皮|guǒpí|False|True|other|
+chinese|nature/stavba rastlín|šuška|松果|sōngguǒ|False|True|other|
+chinese|nature/stromy|borievka|刺柏|cìbǎi|False|True|other|
+chinese|nature/stromy|borovica|松树|sōngshù|True|False|other|
+chinese|nature/stromy|brest|榆树|yúshù|False|False|other|
+chinese|nature/stromy|breza|桦木|huàmù|True|False|other|
+chinese|nature/stromy|cyprus|柏|bǎi|False|False|other|
+chinese|nature/stromy|céder|雪松|xuěsōng|False|True|other|
+chinese|nature/stromy|datľovník|枣树|zǎoshù|False|False|other|
+chinese|nature/stromy|dub|橡树|xiàngshù|True|False|other|
+chinese|nature/stromy|figovník|无花果|wúhuāguǒ|False|False|other|
+chinese|nature/stromy|gaštan|栗|lì|True|False|other|
+chinese|nature/stromy|ginko|银杏|yínxìng|False|False|other|
+chinese|nature/stromy|hloh|山楂|shānzhā|False|False|other|
+chinese|nature/stromy|ihličnatý strom|针叶树|zhēnyèshù|False|False|other|
+chinese|nature/stromy|javor|枫树|fēngshù|True|False|other|
+chinese|nature/stromy|jedľa|冷杉|lěngshān|True|False|other|
+chinese|nature/stromy|jelša|桤木|qīmù|False|False|other|
+chinese|nature/stromy|lieska|榛|zhēn|False|False|other|
+chinese|nature/stromy|lipa|椴树|duànshù|True|False|other|
+chinese|nature/stromy|listnatý strom|阔叶树|kuòyèshù|False|False|other|
+chinese|nature/stromy|magnólia|木兰|mùlán|False|False|other|
+chinese|nature/stromy|orech|核桃|hétáo|True|False|other|
+chinese|nature/stromy|pagaštan|七叶树|qīyèshù|False|False|other|
+chinese|nature/stromy|palma|棕榈|zōnglǘ|True|False|other|
+chinese|nature/stromy|sekvoja|红杉|hóngshān|False|False|other|
+chinese|nature/stromy|smrekovec|落叶松|luòyèsōng|False|True|other|
+chinese|nature/stromy|smrek|云杉|yúnshān|True|False|other|
+chinese|nature/stromy|sofora|槐|huái|False|False|other|
+chinese|nature/stromy|tis|紫杉|zǐshān|False|False|other|
+chinese|nature/stromy|topoľ|杨树|yángshù|True|False|other|
+chinese|nature/stromy|tuja|崖柏|yábǎi|False|True|other|
+chinese|nature/stromy|vavrín|月桂|yuèguì|False|False|other|
+chinese|nature/stromy|vŕba|柳树|liǔshù|True|False|other|
+chinese|nature/terrain|blato|泥|ní |False|False|other|
+chinese|nature/terrain|blato|泥浆|níjiāng|False|False|other|
+chinese|nature/terrain|drevo|木|mù|False|False|other|
+chinese|nature/terrain|hlina|土|tǔ|False|False|other|
+chinese|nature/terrain|hora|山|shān|False|False|other|
+chinese|nature/terrain|jaskyňa|洞穴|dòngxué|False|False|other|
+chinese|nature/terrain|jazero|湖|hú|False|False|other|
+chinese|nature/terrain|kameň|石|shí|False|False|other|
+chinese|nature/terrain|kontinent|洲|zhōu|False|False|other|
+chinese|nature/terrain|les|森林|sēnlín|False|False|other|
+chinese|nature/terrain|more|海|hǎi|False|False|other|
+chinese|nature/terrain|močiar|沼泽|zhǎozé|False|False|other|
+chinese|nature/terrain|oceán|洋|yáng|False|False|other|
+chinese|nature/terrain|ostrov|岛|dǎo|False|False|other|
+chinese|nature/terrain|piesok|沙|shā|False|False|other|
+chinese|nature/terrain|pláž|海滩|hǎitān|False|False|other|
+chinese|nature/terrain|pobrežie|海岸|hǎiàn|False|False|other|
+chinese|nature/terrain|potok|溪|xī|False|False|other|
+chinese|nature/terrain|prameň|源泉|yuánquán|False|False|other|
+chinese|nature/terrain|prostredie|环境|huánjìng|False|False|other|
+chinese|nature/terrain|príroda|自然|zìrán|False|False|other|
+chinese|nature/terrain|púšť|沙漠|shāmò|False|False|other|
+chinese|nature/terrain|rieka [veľká]|江|jiāng|False|False|other|
+chinese|nature/terrain|rieka|河川|héchuān|False|False|other|
+chinese|nature/terrain|sopka|火山|huǒshān|False|False|other|
+chinese|nature/terrain|step|草原|cǎoyuán|False|False|other|
+chinese|nature/terrain|vodopád|瀑布|pùbù|False|False|other|
+chinese|nature/terrain|zátoka|海湾|hǎiwān|False|False|other|
+chinese|nature/terrain|údolie|谷|gǔ|False|False|other|
+chinese|nature/vesmir|Plejády|昴宿星团|mǎosù xīngtuán|False|False|other|
+chinese|nature/vesmir|Zem|地球|dìqiú|True|False|other|
+chinese|nature/vesmir|galaxia|星系|xīngxì|True|False|other|
+chinese|nature/vesmir|hmlovina|星云|xīngyún|False|False|other|
+chinese|nature/vesmir|hviezda|星星|xīngxīng|True|False|other|
+chinese|nature/vesmir|juh|南|nán|True|False|other|
+chinese|nature/vesmir|kométa|彗星|huìxīng|True|False|other|
+chinese|nature/vesmir|mesiac|月亮|yuèliang|True|False|other|
+chinese|nature/vesmir|meteor|流星|liúxīng|True|False|other|
+chinese|nature/vesmir|nov|新月|xīnyuè|False|False|other|
+chinese|nature/vesmir|planéta|行星|xíngxīng|True|False|other|
+chinese|nature/vesmir|pól|极|jí|False|False|other|
+chinese|nature/vesmir|rovník|赤道|chìdào|False|False|other|
+chinese|nature/vesmir|sever|北|běi|True|False|other|
+chinese|nature/vesmir|slnko|太阳|tàiyáng|True|False|other|
+chinese|nature/vesmir|spln|满月|mǎnyuè|False|False|other|
+chinese|nature/vesmir|súhvezdie|星座|xīngzuò|True|False|other|
+chinese|nature/vesmir|vesmír|宇宙|yǔzhòu|True|False|other|
+chinese|nature/vesmir|východ Slnka|日出|rìchū|False|False|other|
+chinese|nature/vesmir|východ|东|dōng|True|False|other|
+chinese|nature/vesmir|zatmenie Slnka|日食|rìshí|False|False|other|
+chinese|nature/vesmir|zatmenie|e Finsternis||False|False|other|
+chinese|nature/vesmir|západ Slnka|日落|rìluò|False|False|other|
+chinese|nature/vesmir|západ|西|xī|True|False|other|
+chinese|nature/weather|blesk|闪电|shǎndiàn|True|False|other|
+chinese|nature/weather|búrka|暴风|bàofēng|True|False|other|
+chinese|nature/weather|cencúľ|冰柱|bīngzhù|False|False|other|
+chinese|nature/weather|dusno|闷热|mēnrè|False|False|other|
+chinese|nature/weather|dážď|雨|yǔ|True|False|other|
+chinese|nature/weather|dúha|彩虹|cǎihóng|True|False|other|
+chinese|nature/weather|hmla|薄雾|bówù|True|False|other|
+chinese|nature/weather|horúci|热|rè|True|False|other|
+chinese|nature/weather|hrom|雷|léi|True|False|other|
+chinese|nature/weather|kaluž|水坑|shuǐkēng|True|False|other|
+chinese|nature/weather|krúpy|冰雹|bīngbáo|False|False|other|
+chinese|nature/weather|námraza|霜|shuāng|False|False|other|
+chinese|nature/weather|oblak|云|yún|True|False|other|
+chinese|nature/weather|obloha|天空|tiānkōng|True|False|other|
+chinese|nature/weather|potopa|洪水|hóngshuǐ|False|False|other|
+chinese|nature/weather|povodeň|水灾|shuǐzāi|True|False|other|
+chinese|nature/weather|počasie|天气|tiānqì|True|False|other|
+chinese|nature/weather|pršať|下雨|xiàyǔ|True|False|other|
+chinese|nature/weather|rosa|露水|lùshuǐ|False|False|other|
+chinese|nature/weather|sneh|雪|xuě|True|False|other|
+chinese|nature/weather|snežiť|下雪|xiàxuě|True|False|other|
+chinese|nature/weather|studený|寒冷|hánlěng|True|False|other|
+chinese|nature/weather|teplota|温度|wēndù|True|False|other|
+chinese|nature/weather|teplý|温暖|wēnnuǎn|True|False|other|
+chinese|nature/weather|vietor|风|fēng|True|False|other|
+chinese|nature/weather|vlna|波浪|bōlàng|True|False|other|
+chinese|nature/weather|voda|水|shuǐ|True|False|other|
+chinese|nature/weather|vzduch|空气|kōngqì|True|False|other|
+chinese|nature/weather|vánok|微风|wēifēng|False|False|other|
+chinese|nature/weather|víchrica|狂风|kuángfēng|True|False|other|
+chinese|nature/weather|zore (červené oblaky pri západe slnka)|霞|xiá|False|False|other|
+chinese|nature/weather|zrážky|降水|jiàngshuǐ|False|False|other|
+chinese|nature/weather|ľad|冰|bīng|True|False|other|
 chinese|particles|a čo ...?|呢|ne|False|False|other|
 chinese|particles|ach|嘛|ma|False|False|other|
 chinese|particles|ahoj|嗨|hāi|False|False|other|
@@ -719,376 +1519,6 @@ chinese|phrases|dovidenia|再见|zàijiàn|False|False|other|
 chinese|phrases|nie je za čo|不客气|bùkèqi|False|False|other|
 chinese|phrases|s prepáčením|对不起|duìbuqǐ|False|False|other|
 chinese|phrases|ďakujem|谢谢|xièxie|False|False|other|
-chinese|potraviny/drink|alkohol|酒|jiǔ|True|False|other|
-chinese|potraviny/drink|káva|咖啡|kāfēi|True|False|other|
-chinese|potraviny/drink|pivo|啤酒|píjiǔ|False|True|other|
-chinese|potraviny/drink|čaj|茶|chá|True|False|other|
-chinese|potraviny/ovocie|ananás|菠萝|bōluó|False|False|other|
-chinese|potraviny/ovocie|arašid|花生|huāshēng|False|False|other|
-chinese|potraviny/ovocie|avokádo|鳄梨|èlí|False|False|other|
-chinese|potraviny/ovocie|banán|香蕉|xiāngjiāo|False|False|other|
-chinese|potraviny/ovocie|broskyňa|桃子|táozi|True|False|other|
-chinese|potraviny/ovocie|brusnica|蔓越莓|mànyuèméi|False|False|other|
-chinese|potraviny/ovocie|citrón|柠檬|níngméng|True|False|other|
-chinese|potraviny/ovocie|datľa|枣|zǎo|False|False|other|
-chinese|potraviny/ovocie|egreš|醋栗|cùlì|False|False|other|
-chinese|potraviny/ovocie|figa|无花果|wúhuāguǒ|False|False|other|
-chinese|potraviny/ovocie|gaštan|板栗|bǎnlì|False|False|other|
-chinese|potraviny/ovocie|hrozno|葡萄|pútáo|False|False|other|
-chinese|potraviny/ovocie|hruška|梨子|lízi|True|False|other|
-chinese|potraviny/ovocie|jablko|苹果|píngguǒ|True|False|other|
-chinese|potraviny/ovocie|jahoda|草莓|cǎoméi|False|False|other|
-chinese|potraviny/ovocie|kaki|柿|shì|False|False|other|
-chinese|potraviny/ovocie|kešu orech|腰果|yāoguǒ|False|False|other|
-chinese|potraviny/ovocie|kiwi|猕猴桃|míhóutáo|False|False|other|
-chinese|potraviny/ovocie|kokosový orech|椰子|yēzi|False|False|other|
-chinese|potraviny/ovocie|lieskový orech|榛子|zhēnzi|False|False|other|
-chinese|potraviny/ovocie|limetka|青柠|qīngníng|False|False|other|
-chinese|potraviny/ovocie|malina|树莓|shùméi|False|False|other|
-chinese|potraviny/ovocie|mandarinka|橘子|júzi|False|False|other|
-chinese|potraviny/ovocie|mandľa|扁桃|biǎntáo|False|False|other|
-chinese|potraviny/ovocie|mango|芒果|mángguǒ|False|False|other|
-chinese|potraviny/ovocie|marhuľa|杏子|xìngzi|True|False|other|
-chinese|potraviny/ovocie|moruša|桑树|sāngshù|False|False|other|
-chinese|potraviny/ovocie|oliva|油橄榄|yóu gǎnlǎn|False|False|other|
-chinese|potraviny/ovocie|orech|坚果|jiānguǒ|False|False|other|
-chinese|potraviny/ovocie|ovocie|水果|shuǐguǒ|False|False|other|
-chinese|potraviny/ovocie|para orech|巴西坚果|bāxī jiānguǒ|False|False|other|
-chinese|potraviny/ovocie|pekanový orech|山核桃|shān hétáo|False|False|other|
-chinese|potraviny/ovocie|pistácia|开心果|kāixīnguǒ|False|False|other|
-chinese|potraviny/ovocie|pomaranč|橙子|chéngzi|False|False|other|
-chinese|potraviny/ovocie|rebarbora|大黄|dàhuáng|False|False|other|
-chinese|potraviny/ovocie|ríbezla|黑醋栗|hēi cùlì|False|False|other|
-chinese|potraviny/ovocie|slivka|李子|lǐzǐ|True|False|other|
-chinese|potraviny/ovocie|višňa|酸樱桃|suān yīngtáo|False|False|other|
-chinese|potraviny/ovocie|vlašský orech|核桃|hétáo|False|False|other|
-chinese|potraviny/ovocie|čerešňa|樱桃|yīngtáo|False|False|other|
-chinese|potraviny/ovocie|černica|黑莓|hēiméi|False|False|other|
-chinese|potraviny/ovocie|čučoriedka|蓝莓|lánméi|False|False|other|
-chinese|potraviny/zelenina|artičok|洋蓟|yángjì|False|False|other|
-chinese|potraviny/zelenina|baklažán|茄子|qiézi|False|False|other|
-chinese|potraviny/zelenina|batata|地瓜|dìguā|False|False|other|
-chinese|potraviny/zelenina|batata|红薯|hóngshǔ |False|False|other|
-chinese|potraviny/zelenina|brokolica|西兰花|xī lánhuā|False|False|other|
-chinese|potraviny/zelenina|cesnak|大蒜|dàsuàn|True|False|other|
-chinese|potraviny/zelenina|cibuľa|洋葱|yángcōng|True|False|other|
-chinese|potraviny/zelenina|cukrová repa|糖用甜菜|tángyòng tiáncài|False|False|other|
-chinese|potraviny/zelenina|cícer|鹰嘴豆|yīngzuǐdòu|False|False|other|
-chinese|potraviny/zelenina|dyňa|西瓜|xīguā|False|False|other|
-chinese|potraviny/zelenina|fazuľa|红豆/紅豆|hóngdòu|False|False|other|
-chinese|potraviny/zelenina|fazuľa|菜豆|càidòu |False|False|other|
-chinese|potraviny/zelenina|hrach|豌豆|wāndòu|False|False|other|
-chinese|potraviny/zelenina|jačmeň|大麦|dàmài|False|False|other|
-chinese|potraviny/zelenina|kaleráb|苤蓝|piělán|False|False|other|
-chinese|potraviny/zelenina|kapusta|卷心菜|juǎnxīncài |False|False|other|
-chinese|potraviny/zelenina|kapusta|圆白菜|yuánbáicài |False|False|other|
-chinese|potraviny/zelenina|kapusta|洋白菜|yángbáicài|False|False|other|
-chinese|potraviny/zelenina|karfiol|花椰菜|huāyēcài|False|False|other|
-chinese|potraviny/zelenina|kel|羽衣甘蓝|yǔyī gānlán|False|False|other|
-chinese|potraviny/zelenina|kukurica|包谷|bāogǔ|False|False|other|
-chinese|potraviny/zelenina|kukurica|玉米|yùmǐ |False|False|other|
-chinese|potraviny/zelenina|mrkva|胡萝卜|hú luóbo|True|False|other|
-chinese|potraviny/zelenina|ovos|燕麦|yànmài|False|False|other|
-chinese|potraviny/zelenina|paprika|椒|jiāo|False|False|other|
-chinese|potraviny/zelenina|paradajka|番茄|fānqié|False|False|other|
-chinese|potraviny/zelenina|pažitka|韭菜|jiǔcài|False|False|other|
-chinese|potraviny/zelenina|petržlen|荷兰芹|hélánqín|False|False|other|
-chinese|potraviny/zelenina|proso|小米|xiǎomǐ|False|False|other|
-chinese|potraviny/zelenina|pór|韭葱|jiǔcōng|False|False|other|
-chinese|potraviny/zelenina|pšenica|小麦|xiǎomài|False|False|other|
-chinese|potraviny/zelenina|raž|黑麦|hēimài|False|False|other|
-chinese|potraviny/zelenina|repa|甜菜|tiáncài|False|False|other|
-chinese|potraviny/zelenina|reďkovka|水萝卜|shuǐ luóbo|False|False|other|
-chinese|potraviny/zelenina|ružičkový kel|抱子甘蓝|bàozǐ gānlán|False|False|other|
-chinese|potraviny/zelenina|ryža|白饭|báifàn|False|False|other|
-chinese|potraviny/zelenina|ryža|米饭|mǐfàn |False|False|other|
-chinese|potraviny/zelenina|strukovina|豆类|dòu lèi|False|False|other|
-chinese|potraviny/zelenina|sója|大豆|dàdòu |False|False|other|
-chinese|potraviny/zelenina|sója|黄豆|huángdòu|False|False|other|
-chinese|potraviny/zelenina|tekvica|南瓜|nánguā|False|False|other|
-chinese|potraviny/zelenina|uhorka|黄瓜|huángguā|False|False|other|
-chinese|potraviny/zelenina|zelenina|蔬菜|shūcài|False|False|other|
-chinese|potraviny/zelenina|zeler|芹菜|qíncài|False|False|other|
-chinese|potraviny/zelenina|zemiak|土豆|tǔdòu|False|False|other|
-chinese|potraviny/zelenina|šalát|生菜|shēngcài|False|False|other|
-chinese|potraviny/zelenina|šošovica|小扁豆|xiǎo biǎndòu|False|False|other|
-chinese|potraviny/zelenina|špenát|菠菜|bōcài|False|False|other|
-chinese|potraviny/živočíšne|bielok|蛋白|dànbái|True|False|other|
-chinese|potraviny/živočíšne|bravčovina|猪肉|zhūròu|False|False|other|
-chinese|potraviny/živočíšne|hovädzina|牛肉|niúròu|False|False|other|
-chinese|potraviny/živočíšne|hydina|禽肉|qínròu|True|False|other|
-chinese|potraviny/živočíšne|jahňacina|羊肉|yángròu|False|False|other|
-chinese|potraviny/živočíšne|klobása|香肠|xiāngcháng|True|False|other|
-chinese|potraviny/živočíšne|kurča|鸡肉|jīròu|True|False|other|
-chinese|potraviny/živočíšne|maslo|牛油|niúyóu |True|False|other|
-chinese|potraviny/živočíšne|maslo|黄油|huángyóu|True|False|other|
-chinese|potraviny/živočíšne|mlieko|牛奶|niúnǎi|True|False|other|
-chinese|potraviny/živočíšne|mäso|肉|ròu|True|False|other|
-chinese|potraviny/živočíšne|párok|肠仔|chángzǐ|False|False|other|
-chinese|potraviny/živočíšne|slanina|熏肉|xūn ròu|True|False|other|
-chinese|potraviny/živočíšne|smotana|奶油|nǎiyóu|True|False|other|
-chinese|potraviny/živočíšne|syr|芝士|zhīshì|True|False|other|
-chinese|potraviny/živočíšne|syr|起司|qǐ sī |True|False|other|
-chinese|potraviny/živočíšne|teľacina|小牛肉|xiǎo niúròu|False|False|other|
-chinese|potraviny/živočíšne|tvaroh|凝乳|níngrǔ|True|False|other|
-chinese|potraviny/živočíšne|vajce|鸡蛋|jīdàn|True|False|other|
-chinese|potraviny/živočíšne|šunka|火腿|huǒtuǐ|True|False|other|
-chinese|potraviny/živočíšne|žĺtok|蛋黄|dànhuáng|True|False|other|
-chinese|priroda/fyzika|gravitácia|引力|yǐnlì|False|False|other|
-chinese|priroda/fyzika|hmotnosť|重量|zhòngliàng|False|False|other|
-chinese|priroda/fyzika|horúci|热|rè|False|False|other|
-chinese|priroda/fyzika|ohnúť|弯|wān|False|False|other|
-chinese|priroda/fyzika|otáčať|转|zhuǎn|False|False|other|
-chinese|priroda/fyzika|padnúť|掉下|diàoxià|False|False|other|
-chinese|priroda/fyzika|pohnúť|动|dòng|False|False|other|
-chinese|priroda/fyzika|pohyb|动作|dòngzuò|False|False|other|
-chinese|priroda/fyzika|pomaly|徐徐|xúxú|False|False|other|
-chinese|priroda/fyzika|pomalý|慢|màn|False|False|other|
-chinese|priroda/fyzika|prehnúť [napol]|折|zhé|False|False|other|
-chinese|priroda/fyzika|pritlačiť|按|àn|False|False|other|
-chinese|priroda/fyzika|rýchlosť|速度|sùdù|False|False|other|
-chinese|priroda/fyzika|rýchly|快|kuài|False|False|other|
-chinese|priroda/fyzika|sila|力量|lìliang|False|False|other|
-chinese|priroda/fyzika|silný|坚强|jiānqiáng|False|False|other|
-chinese|priroda/fyzika|slabý|脆弱|cuìruò|False|False|other|
-chinese|priroda/fyzika|studený|冷|lěng|False|False|other|
-chinese|priroda/fyzika|svetlo|光|guāng|False|False|other|
-chinese|priroda/fyzika|teplota|温度|wēndù|False|False|other|
-chinese|priroda/fyzika|teplý|温|wēn|False|False|other|
-chinese|priroda/fyzika|tlak|压力|yālì|False|False|other|
-chinese|priroda/fyzika|tlačiť|推|tuī|False|False|other|
-chinese|priroda/fyzika|trieť|磨|mó|False|False|other|
-chinese|priroda/fyzika|zlomiť|断|duàn|False|False|other|
-chinese|priroda/fyzika|čas|时间|shíjiān|False|False|other|
-chinese|priroda/fyzika|ľahký|轻|qīng|False|False|other|
-chinese|priroda/fyzika|ťahať|扯|chě|False|False|other|
-chinese|priroda/fyzika|ťažký|重|zhòng|False|False|other|
-chinese|priroda/liquid|kvapalina|液体|yètǐ|False|False|other|
-chinese|priroda/liquid|mrznúť|冻|dòng|True|False|other|
-chinese|priroda/liquid|prúd|潮|cháo|True|False|other|
-chinese|priroda/liquid|roztopiť|融化|rónghuà|False|False|other|
-chinese|priroda/liquid|tiecť|流|liú|True|False|other|
-chinese|priroda/liquid|zmrznúť|冻结|dòngjié|False|True|other|
-chinese|priroda/material|arzén|砷|shēn|False|False|other|
-chinese|priroda/material|bronz|青铜|qīngtóng|False|True|other|
-chinese|priroda/material|chlór|氯气|lǜqì|False|False|other|
-chinese|priroda/material|cín|锡|xī|False|False|other|
-chinese|priroda/material|diamant|钻石|zuànshí|False|False|other|
-chinese|priroda/material|drahokam|宝石|bǎoshí|False|False|other|
-chinese|priroda/material|draslík|钾|jiǎ|False|False|other|
-chinese|priroda/material|dusík|氮气|dànqì|False|False|other|
-chinese|priroda/material|fluór|氟|fú|False|False|other|
-chinese|priroda/material|fosfor|磷|lín|False|False|other|
-chinese|priroda/material|hliník|铝|lǚ|False|False|other|
-chinese|priroda/material|horčík|镁|měi|False|False|other|
-chinese|priroda/material|hrdzavieť|锈|xiù|False|False|other|
-chinese|priroda/material|hélium|氦|hài|False|False|other|
-chinese|priroda/material|kov|金属|jīnshǔ|False|False|other|
-chinese|priroda/material|kremík|硅|guī|False|False|other|
-chinese|priroda/material|kyslík|氧气|yǎngqì|False|False|other|
-chinese|priroda/material|materiál|材料|cáiliào|False|False|other|
-chinese|priroda/material|meď|铜|tóng|False|False|other|
-chinese|priroda/material|mosadz|黄铜|huángtóng|False|True|other|
-chinese|priroda/material|nikel|镍|niè|False|False|other|
-chinese|priroda/material|oceľ|钢铁|gāngtiě|False|True|other|
-chinese|priroda/material|olovo|铅|qiān|False|False|other|
-chinese|priroda/material|ortuť|水银|shuǐyín|False|True|other|
-chinese|priroda/material|papier|纸张|zhǐzhāng|False|False|other|
-chinese|priroda/material|plast|塑料|sùliào|False|False|other|
-chinese|priroda/material|platina|白金|báijīn|False|True|other|
-chinese|priroda/material|ropa|石油|shíyóu|False|False|other|
-chinese|priroda/material|sklo|玻璃|bōli|False|False|other|
-chinese|priroda/material|sodík|钠|nà|False|False|other|
-chinese|priroda/material|striebro|白银|báiyín|False|False|other|
-chinese|priroda/material|síra|硫|liú|False|False|other|
-chinese|priroda/material|uhlie|煤炭|méitàn|False|False|other|
-chinese|priroda/material|uhlík|碳|tàn|False|False|other|
-chinese|priroda/material|urán|铀|yóu|False|False|other|
-chinese|priroda/material|vodík|氢气|qīngqì|False|False|other|
-chinese|priroda/material|vápnik|钙|gài|False|False|other|
-chinese|priroda/material|zinok|锌|xīn|False|False|other|
-chinese|priroda/material|zlato|黄金|huángjīn|False|False|other|
-chinese|priroda/material|železo|铁|tiě|False|False|other|
-chinese|priroda/movement|fixovať|固定|gùdìng|True|False|other|
-chinese|priroda/movement|klesať|降落|jiàngluò|True|False|other|
-chinese|priroda/movement|otvoriť|开|kāi|True|False|other|
-chinese|priroda/movement|plynulý|流利|liúlì|True|False|other|
-chinese|priroda/movement|stúpať|涨|zhǎng|False|False|other|
-chinese|priroda/movement|vložiť|插|chā|False|False|other|
-chinese|priroda/movement|zatvoriť|关|guān|True|False|other|
-chinese|priroda/počasie|blesk|闪电|shǎndiàn|True|False|other|
-chinese|priroda/počasie|búrka|暴风|bàofēng|True|False|other|
-chinese|priroda/počasie|cencúľ|冰柱|bīngzhù|False|False|other|
-chinese|priroda/počasie|dusno|闷热|mēnrè|False|False|other|
-chinese|priroda/počasie|dážď|雨|yǔ|True|False|other|
-chinese|priroda/počasie|dúha|彩虹|cǎihóng|True|False|other|
-chinese|priroda/počasie|hmla|薄雾|bówù|True|False|other|
-chinese|priroda/počasie|horúci|热|rè|True|False|other|
-chinese|priroda/počasie|hrom|雷|léi|True|False|other|
-chinese|priroda/počasie|kaluž|水坑|shuǐkēng|True|False|other|
-chinese|priroda/počasie|krúpy|冰雹|bīngbáo|False|False|other|
-chinese|priroda/počasie|námraza|霜|shuāng|False|False|other|
-chinese|priroda/počasie|oblak|云|yún|True|False|other|
-chinese|priroda/počasie|obloha|天空|tiānkōng|True|False|other|
-chinese|priroda/počasie|potopa|洪水|hóngshuǐ|False|False|other|
-chinese|priroda/počasie|povodeň|水灾|shuǐzāi|True|False|other|
-chinese|priroda/počasie|počasie|天气|tiānqì|True|False|other|
-chinese|priroda/počasie|pršať|下雨|xiàyǔ|True|False|other|
-chinese|priroda/počasie|rosa|露水|lùshuǐ|False|False|other|
-chinese|priroda/počasie|sneh|雪|xuě|True|False|other|
-chinese|priroda/počasie|snežiť|下雪|xiàxuě|True|False|other|
-chinese|priroda/počasie|studený|寒冷|hánlěng|True|False|other|
-chinese|priroda/počasie|teplota|温度|wēndù|True|False|other|
-chinese|priroda/počasie|teplý|温暖|wēnnuǎn|True|False|other|
-chinese|priroda/počasie|vietor|风|fēng|True|False|other|
-chinese|priroda/počasie|vlna|波浪|bōlàng|True|False|other|
-chinese|priroda/počasie|voda|水|shuǐ|True|False|other|
-chinese|priroda/počasie|vzduch|空气|kōngqì|True|False|other|
-chinese|priroda/počasie|vánok|微风|wēifēng|False|False|other|
-chinese|priroda/počasie|víchrica|狂风|kuángfēng|True|False|other|
-chinese|priroda/počasie|zore (červené oblaky pri západe slnka)|霞|xiá|False|False|other|
-chinese|priroda/počasie|zrážky|降水|jiàngshuǐ|False|False|other|
-chinese|priroda/počasie|ľad|冰|bīng|True|False|other|
-chinese|priroda/rastliny|agáve|龙舌兰|lóngshélán|False|False|other|
-chinese|priroda/rastliny|aloe|芦荟|lúhuì|False|False|other|
-chinese|priroda/rastliny|aníz|八角|bājiǎo|False|False|other|
-chinese|priroda/rastliny|astra|紫菀|zǐwǎn|False|False|other|
-chinese|priroda/rastliny|bazalka|罗勒|luólè|True|False|other|
-chinese|priroda/rastliny|bodliak|薊|jì|False|False|other|
-chinese|priroda/rastliny|brečtan|常春藤|chángchūnténg|False|False|other|
-chinese|priroda/rastliny|chryzantéma|菊花|júhuā|False|False|other|
-chinese|priroda/rastliny|dracéna|龙血树|lóngxuèshù|False|False|other|
-chinese|priroda/rastliny|kaktus|仙人掌|xiānrénzhǎng|True|False|other|
-chinese|priroda/rastliny|karafiát|石竹|shízhú|True|False|other|
-chinese|priroda/rastliny|koriander|芫荽|yánsuī|False|False|other|
-chinese|priroda/rastliny|kôpor|莳萝|shíluó|True|False|other|
-chinese|priroda/rastliny|lekno|睡莲|shuìlián|False|False|other|
-chinese|priroda/rastliny|levanduľa|薰衣草|xūnyīcǎo|True|False|other|
-chinese|priroda/rastliny|lotos|莲花|liánhuā|False|False|other|
-chinese|priroda/rastliny|mach|苔藓|táixiǎn|True|False|other|
-chinese|priroda/rastliny|mak|罂粟|yīngsù|True|False|other|
-chinese|priroda/rastliny|mäta|薄荷|bòhe|True|False|other|
-chinese|priroda/rastliny|narcis|黄水仙|shuǐxiān|False|False|other|
-chinese|priroda/rastliny|nechtík|万寿菊|wànshòujú|False|False|other|
-chinese|priroda/rastliny|nezábudka|勿忘草|wùwàngcǎo|False|False|other|
-chinese|priroda/rastliny|orchidea|兰花|lánhuā|True|False|other|
-chinese|priroda/rastliny|pivonka|芍药|sháoyào|False|False|other|
-chinese|priroda/rastliny|prvosienka|报春花|bàochūnhuā|False|False|other|
-chinese|priroda/rastliny|púpava|蒲公英|púgōngyīng|True|False|other|
-chinese|priroda/rastliny|rasca|茴香|huíxiāng|True|False|other|
-chinese|priroda/rastliny|rododendron|杜鹃花|dùjuānhuā|False|False|other|
-chinese|priroda/rastliny|rozmarín|迷迭香|mídiéxiāng|False|False|other|
-chinese|priroda/rastliny|ruža|蔷薇|qiángwéi|True|False|other|
-chinese|priroda/rastliny|sedmokráska|雏菊|chújú|False|False|other|
-chinese|priroda/rastliny|slez|锦葵|jǐnkuí|False|False|other|
-chinese|priroda/rastliny|slnečnica|向日葵|xiàngrìkuí|True|False|other|
-chinese|priroda/rastliny|tulipán|郁金香|yùjīnxiāng|True|False|other|
-chinese|priroda/rastliny|ďatelina|三叶草|sānyècǎo|True|False|other|
-chinese|priroda/rastliny|ľalia|百合|bǎihé|True|False|other|
-chinese|priroda/rastliny|šafrán|番红花|fānhónghuā|False|False|other|
-chinese|priroda/rastliny|šalvia|鼠尾草|shǔwěicǎo|False|False|other|
-chinese|priroda/rastliny|žihľava|荨麻|xúnmá|True|False|other|
-chinese|priroda/stavba rastlín|bobuľa|浆果|jiāngguǒ|False|True|other|
-chinese|priroda/stavba rastlín|ihličie|针叶|zhēnyè|True|False|other|
-chinese|priroda/stavba rastlín|kmeň|树干|shùgàn|True|False|other|
-chinese|priroda/stavba rastlín|konár|树枝|shùzhī|True|False|other|
-chinese|priroda/stavba rastlín|koreň|根|gēn|True|False|other|
-chinese|priroda/stavba rastlín|kvet|花|huā|True|False|other|
-chinese|priroda/stavba rastlín|kôra|树皮|shùpí|True|False|other|
-chinese|priroda/stavba rastlín|kôstka|核|hé|True|False|other|
-chinese|priroda/stavba rastlín|list|叶子|yèzi|True|False|other|
-chinese|priroda/stavba rastlín|peľ|花粉|huāfěn|False|True|other|
-chinese|priroda/stavba rastlín|plod|果|guǒ|True|False|other|
-chinese|priroda/stavba rastlín|puk|花蕾|huālěi|False|True|other|
-chinese|priroda/stavba rastlín|stonka|茎|jīng|True|False|other|
-chinese|priroda/stavba rastlín|struk|豆荚|dòujiá|False|False|other|
-chinese|priroda/stavba rastlín|šupka|果皮|guǒpí|False|True|other|
-chinese|priroda/stavba rastlín|šuška|松果|sōngguǒ|False|True|other|
-chinese|priroda/stromy|borievka|刺柏|cìbǎi|False|True|other|
-chinese|priroda/stromy|borovica|松树|sōngshù|True|False|other|
-chinese|priroda/stromy|brest|榆树|yúshù|False|False|other|
-chinese|priroda/stromy|breza|桦木|huàmù|True|False|other|
-chinese|priroda/stromy|cyprus|柏|bǎi|False|False|other|
-chinese|priroda/stromy|céder|雪松|xuěsōng|False|True|other|
-chinese|priroda/stromy|datľovník|枣树|zǎoshù|False|False|other|
-chinese|priroda/stromy|dub|橡树|xiàngshù|True|False|other|
-chinese|priroda/stromy|figovník|无花果|wúhuāguǒ|False|False|other|
-chinese|priroda/stromy|gaštan|栗|lì|True|False|other|
-chinese|priroda/stromy|ginko|银杏|yínxìng|False|False|other|
-chinese|priroda/stromy|hloh|山楂|shānzhā|False|False|other|
-chinese|priroda/stromy|ihličnatý strom|针叶树|zhēnyèshù|False|False|other|
-chinese|priroda/stromy|javor|枫树|fēngshù|True|False|other|
-chinese|priroda/stromy|jedľa|冷杉|lěngshān|True|False|other|
-chinese|priroda/stromy|jelša|桤木|qīmù|False|False|other|
-chinese|priroda/stromy|lieska|榛|zhēn|False|False|other|
-chinese|priroda/stromy|lipa|椴树|duànshù|True|False|other|
-chinese|priroda/stromy|listnatý strom|阔叶树|kuòyèshù|False|False|other|
-chinese|priroda/stromy|magnólia|木兰|mùlán|False|False|other|
-chinese|priroda/stromy|orech|核桃|hétáo|True|False|other|
-chinese|priroda/stromy|pagaštan|七叶树|qīyèshù|False|False|other|
-chinese|priroda/stromy|palma|棕榈|zōnglǘ|True|False|other|
-chinese|priroda/stromy|sekvoja|红杉|hóngshān|False|False|other|
-chinese|priroda/stromy|smrekovec|落叶松|luòyèsōng|False|True|other|
-chinese|priroda/stromy|smrek|云杉|yúnshān|True|False|other|
-chinese|priroda/stromy|sofora|槐|huái|False|False|other|
-chinese|priroda/stromy|tis|紫杉|zǐshān|False|False|other|
-chinese|priroda/stromy|topoľ|杨树|yángshù|True|False|other|
-chinese|priroda/stromy|tuja|崖柏|yábǎi|False|True|other|
-chinese|priroda/stromy|vavrín|月桂|yuèguì|False|False|other|
-chinese|priroda/stromy|vŕba|柳树|liǔshù|True|False|other|
-chinese|priroda/terén|blato|泥|ní |False|False|other|
-chinese|priroda/terén|blato|泥浆|níjiāng|False|False|other|
-chinese|priroda/terén|drevo|木|mù|False|False|other|
-chinese|priroda/terén|hlina|土|tǔ|False|False|other|
-chinese|priroda/terén|hora|山|shān|False|False|other|
-chinese|priroda/terén|jaskyňa|洞穴|dòngxué|False|False|other|
-chinese|priroda/terén|jazero|湖|hú|False|False|other|
-chinese|priroda/terén|kameň|石|shí|False|False|other|
-chinese|priroda/terén|kontinent|洲|zhōu|False|False|other|
-chinese|priroda/terén|les|森林|sēnlín|False|False|other|
-chinese|priroda/terén|more|海|hǎi|False|False|other|
-chinese|priroda/terén|močiar|沼泽|zhǎozé|False|False|other|
-chinese|priroda/terén|oceán|洋|yáng|False|False|other|
-chinese|priroda/terén|ostrov|岛|dǎo|False|False|other|
-chinese|priroda/terén|piesok|沙|shā|False|False|other|
-chinese|priroda/terén|pláž|海滩|hǎitān|False|False|other|
-chinese|priroda/terén|pobrežie|海岸|hǎiàn|False|False|other|
-chinese|priroda/terén|potok|溪|xī|False|False|other|
-chinese|priroda/terén|prameň|源泉|yuánquán|False|False|other|
-chinese|priroda/terén|prostredie|环境|huánjìng|False|False|other|
-chinese|priroda/terén|príroda|自然|zìrán|False|False|other|
-chinese|priroda/terén|púšť|沙漠|shāmò|False|False|other|
-chinese|priroda/terén|rieka [veľká]|江|jiāng|False|False|other|
-chinese|priroda/terén|rieka|河川|héchuān|False|False|other|
-chinese|priroda/terén|sopka|火山|huǒshān|False|False|other|
-chinese|priroda/terén|step|草原|cǎoyuán|False|False|other|
-chinese|priroda/terén|vodopád|瀑布|pùbù|False|False|other|
-chinese|priroda/terén|zátoka|海湾|hǎiwān|False|False|other|
-chinese|priroda/terén|údolie|谷|gǔ|False|False|other|
-chinese|priroda/vesmir|Plejády|昴宿星团|mǎosù xīngtuán|False|False|other|
-chinese|priroda/vesmir|Zem|地球|dìqiú|True|False|other|
-chinese|priroda/vesmir|galaxia|星系|xīngxì|True|False|other|
-chinese|priroda/vesmir|hmlovina|星云|xīngyún|False|False|other|
-chinese|priroda/vesmir|hviezda|星星|xīngxīng|True|False|other|
-chinese|priroda/vesmir|juh|南|nán|True|False|other|
-chinese|priroda/vesmir|kométa|彗星|huìxīng|True|False|other|
-chinese|priroda/vesmir|mesiac|月亮|yuèliang|True|False|other|
-chinese|priroda/vesmir|meteor|流星|liúxīng|True|False|other|
-chinese|priroda/vesmir|nov|新月|xīnyuè|False|False|other|
-chinese|priroda/vesmir|planéta|行星|xíngxīng|True|False|other|
-chinese|priroda/vesmir|pól|极|jí|False|False|other|
-chinese|priroda/vesmir|rovník|赤道|chìdào|False|False|other|
-chinese|priroda/vesmir|sever|北|běi|True|False|other|
-chinese|priroda/vesmir|slnko|太阳|tàiyáng|True|False|other|
-chinese|priroda/vesmir|spln|满月|mǎnyuè|False|False|other|
-chinese|priroda/vesmir|súhvezdie|星座|xīngzuò|True|False|other|
-chinese|priroda/vesmir|vesmír|宇宙|yǔzhòu|True|False|other|
-chinese|priroda/vesmir|východ Slnka|日出|rìchū|False|False|other|
-chinese|priroda/vesmir|východ|东|dōng|True|False|other|
-chinese|priroda/vesmir|zatmenie Slnka|日食|rìshí|False|False|other|
-chinese|priroda/vesmir|zatmenie|e Finsternis||False|False|other|
-chinese|priroda/vesmir|západ Slnka|日落|rìluò|False|False|other|
-chinese|priroda/vesmir|západ|西|xī|True|False|other|
 chinese|pronoun|ja|我|wǒ|True|False|other|
 chinese|pronoun|my|我们|wǒmen|False|True|other|
 chinese|pronoun|ona|她|tā|True|False|other|
@@ -1099,605 +1529,34 @@ chinese|pronoun|on|他|tā|True|False|other|
 chinese|pronoun|ty|你|nǐ|True|False|other|
 chinese|pronoun|vy|你们|nǐmen|False|True|other|
 chinese|pronoun|všetci|大家|dàjiā|True|False|other|
-chinese|spoločnosť/communication|diskutovať|讨论|tǎolùn|False|False|other|
-chinese|spoločnosť/communication|dokázať|证明|zhèngmíng|False|False|other|
-chinese|spoločnosť/communication|dovoliť|让|ràng|False|False|other|
-chinese|spoločnosť/communication|hovoriť|谈|tán|False|False|other|
-chinese|spoločnosť/communication|informácia|资讯|zīxùn|False|False|other|
-chinese|spoločnosť/communication|interview|采访|cǎifǎng|False|False|other|
-chinese|spoločnosť/communication|jazyk|语|yǔ|False|False|other|
-chinese|spoločnosť/communication|klamať|说谎|shuōhuǎng|False|False|other|
-chinese|spoločnosť/communication|klamstvo|谎话|huǎnghuà|False|False|other|
-chinese|spoločnosť/communication|komentovať|评论|pínglùn|False|False|other|
-chinese|spoločnosť/communication|komunikácia|交际|jiāojì|True|False|other|
-chinese|spoločnosť/communication|konverzovať|交谈|jiāotán|False|False|other|
-chinese|spoločnosť/communication|konzultovať|商量|shāngliang|True|False|other|
-chinese|spoločnosť/communication|kritizovať|批评|pīpíng|False|False|other|
-chinese|spoločnosť/communication|navrhnúť|建议|jiànyì|False|False|other|
-chinese|spoločnosť/communication|náznak|暗示|ànshì|True|False|other|
-chinese|spoločnosť/communication|názor|看法|kànfǎ|True|False|other|
-chinese|spoločnosť/communication|odpovedať|回答|huídá|False|False|other|
-chinese|spoločnosť/communication|odpustiť|原谅|yuánliàng|False|False|other|
-chinese|spoločnosť/communication|oklamať|欺骗|qīpiàn|False|False|other|
-chinese|spoločnosť/communication|otázka|问题|wèntí|False|False|other|
-chinese|spoločnosť/communication|oznámiť|告诉|gàosu|False|False|other|
-chinese|spoločnosť/communication|podvodník|骗子|piànzi|False|False|other|
-chinese|spoločnosť/communication|povedať|说|shuō|False|False|other|
-chinese|spoločnosť/communication|povoliť|允许|yǔnxǔ|False|False|other|
-chinese|spoločnosť/communication|preložiť|翻译|fānyì|True|False|other|
-chinese|spoločnosť/communication|presvedčiť|劝说|quànshuō|False|False|other|
-chinese|spoločnosť/communication|prezradiť|透露|tòulù|False|False|other|
-chinese|spoločnosť/communication|prijať|接受|jiēshòu|False|False|other|
-chinese|spoločnosť/communication|prikázať|令|lìng|False|False|other|
-chinese|spoločnosť/communication|privítať|欢迎|huānyíng|True|False|other|
-chinese|spoločnosť/communication|prosiť|请|qǐng|False|False|other|
-chinese|spoločnosť/communication|pýtať sa|询问|xúnwèn|False|False|other|
-chinese|spoločnosť/communication|rada|忠告|zhōnggào|False|False|other|
-chinese|spoločnosť/communication|radiť|劝告|quàngào|False|False|other|
-chinese|spoločnosť/communication|reč|说话|shuōhuà|False|False|other|
-chinese|spoločnosť/communication|rozprávať|讲|jiǎng|False|False|other|
-chinese|spoločnosť/communication|správa|新闻|xīnwén|True|False|other|
-chinese|spoločnosť/communication|spýtať sa|问|wèn|False|False|other|
-chinese|spoločnosť/communication|sľub|诺言|nuòyán|False|False|other|
-chinese|spoločnosť/communication|sľúbiť|许诺|xǔnuò|False|False|other|
-chinese|spoločnosť/communication|sťažovať sa|投诉|tóusù|False|False|other|
-chinese|spoločnosť/communication|uznať|承认|chéngrèn|False|False|other|
-chinese|spoločnosť/communication|varovať|告诫|gàojiè|False|False|other|
-chinese|spoločnosť/communication|verný|忠实|zhōngshí |False|False|other|
-chinese|spoločnosť/communication|verný|忠诚|zhōngchéng|False|False|other|
-chinese|spoločnosť/communication|vyhovoriť|劝阻|quànzǔ|False|False|other|
-chinese|spoločnosť/communication|vypytovať sa|查询|cháxún|False|False|other|
-chinese|spoločnosť/communication|vyvrátiť|反驳|fǎnbó|False|False|other|
-chinese|spoločnosť/communication|výhovorka|借口|jièkǒu|False|False|other|
-chinese|spoločnosť/communication|úprimný|真诚|zhēnchéng|False|False|other|
-chinese|spoločnosť/communication|čestný|诚实|chéngshí|False|False|other|
-chinese|spoločnosť/communication|žiadosť|请求|qǐngqiú|False|False|other|
-chinese|spoločnosť/family|babka|奶奶|nǎinai|False|False|other|
-chinese|spoločnosť/family|dcéra|女儿|nǚér|False|False|other|
-chinese|spoločnosť/family|dedo|爷爷|yéye|False|False|other|
-chinese|spoločnosť/family|džentlmen|男士|nánshì|False|False|other|
-chinese|spoločnosť/family|frajer|男友|nányǒu|False|False|other|
-chinese|spoločnosť/family|mama|妈妈|māma|False|False|other|
-chinese|spoločnosť/family|manželia|夫妇|fūfù |True|False|other|
-chinese|spoločnosť/family|manželia|夫妻|fūqī|True|False|other|
-chinese|spoločnosť/family|manželka|妻子|qīzi|True|False|other|
-chinese|spoločnosť/family|manžel|丈夫|zhàngfu|True|False|other|
-chinese|spoločnosť/family|mladšia sestra|妹妹|mèimei|False|False|other|
-chinese|spoločnosť/family|mladší brat|弟弟|dìdi|False|False|other|
-chinese|spoločnosť/family|mládež|青年|qīngnián|True|False|other|
-chinese|spoločnosť/family|muž|男人|nánrén|False|False|other|
-chinese|spoločnosť/family|otec|父亲|fùqīn|False|False|other|
-chinese|spoločnosť/family|otec|爸爸|bàba |False|False|other|
-chinese|spoločnosť/family|priateľ|朋友|péngyou|False|False|other|
-chinese|spoločnosť/family|rodičia|父母|fùmǔ|False|False|other|
-chinese|spoločnosť/family|staršia sestra|姐姐|jiějie|False|False|other|
-chinese|spoločnosť/family|starší brat|哥哥|gēge|False|False|other|
-chinese|spoločnosť/family|strýko|叔叔|shūshu|False|False|other|
-chinese|spoločnosť/family|sused|隔壁|gébì|False|False|other|
-chinese|spoločnosť/family|synovec|外甥|wàisheng|False|False|other|
-chinese|spoločnosť/family|syn|儿子|érzi|False|False|other|
-chinese|spoločnosť/family|teenager|青少年|qīngshàonián|False|True|other|
-chinese|spoločnosť/family|teta|姨妈|yímā|False|False|other|
-chinese|spoločnosť/family|teta|阿姨|āyí |False|False|other|
-chinese|spoločnosť/family|vnuk|孙子|sūnzi|False|False|other|
-chinese|spoločnosť/mestá|Amsterdam|阿姆斯特丹|āmǔsītèdān|True|False|other|
-chinese|spoločnosť/mestá|Atény|雅典|yǎdiǎn|True|False|other|
-chinese|spoločnosť/mestá|Barcelona|巴塞罗那|bāsèluōnà|True|False|other|
-chinese|spoločnosť/mestá|Benátky|威尼斯|wēinísī|True|False|other|
-chinese|spoločnosť/mestá|Berlín|柏林|bólín|True|False|other|
-chinese|spoločnosť/mestá|Brusel|布鲁塞尔|bùlǔsàiěr|True|False|other|
-chinese|spoločnosť/mestá|Budapešť|布达佩斯|bùdápèisī|True|False|other|
-chinese|spoločnosť/mestá|Bukurešť|布加勒斯特|bùjiālèsītè|False|False|other|
-chinese|spoločnosť/mestá|Florencia|佛罗伦萨|fóluólúnsà|False|False|other|
-chinese|spoločnosť/mestá|Janov|热那亚|rènàyà|False|False|other|
-chinese|spoločnosť/mestá|Kodaň|哥本哈根|gēběnhāgēn|True|False|other|
-chinese|spoločnosť/mestá|Kolín|科隆|kēlóng|True|False|other|
-chinese|spoločnosť/mestá|Kyjev|基辅|jīfǔ|False|False|other|
-chinese|spoločnosť/mestá|Káhira|开罗|kāiluó|True|False|other|
-chinese|spoločnosť/mestá|Lisabon|里斯本|lǐsīběn|True|False|other|
-chinese|spoločnosť/mestá|Londýn|伦敦|lúndūn|True|False|other|
-chinese|spoločnosť/mestá|Madrid|马德里|mǎdélǐ|True|False|other|
-chinese|spoločnosť/mestá|Miláno|米兰|mǐlán|True|False|other|
-chinese|spoločnosť/mestá|Mníchov|慕尼黑|mìníhēi|True|False|other|
-chinese|spoločnosť/mestá|Moskva|莫斯科|mòsīkē|True|False|other|
-chinese|spoločnosť/mestá|Neapol|拿波利|nábōlì|False|False|other|
-chinese|spoločnosť/mestá|Paríž|巴黎|bālí|True|False|other|
-chinese|spoločnosť/mestá|Peking|北京|běijīng|True|False|other|
-chinese|spoločnosť/mestá|Praha|布拉格|bùlāgé|True|False|other|
-chinese|spoločnosť/mestá|Rím|罗马|luómǎ|True|False|other|
-chinese|spoločnosť/mestá|Tokio|东京|dōngjīng|True|False|other|
-chinese|spoločnosť/mestá|Varšava|华沙|huáshā|True|False|other|
-chinese|spoločnosť/mestá|Viedeň|维也纳|wéiyěnà|True|False|other|
-chinese|spoločnosť/mestá|Zürich|苏黎世|sūlíshì|False|False|other|
-chinese|spoločnosť/mestá|Štokholm|斯德哥尔摩|sīdégēěrmó|True|False|other|
-chinese|spoločnosť/mestá|Ženeva|日内瓦|rìnèiwǎ|False|False|other|
-chinese|spoločnosť/society|dar|礼物|lǐwù|True|False|other|
-chinese|spoločnosť/society|meeting|会议|huìyì|True|False|other|
-chinese|spoločnosť/society|osamelý|孤独|gūdú|False|False|other|
-chinese|spoločnosť/society|oslava|庆典|qìngdiǎn|False|False|other|
-chinese|spoločnosť/society|rituál|典礼|diǎnlǐ|False|False|other|
-chinese|spoločnosť/society|sláviť|庆祝|qìngzhù|True|False|other|
-chinese|spoločnosť/society|slávnosť|节|jié|True|False|other|
-chinese|spoločnosť/society|spoločenstvo|社团|shètuán|False|False|other|
-chinese|spoločnosť/society|spoločnosť|社会|shèhuì|True|False|other|
-chinese|spoločnosť/society|stretnutie|约会|yuēhuì|True|False|other|
-chinese|spoločnosť/society|sviatok|节日|jiérì|False|True|other|
-chinese|spoločnosť/society|zvyk|习惯|xíguàn|True|False|other|
-chinese|spoločnosť/štáty|Alžírsko|阿尔及利亚|āěrjílìyǎ|False|False|other|
-chinese|spoločnosť/štáty|Argentína|阿根廷|āgēntíng|False|False|other|
-chinese|spoločnosť/štáty|Austrália|澳大利亚|àodàlìyà|True|False|other|
-chinese|spoločnosť/štáty|Belgicko|比利时|bǐlìshí|False|False|other|
-chinese|spoločnosť/štáty|Bielorusko|白俄罗斯|báièluósī|False|False|other|
-chinese|spoločnosť/štáty|Bolívia|玻利维亚|bōlìwéiyǎ|False|False|other|
-chinese|spoločnosť/štáty|Brazília|巴西|bāxī|True|False|other|
-chinese|spoločnosť/štáty|Bulharsko|保加利亚|bǎojiālìyǎ|False|False|other|
-chinese|spoločnosť/štáty|Chorvátsko|克罗地亚|kèluódìyà|False|False|other|
-chinese|spoločnosť/štáty|Dánsko|丹麦|dānmài|False|False|other|
-chinese|spoločnosť/štáty|Egypt|埃及|āijí|True|False|other|
-chinese|spoločnosť/štáty|Ekvádor|厄瓜多尔|èguāduōěr|False|False|other|
-chinese|spoločnosť/štáty|Estónsko|爱沙尼亚|àishāníyǎ|False|False|other|
-chinese|spoločnosť/štáty|Etiópia|埃塞俄比亚|āisāiébǐyǎ|False|False|other|
-chinese|spoločnosť/štáty|Filipíny|菲律宾|fēilǜbīn|False|False|other|
-chinese|spoločnosť/štáty|Francúzsko|法国|fǎguó|True|False|other|
-chinese|spoločnosť/štáty|Fínsko|芬兰|fēnlán|False|False|other|
-chinese|spoločnosť/štáty|Grécko|希腊|xīlà|True|False|other|
-chinese|spoločnosť/štáty|Grónsko|格陵兰|gélínglán|False|False|other|
-chinese|spoločnosť/štáty|Holandsko|荷兰|hélán|True|False|other|
-chinese|spoločnosť/štáty|India|印度|yìndù|True|False|other|
-chinese|spoločnosť/štáty|Indonézia|印度尼西亚|yìndùníxīyà|False|False|other|
-chinese|spoločnosť/štáty|Irak|伊拉克|yīlākè|False|False|other|
-chinese|spoločnosť/štáty|Irán|伊朗|yīlǎng|False|False|other|
-chinese|spoločnosť/štáty|Japonsko|日本|rìběn|True|False|other|
-chinese|spoločnosť/štáty|Južná afrika|南非|nánfēi|True|False|other|
-chinese|spoločnosť/štáty|Južná kórea|韩国|hánguó|True|False|other|
-chinese|spoločnosť/štáty|Kanada|加拿大|jiānádà|True|False|other|
-chinese|spoločnosť/štáty|Keňa|肯尼亚|kěnníyǎ|False|False|other|
-chinese|spoločnosť/štáty|Kolumbia|哥伦比亚|gēlúnbǐyǎ|False|False|other|
-chinese|spoločnosť/štáty|Litva|立陶宛|lìtáowǎn|False|False|other|
-chinese|spoločnosť/štáty|Lotyšsko|拉脱维亚|lātuōwéiyǎ|False|False|other|
-chinese|spoločnosť/štáty|Líbya|利比亚|lìbǐyǎ|False|False|other|
-chinese|spoločnosť/štáty|Malajzia|马来西亚|mǎláixīyà|False|False|other|
-chinese|spoločnosť/štáty|Maroko|摩洛哥|móluògē|False|False|other|
-chinese|spoločnosť/štáty|Maďarsko|匈牙利|xiōngyálì|False|False|other|
-chinese|spoločnosť/štáty|Mexiko|墨西哥|mòxīgē|True|False|other|
-chinese|spoločnosť/štáty|Mongolsko|蒙古|měnggǔ|False|False|other|
-chinese|spoločnosť/štáty|Nemecko|德国|déguó|True|False|other|
-chinese|spoločnosť/štáty|Nigéria|尼日利亚|nírìlìyǎ|False|False|other|
-chinese|spoločnosť/štáty|Nový Zéland|新西兰|xīnxīlán|True|False|other|
-chinese|spoločnosť/štáty|Nórsko|挪威|nuówēi|False|False|other|
-chinese|spoločnosť/štáty|Pakistan|巴基斯坦|bājīsītǎn|False|False|other|
-chinese|spoločnosť/štáty|Peru|秘鲁|bìlǔ|False|False|other|
-chinese|spoločnosť/štáty|Portugalsko|葡萄牙|pútáoyá|False|False|other|
-chinese|spoločnosť/štáty|Poľsko|波兰|bōlán|True|False|other|
-chinese|spoločnosť/štáty|Rakúsko|奥地利|àodìlì|True|False|other|
-chinese|spoločnosť/štáty|Rumunsko|罗马尼亚|luómǎníyǎ|False|False|other|
-chinese|spoločnosť/štáty|Rusko|俄罗斯|èluósī|True|False|other|
-chinese|spoločnosť/štáty|Saudská arábia|沙特阿拉伯|shātè ālābó|False|False|other|
-chinese|spoločnosť/štáty|Slovensko|斯洛伐克|sīluòfákè|False|False|other|
-chinese|spoločnosť/štáty|Somálsko|索马里|suǒmǎlǐ|False|False|other|
-chinese|spoločnosť/štáty|Spojené kráľovstvo|英国|yīngguó|True|False|other|
-chinese|spoločnosť/štáty|Spojené štáty|美国|měiguó|True|False|other|
-chinese|spoločnosť/štáty|Srbsko|塞尔维亚|sàiěrwéiyǎ|False|False|other|
-chinese|spoločnosť/štáty|Sudán|苏丹|sūdān|False|False|other|
-chinese|spoločnosť/štáty|Sýria|叙利亚|xùlìyà|False|False|other|
-chinese|spoločnosť/štáty|Taliansko|意大利|yìdàlì|True|False|other|
-chinese|spoločnosť/štáty|Tanzánia|坦桑尼亚|tǎnsāngníyǎ|False|False|other|
-chinese|spoločnosť/štáty|Thajsko|泰国|tàiguó|False|False|other|
-chinese|spoločnosť/štáty|Tunisko|突尼斯|túnísī|False|False|other|
-chinese|spoločnosť/štáty|Turecko|土耳其|tǔěrqí|True|False|other|
-chinese|spoločnosť/štáty|Ukrajina|乌克兰|wūkèlán|False|False|other|
-chinese|spoločnosť/štáty|Venezuela|委内瑞拉|wěinèiruìlā|False|False|other|
-chinese|spoločnosť/štáty|Vietnam|越南|yuènán|False|False|other|
-chinese|spoločnosť/štáty|Írsko|爱尔兰|àiěrlán|False|False|other|
-chinese|spoločnosť/štáty|Česko|捷克|jiékè|False|False|other|
-chinese|spoločnosť/štáty|Čile|智利|zhìlì|False|False|other|
-chinese|spoločnosť/štáty|Čína|中国|zhōngguó|True|False|other|
-chinese|spoločnosť/štáty|Španielsko|西班牙|xībānyá|True|False|other|
-chinese|spoločnosť/štáty|Švajčiarsko|瑞士|ruìshì|True|False|other|
-chinese|spoločnosť/štáty|Švédsko|瑞典|ruìdiǎn|False|False|other|
-chinese|veda/medicína|DNA|脱氧核糖核酸|tuōyǎng hétáng hésuān|False|False|other|
-chinese|veda/medicína|bacteria|细菌|xìjùn|False|False|other|
-chinese|veda/medicína|bunka|细胞|xìbāo|False|False|other|
-chinese|veda/medicína|chromosome|染色体|rǎnsètǐ|False|False|other|
-chinese|veda/medicína|epidemy|流行病|liúxíng bìng|False|False|other|
-chinese|veda/medicína|erythrocyte|红细胞|hóngxìbāo|False|False|other|
-chinese|veda/medicína|evolúcia|进化|jìnhuà|False|False|other|
-chinese|veda/medicína|gene|基因|jīyīn|False|False|other|
-chinese|veda/medicína|hormone|激素|jīsù|False|False|other|
-chinese|veda/medicína|insulin|胰岛素|yídǎosù|False|False|other|
-chinese|veda/medicína|leukocyte|白细胞|báixìbāo|False|False|other|
-chinese|veda/medicína|melanine|黑色素|hēisèsù|False|False|other|
-chinese|veda/medicína|metabolism|代谢|dàixiè|False|False|other|
-chinese|veda/medicína|mitochondria|线粒体|xiànlìtǐ|False|False|other|
-chinese|veda/medicína|mutácia|突变|túbiàn|False|False|other|
-chinese|veda/medicína|neuron|神经元|shénjīng yuán|False|False|other|
-chinese|veda/medicína|nucleotide|核苷酸|hégānsuān|False|False|other|
-chinese|veda/medicína|proteín|蛋白质|dànbáizhí|False|False|other|
-chinese|veda/medicína|ribosome|核糖体|hétáng tǐ|False|False|other|
-chinese|veda/medicína|virus|病毒|bìngdú|False|False|other|
-chinese|veda/medicína|vitamin|维他命|wéitāmìng|False|False|other|
-chinese|veda/taxonomia|druh|种|zhǒng|False|False|other|
-chinese|veda/taxonomia|kmeň|门|mén|False|False|other|
-chinese|veda/taxonomia|rad|目|mù|False|False|other|
-chinese|veda/taxonomia|rod|属|shǔ|False|False|other|
-chinese|veda/taxonomia|ríša|界|jiè|False|False|other|
-chinese|veda/taxonomia|trieda|纲|gāng|False|False|other|
-chinese|veda/taxonomia|čeľaď|科|kē|False|False|other|
-chinese|zvierata/bezstavovce|chobotnica|章鱼|zhāngyú|True|False|other|
-chinese|zvierata/bezstavovce|dážďovka|蚯蚓|qiūyǐn|False|False|other|
-chinese|zvierata/bezstavovce|medúza|水母|shuǐmǔ|True|False|other|
-chinese|zvierata/bezstavovce|mušľa|贝壳|bèiké|False|False|other|
-chinese|zvierata/bezstavovce|mäkkýš|软体动物|ruǎntǐ dòngwù|False|False|other|
-chinese|zvierata/bezstavovce|pásomnica|绦虫|tāochóng|False|False|other|
-chinese|zvierata/bezstavovce|slimák|蜗牛|wōniú|True|False|other|
-chinese|zvierata/bezstavovce|sépia|乌贼|wūzéi|False|False|other|
-chinese|zvierata/cicavce-kopytníky|antilopa|羚羊|língyáng|False|False|other|
-chinese|zvierata/cicavce-kopytníky|byvol|水牛|shuǐniú|False|False|other|
-chinese|zvierata/cicavce-kopytníky|delfín|海豚|hǎitún|True|False|other|
-chinese|zvierata/cicavce-kopytníky|diviak|野猪|yězhū|True|False|other|
-chinese|zvierata/cicavce-kopytníky|hroch|河马|hémǎ|True|False|other|
-chinese|zvierata/cicavce-kopytníky|jeleň|鹿|lù|True|False|other|
-chinese|zvierata/cicavce-kopytníky|kamzík|岩羚羊|yánlíngyáng|False|False|other|
-chinese|zvierata/cicavce-kopytníky|kosatka|虎鲸|hǔjīng |False|False|other|
-chinese|zvierata/cicavce-kopytníky|kosatka|逆戟鲸|nìjǐjīng|False|False|other|
-chinese|zvierata/cicavce-kopytníky|koza|山羊|shānyáng|True|False|other|
-chinese|zvierata/cicavce-kopytníky|kôň|马|mǎ|True|False|other|
-chinese|zvierata/cicavce-kopytníky|lama|大羊驼|dàyángtuó|False|False|other|
-chinese|zvierata/cicavce-kopytníky|los|驼鹿|tuólù|False|False|other|
-chinese|zvierata/cicavce-kopytníky|nepárnokopytník|奇蹄动物|jītí dòngwù|False|False|other|
-chinese|zvierata/cicavce-kopytníky|nosorožec|犀牛|xīniú|True|False|other|
-chinese|zvierata/cicavce-kopytníky|ovca|羊|yáng|True|False|other|
-chinese|zvierata/cicavce-kopytníky|párnokopytník|偶蹄动物|ǒutí dòngwù|False|False|other|
-chinese|zvierata/cicavce-kopytníky|sob|驯鹿|xùnlù|False|False|other|
-chinese|zvierata/cicavce-kopytníky|somár|驴|子 lǘzi|True|False|other|
-chinese|zvierata/cicavce-kopytníky|tapír|貘|mò|False|False|other|
-chinese|zvierata/cicavce-kopytníky|veľryba|鲸鱼|jīngyú|True|False|other|
-chinese|zvierata/cicavce-kopytníky|zebra|斑马|bānmǎ|False|False|other|
-chinese|zvierata/cicavce-kopytníky|ťava|骆驼|luòtuó|True|False|other|
-chinese|zvierata/cicavce-kopytníky|žirafa|长颈鹿|chángjǐnglù|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|gepard|猎豹|lièbào|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|hyena|鬣狗|liègǒu|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|jaguár|美洲豹|měizhōu bào|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|jazvec|獾|huān|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|kojot|郊狼|jiāoláng|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|kuna|貂|diāo|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|lasica|鼬|yòu|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|leopard|豹子|bàozi|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|lev|狮子|shīzi|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|líška|狐狸|húlí|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|mačka|猫|māo|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|medveď|熊|xióng|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|mrož|海象|hǎixiàng|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|mýval|浣熊|huànxióng|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|puma|美洲狮|měizhōu shī|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|rosomák|貂熊|diāoxióng|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|rys|猞猁|shēlì|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|tchor|臭猫|chòumāo|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|tiger||老虎 lǎohǔ|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|tuleň|海豹|hǎibào|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|uškatec|海狮|hǎishī|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|vlk|狼|láng|True|False|other|
-chinese|zvierata/cicavce-mäsožravce|vydra|水獭|shuǐtǎ|False|False|other|
-chinese|zvierata/cicavce-mäsožravce|šakal|胡狼|húláng|False|False|other|
-chinese|zvierata/cicavce|bobor|海狸|hǎilí|True|False|other|
-chinese|zvierata/cicavce|cicavec|哺乳动物|bǔrǔ dòngwù|True|False|other|
-chinese|zvierata/cicavce|dikobraz|豪猪|háozhū|False|False|other|
-chinese|zvierata/cicavce|gibon|长臂猿|chángbìyuán|False|False|other|
-chinese|zvierata/cicavce|gorila|大猩猩|dà xīngxīng|False|False|other|
-chinese|zvierata/cicavce|hlodavec|啮齿|nièchǐ|False|False|other|
-chinese|zvierata/cicavce|jež|刺猬|cìwèi|True|False|other|
-chinese|zvierata/cicavce|kapybara|水豚|shuǐtún|False|False|other|
-chinese|zvierata/cicavce|klokan|袋鼠|dàishǔ|True|False|other|
-chinese|zvierata/cicavce|krt|鼹鼠|yǎnshǔ|True|False|other|
-chinese|zvierata/cicavce|králik|兔子|tùzǐ|True|False|other|
-chinese|zvierata/cicavce|králik|野兔|yětù |True|False|other|
-chinese|zvierata/cicavce|leňochod|树懒|shùlǎn|False|False|other|
-chinese|zvierata/cicavce|makak|猕猴|míhóu|False|False|other|
-chinese|zvierata/cicavce|mravčiar|食蚁兽|shíyǐshòu|False|False|other|
-chinese|zvierata/cicavce|myš|老鼠|lǎoshǔ|True|False|other|
-chinese|zvierata/cicavce|netopier|蝙蝠|biānfú|True|False|other|
-chinese|zvierata/cicavce|opica|猴|子 hóuzi|True|False|other|
-chinese|zvierata/cicavce|orangutan|红猩猩|hóng xīngxīng|False|False|other|
-chinese|zvierata/cicavce|pavián|狒狒|fèifèi|False|False|other|
-chinese|zvierata/cicavce|pieskomil|沙鼠|shāshǔ|False|False|other|
-chinese|zvierata/cicavce|potkan|老鼠|lǎoshǔ|True|False|other|
-chinese|zvierata/cicavce|pásovec|犰狳|qiúyú|False|False|other|
-chinese|zvierata/cicavce|slon|大象|dàxiàng|True|False|other|
-chinese|zvierata/cicavce|syseľ|黄鼠|huángshǔ|False|False|other|
-chinese|zvierata/cicavce|vačica|负鼠|fùshǔ|False|False|other|
-chinese|zvierata/cicavce|vačkovec|有袋动物|yǒudài dòngwù|False|False|other|
-chinese|zvierata/cicavce|veverička|松鼠|sōngshǔ|True|False|other|
-chinese|zvierata/cicavce|vtákopysk|鸭嘴兽|yāzuǐshòu|False|False|other|
-chinese|zvierata/cicavce|zajac|兔子|tùzǐ|True|False|other|
-chinese|zvierata/cicavce|zajac|野兔|yětù |True|False|other|
-chinese|zvierata/cicavce|ľudoop|猿|yuán|False|False|other|
-chinese|zvierata/cicavce|šimpanz|黑猩猩|hēi xīngxīng|False|False|other|
-chinese|zvierata/cicavce|škrečok|仓鼠|cāngshǔ|True|False|other|
-chinese|zvierata/dinosaury|allosaurus|异特龙|yìtè lóng|False|False|other|
-chinese|zvierata/dinosaury|ankylosaurus|甲龙|jiǎ lóng|False|False|other|
-chinese|zvierata/dinosaury|apatosaurus|雷龙|léi lóng|False|False|other|
-chinese|zvierata/dinosaury|brachiosaurus|腕龙|wàn lóng|False|False|other|
-chinese|zvierata/dinosaury|carcharodontosaurus|鲨齿龙|shāchǐ lóng|False|False|other|
-chinese|zvierata/dinosaury|carnotaurus|食肉牛龙|shíròuniú lóng|False|False|other|
-chinese|zvierata/dinosaury|corythosaurus|冠龙|guān lóng|False|False|other|
-chinese|zvierata/dinosaury|deinonychus|恐爪龙|kǒngzhǎo lóng|False|False|other|
-chinese|zvierata/dinosaury|dilophosaurus|双脊龙|shuāngjí lóng|False|False|other|
-chinese|zvierata/dinosaury|dinosaurus|恐龙|kǒng lóng|False|False|other|
-chinese|zvierata/dinosaury|diplodocus|梁龙|liáng lóng|False|False|other|
-chinese|zvierata/dinosaury|dromaeosaurus|驰龙|chí lóng|False|False|other|
-chinese|zvierata/dinosaury|iguanodon|禽龙|qín lóng|False|False|other|
-chinese|zvierata/dinosaury|oviraptor|偷蛋龙|tōudàn lóng|False|False|other|
-chinese|zvierata/dinosaury|pachycephalosaurus|厚头龙|hòutóu lóng|False|False|other|
-chinese|zvierata/dinosaury|parasaurolophus|副栉龙|fùzhì lóng|False|False|other|
-chinese|zvierata/dinosaury|spinosaurus|棘龙|jí lóng|False|False|other|
-chinese|zvierata/dinosaury|stegosaurus|剑龙|jiàn lóng|False|False|other|
-chinese|zvierata/dinosaury|styracosaurus|戟龙|jǐ lóng|False|False|other|
-chinese|zvierata/dinosaury|therizinosaurus|镰刀龙|liándāo lóng|False|False|other|
-chinese|zvierata/dinosaury|triceratops|三角龙|sānjiǎo lóng|False|False|other|
-chinese|zvierata/dinosaury|troodon|伤齿龙|shāngchǐ lóng|False|False|other|
-chinese|zvierata/dinosaury|tyrannosaurus|霸王龙|bàwáng lóng|False|False|other|
-chinese|zvierata/hmyz|blcha|跳蚤|tiàozǎo|True|False|other|
-chinese|zvierata/hmyz|chrobák|甲虫|jiǎchóng|True|False|other|
-chinese|zvierata/hmyz|chrúst|金龟子|jīnguīzǐ|False|False|other|
-chinese|zvierata/hmyz|garnát|毛虾|máoxiā|False|False|other|
-chinese|zvierata/hmyz|hmyz|昆虫|kūnchóng|True|False|other|
-chinese|zvierata/hmyz|homár|龙虾|lóngxiā|False|False|other|
-chinese|zvierata/hmyz|kliešť|蜱虫|píchóng|False|False|other|
-chinese|zvierata/hmyz|kobylka|蚱蜢|zhàměng|False|False|other|
-chinese|zvierata/hmyz|komár|蚊子|wénzi|True|False|other|
-chinese|zvierata/hmyz|krab|螃蟹|pángxiè|True|False|other|
-chinese|zvierata/hmyz|kreveta|虾|xiā|False|False|other|
-chinese|zvierata/hmyz|kôrovec|甲壳动物|jiǎqiào dòngwù|False|False|other|
-chinese|zvierata/hmyz|lienka|瓢虫|piáochóng|False|False|other|
-chinese|zvierata/hmyz|modlivka|螳螂|tángláng|True|False|other|
-chinese|zvierata/hmyz|motýľ|蝴蝶|húdié|True|False|other|
-chinese|zvierata/hmyz|mravec|蚂蚁|mǎyǐ|True|False|other|
-chinese|zvierata/hmyz|mucha|苍蝇|cāngyíng|True|False|other|
-chinese|zvierata/hmyz|osa|马蜂|mǎfēng|True|False|other|
-chinese|zvierata/hmyz|osa|黄蜂|huángfēng |True|False|other|
-chinese|zvierata/hmyz|pavúk|蜘蛛|zhīzhū|True|False|other|
-chinese|zvierata/hmyz|ploštica|臭虫|chòuchóng|False|False|other|
-chinese|zvierata/hmyz|rak|螯虾|áoxiā|True|False|other|
-chinese|zvierata/hmyz|roztoč|螨虫|mǎnchóng|False|False|other|
-chinese|zvierata/hmyz|sršeň|虎頭蜂|hǔtóufēng|False|False|other|
-chinese|zvierata/hmyz|stonožka|蜈蚣|wúgōng|False|False|other|
-chinese|zvierata/hmyz|svrček|蟋蟀|xīshuài|False|False|other|
-chinese|zvierata/hmyz|termit|白蚁|báiyǐ|False|False|other|
-chinese|zvierata/hmyz|ucholak|蠼螋|qúsōu|False|False|other|
-chinese|zvierata/hmyz|voška|蚜虫|yáchóng|False|False|other|
-chinese|zvierata/hmyz|voš|虱|shī|True|False|other|
-chinese|zvierata/hmyz|vážka|蜻蜓|qīngtíng|True|False|other|
-chinese|zvierata/hmyz|včela|蜜蜂|mìfēng|True|False|other|
-chinese|zvierata/hmyz|čmeliak|熊蜂|xióngfēng|False|False|other|
-chinese|zvierata/hmyz|škorpión|蝎子|xiēzi|True|False|other|
-chinese|zvierata/hmyz|šváb|蟑螂|zhāngláng|True|False|other|
-chinese|zvierata/tetrapoda|anakonda|蚺|rán|False|False|other|
-chinese|zvierata/tetrapoda|chameleón|变色龙|biànsèlóng|True|False|other|
-chinese|zvierata/tetrapoda|gekón|壁虎|bìhǔ|False|False|other|
-chinese|zvierata/tetrapoda|had|蛇|shé|True|False|other|
-chinese|zvierata/tetrapoda|jašterica|蜥蜴|xīyì|False|False|other|
-chinese|zvierata/tetrapoda|kobra|眼镜蛇|yǎnjìngshé|False|False|other|
-chinese|zvierata/tetrapoda|korytnačka|龟|guī|True|False|other|
-chinese|zvierata/tetrapoda|krokodíl|鳄鱼|èyú|True|False|other|
-chinese|zvierata/tetrapoda|mlok|蝾螈|róngyuán|False|False|other|
-chinese|zvierata/tetrapoda|obojživelník|两栖动物|liǎngqī dòngwù|True|False|other|
-chinese|zvierata/tetrapoda|plaz|爬行动物|páxíng dòngwù|True|False|other|
-chinese|zvierata/tetrapoda|pytón|蟒蛇|mǎngshé|False|False|other|
-chinese|zvierata/tetrapoda|ropucha|蟾蜍|chánchú|True|False|other|
-chinese|zvierata/tetrapoda|rosnička|雨蛙|yǔwā|False|False|other|
-chinese|zvierata/tetrapoda|užovka|水游蛇|shuǐyóushé|False|False|other|
-chinese|zvierata/tetrapoda|varan|巨蜥|jùxī|False|False|other|
-chinese|zvierata/tetrapoda|vretenica|蝰蛇|kuíshé|False|False|other|
-chinese|zvierata/tetrapoda|štrkáč|响尾蛇|xiǎngwěishé|False|False|other|
-chinese|zvierata/tetrapoda|žaba|蛙|wā|True|False|other|
-chinese|živé telo/body|brada|胡须|húxū|False|False|other|
-chinese|živé telo/body|chrbtica|脊柱|jǐzhù|False|False|other|
-chinese|živé telo/body|chvost|尾巴|wěiba|False|False|other|
-chinese|živé telo/body|dlaň|手掌|shǒuzhǎng|False|False|other|
-chinese|živé telo/body|fúz|胡子|húzi|False|False|other|
-chinese|živé telo/body|hlava|头|tóu|False|False|other|
-chinese|živé telo/body|jazyk|舌头|shétou|False|False|other|
-chinese|živé telo/body|koleno|膝盖|xīgài|False|False|other|
-chinese|živé telo/body|končatina|肢体|zhītǐ|False|False|other|
-chinese|živé telo/body|kopyto|蹄|tí|False|False|other|
-chinese|živé telo/body|kosť|骨|gǔ|False|False|other|
-chinese|živé telo/body|krvná plazma|血浆|xuèjiāng|False|True|other|
-chinese|živé telo/body|krv|血|xuè|True|False|other|
-chinese|živé telo/body|krv|血液|xuèyè|False|True|other|
-chinese|živé telo/body|krídlo|翅膀|chìbǎng|False|False|other|
-chinese|živé telo/body|lakeť|手肘|shǒuzhǒu|False|False|other|
-chinese|živé telo/body|lebka|头骨|tóugǔ|False|False|other|
-chinese|živé telo/body|lýtko|小腿|xiǎotuǐ|False|False|other|
-chinese|živé telo/body|necht|指甲|zhǐjia|False|False|other|
-chinese|živé telo/body|noha|脚|jiǎo|False|False|other|
-chinese|živé telo/body|noha|足|zú |False|False|other|
-chinese|živé telo/body|oblička|肾脏|shènzàng|False|False|other|
-chinese|živé telo/body|oko|眼睛|yǎnjing|False|False|other|
-chinese|živé telo/body|pera|嘴唇|zuǐchún|False|False|other|
-chinese|živé telo/body|pero|羽毛|yǔmáo|False|False|other|
-chinese|živé telo/body|pečeň|肝脏|gānzàng|False|False|other|
-chinese|živé telo/body|plece|肩膀|jiānbǎng|False|False|other|
-chinese|živé telo/body|pokožka|肌肤|jīfū|False|False|other|
-chinese|živé telo/body|prst na nohe|脚趾|jiǎozhǐ|False|False|other|
-chinese|živé telo/body|prst|手指|shǒuzhǐ|False|False|other|
-chinese|živé telo/body|pľúca|肺|fèi|False|False|other|
-chinese|živé telo/body|ruka|手|shǒu|False|False|other|
-chinese|živé telo/body|slezina|脾脏|pízàng|False|False|other|
-chinese|živé telo/body|slina|唾液|tuòyè|False|False|other|
-chinese|živé telo/body|srdce|心脏|xīnzàng|False|False|other|
-chinese|živé telo/body|srsť|毛皮|máopí|False|False|other|
-chinese|živé telo/body|stavec|椎骨|zhuīgǔ|False|False|other|
-chinese|živé telo/body|stehno|大腿|dàtuǐ|False|False|other|
-chinese|živé telo/body|sval|肌肉|jīròu|False|False|other|
-chinese|živé telo/body|telo|身体|shēntǐ|False|False|other|
-chinese|živé telo/body|tvár|脸|liǎn|False|False|other|
-chinese|živé telo/body|ucho|耳朵|ěrduo|False|False|other|
-chinese|živé telo/body|vlasy|头发|tóufa|False|False|other|
-chinese|živé telo/body|ústa|嘴|zuǐ|False|False|other|
-chinese|živé telo/body|žlčník|胆|dǎn|False|False|other|
-chinese|živé telo/feeling|báť sa|怕|pà|False|False|other|
-chinese|živé telo/feeling|depresívny|沉闷|chénmèn|False|False|other|
-chinese|živé telo/feeling|des|恐惧|kǒngjù|False|False|other|
-chinese|živé telo/feeling|dúfať|希望|xīwàng|True|False|other|
-chinese|živé telo/feeling|emócia|感情|gǎnqíng|False|False|other|
-chinese|živé telo/feeling|hanbiť sa|惭愧|cánkuì|False|False|other|
-chinese|živé telo/feeling|hanblivosť|胆怯|dǎnqiè|False|False|other|
-chinese|živé telo/feeling|hnev|愤怒|fènnù|False|False|other|
-chinese|živé telo/feeling|hrôza|恐怖|kǒngbù|False|False|other|
-chinese|živé telo/feeling|láska|爱情|àiqíng|False|False|other|
-chinese|živé telo/feeling|mať obavy|担心|dānxīn|False|False|other|
-chinese|živé telo/feeling|melanchólia|忧郁|yōuyù|False|False|other|
-chinese|živé telo/feeling|mizerný|惨|cǎn|False|False|other|
-chinese|živé telo/feeling|nahnevaný|恼火|nǎohuǒ|False|False|other|
-chinese|živé telo/feeling|nalákať|诱惑|yòuhuò|False|False|other|
-chinese|živé telo/feeling|nenávidieť|仇恨|chóuhèn|False|False|other|
-chinese|živé telo/feeling|nenávisť|怨恨|yuànhèn |False|False|other|
-chinese|živé telo/feeling|nenávisť|憎恨|zēnghèn|False|False|other|
-chinese|živé telo/feeling|nálada|心情|xīnqíng|False|False|other|
-chinese|živé telo/feeling|návnada|诱饵|yòuěr|False|False|other|
-chinese|živé telo/feeling|ohromiť|吃惊|chījīng|False|False|other|
-chinese|živé telo/feeling|panikáriť|恐慌|kǒnghuāng|False|False|other|
-chinese|živé telo/feeling|pocit|情|qíng|False|False|other|
-chinese|živé telo/feeling|potešený|高兴|gāoxìng|True|False|other|
-chinese|živé telo/feeling|prekvapenie|惊喜|jīngxǐ|False|False|other|
-chinese|živé telo/feeling|radosť|喜悦|xǐyuè |False|False|other|
-chinese|živé telo/feeling|radosť|愉悦|yúyuè|False|False|other|
-chinese|živé telo/feeling|smutný|悲伤|bēishāng|False|False|other|
-chinese|živé telo/feeling|strach|恐怕|kǒngpà|False|False|other|
-chinese|živé telo/feeling|súcitiť|同情|tóngqíng|False|False|other|
-chinese|živé telo/feeling|súcit|怜悯|liánmǐn|False|False|other|
-chinese|živé telo/feeling|trápenie|烦恼|fánnǎo|False|False|other|
-chinese|živé telo/feeling|trápny|别扭|bièniu|False|False|other|
-chinese|živé telo/feeling|úzkosť|忧虑|yōulǜ|False|False|other|
-chinese|živé telo/feeling|ľutovať|可怜|kělián|False|False|other|
-chinese|živé telo/feeling|ľutovať|后悔|hòuhuǐ|False|False|other|
-chinese|živé telo/feeling|šťastný|快乐|kuàilè |False|False|other|
-chinese|živé telo/feeling|šťastný|愉快|yúkuài|False|False|other|
-chinese|živé telo/pohyby|bežať|跑步|pǎobù|False|False|other|
-chinese|živé telo/pohyby|cesta|道路|dàolù|False|False|other|
-chinese|živé telo/pohyby|cestovať|游|yóu|True|False|other|
-chinese|živé telo/pohyby|chytiť/zviazať|接|jiē|False|False|other|
-chinese|živé telo/pohyby|chytiť|抓|zhuā|False|False|other|
-chinese|živé telo/pohyby|cvičiť|练习|liànxí|True|False|other|
-chinese|živé telo/pohyby|cúvať|退|tuì|True|False|other|
-chinese|živé telo/pohyby|dupať|跺脚|duòjiǎo|False|False|other|
-chinese|živé telo/pohyby|facka|耳光|ěrguāng|False|False|other|
-chinese|živé telo/pohyby|hladkať|抚摸|fǔmō|False|False|other|
-chinese|živé telo/pohyby|hodiť|投|tóu|False|False|other|
-chinese|živé telo/pohyby|hrýzť|咬|yǎo|False|False|other|
-chinese|živé telo/pohyby|kopnúť|踢|tī|False|False|other|
-chinese|živé telo/pohyby|kopnúť|踢|tī|False|False|other|
-chinese|živé telo/pohyby|kráčať|步行|bùxíng|False|False|other|
-chinese|živé telo/pohyby|kľačať|跪|guì|False|False|other|
-chinese|živé telo/pohyby|ležať na bruchu|趴|pā|False|False|other|
-chinese|živé telo/pohyby|ležať|躺|tǎng|False|False|other|
-chinese|živé telo/pohyby|lízať|舔|tiǎn|False|False|other|
-chinese|živé telo/pohyby|navliecť|套|tào|True|False|other|
-chinese|živé telo/pohyby|niesť|提|tí|False|False|other|
-chinese|živé telo/pohyby|oprieť sa|靠|kào|False|False|other|
-chinese|živé telo/pohyby|padať|跌落|diēluò|False|False|other|
-chinese|živé telo/pohyby|plaziť sa|爬行|páxíng|False|False|other|
-chinese|živé telo/pohyby|plesnúť|拍|pāi |False|False|other|
-chinese|živé telo/pohyby|plesnúť|拍打|pāidǎ|False|False|other|
-chinese|živé telo/pohyby|plávať|游泳|yóuyǒng|True|False|other|
-chinese|živé telo/pohyby|potknúť sa|绊倒|bàndào|False|False|other|
-chinese|živé telo/pohyby|prekročiť|跨越|kuàyuè|False|False|other|
-chinese|živé telo/pohyby|prekročiť|跨过|kuàguò |False|False|other|
-chinese|živé telo/pohyby|pritisnúť sa|靠近|kàojìn|False|False|other|
-chinese|živé telo/pohyby|pustiť|掉|diào|False|False|other|
-chinese|živé telo/pohyby|sedieť|坐|zuò|False|False|other|
-chinese|živé telo/pohyby|skákať|跳跃|tiàoyuè|False|False|other|
-chinese|živé telo/pohyby|stlačiť|按|àn|False|False|other|
-chinese|živé telo/pohyby|stopovať|追踪|zhuīzōng|False|False|other|
-chinese|živé telo/pohyby|stáť|站立|zhànlì|False|False|other|
-chinese|živé telo/pohyby|stúpiť|踩|cǎi|False|False|other|
-chinese|živé telo/pohyby|tlačiť|推动|tuīdòng|False|False|other|
-chinese|živé telo/pohyby|uchopiť|抓紧|zhuājǐn|False|False|other|
-chinese|živé telo/pohyby|udrieť|打|dǎ|False|False|other|
-chinese|živé telo/pohyby|vliecť|拖|tuō|False|False|other|
-chinese|živé telo/pohyby|vyjsť|出|chū|True|False|other|
-chinese|živé telo/pohyby|vyjsť|出去|chūqu|False|True|other|
-chinese|živé telo/pohyby|vyjsť|出来|chūlai|False|True|other|
-chinese|živé telo/pohyby|vystopovať|跟踪|gēnzōng|False|False|other|
-chinese|živé telo/pohyby|vzdialenosť|距离|jùlí|False|False|other|
-chinese|živé telo/pohyby|zostať|留|liú|True|False|other|
-chinese|živé telo/pohyby|ísť|去|qù|True|False|other|
-chinese|živé telo/pohyby|úder|打击|dǎjī|False|False|other|
-chinese|živé telo/pohyby|čupieť|蹲|dūn|False|False|other|
-chinese|živé telo/pohyby|šliapať|践踏|jiàntà|False|False|other|
-chinese|živé telo/pohyby|šplhať sa|爬|pá|False|False|other|
-chinese|živé telo/senses|chuť|味|wèi|False|False|other|
-chinese|živé telo/senses|cítiť|觉得|juéde|True|False|other|
-chinese|živé telo/senses|dýchať|呼吸|hūxī|False|False|other|
-chinese|živé telo/senses|grcať|呕吐|ǒutù|False|False|other|
-chinese|živé telo/senses|horký|苦|kǔ|True|False|other|
-chinese|živé telo/senses|hrýzť|咬|yǎo|False|False|other|
-chinese|živé telo/senses|jesť|吃|chī|False|False|other|
-chinese|živé telo/senses|kričať|叫喊|jiàohǎn|False|False|other|
-chinese|živé telo/senses|kyslý|酸|suān|True|False|other|
-chinese|živé telo/senses|nemý|哑巴|yǎba|False|False|other|
-chinese|živé telo/senses|piť|喝|hē|False|False|other|
-chinese|živé telo/senses|povzdych|叹息|tànxī|False|False|other|
-chinese|živé telo/senses|počuť|听|tīng|False|False|other|
-chinese|živé telo/senses|revať|吼|hǒu|False|False|other|
-chinese|živé telo/senses|sladký|甜|tián|True|False|other|
-chinese|živé telo/senses|slaný|咸|xián|True|False|other|
-chinese|živé telo/senses|volať|叫|jiào|False|False|other|
-chinese|živé telo/senses|vystrašiť|吓|xià|False|False|other|
-chinese|živé telo/senses|zavolať si|召唤|zhàohuàn|False|False|other|
-chinese|živé telo/senses|znieť|响|xiǎng|False|False|other|
-chinese|živé telo/senses|čkať sa|呃逆|ènì|False|False|other|
-chinese|živé telo/senses|žuť|嚼|jiáo|False|False|other|
-chinese|živé telo/spravanie|dieťa|孩子|háizi|True|False|other|
-chinese|živé telo/spravanie|divoký|野生|yěshēng|False|False|other|
-chinese|živé telo/spravanie|hladný|饿|è|True|False|other|
-chinese|živé telo/spravanie|narodiť sa|诞生|dànshēng|False|False|other|
-chinese|živé telo/spravanie|plakať|哭|kū|True|False|other|
-chinese|živé telo/spravanie|smiech|笑|xiào|True|False|other|
-chinese|živé telo/spravanie|smrť|死亡|sǐwáng|False|True|other|
-chinese|živé telo/spravanie|zomrieť|死|sǐ|True|False|other|
-chinese|živé telo/spravanie|život|生活|shēnghuó|True|False|other|
-chinese|živé telo/spravanie|žiť|活|huó|True|False|other|
-chinese|živé telo/thinking|analyzovať|分析|fēnxī|True|False|other|
-chinese|živé telo/thinking|dôvod|理由|lǐyóu|True|False|other|
-chinese|živé telo/thinking|dôvod|缘故|yuángù|False|False|other|
-chinese|živé telo/thinking|fakt|事实|shìshí|False|False|other|
-chinese|živé telo/thinking|hlúpy|傻|shǎ|False|False|other|
-chinese|živé telo/thinking|jednoduchý|容易|róngyì|True|False|other|
-chinese|živé telo/thinking|myšlienka|思想|sīxiǎng|False|False|other|
-chinese|živé telo/thinking|nezmysel|胡说|húshuō|False|False|other|
-chinese|živé telo/thinking|nápad|主意|zhǔyi |True|False|other|
-chinese|živé telo/thinking|nápad|想法|xiǎngfǎ|True|False|other|
-chinese|živé telo/thinking|pamätať si|记得|jìde|True|False|other|
-chinese|živé telo/thinking|pravda|实话|shíhuà|False|False|other|
-chinese|živé telo/thinking|pravda|真话|zhēnhuà |False|False|other|
-chinese|živé telo/thinking|predpovedať|预计|yùjì|True|False|other|
-chinese|živé telo/thinking|predpoveď|预报|yùbào|True|False|other|
-chinese|živé telo/thinking|preventívny|预防|yùfáng|True|False|other|
-chinese|živé telo/thinking|rozhodnúť|决定|juédìng|False|False|other|
-chinese|živé telo/thinking|skutočnosť|真实|zhēnshí|False|False|other|
-chinese|živé telo/thinking|skutočný|现实|xiànshí|False|False|other|
-chinese|živé telo/thinking|sprostý|笨|bèn|False|False|other|
-chinese|živé telo/thinking|vedieť|知道|zhīdào|True|False|other|
-chinese|živé telo/thinking|vyriešiť|解决|jiějué|False|False|other|
-chinese|živé telo/thinking|vysvetlenie|解释|jiěshì|False|False|other|
-chinese|živé telo/thinking|výnimka|例外|lìwài|True|False|other|
-chinese|živé telo/thinking|zamýšľať|打算|dǎsuàn|True|False|other|
-chinese|živé telo/thinking|zložitý|难|nán|True|False|other|
-chinese|živé telo/thinking|zvážiť|衡量|héngliáng|False|False|other|
-chinese|živé telo/vision|biely|白|bái|True|False|other|
-chinese|živé telo/vision|farba|色|sè|True|False|other|
-chinese|živé telo/vision|fialový|紫|zǐ|False|False|other|
-chinese|živé telo/vision|jasný|亮|liàng|True|False|other|
-chinese|živé telo/vision|modrý|蓝|lán|True|False|other|
-chinese|živé telo/vision|pozerať|看|kàn|True|False|other|
-chinese|živé telo/vision|sledovať|观看|guānkàn|True|False|other|
-chinese|živé telo/vision|tmavý|暗|àn|True|False|other|
-chinese|živé telo/vision|vidieť|看见|kànjiàn|True|False|other|
-chinese|živé telo/vision|zelený|绿|lǜ|True|False|other|
-chinese|živé telo/vision|červený|红|hóng|True|False|other|
-chinese|živé telo/vision|čierny|黑|hēi|True|False|other|
-chinese|živé telo/vision|žltý|黄|huáng|True|False|other|
+chinese|science/medicína|DNA|脱氧核糖核酸|tuōyǎng hétáng hésuān|False|False|other|
+chinese|science/medicína|bacteria|细菌|xìjùn|False|False|other|
+chinese|science/medicína|bunka|细胞|xìbāo|False|False|other|
+chinese|science/medicína|chromosome|染色体|rǎnsètǐ|False|False|other|
+chinese|science/medicína|epidemy|流行病|liúxíng bìng|False|False|other|
+chinese|science/medicína|erythrocyte|红细胞|hóngxìbāo|False|False|other|
+chinese|science/medicína|evolúcia|进化|jìnhuà|False|False|other|
+chinese|science/medicína|gene|基因|jīyīn|False|False|other|
+chinese|science/medicína|hormone|激素|jīsù|False|False|other|
+chinese|science/medicína|insulin|胰岛素|yídǎosù|False|False|other|
+chinese|science/medicína|leukocyte|白细胞|báixìbāo|False|False|other|
+chinese|science/medicína|melanine|黑色素|hēisèsù|False|False|other|
+chinese|science/medicína|metabolism|代谢|dàixiè|False|False|other|
+chinese|science/medicína|mitochondria|线粒体|xiànlìtǐ|False|False|other|
+chinese|science/medicína|mutácia|突变|túbiàn|False|False|other|
+chinese|science/medicína|neuron|神经元|shénjīng yuán|False|False|other|
+chinese|science/medicína|nucleotide|核苷酸|hégānsuān|False|False|other|
+chinese|science/medicína|proteín|蛋白质|dànbáizhí|False|False|other|
+chinese|science/medicína|ribosome|核糖体|hétáng tǐ|False|False|other|
+chinese|science/medicína|virus|病毒|bìngdú|False|False|other|
+chinese|science/medicína|vitamin|维他命|wéitāmìng|False|False|other|
+chinese|science/taxonomia|druh|种|zhǒng|False|False|other|
+chinese|science/taxonomia|kmeň|门|mén|False|False|other|
+chinese|science/taxonomia|rad|目|mù|False|False|other|
+chinese|science/taxonomia|rod|属|shǔ|False|False|other|
+chinese|science/taxonomia|ríša|界|jiè|False|False|other|
+chinese|science/taxonomia|trieda|纲|gāng|False|False|other|
+chinese|science/taxonomia|čeľaď|科|kē|False|False|other|
 deutsch|abbreviations|DPH|MwSt.||True|False|other|
 deutsch|abbreviations|MHD|ÖPNV (öffentlicher Personennahverkehr)||False|False|other|
 deutsch|abbreviations|PSČ|PLZ||True|False|other|
@@ -4796,8 +4655,8 @@ deutsch|economy/agriculture|baran|Widder||False|True|noun|r
 deutsch|economy/agriculture|bič|Peitsche/n||False|False|noun|e
 deutsch|economy/agriculture|bičík|Gerte/n||False|False|noun|e
 deutsch|economy/agriculture|búda|Hundehütte||False|False|noun|e
-deutsch|economy/agriculture|býr|Bulle||False|True|noun|r
-deutsch|economy/agriculture|býr|Stier/e||False|True|noun|r
+deutsch|economy/agriculture|býk|Bulle||False|True|noun|r
+deutsch|economy/agriculture|býk|Stier/e||False|True|noun|r
 deutsch|economy/agriculture|cap|Ziegenbock||False|True|noun|r
 deutsch|economy/agriculture|chytať ryby|angeln||True|False|verb|
 deutsch|economy/agriculture|cica|Mieze/n||False|False|noun|e
@@ -8144,6 +8003,34 @@ english|difficult-words|vestigial|zostatkový||False|False|other|
 english|difficult-words|vicissitude|nestálosť||False|False|other|
 english|difficult-words|victuals|potraviny||False|False|other|
 english|difficult-words|voluptuous|zmyselný/dráždivý||False|False|other|
+espanol|abstract/count|bežný|corriente||False|False|other|
+espanol|abstract/count|dostatočný|suficiente||False|False|other|
+espanol|abstract/count|dosť|bastante||False|False|other|
+espanol|abstract/count|hojný|abundante||False|False|other|
+espanol|abstract/count|iný|otro||False|False|other|
+espanol|abstract/count|každý|cada||False|False|other|
+espanol|abstract/count|málo|poco||False|False|other|
+espanol|abstract/count|niekedy|a veces||False|False|other|
+espanol|abstract/count|niekto|alguien||False|False|other|
+espanol|abstract/count|niečo|algo||False|False|other|
+espanol|abstract/count|nikto|nadie||False|False|other|
+espanol|abstract/count|nič|nada||False|False|other|
+espanol|abstract/count|náhle|de repente||False|False|other|
+espanol|abstract/count|náhodný|casual||False|False|other|
+espanol|abstract/count|občasný|ocasional||False|False|other|
+espanol|abstract/count|podobný|semejante||False|False|other|
+espanol|abstract/count|priveľa|demasiado||False|False|other|
+espanol|abstract/count|rovnaký|igual||False|False|other|
+espanol|abstract/count|tamten|aquel/aquella||False|False|other|
+espanol|abstract/count|tento|este/esta||False|False|other|
+espanol|abstract/count|ten|eso/esa/ese||False|False|other|
+espanol|abstract/count|veľa|mucho||False|False|other|
+espanol|abstract/count|vzácny|precioso||False|False|other|
+espanol|abstract/count|všetko|todo||False|False|other|
+espanol|abstract/count|zvláštny|raro||False|False|other|
+espanol|abstract/count|zvyčajný|habitual||False|False|other|
+espanol|abstract/count|často|a menudo||False|False|other|
+espanol|abstract/count|častý|frecuente||False|False|other|
 espanol|abstract/material|bavlna|algodón||False|False|other|
 espanol|abstract/material|betón|hormigón||False|False|other|
 espanol|abstract/material|bronz|bronce||False|False|other|
@@ -8211,34 +8098,6 @@ espanol|abstract/material|zlato|oro||False|False|other|
 espanol|abstract/material|zliatina|aleación||False|False|other|
 espanol|abstract/material|ľad|hielo||False|False|other|
 espanol|abstract/material|železo|hierro||False|False|other|
-espanol|abstract/mnozstvo|bežný|corriente||False|False|other|
-espanol|abstract/mnozstvo|dostatočný|suficiente||False|False|other|
-espanol|abstract/mnozstvo|dosť|bastante||False|False|other|
-espanol|abstract/mnozstvo|hojný|abundante||False|False|other|
-espanol|abstract/mnozstvo|iný|otro||False|False|other|
-espanol|abstract/mnozstvo|každý|cada||False|False|other|
-espanol|abstract/mnozstvo|málo|poco||False|False|other|
-espanol|abstract/mnozstvo|niekedy|a veces||False|False|other|
-espanol|abstract/mnozstvo|niekto|alguien||False|False|other|
-espanol|abstract/mnozstvo|niečo|algo||False|False|other|
-espanol|abstract/mnozstvo|nikto|nadie||False|False|other|
-espanol|abstract/mnozstvo|nič|nada||False|False|other|
-espanol|abstract/mnozstvo|náhle|de repente||False|False|other|
-espanol|abstract/mnozstvo|náhodný|casual||False|False|other|
-espanol|abstract/mnozstvo|občasný|ocasional||False|False|other|
-espanol|abstract/mnozstvo|podobný|semejante||False|False|other|
-espanol|abstract/mnozstvo|priveľa|demasiado||False|False|other|
-espanol|abstract/mnozstvo|rovnaký|igual||False|False|other|
-espanol|abstract/mnozstvo|tamten|aquel/aquella||False|False|other|
-espanol|abstract/mnozstvo|tento|este/esta||False|False|other|
-espanol|abstract/mnozstvo|ten|eso/esa/ese||False|False|other|
-espanol|abstract/mnozstvo|veľa|mucho||False|False|other|
-espanol|abstract/mnozstvo|vzácny|precioso||False|False|other|
-espanol|abstract/mnozstvo|všetko|todo||False|False|other|
-espanol|abstract/mnozstvo|zvláštny|raro||False|False|other|
-espanol|abstract/mnozstvo|zvyčajný|habitual||False|False|other|
-espanol|abstract/mnozstvo|často|a menudo||False|False|other|
-espanol|abstract/mnozstvo|častý|frecuente||False|False|other|
 espanol|abstract/pohyb|blízky|cercano||False|False|other|
 espanol|abstract/pohyb|hojdať|mecer||False|False|other|
 espanol|abstract/pohyb|hýbať|mover||False|False|other|
@@ -8289,46 +8148,6 @@ espanol|abstract/pohyb|zviazať|enlazar||False|False|other|
 espanol|abstract/pohyb|ďaleký|distante||False|False|other|
 espanol|abstract/pohyb|šúchať|frotar||False|False|other|
 espanol|abstract/pohyb|ťahať|tirar||False|False|other|
-espanol|abstract/poloha|blízko|cerca (de)||False|False|other|
-espanol|abstract/poloha|blízky|vecino||False|False|other|
-espanol|abstract/poloha|cez|a través de||False|False|other|
-espanol|abstract/poloha|dnes|hoy||False|False|other|
-espanol|abstract/poloha|dole|abajo||False|False|other|
-espanol|abstract/poloha|do|hasta||False|False|other|
-espanol|abstract/poloha|hore|arriba||False|False|other|
-espanol|abstract/poloha|kam|adónde||False|False|other|
-espanol|abstract/poloha|kde|dónde||False|False|other|
-espanol|abstract/poloha|kedy|cuándo||False|False|other|
-espanol|abstract/poloha|k|a||False|False|other|
-espanol|abstract/poloha|medzi|entre||False|False|other|
-espanol|abstract/poloha|nad|sobre||False|False|other|
-espanol|abstract/poloha|nikdy|nunca||False|False|other|
-espanol|abstract/poloha|odkiaľ|de dónde||False|False|other|
-espanol|abstract/poloha|od|desde||False|False|other|
-espanol|abstract/poloha|oproti|enfrente||False|False|other|
-espanol|abstract/poloha|pod|debajo de||False|False|other|
-espanol|abstract/poloha|potom|después (de)||False|False|other|
-espanol|abstract/poloha|pozdĺž|a lo largo||False|False|other|
-espanol|abstract/poloha|počas|durante||False|False|other|
-espanol|abstract/poloha|predtým|antes (de)||False|False|other|
-espanol|abstract/poloha|priblížiť|avecinar||False|True|other|
-espanol|abstract/poloha|pri|junto a||False|False|other|
-espanol|abstract/poloha|práve|ahora mismo||False|False|other|
-espanol|abstract/poloha|rovno|derecho||False|False|other|
-espanol|abstract/poloha|sem|acá||False|False|other|
-espanol|abstract/poloha|sem|aquí||False|False|other|
-espanol|abstract/poloha|tam|ahí||False|False|other|
-espanol|abstract/poloha|tam|allí||False|False|other|
-espanol|abstract/poloha|teraz|ahora||False|False|other|
-espanol|abstract/poloha|už nikdy|jamás||False|False|other|
-espanol|abstract/poloha|vedľa|al lado (de)||False|False|other|
-espanol|abstract/poloha|vpravo|a la derecha||False|False|other|
-espanol|abstract/poloha|v|en||False|False|other|
-espanol|abstract/poloha|včera|ayer||False|False|other|
-espanol|abstract/poloha|vľavo|a la izquierda||False|False|other|
-espanol|abstract/poloha|vždy|siempre||False|False|other|
-espanol|abstract/poloha|zajtra|mañana||False|False|other|
-espanol|abstract/poloha|z|de||False|False|other|
 espanol|abstract/priebeh|chaos|caos||False|False|other|
 espanol|abstract/priebeh|chaos|lío||False|False|other|
 espanol|abstract/priebeh|dočasný|temporal||False|False|other|
@@ -8351,14 +8170,76 @@ espanol|abstract/priebeh|začať|comenzar||False|False|other|
 espanol|abstract/priebeh|začať|empezar||False|False|other|
 espanol|abstract/priebeh|začiatok|inicio||False|False|other|
 espanol|abstract/priebeh|začiatok|principio||False|False|other|
+espanol|abstract/shape|bod|punto||False|False|other|
+espanol|abstract/shape|bublina|burbuja||False|False|other|
+espanol|abstract/shape|diera|agujero||False|False|other|
+espanol|abstract/shape|dlhý|largo||False|False|other|
+espanol|abstract/shape|guľa|globo||False|False|other|
 espanol|abstract/shape|hladký|liso||False|False|other|
+espanol|abstract/shape|hlboký|hondo||False|False|other|
+espanol|abstract/shape|hlboký|profundo||False|False|other|
 espanol|abstract/shape|hrana|arista||False|False|other|
+espanol|abstract/shape|hrana|arista||False|False|other|
+espanol|abstract/shape|hrboľ|bulto||False|False|other|
+espanol|abstract/shape|kocka|cubo||False|False|other|
+espanol|abstract/shape|koleso|rueda||False|False|other|
+espanol|abstract/shape|kosodĺžnik|romboide||False|False|other|
+espanol|abstract/shape|kosoštvorec|rombo||False|False|other|
+espanol|abstract/shape|krivka|curva||False|False|other|
 espanol|abstract/shape|krivý|corvo||False|False|other|
+espanol|abstract/shape|krivý|corvo||False|False|other|
+espanol|abstract/shape|kruh|círculo||False|False|other|
+espanol|abstract/shape|krátky|corto||False|False|other|
+espanol|abstract/shape|kužeľ|cono||False|False|other|
+espanol|abstract/shape|kvapka|gota||False|False|other|
+espanol|abstract/shape|kváder|ortoedro||False|False|other|
+espanol|abstract/shape|lichobežník|trapecio||False|False|other|
+espanol|abstract/shape|malý|pequeño||False|False|other|
 espanol|abstract/shape|masívny|macizo||False|False|other|
+espanol|abstract/shape|nízky|bajo||False|False|other|
+espanol|abstract/shape|obdĺžnik|rectángulo||False|False|other|
+espanol|abstract/shape|objem|volumen||False|False|other|
+espanol|abstract/shape|obsah|contenido||False|False|other|
+espanol|abstract/shape|obvod|perímetro||False|False|other|
+espanol|abstract/shape|okraj|borde||False|False|other|
+espanol|abstract/shape|plocha|área||False|False|other|
+espanol|abstract/shape|plochý|llano||False|False|other|
 espanol|abstract/shape|plochý|plano||False|False|other|
+espanol|abstract/shape|polomer|radio||False|False|other|
+espanol|abstract/shape|prasklina|grieta||False|False|other|
+espanol|abstract/shape|predĺžiť|alargar||False|False|other|
+espanol|abstract/shape|priamka|recta||False|False|other|
 espanol|abstract/shape|priamy|directo||False|False|other|
+espanol|abstract/shape|priemer|diámetro||False|False|other|
+espanol|abstract/shape|roh|punta||False|False|other|
+espanol|abstract/shape|rovný|directo||False|False|other|
 espanol|abstract/shape|rovný|llano||False|False|other|
+espanol|abstract/shape|rozloha|cabida||False|False|other|
+espanol|abstract/shape|rozšíriť|ampliar||False|False|other|
+espanol|abstract/shape|skrátiť|acortar||False|False|other|
 espanol|abstract/shape|strmý|acantilado||False|False|other|
+espanol|abstract/shape|trhlina|hendidura||False|False|other|
+espanol|abstract/shape|trojuholník|triángulo||False|False|other|
+espanol|abstract/shape|tvar|forma||False|False|other|
+espanol|abstract/shape|valec|cilindro||False|False|other|
+espanol|abstract/shape|veľkosť|tamaño||False|False|other|
+espanol|abstract/shape|veľký|grande||False|False|other|
+espanol|abstract/shape|vysoký|alto||False|False|other|
+espanol|abstract/shape|zmenšiť|disminuir||False|False|other|
+espanol|abstract/shape|znížiť|bajar||False|False|other|
+espanol|abstract/shape|zväčšiť|agrandar||False|False|other|
+espanol|abstract/shape|zvýšiť|alzar||False|False|other|
+espanol|abstract/shape|zvýšiť|aumentar||False|False|other|
+espanol|abstract/shape|zárez|mella||False|False|other|
+espanol|abstract/shape|zárez|muesca||False|False|other|
+espanol|abstract/shape|zúžiť|estrechar||False|False|other|
+espanol|abstract/shape|úzky|estrecho||False|False|other|
+espanol|abstract/shape|čiara|línea||False|False|other|
+espanol|abstract/shape|šikmý|sesgo||False|False|other|
+espanol|abstract/shape|široký|ancho||False|False|other|
+espanol|abstract/shape|škvrna|mancha||False|False|other|
+espanol|abstract/shape|štrbina|boquete||False|False|other|
+espanol|abstract/shape|štvorec|cuadro||False|False|other|
 espanol|abstract/sily|elektrina|electricidad||False|False|other|
 espanol|abstract/sily|energia|energía||False|False|other|
 espanol|abstract/sily|hmotnosť|peso||False|False|other|
@@ -8408,156 +8289,52 @@ espanol|abstract/size|veľký|grande||False|False|other|
 espanol|abstract/size|vysoký|alto||False|False|other|
 espanol|abstract/size|zväčšiť|engrandecer||False|False|other|
 espanol|abstract/size|šíriť sa|cundir||False|False|other|
+espanol|abstract/space|blízko|cerca (de)||False|False|other|
+espanol|abstract/space|blízky|vecino||False|False|other|
+espanol|abstract/space|cez|a través de||False|False|other|
+espanol|abstract/space|dnes|hoy||False|False|other|
+espanol|abstract/space|dole|abajo||False|False|other|
+espanol|abstract/space|do|hasta||False|False|other|
+espanol|abstract/space|hore|arriba||False|False|other|
+espanol|abstract/space|kam|adónde||False|False|other|
+espanol|abstract/space|kde|dónde||False|False|other|
+espanol|abstract/space|kedy|cuándo||False|False|other|
+espanol|abstract/space|k|a||False|False|other|
+espanol|abstract/space|medzi|entre||False|False|other|
+espanol|abstract/space|nad|sobre||False|False|other|
+espanol|abstract/space|nikdy|nunca||False|False|other|
+espanol|abstract/space|odkiaľ|de dónde||False|False|other|
+espanol|abstract/space|od|desde||False|False|other|
+espanol|abstract/space|oproti|enfrente||False|False|other|
+espanol|abstract/space|pod|debajo de||False|False|other|
+espanol|abstract/space|potom|después (de)||False|False|other|
+espanol|abstract/space|pozdĺž|a lo largo||False|False|other|
+espanol|abstract/space|počas|durante||False|False|other|
+espanol|abstract/space|predtým|antes (de)||False|False|other|
+espanol|abstract/space|priblížiť|avecinar||False|True|other|
+espanol|abstract/space|pri|junto a||False|False|other|
+espanol|abstract/space|práve|ahora mismo||False|False|other|
+espanol|abstract/space|rovno|derecho||False|False|other|
+espanol|abstract/space|sem|acá||False|False|other|
+espanol|abstract/space|sem|aquí||False|False|other|
+espanol|abstract/space|tam|ahí||False|False|other|
+espanol|abstract/space|tam|allí||False|False|other|
+espanol|abstract/space|teraz|ahora||False|False|other|
+espanol|abstract/space|už nikdy|jamás||False|False|other|
+espanol|abstract/space|vedľa|al lado (de)||False|False|other|
+espanol|abstract/space|vpravo|a la derecha||False|False|other|
+espanol|abstract/space|v|en||False|False|other|
+espanol|abstract/space|včera|ayer||False|False|other|
+espanol|abstract/space|vľavo|a la izquierda||False|False|other|
+espanol|abstract/space|vždy|siempre||False|False|other|
+espanol|abstract/space|zajtra|mañana||False|False|other|
+espanol|abstract/space|z|de||False|False|other|
 espanol|abstract/time|letný|estival||False|False|other|
 espanol|abstract/time|noc|noche||False|False|other|
 espanol|abstract/time|poludnie|mediodía||False|False|other|
 espanol|abstract/time|ráno|mañana||False|False|other|
 espanol|abstract/time|skoré ráno|madrugada||False|False|other|
 espanol|abstract/time|večer|tarde||False|False|other|
-espanol|abstract/tvary|bod|punto||False|False|other|
-espanol|abstract/tvary|bublina|burbuja||False|False|other|
-espanol|abstract/tvary|diera|agujero||False|False|other|
-espanol|abstract/tvary|dlhý|largo||False|False|other|
-espanol|abstract/tvary|guľa|globo||False|False|other|
-espanol|abstract/tvary|hlboký|hondo||False|False|other|
-espanol|abstract/tvary|hlboký|profundo||False|False|other|
-espanol|abstract/tvary|hrana|arista||False|False|other|
-espanol|abstract/tvary|hrboľ|bulto||False|False|other|
-espanol|abstract/tvary|kocka|cubo||False|False|other|
-espanol|abstract/tvary|koleso|rueda||False|False|other|
-espanol|abstract/tvary|kosodĺžnik|romboide||False|False|other|
-espanol|abstract/tvary|kosoštvorec|rombo||False|False|other|
-espanol|abstract/tvary|krivka|curva||False|False|other|
-espanol|abstract/tvary|krivý|corvo||False|False|other|
-espanol|abstract/tvary|kruh|círculo||False|False|other|
-espanol|abstract/tvary|krátky|corto||False|False|other|
-espanol|abstract/tvary|kužeľ|cono||False|False|other|
-espanol|abstract/tvary|kvapka|gota||False|False|other|
-espanol|abstract/tvary|kváder|ortoedro||False|False|other|
-espanol|abstract/tvary|lichobežník|trapecio||False|False|other|
-espanol|abstract/tvary|malý|pequeño||False|False|other|
-espanol|abstract/tvary|nízky|bajo||False|False|other|
-espanol|abstract/tvary|obdĺžnik|rectángulo||False|False|other|
-espanol|abstract/tvary|objem|volumen||False|False|other|
-espanol|abstract/tvary|obsah|contenido||False|False|other|
-espanol|abstract/tvary|obvod|perímetro||False|False|other|
-espanol|abstract/tvary|okraj|borde||False|False|other|
-espanol|abstract/tvary|plocha|área||False|False|other|
-espanol|abstract/tvary|plochý|llano||False|False|other|
-espanol|abstract/tvary|polomer|radio||False|False|other|
-espanol|abstract/tvary|prasklina|grieta||False|False|other|
-espanol|abstract/tvary|predĺžiť|alargar||False|False|other|
-espanol|abstract/tvary|priamka|recta||False|False|other|
-espanol|abstract/tvary|priemer|diámetro||False|False|other|
-espanol|abstract/tvary|roh|punta||False|False|other|
-espanol|abstract/tvary|rovný|directo||False|False|other|
-espanol|abstract/tvary|rozloha|cabida||False|False|other|
-espanol|abstract/tvary|rozšíriť|ampliar||False|False|other|
-espanol|abstract/tvary|skrátiť|acortar||False|False|other|
-espanol|abstract/tvary|trhlina|hendidura||False|False|other|
-espanol|abstract/tvary|trojuholník|triángulo||False|False|other|
-espanol|abstract/tvary|tvar|forma||False|False|other|
-espanol|abstract/tvary|valec|cilindro||False|False|other|
-espanol|abstract/tvary|veľkosť|tamaño||False|False|other|
-espanol|abstract/tvary|veľký|grande||False|False|other|
-espanol|abstract/tvary|vysoký|alto||False|False|other|
-espanol|abstract/tvary|zmenšiť|disminuir||False|False|other|
-espanol|abstract/tvary|znížiť|bajar||False|False|other|
-espanol|abstract/tvary|zväčšiť|agrandar||False|False|other|
-espanol|abstract/tvary|zvýšiť|alzar||False|False|other|
-espanol|abstract/tvary|zvýšiť|aumentar||False|False|other|
-espanol|abstract/tvary|zárez|mella||False|False|other|
-espanol|abstract/tvary|zárez|muesca||False|False|other|
-espanol|abstract/tvary|zúžiť|estrechar||False|False|other|
-espanol|abstract/tvary|úzky|estrecho||False|False|other|
-espanol|abstract/tvary|čiara|línea||False|False|other|
-espanol|abstract/tvary|šikmý|sesgo||False|False|other|
-espanol|abstract/tvary|široký|ancho||False|False|other|
-espanol|abstract/tvary|škvrna|mancha||False|False|other|
-espanol|abstract/tvary|štrbina|boquete||False|False|other|
-espanol|abstract/tvary|štvorec|cuadro||False|False|other|
-espanol|biology/anatomy|bedro|cadera||False|False|other|
-espanol|biology/anatomy|brada|mentón||False|False|other|
-espanol|biology/anatomy|brucho|barriga||False|False|other|
-espanol|biology/anatomy|brucho|vientre||False|False|other|
-espanol|biology/anatomy|bunka|célula||False|False|other|
-espanol|biology/anatomy|chlopňa|válvula||False|False|other|
-espanol|biology/anatomy|chobot|trompa||False|False|other|
-espanol|biology/anatomy|chrbát (zviera)|lomo||False|False|other|
-espanol|biology/anatomy|chrbát|espalda||False|False|other|
-espanol|biology/anatomy|chrupavka|cartílago||False|False|other|
-espanol|biology/anatomy|chápadlo|tentáculo||False|False|other|
-espanol|biology/anatomy|cieva|vaso||False|False|other|
-espanol|biology/anatomy|dlaň|palma||False|False|other|
-espanol|biology/anatomy|driek|cintura||False|False|other|
-espanol|biology/anatomy|driek|talle||False|False|other|
-espanol|biology/anatomy|hlava|cabeza||False|False|other|
-espanol|biology/anatomy|hruď|pecho||False|False|other|
-espanol|biology/anatomy|jazyk|lengua||False|False|other|
-espanol|biology/anatomy|koleno|rodilla||False|False|other|
-espanol|biology/anatomy|kopyto|casco||False|False|other|
-espanol|biology/anatomy|kosť|hueso||False|False|other|
-espanol|biology/anatomy|krv|sangre||False|False|other|
-espanol|biology/anatomy|krídlo|ala||False|False|other|
-espanol|biology/anatomy|kĺb|articulación||False|False|other|
-espanol|biology/anatomy|kĺb|juntura||False|False|other|
-espanol|biology/anatomy|lakeť|codo||False|False|other|
-espanol|biology/anatomy|lebka|cráneo||False|False|other|
-espanol|biology/anatomy|lopatka|omóplato||False|False|other|
-espanol|biology/anatomy|líce|mejilla||False|False|other|
-espanol|biology/anatomy|lýtko|pantorrilla||False|False|other|
-espanol|biology/anatomy|mihalnica|pestaña||False|False|other|
-espanol|biology/anatomy|mozog|cerebro||False|False|other|
-espanol|biology/anatomy|necht|uña||False|False|other|
-espanol|biology/anatomy|noha|pierna||False|False|other|
-espanol|biology/anatomy|oblička|riñón||False|False|other|
-espanol|biology/anatomy|obočie|ceja||False|False|other|
-espanol|biology/anatomy|oko|ojo||False|False|other|
-espanol|biology/anatomy|orgán|órgano||False|False|other|
-espanol|biology/anatomy|očné viečko|párpado||False|False|other|
-espanol|biology/anatomy|paroh|asta||False|False|other|
-espanol|biology/anatomy|parožie|cornamenta||False|False|other|
-espanol|biology/anatomy|paznecht|pezuña||False|False|other|
-espanol|biology/anatomy|pazúr|uña||False|False|other|
-espanol|biology/anatomy|pažerák|esófago||False|False|other|
-espanol|biology/anatomy|pera|labio||False|False|other|
-espanol|biology/anatomy|plece|hombro||False|False|other|
-espanol|biology/anatomy|pleť|piel||False|False|other|
-espanol|biology/anatomy|plutva|aleta||False|False|other|
-espanol|biology/anatomy|prst|dedo||False|False|other|
-espanol|biology/anatomy|pysk|morro||False|False|other|
-espanol|biology/anatomy|päta|talón||False|False|other|
-espanol|biology/anatomy|pľuzgier|ampolla||False|False|other|
-espanol|biology/anatomy|rameno|brazo||False|False|other|
-espanol|biology/anatomy|rebro|costilla||False|False|other|
-espanol|biology/anatomy|roh|cuerno||False|False|other|
-espanol|biology/anatomy|rypák|jeta||False|False|other|
-espanol|biology/anatomy|sivé vlasy|cana||False|False|other|
-espanol|biology/anatomy|slabina|ingle||False|False|other|
-espanol|biology/anatomy|slezina|bazo||False|False|other|
-espanol|biology/anatomy|sloní kel|marfil||False|False|other|
-espanol|biology/anatomy|srdce|corazón||False|False|other|
-espanol|biology/anatomy|stehno|muslo||False|False|other|
-espanol|biology/anatomy|stolička|muela||False|False|other|
-espanol|biology/anatomy|tepna|arteria||False|False|other|
-espanol|biology/anatomy|tesák|colmillo||False|False|other|
-espanol|biology/anatomy|tvár|cara||False|False|other|
-espanol|biology/anatomy|tykadlo|antena||False|False|other|
-espanol|biology/anatomy|ucho|oreja||False|False|other|
-espanol|biology/anatomy|vemeno|ubre||False|False|other|
-espanol|biology/anatomy|vlas/chlp|pelo||False|False|other|
-espanol|biology/anatomy|zadok|culo||False|False|other|
-espanol|biology/anatomy|zobák|pico||False|False|other|
-espanol|biology/anatomy|zub|diente||False|False|other|
-espanol|biology/anatomy|čelo|frente||False|False|other|
-espanol|biology/anatomy|členok|tobillo||False|False|other|
-espanol|biology/anatomy|ďasno|encía||False|False|other|
-espanol|biology/anatomy|ňufák|hocico||False|False|other|
-espanol|biology/anatomy|šľacha|tendón||False|False|other|
-espanol|biology/anatomy|žalúdok|estómago||False|False|other|
-espanol|biology/anatomy|žihadlo|aguijón||False|False|other|
-espanol|biology/anatomy|žila|vena||False|False|other|
-espanol|biology/anatomy|žľaza|glándula||False|False|other|
 espanol|biology/botany|kmeň|tronco||False|False|other|
 espanol|biology/botany|konár|rama||False|False|other|
 espanol|biology/botany|koreň|raíz||False|False|other|
@@ -8949,6 +8726,53 @@ espanol|culture/šport|loptička|bola||False|False|other|
 espanol|culture/šport|činka|mancuerna||False|False|other|
 espanol|culture/šport|šport|deporte||False|False|other|
 espanol|culture/šport|žinenka|colchoneta||False|False|other|
+espanol|economy/agriculture|baran|carnero||False|False|other|
+espanol|economy/agriculture|burina|maleza||False|False|other|
+espanol|economy/agriculture|býk|toro||False|False|other|
+espanol|economy/agriculture|farma|granja||False|False|other|
+espanol|economy/agriculture|farmár|granjero||False|False|other|
+espanol|economy/agriculture|hnojivo|abono||False|False|other|
+espanol|economy/agriculture|hnojiť|abonar||False|False|other|
+espanol|economy/agriculture|hnoj|estiércol||False|False|other|
+espanol|economy/agriculture|jahňa|cordero||False|False|other|
+espanol|economy/agriculture|kobyla|yegua||False|False|other|
+espanol|economy/agriculture|kombajn|cosechadora||False|False|other|
+espanol|economy/agriculture|kosa|guadaña||False|False|other|
+espanol|economy/agriculture|kosačka|cortacésped||False|False|other|
+espanol|economy/agriculture|kosiť|guadañar||False|False|other|
+espanol|economy/agriculture|kosák|hoz||False|False|other|
+espanol|economy/agriculture|koza|cabra||False|False|other|
+espanol|economy/agriculture|krava|vaca||False|False|other|
+espanol|economy/agriculture|kravský zvonec|cencerro||False|False|other|
+espanol|economy/agriculture|kvetináč|maceta||False|False|other|
+espanol|economy/agriculture|kôň|caballo||False|False|other|
+espanol|economy/agriculture|lopata|pala||False|False|other|
+espanol|economy/agriculture|mačka|gato||False|False|other|
+espanol|economy/agriculture|motyka|azada||False|False|other|
+espanol|economy/agriculture|osev|siembra||False|False|other|
+espanol|economy/agriculture|ovca|oveja||False|False|other|
+espanol|economy/agriculture|pastier|pastor||False|False|other|
+espanol|economy/agriculture|pes|perro||False|False|other|
+espanol|economy/agriculture|prasa|cerdo||False|False|other|
+espanol|economy/agriculture|rýľ|laya||False|False|other|
+espanol|economy/agriculture|sadiť|plantar||False|False|other|
+espanol|economy/agriculture|seno|heno||False|False|other|
+espanol|economy/agriculture|siať|sembrar||False|False|other|
+espanol|economy/agriculture|skleník|invernadero||False|False|other|
+espanol|economy/agriculture|slama|paja||False|False|other|
+espanol|economy/agriculture|stajňa|establo||False|False|other|
+espanol|economy/agriculture|stodola|pajar||False|False|other|
+espanol|economy/agriculture|teľa|ternero||False|False|other|
+espanol|economy/agriculture|trávnik|césped||False|False|other|
+espanol|economy/agriculture|udica|caña de pescar||False|False|other|
+espanol|economy/agriculture|záhon|macizo||False|False|other|
+espanol|economy/agriculture|záhrada|jardín||False|False|other|
+espanol|economy/agriculture|záhradka|huerto||False|False|other|
+espanol|economy/agriculture|úroda|cosecha||False|False|other|
+espanol|economy/agriculture|šteňa|cachorro||False|False|other|
+espanol|economy/agriculture|žatva|siega||False|False|other|
+espanol|economy/agriculture|žať|segar||False|False|other|
+espanol|economy/agriculture|žriebä|potro||False|False|other|
 espanol|economy/buildings|budova|edificio||False|False|other|
 espanol|economy/buildings|dvere|puerta||False|False|other|
 espanol|economy/buildings|izba|cuarto||False|False|other|
@@ -8969,187 +8793,116 @@ espanol|economy/cloths|tkanina|tejido||False|False|other|
 espanol|economy/cloths|tkať|tejer||False|False|other|
 espanol|economy/cloths|vreckovka|pañuelo||False|False|other|
 espanol|economy/cloths|záplata|parche||False|False|other|
-espanol|economy/doprava|auto|coche||False|False|other|
-espanol|economy/doprava|bicykel|bicicleta||False|False|other|
-espanol|economy/doprava|brázdiť (loď)|surcar||False|False|other|
-espanol|economy/doprava|cesta|vía||False|False|other|
-espanol|economy/doprava|chodník|acera||False|False|other|
-espanol|economy/doprava|diaľnica|autopista||False|False|other|
-espanol|economy/doprava|dodávka|furgoneta||False|False|other|
-espanol|economy/doprava|doprava|transporte||False|False|other|
-espanol|economy/doprava|jazdec|jinete||False|False|other|
-espanol|economy/doprava|jazdiť na koni|jinetear||False|True|other|
-espanol|economy/doprava|jazdiť|montar||False|False|other|
-espanol|economy/doprava|jazdný pruh|carril||False|False|other|
-espanol|economy/doprava|kajuta|camarote||False|False|other|
-espanol|economy/doprava|kormidlo|timón||False|False|other|
-espanol|economy/doprava|koráb|bajel||False|False|other|
-espanol|economy/doprava|korčule|patines||False|False|other|
-espanol|economy/doprava|kotevné lano|amarra||False|False|other|
-espanol|economy/doprava|kotva|ancla||False|False|other|
-espanol|economy/doprava|koľajnica|raíl||False|False|other|
-espanol|economy/doprava|krajnica|arcén||False|False|other|
-espanol|economy/doprava|križovatka|encrucijada||False|False|other|
-espanol|economy/doprava|letisko|aeropuerto||False|False|other|
-espanol|economy/doprava|letuška|azafata||False|False|other|
-espanol|economy/doprava|lietadlo|avión||False|False|other|
-espanol|economy/doprava|loď|navío||False|False|other|
-espanol|economy/doprava|lyže|esquís||False|False|other|
-espanol|economy/doprava|most|puente||False|False|other|
-espanol|economy/doprava|obrubník|bordillo||False|False|other|
-espanol|economy/doprava|odbočka|ramal||False|False|other|
-espanol|economy/doprava|padák|paracaídas||False|False|other|
-espanol|economy/doprava|parkovisko|aparcamiento||False|False|other|
-espanol|economy/doprava|pilot|piloto||False|False|other|
-espanol|economy/doprava|plachta|vela||False|False|other|
-espanol|economy/doprava|plť|balsa||False|False|other|
-espanol|economy/doprava|ponorka|submarino||False|False|other|
-espanol|economy/doprava|posádka|tripulación||False|False|other|
-espanol|economy/doprava|potrubie|cañería||False|False|other|
-espanol|economy/doprava|potrubie|tubería||False|False|other|
-espanol|economy/doprava|prístav|puerto||False|False|other|
-espanol|economy/doprava|sane|trineo||False|False|other|
-espanol|economy/doprava|skateboard|monopatín||False|False|other|
-espanol|economy/doprava|stožiar|mástil||False|False|other|
-espanol|economy/doprava|tunel|túnel||False|False|other|
-espanol|economy/doprava|ulica|calle||False|False|other|
-espanol|economy/doprava|veslo|remo||False|False|other|
-espanol|economy/doprava|vlak|tren||False|False|other|
-espanol|economy/doprava|vozidlo|vehículo||False|False|other|
-espanol|economy/doprava|vozovka|calzada||False|False|other|
-espanol|economy/doprava|voz|carro||False|False|other|
-espanol|economy/doprava|vrtuľník|helicóptero||False|False|other|
-espanol|economy/doprava|zvodidlo|guardarraíl||False|False|other|
-espanol|economy/doprava|ísť dopravným prostriedkom|coger||False|False|other|
-espanol|economy/doprava|člen posádky|tripulante||False|False|other|
-espanol|economy/doprava|čln|barco||False|False|other|
-espanol|economy/doprava|šoférovať|conducir||False|False|other|
-espanol|economy/doprava|šoférovať|manejar||False|False|other|
-espanol|economy/financie|banka|banco||False|False|other|
-espanol|economy/financie|bankovka|billete||False|False|other|
-espanol|economy/financie|cenný|valioso||False|False|other|
-espanol|economy/financie|darovať|donar||False|False|other|
-espanol|economy/financie|daň|impuesto||False|False|other|
-espanol|economy/financie|drahý|caro||False|False|other|
-espanol|economy/financie|dražba|subasta||False|False|other|
-espanol|economy/financie|financie|finanzas||False|False|other|
-espanol|economy/financie|kúpiť|comprar||False|False|other|
-espanol|economy/financie|lacný|barato||False|False|other|
-espanol|economy/financie|mena|moneda||False|False|other|
-espanol|economy/financie|minca|moneda||False|False|other|
-espanol|economy/financie|nájom|alquiler||False|False|other|
-espanol|economy/financie|peniaze|dinero||False|False|other|
-espanol|economy/financie|platba|pago||False|False|other|
-espanol|economy/financie|platiť|pagar||False|False|other|
-espanol|economy/financie|poisťovňa|aseguradora||False|False|other|
-espanol|economy/financie|poklad|tesoro||False|False|other|
-espanol|economy/financie|pokuta|multa||False|False|other|
-espanol|economy/financie|poplatok|tasa||False|False|other|
-espanol|economy/financie|požičať|prestar||False|False|other|
-espanol|economy/financie|predať|vender||False|False|other|
-espanol|economy/financie|prenajať|alquilar||False|False|other|
-espanol|economy/financie|prenajímať|arrendar||False|False|other|
-espanol|economy/financie|prihodenie v dražbe|puja||False|False|other|
-espanol|economy/financie|pôžička|préstamo||False|False|other|
-espanol|economy/financie|sporenie|ahorro||False|False|other|
-espanol|economy/financie|sporiť|ahorrar||False|False|other|
-espanol|economy/financie|vybrať/získať|recaudar||False|False|other|
-espanol|economy/financie|úrok|interés||False|False|other|
-espanol|economy/financie|účet|cuenta||False|False|other|
-espanol|economy/financie|účtovať|cobrar||False|False|other|
-espanol|economy/financie|žobrať|pordiosear||False|False|other|
+espanol|economy/finance|banka|banco||False|False|other|
+espanol|economy/finance|bankovka|billete||False|False|other|
+espanol|economy/finance|cenný|valioso||False|False|other|
+espanol|economy/finance|darovať|donar||False|False|other|
+espanol|economy/finance|daň|impuesto||False|False|other|
+espanol|economy/finance|drahý|caro||False|False|other|
+espanol|economy/finance|dražba|subasta||False|False|other|
+espanol|economy/finance|financie|finanzas||False|False|other|
+espanol|economy/finance|kúpiť|comprar||False|False|other|
+espanol|economy/finance|lacný|barato||False|False|other|
+espanol|economy/finance|mena|moneda||False|False|other|
+espanol|economy/finance|minca|moneda||False|False|other|
+espanol|economy/finance|nájom|alquiler||False|False|other|
+espanol|economy/finance|peniaze|dinero||False|False|other|
+espanol|economy/finance|platba|pago||False|False|other|
+espanol|economy/finance|platiť|pagar||False|False|other|
+espanol|economy/finance|poisťovňa|aseguradora||False|False|other|
+espanol|economy/finance|poklad|tesoro||False|False|other|
+espanol|economy/finance|pokuta|multa||False|False|other|
+espanol|economy/finance|poplatok|tasa||False|False|other|
+espanol|economy/finance|požičať|prestar||False|False|other|
+espanol|economy/finance|predať|vender||False|False|other|
+espanol|economy/finance|prenajať|alquilar||False|False|other|
+espanol|economy/finance|prenajímať|arrendar||False|False|other|
+espanol|economy/finance|prihodenie v dražbe|puja||False|False|other|
+espanol|economy/finance|pôžička|préstamo||False|False|other|
+espanol|economy/finance|sporenie|ahorro||False|False|other|
+espanol|economy/finance|sporiť|ahorrar||False|False|other|
+espanol|economy/finance|vybrať/získať|recaudar||False|False|other|
+espanol|economy/finance|úrok|interés||False|False|other|
+espanol|economy/finance|účet|cuenta||False|False|other|
+espanol|economy/finance|účtovať|cobrar||False|False|other|
+espanol|economy/finance|žobrať|pordiosear||False|False|other|
 espanol|economy/furniture|polica|estante||False|False|other|
 espanol|economy/furniture|poslanecké kreslo|escaño||False|False|other|
 espanol|economy/furniture|skriňa|armario||False|False|other|
 espanol|economy/furniture|stolička|silla||False|False|other|
 espanol|economy/furniture|stôl|mesa||False|False|other|
-espanol|economy/polnohospodarstvo|baran|carnero||False|False|other|
-espanol|economy/polnohospodarstvo|burina|maleza||False|False|other|
-espanol|economy/polnohospodarstvo|býk|toro||False|False|other|
-espanol|economy/polnohospodarstvo|farma|granja||False|False|other|
-espanol|economy/polnohospodarstvo|farmár|granjero||False|False|other|
-espanol|economy/polnohospodarstvo|hnojivo|abono||False|False|other|
-espanol|economy/polnohospodarstvo|hnojiť|abonar||False|False|other|
-espanol|economy/polnohospodarstvo|hnoj|estiércol||False|False|other|
-espanol|economy/polnohospodarstvo|jahňa|cordero||False|False|other|
-espanol|economy/polnohospodarstvo|kobyla|yegua||False|False|other|
-espanol|economy/polnohospodarstvo|kombajn|cosechadora||False|False|other|
-espanol|economy/polnohospodarstvo|kosa|guadaña||False|False|other|
-espanol|economy/polnohospodarstvo|kosačka|cortacésped||False|False|other|
-espanol|economy/polnohospodarstvo|kosiť|guadañar||False|False|other|
-espanol|economy/polnohospodarstvo|kosák|hoz||False|False|other|
-espanol|economy/polnohospodarstvo|koza|cabra||False|False|other|
-espanol|economy/polnohospodarstvo|krava|vaca||False|False|other|
-espanol|economy/polnohospodarstvo|kravský zvonec|cencerro||False|False|other|
-espanol|economy/polnohospodarstvo|kvetináč|maceta||False|False|other|
-espanol|economy/polnohospodarstvo|kôň|caballo||False|False|other|
-espanol|economy/polnohospodarstvo|lopata|pala||False|False|other|
-espanol|economy/polnohospodarstvo|mačka|gato||False|False|other|
-espanol|economy/polnohospodarstvo|motyka|azada||False|False|other|
-espanol|economy/polnohospodarstvo|osev|siembra||False|False|other|
-espanol|economy/polnohospodarstvo|ovca|oveja||False|False|other|
-espanol|economy/polnohospodarstvo|pastier|pastor||False|False|other|
-espanol|economy/polnohospodarstvo|pes|perro||False|False|other|
-espanol|economy/polnohospodarstvo|prasa|cerdo||False|False|other|
-espanol|economy/polnohospodarstvo|rýľ|laya||False|False|other|
-espanol|economy/polnohospodarstvo|sadiť|plantar||False|False|other|
-espanol|economy/polnohospodarstvo|seno|heno||False|False|other|
-espanol|economy/polnohospodarstvo|siať|sembrar||False|False|other|
-espanol|economy/polnohospodarstvo|skleník|invernadero||False|False|other|
-espanol|economy/polnohospodarstvo|slama|paja||False|False|other|
-espanol|economy/polnohospodarstvo|stajňa|establo||False|False|other|
-espanol|economy/polnohospodarstvo|stodola|pajar||False|False|other|
-espanol|economy/polnohospodarstvo|teľa|ternero||False|False|other|
-espanol|economy/polnohospodarstvo|trávnik|césped||False|False|other|
-espanol|economy/polnohospodarstvo|udica|caña de pescar||False|False|other|
-espanol|economy/polnohospodarstvo|záhon|macizo||False|False|other|
-espanol|economy/polnohospodarstvo|záhrada|jardín||False|False|other|
-espanol|economy/polnohospodarstvo|záhradka|huerto||False|False|other|
-espanol|economy/polnohospodarstvo|úroda|cosecha||False|False|other|
-espanol|economy/polnohospodarstvo|šteňa|cachorro||False|False|other|
-espanol|economy/polnohospodarstvo|žatva|siega||False|False|other|
-espanol|economy/polnohospodarstvo|žať|segar||False|False|other|
-espanol|economy/polnohospodarstvo|žriebä|potro||False|False|other|
-espanol|economy/priemysel|alobal|papel de aluminio||False|False|other|
-espanol|economy/priemysel|baník|minero||False|False|other|
-espanol|economy/priemysel|baňa|mina||False|False|other|
-espanol|economy/priemysel|brúsiť|afilar||False|False|other|
-espanol|economy/priemysel|dlaždica|losa||False|False|other|
-espanol|economy/priemysel|drôt|alambre||False|False|other|
-espanol|economy/priemysel|elektráreň|central eléctrica||False|False|other|
-espanol|economy/priemysel|farbiť|teñir||False|False|other|
-espanol|economy/priemysel|kladivo|martillo||False|False|other|
-espanol|economy/priemysel|kladka|polea||False|False|other|
-espanol|economy/priemysel|klinec|clavo||False|False|other|
-espanol|economy/priemysel|komín|chimenea||False|False|other|
-espanol|economy/priemysel|kováč|herrero||False|False|other|
-espanol|economy/priemysel|ložisko|cojinete||False|False|other|
-espanol|economy/priemysel|maľovať|pintar||False|False|other|
-espanol|economy/priemysel|nástroj|instrumento||False|False|other|
-espanol|economy/priemysel|plechovka|lata||False|False|other|
-espanol|economy/priemysel|prederaviť|perforar||False|False|other|
-espanol|economy/priemysel|pružina|muelle||False|False|other|
-espanol|economy/priemysel|prístroj|aparato||False|False|other|
-espanol|economy/priemysel|páka|palanca||False|False|other|
-espanol|economy/priemysel|pánt|bisagra||False|False|other|
-espanol|economy/priemysel|píla|sierra||False|False|other|
-espanol|economy/priemysel|píliť|aserrar||False|False|other|
-espanol|economy/priemysel|rezať/strihať|cortar||False|False|other|
-espanol|economy/priemysel|sekera|hacha||False|False|other|
-espanol|economy/priemysel|skrutkovač|atornillador||False|False|other|
-espanol|economy/priemysel|skrutkovať|atornillar||False|False|other|
-espanol|economy/priemysel|stolár|carpintero||False|False|other|
-espanol|economy/priemysel|strecha|tejado||False|False|other|
-espanol|economy/priemysel|stroj|máquina||False|False|other|
-espanol|economy/priemysel|sušiť|secar||False|False|other|
-espanol|economy/priemysel|továreň|fábrica||False|False|other|
-espanol|economy/priemysel|vyrobiť|producir||False|False|other|
-espanol|economy/priemysel|váha|báscula||False|False|other|
-espanol|economy/priemysel|váhy|balanza||False|False|other|
-espanol|economy/priemysel|vŕtať|taladrar||False|False|other|
-espanol|economy/priemysel|zložiť|componer||False|False|other|
-espanol|economy/priemysel|zvárať|soldar||False|False|other|
-espanol|economy/priemysel|ťažiť|extraer||False|False|other|
+espanol|economy/health|choroba|enfermedad||False|False|other|
+espanol|economy/health|chorý|enfermo||False|False|other|
+espanol|economy/health|chrasta|costra||False|False|other|
+espanol|economy/health|chrípka|gripe||False|False|other|
+espanol|economy/health|injekčná striekačka|jeringa||False|False|other|
+espanol|economy/health|jazva|cicatriz||False|False|other|
+espanol|economy/health|liečiť|curar||False|False|other|
+espanol|economy/health|modrina|cardenal||False|False|other|
+espanol|economy/health|modrina|moradura||False|False|other|
+espanol|economy/health|mor|peste||False|False|other|
+espanol|economy/health|nemocnica|hospital||False|False|other|
+espanol|economy/health|nezranený|ileso||False|False|other|
+espanol|economy/health|nádcha|constipado||False|False|other|
+espanol|economy/health|nádcha|resfriado||False|False|other|
+espanol|economy/health|obväz|vendaje||False|False|other|
+espanol|economy/health|osýpky|sarampión||False|False|other|
+espanol|economy/health|otvorená rana|llaga||False|False|other|
+espanol|economy/health|pomliaždenina|contusión||False|False|other|
+espanol|economy/health|pomliaždený|contundido||False|True|other|
+espanol|economy/health|popálenina|quemadura||False|False|other|
+espanol|economy/health|prať|lavar||False|False|other|
+espanol|economy/health|prechladnutie|catarro||False|False|other|
+espanol|economy/health|skalpel|bisturí||False|False|other|
+espanol|economy/health|umyť|fregar||False|False|other|
+espanol|economy/health|uzdraviť|sanar||False|False|other|
+espanol|economy/health|vakcína|vacuna||False|False|other|
+espanol|economy/health|zdravie|salud||False|False|other|
+espanol|economy/health|zdravý|sano||False|False|other|
+espanol|economy/health|čistiť|limpiar||False|False|other|
+espanol|economy/health|čistý|limpio||False|False|other|
+espanol|economy/health|špinavý|sucio||False|False|other|
+espanol|economy/health|žehliť|planchar||False|False|other|
+espanol|economy/industry|alobal|papel de aluminio||False|False|other|
+espanol|economy/industry|baník|minero||False|False|other|
+espanol|economy/industry|baňa|mina||False|False|other|
+espanol|economy/industry|brúsiť|afilar||False|False|other|
+espanol|economy/industry|dlaždica|losa||False|False|other|
+espanol|economy/industry|drôt|alambre||False|False|other|
+espanol|economy/industry|elektráreň|central eléctrica||False|False|other|
+espanol|economy/industry|farbiť|teñir||False|False|other|
+espanol|economy/industry|kladivo|martillo||False|False|other|
+espanol|economy/industry|kladka|polea||False|False|other|
+espanol|economy/industry|klinec|clavo||False|False|other|
+espanol|economy/industry|komín|chimenea||False|False|other|
+espanol|economy/industry|kováč|herrero||False|False|other|
+espanol|economy/industry|ložisko|cojinete||False|False|other|
+espanol|economy/industry|maľovať|pintar||False|False|other|
+espanol|economy/industry|nástroj|instrumento||False|False|other|
+espanol|economy/industry|plechovka|lata||False|False|other|
+espanol|economy/industry|prederaviť|perforar||False|False|other|
+espanol|economy/industry|pružina|muelle||False|False|other|
+espanol|economy/industry|prístroj|aparato||False|False|other|
+espanol|economy/industry|páka|palanca||False|False|other|
+espanol|economy/industry|pánt|bisagra||False|False|other|
+espanol|economy/industry|píla|sierra||False|False|other|
+espanol|economy/industry|píliť|aserrar||False|False|other|
+espanol|economy/industry|rezať/strihať|cortar||False|False|other|
+espanol|economy/industry|sekera|hacha||False|False|other|
+espanol|economy/industry|skrutkovač|atornillador||False|False|other|
+espanol|economy/industry|skrutkovať|atornillar||False|False|other|
+espanol|economy/industry|stolár|carpintero||False|False|other|
+espanol|economy/industry|strecha|tejado||False|False|other|
+espanol|economy/industry|stroj|máquina||False|False|other|
+espanol|economy/industry|sušiť|secar||False|False|other|
+espanol|economy/industry|továreň|fábrica||False|False|other|
+espanol|economy/industry|vyrobiť|producir||False|False|other|
+espanol|economy/industry|váha|báscula||False|False|other|
+espanol|economy/industry|váhy|balanza||False|False|other|
+espanol|economy/industry|vŕtať|taladrar||False|False|other|
+espanol|economy/industry|zložiť|componer||False|False|other|
+espanol|economy/industry|zvárať|soldar||False|False|other|
+espanol|economy/industry|ťažiť|extraer||False|False|other|
 espanol|economy/services|hostinec|posada||False|False|other|
 espanol|economy/services|hotel|hotel||False|False|other|
 espanol|economy/services|kaderník|peluquero||False|False|other|
@@ -9233,38 +8986,62 @@ espanol|economy/tovar|zošit|cuaderno||False|False|other|
 espanol|economy/tovar|zápalka|cerilla||False|False|other|
 espanol|economy/tovar|škatuľa|caja||False|False|other|
 espanol|economy/tovar|šperk|joya||False|False|other|
-espanol|economy/zdravie|choroba|enfermedad||False|False|other|
-espanol|economy/zdravie|chorý|enfermo||False|False|other|
-espanol|economy/zdravie|chrasta|costra||False|False|other|
-espanol|economy/zdravie|chrípka|gripe||False|False|other|
-espanol|economy/zdravie|injekčná striekačka|jeringa||False|False|other|
-espanol|economy/zdravie|jazva|cicatriz||False|False|other|
-espanol|economy/zdravie|liečiť|curar||False|False|other|
-espanol|economy/zdravie|modrina|cardenal||False|False|other|
-espanol|economy/zdravie|modrina|moradura||False|False|other|
-espanol|economy/zdravie|mor|peste||False|False|other|
-espanol|economy/zdravie|nemocnica|hospital||False|False|other|
-espanol|economy/zdravie|nezranený|ileso||False|False|other|
-espanol|economy/zdravie|nádcha|constipado||False|False|other|
-espanol|economy/zdravie|nádcha|resfriado||False|False|other|
-espanol|economy/zdravie|obväz|vendaje||False|False|other|
-espanol|economy/zdravie|osýpky|sarampión||False|False|other|
-espanol|economy/zdravie|otvorená rana|llaga||False|False|other|
-espanol|economy/zdravie|pomliaždenina|contusión||False|False|other|
-espanol|economy/zdravie|pomliaždený|contundido||False|True|other|
-espanol|economy/zdravie|popálenina|quemadura||False|False|other|
-espanol|economy/zdravie|prať|lavar||False|False|other|
-espanol|economy/zdravie|prechladnutie|catarro||False|False|other|
-espanol|economy/zdravie|skalpel|bisturí||False|False|other|
-espanol|economy/zdravie|umyť|fregar||False|False|other|
-espanol|economy/zdravie|uzdraviť|sanar||False|False|other|
-espanol|economy/zdravie|vakcína|vacuna||False|False|other|
-espanol|economy/zdravie|zdravie|salud||False|False|other|
-espanol|economy/zdravie|zdravý|sano||False|False|other|
-espanol|economy/zdravie|čistiť|limpiar||False|False|other|
-espanol|economy/zdravie|čistý|limpio||False|False|other|
-espanol|economy/zdravie|špinavý|sucio||False|False|other|
-espanol|economy/zdravie|žehliť|planchar||False|False|other|
+espanol|economy/transportation|auto|coche||False|False|other|
+espanol|economy/transportation|bicykel|bicicleta||False|False|other|
+espanol|economy/transportation|brázdiť (loď)|surcar||False|False|other|
+espanol|economy/transportation|cesta|vía||False|False|other|
+espanol|economy/transportation|chodník|acera||False|False|other|
+espanol|economy/transportation|diaľnica|autopista||False|False|other|
+espanol|economy/transportation|dodávka|furgoneta||False|False|other|
+espanol|economy/transportation|doprava|transporte||False|False|other|
+espanol|economy/transportation|jazdec|jinete||False|False|other|
+espanol|economy/transportation|jazdiť na koni|jinetear||False|True|other|
+espanol|economy/transportation|jazdiť|montar||False|False|other|
+espanol|economy/transportation|jazdný pruh|carril||False|False|other|
+espanol|economy/transportation|kajuta|camarote||False|False|other|
+espanol|economy/transportation|kormidlo|timón||False|False|other|
+espanol|economy/transportation|koráb|bajel||False|False|other|
+espanol|economy/transportation|korčule|patines||False|False|other|
+espanol|economy/transportation|kotevné lano|amarra||False|False|other|
+espanol|economy/transportation|kotva|ancla||False|False|other|
+espanol|economy/transportation|koľajnica|raíl||False|False|other|
+espanol|economy/transportation|krajnica|arcén||False|False|other|
+espanol|economy/transportation|križovatka|encrucijada||False|False|other|
+espanol|economy/transportation|letisko|aeropuerto||False|False|other|
+espanol|economy/transportation|letuška|azafata||False|False|other|
+espanol|economy/transportation|lietadlo|avión||False|False|other|
+espanol|economy/transportation|loď|navío||False|False|other|
+espanol|economy/transportation|lyže|esquís||False|False|other|
+espanol|economy/transportation|most|puente||False|False|other|
+espanol|economy/transportation|obrubník|bordillo||False|False|other|
+espanol|economy/transportation|odbočka|ramal||False|False|other|
+espanol|economy/transportation|padák|paracaídas||False|False|other|
+espanol|economy/transportation|parkovisko|aparcamiento||False|False|other|
+espanol|economy/transportation|pilot|piloto||False|False|other|
+espanol|economy/transportation|plachta|vela||False|False|other|
+espanol|economy/transportation|plť|balsa||False|False|other|
+espanol|economy/transportation|ponorka|submarino||False|False|other|
+espanol|economy/transportation|posádka|tripulación||False|False|other|
+espanol|economy/transportation|potrubie|cañería||False|False|other|
+espanol|economy/transportation|potrubie|tubería||False|False|other|
+espanol|economy/transportation|prístav|puerto||False|False|other|
+espanol|economy/transportation|sane|trineo||False|False|other|
+espanol|economy/transportation|skateboard|monopatín||False|False|other|
+espanol|economy/transportation|stožiar|mástil||False|False|other|
+espanol|economy/transportation|tunel|túnel||False|False|other|
+espanol|economy/transportation|ulica|calle||False|False|other|
+espanol|economy/transportation|veslo|remo||False|False|other|
+espanol|economy/transportation|vlak|tren||False|False|other|
+espanol|economy/transportation|vozidlo|vehículo||False|False|other|
+espanol|economy/transportation|vozovka|calzada||False|False|other|
+espanol|economy/transportation|voz|carro||False|False|other|
+espanol|economy/transportation|vrtuľník|helicóptero||False|False|other|
+espanol|economy/transportation|zvodidlo|guardarraíl||False|False|other|
+espanol|economy/transportation|ísť dopravným prostriedkom|coger||False|False|other|
+espanol|economy/transportation|člen posádky|tripulante||False|False|other|
+espanol|economy/transportation|čln|barco||False|False|other|
+espanol|economy/transportation|šoférovať|conducir||False|False|other|
+espanol|economy/transportation|šoférovať|manejar||False|False|other|
 espanol|frazy|de perros|pod psa = mizerný||False|False|other|
 espanol|frazy|de tal palo tal astilla|jablko nepadá ďaleko od stromu||False|False|other|
 espanol|frazy|echar agua el mar|hádzať hrach o stenu||False|False|other|
@@ -9280,6 +9057,88 @@ espanol|frazy|ser pan comido|byť jednoduché||False|False|other|
 espanol|frazy|sin embargo|napriek tomu||False|False|other|
 espanol|frazy|tomar el pelo|uťahovať si z niekoho||False|False|other|
 espanol|frazy|érase una vez|kde bolo tam bolo||False|False|other|
+espanol|life/body|bedro|cadera||False|False|other|
+espanol|life/body|brada|mentón||False|False|other|
+espanol|life/body|brucho|barriga||False|False|other|
+espanol|life/body|brucho|vientre||False|False|other|
+espanol|life/body|bunka|célula||False|False|other|
+espanol|life/body|chlopňa|válvula||False|False|other|
+espanol|life/body|chobot|trompa||False|False|other|
+espanol|life/body|chrbát (zviera)|lomo||False|False|other|
+espanol|life/body|chrbát|espalda||False|False|other|
+espanol|life/body|chrupavka|cartílago||False|False|other|
+espanol|life/body|chápadlo|tentáculo||False|False|other|
+espanol|life/body|cieva|vaso||False|False|other|
+espanol|life/body|dlaň|palma||False|False|other|
+espanol|life/body|driek|cintura||False|False|other|
+espanol|life/body|driek|talle||False|False|other|
+espanol|life/body|hlava|cabeza||False|False|other|
+espanol|life/body|hruď|pecho||False|False|other|
+espanol|life/body|jazyk|lengua||False|False|other|
+espanol|life/body|koleno|rodilla||False|False|other|
+espanol|life/body|kopyto|casco||False|False|other|
+espanol|life/body|kosť|hueso||False|False|other|
+espanol|life/body|krv|sangre||False|False|other|
+espanol|life/body|krídlo|ala||False|False|other|
+espanol|life/body|kĺb|articulación||False|False|other|
+espanol|life/body|kĺb|juntura||False|False|other|
+espanol|life/body|lakeť|codo||False|False|other|
+espanol|life/body|lebka|cráneo||False|False|other|
+espanol|life/body|lopatka|omóplato||False|False|other|
+espanol|life/body|líce|mejilla||False|False|other|
+espanol|life/body|lýtko|pantorrilla||False|False|other|
+espanol|life/body|mihalnica|pestaña||False|False|other|
+espanol|life/body|mozog|cerebro||False|False|other|
+espanol|life/body|necht|uña||False|False|other|
+espanol|life/body|noha|pierna||False|False|other|
+espanol|life/body|oblička|riñón||False|False|other|
+espanol|life/body|obočie|ceja||False|False|other|
+espanol|life/body|oko|ojo||False|False|other|
+espanol|life/body|orgán|órgano||False|False|other|
+espanol|life/body|očné viečko|párpado||False|False|other|
+espanol|life/body|paroh|asta||False|False|other|
+espanol|life/body|parožie|cornamenta||False|False|other|
+espanol|life/body|paznecht|pezuña||False|False|other|
+espanol|life/body|pazúr|uña||False|False|other|
+espanol|life/body|pažerák|esófago||False|False|other|
+espanol|life/body|pera|labio||False|False|other|
+espanol|life/body|plece|hombro||False|False|other|
+espanol|life/body|pleť|piel||False|False|other|
+espanol|life/body|plutva|aleta||False|False|other|
+espanol|life/body|prst|dedo||False|False|other|
+espanol|life/body|pysk|morro||False|False|other|
+espanol|life/body|päta|talón||False|False|other|
+espanol|life/body|pľuzgier|ampolla||False|False|other|
+espanol|life/body|rameno|brazo||False|False|other|
+espanol|life/body|rebro|costilla||False|False|other|
+espanol|life/body|roh|cuerno||False|False|other|
+espanol|life/body|rypák|jeta||False|False|other|
+espanol|life/body|sivé vlasy|cana||False|False|other|
+espanol|life/body|slabina|ingle||False|False|other|
+espanol|life/body|slezina|bazo||False|False|other|
+espanol|life/body|sloní kel|marfil||False|False|other|
+espanol|life/body|srdce|corazón||False|False|other|
+espanol|life/body|stehno|muslo||False|False|other|
+espanol|life/body|stolička|muela||False|False|other|
+espanol|life/body|tepna|arteria||False|False|other|
+espanol|life/body|tesák|colmillo||False|False|other|
+espanol|life/body|tvár|cara||False|False|other|
+espanol|life/body|tykadlo|antena||False|False|other|
+espanol|life/body|ucho|oreja||False|False|other|
+espanol|life/body|vemeno|ubre||False|False|other|
+espanol|life/body|vlas/chlp|pelo||False|False|other|
+espanol|life/body|zadok|culo||False|False|other|
+espanol|life/body|zobák|pico||False|False|other|
+espanol|life/body|zub|diente||False|False|other|
+espanol|life/body|čelo|frente||False|False|other|
+espanol|life/body|členok|tobillo||False|False|other|
+espanol|life/body|ďasno|encía||False|False|other|
+espanol|life/body|ňufák|hocico||False|False|other|
+espanol|life/body|šľacha|tendón||False|False|other|
+espanol|life/body|žalúdok|estómago||False|False|other|
+espanol|life/body|žihadlo|aguijón||False|False|other|
+espanol|life/body|žila|vena||False|False|other|
+espanol|life/body|žľaza|glándula||False|False|other|
 espanol|life/bývanie|adresa|dirección||False|False|other|
 espanol|life/bývanie|byt|piso||False|False|other|
 espanol|life/bývanie|chata|cabaña||False|False|other|
@@ -9459,17 +9318,17 @@ espanol|life/terrain|údolie|valle||False|False|other|
 espanol|life/terrain|útes (koralový)|arrecife||False|False|other|
 espanol|life/terrain|útes (morský)|acantilado||False|False|other|
 espanol|life/terrain|šija|istmo||False|False|other|
-espanol|nature/light|biela|blanco||False|False|other|
+espanol|nature/light|biely|blanco||False|False|other|
 espanol|nature/light|farba|color||False|False|other|
-espanol|nature/light|fialová|morado||False|False|other|
-espanol|nature/light|hnedá|marrón||False|False|other|
-espanol|nature/light|modrá|azul||False|False|other|
-espanol|nature/light|sivá|gris||False|False|other|
+espanol|nature/light|fialový|morado||False|False|other|
+espanol|nature/light|hnedý|marrón||False|False|other|
+espanol|nature/light|modrý|azul||False|False|other|
+espanol|nature/light|sivý|gris||False|False|other|
 espanol|nature/light|zafarbený|teñido||False|False|other|
-espanol|nature/light|zelená|verde||False|False|other|
-espanol|nature/light|červená|rojo||False|False|other|
-espanol|nature/light|čierna|negro||False|False|other|
-espanol|nature/light|žltá|amarillo||False|False|other|
+espanol|nature/light|zelený|verde||False|False|other|
+espanol|nature/light|červený|rojo||False|False|other|
+espanol|nature/light|čierny|negro||False|False|other|
+espanol|nature/light|žltý|amarillo||False|False|other|
 espanol|nature/liquid|striekať|rociar||False|False|other|
 espanol|nature/movement|naraziť|topar||False|False|other|
 espanol|nature/movement|spojiť|vincular||False|False|other|
@@ -10477,7 +10336,7 @@ russkiy|culture/religion|pohan|язы́чник||False|False|other|
 russkiy|economy/agriculture|baran|баран||False|False|other|
 russkiy|economy/agriculture|bič|бич||False|False|other|
 russkiy|economy/agriculture|búda|конура́||False|False|other|
-russkiy|economy/agriculture|býr|бык||True|False|other|
+russkiy|economy/agriculture|býk|бык||True|False|other|
 russkiy|economy/agriculture|cap|козел||False|False|other|
 russkiy|economy/agriculture|chytať ryby|рыбачить||True|False|other|
 russkiy|economy/agriculture|dobytok|скот||True|False|other|
