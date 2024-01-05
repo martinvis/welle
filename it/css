@@ -1,4 +1,12 @@
-#selectors
+#syntax
+basic
+- selector { property: value; ... }
+override
+- property: value !important
+comment
+- /* text */
+
+#selector
 all: *
 element: element
 class: .class
@@ -23,6 +31,17 @@ visited link: ":visited"
 :last-child
 :nth-child(n)
 :nth-last-child(n)
+
+#color
+hexadecimal
+- #FFAA00
+red-green-blue
+- rgb(255, 100, 0)
+hue-saturation-lightness
+- hsl(10, 10%, 10%)
+alpha
+- rgba(255, 100, 0, 0.5)
+- hsl(10, 10%, 10%, 0.5)
 
 #grid
 parent
@@ -63,13 +82,26 @@ child
 - flex: flex-grow flex-shrink flex-basis
 - align-self: flex-start | flex-end | center
 
+#box
+model
+- content: inside
+- border: wrapping
+- padding: space between content and border
+- margin: space behind border
+- outline: draw behind border, no space taken
+box-sizing: content-box | border-box
+box-shadow: h-offset v-offset blur spread color
+
 #element
-border-radius
-border-color
+height
+width
+visibility: visible | hidden
+border: border-width border-style border-color
 border-width
 border-style: none | dotted | dashed | solid | double | hidden
-border: border-width border-style border-color
-padding/margin:
+border-color
+border-radius
+padding/margin/border:
 - x: top right bottom left
 - x-top
 - x-right
@@ -83,31 +115,58 @@ padding/margin:
 - x-inline-end
 
 #background
-background-color
-background-image
-background-repeat: horizontal vertical (repeat | no-repeat | space | round)
-background-attachment: fixed | scroll
-background-position: horizontal offset vertical offset
 background: background-color background-image background-repeat background-attachment background-position
+- background-color
+- background-image
+- background-repeat: horizontal vertical (repeat | no-repeat | space | round)
+- background-attachment: fixed | scroll
+- background-position: horizontal offset vertical offset
 
 #text
 color
-font-family: serif | sans-serif | cursive | monospace
-font-style: normal | italic
-font-variant: normal | small-caps
-font-size: medium | xx-small | x-small | small | large | x-large | xx-large | smaller | larger | X
-font-weight: normal | bold | bolder | lighter | 100-900
 font: font-style font-variant font-weight font-size font-family
+- font-style: normal | italic
+- font-family: serif | sans-serif | cursive | monospace
+- font-variant: normal | small-caps
+- font-size: medium | xx-small | x-small | small | large | x-large | xx-large | smaller | larger | X
+- font-weight: normal | bold | bolder | lighter | 100-900
 letter-spacing
 line-height
+text-transform: none | capitalize | uppercase | lowercase
+text-overflow: clip | ellipsis | "string"
+text-shadow: width height blur color
+text-indent: first line in paragraph
+writing-mode: horizontal-tb | vertical-rl | vertical-lr
+text-orientation: mixed | upright (with vertical writing mode)
+text-decoration: text-decoration-line text-decoration-color text-decoration-style text-decoration-thickness
+- text-decoration-line: none | underline | overline | line-through
+- text-decoration-color
+- text-decoration-style: solid | double | dotted | dashed | wavy
+- text-decoration-thickness
+- text-underline-offset
+text-emphasis: text-emphasis-style text-emphasis-color
+- text-emphasis-position: over | under | left | right
+- text-emphasis-style: none | filled | open | dot | circle | double-circle | triangle | sesame
+- text-emphasis-color
+tab-size: number (within pre element)
+white-space: normal | nowrap | pre | pre-line | pre-wrap
+text-align: left | right | center | justify
+text-align-last: left | right | center | justify | start | end
+
+#transformation
+rotate: (x|y|z) angle(deg|rad|turn)
+rotate: number number number angle(deg|rad|turn)
+scale: x-axis y-axis
+translate: x-axis y-axis
+transition: transition-property transition-duration transition-timing-function transition-delay
+- transition-duration: X(s|ms)
+- transition-delay: X(s|ms)
+- transition-property: none | all | property
+- transition-timing-function: linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int,start|end) | cubic-bezier(n,n,n,n)
 
 #controls
 accent-color: color
-
-#color
-"#FFAA00"
-rgb(255,100,0)
-rgba(255,100,0,0.5)
+user-select: auto | none | text
 
 #position
 top
@@ -132,3 +191,16 @@ relative
 - device: vh (height)
 - device: vmin
 - device: vmax
+
+#table
+caption-side: top | bottom
+
+#rule
+@media (not) mediatype and (mediafeature and|or|not mediafeature)
+media types: all | print | screen
+media features
+- orientation: landscape | portrait
+- max-height
+- min-height
+- max-width
+- min-width
