@@ -1,0 +1,78 @@
+#initials
+f: f
+l: l
+m: m
+n: n
+s: s
+b: unvoiced (as p)
+p: aspirated
+d: unvoiced (as t)
+t: aspirated
+g: unvoiced (as k)
+k: aspirated
+h: x (slovak ch)
+tongue behind lower teeth
+- j: unvoiced tɕ
+- q: aspirated tɕ
+- x: ɕ
+tongue on roof
+- zh: unvoiced ʈʂ
+- ch: aspirated ʈʂ
+- sh: ʂ
+- r: ʐ (polish ž)
+tongue between teeth
+- z: unvoiced ts
+- c: aspirated ts
+
+#finals
+a: a
+- ai: ai
+- ao: ao
+e: ɤ (o but unrounded)
+i: i
+- y: i
+- [jqx]ia: ia
+- ya
+- iao: iao
+- ian
+- iang
+- ie: ie
+- iu: iou
+- you
+- iong
+o: o
+- ou: ou
+u: u
+- w: u
+- ua
+- uai
+- uan
+- uang
+- uo: uo
+- ui: uei
+- wei
+- un: uɤn
+- wen
+- weng
+ü: y (i but rounded)
+- yu: ü
+- [nl]ü
+- [nl]üe
+- [jqx]üe: üe
+- [jqx]üan: üen
+- [jqx]ün: üin
+ei: ei
+[aei]n: n
+[aeio]ng: ŋ (english ng)
+er
+
+#other
+[bpmf]o: [*]uo (slovak ô)
+[zh|ch|sh|rzcs]i: [*]ɨ (u but unrounded)
+
+#tones
+1st ā: high
+2nd á: from mid to high
+3rd ǎ: from mid to low to mid
+4th à: from high to low
+5th a: normal

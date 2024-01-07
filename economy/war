@@ -206,10 +206,14 @@ Zircon: Russia, hypersonic, anti-ship
 Neptune: Ukraine, anti-ship
 
 #Missile systems
-S-300/S-400: SAM system, Russia
-Patriot: SAM system, Russia
+Patriot: SAM system, USA
 THAAD: anti-ballistic missile, USA
 Iron Dome: air defense, Israel
+Russia
+- Tor: short range
+- Pantsir: medium range
+- Buk: medium range
+- S-300/S-400: long range
 
 #Warship: naval
 Aircraft carrier: serving as airbase

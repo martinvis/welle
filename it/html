@@ -1,0 +1,79 @@
+#text
+<strong>: important
+- <b>: bold
+<em>: emphasized
+- <i>: italic
+<mark>: highlighted
+<code>: monospace
+<br>: line break
+<wbr>: possible line break
+<hr>: horizontal line
+<sup>: superscript
+<sub>: subscript
+<small>: smaller
+
+#core
+<html>: root element
+<head>: metadata before body
+<body>: content
+<footer>: after body
+
+#structure
+<h1>-<h6>: headings
+<article>: self-contained content
+<p>: paragraph
+<table>: columns and rows
+- <caption>
+- <thead>
+- <tbody>
+- <tfoot>
+- <tr>: row in table
+- <td>: cell in row
+- <th>: header cell
+<ul>: unordered list
+<ol>: ordered list
+- reversed
+- start: number
+- type: 1 | A | a | I | i
+<li>: list item
+<dl>: description list
+- <dt>: term
+- <dd>: description
+<div>: block section
+<span>: inline section
+<details>: closable content
+- <summary>: title of closable content
+- open: initial state
+
+#content
+<a>: hyperlink
+- href: path
+- target: _self | _blank (new tab) | _parent (iframe) | _top (new window)
+<img>: picture
+- alt: text
+- src: path
+- width
+- height
+<ruby>: text with pronunciation
+- <rt>: pronunciation (above)
+<iframe>: embed document
+
+#other
+abbr: abbreviation
+address: contact info
+blockquote: quotation
+- cite: source
+q: short quotation
+
+#global attributes
+class: style
+id: unique name
+style: inline CSS
+title: tooltip
+lang: 2-letter code
+translate: yes | no
+contenteditable
+draggable
+hidden
+inert: disable
+tabindex: order in tab navigation

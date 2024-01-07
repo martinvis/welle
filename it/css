@@ -43,6 +43,93 @@ alpha
 - rgba(255, 100, 0, 0.5)
 - hsl(10, 10%, 10%, 0.5)
 
+#box
+model
+- content: inside
+- border: wrapping
+- padding: space between content and border
+- margin: space behind border
+- outline: draw behind border, no space taken
+height
+width
+(min|max)-(width|height)
+visibility: visible | hidden
+box-sizing: content-box | border-box
+box-shadow: h-offset v-offset blur spread color
+border: border-width border-style border-color
+- border-width
+- border-style: none | dotted | dashed | solid | double | hidden
+- border-color
+- border-radius
+outline: outline-width outline-style outline-color
+- outline-width
+- outline-style: none | dotted | dashed | solid | double | hidden
+- outline-color
+- outline-offset
+padding/margin/border:
+- x: top right bottom left
+- x-top
+- x-right
+- x-bottom
+- x-left
+- x-block: start end
+- x-block-start
+- x-block-end
+- x-inline: start end
+- x-inline-start
+- x-inline-end
+margin: auto (center horizontally)
+
+#box rendering
+display:
+- none: remove
+- inline: no newlines around (span)
+- block: newlines around, full width (div)
+- inline-block: inline, can set width and height
+- contents: directly children
+- flex
+- inline-flex
+- grid
+- inline-grid
+- table
+- inline-table
+- table-caption (caption)
+- table-row (tr)
+- table-cell (td)
+- table-column (col)
+- table-column-group (colgroup)
+- table-header-group (thead)
+- table-footer-group (tfoot)
+- table-row-group (tbody)
+- list-item (li)
+position: uses left/right/top/bottom
+- static
+- relative: relative to static position
+- absolute: relative to ancestor
+- fixed: relative to window
+- sticky: fixed when scrolling
+left
+right
+top
+bottom
+float: position in flow
+- left
+- right
+- none
+clear: reset flow
+- left
+- right
+- both
+- none
+clip-path: set shape
+- circle
+- ellipse
+- polygon
+z-index: higher in front
+overflow: visible | hidden | scroll | auto
+- overflow-x
+- overflow-y
+
 #grid
 parent
 - display: grid
@@ -82,38 +169,6 @@ child
 - flex: flex-grow flex-shrink flex-basis
 - align-self: flex-start | flex-end | center
 
-#box
-model
-- content: inside
-- border: wrapping
-- padding: space between content and border
-- margin: space behind border
-- outline: draw behind border, no space taken
-box-sizing: content-box | border-box
-box-shadow: h-offset v-offset blur spread color
-
-#element
-height
-width
-visibility: visible | hidden
-border: border-width border-style border-color
-border-width
-border-style: none | dotted | dashed | solid | double | hidden
-border-color
-border-radius
-padding/margin/border:
-- x: top right bottom left
-- x-top
-- x-right
-- x-bottom
-- x-left
-- x-block: start end
-- x-block-start
-- x-block-end
-- x-inline: start end
-- x-inline-start
-- x-inline-end
-
 #background
 background: background-color background-image background-repeat background-attachment background-position
 - background-color
@@ -131,11 +186,14 @@ font: font-style font-variant font-weight font-size font-family
 - font-size: medium | xx-small | x-small | small | large | x-large | xx-large | smaller | larger | X
 - font-weight: normal | bold | bolder | lighter | 100-900
 letter-spacing
+word-spacing
 line-height
+text-indent: first line in paragraph
+tab-size: number (within pre element)
+white-space: normal | nowrap | pre | pre-line | pre-wrap
 text-transform: none | capitalize | uppercase | lowercase
 text-overflow: clip | ellipsis | "string"
 text-shadow: width height blur color
-text-indent: first line in paragraph
 writing-mode: horizontal-tb | vertical-rl | vertical-lr
 text-orientation: mixed | upright (with vertical writing mode)
 text-decoration: text-decoration-line text-decoration-color text-decoration-style text-decoration-thickness
@@ -148,8 +206,6 @@ text-emphasis: text-emphasis-style text-emphasis-color
 - text-emphasis-position: over | under | left | right
 - text-emphasis-style: none | filled | open | dot | circle | double-circle | triangle | sesame
 - text-emphasis-color
-tab-size: number (within pre element)
-white-space: normal | nowrap | pre | pre-line | pre-wrap
 text-align: left | right | center | justify
 text-align-last: left | right | center | justify | start | end
 
@@ -158,11 +214,17 @@ rotate: (x|y|z) angle(deg|rad|turn)
 rotate: number number number angle(deg|rad|turn)
 scale: x-axis y-axis
 translate: x-axis y-axis
+
+#animation
 transition: transition-property transition-duration transition-timing-function transition-delay
 - transition-duration: X(s|ms)
 - transition-delay: X(s|ms)
 - transition-property: none | all | property
 - transition-timing-function: linear | ease | ease-in | ease-out | ease-in-out | step-start | step-end | steps(int,start|end) | cubic-bezier(n,n,n,n)
+@keyframes name { ... }
+- from { styles }
+- to { styles }
+- X% { styles }
 
 #controls
 accent-color: color
@@ -194,6 +256,16 @@ relative
 
 #table
 caption-side: top | bottom
+border-collapse: separate | collapse
+border-spacing: between cells
+empty-cells: show | hide
+table-layout: auto | fixed
+
+#list
+list-style: list-style-type list-style-position list-style-image
+- list-style-type: none | disc | circle | square | decimal | decimal-leading-zero | (lower|upper)-(greek|latin|roman)
+- list-style-position: inside | outside
+- list-style-image
 
 #rule
 @media (not) mediatype and (mediafeature and|or|not mediafeature)

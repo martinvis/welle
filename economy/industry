@@ -16,3 +16,16 @@ poisonous (chlorine)
 infectious (virus)
 radioactive (uranium)
 corrosive (acid)
+
+#Energy consumption - production
+Glass
+- energy 1kg: 2kWh (recycled 1kWh)
+Paper
+- energy 1kg: 3kWh
+Steel
+- energy 1kg: 5kWh (recycled 3kWh)
+Plastics
+- energy 1kg: 20kWh (recycled 10-15kWh)
+Aluminium
+- energy 1kg: 50kWh (recycled 5kWh)
+

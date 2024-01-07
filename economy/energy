@@ -18,3 +18,12 @@ losses: 50% generation, 5% delivery
 
 #oil
 50% on road transport
+
+#wind turbine
+onshore
+- tower height: ~100m
+- rotor radius: 40-60m
+- installed power: 2-5MW
+offshore
+- rotor radius: 75-100m
+- installed power: 6-12MW

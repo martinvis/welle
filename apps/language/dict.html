@@ -45,7 +45,8 @@
 	}
 
 	function showTopic(topic) {
-		console.log(topic);
+		console.log("Showing topic: " + topic);
+
 		languages = new Set();
 		words = new Set();
 		dict.forEach(function(word) {
@@ -55,17 +56,27 @@
 			}
 		});
 
-		languages = Array.from(languages);
-		words = Array.from(words);
+		languages = Array.from(languages).sort();
+		words = Array.from(words).sort();
 		resultsDiv = document.getElementById("results");
 		resultsDiv.innerHTML = '';
 
+		boxes = new Map();
 		dict.forEach(function(word) {
 			if (word.topic == topic) {
-				div = document.createElement("div");
-				div.innerText = word.target;
-				div.style.gridArea = (words.indexOf(word.source) + 2) + ' / ' + (languages.indexOf(word.language) + 2);
-				resultsDiv.appendChild(div);
+				key = word.language + '/' + word.source;
+				if (boxes.get(key) === undefined) {
+					div = document.createElement("div");
+					div.className = words.indexOf(word.source) % 2 === 1 ? 'even' : 'odd';
+
+					div.innerText = word.target;
+					div.style.gridArea = (words.indexOf(word.source) + 2) + ' / ' + (languages.indexOf(word.language) + 2);
+					resultsDiv.appendChild(div);
+					boxes.set(key, div);
+				} else {
+					div = boxes.get(key);
+					div.innerText = div.innerText + '\n' + word.target;
+				}
 			}
 		});
 		languages.forEach(function(language) {
@@ -76,6 +87,8 @@
 		});
 		words.forEach(function(word) {
 			div = document.createElement("div");
+			div.className = words.indexOf(word) % 2 === 1 ? 'even' : 'odd';
+
 			div.innerText = word;
 			div.style.gridArea = (words.indexOf(word) + 2) + ' / ' + 1;
 			resultsDiv.appendChild(div);
@@ -246,7 +259,16 @@
 			gap: 0.5em;
 		}
 		#results div {
-			
+			white-space: pre-line;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		#results div.even {
+			background: linear-gradient(#111, #113);
+		}
+		#results div.odd {
+			background: linear-gradient(#111, #131);
 		}
 		button, input {
 			background: #458;
