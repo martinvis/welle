@@ -98,26 +98,44 @@
 	function search() {
 		results = []
 		needle = document.getElementById('word').value
+		regex = new RegExp('(.*)(' + needle + ')(.*)', 'i')
 		dict.forEach(function(word) {
-			if (word.source.indexOf(needle) !== -1 || word.target.indexOf(needle) !== -1 || word.pronunciation.indexOf(needle) !== -1) {
+			if (word.source.match(regex) !== null || word.target.match(regex) !== null || word.pronunciation.match(regex) !== null) {
 				results.push(word);
 			}
 		});
+
+		regex = new RegExp('(.*)(' + needle + ')(.*)', 'i')
 		resultsDiv = document.getElementById("results");
 		resultsDiv.innerHTML = '';
 		resultsDiv.style.gridTemplateColumns = '25% 25% 25% 25%';
 		results.forEach(function(word) {
 
 			source = document.createElement("div");
-			source.innerText = word.source;
+			matches = word.source.match(regex);
+			if (matches !== null) {
+				source.innerHTML = matches[1] + "<mark>" + matches[2] + "</mark>" + matches[3];
+			} else {
+				source.innerText = word.source;
+			}
 			resultsDiv.appendChild(source);
 
 			target = document.createElement("div");
-			target.innerText = word.target;
+			matches = word.target.match(regex);
+			if (matches !== null) {
+				target.innerHTML = matches[1] + "<mark>" + matches[2] + "</mark>" + matches[3];
+			} else {
+				target.innerText = word.target;
+			}
 			resultsDiv.appendChild(target);
 
 			pronunciation = document.createElement("div");
-			pronunciation.innerText = word.pronunciation;
+			matches = word.pronunciation.match(regex);
+			if (matches !== null) {
+				pronunciation.innerHTML = matches[1] + "<mark>" + matches[2] + "</mark>" + matches[3];
+			} else {
+				pronunciation.innerText = word.pronunciation;
+			}
 			resultsDiv.appendChild(pronunciation);
 
 			topic = document.createElement("div");
@@ -126,6 +144,9 @@
 			resultsDiv.appendChild(topic);
 
 		});
+		if (results.length == 0) {
+			resultsDiv.innerText = "No results found at " + new Date().toLocaleTimeString();
+		}
 	}
 	function askLanguage() {
 		correctCount = 0;
@@ -260,7 +281,7 @@
 		}
 		#results div {
 			white-space: pre-line;
-			display: flex;
+			display: inline;
 			align-items: center;
 			justify-content: center;
 		}

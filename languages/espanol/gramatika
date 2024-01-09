@@ -1,6 +1,13 @@
 ARTICLES
 el/los la/las
 
+NOUN
+plural
+- *: es
+- z: ces
+- [aeiou]: s
+- s: /
+
 PRONOUNS
 yo tú él/ella/usted
 nosotros vosotros ellos/ellas/ustedes
@@ -12,6 +19,20 @@ mío tuyo suyo
 nuestro vuestro suyo
 
 mí/conmigo ti/contigo
+
+ADJECTIVES
+-o/-a -os/-as
+-e -es
+-z -ces
+-r -res
+-l -les
+-n -nes
+-or/-ora
+-ol/-ola
+-és/-ésa
+-ín/-ína
+-ón/-óna
+-án/-ána
 
 VERBS
 

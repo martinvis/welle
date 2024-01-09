@@ -5,6 +5,12 @@
 - <i>: italic
 <mark>: highlighted
 <code>: monospace
+<del>: removed (strikethrough)
+- datetime
+- <s>: strikethrough
+<ins>: added (underline)
+- datetime
+- <u>: underline
 <br>: line break
 <wbr>: possible line break
 <hr>: horizontal line
@@ -18,10 +24,36 @@
 <body>: content
 <footer>: after body
 
+#head data
+<title>: tab title
+<meta>: metadata
+- charset="UTF-8"
+- name="description"
+- name="keywords"
+- name="author"
+- content="string"
+- refrest after X seconds: http-equiv="refresh" content="X"
+- redirect after X seconds: http-equiv="refresh" content="X;url=..."
+<script>: javascript
+- type="text/javascript"
+- src: URL path (when not inline)
+<noscript>: alternative to <script>
+<link>
+- href: URL path
+- type: media type
+- rel="stylesheet": CSS
+- rel="icon": favicon
+
 #structure
-<h1>-<h6>: headings
+<main>: main content
+<hgroup>: heading with content
+- <h1>-<h6>: headings
 <article>: self-contained content
+- <header>: label
+<figure>: self-contained media
+- <figcaption>: label
 <p>: paragraph
+<aside>: related content
 <table>: columns and rows
 - <caption>
 - <thead>
@@ -30,6 +62,12 @@
 - <tr>: row in table
 - <td>: cell in row
 - <th>: header cell
+<td>/<th>
+- colspan: number of columns
+- rowspan: number of rows
+<colgroup>: group of table columns
+- <col>: table column template
+<menu>: menu list
 <ul>: unordered list
 <ol>: ordered list
 - reversed
@@ -44,26 +82,137 @@
 <details>: closable content
 - <summary>: title of closable content
 - open: initial state
+<progress>: progress bar
+- value
+- max
+<meter>: gauge
+- value
+- min
+- max
+<search>: wrap <form> with search
 
 #content
+<nav>: navigation links
 <a>: hyperlink
-- href: path
+- href: URL path
 - target: _self | _blank (new tab) | _parent (iframe) | _top (new window)
-<img>: picture
+<img>: image
 - alt: text
-- src: path
+- src: URL path
 - width
 - height
+- usemap: <map> name
+<object>: resource
+- data: URL path
+- width
+- height
+- usemap: <map> name
+<picture>: image
+<audio> / <video>: media
+- src
+- loop
+- muted
+- controls
+- autoplay
+<source>: source in <picture> / <audio> / <video>
+- media: media query
+- src: URL path
+- srcset: URL path
+- type: mime type
+<track>: text for video
+- src: URL path
+- label
+<base>: base URL path for all <a> and <form>
+- href: URL path
+- target: _self | _blank (new tab) | _parent (iframe) | _top (new window)
+<map>: clickable <img> or <object> areas
+- name
+<area>: area within <Map>
+- href: URL path
+- target: _self | _blank (new tab) | _parent (iframe) | _top (new window)
+- shape: rect | circle | poly
+- coords: x1,y1,y2,y2 ...
+- alt
 <ruby>: text with pronunciation
 - <rt>: pronunciation (above)
 <iframe>: embed document
+<template>: hidden content (for javascript use)
+<canvas>: 2D/3D graphics
+- height
+- width
+<embed>: media content
+- type: media type
+- src: URL path
+- height
+- width
+<svg>
+
+#formular
+<form>: formular parent
+- action: URL path
+- name
+- method: get | post
+- enctype: application/x-www-form-urlencoded | multipart/form-data (files)
+<input>
+- type="text"
+- type="number"
+- type="date"
+- type="time"
+- type="datetime-local"
+- type="password"
+- type="url"
+- type="file"
+- type="radio": one of choice
+- type="checkbox": any of choice
+- type="button": clickable button
+- type="submit": submit, as button
+- type="image": submit, as image
+- type="color": hexadecimal
+- type="reset": all to initial values
+- name
+- value
+- placeholder (hint)
+- disabled
+- readonly
+- required
+- form: formular name (when outside of form0
+- checked: default for radio/checkbox
+- min (number/date)
+- max (number/date)
+- minlength (text)
+- maxlength (text)
+- pattern (regex)
+<output>: result
+- name
+- for: input IDs
+<select>: dropdown
+- multiple
+<optgroup>: list of <option> in dropdown, no custom value
+- label
+<option>: one option in dropdown
+- label
+- value
+<datalist>: list of <option> with autocomplete, allow custom value
+<textarea>: multiline text
+<label>: input title
+- for: element ID
+<fieldset>: formular part
+- <legend>: fieldset title
 
 #other
-abbr: abbreviation
-address: contact info
-blockquote: quotation
-- cite: source
-q: short quotation
+<abbr>: abbreviation
+<address>: contact info
+<blockquote>: quotation
+- cite: source of quote
+<q>: short quotation
+<cite>: source of quote
+<time>: time/date
+- datetime
+<data>: machine-readable value
+- value
+<dfn>: term defined in <p>
+<dialog>: popup
+- open
 
 #global attributes
 class: style

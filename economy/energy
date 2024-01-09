@@ -27,3 +27,26 @@ onshore
 offshore
 - rotor radius: 75-100m
 - installed power: 6-12MW
+
+#nuclear reactor
+output: ~1 GW
+thermal reactors: with neutron moderator
+- PWR (pressurized-water): water coolant, most common
+- BWR (boiling-water): water coolant
+- AGR (gas-cooled): graphite moderator, CO2 coolant
+fast reactors: without neutron moderator
+- SFR (sodium-cooled fast): liquid sodium coolant, experimental
+- GFR (gas-cooled fast): He coolant, in development
+neutron moderator
+- water (75%)
+- heavy water
+- graphite
+Uranium based: all current
+Thorium based: in development
+- more abundant less weaponizable material
+- more efficient, less waste
+
+#solar panel
+efficiency ~20%
+power output ~0.5 kW
+area ~2 m^2, 72 silicon cells
