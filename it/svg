@@ -1,0 +1,38 @@
+#shape
+<rect>: rectangle
+- x
+- y
+- width
+- height
+<circle>: circle
+- cx: center
+- cy: center
+- r: radius
+<ellipse>
+- cx
+- cy
+- rx
+- ry
+<line>
+- x1
+- y1
+- x2
+- y2
+<polygon>
+- points
+<polyline>
+- points
+<path>
+<text>
+- x
+- y
+
+#style
+opacity
+stroke
+stroke-width
+stroke-linecap: endings
+stroke-dasharray: dashed
+stroke-opacity
+fill
+fill-opacity

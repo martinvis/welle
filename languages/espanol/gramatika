@@ -3,22 +3,39 @@ el/los la/las
 
 NOUN
 plural
-- *: es
+- [^aeiousz]: es
 - z: ces
 - [aeiou]: s
 - s: /
 
 PRONOUNS
-yo tú él/ella/usted
-nosotros vosotros ellos/ellas/ustedes
+subject
+- yo
+- tú
+- él/ella/usted
+- nosotros
+- vosotros
+- ellos/ellas/ustedes
 
-me te lo/la/le/se
-nos os los/las/les/se
+direct
+- me
+- te
+- lo/la/le/se
+- nos 
+- os
+- los/las/les/se
 
-mío tuyo suyo
-nuestro vuestro suyo
+possessive
+- mío
+- tuyo
+- suyo
+- nuestro
+- vuestro
+- suyo
 
-mí/conmigo ti/contigo
+prepositional
+- mí/conmigo
+- ti/contigo
 
 ADJECTIVES
 -o/-a -os/-as
@@ -272,21 +289,18 @@ ir/ser -> fui/fuiste/fue
 
 ##minule pricastie
 abrir -> abierto
-caer -> caído
-creer -> creído
 cubrir -> cubierto
+decir -> dicho
 escribir -> escrito
 hacer -> hecho
-leer -> leído
+- satisfacer -> satisfecho
+morir -> muerto
 poner -> puesto
-poseer -> poseído
 pudrir -> podrido
-raer -> raído
-roer -> roído
 romper -> roto
-satisfacer -> satisfecho
-traer -> traído
 ver -> visto
+volver -> vuelto
+- *solver -> *suelto
 
 estar
 ser
@@ -308,7 +322,10 @@ IMPERATIVE (=SUBJUNCTIVE)
 -e / -ed
 
 PAST PARTICIPLE
--ado / -ido
+-ar -> -ado
+-er -> -ido
+-ir -> -ido
+[aeo]er -> [aeo]ído
 
 PRESENT PARTICIPLE
 -ando / -iendo

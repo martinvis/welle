@@ -256,6 +256,7 @@
 			padding: 0;
 			margin: 0;
 			border: 0;
+			box-sizing: border-box;
 		}
 		body, html {
 			height: 100%;
@@ -298,9 +299,10 @@
 			display: block;
 			width: 100%;
 			font-size: 2em;
+			border: 1px solid #aaa;
 		}
 		button {
-			width: 50%;
+			width: 33%;
 			display: inline-block;
 			box-sizing: border-box;
 			float: left;
@@ -344,6 +346,7 @@
 	<input type="text" id="word" />
 	<button type="button" id="search" onclick="search()" style="vertical-align:top;">Search</button>
 	<button type="button" id="play" onclick="askLanguage()" style="vertical-align:top;">Play</button>
+	<button type="button" id="config" onclick="config()" style="vertical-align:top;">Config</button>
 	<div id="results"></div>
 	<div id="footer"></div>
 	<ul id="languages" class="hidden"></ul>

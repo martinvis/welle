@@ -25,3 +25,20 @@ OGG (Vorbis): open source
 PCM: no compression, WAV
 WMA: Windows
 
+#media types
+application/json
+application/xml
+application/pdf
+audio/ogg
+audio/mpeg
+image/gif
+image/jpeg
+image/png
+image/webp
+image/svg+xml
+text/plain
+text/html
+video/mp4
+video/mpeg
+video/ogg
+video/webm

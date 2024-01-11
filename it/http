@@ -1,0 +1,81 @@
+stateless client-server protocol
+client sends request, server responds with message
+
+=request
+method
+- GET: retrieve data
+- POST: submit data 
+- PATCH: update data
+- PUT: replace data
+- DELETE: remove data
+- HEAD: GET without response body
+- OPTIONS
+- CONNECT: tunneling
+- TRACE: debugging
+URL: scheme://domain.domain:port/path/path?param=value&param=value#fragment
+- scheme: protocol (http/https)
+- domain: server
+- port: service (80/443)
+- path: resource
+- query: resource parameters
+- fragment: resource location
+headers
+body
+
+=response
+status
+- 1xx: information
+- 2xx: success
+- 200: OK
+- 201: created
+- 202: accepted
+- 204: no content
+- 3xx: redirect
+- 301: moved permanently
+- 4xx: client error
+- 400: bad request
+- 401: unauthorized
+- 403: forbidden
+- 404: not found
+- 405: method not allowed
+- 408: request timeout
+- 409: conflict
+- 413: payload too large
+- 429: too many requests
+- 5xx: server error
+- 502: bad gateway
+- 503: service unavailable
+- 504: gateway timeout
+headers
+body
+
+=headers
+Accept: media types
+Accept-Charset: utf-8
+Accept-Encoding
+- gzip (lz77)
+- deflate (zlib)
+- compress (lzw)
+Accept-Language: en-US
+Authorization
+- Basic
+Cache-Control
+Connection
+Content-Encoding
+Content-Length
+Content-Type
+Cookie
+Date
+Forwarded
+From
+Host
+Origin
+Pragma
+Prefer
+Proxy-Authorization
+Range
+Referer
+Transfer-Encoding: chunked
+User-Agent
+Upgrade
+Via
