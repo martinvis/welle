@@ -23,9 +23,24 @@
 <polyline>
 - points
 <path>
+- d: commands
 <text>
 - x
 - y
+
+#path commands
+- uppercase for absolute position
+- lowercase for relative position
+M: moveto
+L: lineto
+H: horizontal line
+V: vertical line
+C: curve
+Q: quadratic curve
+S: smooth curve
+T: smooth quadratic curve
+A: elliptical arc
+Z: close path
 
 #style
 opacity
