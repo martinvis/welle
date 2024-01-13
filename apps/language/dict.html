@@ -8,10 +8,42 @@
 	var languages = new Set();
 	var topics = new Set();
 	var language;
+	var gameWord;
 	var answer;
 	var correctCount = 0;
 	var wrongCount = 0;
 	var el_options = [];
+	var configs = new Map();
+
+function storeResult(word, correct) {
+	var indexedDB = window.indexedDB;
+	var open = indexedDB.open("dict", 1);
+	open.onupgradeneeded = function() {
+		var db = open.result;
+		var store = db.createObjectStore("GameData", {keyPath: "time"});
+		var index = store.createIndex("WordIndex", ["language", "source", "target"]);
+	};
+	open.onsuccess = function() {
+		// Start a new transaction
+		var db = open.result;
+		var tx = db.transaction("GameData", "readwrite");
+		var store = tx.objectStore("GameData");
+		var index = store.index("WordIndex");
+
+		// Add some data
+		store.add({time: new Date().toISOString(), result: correct, source: word.source, target: word.target, language: word.language});
+
+		//var getJohn = store.get(12345);
+		//var getBob = index.get(["Smith", "Bob"]);
+		//getJohn.onsuccess = function() {
+		//console.log(getJohn.result.name.first);  // => "John"
+		//};
+
+		tx.oncomplete = function() {
+			db.close();
+		};
+	}
+}
 
 	function loadDict() {
 		var xhr = new XMLHttpRequest();
@@ -167,8 +199,12 @@
 
 		count = 5;
 		all = dict.filter(word => word.language == language);
+		if (true) {
+			all = all.filter(word => !word.topic.includes("_"));
+		}
 		words = randomItems(all, count);
 		theAnswer = words[Math.floor(Math.random()*count)];
+		gameWord = theAnswer;
 		answer = theAnswer.target.split('/')[0];
 
 		question = document.createElement("div");
@@ -209,6 +245,7 @@
 		}
 		text = " (" + correctCount + "/" + (correctCount+wrongCount) + ")";
 
+		storeResult(gameWord, correct);
 		if (correct) {
 			document.getElementById('footer').innerText = "Correct!" + text;
 			document.getElementById('footer').classList.add("correct");
@@ -250,6 +287,33 @@
 		}
 		return items;
 	}
+	function loadTemplate(id) {
+		html = document.getElementById(id).content.cloneNode(true);
+		content = document.getElementById("results")
+		content.appendChild(html);
+		return content;
+	}
+	function config() {
+		content = loadTemplate("t-config");
+
+		for (language of languages) {
+			option = document.createElement("option");
+			option.value = language;
+			option.label = language;
+			document.getElementById("c-lang").appendChild(option);
+		}
+
+		configs.set("c-game-options", localStorage.getItem("c-game-options") !== null ? localStorage.getItem("c-game-options") : 5);
+		configs.set("c-game-names", localStorage.getItem("c-game-names") !== null ? localStorage.getItem("c-game-names") : true);
+		for (var [key, value] of configs) {console.log(html)
+			elem = content.querySelector('[name="' + key + '"]');
+			if (elem.type == "checkbox") {
+				elem.checked = value;
+			} else {
+				elem.value = value;
+			}
+		}
+	}
 	</script>
 	<style>
 		* {
@@ -257,14 +321,20 @@
 			margin: 0;
 			border: 0;
 			box-sizing: border-box;
+			font-size: 1rem;
+		}
+		input {
+			height: 1rem;
 		}
 		body, html {
 			height: 100%;
 		}
+		html {
+			font-size: 48px;
+		}
 		body {
 			background-color: #000;
 			color: #FFF;
-			font-size: 2em;
 			text-align: center;
 		}
 		#footer {
@@ -298,7 +368,6 @@
 			padding: 5px;
 			display: block;
 			width: 100%;
-			font-size: 2em;
 			border: 1px solid #aaa;
 		}
 		button {
@@ -349,6 +418,20 @@
 	<button type="button" id="config" onclick="config()" style="vertical-align:top;">Config</button>
 	<div id="results"></div>
 	<div id="footer"></div>
+	<template id="t-config">
+		<div>
+		<label for="c-lang">Language</label>
+		<select id="c-lang" name="c-lang"></select>
+		</div>
+		<div>
+		<label for="c-game-names">Include names</label>
+		<input type="checkbox" name="c-game-names" />
+		</div>
+		<div>
+		<label for="c-game-options">Number of options</label>
+		<input type="number" name="c-game-options" />
+		</div>
+	</template>
 	<ul id="languages" class="hidden"></ul>
 	<ul id="options" class="hidden"></ul>
 </body>
