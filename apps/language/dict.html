@@ -15,6 +15,10 @@
 	var el_options = [];
 	var configs = new Map();
 
+window.onload = function () {
+	loadDict();
+}
+
 function storeResult(word, correct) {
 	var indexedDB = window.indexedDB;
 	var open = indexedDB.open("dict", 1);
@@ -290,7 +294,7 @@ function storeResult(word, correct) {
 	function loadTemplate(id) {
 		html = document.getElementById(id).content.cloneNode(true);
 		content = document.getElementById("results")
-		content.appendChild(html);
+		content.replaceChildren(html);
 		return content;
 	}
 	function config() {
@@ -303,17 +307,43 @@ function storeResult(word, correct) {
 			document.getElementById("c-lang").appendChild(option);
 		}
 
+		configs.set("c-lang", localStorage.getItem("c-lang") !== null ? localStorage.getItem("c-lang") : 'chinese');
 		configs.set("c-game-options", localStorage.getItem("c-game-options") !== null ? localStorage.getItem("c-game-options") : 5);
 		configs.set("c-game-names", localStorage.getItem("c-game-names") !== null ? localStorage.getItem("c-game-names") : true);
-		for (var [key, value] of configs) {console.log(html)
+		for (var [key, value] of configs) {
 			elem = content.querySelector('[name="' + key + '"]');
 			if (elem.type == "checkbox") {
-				elem.checked = value;
+				checked = value == "true" ? true : false;
+				elem.checked = checked;
 			} else {
 				elem.value = value;
 			}
 		}
+
+		elems = document.querySelectorAll('.settings input, .settings select');
+		for (elem of elems) {
+			elem.addEventListener('change', (event) => {
+				if (event.target.tagName == 'INPUT' && event.target.type == "checkbox") {
+					localStorage.setItem(event.target.getAttribute('name'), event.target.checked);
+				} else if (event.target.tagName == 'INPUT') {
+					localStorage.setItem(event.target.getAttribute('name'), event.target.value);
+				} else if (event.target.tagName == 'SELECT') {
+					localStorage.setItem(event.target.getAttribute('name'), event.target.value);
+				}
+			});
+		}
 	}
+
+var msg = new SpeechSynthesisUtterance();
+//var voices = window.speechSynthesis.getVoices().filter(l => l.lang.startsWith('en'));
+//msg.voice = voices[0];
+msg.volume = 0.1; // From 0 to 1
+msg.rate = 1; // From 0.1 to 10
+msg.pitch = 1; // From 0 to 2
+msg.text = "Shui";
+msg.lang = 'zh';
+//speechSynthesis.speak(msg);
+
 	</script>
 	<style>
 		* {
@@ -407,31 +437,42 @@ function storeResult(word, correct) {
 			background-color: #043;
 		}
 		.wrong {
-			background-color: #502
+			background-color: #502;
+		}
+		#results div.line {
+			display: flex;
+		}
+		#results div.line > * {
+			flex: 1;
+			margin: 0 1rem;
 		}
 	</style>
 </head>
-<body onload="loadDict();">
+<body>
 	<input type="text" id="word" />
 	<button type="button" id="search" onclick="search()" style="vertical-align:top;">Search</button>
 	<button type="button" id="play" onclick="askLanguage()" style="vertical-align:top;">Play</button>
 	<button type="button" id="config" onclick="config()" style="vertical-align:top;">Config</button>
 	<div id="results"></div>
 	<div id="footer"></div>
+
 	<template id="t-config">
-		<div>
+	<div class="settings">
+		<div class="line">
 		<label for="c-lang">Language</label>
 		<select id="c-lang" name="c-lang"></select>
 		</div>
-		<div>
+		<div class="line">
 		<label for="c-game-names">Include names</label>
 		<input type="checkbox" name="c-game-names" />
 		</div>
-		<div>
+		<div class="line">
 		<label for="c-game-options">Number of options</label>
 		<input type="number" name="c-game-options" />
 		</div>
+	</div>
 	</template>
+
 	<ul id="languages" class="hidden"></ul>
 	<ul id="options" class="hidden"></ul>
 </body>

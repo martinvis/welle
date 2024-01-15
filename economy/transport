@@ -32,6 +32,8 @@ largest airports
 #pipeline
 
 #road
+truck
+- max 7.5t per axle
 
 #rail
 track gauge: distance between two rails
