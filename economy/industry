@@ -29,3 +29,28 @@ Plastics
 Aluminium
 - energy 1kg: 50kWh (recycled 5kWh)
 
+#Refinery: large chemical plant
+transforms petroleum (crude oil) into gasoline, diesel, asphalt and other products
+global: 100M barrels/day
+countries
+- USA (20M)
+- China
+- Russia
+- India
+- South Korea
+- Japan
+largest
+- Jamnagar, Gujarat
+- Paraguana, Venezuela
+- Ulsan, South Korea
+- Ruwais, UAE
+- Yeosu, South Korea
+
+#Petrol
+sweet: low sulphur content (0.5%), more valuable
+sour: high sulphur content (2%)
+Benchmark: reference price
+- West Texas Intermediate (WTI): sweet, USA
+- Brent: sweet, Europe
+- Dubai: sour, Middle East
+- Urals: sour, Russia

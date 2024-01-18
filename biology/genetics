@@ -308,3 +308,21 @@ Vitamin D: secosteroid (broken ring)
 
 #Human DNA
 ~10% of genome is remnants of viral DNA
+
+Shelterin: protein protecting telomeres from DNA repairs
+Telomere: end of linear chromosome, repetitive TTAGGG sequence ending with G sequence
+
+#DNA repairs
+Ligation: joining of two DNA fragments
+Non-homologous end joining (NHEJ): broken ends directly ligated
+Homology directed repair (HDR): uses homologous DNA piece
+Microhomology-mediated end joining (MMEJ)
+Homologous recombination (HR)
+
+Primer: short single-stranded DNA (100-10k bases)
+Polymerase chain reaction (PCR): produces high amount of DNA copies
+- DNA strands are separated at high temperature (denaturation)
+- DNA polymerase assembles new strand from free nucleotides at lower temperature
+- steps repeated in 10s of cycles
+Reverse transcription PCR: RNA converted to DNA by reverse transcription and multiplied by PCR
+Quantitative PCR: monitors DNA quantities after each cycle by fluorescent dyes

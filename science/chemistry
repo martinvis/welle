@@ -241,6 +241,7 @@ Allotropy: element existing in multiple forms in same conditions (e.g. carbon)
 Polymorphism: compoung existing in multiple crystal structures
 Stereoisomerism: isomers differing by 3D molecular structure
 Enantiomer: isomers by mirror image
+Isotopomer: different arrangement but same number of isotopes
 
 #Tacticity: position of groups in polymer chain
 Isotactic: all chiral centers with same configuration
@@ -253,6 +254,12 @@ Hydrates: contain specific ratios of loosely bound water molecules
 Acids: contains hydrogen cation, can donate proton
 Bases: contain hydroxide anion and metal cation, can accept proton
 Hydrocarbons: contain only carbon and hydrogen
+Salt: cation + anion, usually high melting point, insulators
+Soap: salt of fatty acid
+- fat + base => soap
+- decrease surface tension and increase viscosity of water
+- emulsifies oils, kills microorganisms by disrupting lipid bilayer
+- use: cleaning
 
 #Hydrocarbons
 Alkanes: contain only carbon single bonds
@@ -271,6 +278,7 @@ Condensation - compounds combine together, usually losing a small molecule e.g. 
 Cleavage - splitting of chemical bonds
 Acid-base - acid becomes negative ion and base becomes positive ion (e.g. transfer of H+), acid + base => salt + water
 Oxidation-reduction - type of acid-base reaction
+Cracking - long-chain hydrocarbon into smaller molecules by breaking carbon-carbon bond, needs high temperature
 
 #Electrons
 Principal quantum number (n): shell, distance from nucleus, maximum 2*n^2 electrons

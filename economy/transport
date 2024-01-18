@@ -29,7 +29,29 @@ largest airports
 - asia: Hong Kong, Shanghai, Seoul, Taiwan, Tokyo
 - america: Memphis, Anchorage, Louisville, Los Angeles
 
+#planes
+single-aisle: narrow body
+- Airbus A320: 10k
+- Boeing 727: 1.5k
+- Boeing 737: 10k
+twin-aisle: wide body
+- Airbus A330: 1.5k
+- Boeing 747: 1.5k
+- Boeing 777: 1.5k
+
 #pipeline
+Petroleum
+- Druzhba: Russia -> Poland/Slovakia -> Germany
+- Eastern Siberia–Pacific Ocean: Russia
+- Keystone: Canada -> USA
+- Colonial: USA
+Natural Gas
+- Bratstvo: Russia -> Ukraine
+- Yamal: Russia -> Poland -> Germany
+- Nord Stream: Russia -> Germany
+- Blue Stream: Russia -> Turkey
+- Rockies Express: USA
+- West-East: China
 
 #road
 truck
