@@ -60,7 +60,35 @@ Screw: helical groove around outside, converts motion from rotational to linear
 - Hex: hexagonal
 - Torx: hexalobular
 
-Gravity battery: potential energy stored by raising mass (pumped storage hydroelectricity)
+#Battery: energy storage
+- food, fossil fuels
+Gravity battery: potential energy stored by raised mass
+- Pumped storage hydroelectricity (PSH)
+- Hydroelectric dam: water reservoir
+Primary battery: one time, chemical energy
+- Zinc-Carbon: electrolyte NH4Cl, electrodes Zn and MnO2, replaced by alkaline
+- Alkaline: electrolyte KOH, electrodes Zn and MnO2
+- Silver oxide: electrodes Zn and Ag2O, button cells
+- Lithium metal: button cells
+Secondary battery: rechargeable, chemical energy
+- Lead-Acid: use in starter motors
+- Nickel-Cadmium (NiCd): 1.2 V, toxic
+- Nickel-Metal-Hydride (NiMH): 1.2 V, replaced NiCd
+- Nickel-Zinc (NiZn): 1.6 V, higher voltage
+- Nickel-Hydrogen (NiH2): long cycle life, satellites
+- Lithium-Ion: good energy density, risk of ignition
+Lithium-Ion
+- Lithium-Polymer (LiPo)
+- Lithium-Iron-Phospate (LFP): long cycle life, EVs
+- Lithium-Manganese-Oxide (LMO)
+
+#Atomic battery: energy from radioactive decay, energy slowly decreases
+- long life, high energy density, efficiency ~5%
+- use: spacecraft, pacemakers
+non-thermal: use energy from radiation, before degrading to heat
+- Betavoltaic cell: tritium beta particles, uses semiconductor junctions
+thermal: convert energy heat from decay into electricity (thermocouple)
+- Radioisotope thermoelectric generator (RTG): alpha radiation, plutonium / curium / strontium / americium
 
 #Reflecting instruments: use mirrors, celestial navigation
 Octant: measure angular distance, up to 90 degrees

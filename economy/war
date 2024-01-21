@@ -130,6 +130,8 @@ Cannon: flat trajectory
 Mortar: high-arc trajectory
 Howitzer: between cannon and mortar
 
+#Directed-energy weapon (DEW): focused energy (laser, microwave), against missiles and drones
+
 #Explosives
 Bomb: explosive weapon, usually airdropped
 Grenade: hand-thrown explosive weapon

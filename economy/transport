@@ -56,6 +56,31 @@ Natural Gas
 #road
 truck
 - max 7.5t per axle
+- mostly ICE diesel
+EV: electric vehicle
+- BEV: battery, mostly Li-ion
+- HEV: hybrid
+ICE: internal combustion engine
+- petrol
+- diesel
+
+#car types
+A-segment: city car
+B-segment: small car
+C-segment: medium car
+D-segment: large car
+E-segment: executive car
+F-segment: luxury car
+S-segment: sport car
+M-segment: minivan
+J-segment: off-road, SUV
+
+#car style
+Cabriolet: removable roof
+Coupé: two doors
+Sedan: four doors
+Hatchback: larger cargo
+Pickup: cargo bed without roof
 
 #rail
 track gauge: distance between two rails

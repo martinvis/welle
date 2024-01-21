@@ -29,6 +29,9 @@ defense: 700 B$
 - missiles: 50 B$
 tobacco: 1 T$
 electronics: 1 T$
+- batteries: 100 B$
+- smartphones: 500 B$
+- computers: 200 B$
 transportation: 1 T$
 IT: 1 T$
 alcohol: 1.5 T$

@@ -1,0 +1,19 @@
+#Terms
+Vertex: basic unit
+Edge: connects two vertices
+Walk: sequence of edges
+- Path: walk with all vertices distinct
+- Trail: walk with all edges distinct
+Cycle: closed trail
+- Simple cycle: closed path
+
+#Graph: simple undirected
+Acyclic: without cycles
+Directed: edges with orientation
+Multigraph: allows multiple edges between same verices
+Loop: edge conntects vertex to itself
+
+#Types
+Cactus: every edge is in at most one cycle
+Tree: exactly one path between any two vertices
+Forest: at most one path between any two vertices (set of trees)

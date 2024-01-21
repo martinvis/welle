@@ -54,3 +54,19 @@ Benchmark: reference price
 - Brent: sweet, Europe
 - Dubai: sour, Middle East
 - Urals: sour, Russia
+
+#Battery
+Sizes:
+- AA: 1.5V, ~2000 mAh, electronics
+- AAA: 1.5V, ~1000 mAh, electronics
+- AAAA: laser pointers
+- C
+- D
+- PP3: 9V, smoke alarms
+- CRXXYY: 3V, lithium manganese oxide, coin shape, size XX/YY mm
+- CR2016: watches
+- CR2025
+- CR2032: most common CR
+- CR2450
+- SRXX: silver oxide, coin shape
+- LRXX: alkaline, coin shape
