@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Doppler</title>
+
+</head>
+<body>
+
+<canvas id="canvas" width="600" height="600">
+
+<script type="text/javascript">
+var maxWaves = 30;
+var steps = 150;
+var waves = new Array();
+var pos = 0;
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var height = canvas.height;
+var fps = 10;
+var latest = Date.now();
+
+function frame() {
+	pos = (pos + Math.PI*2/steps);
+	waves = waves.slice(0, maxWaves-1);
+}
+
+function draw() {
+	requestAnimationFrame(draw);
+	
+	now = Date.now();
+	elapsed = now - latest;
+
+	if (elapsed > 1000/fps) {
+		latest = now;
+		frame();
+
+		ctx.globalAlpha = 1;
+		ctx.clearRect(0, 0, width, height);
+		ctx.strokeStyle = "#A00";
+		ctx.fillStyle = "#FF0000";
+
+		posX = width/2 + (width/4) * Math.cos(pos);
+		posY = height/2 + (height/4) * Math.sin(pos);
+		ctx.beginPath();
+		ctx.arc(posX, posY, 3, 0, 2 * Math.PI, true);
+		ctx.fill(); 
+		ctx.stroke();
+
+		waves.unshift({x: posX, y: posY});
+
+		ctx.fillStyle = "#FF0000";
+		ctx.strokeStyle = "#333";
+
+		waves.forEach(function (wave, i) {
+			ctx.globalAlpha = 1 - i/maxWaves;
+			ctx.beginPath();
+			ctx.arc(wave.x, wave.y, i*10, 0, 2 * Math.PI);
+			ctx.stroke(); 
+		});
+
+	}
+}
+
+draw();
+</script>
+
+</canvas>
+
+</body>
+</html>

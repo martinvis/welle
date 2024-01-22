@@ -190,7 +190,8 @@ chinese|abstract/space|stred|中|zhōng|True|False|other|
 chinese|abstract/space|tam|那里|nàli|True|False|other|
 chinese|abstract/space|tu|这里|zhèlǐ|True|False|other|
 chinese|abstract/space|vedľa|旁边|pángbiān|True|False|other|
-chinese|abstract/space|vnútri|里|lǐ|True|False|other|
+chinese|abstract/space|vnútri|内|nèi|True|False|other|
+chinese|abstract/space|vnútri|里|lǐ |True|False|other|
 chinese|abstract/space|vonku|外|wài|True|False|other|
 chinese|abstract/space|vpravo|右|yòu|True|False|other|
 chinese|abstract/space|vrstva|层|céng|True|False|other|
@@ -200,6 +201,7 @@ chinese|abstract/space|všade|处处|chùchù |True|False|other|
 chinese|abstract/space|všade|遍地|biàndì|True|False|other|
 chinese|abstract/space|za|后|hòu|True|False|other|
 chinese|abstract/space|ďaleký|远|yuǎn|True|False|other|
+chinese|abstract/time|deň|日|rì|False|False|other|
 chinese|abstract/time|dnes|今天|jīntiān|False|False|other|
 chinese|abstract/time|dopoludnie|上午|shàngwǔ|True|False|other|
 chinese|abstract/time|dávno|早就|zǎojiù |False|False|other|
@@ -484,6 +486,8 @@ chinese|economy/agriculture|farma|农场|nóngchǎng|False|False|other|
 chinese|economy/agriculture|farmár|农民|nóngmín|True|False|other|
 chinese|economy/agriculture|hnojivo|肥料|féiliào|False|False|other|
 chinese|economy/agriculture|klietka|笼子|lóngzi|False|False|other|
+chinese|economy/agriculture|krava|牛|niú|True|False|other|
+chinese|economy/agriculture|kôň|马|mǎ|True|False|other|
 chinese|economy/agriculture|pole|田|tián|True|False|other|
 chinese|economy/agriculture|traktor|拖拉机|tuōlājī|False|False|other|
 chinese|economy/agriculture|tráva|草|cǎo|True|False|other|
@@ -514,31 +518,36 @@ chinese|economy/cloth|topánka|鞋|xié|True|False|other|
 chinese|economy/cloth|vrecko|衣袋|yīdài|False|False|other|
 chinese|economy/cloth|čižma|靴|xuē|False|False|other|
 chinese|economy/cloth|šál|围巾|wéijīn|True|False|other|
-chinese|economy/construction|balkón|阳台|yángtái|False|False|other|
-chinese|economy/construction|budova|房屋|fángwū|True|False|other|
+chinese|economy/construction|balkón|阳台|yáng tái|False|False|other|
+chinese|economy/construction|budova|房屋|fáng wū|True|False|other|
 chinese|economy/construction|cesta|路|lù|False|False|other|
-chinese|economy/construction|dedina|村庄|cūnzhuāng|False|False|other|
-chinese|economy/construction|dom|房子|fángzi|True|False|other|
+chinese|economy/construction|dedina|村庄|cūn zhuāng|False|False|other|
+chinese|economy/construction|dom|房子|fáng zi|True|False|other|
 chinese|economy/construction|dvere|门|mén|False|False|other|
-chinese|economy/construction|garáž|车库|chēkù|False|False|other|
-chinese|economy/construction|hrad|城堡|chéngbǎo|False|False|other|
-chinese|economy/construction|izba|房间|fángjiān|True|False|other|
-chinese|economy/construction|komín|烟囱|yāncōng|False|False|other|
-chinese|economy/construction|malé mesto|城镇|chéngzhèn|False|False|other|
-chinese|economy/construction|mesto|城市|chéngshì|False|False|other|
+chinese|economy/construction|garáž|车库|chē kù|False|False|other|
+chinese|economy/construction|hlavné mesto|首都|shǒu dū|False|False|other|
+chinese|economy/construction|hrad|城堡|chéng bǎo|False|False|other|
+chinese|economy/construction|izba|房间|fáng jiān|True|False|other|
+chinese|economy/construction|komín|烟囱|yān cōng|False|False|other|
+chinese|economy/construction|malé mesto|城镇|chéng zhèn|False|False|other|
+chinese|economy/construction|mesto|城市|chéng shì|False|False|other|
 chinese|economy/construction|most|桥|qiáo|False|False|other|
 chinese|economy/construction|múr|墙|qiáng|False|False|other|
 chinese|economy/construction|okno|窗|chuāng|False|False|other|
-chinese|economy/construction|parkovisko|停车场|tíngchēchǎng|False|False|other|
-chinese|economy/construction|poschodie|楼层|lóucéng|False|False|other|
-chinese|economy/construction|schody|楼梯|lóutī|False|False|other|
-chinese|economy/construction|stavať|建设|jiànshè|True|False|other|
-chinese|economy/construction|stena|墙壁|qiángbì|False|False|other|
-chinese|economy/construction|strecha|屋顶|wūdǐng|False|False|other|
-chinese|economy/construction|ulica|街道|jiēdào|False|False|other|
-chinese|economy/construction|veľkomesto|都市|dūshì|False|False|other|
+chinese|economy/construction|omietka|灰泥|huī ní|False|False|other|
+chinese|economy/construction|parkovisko|停车场|tíng chē chǎng|False|False|other|
+chinese|economy/construction|poschodie|楼层|lóu céng|False|False|other|
+chinese|economy/construction|prah|门槛|ménkǎn|False|True|other|
+chinese|economy/construction|schody|楼梯|lóu tī|False|False|other|
+chinese|economy/construction|stavať|建设|jiàn shè|True|False|other|
+chinese|economy/construction|stena|墙壁|qiáng bì|False|False|other|
+chinese|economy/construction|strecha|屋顶|wū dǐng|False|False|other|
+chinese|economy/construction|tehla|砖块|zhuān kuài |False|False|other|
+chinese|economy/construction|tehla|砖头|zhuān tou|False|False|other|
+chinese|economy/construction|ulica|街道|jiē dào|False|False|other|
+chinese|economy/construction|veľkomesto|都市|dū shì|False|False|other|
 chinese|economy/construction|veža|塔|tǎ|False|False|other|
-chinese|economy/construction|výťah|电梯|diàntī|False|False|other|
+chinese|economy/construction|výťah|电梯|diàn tī|False|False|other|
 chinese|economy/education|dedukcia|演绎|yǎnyì|False|False|other|
 chinese|economy/education|experiment|实验|shíyàn|False|False|other|
 chinese|economy/education|filozofia|哲学|zhéxué|False|False|other|
@@ -867,6 +876,8 @@ chinese|human/family|teenager|青少年|qīngshàonián|False|True|other|
 chinese|human/family|teta|姨妈|yímā|False|False|other|
 chinese|human/family|teta|阿姨|āyí |False|False|other|
 chinese|human/family|vnuk|孙子|sūnzi|False|False|other|
+chinese|human/family|človek|人|rén|True|False|other|
+chinese|human/family|žena|女|nǚ|True|False|other|
 chinese|human/mestá|Amsterdam|阿姆斯特丹|āmǔsītèdān|True|False|other|
 chinese|human/mestá|Atény|雅典|yǎdiǎn|True|False|other|
 chinese|human/mestá|Barcelona|巴塞罗那|bāsèluōnà|True|False|other|
@@ -1107,6 +1118,7 @@ chinese|life/pohyby|tlačiť|推动|tuīdòng|False|False|other|
 chinese|life/pohyby|uchopiť|抓紧|zhuājǐn|False|False|other|
 chinese|life/pohyby|udrieť|打|dǎ|False|False|other|
 chinese|life/pohyby|vliecť|拖|tuō|False|False|other|
+chinese|life/pohyby|vrátiť sa|回|huí|False|False|other|
 chinese|life/pohyby|vyjsť|出|chū|True|False|other|
 chinese|life/pohyby|vyjsť|出去|chūqu|False|True|other|
 chinese|life/pohyby|vyjsť|出来|chūlai|False|True|other|
@@ -1145,6 +1157,7 @@ chinese|life/spravanie|divoký|野生|yěshēng|False|False|other|
 chinese|life/spravanie|hladný|饿|è|True|False|other|
 chinese|life/spravanie|narodiť sa|诞生|dànshēng|False|False|other|
 chinese|life/spravanie|plakať|哭|kū|True|False|other|
+chinese|life/spravanie|samica|母|mǔ|False|False|other|
 chinese|life/spravanie|smiech|笑|xiào|True|False|other|
 chinese|life/spravanie|smrť|死亡|sǐwáng|False|True|other|
 chinese|life/spravanie|zomrieť|死|sǐ|True|False|other|
@@ -1241,6 +1254,7 @@ chinese|measures|všeobecný|个|gè|False|False|other|
 chinese|measures|zviera|只|zhī|False|False|other|
 chinese|measures|úzke dlhé (cesta)|条|tiáo|False|False|other|
 chinese|measures|človek|名|míng|False|False|other|
+chinese|nature/fyzika|elektrina|电|diàn|False|False|other|
 chinese|nature/fyzika|gravitácia|引力|yǐnlì|False|False|other|
 chinese|nature/fyzika|hmotnosť|重量|zhòngliàng|False|False|other|
 chinese|nature/fyzika|horúci|热|rè|False|False|other|
@@ -1253,6 +1267,7 @@ chinese|nature/fyzika|pomaly|徐徐|xúxú|False|False|other|
 chinese|nature/fyzika|pomalý|慢|màn|False|False|other|
 chinese|nature/fyzika|prehnúť [napol]|折|zhé|False|False|other|
 chinese|nature/fyzika|pritlačiť|按|àn|False|False|other|
+chinese|nature/fyzika|reakcia|反应|fǎnyìng|False|False|other|
 chinese|nature/fyzika|rýchlosť|速度|sùdù|False|False|other|
 chinese|nature/fyzika|rýchly|快|kuài|False|False|other|
 chinese|nature/fyzika|sila|力量|lìliang|False|False|other|
@@ -1277,6 +1292,7 @@ chinese|nature/liquid|roztopiť|融化|rónghuà|False|False|other|
 chinese|nature/liquid|tiecť|流|liú|True|False|other|
 chinese|nature/liquid|zmrznúť|冻结|dòngjié|False|True|other|
 chinese|nature/material|arzén|砷|shēn|False|False|other|
+chinese|nature/material|atóm|原子|yuánzǐ|False|False|other|
 chinese|nature/material|bronz|青铜|qīngtóng|False|True|other|
 chinese|nature/material|chlór|氯气|lǜqì|False|False|other|
 chinese|nature/material|cín|锡|xī|False|False|other|
@@ -1295,6 +1311,7 @@ chinese|nature/material|kremík|硅|guī|False|False|other|
 chinese|nature/material|kyslík|氧气|yǎngqì|False|False|other|
 chinese|nature/material|materiál|材料|cáiliào|False|False|other|
 chinese|nature/material|meď|铜|tóng|False|False|other|
+chinese|nature/material|molekula|分子|fēnzǐ|False|False|other|
 chinese|nature/material|mosadz|黄铜|huángtóng|False|True|other|
 chinese|nature/material|nikel|镍|niè|False|False|other|
 chinese|nature/material|oceľ|钢铁|gāngtiě|False|True|other|
@@ -1571,6 +1588,7 @@ deutsch|abbreviations|bez ohľadu na pohlavie|gn* (geschlechtsneutral)||False|Fa
 deutsch|abbreviations|freóny|FCKW (Fluorchlorkohlenwasserstoffe)||False|False|other|
 deutsch|abbreviations|hodina|Std.||True|False|other|
 deutsch|abbreviations|hovorovo|ugs.||False|False|other|
+deutsch|abbreviations|kultúrny dom|DGH (Dorfgemeinschaftshaus)||False|False|other|
 deutsch|abbreviations|mesačne|mtl.||True|False|other|
 deutsch|abbreviations|miliarda|Mrd.||True|False|other|
 deutsch|abbreviations|milión|Mio.||True|False|other|
@@ -2163,6 +2181,7 @@ deutsch|abstract/value|výnosný|ergiebig||False|False|other|
 deutsch|abstract/value|významný|bedeutend||False|False|other|
 deutsch|abstract/value|značný|erheblich||False|False|other|
 deutsch|abstract/value|zvýhodnenie|Begünstigung/en||False|True|noun|e
+deutsch|abstract/value|špičkový|astrein||False|False|other|
 deutsch|change/change|meniť|verändern||True|False|verb|
 deutsch|change/change|meniť|ändern||True|False|verb|
 deutsch|change/change|napraviť (chybu)|beheben/behob/behoben||False|False|verb|
@@ -5450,6 +5469,7 @@ deutsch|economy/medicine|poraniť|verletzen||True|False|verb|
 deutsch|economy/medicine|poraniť|verwunden||True|False|verb|
 deutsch|economy/medicine|prenášať (chorobu)|verschleppen||False|False|verb|
 deutsch|economy/medicine|pálenie záhy|Sodbrennen||False|False|noun|s
+deutsch|economy/medicine|pôrodná asistentka|Hebamme/n||False|False|noun|e
 deutsch|economy/medicine|pôvodca (choroby)|Erreger||False|False|noun|r
 deutsch|economy/medicine|rakovina|Krebs/e||True|False|noun|r
 deutsch|economy/medicine|rúško|Mundschutz/e||False|False|noun|r
@@ -6382,6 +6402,7 @@ deutsch|human/mood|smiešny|komisch||True|False|other|
 deutsch|human/mood|smiešny|lächerlich||False|True|other|
 deutsch|human/mood|smutný|trauervoll||False|True|other|
 deutsch|human/mood|smutný|traurig (über)||False|True|other|
+deutsch|human/mood|smútiť|grämen||False|False|verb|
 deutsch|human/mood|smútiť|trauern||False|True|verb|
 deutsch|human/mood|smútok|Trauer||True|False|noun|e
 deutsch|human/mood|spokojnosť|Zufriedenheit||False|True|noun|e

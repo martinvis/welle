@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Aristotles wheel</title>
+
+</head>
+<body>
+
+<canvas id="canvas" width="600" height="600">
+
+<script type="text/javascript">
+var maxWaves = 30;
+var step = 0;
+var steps = 100;
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+var width = canvas.width;
+var height = canvas.height;
+var fps = 10;
+var latest = Date.now();
+
+function frame() {
+	step = step + 1;
+}
+
+function draw() {
+	requestAnimationFrame(draw);
+	
+	now = Date.now();
+	elapsed = now - latest;
+
+	if (elapsed > 1000/fps && step <= steps) {
+		latest = now;
+		frame();
+
+		radius = width/(2*Math.PI+2) - 1;
+		startX = radius;
+		startY = height/2;
+
+		ctx.clearRect(0, 0, width, height);
+		ctx.strokeStyle = "#000";
+
+		pos = Math.PI*2*step/steps;
+		posX = width/2 + (width/4) * Math.cos(pos);
+		posY = height/2 + (height/4) * Math.sin(pos);
+		ctx.beginPath();
+		ctx.arc(startX + radius*pos, startY, radius, 0, 2 * Math.PI, true);
+		ctx.stroke();
+
+		ctx.beginPath();
+		ctx.moveTo(startX + radius*pos, startY);
+		ctx.lineTo(startX + radius*pos + Math.sin(pos)*radius, startY + Math.cos(pos)*radius);
+		ctx.stroke();
+
+		for (var i=0; i<=step; i++) {
+			pos = Math.PI*2*i/steps;
+
+			pointX = startX + Math.sin(pos)*radius + radius*pos;
+			pointY = startY + Math.cos(pos)*radius;
+			ctx.strokeStyle = "#FF0000";
+			ctx.fillStyle = "#FF0000";
+			ctx.beginPath();
+			ctx.arc(pointX, pointY, 1, 0, 2 * Math.PI, true);
+			ctx.fill(); 
+			ctx.stroke();
+
+			pointX = startX + Math.sin(pos)*radius/2 + radius*pos;
+			pointY = startY + Math.cos(pos)*radius/2;
+			ctx.strokeStyle = "#00FF00";
+			ctx.fillStyle = "#00FF00";
+			ctx.beginPath();
+			ctx.arc(pointX, pointY, 1, 0, 2 * Math.PI, true);
+			ctx.fill(); 
+			ctx.stroke();
+
+			pointX = startX + radius*pos;
+			pointY = startY;
+			ctx.strokeStyle = "#0000FF";
+			ctx.fillStyle = "#0000FF";
+			ctx.beginPath();
+			ctx.arc(pointX, pointY, 1, 0, 2 * Math.PI, true);
+			ctx.fill(); 
+			ctx.stroke();
+		}
+	}
+}
+
+draw();
+</script>
+
+</canvas>
+
+</body>
+</html>

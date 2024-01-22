@@ -430,6 +430,18 @@ Doppler effect: change of wave frequency in movement
 - increased frequency when moving towards
 - decreased frequency when moving away
 
+Thermoelectric effect: conversion between temperature difference and voltage
+- Thermocouple: two electrical conductors with different thermal conductivity
+- Seebeck effect: electric current between thermocouple proportional to temperate difference
+- Peltier effect: heat transfer between thermocouple proportional to electric current
+- Thomson effect: heat transfer by electric current within single material
+
 Aristotle's wheel paradox: all points of wheel travel same distance during wheel revolution
 - points travel same distance only horizontally but not vertically
 - points follow cycloid path, center travels 2πR (circumference) and all other points more
+
+#optics
+Beam splitter: splits light beam
+
+Mach–Zehnder interferometer: measures phase shift between beams
+

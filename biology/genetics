@@ -309,8 +309,18 @@ Vitamin D: secosteroid (broken ring)
 #Human DNA
 ~10% of genome is remnants of viral DNA
 
-Shelterin: protein protecting telomeres from DNA repairs
+Genome: full genetic information of organism, split into chromosomes
+Chromosome: single DNA molecule
 Telomere: end of linear chromosome, repetitive TTAGGG sequence ending with G sequence
+Shelterin: protein protecting telomeres from DNA repairs
+Nucleotide: monomer of nucleic acid, nitrogenous base + pentose + phosphate
+Nitrogenous bases:
+- Cytosine (C): pairs with G, pyrimidine
+- Guanine (G): pairs wtih C, purine
+- Adenine (A): pairs with T, purine
+- Thymine (T): only in DNA, pairs with A, pyrimidine
+- Uracil (U): only in RNA, T equivalent
+- Amidoadenine (Z): in some bacteria, A equivalent
 
 #DNA repairs
 Ligation: joining of two DNA fragments
