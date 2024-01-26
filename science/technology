@@ -137,10 +137,15 @@ Four-level laser: L1 (ground state), L2, L3, L4
 - captures electromagnetic waves as electric signal (reception)
 Parabolic antenna: high-gain
 - parabolic reflector collects and projects waves
+Radome: protective enclosure of antenna, transparent to radio waves
 
 #Radio: information transmitted on radio waves
 AM: amplitude modulation, longer distance
 FM: frequency modulation, better quality
+
+#Remote control: operates device via radio/infrared waves (TV, garage)
+- radio on longer distances, infrared needs line-of-sight
+
 
 #Enriched uranium
 - high percentage of U-235 isotope
@@ -165,3 +170,5 @@ Scramjet: at hypersonic speed, ramjet but compression uses forward motion
 Turbojet: compression by gas turbine, in aircraft
 Turbofan: turbojet with ducted fan, part of air bypasses engine, in aircraft, more efficient at lower speeds
 Rocket: without air, propellant is within rocket, in space
+
+Tunnel boring machine (TBM): tunnel excavation, usually circular, diameter 1-15m

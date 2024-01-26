@@ -4,8 +4,16 @@ Strobilation: polyp splits horizontally into juvenile medusas
 
 #
 Gene/Cistron: region of DNA encoding function
+- Exon: part of gene used in final RNA
+- Intron: part of gene removed by slicing
 Allele: variation of nucleotides at same position
 Locus: chromosomal position of gene
+
+#Gene expression
+Transcription: DNA copied to mRNA
+RNA splicing: removed introns and produced mRNA
+- Alternative splicing: exons joined in different combinations, single gene codes multiple proteins
+Translation: mRNA translated to protein
 
 #
 Protein dynamics: transition between protein states
@@ -313,6 +321,9 @@ Genome: full genetic information of organism, split into chromosomes
 Chromosome: single DNA molecule
 Telomere: end of linear chromosome, repetitive TTAGGG sequence ending with G sequence
 Shelterin: protein protecting telomeres from DNA repairs
+Nucleic acid: carries genetic information
+- DNA (Deoxyribonucleic acid): two polynucleotide chains in double helix
+- RNA (Ribonucleic acid): single polynucleotide chain
 Nucleotide: monomer of nucleic acid, nitrogenous base + pentose + phosphate
 Nitrogenous bases:
 - Cytosine (C): pairs with G, pyrimidine

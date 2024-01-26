@@ -1,0 +1,56 @@
+#Indexed DB: indexedDB
+Database
+- open(name, version): get connection
+- databases()
+- deleteDatabase(name)
+Connection
+- onupgradeneeded
+- transaction(objectStores, "readwrite|readonly")
+- close
+- createObjectStore(name, {keyPath: "jsonPath"})
+Transaction
+- objectStore(name)
+- commit
+- abort
+- oncomplete
+- onabort
+- onerror
+ObjectStore
+- add(data, key?)
+- put(data, key?)
+- delete(key)
+- clear(): delete all
+- index(name)
+ObjectStore upgrade
+- createIndex(name, keyPath, {unique: false})
+- deleteIndex(name)
+ObjectStore and Index
+- count(keyRange?)
+- get(key)
+- getAll(keyRange?)
+- getKey(keyRange)
+- getAllKeys(keyRange?)
+- openCursor(keyRange?, direction?)
+- openKeyCursor(keyRange?, direction?)
+Request: async events
+- onsuccess
+- onerror
+Cursor
+- continue(key?)
+- delete()
+- update(value)
+KeyRange: IDBKeyRange
+- bound(lower, upper)
+- lowerBound(lower)
+- upperBound(upper)
+- only(key)
+
+#Local storage: localStorage
+setItem(key, value)
+getItem(key)
+removeItem(key)
+clear
+
+#package management
+npm
+yarn

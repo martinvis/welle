@@ -1,0 +1,63 @@
+#Latitude
+N 65-50: UK, Nordics, Russia, Germany, Poland
+N 50-35: USA, France, Spain, Italy, Balcan, Turkey, China, Japan
+N 35-20: USA, Mexico, Maghreb, Mashrek, Iran, India, China
+N 20-0: Venezuela, West Africa, Horn of Africa, Indochina, Philippines
+S 0-20: Peru, Brazil, Congo, African Great Lakes, Indonesia
+S 20-35: Brazil, Argentina, South Africa, Australia
+S 35-50: New Zealand
+
+#Timezones
+UTC: UK, Ireland, Portugal, Iceland
++1: Europe (most), Morocco, Algeria, Tunis
++2: Finland, Baltics, Ukraine, Romania, Bulgaria, Greece, Egypt, South Africa
++3: Russia (Moscow), Turkey, Saudi Arabia
++3.5: Iran
++5.5: India
++7: Thailand, Vietnam
++8: China, Malaysia, Philippines, west Australia
++9: Korea, Japan
++10: east Australia
++12: New Zealand
+-8: west USA
+-6: Texas, Chicago, Mexico (most)
+-5: east USA, Colombia, Peru
+-3: Brazil (most), Argentina, Chile
+
+#Population
+1.3-1.5B: China, India
+320-350M: USA
+270-300M: Indonesia
+230-250M: Pakistan
+200-220M: Nigeria, Brazil
+160-180M: Bangladesh
+120-150M: Russia, Mexico, Japan
+100-120M: Philippines, Ethiopia, Egypt, Vietnam
+80-100M: DRC, Turkey, Germany, Iran
+60-70M: France, Thailand, UK, South Africa, Tanzania
+50-60M: Italy, Myanmar, Colombia, Kenya, South Korea
+45-50M: Spain, Argentina, Uganda, Algeria
+40-45M: Iraq, Sudan, Ukraine, Canada
+35-40M: Poland, Morocco, Uzbekistan, Afghanistan
+30-35M: Peru, Malaysia, Angola, Mozambique, Saudi Arabia, Yemen
+25-30M: Ghana, Ivory Coast, Nepal, Venezuela, Cameroon, Madagascar, Australia
+20-25M: North Korea, Taiwan, Niger, Syria, Burkina Faso, Mali, Malawi, Sri Lanka
+18-20M: Kazakhstan, Chile, Romania, Zambia, Senegal, Somalia
+16-18M: Netherlands, Guatemala, Chad, Cambodia, Ecuador
+13-16M: Zimbabwe, South Sudan, Guinea, Rwanda
+12-13M: Burundi, Benin, Bolivia
+11-12M: Tunisia, Papua New Guinea, Belgium, Haiti, Jordan, Cuba
+10-11M: Czechia, Dominican Republic, Sweden, Portugal, Greece, Azerbaijan, Tajikistan
+9-10M: Israel, Honduras, Hungary, UAE, Austria, Switzerland, Belarus
+8-9M: Sierra Leone, Togo
+7-8M: Laos, Kyrgyzstan, Turkmenistan
+6.5-7M: Libya, El Salvador, Nicaragua, Serbia
+6-6.5M: Bulgaria, Congo, Paraguay
+5.5-6M: Singapore, Denmark, Finland, Norway, Central African Republic
+5-5.5M: Lebanon, Slovakia, Ireland, Costa Rica, Liberia, New Zealand, Oman
+4-5M: Kuwait, Mauritania, Panama
+3-4M: Croatia, Eritrea, Georgia, Mongolia, Uruguay, Bosnia and Herzegovina
+2.5-3M: Armenia, Lithuania, Jamaica, Albania, Moldova, Qatar, Namibia
+2-2.5M: Gambia, Botswana, Lesotho, Gabon, Slovenia
+1.5-2M: Latvia, North Macedonia, Guinea Bissau, Equatorial Guinea, Bahrain
+1-1.5M: Estonia, Trinidad and Tobago, East Timor, Mauritius, Eswatini, Djibouti

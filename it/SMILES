@@ -1,0 +1,16 @@
+line notation for chemical molecule structure
+molecular graph to spanning tree, branches in parenthesis
+
+#syntax
+atoms: standard abbreviation, H can be omitted
+- cation: [_+X]
+- anion: [_-X]
+bonds: assumed single
+- single: "-"
+- double: "="
+- triple: "#"
+- non-bond: "."
+cycles: digit suffix
+
+#example
+melatonin: CC(=O)NCCC1=CNc2c1cc(OC)cc2

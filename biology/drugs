@@ -183,8 +183,15 @@ Darzalex: myeloma
 Trikafta: cystic fibrosis
 Xarelto: anticoagulant
 
-#Anticoagulant
-Warfarin
+#Antithrombotic
+Anticoagulant: reduce blood clotting
+- Warfarin
+- Heparin
+- Aspirin (acetylsalicylic acid, ASA, {C6}(-COOH)-O-C(=O)-C)
+Antiplatelet: reduce platelet aggregation
+- Clopidogrel (Plavix)
+- Prasugrel (Efient)
+- Ticagrelor (Brilinta)
 
 #Antidiabetic
 Insulin

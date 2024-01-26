@@ -1,0 +1,3 @@
+Hexagonal: loosely coupled components, connected by ports and adapters
+Microservices: loosely coupled components, connected by lightweight protocols
+- independent deployments

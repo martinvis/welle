@@ -137,6 +137,8 @@
 - <rt>: pronunciation (above)
 <iframe>: embed document
 <template>: hidden content (for javascript use)
+<slot>: placeholder in <template> to be replaced by content
+- name: identifier used by slot attribute
 <canvas>: 2D/3D graphics
 - height
 - width
@@ -226,3 +228,4 @@ draggable
 hidden
 inert: disable
 tabindex: order in tab navigation
+slot: content linked to <slot>
