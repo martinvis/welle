@@ -11,20 +11,21 @@
 
 <script type="text/javascript">
 var maxWaves = 30;
-var steps = 150;
 var waves = new Array();
 var pos = 0;
+var step = 0;
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var width = canvas.width;
 var height = canvas.height;
-var fps = 10;
+var fps = 30;
+var speed = 5;
 var latest = Date.now();
 
 function frame() {
-	pos = (pos + Math.PI*2/steps);
-	waves = waves.slice(0, maxWaves-1);
+	step = step + 1 % 360;
+	pos = step*Math.PI*2/360;
 }
 
 function draw() {
@@ -49,15 +50,17 @@ function draw() {
 		ctx.fill(); 
 		ctx.stroke();
 
+		waves = waves.slice(0, maxWaves-1);
 		waves.unshift({x: posX, y: posY});
 
 		ctx.fillStyle = "#FF0000";
 		ctx.strokeStyle = "#333";
 
 		waves.forEach(function (wave, i) {
-			ctx.globalAlpha = 1 - i/maxWaves;
+			radius = i*speed + step%speed;
+			ctx.globalAlpha = 1 - radius/(maxWaves*speed);
 			ctx.beginPath();
-			ctx.arc(wave.x, wave.y, i*10, 0, 2 * Math.PI);
+			ctx.arc(wave.x, wave.y, radius, 0, 2 * Math.PI);
 			ctx.stroke(); 
 		});
 

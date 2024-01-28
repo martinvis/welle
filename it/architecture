@@ -1,3 +1,6 @@
 Hexagonal: loosely coupled components, connected by ports and adapters
 Microservices: loosely coupled components, connected by lightweight protocols
 - independent deployments
+IODA: separation into integration, operation, data and API
+
+Architecture decision record (ADR): captures important decision on issue with context and consequences

@@ -1,3 +1,7 @@
+Proof of concept (PoC): small demonstration of feasibility
+Prototype: early version to be tested
+State of the art (SOTA): cutting edge, highest level at time
+
 #Pulley
 - wheel on axle with groove for cable
 - supports movement and change of direction
@@ -11,6 +15,8 @@ Block and tackle: system of multiple pulleys
 Class I: fulcrum between effort and resistance, crowbar or scissors, head
 Class II: resistance between effort and fulcrum, advantage over 1, wheelbarrow or nutcracker, foot
 Class III: effort between resistance and fulcrum, advantage below 1, tongs, mandible
+
+Trammel of Archimedes: two shuttles moving along perpendicular rails with rod attached, makes ellipse shape
 
 #Turbine
 - rotatory device with blades

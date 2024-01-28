@@ -12,13 +12,13 @@
 <script type="text/javascript">
 var maxWaves = 30;
 var step = 0;
-var steps = 100;
+var steps = 200;
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var width = canvas.width;
 var height = canvas.height;
-var fps = 10;
+var fps = 30;
 var latest = Date.now();
 
 function frame() {
@@ -41,19 +41,23 @@ function draw() {
 
 		ctx.clearRect(0, 0, width, height);
 		ctx.strokeStyle = "#000";
+		ctx.lineWidth = 1;
 
 		pos = Math.PI*2*step/steps;
 		posX = width/2 + (width/4) * Math.cos(pos);
 		posY = height/2 + (height/4) * Math.sin(pos);
+		ctx.lineWidth = 2;
 		ctx.beginPath();
 		ctx.arc(startX + radius*pos, startY, radius, 0, 2 * Math.PI, true);
 		ctx.stroke();
 
+		ctx.lineWidth = 1;
 		ctx.beginPath();
 		ctx.moveTo(startX + radius*pos, startY);
 		ctx.lineTo(startX + radius*pos + Math.sin(pos)*radius, startY + Math.cos(pos)*radius);
 		ctx.stroke();
 
+		ctx.lineWidth = 1;
 		for (var i=0; i<=step; i++) {
 			pos = Math.PI*2*i/steps;
 

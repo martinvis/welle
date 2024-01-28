@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<meta charset="utf-8" />
+	<title>Archimedes trammel</title>
+
+</head>
+<body>
+
+<canvas id="canvas" width="600" height="600">
+
+<script type="text/javascript">
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+
+var width = canvas.width;
+var height = canvas.height;
+var centerX = width/2;
+var centerY = height/2;
+var dist = width/8;
+var x1 = centerX + dist;
+var y1 = centerY;
+var x2 = centerX;
+var y2 = centerY;
+var speed1 = -1;
+var speed2 = 1;
+
+var fps = 60;
+var latest = Date.now();
+
+function frame() {
+	if (Math.abs(x1-centerX) < Math.abs(y2-centerY)) {
+		if (speed1 == 1) {
+			x1 = x1+1;
+		} else {
+			x1 = x1-1;
+		}
+		diff2 = calculateDiff(x1, centerX, centerY);
+		old = y2;
+		new1 = centerY - diff2;
+		new2 = centerY + diff2;
+		if (Math.abs(old-new1) < Math.abs(old-new2)) {
+			y2 = new1;
+			speed2 = y2 < old ? -1 : 1;
+		} else {
+			y2 = new2;
+			speed2 = y2 < old ? -1 : 1;
+		}
+	} else {
+		if (speed2 ==1) {
+			y2 = y2+1;
+		} else {
+			y2 = y2-1;
+		}
+		diff2 = calculateDiff(y2, centerY, centerX);
+		old = x1;
+		new1 = centerX - diff2;
+		new2 = centerX + diff2;
+		if (Math.abs(old-new1) < Math.abs(old-new2)) {
+			x1 = new1;
+			speed1 = x1 < old ? -1 : 1;
+		} else {
+			x1 = new2;
+			speed1 = x1 < old ? -1 : 1;
+		}
+	}
+}
+
+function calculateDiff(point, center, otherCenter) {
+	//c^2 = a^2 + b^2
+	diff1 = Math.abs(point - center);
+	return Math.sqrt(dist*dist - diff1*diff1);
+}
+
+function drawRails() {
+	ctx.lineWidth = 3;
+	ctx.strokeStyle = '#000';
+
+	ctx.beginPath();
+	ctx.moveTo(centerX-dist, centerY);
+	ctx.lineTo(centerX+dist, centerY);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.moveTo(centerX, centerY-dist);
+	ctx.lineTo(centerX, centerY+dist);
+	ctx.stroke();
+}
+
+function drawBar(x1, y1, x2, y2, color, width) {
+	drawRails()
+
+	ctx.lineWidth = width;
+	ctx.strokeStyle = color;
+	ctx.beginPath();
+	ctx.moveTo(x1  + (x1-x2)*2, y1 + (y1-y2)*2);
+	ctx.lineTo(x2, y2);
+	ctx.stroke();
+
+	ctx.lineWidth = width + 2;
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.stroke();
+
+	ctx.beginPath();
+	ctx.arc(x1, y1, 5, 0, 2 * Math.PI, true);
+	ctx.fill();
+	ctx.stroke();
+	ctx.beginPath();
+	ctx.arc(x2, y2, 5, 0, 2 * Math.PI, true);
+	ctx.fill();
+	ctx.stroke();
+
+	ctx.lineWidth = 1;
+	ctx.strokeStyle = "#f00";
+	ctx.fillStyle = "#f00";
+	ctx.beginPath();
+	ctx.arc(x1 + (x1-x2)*2, y1 + (y1-y2)*2, 1, 0, 2 * Math.PI, true);
+	ctx.fill();
+	ctx.stroke();
+}
+
+function draw() {
+	requestAnimationFrame(draw);
+	
+	now = Date.now();
+	elapsed = now - latest;
+
+	if (elapsed > 1000/fps) {
+		latest = now;
+
+		drawBar(x1, y1, x2, y2, '#fff', 5);
+		frame();
+		drawBar(x1, y1, x2, y2, '#00f', 1);
+	}
+}
+
+draw();
+</script>
+
+</canvas>
+
+</body>
+</html>
