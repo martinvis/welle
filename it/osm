@@ -1,0 +1,123 @@
+openstreetmap
+
+#<node>: point
+id: unique identifier
+lon: longitude WGS84
+lat: latitude WGS84
+<tag>
+
+#<way>: line
+id: unique identifier
+<nd> ref="123"
+
+#<relation>: group
+id: unique identifier
+<tag> type=multipolygon
+<tag> type=boundary, boundary=administrative, admin_level=1
+<member> type="X" ref="123" role="outer"
+<member> type="X" ref="123" role="inner"
+<member> type="X" ref="123" role="admin_centre"
+
+#<tag>: information
+k: key, category
+v: value
+
+#tags
+name
+building
+- yes
+historic
+- memorial
+- monument
+- fort
+- castle
+shop
+--
+opening_hours
+email
+phone
+website
+--
+tourism
+- hotel
+- museum
+- gallery
+- viewpoint
+amenity
+- fountain
+- cafe
+- pub
+- fast_food
+- restaurant
+- bank
+- atm
+- post_office
+- school
+- hospital
+- pharmacy
+- theatre
+- cinema
+- parking
+- place_of_worship
+--
+highway
+- motorway
+- trunk
+- primary
+- secondary
+- tertiary
+- motorway_link
+- trunk_link
+- primary_link
+- secondary_link
+- tertiary_link
+traffic_calming
+- bump
+- hump
+- table
+- island
+maxspeed
+lanes
+oneway
+- yes
+- no
+--
+railway
+- tram
+- rail
+public_transport
+- platform
+- stop_position
+waterway
+- river
+water
+- lake
+barrier
+- fence
+- wall
+- gate
+natural
+- volcano
+- peak
+- cave_entrance
+- peninsula
+- strait
+- bay
+- coastline
+--
+place
+- country
+- state
+- province
+- district
+- county
+- municipality
+- city
+- town
+- village
+- suburb
+- island
+- archipelago
+- sea
+- ocean
+population

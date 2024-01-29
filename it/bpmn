@@ -1,0 +1,34 @@
+#Business Process Model and Notation
+flowchart of business process
+
+#elements
+event: circle
+- start: catch trigger
+- intermediate: catch or throw
+- end: throw result
+activity: rectangle, work
+- task
+- subprocess
+- event subprocess
+gateway: diamond, path merge/fork
+- exclusive: only one alternative
+- inclusive: one or more alternatives
+- parallel
+- event
+sequence flow: arrow, path connection
+- conditional
+- default
+swim line: organization
+- pool
+- lane
+
+#event
+conditional
+timer: scheduler
+message: individual message
+signal: broadcast message
+escalation: message within process
+error: handle problem
+compensation: revert work
+termination: end everything
+link: divide visually
