@@ -84,7 +84,7 @@ germany: Haribo, Müller, Storck (Merci, nimm2, Toffifee)
 italy: Ferrero (Kinder, Nutella)
 swiss: Nestlé (Maggi, Nesquik, Orion), Lindt
 uk: Unilever (Magnum)
-usa: Hershey's, Kraft Heinz, Mars, Mondelez (Cadbury, Figaro, Milka, Toblerone)
+usa: Hershey's, Kraft Heinz, Mars (M&M's), Mondelez (Cadbury, Figaro, Milka, Toblerone, Oreo)
 
 #fast food
 usa: Burger King, Domino's Pizza, McDonald's, Subway, Wendy's, Yum! (KFC, Pizza Hut, Taco Bell)
@@ -176,8 +176,8 @@ usa: Whirlpool
 
 #computer technology
 china: Lenovo
-japan: Brother, Canon, Epson, Sony
-usa: Apple, Cisco, Dell, HP, Xerox
+japan: Brother, Canon, Epson, Sony (PlayStation)
+usa: Apple (iPhone), Cisco, Dell, HP, Xerox
 
 #conglomerate
 germany: Siemens
@@ -194,12 +194,13 @@ usa: AMD, Broadcom, Intel, Micron, Nvidia, Qualcomm
 canada: CGI
 germany: SAP
 ireland: Accenture
-usa: Adobe, IBM, Microsoft, Oracle, Salesforce
+usa: Adobe (Photoshop), IBM, Microsoft (Azure, Windows, Office, Xbox, LinkedIn), Oracle (Java), Salesforce
+japan: Nintendo
 
 #internet
 china: Alibaba, Baidu, ByteDance (TikTok), JD, Meituan, Tencent
 germany: Otto (Hermes)
-usa: Alphabet (Google, Waymo, YouTube), Amazon, Meta (Facebook, Instagram, WhatsApp)
+usa: Alphabet (Google, YouTube, Android, Chrome, Gmail, Waymo), Amazon (AWS), Meta (Facebook, Instagram, WhatsApp, Threads)
 
 #pharmaceutics
 france: Sanofi
@@ -297,6 +298,7 @@ uk: Deloitte, Ernst & Young, PricewaterhouseCoopers
 usa: American Express, PayPal (Venmo), Mastercard, Visa, Square
 netherlands: PayU
 sweden: Klarna
+ireland: Stripe
 
 #finance
 usa: Berkshire Hathaway, BlackRock, Morgan Stanley, Goldman Sachs

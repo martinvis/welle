@@ -3,6 +3,7 @@ chinese|abstract/action|opraviť|修|xiū|False|False|other|
 chinese|abstract/action|poškodiť|损害|sǔnhài|False|False|other|
 chinese|abstract/action|premena|转变|zhuǎnbiàn|False|False|other|
 chinese|abstract/action|premeniť|转换|zhuǎnhuàn|False|False|other|
+chinese|abstract/action|stať sa|成|chéng|False|False|other|
 chinese|abstract/action|vytvoriť|创造|chuàngzào|False|False|other|
 chinese|abstract/action|zmeniť|改变|gǎibiàn|True|False|other|
 chinese|abstract/action|zničiť|毁|huǐ|False|False|other|
@@ -30,10 +31,12 @@ chinese|abstract/beauty|ľúbiť|爱|ài|True|False|other|
 chinese|abstract/beauty|škaredý|丑陋|chǒulòu|False|False|other|
 chinese|abstract/importance|bežný|一般|yībān|True|False|other|
 chinese|abstract/importance|ceniť si|珍惜|zhēnxī|False|False|other|
-chinese|abstract/importance|chcieť|想要|xiǎngyào|False|False|other|
+chinese|abstract/importance|chcieť|想|xiǎng|True|False|other|
+chinese|abstract/importance|chcieť|想要|xiǎngyào|False|True|other|
 chinese|abstract/importance|cieľ|目标|mùbiāo|False|False|other|
+chinese|abstract/importance|dať sa|可|kě|False|False|other|
 chinese|abstract/importance|divný|奇怪|qíguài|True|False|other|
-chinese|abstract/importance|dôležitý|重要|zhòngyào|False|False|other|
+chinese|abstract/importance|dôležitý|重要|zhòngyào|False|True|other|
 chinese|abstract/importance|dôsledok|后果|hòuguǒ|False|False|other|
 chinese|abstract/importance|dôvod|理由|lǐyóu|False|False|other|
 chinese|abstract/importance|katastrofa|浩劫|hàojié|False|False|other|
@@ -44,13 +47,13 @@ chinese|abstract/importance|musieť|必须|bìxū|True|False|other|
 chinese|abstract/importance|môcť|能|néng|True|False|other|
 chinese|abstract/importance|nevyhnutný|紧要|jǐnyào|False|False|other|
 chinese|abstract/importance|nudný|无聊|wúliáo|False|False|other|
-chinese|abstract/importance|nutný|必要|bìyào|False|False|other|
+chinese|abstract/importance|nutný|必要|bìyào|False|True|other|
 chinese|abstract/importance|podstatný|要紧|yàojǐn|False|False|other|
 chinese|abstract/importance|pokročilý|先进|xiānjìn|False|False|other|
 chinese|abstract/importance|ponáhľať sa|赶紧|gǎnjǐn|False|False|other|
 chinese|abstract/importance|potrebovať|需要|xūyào|False|False|other|
 chinese|abstract/importance|použiť|使用|shǐyòng|False|False|other|
-chinese|abstract/importance|požiadavka|要求|yāoqiú|False|False|other|
+chinese|abstract/importance|požiadavka|要求|yāoqiú|False|True|other|
 chinese|abstract/importance|príčina|原因|yuányīn|False|False|other|
 chinese|abstract/importance|smieť|可以|kěyǐ|True|False|other|
 chinese|abstract/importance|spôsobiť|使|shǐ|False|False|other|
@@ -64,45 +67,49 @@ chinese|abstract/importance|zbytočný|无用|wúyòng|False|False|other|
 chinese|abstract/importance|zvláštny|奇异|qíyì|False|False|other|
 chinese|abstract/importance|základný|基本|jīběn|False|False|other|
 chinese|abstract/importance|špeciálny|特别|tèbié|True|False|other|
-chinese|abstract/information|chaos|混乱|hùnluàn|False|False|other|
-chinese|abstract/information|charakteristika|特征|tèzhēng|False|False|other|
+chinese|abstract/importance|žiadať|要|yào|True|False|other|
+chinese|abstract/information|chaos|混乱|hùn luàn|False|False|other|
+chinese|abstract/information|charakteristika|特征|tè zhēng|False|False|other|
 chinese|abstract/information|chyba|失误|shī wù|False|False|other|
 chinese|abstract/information|chyba|误|wù |False|False|other|
 chinese|abstract/information|chyba|错误|cuò wù |False|False|other|
 chinese|abstract/information|chybný|错|cuò|True|False|other|
-chinese|abstract/information|fakt|实际|shíjì|True|False|other|
-chinese|abstract/information|informácia|信息|xìnxī |True|False|other|
+chinese|abstract/information|fakt|实际|shí jì|True|False|other|
+chinese|abstract/information|informácia|信息|xìn xī |True|False|other|
 chinese|abstract/information|informácia|消息|xiāo xi|True|False|other|
 chinese|abstract/information|iný|别|bié|True|False|other|
-chinese|abstract/information|kategória|范畴|fànchóu|False|False|other|
+chinese|abstract/information|kategória|范畴|fàn chóu|False|False|other|
 chinese|abstract/information|kombinácia|组合|zǔ hé|False|False|other|
 chinese|abstract/information|meno|名|míng|False|False|other|
 chinese|abstract/information|meno|名字|míng zi |False|False|other|
-chinese|abstract/information|metóda|方法|fāngfǎ|True|False|other|
+chinese|abstract/information|metóda|方法|fāng fǎ|True|False|other|
 chinese|abstract/information|nazývať|称|chēng|False|False|other|
-chinese|abstract/information|nejaké|一些|yīxiē|True|False|other|
-chinese|abstract/information|náhodný|偶然|ǒurán|False|False|other|
+chinese|abstract/information|nejaké|一些|yī xiē|True|False|other|
+chinese|abstract/information|náhodný|偶然|ǒu rán|False|False|other|
 chinese|abstract/information|objekt|对象|duì xiàng|False|False|other|
-chinese|abstract/information|odlíšiť|分辨|fēnbiàn|False|False|other|
+chinese|abstract/information|odlíšiť|分辨|fēn biàn|False|False|other|
 chinese|abstract/information|podobať sa|像|xiàng|True|False|other|
-chinese|abstract/information|podobný|相似|xiāngsì|True|False|other|
-chinese|abstract/information|pravidlo|规则|guīzé |False|False|other|
-chinese|abstract/information|pravidlo|规律|guīlǜ|False|False|other|
-chinese|abstract/information|pravidlo|规章|guīzhāng |False|False|other|
-chinese|abstract/information|príklad|例子|lìzi|True|False|other|
-chinese|abstract/information|riešenie|答案|dáàn|True|False|other|
-chinese|abstract/information|rovnaký|同样|tóngyàng|False|False|other|
-chinese|abstract/information|rovnováha|平衡|pínghéng|False|False|other|
-chinese|abstract/information|situácia|情况|qíngkuàng|True|False|other|
+chinese|abstract/information|podobný|相似|xiāng sì|True|False|other|
+chinese|abstract/information|pravidlo|规则|guī zé |False|False|other|
+chinese|abstract/information|pravidlo|规律|guī lǜ|False|False|other|
+chinese|abstract/information|pravidlo|规章|guī zhāng |False|False|other|
+chinese|abstract/information|príklad|例子|lì zi|True|False|other|
+chinese|abstract/information|riešenie|答案|dá àn|True|False|other|
+chinese|abstract/information|rovnaký|同样|tóng yàng|False|False|other|
+chinese|abstract/information|rovnováha|平衡|píng héng|False|False|other|
+chinese|abstract/information|situácia|情况|qíng kuàng|True|False|other|
 chinese|abstract/information|správny|对|duì|True|False|other|
-chinese|abstract/information|spôsob|方式|fāngshì|True|False|other|
-chinese|abstract/information|stav|状况|zhuàngkuàng |True|False|other|
-chinese|abstract/information|stav|状态|zhuàngtài|True|False|other|
-chinese|abstract/information|systém|制度|zhìdù|True|False|other|
-chinese|abstract/information|vec|东西|dōngxi|False|False|other|
-chinese|abstract/information|vyriešiť|解决|jiějué|True|False|other|
+chinese|abstract/information|spôsob|办法|bàn fǎ|False|False|other|
+chinese|abstract/information|spôsob|方式|fāng shì|True|False|other|
+chinese|abstract/information|stav|状况|zhuàng kuàng |True|False|other|
+chinese|abstract/information|stav|状态|zhuàng tài|True|False|other|
+chinese|abstract/information|stupeň|级|jí|False|False|other|
+chinese|abstract/information|systém|制度|zhì dù|True|False|other|
+chinese|abstract/information|vec|东西|dōng xi|False|False|other|
+chinese|abstract/information|vec|事|shì|False|False|other|
+chinese|abstract/information|vyriešiť|解决|jiě jué|True|False|other|
 chinese|abstract/information|základ|基础|jīchǔ|True|False|other|
-chinese|abstract/information|úplný|完全|wánquán|True|False|other|
+chinese|abstract/information|úplný|完全|wán quán|True|False|other|
 chinese|abstract/information|štruktúra|结构|jié gòu|False|False|other|
 chinese|abstract/number|10 tisíc|万|wàn|True|False|other|
 chinese|abstract/number|100 miliónov|亿|yì|True|False|other|
@@ -174,6 +181,7 @@ chinese|abstract/size|malý|小|xiǎo|False|False|other|
 chinese|abstract/size|málo|少|shǎo|True|False|other|
 chinese|abstract/size|niekoľko|几|jǐ|True|False|other|
 chinese|abstract/size|nízky|矮|ǎi|False|False|other|
+chinese|abstract/size|obrovský|巨|jù|False|False|other|
 chinese|abstract/size|plytký|浅|qiǎn|False|False|other|
 chinese|abstract/size|polomer|半径|bàn jìng|False|False|other|
 chinese|abstract/size|pribudnúť|增多|zēng duō|False|False|other|
@@ -206,6 +214,7 @@ chinese|abstract/space|kraj|边|biān|True|False|other|
 chinese|abstract/space|ku|向|xiàng|True|False|other|
 chinese|abstract/space|medzi|之间|zhījiān|True|False|other|
 chinese|abstract/space|miesto|空间|kōngjiān|True|False|other|
+chinese|abstract/space|na (mieste)|在|zài|False|False|other|
 chinese|abstract/space|nad|上面|shàngmian|False|True|other|
 chinese|abstract/space|od|从|cóng|True|False|other|
 chinese|abstract/space|pod|下面|xiàmian|False|True|other|
@@ -229,11 +238,14 @@ chinese|abstract/space|všade|处处|chùchù |True|False|other|
 chinese|abstract/space|všade|遍地|biàndì|True|False|other|
 chinese|abstract/space|za|后|hòu|True|False|other|
 chinese|abstract/space|ďaleký|远|yuǎn|True|False|other|
+chinese|abstract/time|budúcnosť|未来|wèi lái|False|False|other|
+chinese|abstract/time|deň|天|tiān|True|False|other|
 chinese|abstract/time|deň|日|rì|False|False|other|
 chinese|abstract/time|dnes|今天|jīn tiān|False|False|other|
 chinese|abstract/time|dopoludnie|上午|shàng wǔ|True|False|other|
 chinese|abstract/time|dávno|早就|zǎo jiù |False|False|other|
 chinese|abstract/time|dávno|早已|zǎo yǐ|False|False|other|
+chinese|abstract/time|ešte nie|未|wèi|False|False|other|
 chinese|abstract/time|ešte|还|hái|True|False|other|
 chinese|abstract/time|hneď|马上|mǎ shàng|True|False|other|
 chinese|abstract/time|hocikedy|随时|suí shí|False|False|other|
@@ -241,7 +253,9 @@ chinese|abstract/time|hodina|小时|xiǎo shí|False|False|other|
 chinese|abstract/time|ihneď|赶快|gǎn kuài|False|False|other|
 chinese|abstract/time|jar|春|chūn|True|False|other|
 chinese|abstract/time|jeseň|秋|qiū|True|False|other|
+chinese|abstract/time|kedysi|曾经|céng jīng|False|False|other|
 chinese|abstract/time|leto|夏|xià|True|False|other|
+chinese|abstract/time|minulosť|过去|guò qù|False|False|other|
 chinese|abstract/time|minúta|分钟|fēn zhōng|False|False|other|
 chinese|abstract/time|neskorý|晚|wǎn|True|False|other|
 chinese|abstract/time|nikdy|从来|cóng lái|True|False|other|
@@ -261,7 +275,8 @@ chinese|abstract/time|sekunda|秒钟|miǎo zhōng|False|False|other|
 chinese|abstract/time|skorý|早|zǎo|True|False|other|
 chinese|abstract/time|starý|旧|jiù|True|False|other|
 chinese|abstract/time|teraz|现在|xiàn zài|True|False|other|
-chinese|abstract/time|už|已经|yǐjīng|True|False|other|
+chinese|abstract/time|už|已经|yǐ jīng|True|False|other|
+chinese|abstract/time|v (čase)|在|zài|False|False|other|
 chinese|abstract/time|včasný|及时|jíshí|True|False|other|
 chinese|abstract/time|včera|昨天|zuó tiān|False|False|other|
 chinese|abstract/time|vždy|总是|zǒng shì|True|False|other|
@@ -273,20 +288,25 @@ chinese|abstract/time|často|经常|jīng cháng |True|False|other|
 chinese|abstract/time|čas|时间|shí jiān|True|False|other|
 chinese|basic|a/s|与|yǔ|False|False|other|
 chinese|basic|ako (porovnanie)|比|bǐ|True|False|other|
+chinese|basic|ako?|怎么样|zěn me yàng|True|False|other|
 chinese|basic|ak|如果|rú guǒ|False|False|other|
 chinese|basic|alebo (otázka)|还是|hái shi|False|False|other|
 chinese|basic|alebo (veta)|或者|huò zhě|False|False|other|
 chinese|basic|ale|但是|dàn shì|False|False|other|
+chinese|basic|ale|可是|kě shì|False|False|other|
 chinese|basic|a|和|hé|False|False|other|
 chinese|basic|bez ohľadu|不管|bù guǎn|False|False|other|
 chinese|basic|bez|无|wú|False|False|other|
+chinese|basic|dokončená akcia|了|le|True|False|other|
 chinese|basic|genitív|的|de|True|False|other|
 chinese|basic|jediný|唯一|wéi yī|False|False|other|
 chinese|basic|každý (rovnaký)|每|měi|True|False|other|
 chinese|basic|každý (rôzny)|各|gè|True|False|other|
 chinese|basic|kdeže|并不|bìng bù|False|False|other|
+chinese|basic|kto?|谁|shéi|True|False|other|
 chinese|basic|ktorý|哪|nǎ|False|False|other|
 chinese|basic|lebo|由于|yóu yú|False|False|other|
+chinese|basic|mať|有|yǒu|True|False|other|
 chinese|basic|možno|也许|yě xǔ |False|False|other|
 chinese|basic|možno|或许|huò xǔ|False|False|other|
 chinese|basic|naozaj|其实|qí shí |False|False|other|
@@ -297,7 +317,10 @@ chinese|basic|nie len ... ale aj|不仅 ... 而且|bù jǐn ... ér qiě|False|F
 chinese|basic|nie|不|bù|False|False|other|
 chinese|basic|okrem|除了|chú le|False|False|other|
 chinese|basic|pretože|因为|yīn wèi|False|False|other|
+chinese|basic|prečo?|为什么|wèi shén me|True|False|other|
 chinese|basic|približne|大约|dà yuē|False|False|other|
+chinese|basic|priebeh|着|zhe|True|False|other|
+chinese|basic|samozrejme|当然|dāng rán|False|False|other|
 chinese|basic|s|跟|gēn|False|False|other|
 chinese|basic|takmer|差不多|chà bu duō|True|False|other|
 chinese|basic|takže|所以|suǒ yǐ|False|False|other|
@@ -308,6 +331,36 @@ chinese|basic|určite|一定|yī dìng|False|False|other|
 chinese|basic|zápor (minulý/budúci)|没|méi|True|False|other|
 chinese|basic|zápor (prítomný)|不|bù|True|False|other|
 chinese|basic|áno|是|shì|False|False|other|
+chinese|culture/_people|Abraham Lincoln|亚伯拉罕.林肯||False|False|other|
+chinese|culture/_people|Adolf Hitler|阿道夫.希特勒||False|False|other|
+chinese|culture/_people|Albert Einstein|阿尔伯特.爱因斯坦||False|False|other|
+chinese|culture/_people|Alexander Veľký|亚历山大大帝||False|False|other|
+chinese|culture/_people|Archimedes|阿基米德||False|False|other|
+chinese|culture/_people|Aristoteles|亚里士多德||False|False|other|
+chinese|culture/_people|Charles Darwin|查尔斯.达尔文||False|False|other|
+chinese|culture/_people|Cicero|西塞罗||False|False|other|
+chinese|culture/_people|Dmitrij Mendelejev|德米特里.门捷列夫||False|False|other|
+chinese|culture/_people|Džingischán|成吉思汗||False|False|other|
+chinese|culture/_people|Galileo Galilei|伽利略.伽利莱||False|False|other|
+chinese|culture/_people|Hatšepsut|哈特谢普苏特||False|False|other|
+chinese|culture/_people|Isaac Newton|艾萨克.牛顿||False|False|other|
+chinese|culture/_people|Jules Verne|儒勒.凡尔纳||False|False|other|
+chinese|culture/_people|Jurij Gagarin|尤里.加加林||False|False|other|
+chinese|culture/_people|Július Cézar|儒略.恺撒||False|False|other|
+chinese|culture/_people|Kleopatra|埃及艳后||False|False|other|
+chinese|culture/_people|Konfucius|孔子||False|False|other|
+chinese|culture/_people|Krištof Kolumbus|克里斯托弗.哥伦布||False|False|other|
+chinese|culture/_people|Leonardo da Vinci|列奥纳多.达.芬奇||False|False|other|
+chinese|culture/_people|Marcus Aurelius|马可.奥勒留||False|False|other|
+chinese|culture/_people|Napoleon Bonaparte|拿破仑.波拿巴||False|False|other|
+chinese|culture/_people|Nefertiti|娜芙蒂蒂||False|False|other|
+chinese|culture/_people|Pytagoras|毕达哥拉斯||False|False|other|
+chinese|culture/_people|Sokrates|苏格拉底||False|False|other|
+chinese|culture/_people|Spartakus|斯巴达克斯||False|False|other|
+chinese|culture/_people|Sun-c|孙武||False|False|other|
+chinese|culture/_people|Tolkien|托尔金||False|False|other|
+chinese|culture/_people|Tutanchamón|图坦卡蒙||False|False|other|
+chinese|culture/_people|William Shakespeare|威廉.莎士比亚||False|False|other|
 chinese|culture/activity|hra|游戏|yóuxì|True|False|other|
 chinese|culture/activity|hračka|玩具|wán jù|False|True|other|
 chinese|culture/activity|hrať sa|玩|wán|True|False|other|
@@ -355,9 +408,11 @@ chinese|culture/art|tragédia|悲剧|bēijù|False|False|other|
 chinese|culture/art|umenie|艺术|yìshù|False|False|other|
 chinese|culture/calendar|týždeň|周|zhōu|False|False|other|
 chinese|culture/calendar|víkend|周末|zhōu mò|False|False|other|
+chinese|culture/ethics|dobrý|善|shàn|False|False|other|
 chinese|culture/ethics|dobrý|好|hǎo|True|False|other|
 chinese|culture/ethics|zlý|坏|huài|True|False|other|
 chinese|culture/fantasy|kúzlo|魔法|mó fǎ|False|False|other|
+chinese|culture/fantasy|čarodejník|巫师|wū shī|False|False|other|
 chinese|culture/food/animal|bielok|蛋白|dànbái|True|False|other|
 chinese|culture/food/animal|bravčovina|猪肉|zhūròu|False|False|other|
 chinese|culture/food/animal|hovädzina|牛肉|niúròu|False|False|other|
@@ -476,6 +531,9 @@ chinese|culture/food/vegetable|šošovica|小扁豆|xiǎo biǎndòu|False|False|
 chinese|culture/food/vegetable|špenát|菠菜|bōcài|False|False|other|
 chinese|culture/history|antický|古老|gǔ lǎo|False|False|other|
 chinese|culture/history|história|历史|lì shǐ|True|False|other|
+chinese|culture/language|slovo|词|cí|False|False|other|
+chinese|culture/language|veta|句|jù |False|False|other|
+chinese|culture/language|veta|句子|jù zi|False|False|other|
 chinese|culture/law|advokát|律师|lǜshī|False|False|other|
 chinese|culture/law|kradnúť|偷|tōu|False|False|other|
 chinese|culture/law|kriminálny|犯罪|fànzuì|False|False|other|
@@ -533,10 +591,12 @@ chinese|culture/politics|separatizmus|分离主义|fēnlí zhǔyì|False|True|ot
 chinese|culture/politics|socializmus|社会主义|shèhuì zhǔyì|False|True|other|
 chinese|culture/politics|terorizmus|恐怖主义|kǒngbù zhǔyì|False|True|other|
 chinese|culture/politics|totalita|极权主义|jíquán zhǔyì|False|True|other|
+chinese|culture/politics|verejnosť|公众|gōng zhòng|False|False|other|
 chinese|culture/politics|vláda|政府|zhèngfǔ|False|False|other|
 chinese|culture/politics|vládnuť|执政|zhízhèng |False|False|other|
 chinese|culture/politics|vládnuť|治理|zhìlǐ|False|False|other|
 chinese|culture/politics|vládnuť|统治|tǒngzhì |False|False|other|
+chinese|culture/politics|ľud|民众|mín zhòng|False|False|other|
 chinese|culture/politics|štát|国家|guójiā|False|True|other|
 chinese|economy/agriculture|bič|鞭|biān|False|False|other|
 chinese|economy/agriculture|farma|农场|nóngchǎng|False|False|other|
@@ -548,6 +608,7 @@ chinese|economy/agriculture|kôň|马|mǎ|True|False|other|
 chinese|economy/agriculture|pole|田|tián|True|False|other|
 chinese|economy/agriculture|traktor|拖拉机|tuōlājī|False|False|other|
 chinese|economy/agriculture|tráva|草|cǎo|True|False|other|
+chinese|economy/agriculture|záhrada|花园|huā yuán|False|False|other|
 chinese|economy/cloth|golier|领子|lǐngzi|False|False|other|
 chinese|economy/cloth|gombík|纽扣|niǔkòu|False|True|other|
 chinese|economy/cloth|ihla|针|zhēn|True|False|other|
@@ -598,6 +659,9 @@ chinese|economy/construction|omietka|灰泥|huī ní|False|False|other|
 chinese|economy/construction|parkovisko|停车场|tíng chē chǎng|False|False|other|
 chinese|economy/construction|poschodie|楼层|lóu céng|False|False|other|
 chinese|economy/construction|prah|门槛|ménkǎn|False|True|other|
+chinese|economy/construction|predmestie|市郊|shì jiāo |False|False|other|
+chinese|economy/construction|predmestie|郊区|jiāo qū|False|False|other|
+chinese|economy/construction|salón|休息室|xiū xi shì|False|False|other|
 chinese|economy/construction|schody|楼梯|lóu tī|False|False|other|
 chinese|economy/construction|stavať|建设|jiàn shè|True|False|other|
 chinese|economy/construction|stena|墙壁|qiáng bì|False|False|other|
@@ -634,6 +698,7 @@ chinese|economy/education|výskum|研究|yán jiū|False|False|other|
 chinese|economy/education|škola|学校|xué xiào|False|False|other|
 chinese|economy/education|študent|学生|xué sheng|False|False|other|
 chinese|economy/education|študovať|学习|xué xí|False|False|other|
+chinese|economy/finance|bieda|艰辛|jiān xīn|False|False|other|
 chinese|economy/finance|bohatý|富|fù|True|False|other|
 chinese|economy/finance|cena|价格|jiàgé |True|False|other|
 chinese|economy/finance|cena|价钱|jià qian|True|False|other|
@@ -655,6 +720,7 @@ chinese|economy/finance|peniaze|钱|qián|False|False|other|
 chinese|economy/finance|platba|付款|fù kuǎn|False|False|other|
 chinese|economy/finance|platiť|付|fù|False|False|other|
 chinese|economy/finance|poplatok|费|fèi|False|False|other|
+chinese|economy/finance|trezor|金库|jīn kù|False|False|other|
 chinese|economy/finance|vzdať sa|放弃|fàng qì|False|False|other|
 chinese|economy/finance|vziať|取|qǔ|True|False|other|
 chinese|economy/finance|získať|取得|qǔ dé|True|False|other|
@@ -733,6 +799,8 @@ chinese|economy/manufacture|koberec|地毯|dì tǎn|False|False|other|
 chinese|economy/manufacture|kábel|电缆|diàn lǎn|False|False|other|
 chinese|economy/manufacture|kľúč|钥匙|yào shi|False|False|other|
 chinese|economy/manufacture|lampa|灯|dēng|True|False|other|
+chinese|economy/manufacture|lepiaca páska|胶带|jiāo dài|False|True|other|
+chinese|economy/manufacture|lep|胶|jiāo|False|False|other|
 chinese|economy/manufacture|mikrovlnka|微波炉|wēi bō lú|False|False|other|
 chinese|economy/manufacture|mobil|手机|shǒu jī|True|False|other|
 chinese|economy/manufacture|nožnice|剪刀|jiǎn dāo|False|False|other|
@@ -763,6 +831,7 @@ chinese|economy/manufacture|zrkadlo|镜子|jìng zi|True|False|other|
 chinese|economy/manufacture|zubná kefka|牙刷|yá shuā|False|False|other|
 chinese|economy/manufacture|zubná pasta|牙膏|yá gāo|False|False|other|
 chinese|economy/manufacture|zámka|锁|suǒ|False|False|other|
+chinese|economy/manufacture|šatník|衣柜|yīguì|False|False|other|
 chinese|economy/manufacture|žiarovka|灯泡|dēng pào|False|False|other|
 chinese|economy/religion|Ježiš|耶稣|yēsū|False|False|other|
 chinese|economy/religion|Vianoce|圣诞节|shèngdànjié|False|True|other|
@@ -786,6 +855,7 @@ chinese|economy/religion|pochovať|埋葬|máizàng|False|False|other|
 chinese|economy/religion|pohreb|丧|sāng |False|False|other|
 chinese|economy/religion|pohreb|葬礼|zànglǐ|False|False|other|
 chinese|economy/religion|pápež|教皇|jiàohuáng|False|False|other|
+chinese|economy/religion|raj|乐园|lè yuán|False|False|other|
 chinese|economy/religion|svätý|圣|shèng|False|False|other|
 chinese|economy/religion|uctievať|崇拜|chóngbài|False|False|other|
 chinese|economy/religion|vianočný|圣诞|shèngdàn|False|False|other|
@@ -894,15 +964,17 @@ chinese|human/communication|komentovať|评论|pínglùn|False|False|other|
 chinese|human/communication|komunikácia|交际|jiāojì|True|False|other|
 chinese|human/communication|konverzovať|交谈|jiāotán|False|False|other|
 chinese|human/communication|konzultovať|商量|shāngliang|True|False|other|
-chinese|human/communication|kritizovať|批评|pīpíng|False|False|other|
-chinese|human/communication|navrhnúť|建议|jiànyì|False|False|other|
+chinese|human/communication|kritizovať|批评|pī píng|False|False|other|
+chinese|human/communication|navrhnúť|建议|jiàn yì|False|False|other|
 chinese|human/communication|náznak|暗示|ànshì|True|False|other|
 chinese|human/communication|názor|看法|kànfǎ|True|False|other|
 chinese|human/communication|odpovedať|回答|huídá|False|False|other|
 chinese|human/communication|odpustiť|原谅|yuánliàng|False|False|other|
+chinese|human/communication|ohlásiť|宣布|xuān bù|False|False|other|
 chinese|human/communication|oklamať|欺骗|qīpiàn|False|False|other|
 chinese|human/communication|otázka|问题|wèntí|False|False|other|
-chinese|human/communication|oznámiť|告诉|gàosu|False|False|other|
+chinese|human/communication|oznámiť|告诉|gào su|False|False|other|
+chinese|human/communication|oznámiť|陈述|chén shù|False|False|other|
 chinese|human/communication|podvodník|骗子|piànzi|False|False|other|
 chinese|human/communication|povedať|说|shuō|False|False|other|
 chinese|human/communication|povoliť|允许|yǔnxǔ|False|False|other|
@@ -925,9 +997,10 @@ chinese|human/communication|sľub|诺言|nuòyán|False|False|other|
 chinese|human/communication|sľúbiť|许诺|xǔnuò|False|False|other|
 chinese|human/communication|sťažovať sa|投诉|tóusù|False|False|other|
 chinese|human/communication|uznať|承认|chéngrèn|False|False|other|
-chinese|human/communication|varovať|告诫|gàojiè|False|False|other|
+chinese|human/communication|varovať|告诫|gào jiè|False|False|other|
 chinese|human/communication|verný|忠实|zhōngshí |False|False|other|
 chinese|human/communication|verný|忠诚|zhōngchéng|False|False|other|
+chinese|human/communication|vyhlásiť|公布|gōng bù|False|False|other|
 chinese|human/communication|vyhovoriť|劝阻|quànzǔ|False|False|other|
 chinese|human/communication|vypytovať sa|查询|cháxún|False|False|other|
 chinese|human/communication|vyvrátiť|反驳|fǎnbó|False|False|other|
@@ -952,6 +1025,7 @@ chinese|human/family|muž|男人|nánrén|False|False|other|
 chinese|human/family|otec|父亲|fùqīn|False|False|other|
 chinese|human/family|otec|爸爸|bàba |False|False|other|
 chinese|human/family|priateľ|朋友|péngyou|False|False|other|
+chinese|human/family|pán|先生|xiān sheng|False|False|other|
 chinese|human/family|rodičia|父母|fùmǔ|False|False|other|
 chinese|human/family|staršia sestra|姐姐|jiějie|False|False|other|
 chinese|human/family|starší brat|哥哥|gēge|False|False|other|
@@ -996,6 +1070,7 @@ chinese|human/mestá|Viedeň|维也纳|wéiyěnà|True|False|other|
 chinese|human/mestá|Zürich|苏黎世|sūlíshì|False|False|other|
 chinese|human/mestá|Štokholm|斯德哥尔摩|sīdégēěrmó|True|False|other|
 chinese|human/mestá|Ženeva|日内瓦|rìnèiwǎ|False|False|other|
+chinese|human/society|blahoželať|祝贺|zhù hè|False|True|other|
 chinese|human/society|dar|礼物|lǐwù|True|False|other|
 chinese|human/society|meeting|会议|huìyì|True|False|other|
 chinese|human/society|osamelý|孤独|gūdú|False|False|other|
@@ -1008,6 +1083,7 @@ chinese|human/society|spoločnosť|社会|shèhuì|True|False|other|
 chinese|human/society|stretnutie|约会|yuēhuì|True|False|other|
 chinese|human/society|sviatok|节日|jiérì|False|True|other|
 chinese|human/society|zvyk|习惯|xíguàn|True|False|other|
+chinese|human/society|želať|祝|zhù|False|False|other|
 chinese|human/štáty|Alžírsko|阿尔及利亚|āěrjílìyǎ|False|False|other|
 chinese|human/štáty|Argentína|阿根廷|āgēntíng|False|False|other|
 chinese|human/štáty|Austrália|澳大利亚|àodàlìyà|True|False|other|
@@ -1127,8 +1203,10 @@ chinese|life/body|ústa|口|kǒu|False|False|other|
 chinese|life/body|ústa|嘴|zuǐ |False|False|other|
 chinese|life/body|žlčník|胆|dǎn|False|False|other|
 chinese|life/feeling|báť sa|怕|pà|False|False|other|
+chinese|life/feeling|cítiť|感觉|gǎn jué|False|False|other|
 chinese|life/feeling|depresívny|沉闷|chén mèn|False|False|other|
 chinese|life/feeling|des|恐惧|kǒng jù|False|False|other|
+chinese|life/feeling|dojať|感动|gǎn dòng|False|False|other|
 chinese|life/feeling|dúfať|希望|xī wàng|True|False|other|
 chinese|life/feeling|emócia|感情|gǎn qíng|False|False|other|
 chinese|life/feeling|hanbiť sa|惭愧|cán kuì|False|False|other|
@@ -1154,6 +1232,7 @@ chinese|life/feeling|panikáriť|恐慌|kǒng huāng|False|False|other|
 chinese|life/feeling|pocit|情|qíng|False|False|other|
 chinese|life/feeling|potešený|高兴|gāo xìng|True|False|other|
 chinese|life/feeling|prekvapenie|惊喜|jīng xǐ|False|False|other|
+chinese|life/feeling|priaznivý|吉祥|jí xiáng|False|False|other|
 chinese|life/feeling|radosť|喜悦|xǐ yuè |False|False|other|
 chinese|life/feeling|radosť|愉悦|yú yuè|False|False|other|
 chinese|life/feeling|smutný|悲伤|bēi shāng|False|False|other|
@@ -1162,7 +1241,9 @@ chinese|life/feeling|súcitiť|同情|tóng qíng|False|False|other|
 chinese|life/feeling|súcit|怜悯|lián mǐn|False|False|other|
 chinese|life/feeling|trápenie|烦恼|fán nǎo|False|False|other|
 chinese|life/feeling|trápny|别扭|biè niu|False|False|other|
+chinese|life/feeling|vtipný|搞笑|gǎo xiào|False|False|other|
 chinese|life/feeling|vytrvalý|一贯|yī guàn|False|False|other|
+chinese|life/feeling|zúrivý|凶|xiōng|False|False|other|
 chinese|life/feeling|úzkosť|忧虑|yōu lǜ|False|False|other|
 chinese|life/feeling|ľutovať|可怜|kě lián|False|False|other|
 chinese|life/feeling|ľutovať|后悔|hòu huǐ|False|False|other|
@@ -1215,9 +1296,11 @@ chinese|life/pohyby|uchopiť|抓紧|zhuā jǐn|False|False|other|
 chinese|life/pohyby|udrieť|打|dǎ|False|False|other|
 chinese|life/pohyby|vliecť|拖|tuō|False|False|other|
 chinese|life/pohyby|vrátiť sa|回|huí|False|False|other|
+chinese|life/pohyby|vstať|起|qǐ|False|False|other|
 chinese|life/pohyby|vyjsť|出|chū|True|False|other|
 chinese|life/pohyby|vyjsť|出去|chū qu|False|True|other|
 chinese|life/pohyby|vyjsť|出来|chū lai|False|True|other|
+chinese|life/pohyby|vystaviť|陈列|chén liè|False|False|other|
 chinese|life/pohyby|vystopovať|跟踪|gēn zōng|False|False|other|
 chinese|life/pohyby|vzdialenosť|距离|jù lí|False|False|other|
 chinese|life/pohyby|zostať|留|liú|True|False|other|
@@ -1233,7 +1316,8 @@ chinese|life/senses|grcať|呕吐|ǒutù|False|False|other|
 chinese|life/senses|horký|苦|kǔ|True|False|other|
 chinese|life/senses|hrýzť|咬|yǎo|False|False|other|
 chinese|life/senses|jesť|吃|chī|False|False|other|
-chinese|life/senses|kričať|叫喊|jiàohǎn|False|False|other|
+chinese|life/senses|kričať|叫喊|jiàohǎn |False|False|other|
+chinese|life/senses|kričať|喊|hǎn|False|False|other|
 chinese|life/senses|kyslý|酸|suān|True|False|other|
 chinese|life/senses|nemý|哑巴|yǎba|False|False|other|
 chinese|life/senses|piť|喝|hē|False|False|other|
@@ -1246,6 +1330,7 @@ chinese|life/senses|volať|叫|jiào|False|False|other|
 chinese|life/senses|vystrašiť|吓|xià|False|False|other|
 chinese|life/senses|zavolať si|召唤|zhàohuàn|False|False|other|
 chinese|life/senses|znieť|响|xiǎng|False|False|other|
+chinese|life/senses|zvuk|声音|shēng yīn|False|False|other|
 chinese|life/senses|čkať sa|呃逆|ènì|False|False|other|
 chinese|life/senses|žuť|嚼|jiáo|False|False|other|
 chinese|life/spravanie|bývať|住|zhù|True|False|other|
@@ -1257,7 +1342,9 @@ chinese|life/spravanie|hladný|饿|è|True|False|other|
 chinese|life/spravanie|narodiť sa|诞生|dàn shēng|False|False|other|
 chinese|life/spravanie|plakať|哭|kū|True|False|other|
 chinese|life/spravanie|pohlavie|性|xìng|False|False|other|
+chinese|life/spravanie|samec|雄|xióng|False|False|other|
 chinese|life/spravanie|samica|母|mǔ|False|False|other|
+chinese|life/spravanie|samica|雌|cí|False|False|other|
 chinese|life/spravanie|smiech|笑|xiào|True|False|other|
 chinese|life/spravanie|smrť|死亡|sǐ wáng|False|True|other|
 chinese|life/spravanie|smädný|渴|kě|True|False|other|
@@ -1328,6 +1415,7 @@ chinese|life/thinking|vysvetlenie|解释|jiěshì|False|False|other|
 chinese|life/thinking|výnimka|例外|lìwài|True|False|other|
 chinese|life/thinking|zamýšľať|打算|dǎsuàn|True|False|other|
 chinese|life/thinking|zdať sa|显得|xiǎn de|False|False|other|
+chinese|life/thinking|zložitý|艰难|jiān nán|False|True|other|
 chinese|life/thinking|zložitý|难|nán|True|False|other|
 chinese|life/thinking|zvážiť|衡量|héngliáng|False|False|other|
 chinese|life/vision|biely|白|bái|True|False|other|
@@ -1335,6 +1423,7 @@ chinese|life/vision|farba|色|sè|True|False|other|
 chinese|life/vision|fialový|紫|zǐ|False|False|other|
 chinese|life/vision|jasný|亮|liàng|True|False|other|
 chinese|life/vision|modrý|蓝|lán|True|False|other|
+chinese|life/vision|neviditeľný|隐形|yǐn xíng|False|False|other|
 chinese|life/vision|pozerať|看|kàn|True|False|other|
 chinese|life/vision|sledovať|观看|guānkàn|True|False|other|
 chinese|life/vision|tmavý|暗|àn|True|False|other|
@@ -1362,6 +1451,178 @@ chinese|measures|všeobecný|个|gè|False|False|other|
 chinese|measures|zviera|只|zhī|False|False|other|
 chinese|measures|úzke dlhé (cesta)|条|tiáo|False|False|other|
 chinese|measures|človek|名|míng|False|False|other|
+chinese|nature/_animals/aves|bocian|鹳|guàn|False|False|other|
+chinese|nature/_animals/aves|orol|鹰|yīng|False|False|other|
+chinese|nature/_animals/aves|pštros|鸵鸟||False|False|other|
+chinese|nature/_animals/aves|vták|鸟|niǎo|True|False|other|
+chinese|nature/_animals/aves|ďateľ|啄木鸟|zhuó mù niǎo|False|False|other|
+chinese|nature/_animals/bezstavovce|chobotnica|章鱼|zhāngyú|True|False|other|
+chinese|nature/_animals/bezstavovce|dážďovka|蚯蚓|qiūyǐn|False|False|other|
+chinese|nature/_animals/bezstavovce|medúza|水母|shuǐmǔ|True|False|other|
+chinese|nature/_animals/bezstavovce|mušľa|贝壳|bèiké|False|False|other|
+chinese|nature/_animals/bezstavovce|mäkkýš|软体动物|ruǎntǐ dòngwù|False|False|other|
+chinese|nature/_animals/bezstavovce|pásomnica|绦虫|tāochóng|False|False|other|
+chinese|nature/_animals/bezstavovce|slimák|蜗牛|wōniú|True|False|other|
+chinese|nature/_animals/bezstavovce|sépia|乌贼|wūzéi|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|antilopa|羚羊|língyáng|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|byvol|水牛|shuǐniú|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|delfín|海豚|hǎitún|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|diviak|野猪|yězhū|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|hroch|河马|hémǎ|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|jeleň|鹿|lù|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|kamzík|岩羚羊|yánlíngyáng|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|kosatka|虎鲸|hǔjīng |False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|kosatka|逆戟鲸|nìjǐjīng|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|koza|山羊|shānyáng|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|kôň|马|mǎ|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|lama|大羊驼|dàyángtuó|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|los|驼鹿|tuólù|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|nepárnokopytník|奇蹄动物|jītí dòngwù|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|nosorožec|犀牛|xīniú|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|ovca|羊|yáng|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|párnokopytník|偶蹄动物|ǒutí dòngwù|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|sob|驯鹿|xùnlù|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|somár|驴|子 lǘzi|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|tapír|貘|mò|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|veľryba|鲸鱼|jīngyú|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|zebra|斑马|bānmǎ|False|False|other|
+chinese|nature/_animals/cicavce-kopytníky|ťava|骆驼|luòtuó|True|False|other|
+chinese|nature/_animals/cicavce-kopytníky|žirafa|长颈鹿|chángjǐnglù|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|gepard|猎豹|lièbào|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|hyena|鬣狗|liègǒu|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|jaguár|美洲豹|měizhōu bào|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|jazvec|獾|huān|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|kojot|郊狼|jiāoláng|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|kuna|貂|diāo|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|lasica|鼬|yòu|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|leopard|豹子|bàozi|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|lev|狮子|shīzi|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|líška|狐狸|húlí|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|mačka|猫|māo|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|medveď|熊|xióng|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|mrož|海象|hǎixiàng|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|mýval|浣熊|huànxióng|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|puma|美洲狮|měizhōu shī|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|rosomák|貂熊|diāoxióng|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|rys|猞猁|shēlì|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|tchor|臭猫|chòumāo|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|tiger||老虎 lǎohǔ|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|tuleň|海豹|hǎibào|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|uškatec|海狮|hǎishī|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|vlk|狼|láng|True|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|vydra|水獭|shuǐtǎ|False|False|other|
+chinese|nature/_animals/cicavce-mäsožravce|šakal|胡狼|húláng|False|False|other|
+chinese|nature/_animals/cicavce|bobor|海狸|hǎilí|True|False|other|
+chinese|nature/_animals/cicavce|cicavec|哺乳动物|bǔrǔ dòngwù|True|False|other|
+chinese|nature/_animals/cicavce|dikobraz|豪猪|háozhū|False|False|other|
+chinese|nature/_animals/cicavce|gibon|长臂猿|chángbìyuán|False|False|other|
+chinese|nature/_animals/cicavce|gorila|大猩猩|dà xīngxīng|False|False|other|
+chinese|nature/_animals/cicavce|hlodavec|啮齿|nièchǐ|False|False|other|
+chinese|nature/_animals/cicavce|jež|刺猬|cìwèi|True|False|other|
+chinese|nature/_animals/cicavce|kapybara|水豚|shuǐtún|False|False|other|
+chinese|nature/_animals/cicavce|klokan|袋鼠|dàishǔ|True|False|other|
+chinese|nature/_animals/cicavce|krt|鼹鼠|yǎnshǔ|True|False|other|
+chinese|nature/_animals/cicavce|králik|兔子|tùzǐ|True|False|other|
+chinese|nature/_animals/cicavce|králik|野兔|yětù |True|False|other|
+chinese|nature/_animals/cicavce|leňochod|树懒|shùlǎn|False|False|other|
+chinese|nature/_animals/cicavce|makak|猕猴|míhóu|False|False|other|
+chinese|nature/_animals/cicavce|mravčiar|食蚁兽|shíyǐshòu|False|False|other|
+chinese|nature/_animals/cicavce|myš|老鼠|lǎoshǔ|True|False|other|
+chinese|nature/_animals/cicavce|netopier|蝙蝠|biānfú|True|False|other|
+chinese|nature/_animals/cicavce|opica|猴|子 hóuzi|True|False|other|
+chinese|nature/_animals/cicavce|orangutan|红猩猩|hóng xīngxīng|False|False|other|
+chinese|nature/_animals/cicavce|pavián|狒狒|fèifèi|False|False|other|
+chinese|nature/_animals/cicavce|pieskomil|沙鼠|shāshǔ|False|False|other|
+chinese|nature/_animals/cicavce|potkan|老鼠|lǎoshǔ|True|False|other|
+chinese|nature/_animals/cicavce|pásovec|犰狳|qiúyú|False|False|other|
+chinese|nature/_animals/cicavce|slon|大象|dàxiàng|True|False|other|
+chinese|nature/_animals/cicavce|syseľ|黄鼠|huángshǔ|False|False|other|
+chinese|nature/_animals/cicavce|vačica|负鼠|fùshǔ|False|False|other|
+chinese|nature/_animals/cicavce|vačkovec|有袋动物|yǒudài dòngwù|False|False|other|
+chinese|nature/_animals/cicavce|veverička|松鼠|sōngshǔ|True|False|other|
+chinese|nature/_animals/cicavce|vtákopysk|鸭嘴兽|yāzuǐshòu|False|False|other|
+chinese|nature/_animals/cicavce|zajac|兔子|tùzǐ|True|False|other|
+chinese|nature/_animals/cicavce|zajac|野兔|yětù |True|False|other|
+chinese|nature/_animals/cicavce|ľudoop|猿|yuán|False|False|other|
+chinese|nature/_animals/cicavce|šimpanz|黑猩猩|hēi xīngxīng|False|False|other|
+chinese|nature/_animals/cicavce|škrečok|仓鼠|cāngshǔ|True|False|other|
+chinese|nature/_animals/dinosaury|allosaurus|异特龙|yìtè lóng|False|False|other|
+chinese|nature/_animals/dinosaury|ankylosaurus|甲龙|jiǎ lóng|False|False|other|
+chinese|nature/_animals/dinosaury|apatosaurus|雷龙|léi lóng|False|False|other|
+chinese|nature/_animals/dinosaury|brachiosaurus|腕龙|wàn lóng|False|False|other|
+chinese|nature/_animals/dinosaury|carcharodontosaurus|鲨齿龙|shāchǐ lóng|False|False|other|
+chinese|nature/_animals/dinosaury|carnotaurus|食肉牛龙|shíròuniú lóng|False|False|other|
+chinese|nature/_animals/dinosaury|corythosaurus|冠龙|guān lóng|False|False|other|
+chinese|nature/_animals/dinosaury|deinonychus|恐爪龙|kǒngzhǎo lóng|False|False|other|
+chinese|nature/_animals/dinosaury|dilophosaurus|双脊龙|shuāngjí lóng|False|False|other|
+chinese|nature/_animals/dinosaury|dinosaurus|恐龙|kǒng lóng|False|False|other|
+chinese|nature/_animals/dinosaury|diplodocus|梁龙|liáng lóng|False|False|other|
+chinese|nature/_animals/dinosaury|dromaeosaurus|驰龙|chí lóng|False|False|other|
+chinese|nature/_animals/dinosaury|iguanodon|禽龙|qín lóng|False|False|other|
+chinese|nature/_animals/dinosaury|oviraptor|偷蛋龙|tōudàn lóng|False|False|other|
+chinese|nature/_animals/dinosaury|pachycephalosaurus|厚头龙|hòutóu lóng|False|False|other|
+chinese|nature/_animals/dinosaury|parasaurolophus|副栉龙|fùzhì lóng|False|False|other|
+chinese|nature/_animals/dinosaury|spinosaurus|棘龙|jí lóng|False|False|other|
+chinese|nature/_animals/dinosaury|stegosaurus|剑龙|jiàn lóng|False|False|other|
+chinese|nature/_animals/dinosaury|styracosaurus|戟龙|jǐ lóng|False|False|other|
+chinese|nature/_animals/dinosaury|therizinosaurus|镰刀龙|liándāo lóng|False|False|other|
+chinese|nature/_animals/dinosaury|triceratops|三角龙|sānjiǎo lóng|False|False|other|
+chinese|nature/_animals/dinosaury|troodon|伤齿龙|shāngchǐ lóng|False|False|other|
+chinese|nature/_animals/dinosaury|tyrannosaurus|霸王龙|bàwáng lóng|False|False|other|
+chinese|nature/_animals/hmyz|blcha|跳蚤|tiàozǎo|True|False|other|
+chinese|nature/_animals/hmyz|chrobák|甲虫|jiǎchóng|True|False|other|
+chinese|nature/_animals/hmyz|chrúst|金龟子|jīnguīzǐ|False|False|other|
+chinese|nature/_animals/hmyz|garnát|毛虾|máoxiā|False|False|other|
+chinese|nature/_animals/hmyz|hmyz|昆虫|kūnchóng|True|False|other|
+chinese|nature/_animals/hmyz|homár|龙虾|lóngxiā|False|False|other|
+chinese|nature/_animals/hmyz|kliešť|蜱虫|píchóng|False|False|other|
+chinese|nature/_animals/hmyz|kobylka|蚱蜢|zhàměng|False|False|other|
+chinese|nature/_animals/hmyz|komár|蚊子|wénzi|True|False|other|
+chinese|nature/_animals/hmyz|krab|螃蟹|pángxiè|True|False|other|
+chinese|nature/_animals/hmyz|kreveta|虾|xiā|False|False|other|
+chinese|nature/_animals/hmyz|kôrovec|甲壳动物|jiǎqiào dòngwù|False|False|other|
+chinese|nature/_animals/hmyz|lienka|瓢虫|piáochóng|False|False|other|
+chinese|nature/_animals/hmyz|modlivka|螳螂|tángláng|True|False|other|
+chinese|nature/_animals/hmyz|motýľ|蝴蝶|húdié|True|False|other|
+chinese|nature/_animals/hmyz|mravec|蚂蚁|mǎyǐ|True|False|other|
+chinese|nature/_animals/hmyz|mucha|苍蝇|cāngyíng|True|False|other|
+chinese|nature/_animals/hmyz|osa|马蜂|mǎfēng|True|False|other|
+chinese|nature/_animals/hmyz|osa|黄蜂|huángfēng |True|False|other|
+chinese|nature/_animals/hmyz|pavúk|蜘蛛|zhīzhū|True|False|other|
+chinese|nature/_animals/hmyz|ploštica|臭虫|chòuchóng|False|False|other|
+chinese|nature/_animals/hmyz|rak|螯虾|áoxiā|True|False|other|
+chinese|nature/_animals/hmyz|roztoč|螨虫|mǎnchóng|False|False|other|
+chinese|nature/_animals/hmyz|sršeň|虎頭蜂|hǔtóufēng|False|False|other|
+chinese|nature/_animals/hmyz|stonožka|蜈蚣|wúgōng|False|False|other|
+chinese|nature/_animals/hmyz|svrček|蟋蟀|xīshuài|False|False|other|
+chinese|nature/_animals/hmyz|termit|白蚁|báiyǐ|False|False|other|
+chinese|nature/_animals/hmyz|ucholak|蠼螋|qúsōu|False|False|other|
+chinese|nature/_animals/hmyz|voška|蚜虫|yáchóng|False|False|other|
+chinese|nature/_animals/hmyz|voš|虱|shī|True|False|other|
+chinese|nature/_animals/hmyz|vážka|蜻蜓|qīngtíng|True|False|other|
+chinese|nature/_animals/hmyz|včela|蜜蜂|mìfēng|True|False|other|
+chinese|nature/_animals/hmyz|čmeliak|熊蜂|xióngfēng|False|False|other|
+chinese|nature/_animals/hmyz|škorpión|蝎子|xiēzi|True|False|other|
+chinese|nature/_animals/hmyz|šváb|蟑螂|zhāngláng|True|False|other|
+chinese|nature/_animals/tetrapoda|anakonda|蚺|rán|False|False|other|
+chinese|nature/_animals/tetrapoda|chameleón|变色龙|biànsèlóng|True|False|other|
+chinese|nature/_animals/tetrapoda|gekón|壁虎|bìhǔ|False|False|other|
+chinese|nature/_animals/tetrapoda|had|蛇|shé|True|False|other|
+chinese|nature/_animals/tetrapoda|jašterica|蜥蜴|xīyì|False|False|other|
+chinese|nature/_animals/tetrapoda|kobra|眼镜蛇|yǎnjìngshé|False|False|other|
+chinese|nature/_animals/tetrapoda|korytnačka|龟|guī|True|False|other|
+chinese|nature/_animals/tetrapoda|krokodíl|鳄鱼|èyú|True|False|other|
+chinese|nature/_animals/tetrapoda|mlok|蝾螈|róngyuán|False|False|other|
+chinese|nature/_animals/tetrapoda|obojživelník|两栖动物|liǎngqī dòngwù|True|False|other|
+chinese|nature/_animals/tetrapoda|plaz|爬行动物|páxíng dòngwù|True|False|other|
+chinese|nature/_animals/tetrapoda|pytón|蟒蛇|mǎngshé|False|False|other|
+chinese|nature/_animals/tetrapoda|ropucha|蟾蜍|chánchú|True|False|other|
+chinese|nature/_animals/tetrapoda|rosnička|雨蛙|yǔwā|False|False|other|
+chinese|nature/_animals/tetrapoda|užovka|水游蛇|shuǐyóushé|False|False|other|
+chinese|nature/_animals/tetrapoda|varan|巨蜥|jùxī|False|False|other|
+chinese|nature/_animals/tetrapoda|vretenica|蝰蛇|kuíshé|False|False|other|
+chinese|nature/_animals/tetrapoda|štrkáč|响尾蛇|xiǎngwěishé|False|False|other|
+chinese|nature/_animals/tetrapoda|žaba|蛙|wā|True|False|other|
 chinese|nature/fyzika|elektrina|电|diàn|False|False|other|
 chinese|nature/fyzika|gravitácia|引力|yǐn lì|False|False|other|
 chinese|nature/fyzika|hmotnosť|重量|zhòng liàng|False|False|other|
@@ -1411,6 +1672,7 @@ chinese|nature/material|draslík|钾|jiǎ|False|False|other|
 chinese|nature/material|dusík|氮气|dànqì|False|False|other|
 chinese|nature/material|fluór|氟|fú|False|False|other|
 chinese|nature/material|fosfor|磷|lín|False|False|other|
+chinese|nature/material|guma|橡胶|xiàng jiāo|False|False|other|
 chinese|nature/material|hliník|铝|lǚ|False|False|other|
 chinese|nature/material|horčík|镁|měi|False|False|other|
 chinese|nature/material|hrdzavieť|锈|xiù|False|False|other|
@@ -1648,15 +1910,16 @@ chinese|phrases|nie je za čo|不客气|bùkèqi|False|False|other|
 chinese|phrases|s prepáčením|对不起|duìbuqǐ|False|False|other|
 chinese|phrases|ďakujem|谢谢|xièxie|False|False|other|
 chinese|pronoun|ja|我|wǒ|True|False|other|
-chinese|pronoun|my|我们|wǒmen|False|True|other|
+chinese|pronoun|my|咱们|zán men|False|False|other|
+chinese|pronoun|my|我们|wǒ men|False|True|other|
 chinese|pronoun|ona|她|tā|True|False|other|
-chinese|pronoun|oni|他们|tāmen|False|True|other|
+chinese|pronoun|oni|他们|tā men|False|True|other|
 chinese|pronoun|ono|它|tā|True|False|other|
-chinese|pronoun|ony|她们|tāmen|False|True|other|
+chinese|pronoun|ony|她们|tā men|False|True|other|
 chinese|pronoun|on|他|tā|True|False|other|
 chinese|pronoun|ty|你|nǐ|True|False|other|
-chinese|pronoun|vy|你们|nǐmen|False|True|other|
-chinese|pronoun|všetci|大家|dàjiā|True|False|other|
+chinese|pronoun|vy|你们|nǐ men|False|True|other|
+chinese|pronoun|všetci|大家|dà jiā|True|False|other|
 chinese|science/medicína|DNA|脱氧核糖核酸|tuōyǎng hétáng hésuān|False|False|other|
 chinese|science/medicína|bacteria|细菌|xìjùn|False|False|other|
 chinese|science/medicína|bunka|细胞|xìbāo|False|False|other|
@@ -2382,6 +2645,135 @@ deutsch|change/shape|zohnúť|aufbiegen/bog/aufgebogen||False|True|verb|
 deutsch|change/shape|zviazať|binden/band/gebunden||True|False|verb|
 deutsch|change/shape|zviazať|einbinden/band/eingebunden||True|False|verb|
 deutsch|change/shape|záhyb|Knick/e||False|False|noun|r
+deutsch|culture/_names/cities|Amsterdam|Amsterdam||True|False|noun|s
+deutsch|culture/_names/cities|Atény|Athen||True|False|noun|s
+deutsch|culture/_names/cities|Barcelona|Barcelona||True|False|noun|s
+deutsch|culture/_names/cities|Benátky|Venedig||True|False|noun|s
+deutsch|culture/_names/cities|Berlín|Berlin||True|False|noun|s
+deutsch|culture/_names/cities|Brusel|Brüssel||True|False|noun|s
+deutsch|culture/_names/cities|Budapešť|Budapest||True|False|noun|s
+deutsch|culture/_names/cities|Bukurešť|Bukarest||False|False|noun|s
+deutsch|culture/_names/cities|Florencia|Florenz||False|False|noun|s
+deutsch|culture/_names/cities|Janov|Genua||False|False|noun|s
+deutsch|culture/_names/cities|Kodaň|Kopenhagen||True|False|noun|s
+deutsch|culture/_names/cities|Kolín|Köln||True|False|noun|s
+deutsch|culture/_names/cities|Kyjev|Kiew||False|False|noun|s
+deutsch|culture/_names/cities|Káhira|Kairo||True|False|noun|s
+deutsch|culture/_names/cities|Lisabon|Lissabon||True|False|noun|s
+deutsch|culture/_names/cities|Londýn|London||True|False|noun|s
+deutsch|culture/_names/cities|Madrid|Madrid||True|False|noun|s
+deutsch|culture/_names/cities|Miláno|Mailand||True|False|noun|s
+deutsch|culture/_names/cities|Mníchov|München||True|False|noun|s
+deutsch|culture/_names/cities|Moskva|Moskau||True|False|noun|s
+deutsch|culture/_names/cities|Neapol|Neapel||False|False|noun|s
+deutsch|culture/_names/cities|Paríž|Paris||True|False|noun|s
+deutsch|culture/_names/cities|Peking|Peking||True|False|noun|s
+deutsch|culture/_names/cities|Praha|Prag||True|False|noun|s
+deutsch|culture/_names/cities|Rím|Rom||True|False|noun|s
+deutsch|culture/_names/cities|Tokio|Tokio||True|False|noun|s
+deutsch|culture/_names/cities|Varšava|Warschau||True|False|noun|s
+deutsch|culture/_names/cities|Viedeň|Wien||True|False|noun|s
+deutsch|culture/_names/cities|Zürich|Zürich||False|False|noun|s
+deutsch|culture/_names/cities|Štokholm|Stockholm||True|False|noun|s
+deutsch|culture/_names/cities|Ženeva|Genf||False|False|noun|s
+deutsch|culture/_names/countries|Afganistan|Afghanistan||False|False|noun|s
+deutsch|culture/_names/countries|Alžírsko|Algerien||False|False|noun|s
+deutsch|culture/_names/countries|Argentína|Argentinien||False|False|noun|s
+deutsch|culture/_names/countries|Austrália|Australien||True|False|noun|s
+deutsch|culture/_names/countries|Azerbajdžan|Aserbaidschan||False|False|noun|s
+deutsch|culture/_names/countries|Bangladéš|Bangladesch||False|False|noun|s
+deutsch|culture/_names/countries|Belgicko|Belgien||False|False|noun|s
+deutsch|culture/_names/countries|Bielorusko|Weissrussland||False|False|noun|s
+deutsch|culture/_names/countries|Bolívia|Bolivien||False|False|noun|s
+deutsch|culture/_names/countries|Brazília|Brasilien||True|False|noun|s
+deutsch|culture/_names/countries|Bulharsko|Bulgarien||False|False|noun|s
+deutsch|culture/_names/countries|Chorvátsko|Kroatien||False|False|noun|s
+deutsch|culture/_names/countries|Dánsko|Dänemark||False|False|noun|s
+deutsch|culture/_names/countries|Egypt|Ägypten||True|False|noun|s
+deutsch|culture/_names/countries|Ekvádor|Ecuador||False|False|noun|s
+deutsch|culture/_names/countries|Estónsko|Estland||False|False|noun|s
+deutsch|culture/_names/countries|Etiópia|Äthiopien||False|False|noun|s
+deutsch|culture/_names/countries|Filipíny|Philippinen||False|False|noun|e
+deutsch|culture/_names/countries|Francúzsko|Frankreich||True|False|noun|s
+deutsch|culture/_names/countries|Fínsko|Finnland||False|False|noun|s
+deutsch|culture/_names/countries|Grécko|Griechenland||True|False|noun|s
+deutsch|culture/_names/countries|Grónsko|Grönland||False|False|noun|s
+deutsch|culture/_names/countries|Holandsko|Niederlande||True|False|noun|e
+deutsch|culture/_names/countries|India|Indien||True|False|noun|s
+deutsch|culture/_names/countries|Indonézia|Indonesien||False|False|noun|s
+deutsch|culture/_names/countries|Irak|Irak||False|False|noun|s
+deutsch|culture/_names/countries|Irán|Iran||False|False|noun|s
+deutsch|culture/_names/countries|Japonsko|Japan||True|False|noun|s
+deutsch|culture/_names/countries|Južná afrika|Südafrika||True|False|noun|s
+deutsch|culture/_names/countries|Južná kórea|Südkorea||True|False|noun|s
+deutsch|culture/_names/countries|Kambodža|Kambodscha||False|False|noun|s
+deutsch|culture/_names/countries|Kanada|Kanada||True|False|noun|s
+deutsch|culture/_names/countries|Kazachstan|Kasachstan||False|False|noun|s
+deutsch|culture/_names/countries|Keňa|Kenia||False|False|noun|s
+deutsch|culture/_names/countries|Kirgizsko|Kirgisistan||False|False|noun|s
+deutsch|culture/_names/countries|Kolumbia|Kolumbien||False|False|noun|s
+deutsch|culture/_names/countries|Litva|Litauen||False|False|noun|s
+deutsch|culture/_names/countries|Lotyšsko|Lettland||False|False|noun|s
+deutsch|culture/_names/countries|Líbya|Libyen||False|False|noun|s
+deutsch|culture/_names/countries|Malajzia|Malaysia||False|False|noun|s
+deutsch|culture/_names/countries|Maroko|Marokko||False|False|noun|s
+deutsch|culture/_names/countries|Maďarsko|Ungarn||False|False|noun|s
+deutsch|culture/_names/countries|Mexiko|Mexiko||True|False|noun|s
+deutsch|culture/_names/countries|Mongolsko|Mongolei||False|False|noun|e
+deutsch|culture/_names/countries|Nemecko|Deutschland||True|False|noun|s
+deutsch|culture/_names/countries|Nigéria|Nigeria||False|False|noun|s
+deutsch|culture/_names/countries|Nový zéland|Neuseeland||True|False|noun|s
+deutsch|culture/_names/countries|Nórsko|Norwegen||False|False|noun|s
+deutsch|culture/_names/countries|Pakistan|Pakistan||False|False|noun|s
+deutsch|culture/_names/countries|Peru|Peru||False|False|noun|s
+deutsch|culture/_names/countries|Portugalsko|Portugal||False|False|noun|s
+deutsch|culture/_names/countries|Poľsko|Polen||True|False|noun|s
+deutsch|culture/_names/countries|Rakúsko|Österreich||True|False|noun|s
+deutsch|culture/_names/countries|Rumunsko|Rumänien||False|False|noun|s
+deutsch|culture/_names/countries|Rusko|Russland||True|False|noun|s
+deutsch|culture/_names/countries|Saudská arábia|Saudi-Arabien||False|False|noun|s
+deutsch|culture/_names/countries|Slovensko|Slowakei||False|False|noun|e
+deutsch|culture/_names/countries|Somálsko|Somalia||False|False|noun|s
+deutsch|culture/_names/countries|Spojené kráľovstvo|Vereinigtes Königreich||True|False|noun|s
+deutsch|culture/_names/countries|Spojené štáty|Vereinigte Staaten||True|False|noun|e
+deutsch|culture/_names/countries|Srbsko|Serbien||False|False|noun|s
+deutsch|culture/_names/countries|Sudán|Sudan||False|False|noun|s
+deutsch|culture/_names/countries|Sýria|Syrien||False|False|noun|s
+deutsch|culture/_names/countries|Tadžikistan|Tadschikistan||False|False|noun|s
+deutsch|culture/_names/countries|Taliansko|Italien||True|False|noun|s
+deutsch|culture/_names/countries|Tanzánia|Tansania||False|False|noun|s
+deutsch|culture/_names/countries|Thajsko|Thailand||False|False|noun|s
+deutsch|culture/_names/countries|Tunisko|Tunesien||False|False|noun|s
+deutsch|culture/_names/countries|Turecko|Türkei||True|False|noun|e
+deutsch|culture/_names/countries|Turkménsko|Turkmenistan||False|False|noun|s
+deutsch|culture/_names/countries|Ukrajina|Ukraine||False|False|noun|e
+deutsch|culture/_names/countries|Uzbekistan|Usbekistan||False|False|noun|s
+deutsch|culture/_names/countries|Venezuela|Venezuela||False|False|noun|s
+deutsch|culture/_names/countries|Vietnam|Vietnam||False|False|noun|s
+deutsch|culture/_names/countries|anglický|englisch||False|False|other|
+deutsch|culture/_names/countries|brazílsky|brasilianisch||False|False|other|
+deutsch|culture/_names/countries|dánsky|dänisch||False|False|other|
+deutsch|culture/_names/countries|francúzsky|französisch||False|False|other|
+deutsch|culture/_names/countries|maďarský|ungarisch||False|False|other|
+deutsch|culture/_names/countries|mexický|mexikanisch||False|False|other|
+deutsch|culture/_names/countries|nemecký|deutsch||False|False|other|
+deutsch|culture/_names/countries|portugalský|portugiesisch||False|False|other|
+deutsch|culture/_names/countries|poľský|polnisch||False|False|other|
+deutsch|culture/_names/countries|ruský|russisch||False|False|other|
+deutsch|culture/_names/countries|taliansky|italienisch||False|False|other|
+deutsch|culture/_names/countries|Írsko|Irland||False|False|noun|s
+deutsch|culture/_names/countries|Česko|Tschechien||False|False|noun|s
+deutsch|culture/_names/countries|Čile|Chile||False|False|noun|s
+deutsch|culture/_names/countries|Čína|China||True|False|noun|s
+deutsch|culture/_names/countries|čínsky|chinesisch||False|False|other|
+deutsch|culture/_names/countries|Ďaleký východ|Fernost||False|False|other|
+deutsch|culture/_names/countries|Škótsko|Schottland||False|False|noun|s
+deutsch|culture/_names/countries|Španielsko|Spanien||True|False|noun|s
+deutsch|culture/_names/countries|Švajčiarsko|Schweiz||True|False|noun|e
+deutsch|culture/_names/countries|Švédsko|Schweden||False|False|noun|s
+deutsch|culture/_names/countries|škótsky|schottisch||False|False|other|
+deutsch|culture/_names/countries|španielsky|spanisch||False|False|other|
+deutsch|culture/_names/countries|švajčiarsky|schweizerisch||False|False|other|
 deutsch|culture/art|bubnovať|trommeln||False|True|verb|
 deutsch|culture/art|bubon|Trommel/n||False|False|noun|e
 deutsch|culture/art|bájka|Fabel/n||True|False|noun|e
@@ -4594,6 +4986,7 @@ deutsch|deutsch/ľudská povaha/odhodlanie|usilovnosť|Fleiss||False|False|noun|
 deutsch|deutsch/ľudská povaha/odhodlanie|usilovný|emsig||False|False|other|
 deutsch|deutsch/ľudská povaha/odhodlanie|usilovný|fleissig||False|False|other|
 deutsch|deutsch/ľudská povaha/odhodlanie|vydržať|aushalten/hält/hielt/ausgehalten||True|False|verb|
+deutsch|deutsch/ľudská povaha/odhodlanie|vydržať|erdulden||False|True|verb|
 deutsch|deutsch/ľudská povaha/odhodlanie|vykonať/dosiahnuť|leisten||True|False|verb|
 deutsch|deutsch/ľudská povaha/odhodlanie|vytrvalý|ausdauernd||False|False|other|
 deutsch|deutsch/ľudská povaha/odhodlanie|vytrvalý|beharrlich||False|False|other|
@@ -4886,6 +5279,7 @@ deutsch|economy/agriculture|vysadiť|auspflanzen||False|True|verb|
 deutsch|economy/agriculture|výrub|Abholzung/en||False|False|noun|e
 deutsch|economy/agriculture|včelár|Imker||False|False|noun|r
 deutsch|economy/agriculture|zalievať|giessen/goss/gegossen||True|False|verb|
+deutsch|economy/agriculture|zapriahnuť|einspannen||False|False|verb|
 deutsch|economy/agriculture|zasadiť|anpflanzen||False|True|verb|
 deutsch|economy/agriculture|zasadiť|einpflanzen||False|True|verb|
 deutsch|economy/agriculture|úhor (neobrábané pole)|Brache/n||False|False|noun|e
@@ -6803,6 +7197,511 @@ deutsch|human/wisdom|zábudlivý|vergesslich||False|True|other|
 deutsch|human/wisdom|zámer|Vorsatz/ä-e||False|False|noun|r
 deutsch|human/wisdom|úmyselný|absichtlich||False|True|other|
 deutsch|human/wisdom|úmysel|Absicht/en||True|False|noun|e
+deutsch|life/_animalia/animalia|chobotnica|Krake/n||True|False|noun|r
+deutsch|life/_animalia/animalia|dážďovka|Regenwurm/ü-er||False|False|noun|r
+deutsch|life/_animalia/animalia|koral|Blumentier||False|False|noun|s
+deutsch|life/_animalia/animalia|lastúrnik|Muschel/n||False|False|noun|e
+deutsch|life/_animalia/animalia|medúza|Meduse/n||True|False|noun|e
+deutsch|life/_animalia/animalia|medúza|Qualle/n||True|False|noun|e
+deutsch|life/_animalia/animalia|mäkkýš|Molluske/n||False|False|noun|e
+deutsch|life/_animalia/animalia|mäkkýš|Weichtier/e||False|False|noun|s
+deutsch|life/_animalia/animalia|pijavica|Egel||False|False|noun|r
+deutsch|life/_animalia/animalia|pásomnica|Bandwurm/ü-er||False|False|noun|r
+deutsch|life/_animalia/animalia|pŕhlivec|Nesseltier/e||False|False|noun|s
+deutsch|life/_animalia/animalia|slimák|Schnecke/n||True|False|noun|e
+deutsch|life/_animalia/animalia|slávka|Miesmuschel/n||False|False|noun|e
+deutsch|life/_animalia/animalia|sépia|Sepia/Sepien||False|False|noun|e
+deutsch|life/_animalia/animalia|sépia|Tintenfisch/e||False|False|noun|r
+deutsch|life/_animalia/animalia|ustrica|Auster/n||False|False|noun|e
+deutsch|life/_animalia/animalia|červ|Wurm/ü-er||True|False|noun|r
+deutsch|life/_animalia/arthropoda|babôčka pávooká|Tagpfauenauge/n||False|False|noun|s
+deutsch|life/_animalia/arthropoda|babôčka|Kleine Fuchs/ü-e||False|False|noun|r
+deutsch|life/_animalia/arthropoda|blcha|Floh/ö-e||True|False|noun|r
+deutsch|life/_animalia/arthropoda|bystruška|Laufkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|bzdocha|Wanze/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|chrobák|Käfer||True|False|noun|r
+deutsch|life/_animalia/arthropoda|chrúst|Maikäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|cikáda|Zikade/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|dúhovec|Schillerfalter||False|False|noun|r
+deutsch|life/_animalia/arthropoda|fúzač|Bockkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|garnát|Garnele/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|hmyz|Insekt/en||True|False|noun|s
+deutsch|life/_animalia/arthropoda|homár|Hummer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|hrobárik|Aaskäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|kliešť|Zecke/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|kobylka|Heupferd/e||False|False|noun|s
+deutsch|life/_animalia/arthropoda|kobylka|Schrecke/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|komár|Mücke/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|koník|Grashüpfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|korčuliarka|Wasserläufer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|kosec|Weberknecht/e||False|False|noun|r
+deutsch|life/_animalia/arthropoda|krab|Krabbe/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|kôrovec|Krebstier/e||False|False|noun|s
+deutsch|life/_animalia/arthropoda|lajniak|Mistkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|lienka|Marienkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|lišaj|Schwärmer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|lykožrút|Borkenkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|mlynárik|Weissling/e||False|False|noun|r
+deutsch|life/_animalia/arthropoda|modlivka|Gottesanbeterin/nen||True|False|noun|e
+deutsch|life/_animalia/arthropoda|mora|Nachtfalter||False|False|noun|r
+deutsch|life/_animalia/arthropoda|motýľ|Falter||True|False|noun|r
+deutsch|life/_animalia/arthropoda|motýľ|Schmetterling/e||True|False|noun|r
+deutsch|life/_animalia/arthropoda|moľa|Motte/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|mravec|Ameise/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|mucha|Fliege/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|májka|Ölkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|mäsiarka|Aasfliege/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|mäsiarka|Fleischfliege/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|osa|Wespe/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|ovad|Bremse/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|pakobylka|Stabheuschrecke/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|pavúk|Spinne/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|perlovec|Kaisermantel/ä||False|False|noun|r
+deutsch|life/_animalia/arthropoda|ploštica|Bettwanze/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|podenka|Eintagsfliege/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|potápnik|Schwimmkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|pásavka zemiaková|Kartoffelkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|pásavka|Blattkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|rak|Krebs/e||True|False|noun|r
+deutsch|life/_animalia/arthropoda|roháč|Hirschkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|roháč|Schröter||False|False|noun|r
+deutsch|life/_animalia/arthropoda|roztoč|Milbe/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|sršeň|Hornisse/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|stonožka|Hundertfüsser||False|False|noun|r
+deutsch|life/_animalia/arthropoda|stonožka|Tausendfüsser||False|False|noun|r
+deutsch|life/_animalia/arthropoda|svetluška|Leuchtkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|svrček|Grille/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|svrček|Heimchen||False|False|noun|s
+deutsch|life/_animalia/arthropoda|termit|Termite/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|ucholak|Ohrwurm/ü-er||False|False|noun|r
+deutsch|life/_animalia/arthropoda|vidlochvost|Schwalbenschwanz/ä-e||False|False|noun|r
+deutsch|life/_animalia/arthropoda|voška|Blattlaus/ä-e||False|False|noun|e
+deutsch|life/_animalia/arthropoda|voš|Laus/ä-e||True|False|noun|e
+deutsch|life/_animalia/arthropoda|vážka|Libelle/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|včela|Biene/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|zlatoň|Rosenkäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|červotoč|Nagekäfer||False|False|noun|r
+deutsch|life/_animalia/arthropoda|čmeliak|Hummel/n||False|False|noun|e
+deutsch|life/_animalia/arthropoda|škorpión|Skorpion/e||True|False|noun|r
+deutsch|life/_animalia/arthropoda|šváb|Schabe/n||True|False|noun|e
+deutsch|life/_animalia/arthropoda|žltáčik|Zitronenfalter||False|False|noun|r
+deutsch|life/_animalia/aves|albatros|Albatros/se||False|False|noun|r
+deutsch|life/_animalia/aves|alka|Papageitaucher||False|False|noun|r
+deutsch|life/_animalia/aves|andulka|Wellensittich/e||False|False|noun|r
+deutsch|life/_animalia/aves|bažant|Fasan||False|False|noun|r
+deutsch|life/_animalia/aves|bocian|Storch/ö-e||True|False|noun|r
+deutsch|life/_animalia/aves|bradáň|Bartgeier||False|False|noun|r
+deutsch|life/_animalia/aves|chriašteľ|Ralle||False|False|noun|e
+deutsch|life/_animalia/aves|cíbik|Kiebitz||False|False|noun|r
+deutsch|life/_animalia/aves|dravec|Greifvogel/ö||True|False|noun|r
+deutsch|life/_animalia/aves|drop|Trappe||False|False|noun|e
+deutsch|life/_animalia/aves|dudok|Wiedehopf||False|False|noun|r
+deutsch|life/_animalia/aves|emu|Emu||False|False|noun|r
+deutsch|life/_animalia/aves|holub|Taube/n||True|False|noun|e
+deutsch|life/_animalia/aves|hus|Gans/ä-e||True|False|noun|e
+deutsch|life/_animalia/aves|ibis|Ibis||False|False|noun|r
+deutsch|life/_animalia/aves|jarabica|Rebhuhn||False|False|noun|s
+deutsch|life/_animalia/aves|jastrab|Habicht||False|False|noun|r
+deutsch|life/_animalia/aves|jastrab|Sperber||False|False|noun|r
+deutsch|life/_animalia/aves|kakadu|Kakadu/s||False|False|noun|r
+deutsch|life/_animalia/aves|karakara|Geierfalke/n||False|False|noun|r
+deutsch|life/_animalia/aves|kazuár|Kasuar||False|False|noun|r
+deutsch|life/_animalia/aves|kačica|Ente/n||True|False|noun|e
+deutsch|life/_animalia/aves|kaňa|Weihe/n||False|False|noun|e
+deutsch|life/_animalia/aves|kolibrík|Kolibri||False|False|noun|r
+deutsch|life/_animalia/aves|kondor|Kondor/e||False|False|noun|r
+deutsch|life/_animalia/aves|korela|Nymphensittich/e||False|False|noun|r
+deutsch|life/_animalia/aves|kormorán|Kormoran/e||False|False|noun|r
+deutsch|life/_animalia/aves|krakľa|Racke||False|False|noun|e
+deutsch|life/_animalia/aves|kršiak|Fischadler||False|False|noun|r
+deutsch|life/_animalia/aves|kukučka|Kuckuck||False|False|noun|r
+deutsch|life/_animalia/aves|kulík|Regenpfeifer||False|False|noun|r
+deutsch|life/_animalia/aves|kuvik|Kauz/ä-e||False|False|noun|r
+deutsch|life/_animalia/aves|labuť|Schwan/ä-e||True|False|noun|r
+deutsch|life/_animalia/aves|lyska|Blässhuhn||False|False|noun|s
+deutsch|life/_animalia/aves|lyžičiak|Löffler||False|False|noun|r
+deutsch|life/_animalia/aves|morka|Truthuhn||False|False|noun|s
+deutsch|life/_animalia/aves|myšiak|Bussard/e||False|False|noun|r
+deutsch|life/_animalia/aves|myšiarka|Ohreule/n||False|False|noun|e
+deutsch|life/_animalia/aves|orliak|Seeadler||False|False|noun|r
+deutsch|life/_animalia/aves|orol|Adler||True|False|noun|r
+deutsch|life/_animalia/aves|papagáj|Papagei/en||True|False|noun|r
+deutsch|life/_animalia/aves|pelikán|Pelikan/e||True|False|noun|r
+deutsch|life/_animalia/aves|perlička|Perlhuhn||False|False|noun|s
+deutsch|life/_animalia/aves|plameniak|Flamingo||True|False|noun|r
+deutsch|life/_animalia/aves|plamienka|Schleiereule/n||False|False|noun|e
+deutsch|life/_animalia/aves|potápka|Taucher||False|False|noun|r
+deutsch|life/_animalia/aves|prepelica|Wachtel||False|False|noun|e
+deutsch|life/_animalia/aves|páv|Pfau/e||True|False|noun|r
+deutsch|life/_animalia/aves|pštros|Strauss/e||True|False|noun|r
+deutsch|life/_animalia/aves|rybárik|Eisvogel/ö||False|False|noun|r
+deutsch|life/_animalia/aves|rybár|Seeschwalbe/n||False|False|noun|e
+deutsch|life/_animalia/aves|sluka|Schnepfe/n||False|False|noun|e
+deutsch|life/_animalia/aves|sokol|Falke/n||True|False|noun|r
+deutsch|life/_animalia/aves|sova|Eule/n||True|False|noun|e
+deutsch|life/_animalia/aves|sula|Tölpel||False|False|noun|r
+deutsch|life/_animalia/aves|sup|Geier||True|False|noun|r
+deutsch|life/_animalia/aves|tetrov|Auerhuhn||False|False|noun|s
+deutsch|life/_animalia/aves|tukan|Tukan/e||False|False|noun|r
+deutsch|life/_animalia/aves|tučniak|Pinguin/e||True|False|noun|r
+deutsch|life/_animalia/aves|volavka|Reiher||True|False|noun|r
+deutsch|life/_animalia/aves|vták|Vogel/ö||True|False|noun|r
+deutsch|life/_animalia/aves|výr|Uhu/s||False|False|noun|r
+deutsch|life/_animalia/aves|včelárik|Bienenfresser||False|False|noun|r
+deutsch|life/_animalia/aves|zdochlinár|Schmutzgeier||False|False|noun|r
+deutsch|life/_animalia/aves|čajka|Möwe/n||True|False|noun|e
+deutsch|life/_animalia/aves|člnozobec|Schuhschnabel/ä||False|False|noun|r
+deutsch|life/_animalia/aves|ďateľ|Specht/e||True|False|noun|r
+deutsch|life/_animalia/aves|žeriav|Kranich||True|False|noun|r
+deutsch|life/_animalia/ferae|fretka|Frettchen||False|False|noun|s
+deutsch|life/_animalia/ferae|fretka|Frett||False|False|noun|s
+deutsch|life/_animalia/ferae|gepard|Gepard||False|False|noun|r
+deutsch|life/_animalia/ferae|hyena|Hyäne/n||False|False|noun|e
+deutsch|life/_animalia/ferae|jaguár|Jaguar||False|False|noun|r
+deutsch|life/_animalia/ferae|jazvec|Dachs||False|False|noun|r
+deutsch|life/_animalia/ferae|kojot|Kojote||False|False|noun|r
+deutsch|life/_animalia/ferae|kuna|Marder||False|False|noun|r
+deutsch|life/_animalia/ferae|lasica|Wiesel||False|False|noun|s
+deutsch|life/_animalia/ferae|leopard|Leopard||False|False|noun|r
+deutsch|life/_animalia/ferae|lev|Löwe/n||True|False|noun|r
+deutsch|life/_animalia/ferae|líška|Fuchs/ü-e||True|False|noun|r
+deutsch|life/_animalia/ferae|mačka|Katze/n||True|False|noun|e
+deutsch|life/_animalia/ferae|medveď|Bär/en||True|False|noun|r
+deutsch|life/_animalia/ferae|mrož|Walross||False|False|noun|s
+deutsch|life/_animalia/ferae|mýval|Waschbär||False|False|noun|r
+deutsch|life/_animalia/ferae|norka|Nerz/e||False|False|noun|r
+deutsch|life/_animalia/ferae|puma|Puma||False|False|noun|r
+deutsch|life/_animalia/ferae|rosomák|Vielfrass||False|False|noun|r
+deutsch|life/_animalia/ferae|rys|Luchs||False|False|noun|r
+deutsch|life/_animalia/ferae|skunk|Skunk||False|False|noun|r
+deutsch|life/_animalia/ferae|skunk|Stinktier||False|False|noun|s
+deutsch|life/_animalia/ferae|tchor|Iltis||False|False|noun|r
+deutsch|life/_animalia/ferae|tiger|Tiger||True|False|noun|r
+deutsch|life/_animalia/ferae|tuleň|Robbe||True|False|noun|e
+deutsch|life/_animalia/ferae|tuleň|Seehund||True|False|noun|r
+deutsch|life/_animalia/ferae|uškatec|Seebär||False|False|noun|r
+deutsch|life/_animalia/ferae|uškatec|Seelöwe||False|False|noun|r
+deutsch|life/_animalia/ferae|vlk|Wolf/ö-e||True|False|noun|r
+deutsch|life/_animalia/ferae|vydra|Otter||False|False|noun|r
+deutsch|life/_animalia/ferae|šakal|Schakal||False|False|noun|r
+deutsch|life/_animalia/ferae|šelma|Raubtier/e||False|False|noun|s
+deutsch|life/_animalia/ichthyes|barakuda|Barrakuda/s||False|False|noun|r
+deutsch|life/_animalia/ichthyes|bojovnica|Kampffisch/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|hlavátka|Huchen||False|False|noun|r
+deutsch|life/_animalia/ichthyes|jeseter|Stör/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|kapor|Karpfen||True|False|noun|r
+deutsch|life/_animalia/ichthyes|lipeň|Äsche/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|losos|Lachs/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|makrela|Makrele/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|mečiar|Schwertfisch/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|morský koník|Seepferdchen||False|False|noun|s
+deutsch|life/_animalia/ichthyes|mrena|Barbe/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|ostriež|Barsch/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|piraňa|Piranha/s||False|False|noun|r
+deutsch|life/_animalia/ichthyes|platesa|Butt/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|pstruh|Forelle/n||True|False|noun|e
+deutsch|life/_animalia/ichthyes|raja|Rochen||False|False|noun|r
+deutsch|life/_animalia/ichthyes|ryba|Fisch/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|sardela|Sardelle/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|sardinka|Sardine/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|sleď|Hering/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|slíž|Schmerle/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|sumec|Wels/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|tetra|Salmler||False|False|noun|r
+deutsch|life/_animalia/ichthyes|treska|Dorsch/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|treska|Kabeljau/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|tuniak|Thunfisch/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|tuniak|Tunfisch/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|vyza|Hausen||False|False|noun|r
+deutsch|life/_animalia/ichthyes|zubáč|Zander||False|False|noun|r
+deutsch|life/_animalia/ichthyes|úhor|Aal/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|čert|Seeteufel||False|False|noun|r
+deutsch|life/_animalia/ichthyes|šprota|Sprotte/n||False|False|noun|e
+deutsch|life/_animalia/ichthyes|štvorzubec|Kugelfisch/e||False|False|noun|r
+deutsch|life/_animalia/ichthyes|šťuka|Hecht/e||True|False|noun|r
+deutsch|life/_animalia/ichthyes|žralok|Hai/e||True|False|noun|r
+deutsch|life/_animalia/mammalia|bobor|Biber||True|False|noun|r
+deutsch|life/_animalia/mammalia|cicavec|Säugetier||True|False|noun|s
+deutsch|life/_animalia/mammalia|daman|Schliefer||False|False|noun|r
+deutsch|life/_animalia/mammalia|dikobraz|Stachelschwein||False|False|noun|s
+deutsch|life/_animalia/mammalia|gibon|Gibbon||False|False|noun|r
+deutsch|life/_animalia/mammalia|gorila|Gorilla||False|False|noun|r
+deutsch|life/_animalia/mammalia|hlodavec|Nagetier||False|False|noun|s
+deutsch|life/_animalia/mammalia|hraboš|Feldmaus||False|False|noun|e
+deutsch|life/_animalia/mammalia|hraboš|Wühlmaus||False|False|noun|e
+deutsch|life/_animalia/mammalia|hrabáč|Erdferkel||False|False|noun|s
+deutsch|life/_animalia/mammalia|ježura|Ameisenigel||False|False|noun|r
+deutsch|life/_animalia/mammalia|jež|Igel||True|False|noun|r
+deutsch|life/_animalia/mammalia|kapybara|Capybara/s||False|False|noun|s
+deutsch|life/_animalia/mammalia|kapybara|Wasserschwein/e||False|False|noun|s
+deutsch|life/_animalia/mammalia|klokan|Känguru||True|False|noun|s
+deutsch|life/_animalia/mammalia|krt|Maulwurf||True|False|noun|r
+deutsch|life/_animalia/mammalia|králik|Kaninchen||True|False|noun|s
+deutsch|life/_animalia/mammalia|leňochod|Faultier||False|False|noun|s
+deutsch|life/_animalia/mammalia|makak|Makak||False|False|noun|r
+deutsch|life/_animalia/mammalia|mačiak|Meerkatze/n||False|False|noun|e
+deutsch|life/_animalia/mammalia|morča|Meerschweinchen||True|False|noun|s
+deutsch|life/_animalia/mammalia|mravčiar|Ameisenbär||False|False|noun|r
+deutsch|life/_animalia/mammalia|myš|Maus||True|False|noun|e
+deutsch|life/_animalia/mammalia|netopier|Fledermaus||True|False|noun|e
+deutsch|life/_animalia/mammalia|ondatra|Bisamratte||False|False|noun|e
+deutsch|life/_animalia/mammalia|opica|Affe||True|False|noun|r
+deutsch|life/_animalia/mammalia|orangutan|Orang-Utan||False|False|noun|r
+deutsch|life/_animalia/mammalia|pavián|Pavian||False|False|noun|r
+deutsch|life/_animalia/mammalia|pieskomil|Rennmaus/ä-e||False|False|noun|e
+deutsch|life/_animalia/mammalia|piskor|Spitzmaus||False|False|noun|e
+deutsch|life/_animalia/mammalia|plch|Bilch/e||False|False|noun|r
+deutsch|life/_animalia/mammalia|plch|Schläfer||False|False|noun|r
+deutsch|life/_animalia/mammalia|potkan|Ratte||True|False|noun|e
+deutsch|life/_animalia/mammalia|pásovec|Gürteltier||False|False|noun|s
+deutsch|life/_animalia/mammalia|siréna|Seekuh||False|False|noun|e
+deutsch|life/_animalia/mammalia|slon|Elefant||True|False|noun|r
+deutsch|life/_animalia/mammalia|surikata|Erdmännchen||False|False|noun|s
+deutsch|life/_animalia/mammalia|svišť|Murmeltier||False|False|noun|s
+deutsch|life/_animalia/mammalia|syseľ|Ziesel||False|False|noun|r
+deutsch|life/_animalia/mammalia|tarbík|Springmaus/ä-e||False|False|noun|e
+deutsch|life/_animalia/mammalia|vačica|Beutelratte||False|False|noun|e
+deutsch|life/_animalia/mammalia|vačkovec|Beuteltier||False|False|noun|s
+deutsch|life/_animalia/mammalia|veverička|Eichhörnchen||True|False|noun|s
+deutsch|life/_animalia/mammalia|vtákopysk|Schnabeltier||False|False|noun|s
+deutsch|life/_animalia/mammalia|zajac|Hase||True|False|noun|r
+deutsch|life/_animalia/mammalia|šimpanz|Schimpanse||False|False|noun|r
+deutsch|life/_animalia/mammalia|škrečok|Hamster||True|False|noun|r
+deutsch|life/_animalia/mammalia|šupinavec|Schuppentier||False|False|noun|s
+deutsch|life/_animalia/passeri|brhlík|Kleiber||False|False|noun|r
+deutsch|life/_animalia/passeri|drozd|Amsel||False|False|noun|e
+deutsch|life/_animalia/passeri|drozd|Drossel||False|False|noun|e
+deutsch|life/_animalia/passeri|glezg|Kernbeisser||False|False|noun|r
+deutsch|life/_animalia/passeri|havran|Rabe||True|False|noun|r
+deutsch|life/_animalia/passeri|hýľ|Gimpel||False|False|noun|r
+deutsch|life/_animalia/passeri|kavka|Dohle||False|False|noun|e
+deutsch|life/_animalia/passeri|krkavec|Kolkrabe||False|False|noun|r
+deutsch|life/_animalia/passeri|lastovička|Schwalbe||True|False|noun|e
+deutsch|life/_animalia/passeri|lýrochvost|Leierschwanz||False|False|noun|r
+deutsch|life/_animalia/passeri|murárik|Mauerläufer||False|False|noun|r
+deutsch|life/_animalia/passeri|oriešok|Zaunkönig||False|False|noun|r
+deutsch|life/_animalia/passeri|pinka|Fink||False|False|noun|r
+deutsch|life/_animalia/passeri|rajka|Paradiesvogel||False|False|noun|r
+deutsch|life/_animalia/passeri|slávik|Nachtigall||True|False|noun|e
+deutsch|life/_animalia/passeri|sojka|Häher||False|False|noun|r
+deutsch|life/_animalia/passeri|stehlík|Stieglitz||False|False|noun|r
+deutsch|life/_animalia/passeri|straka|Elster||False|False|noun|e
+deutsch|life/_animalia/passeri|strnádka|Ammer||False|False|noun|e
+deutsch|life/_animalia/passeri|sýkorka|Meise||True|False|noun|e
+deutsch|life/_animalia/passeri|trasochvost|Stelze/n||False|False|noun|e
+deutsch|life/_animalia/passeri|vlha|Pirol/e||False|False|noun|r
+deutsch|life/_animalia/passeri|vrabec|Spatz||True|False|noun|r
+deutsch|life/_animalia/passeri|vrabec|Sperling||True|False|noun|r
+deutsch|life/_animalia/passeri|vrana|Krähe||True|False|noun|e
+deutsch|life/_animalia/passeri|zebrička|Zebrafink||False|False|noun|r
+deutsch|life/_animalia/passeri|červienka|Rotkehlchen||False|False|noun|s
+deutsch|life/_animalia/passeri|ľabtuška|Pieper||False|False|noun|r
+deutsch|life/_animalia/passeri|škorec|Star||False|False|noun|r
+deutsch|life/_animalia/passeri|škovránok|Lerche||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|aligátor|Alligator/en||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|anakonda|Anakonda/s||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|chameleón|Chamäleon/s||True|False|noun|s
+deutsch|life/_animalia/tetrapoda|gekón|Gecko/s||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|had|Schlange/n||True|False|noun|e
+deutsch|life/_animalia/tetrapoda|jašterica|Eidechse/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|jašter|Echse/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|kajman|Kaiman/e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|kobra|Kobra/s||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|korytnačka|Schildkröte/n||True|False|noun|e
+deutsch|life/_animalia/tetrapoda|krokodíl|Krokodil/e||True|False|noun|s
+deutsch|life/_animalia/tetrapoda|leguán|Leguan/e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|mlok|Molch/e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|mlok|Schwanzlurch/e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|morská korytnačka|Meeresschildkröte/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|obojživelník|Amphibie/n||True|False|noun|e
+deutsch|life/_animalia/tetrapoda|obojživelník|Lurch/e||True|False|noun|r
+deutsch|life/_animalia/tetrapoda|plaz|Kriechtier/e||True|False|noun|s
+deutsch|life/_animalia/tetrapoda|plaz|Reptil/ien||True|False|noun|s
+deutsch|life/_animalia/tetrapoda|pytón|er Python/s||False|False|other|
+deutsch|life/_animalia/tetrapoda|ropucha|Kröte/n||True|False|noun|e
+deutsch|life/_animalia/tetrapoda|rosnička|Laubfrosch/ö-e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|salamandra|Salamander||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|scink|Skink/e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|slepúch|Schleiche/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|užovka|Natter/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|varan|Waran/e||False|False|noun|r
+deutsch|life/_animalia/tetrapoda|veľhad|Abgottschlange/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|veľhad|Königsschlange/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|vretenica|Viper/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|štrkáč|Klapperschlange/n||False|False|noun|e
+deutsch|life/_animalia/tetrapoda|žaba|Frosch/ö-e||True|False|noun|r
+deutsch|life/_animalia/ungulata|antilopa|Antilope||False|False|noun|e
+deutsch|life/_animalia/ungulata|beluga|Weisswal||False|False|noun|r
+deutsch|life/_animalia/ungulata|bizón|Bison||False|False|noun|r
+deutsch|life/_animalia/ungulata|byvol|Büffel||False|False|noun|r
+deutsch|life/_animalia/ungulata|daniel|Damhirsch||False|False|noun|r
+deutsch|life/_animalia/ungulata|delfín|Delfin||True|False|noun|r
+deutsch|life/_animalia/ungulata|diviak|Wildschwein||True|False|noun|s
+deutsch|life/_animalia/ungulata|gazela|Gazelle||False|False|noun|e
+deutsch|life/_animalia/ungulata|hroch|Flusspferd||True|False|noun|s
+deutsch|life/_animalia/ungulata|hroch|Nilpferd||True|False|noun|s
+deutsch|life/_animalia/ungulata|jeleň|Hirsch||True|False|noun|r
+deutsch|life/_animalia/ungulata|kamzík|Gämse||False|False|noun|e
+deutsch|life/_animalia/ungulata|kosatka|Schwertwal||False|False|noun|r
+deutsch|life/_animalia/ungulata|koza|Ziege||True|False|noun|e
+deutsch|life/_animalia/ungulata|kozorožec|Steinbock||False|False|noun|r
+deutsch|life/_animalia/ungulata|kôň|Gaul/ä-e||True|False|noun|r
+deutsch|life/_animalia/ungulata|kôň|Pferd||True|False|noun|s
+deutsch|life/_animalia/ungulata|lama|Lama||False|False|noun|s
+deutsch|life/_animalia/ungulata|los|Elch||False|False|noun|r
+deutsch|life/_animalia/ungulata|narval|Narwal||False|False|noun|r
+deutsch|life/_animalia/ungulata|nepárnokopytník|Unpaarhufer||False|False|noun|r
+deutsch|life/_animalia/ungulata|nosorožec|Nashorn||True|False|noun|s
+deutsch|life/_animalia/ungulata|ovca|Schaf||True|False|noun|s
+deutsch|life/_animalia/ungulata|pakôň|Gnu||False|False|noun|s
+deutsch|life/_animalia/ungulata|pižmoň|Moschusochse||False|False|noun|r
+deutsch|life/_animalia/ungulata|párnokopytník|Paarhufer||False|False|noun|r
+deutsch|life/_animalia/ungulata|sob|Rentier||False|False|noun|s
+deutsch|life/_animalia/ungulata|sob|Ren||False|False|noun|s
+deutsch|life/_animalia/ungulata|somár|Esel||True|False|noun|r
+deutsch|life/_animalia/ungulata|srnec|Reh||False|False|noun|s
+deutsch|life/_animalia/ungulata|sviňucha|Schweinswal||False|False|noun|r
+deutsch|life/_animalia/ungulata|tapír|Tapir||False|False|noun|r
+deutsch|life/_animalia/ungulata|veľryba|Wal||True|False|noun|r
+deutsch|life/_animalia/ungulata|vidloroh|Gabelbock||False|False|noun|r
+deutsch|life/_animalia/ungulata|vorvaň|Pottwal||False|False|noun|r
+deutsch|life/_animalia/ungulata|zebra|Zebra||False|False|noun|s
+deutsch|life/_animalia/ungulata|zubor|Wisent||False|False|noun|r
+deutsch|life/_animalia/ungulata|ťava dvojhrbá|Trampeltier||False|False|noun|s
+deutsch|life/_animalia/ungulata|ťava jednohrbá|Dromedar||False|False|noun|s
+deutsch|life/_animalia/ungulata|ťava|Kamel||True|False|noun|s
+deutsch|life/_animalia/ungulata|žirafa|Giraffe||True|False|noun|e
+deutsch|life/_plantae/herbs|agáve|Agave/n||False|False|noun|e
+deutsch|life/_plantae/herbs|aksamietnica|Tagetes||False|False|noun|e
+deutsch|life/_plantae/herbs|aloe|Aloe/n||False|False|noun|e
+deutsch|life/_plantae/herbs|aníz|Anis/e||False|False|noun|r
+deutsch|life/_plantae/herbs|astra|Aster/n||False|False|noun|e
+deutsch|life/_plantae/herbs|azalka|Azalee/n||False|False|noun|e
+deutsch|life/_plantae/herbs|bazalka|Basilikum||True|False|noun|s
+deutsch|life/_plantae/herbs|bodliak|Distel/n||False|False|noun|e
+deutsch|life/_plantae/herbs|bolehlav|Schierling/e||False|False|noun|r
+deutsch|life/_plantae/herbs|bolševník|Bärenklau||False|False|noun|e
+deutsch|life/_plantae/herbs|brečtan|Efeu||False|False|noun|r
+deutsch|life/_plantae/herbs|chaluha|Tang/e||False|False|noun|r
+deutsch|life/_plantae/herbs|chryzantéma|Chrysantheme/n||False|False|noun|e
+deutsch|life/_plantae/herbs|dracéna|Drachenbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/herbs|fenikel|Fenchel||False|False|noun|r
+deutsch|life/_plantae/herbs|fialka|Veilchen||True|False|noun|s
+deutsch|life/_plantae/herbs|gerbera|Gerbera||False|False|noun|e
+deutsch|life/_plantae/herbs|hluchavka|Taubnessel/n||False|False|noun|e
+deutsch|life/_plantae/herbs|kaktus|Kaktee/n||True|False|noun|e
+deutsch|life/_plantae/herbs|kaktus|Kaktus||True|False|noun|r
+deutsch|life/_plantae/herbs|karafiát|Nelke/n||True|False|noun|e
+deutsch|life/_plantae/herbs|konvalinka|Maiglöckchen||False|False|noun|s
+deutsch|life/_plantae/herbs|koriander|Koriander||False|False|noun|r
+deutsch|life/_plantae/herbs|kostihoj|Beinwell/e||False|False|noun|r
+deutsch|life/_plantae/herbs|kôpor|Dill||True|False|noun|r
+deutsch|life/_plantae/herbs|lekno|Seerose/n||False|False|noun|e
+deutsch|life/_plantae/herbs|levanduľa|Lavendel||True|False|noun|r
+deutsch|life/_plantae/herbs|ligurček|Liebstöckel||False|False|noun|r
+deutsch|life/_plantae/herbs|lopúch|Klette/n||False|False|noun|e
+deutsch|life/_plantae/herbs|lotos|Lotosblume/n||False|False|noun|e
+deutsch|life/_plantae/herbs|mach|Moos/e||True|False|noun|s
+deutsch|life/_plantae/herbs|majorán|Majoran/e||False|False|noun|r
+deutsch|life/_plantae/herbs|mak|Mohn||True|False|noun|r
+deutsch|life/_plantae/herbs|medovka|Melisse/n||False|False|noun|e
+deutsch|life/_plantae/herbs|medovka|Zitronenmelisse/n||False|False|noun|e
+deutsch|life/_plantae/herbs|mäta|Minze/n||True|False|noun|e
+deutsch|life/_plantae/herbs|narcis|Narzisse/n||False|False|noun|e
+deutsch|life/_plantae/herbs|nechtík|Ringelblume/n||False|False|noun|e
+deutsch|life/_plantae/herbs|nevädza|Kornblume/n||False|False|noun|e
+deutsch|life/_plantae/herbs|nezábudka|Vergissmeinnicht/e||False|False|noun|s
+deutsch|life/_plantae/herbs|opuncia|Opuntie/n||False|False|noun|e
+deutsch|life/_plantae/herbs|orchidea|Orchidee/n||True|False|noun|e
+deutsch|life/_plantae/herbs|oregano|Oregano||False|False|noun|r
+deutsch|life/_plantae/herbs|papraď|Farn/e||False|False|noun|r
+deutsch|life/_plantae/herbs|papraď|Farnkraut/ä-er||False|False|noun|s
+deutsch|life/_plantae/herbs|pivonka|Pfingstrose/n||False|False|noun|e
+deutsch|life/_plantae/herbs|pleseň|Schimmel||False|False|noun|r
+deutsch|life/_plantae/herbs|podbeľ|Huflattich/e||False|False|noun|r
+deutsch|life/_plantae/herbs|praslička|Schachtelhalm/e||False|False|noun|r
+deutsch|life/_plantae/herbs|prvosienka|Schlüsselblume/n||False|False|noun|e
+deutsch|life/_plantae/herbs|púpava|Löwenzahn||True|False|noun|r
+deutsch|life/_plantae/herbs|rasca|Kümmel||True|False|noun|r
+deutsch|life/_plantae/herbs|repík|Odermennig/e||False|False|noun|r
+deutsch|life/_plantae/herbs|riasa|Alge/n||False|False|noun|e
+deutsch|life/_plantae/herbs|rododendron|r/s Rhododendron/-dren||False|False|verb|
+deutsch|life/_plantae/herbs|rozmarín|Rosmarin||False|False|noun|r
+deutsch|life/_plantae/herbs|rumanček|Kamille/n||False|False|noun|e
+deutsch|life/_plantae/herbs|ruža|Rose/n||True|False|noun|e
+deutsch|life/_plantae/herbs|sedmokráska|Gänseblümchen||False|False|noun|s
+deutsch|life/_plantae/herbs|skoroceľ|Wegerich/e||False|False|noun|r
+deutsch|life/_plantae/herbs|slez|Malve/n||False|False|noun|e
+deutsch|life/_plantae/herbs|slnečnica|Sonnenblume/n||True|False|noun|e
+deutsch|life/_plantae/herbs|snežienka|Schneeglöckchen||False|False|noun|s
+deutsch|life/_plantae/herbs|tulipán|Tulpe/n||True|False|noun|e
+deutsch|life/_plantae/herbs|tymián|Thymian/e||False|False|noun|r
+deutsch|life/_plantae/herbs|zvonček|Glockenblume/n||False|False|noun|e
+deutsch|life/_plantae/herbs|ďatelina|Klee||True|False|noun|r
+deutsch|life/_plantae/herbs|ľalia|Lilie/n||True|False|noun|e
+deutsch|life/_plantae/herbs|šafrán|Safran/e||False|False|noun|r
+deutsch|life/_plantae/herbs|šalvia|Salbei||False|False|noun|e
+deutsch|life/_plantae/herbs|žihľava|Brennnessel/n||False|False|noun|e
+deutsch|life/_plantae/herbs|žihľava|Nessel/n||True|False|noun|e
+deutsch|life/_plantae/trees|agát|Robinie/n||False|False|noun|e
+deutsch|life/_plantae/trees|albízia|Seidenbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|baza|Holunder||False|False|noun|r
+deutsch|life/_plantae/trees|borievka|Wacholder||False|False|noun|r
+deutsch|life/_plantae/trees|borovica|Kiefer/n||True|False|noun|e
+deutsch|life/_plantae/trees|brest|Ulme/n||False|False|noun|e
+deutsch|life/_plantae/trees|breza|Birke/n||True|False|noun|e
+deutsch|life/_plantae/trees|buk|Buche/n||True|False|noun|e
+deutsch|life/_plantae/trees|chmeľ|Hopfen||False|False|noun|r
+deutsch|life/_plantae/trees|cyprus|Zypresse/n||False|False|noun|e
+deutsch|life/_plantae/trees|céder|Zeder/n||False|False|noun|e
+deutsch|life/_plantae/trees|datľovník|Dattelpalme/n||False|True|noun|e
+deutsch|life/_plantae/trees|dub|Eiche/n||True|False|noun|e
+deutsch|life/_plantae/trees|figovník|Feige/n||False|False|noun|e
+deutsch|life/_plantae/trees|gaštan|Kastanie/n||True|False|noun|e
+deutsch|life/_plantae/trees|ginko|Ginkgo/s||False|False|noun|r
+deutsch|life/_plantae/trees|ginko|Ginko/s||False|False|noun|r
+deutsch|life/_plantae/trees|gledíčia|Gleditschie/n||False|False|noun|e
+deutsch|life/_plantae/trees|hikória|Hickory||False|False|noun|r
+deutsch|life/_plantae/trees|hloh|Weissdorn/e||False|False|noun|r
+deutsch|life/_plantae/trees|hrab|Hagebuche/n||False|True|noun|e
+deutsch|life/_plantae/trees|hrab|Hainbuche/n||False|True|noun|e
+deutsch|life/_plantae/trees|hrab|Weissbuche/n||False|True|noun|e
+deutsch|life/_plantae/trees|ihličnatý strom|Nadelbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|jarabina|Eberesche/n||False|False|noun|e
+deutsch|life/_plantae/trees|jaseň|Esche/n||True|False|noun|e
+deutsch|life/_plantae/trees|javor|Ahorn/e||True|False|noun|r
+deutsch|life/_plantae/trees|jedľa|Tanne/n||True|False|noun|e
+deutsch|life/_plantae/trees|jelša|Erle/n||False|False|noun|e
+deutsch|life/_plantae/trees|krušpán|Buchs/e||False|False|noun|r
+deutsch|life/_plantae/trees|lieska|Hasel/n||False|False|noun|e
+deutsch|life/_plantae/trees|lipa|Linde/n||True|False|noun|e
+deutsch|life/_plantae/trees|listnatý strom|Laubbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|magnólia|Magnolie/n||False|False|noun|e
+deutsch|life/_plantae/trees|mišpuľa|Mispel/n||False|False|noun|e
+deutsch|life/_plantae/trees|moruša|Maulbeere/n||False|False|noun|e
+deutsch|life/_plantae/trees|muchovník|Felsenbirne/n||False|False|noun|e
+deutsch|life/_plantae/trees|oliva|Olivenbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|oliva|Ölbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|orech|Nussbaum/ä-e||True|False|noun|r
+deutsch|life/_plantae/trees|orgován|Flieder||False|False|noun|r
+deutsch|life/_plantae/trees|pagaštan|Rosskastanie/n||False|True|noun|e
+deutsch|life/_plantae/trees|pajaseň|Götterbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|palma|Palme/n||True|False|noun|e
+deutsch|life/_plantae/trees|platan|Platane/n||True|False|noun|e
+deutsch|life/_plantae/trees|sekvoja|Mammutbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|smrekovec|Lärche/n||False|False|noun|e
+deutsch|life/_plantae/trees|smrek|Fichte/n||True|False|noun|e
+deutsch|life/_plantae/trees|sofora|Schnurbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|strom|Baum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|tis|Eibe/n||False|False|noun|e
+deutsch|life/_plantae/trees|topoľ|Pappel/n||True|False|noun|e
+deutsch|life/_plantae/trees|tuja|Lebensbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|tuja|Thuja/Thujen||False|False|noun|e
+deutsch|life/_plantae/trees|vavrín|Lorbeer/en||False|False|noun|r
+deutsch|life/_plantae/trees|vtáčí zob|Liguster||False|False|noun|r
+deutsch|life/_plantae/trees|vŕba|Weide/n||True|False|noun|e
+deutsch|life/_plantae/trees|ľaliovník|Tulpenbaum/ä-e||False|False|noun|r
+deutsch|life/_plantae/trees|štedrec|Goldregen||False|False|noun|r
 deutsch|life/animal|brko|Kiel/e||False|False|noun|r
 deutsch|life/animal|cecok|Zitze/n||False|False|noun|e
 deutsch|life/animal|chobot|Rüssel||True|False|noun|r
@@ -7364,6 +8263,16 @@ deutsch|life/shape|obor|Hüne/n||False|False|noun|r
 deutsch|life/shape|plešatý|kahl||False|False|other|
 deutsch|life/shape|vyziabnutý|hager||False|False|other|
 deutsch|life/shape|štetinatý|borstig||False|False|other|
+deutsch|nature/_names|Baltské more|Ostsee||False|False|noun|e
+deutsch|nature/_names|Cyprus|Zypern||False|False|noun|s
+deutsch|nature/_names|Dunaj|Donau||False|False|noun|e
+deutsch|nature/_names|Lamanšský prieliv|Ärmelkanal||False|False|noun|r
+deutsch|nature/_names|Severné more|Nordsee||False|False|noun|e
+deutsch|nature/_names|Sicília|Sizilien||False|False|noun|s
+deutsch|nature/_names|Stredozemné more|Mittelmeer||False|False|noun|s
+deutsch|nature/_names|Visla|Weichsel||False|False|noun|e
+deutsch|nature/_names|Vltava|Moldau||False|False|noun|e
+deutsch|nature/_names|Čierne more|Schwarzes Meer||False|False|noun|s
 deutsch|nature/chemia|-lepidlo|Klebemittel||False|False|noun|s
 deutsch|nature/chemia|-lepidlo|Kleber||False|False|noun|r
 deutsch|nature/chemia|-lepidlo|Klebstoff/e||False|False|noun|r
@@ -10790,6 +11699,262 @@ russkiy|economy/war|pištoľ|пистоле́т||False|False|other|
 russkiy|economy/war|puška|ружьё||False|False|other|
 russkiy|economy/war|zbraň|ору́жие||False|False|other|
 russkiy|economy/war|útok|штурм||False|False|other|
+russkiy|life/_animalia/animalia|chobotnica|осьминог||True|False|other|
+russkiy|life/_animalia/animalia|dážďovka|дождевой червь||False|False|other|
+russkiy|life/_animalia/animalia|koral|коралл||False|False|other|
+russkiy|life/_animalia/animalia|medúza|медуза||True|False|other|
+russkiy|life/_animalia/animalia|mäkkýš|моллюск||False|False|other|
+russkiy|life/_animalia/animalia|pijavica|пиявка||False|False|other|
+russkiy|life/_animalia/animalia|pásomnica|ленточный червь||False|False|other|
+russkiy|life/_animalia/animalia|slimák|улитка||True|False|other|
+russkiy|life/_animalia/animalia|slávka|мидия||False|False|other|
+russkiy|life/_animalia/animalia|sépia|каракатица||False|False|other|
+russkiy|life/_animalia/animalia|ustrica|устрица||False|False|other|
+russkiy|life/_animalia/animalia|červ|червь||True|False|other|
+russkiy|life/_animalia/arthropoda|blcha|блоха||True|False|other|
+russkiy|life/_animalia/arthropoda|chrobák|жук||True|False|other|
+russkiy|life/_animalia/arthropoda|chrúst|хруст||False|False|other|
+russkiy|life/_animalia/arthropoda|cikáda|цикада||False|False|other|
+russkiy|life/_animalia/arthropoda|garnát|креветка||False|False|other|
+russkiy|life/_animalia/arthropoda|hmyz|насекомое||True|False|other|
+russkiy|life/_animalia/arthropoda|kobylka|кузнечик||False|False|other|
+russkiy|life/_animalia/arthropoda|komár|комар||True|False|other|
+russkiy|life/_animalia/arthropoda|krab|краб||True|False|other|
+russkiy|life/_animalia/arthropoda|lienka|божья коровка||False|False|other|
+russkiy|life/_animalia/arthropoda|lykožrút|ликофаг||False|False|other|
+russkiy|life/_animalia/arthropoda|modlivka|Богомол||True|False|other|
+russkiy|life/_animalia/arthropoda|motýľ|бабочка||True|False|other|
+russkiy|life/_animalia/arthropoda|mravec|муравей||True|False|other|
+russkiy|life/_animalia/arthropoda|mucha|муха||True|False|other|
+russkiy|life/_animalia/arthropoda|osa|оса||True|False|other|
+russkiy|life/_animalia/arthropoda|pavúk|паук||True|False|other|
+russkiy|life/_animalia/arthropoda|ploštica|постельный клоп||False|False|other|
+russkiy|life/_animalia/arthropoda|sršeň|шершень||False|False|other|
+russkiy|life/_animalia/arthropoda|stonožka|сороконожка||False|False|other|
+russkiy|life/_animalia/arthropoda|svrček|крикет||False|False|other|
+russkiy|life/_animalia/arthropoda|termit|термит||False|False|other|
+russkiy|life/_animalia/arthropoda|ucholak|уховертка||False|False|other|
+russkiy|life/_animalia/arthropoda|voška|тля||False|False|other|
+russkiy|life/_animalia/arthropoda|voš|вошь||True|False|other|
+russkiy|life/_animalia/arthropoda|vážka|стрекоза||True|False|other|
+russkiy|life/_animalia/arthropoda|včela|пчела||True|False|other|
+russkiy|life/_animalia/arthropoda|čmeliak|шмель||False|False|other|
+russkiy|life/_animalia/arthropoda|škorpión|скорпион||True|False|other|
+russkiy|life/_animalia/arthropoda|šváb|таракан||True|False|other|
+russkiy|life/_animalia/aves|albatros|альбатрос||False|False|other|
+russkiy|life/_animalia/aves|bažant|фазан||False|False|other|
+russkiy|life/_animalia/aves|bocian|аист||True|False|other|
+russkiy|life/_animalia/aves|dudok|удод||False|False|other|
+russkiy|life/_animalia/aves|holub|голубь||True|False|other|
+russkiy|life/_animalia/aves|hus|гусь||True|False|other|
+russkiy|life/_animalia/aves|ibis|ибис||False|False|other|
+russkiy|life/_animalia/aves|jarabica|куропатка||False|False|other|
+russkiy|life/_animalia/aves|jastrab|ястреб||False|False|other|
+russkiy|life/_animalia/aves|kačica|утка||True|False|other|
+russkiy|life/_animalia/aves|kaňa|канюк||False|False|other|
+russkiy|life/_animalia/aves|kolibrík|колибри||False|False|other|
+russkiy|life/_animalia/aves|kondor|кондор||False|False|other|
+russkiy|life/_animalia/aves|korela|корелла||False|False|other|
+russkiy|life/_animalia/aves|kukučka|кукушка||False|False|other|
+russkiy|life/_animalia/aves|kura|курица||True|False|other|
+russkiy|life/_animalia/aves|labuť|лебедь||True|False|other|
+russkiy|life/_animalia/aves|morka|индейка||False|False|other|
+russkiy|life/_animalia/aves|orol|орел||True|False|other|
+russkiy|life/_animalia/aves|papagáj|попугай||True|False|other|
+russkiy|life/_animalia/aves|pelikán|пеликан||True|False|other|
+russkiy|life/_animalia/aves|plameniak|фламинго||True|False|other|
+russkiy|life/_animalia/aves|plamienka|сипуха||False|False|other|
+russkiy|life/_animalia/aves|prepelica|перепелка||False|False|other|
+russkiy|life/_animalia/aves|páv|павлин||True|False|other|
+russkiy|life/_animalia/aves|pštros|страус||True|False|other|
+russkiy|life/_animalia/aves|rybárik|зимородок||False|False|other|
+russkiy|life/_animalia/aves|sokol|сокол||True|False|other|
+russkiy|life/_animalia/aves|sova|сова||True|False|other|
+russkiy|life/_animalia/aves|sup|стервятник||True|False|other|
+russkiy|life/_animalia/aves|tetrov|тетерев||False|False|other|
+russkiy|life/_animalia/aves|tukan|тукан||False|False|other|
+russkiy|life/_animalia/aves|tučniak|пингвин||True|False|other|
+russkiy|life/_animalia/aves|volavka|цапля||True|False|other|
+russkiy|life/_animalia/aves|vták|птица||True|False|other|
+russkiy|life/_animalia/aves|včelárik|пчелоед||False|False|other|
+russkiy|life/_animalia/aves|čajka|чайка||True|False|other|
+russkiy|life/_animalia/aves|ďateľ|дятел||True|False|other|
+russkiy|life/_animalia/aves|žeriav|журавль||True|False|other|
+russkiy|life/_animalia/ferae|fretka|хорек||False|False|other|
+russkiy|life/_animalia/ferae|gepard|гепард||False|False|other|
+russkiy|life/_animalia/ferae|hyena|гиена||False|False|other|
+russkiy|life/_animalia/ferae|jaguár|ягуар||False|False|other|
+russkiy|life/_animalia/ferae|jazvec|барсук||False|False|other|
+russkiy|life/_animalia/ferae|kojot|койот||False|False|other|
+russkiy|life/_animalia/ferae|kuna|куница||False|False|other|
+russkiy|life/_animalia/ferae|lasica|ласка||False|False|other|
+russkiy|life/_animalia/ferae|leopard|леопард||False|False|other|
+russkiy|life/_animalia/ferae|lev|лев||True|False|other|
+russkiy|life/_animalia/ferae|líška|лиса||True|False|other|
+russkiy|life/_animalia/ferae|mačka|кот||True|False|other|
+russkiy|life/_animalia/ferae|mačka|кошка||True|False|other|
+russkiy|life/_animalia/ferae|medveď|медведь||True|False|other|
+russkiy|life/_animalia/ferae|mrož|морж||False|False|other|
+russkiy|life/_animalia/ferae|mýval|енот||False|False|other|
+russkiy|life/_animalia/ferae|norka|норка||False|False|other|
+russkiy|life/_animalia/ferae|puma|пума||False|False|other|
+russkiy|life/_animalia/ferae|rosomák|росомаха||False|False|other|
+russkiy|life/_animalia/ferae|rys|рысь||False|False|other|
+russkiy|life/_animalia/ferae|skunk|скунс||False|False|other|
+russkiy|life/_animalia/ferae|tchor|хорь||False|False|other|
+russkiy|life/_animalia/ferae|tiger|тигр||True|False|other|
+russkiy|life/_animalia/ferae|tuleň|тюлень||True|False|other|
+russkiy|life/_animalia/ferae|uškatec|морской лев||False|False|other|
+russkiy|life/_animalia/ferae|vlk|волк||True|False|other|
+russkiy|life/_animalia/ferae|vydra|выдра||False|False|other|
+russkiy|life/_animalia/ferae|šakal|шакал||False|False|other|
+russkiy|life/_animalia/ichthyes|barakuda|баракуда||False|False|other|
+russkiy|life/_animalia/ichthyes|jeseter|осётр||False|False|other|
+russkiy|life/_animalia/ichthyes|kapor|карп||True|False|other|
+russkiy|life/_animalia/ichthyes|losos|лосось||True|False|other|
+russkiy|life/_animalia/ichthyes|makrela|скумбрия||False|False|other|
+russkiy|life/_animalia/ichthyes|morský koník|морской конек||False|False|other|
+russkiy|life/_animalia/ichthyes|mrena|мерна||False|False|other|
+russkiy|life/_animalia/ichthyes|ostriež|окунь||False|False|other|
+russkiy|life/_animalia/ichthyes|piraňa|пиранья||False|False|other|
+russkiy|life/_animalia/ichthyes|pstruh|форель||True|False|other|
+russkiy|life/_animalia/ichthyes|ryba|рыба||True|False|other|
+russkiy|life/_animalia/ichthyes|sardela|сарделька||False|False|other|
+russkiy|life/_animalia/ichthyes|sardinka|сардинка||False|False|other|
+russkiy|life/_animalia/ichthyes|sleď|сельдь||True|False|other|
+russkiy|life/_animalia/ichthyes|sumec|сом||False|False|other|
+russkiy|life/_animalia/ichthyes|tetra|тетра||False|False|other|
+russkiy|life/_animalia/ichthyes|treska|треска||False|False|other|
+russkiy|life/_animalia/ichthyes|tuniak|тунец||True|False|other|
+russkiy|life/_animalia/ichthyes|vyza|виза||False|False|other|
+russkiy|life/_animalia/ichthyes|zubáč|судак||False|False|other|
+russkiy|life/_animalia/ichthyes|úhor|угорь||True|False|other|
+russkiy|life/_animalia/ichthyes|čert|чёрт||False|False|other|
+russkiy|life/_animalia/ichthyes|šprota|шпрот||False|False|other|
+russkiy|life/_animalia/ichthyes|štvorzubec|тетраодон||False|False|other|
+russkiy|life/_animalia/ichthyes|šťuka|щука||True|False|other|
+russkiy|life/_animalia/ichthyes|žralok|акула||True|False|other|
+russkiy|life/_animalia/mammalia|bobor|бобр||True|False|other|
+russkiy|life/_animalia/mammalia|cicavec|млекопитающее||True|False|other|
+russkiy|life/_animalia/mammalia|daman|даман||False|False|other|
+russkiy|life/_animalia/mammalia|dikobraz|дикобраз||False|False|other|
+russkiy|life/_animalia/mammalia|gibon|гиббон||False|False|other|
+russkiy|life/_animalia/mammalia|gorila|горилла||False|False|other|
+russkiy|life/_animalia/mammalia|hlodavec|грызун||False|False|other|
+russkiy|life/_animalia/mammalia|hraboš|полевая мышь||False|False|other|
+russkiy|life/_animalia/mammalia|hrabáč|трубкозуб||False|False|other|
+russkiy|life/_animalia/mammalia|ježura|ехидна||False|False|other|
+russkiy|life/_animalia/mammalia|jež|ежик||True|False|other|
+russkiy|life/_animalia/mammalia|kapybara|капибара||False|False|other|
+russkiy|life/_animalia/mammalia|klokan|кенгуру||True|False|other|
+russkiy|life/_animalia/mammalia|krt|крот||True|False|other|
+russkiy|life/_animalia/mammalia|králik|кролик||True|False|other|
+russkiy|life/_animalia/mammalia|leňochod|ленивец||False|False|other|
+russkiy|life/_animalia/mammalia|makak|макака||False|False|other|
+russkiy|life/_animalia/mammalia|morča|морская свинка||True|False|other|
+russkiy|life/_animalia/mammalia|mravčiar|муравьед||False|False|other|
+russkiy|life/_animalia/mammalia|myš|мышь||True|False|other|
+russkiy|life/_animalia/mammalia|netopier|летучая мышь||True|False|other|
+russkiy|life/_animalia/mammalia|ondatra|ондатра||False|False|other|
+russkiy|life/_animalia/mammalia|opica|обезьяна||True|False|other|
+russkiy|life/_animalia/mammalia|orangutan|орангутан||False|False|other|
+russkiy|life/_animalia/mammalia|pavián|павиан||False|False|other|
+russkiy|life/_animalia/mammalia|pieskomil|песчанка||False|False|other|
+russkiy|life/_animalia/mammalia|piskor|землеройка||False|False|other|
+russkiy|life/_animalia/mammalia|potkan|крыса||True|False|other|
+russkiy|life/_animalia/mammalia|pásovec|броненосец||False|False|other|
+russkiy|life/_animalia/mammalia|siréna|ламантин||False|False|other|
+russkiy|life/_animalia/mammalia|slon|слон||True|False|other|
+russkiy|life/_animalia/mammalia|surikata|сурикат||False|False|other|
+russkiy|life/_animalia/mammalia|svišť|s Murmeltier||False|False|other|
+russkiy|life/_animalia/mammalia|syseľ|сурок||False|False|other|
+russkiy|life/_animalia/mammalia|tarbík|тушканчик||False|False|other|
+russkiy|life/_animalia/mammalia|vačica|опоссум||False|False|other|
+russkiy|life/_animalia/mammalia|veverička|белка||True|False|other|
+russkiy|life/_animalia/mammalia|vtákopysk|утконос||False|False|other|
+russkiy|life/_animalia/mammalia|zajac|заяц||True|False|other|
+russkiy|life/_animalia/mammalia|šimpanz|шимпанзе||False|False|other|
+russkiy|life/_animalia/mammalia|škrečok|хомяк||True|False|other|
+russkiy|life/_animalia/mammalia|šupinavec|ящер||False|False|other|
+russkiy|life/_animalia/passeri|brhlík|поползень||False|False|other|
+russkiy|life/_animalia/passeri|drozd|дрозд||False|False|other|
+russkiy|life/_animalia/passeri|glezg|дубонос||False|False|other|
+russkiy|life/_animalia/passeri|havran|грач||True|False|other|
+russkiy|life/_animalia/passeri|hýľ|снегирь||False|False|other|
+russkiy|life/_animalia/passeri|kavka|галка||False|False|other|
+russkiy|life/_animalia/passeri|krkavec|ворон||False|False|other|
+russkiy|life/_animalia/passeri|lastovička|ласточка||True|False|other|
+russkiy|life/_animalia/passeri|pinka|зяблик||False|False|other|
+russkiy|life/_animalia/passeri|slávik|соловей||True|False|other|
+russkiy|life/_animalia/passeri|sojka|сойка||False|False|other|
+russkiy|life/_animalia/passeri|stehlík|щегол||False|False|other|
+russkiy|life/_animalia/passeri|straka|сорока||False|False|other|
+russkiy|life/_animalia/passeri|sýkorka|синица||True|False|other|
+russkiy|life/_animalia/passeri|vlha|иволга||False|False|other|
+russkiy|life/_animalia/passeri|vrabec|воробей||True|False|other|
+russkiy|life/_animalia/passeri|vrana|ворона||True|False|other|
+russkiy|life/_animalia/passeri|červienka|малиновка||False|False|other|
+russkiy|life/_animalia/passeri|škorec|скворец||False|False|other|
+russkiy|life/_animalia/passeri|škovránok|жаворонок||False|False|other|
+russkiy|life/_animalia/tetrapoda|aligátor|аллигатор||False|False|other|
+russkiy|life/_animalia/tetrapoda|anakonda|анаконда||False|False|other|
+russkiy|life/_animalia/tetrapoda|chameleón|хамелеон||True|False|other|
+russkiy|life/_animalia/tetrapoda|gekón|геккон||False|False|other|
+russkiy|life/_animalia/tetrapoda|had|змея||True|False|other|
+russkiy|life/_animalia/tetrapoda|jašterica|ящерица||False|False|other|
+russkiy|life/_animalia/tetrapoda|jašter|ящер||False|False|other|
+russkiy|life/_animalia/tetrapoda|kajman|кайман||False|False|other|
+russkiy|life/_animalia/tetrapoda|kobra|кобра||False|False|other|
+russkiy|life/_animalia/tetrapoda|korytnačka|черепаха||True|False|other|
+russkiy|life/_animalia/tetrapoda|krokodíl|крокодил||True|False|other|
+russkiy|life/_animalia/tetrapoda|leguán|игуана||False|False|other|
+russkiy|life/_animalia/tetrapoda|mlok|саламандра||False|False|other|
+russkiy|life/_animalia/tetrapoda|obojživelník|амфибия||True|False|other|
+russkiy|life/_animalia/tetrapoda|plaz|пресмыкающиеся||True|False|other|
+russkiy|life/_animalia/tetrapoda|pytón|питон||False|False|other|
+russkiy|life/_animalia/tetrapoda|ropucha|жаба||True|False|other|
+russkiy|life/_animalia/tetrapoda|rosnička|квакша||False|False|other|
+russkiy|life/_animalia/tetrapoda|slepúch|веретеница||False|False|other|
+russkiy|life/_animalia/tetrapoda|užovka|уж||False|False|other|
+russkiy|life/_animalia/tetrapoda|varan|варан||False|False|other|
+russkiy|life/_animalia/tetrapoda|veľhad|удав||False|False|other|
+russkiy|life/_animalia/tetrapoda|vretenica|гадюка||False|False|other|
+russkiy|life/_animalia/tetrapoda|štrkáč|гремучник||False|False|other|
+russkiy|life/_animalia/tetrapoda|žaba|лягушка||True|False|other|
+russkiy|life/_animalia/ungulata|antilopa|антилопа||False|False|other|
+russkiy|life/_animalia/ungulata|bizón|бизон||False|False|other|
+russkiy|life/_animalia/ungulata|byvol|буйвол||False|False|other|
+russkiy|life/_animalia/ungulata|daniel|лань||False|False|other|
+russkiy|life/_animalia/ungulata|delfín|дельфин||True|False|other|
+russkiy|life/_animalia/ungulata|diviak|кабан||True|False|other|
+russkiy|life/_animalia/ungulata|gazela|газель||False|False|other|
+russkiy|life/_animalia/ungulata|hroch|бегемот||True|False|other|
+russkiy|life/_animalia/ungulata|jeleň|олень||True|False|other|
+russkiy|life/_animalia/ungulata|kamzík|серна||False|False|other|
+russkiy|life/_animalia/ungulata|kosatka|косатка||False|False|other|
+russkiy|life/_animalia/ungulata|koza|коза||True|False|other|
+russkiy|life/_animalia/ungulata|kozorožec|козерог||False|False|other|
+russkiy|life/_animalia/ungulata|kôň|лошадь||True|False|other|
+russkiy|life/_animalia/ungulata|lama|лама||False|False|other|
+russkiy|life/_animalia/ungulata|los|лось||False|False|other|
+russkiy|life/_animalia/ungulata|narval|единорог||False|False|other|
+russkiy|life/_animalia/ungulata|nepárnokopytník|непарнокопытное||False|False|other|
+russkiy|life/_animalia/ungulata|nosorožec|носорог||True|False|other|
+russkiy|life/_animalia/ungulata|ovca|овца||True|False|other|
+russkiy|life/_animalia/ungulata|párnokopytník|парнокопытное||False|False|other|
+russkiy|life/_animalia/ungulata|sob|северный олень||False|False|other|
+russkiy|life/_animalia/ungulata|somár|осёл||True|False|other|
+russkiy|life/_animalia/ungulata|srnec|косуля||False|False|other|
+russkiy|life/_animalia/ungulata|tapír|тапир||False|False|other|
+russkiy|life/_animalia/ungulata|tur|тур||False|False|other|
+russkiy|life/_animalia/ungulata|veľryba|кит||True|False|other|
+russkiy|life/_animalia/ungulata|vorvaň|кашалот||False|False|other|
+russkiy|life/_animalia/ungulata|zebra|зебра||False|False|other|
+russkiy|life/_animalia/ungulata|zubor|зубр||False|False|other|
+russkiy|life/_animalia/ungulata|ťava dvojhrbá|верблюд||False|False|other|
+russkiy|life/_animalia/ungulata|ťava jednohrbá|дромадер||False|False|other|
+russkiy|life/_animalia/ungulata|ťava|s Kamel||True|False|other|
+russkiy|life/_animalia/ungulata|žirafa|жираф||True|False|other|
 russkiy|life/activity|existovať|существова́ть||False|False|other|
 russkiy|life/activity|hľadať|искать||False|False|other|
 russkiy|life/activity|miznúť|пропада́ть||False|False|other|

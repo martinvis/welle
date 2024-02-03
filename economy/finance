@@ -44,7 +44,6 @@ non-voting: no vote rights
 
 #stocks
 share: fractional ownership of company, voting power
-buyback: re-acquisition of shares by company
 dividend: distribution of profits to shareholders
 - monthly
 - quarterly (usa)
@@ -53,6 +52,8 @@ dividend: distribution of profits to shareholders
 option: derivative, right to buy or sell shares at predetermined price until some date
 - call: right to buy shares
 - put: right to sell shares
+buyback: re-acquisition of shares by company, increases existing ownership percentage
+dilution: issuance of new shares, decreases existing ownership percentage
 
 #fund
 hedge fund: use leverage, short selling, derivatives, not for retail investors
@@ -142,6 +143,10 @@ PEG ratio: P/E divided by EPS growth
 Market cap: total value of company shares
 EV (enterprise value): market value, shareholders + creditors
 Book value: value based on balance sheet, assets minus liabilities
+Profic margin: percentage of profit to revenue
+- Gross margin: revenue minus cost of goods sold to revenue, only direct expenses (material, labor)
+- Operating margin: operating profit to revenue, considers all expenses (rent, insurance)
+- Net margin: net profit to revenue, considers all cashflows (debt, taxes)
 
 #currencies
 Dinar: Iraq (IQD), Lybia (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denarius]
@@ -265,3 +270,9 @@ Goodwill: intangible asset, premium paid on assets
 Impairment: downward revaluation of assets
 Subsidiary: daughter company owned by parent company
 Holding company: owns other companies, forms corporate group
+Takeover: purchase of public company by another
+- Friendly: approved by management
+- Hostile: rejected by management
+Shareholder rights plan (poison pill): protection against takeover
+- triggered if one shareholder buys certain percentage of shares
+- issuing new shares / right to purchase shares at discount / vesting employee stock options

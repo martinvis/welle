@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Strokes</title>
+	<style>
+		canvas {
+			border: 1px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="trajectoryCanvas" width="500" height="500"></canvas>
+
+	<script>
+		const canvas = document.getElementById('trajectoryCanvas');
+		const ctx = canvas.getContext('2d');
+		let isDrawing = false;
+		let trajectory = [];
+		let segments = [];
+
+		const directionChangeThreshold = 20;
+		const ratioChangeThreshold = 0.2;
+
+		canvas.addEventListener('mousedown', (e) => {
+			isDrawing = true;
+			trajectory = [];
+			//ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.strokeStyle = 'black';
+			ctx.lineWidth = 1;
+
+			const mouseX = e.clientX - canvas.getBoundingClientRect().left;
+			const mouseY = e.clientY - canvas.getBoundingClientRect().top;
+			trajectory.push({ x: mouseX, y: mouseY });
+		});
+
+		canvas.addEventListener('mousemove', (e) => {
+			if (isDrawing) {
+				const mouseX = e.clientX - canvas.getBoundingClientRect().left;
+				const mouseY = e.clientY - canvas.getBoundingClientRect().top;
+				trajectory.push({ x: mouseX, y: mouseY });
+				drawLine(trajectory[trajectory.length-2], trajectory[trajectory.length-1]);
+			}
+		});
+
+		canvas.addEventListener('mouseup', () => {
+			isDrawing = false;
+			analyzeTrajectory();
+			drawSegments();
+		});
+
+		function drawLine(from, to) {
+			//ctx.clearRect(0, 0, canvas.width, canvas.height);
+			ctx.beginPath();
+			ctx.moveTo(from.x, from.y);
+			ctx.lineTo(to.x, to.y);
+			ctx.stroke();
+			ctx.closePath();
+		}
+
+		function analyzeTrajectory() {
+			segments = [];
+			let currentSegment = [trajectory[0]];
+			let averageAngle = 0.0;
+
+			for (let i = 1; i < trajectory.length; i++) {
+				if (currentSegment.length == 1) {
+						currentSegment.push(trajectory[i]);
+					continue;
+				} else {
+					if (currentSegment.length == 3) {
+						averageAngle = calculateAngle(currentSegment[0], currentSegment[1], currentSegment[2]);
+					} else if (currentSegment.length > 3) {
+						latestAngle = calculateAngle(currentSegment[currentSegment.length-3], currentSegment[currentSegment.length-2], currentSegment[currentSegment.length-1]);
+						averageAngle = (averageAngle * (currentSegment.length - 3) + latestAngle) / (currentSegment.length - 2);
+					}
+
+					sameLine = true;
+					if (currentSegment.length >= 3) {
+						newAngle = calculateAngle(currentSegment[currentSegment.length-2], currentSegment[currentSegment.length-1], trajectory[i]);
+						sameLine = Math.abs(newAngle - averageAngle) < 2*Math.PI/8;
+					}
+
+					if (sameLine) {
+						currentSegment.push(trajectory[i]);
+					} else {
+						lastPoint = currentSegment[currentSegment.length-1];
+						segments.push(currentSegment);
+						currentSegment = [lastPoint];
+						currentSegment.push(trajectory[i]);
+					}
+				}
+			}
+
+			segments.push(currentSegment);
+		}
+
+		function drawSegments() {
+			//ctx.clearRect(0, 0, canvas.width, canvas.height);
+			let color = '#000';
+			red = 0;
+			green = 0;
+			blue = 0;
+			ctx.lineWidth = 3;
+
+			for (const segment of segments) {
+				ctx.beginPath();
+				ctx.moveTo(segment[0].x, segment[0].y);
+
+				for (let i = 1; i < segment.length; i++) {
+					ctx.lineTo(segment[i].x, segment[i].y);
+				}
+
+				if (isLine(segment)) {
+					color = '#A00';
+				} else {
+					color = '#0AA';
+				}
+				blue = Math.floor(Math.random() * 16).toString(16);
+				red = Math.floor(Math.random() * 16).toString(16);
+				green = Math.floor(Math.random() * 16).toString(16);
+
+				ctx.strokeStyle = color;
+				ctx.stroke();
+				ctx.closePath();
+			}
+		}
+
+	function compareSize(x, scale) {
+		let result = 1;
+
+		while (x <= scale / 2) {
+		    x *= 2;
+		    result++;
+		}
+
+		return result;
+	}
+
+	function calculateSize(points) {
+		if (points.length === 0) {
+		    return 0;
+		}
+
+		let minX = points[0].x;
+		let maxX = points[0].x;
+		let minY = points[0].y;
+		let maxY = points[0].y;
+
+		for (const point of points) {
+		    minX = Math.min(minX, point.x);
+		    maxX = Math.max(maxX, point.x);
+		    minY = Math.min(minY, point.y);
+		    maxY = Math.max(maxY, point.y);
+		}
+
+		const distanceX = maxX - minX;
+		const distanceY = maxY - minY;
+
+		return Math.sqrt(distanceX*distanceX + distanceY*distanceY);
+	}
+
+	function isLine(points) {
+		let straight = distanceBetweenPoints(points[0], points[points.length-1]);
+		let real = sum(calculateDistances(points));
+		return straight / real > 0.95;
+	}
+
+	function average(list) {
+		return sum(list) / list.length;
+	}
+
+	function sum(list) {
+		return list.reduce((a, b) => a + b, 0);
+	}
+
+	function calculateDistances(points) {
+		let distances = [];
+		if (points.length < 2) return distances;
+
+		for (let i = 0; i < points.length-1; i++) {
+			distances.push(distanceBetweenPoints(points[i], points[i+1]));
+		}
+
+		return distances;
+	}
+
+	function calculateAngles(points) {
+		let angles = [];
+		if (points.length < 3) return angles;
+
+		for (let i = 0; i < points.length-2; i++) {
+			angles.push(calculateAngle(points[i], points[i+1], points[i+2]));
+		}
+
+		return angles;
+	}
+
+	function getDirection(points) {
+	}
+
+	function distanceToLine(point, lineStart, lineEnd) {
+		diffX = lineStart.x - lineEnd.x;
+		diffY = lineStart.y - lineEnd.y;
+		const numerator = Math.abs(diffY * point.x - diffX * point.y + lineStart.x * lineEnd.y - lineStart.y * lineEnd.x);
+		const denominator = Math.sqrt(Math.pow(diffY, 2) + Math.pow(diffX, 2));
+		
+		return numerator / denominator;
+	}
+
+	function distanceBetweenPoints(point1, point2) {
+		const dx = point2.x - point1.x;
+		const dy = point2.y - point1.y;
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+
+	function calculateAngle(p1, p2, p3) {
+		const angle1 = Math.atan2(p1.y - p2.y, p1.x - p2.x);
+		const angle2 = Math.atan2(p3.y - p2.y, p3.x - p2.x);
+		let angle = Math.abs(angle1 - angle2);
+
+		if (angle > 2 * Math.PI) {
+			angle = 2 * Math.PI - angle;
+		}
+
+		return angle;
+	}
+
+	</script>
+</body>
+</html>
+

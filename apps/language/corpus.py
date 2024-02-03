@@ -5,10 +5,12 @@ import os
 import sys
 import glob
 
+skip_prefix = '/__'
+
 def parseDictionary(folder):
   words = []
   for file_name in set(glob.glob(folder + '**/**', recursive=True)):
-    if os.path.isdir(file_name) or '/_' in file_name:
+    if os.path.isdir(file_name) or skip_prefix in file_name:
       continue
     file = open(file_name, "r")
     words.extend(parseFile(file))
