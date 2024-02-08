@@ -121,6 +121,11 @@ cash flow statement: changes in balance sheet over period (operations view)
 income statement: profit and loss over period (earnings view)
 statement of equity: changes in equity over period (financial health view)
 
+#cashflow activities
+operating: related to net income (revenues/expenses), interest on debt
+investing: related to property and investments
+financing: dividends, stock sale/repurchase, principal on debt
+
 license: permission to use something
 franchising: business expansion via licenses
 trademark: intellectual property identification
@@ -147,6 +152,8 @@ Profic margin: percentage of profit to revenue
 - Gross margin: revenue minus cost of goods sold to revenue, only direct expenses (material, labor)
 - Operating margin: operating profit to revenue, considers all expenses (rent, insurance)
 - Net margin: net profit to revenue, considers all cashflows (debt, taxes)
+Gain: positive change in asset price
+Loss: negative change in asset price
 
 #currencies
 Dinar: Iraq (IQD), Lybia (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denarius]
@@ -240,6 +247,7 @@ Property tax: on property
 
 Shell corporation: vehicle for business transactions without assets or operations
 - can be used for anonymity, tax avoidance, money laundering
+- can hold intellectual property
 Escrow: contract where 3rd party receives and disburses assets on conditions agreed by transacting parties
 - used in real estate transactions or internet auctions
 
@@ -276,3 +284,26 @@ Takeover: purchase of public company by another
 Shareholder rights plan (poison pill): protection against takeover
 - triggered if one shareholder buys certain percentage of shares
 - issuing new shares / right to purchase shares at discount / vesting employee stock options
+Vesting: gaining ownership after agreed period of time
+
+#Monetary policy: targets price stability and employment, interest rate as main tool
+Zero interest-rate policy (ZIRP): monetary policy with very low interest rate
+
+#Business
+Economies of scale: decrease in cost per unit with increase of production
+Inventory: stock of goods for sale and materials for production
+Stakeholder: everyone affected by company (lender, investor, vendor, employee, customer)
+Economic moat: competitive advantage (network effect, IP, monopoly)
+Barrier to entry: cost to enter market
+
+#Economy
+Demand shock
+Supply shock
+Inflation: increase in price of goods and services
+Deflation: decrease in price of goods and services
+Bubble: asset prices greatly exceeding intristic value, usually due to excess liquidity
+Business cycle: intervals of expansion and recession
+- Expansion: increase of economic activity
+- Recession: decrease of economic activity
+Consumer price index (CPI): weighted basket of goods and services used to track price changes
+Gross domestic product (GDP): market value of all produced goods and services

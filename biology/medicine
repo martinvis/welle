@@ -73,6 +73,8 @@ Endoscopy: examines interior of body
 - Gastroscopy: stomach
 - Enteroscopy: small intestine
 Intensive care unit (ICU): life threatening cases
+Defibrillation: delivers electric shock to heart, treats arrhytmia
+Palliative care: improving quality of life for patients with serious illnesses (pain relief)
 
 #allergies
 Alpha-gal syndrome: red meat allergy after tick bite, reaction to carbohydrate
@@ -151,9 +153,6 @@ Urolithiasis (kidney stone): mineral crystal formed in kidney, can block ureter
 
 Urinary incontinence: uncontrolled urine leakage
 
-Sepsis: blood poisoning, caused by microorganisms, high risk of death
-- symptoms: fever, increased heart rate
-
 #congitive disorder
 Agnosia: inability to process sensory information
 - Anosognosia: unawareness of disability
@@ -211,17 +210,30 @@ Muscular dystrophy: breakdown of skeletal muscles, caused by mutation in dystrop
 - Duchenne MD: X-linked recessive, mostly young males
 - Becker MD: X-linked recessive, less severe than Duchenne
 
+#Circulatory system
+Raynaud syndrome: reduced blood flow in fingers, white color, triggered by cold or stress
+--
 Infarction: necrosis due to insufficient blood supply
 Myocardial infarction (heart attack): infarction of heart muscle
 - symptom: chest pain
 Stroke (Cerebral infarction): brain cell death due to blood flow lack
 - symptoms: inability to move one side of body, problem speaking or understanding
 - risks: high blood pressure, smoking
-Hemothorax: blood accumulation in pleural cavity
+--
 Thrombus: blood clot
 - Thrombosis: blood clot in blood vessel
 Embolus: clot travelling in blood stream, can block blood flow
 - Embolism: blockage caused by clot or fat globule
+--
+Gangrene: tissue death due to lack of blood supply, red or black color, usually feet and hands
+- risks: diabetes, smoking
+Sepsis: blood poisoning, caused by microorganisms, high risk of death
+- symptoms: fever, increased heart rate
+Hemothorax: blood accumulation in pleural cavity
+
+Lesion: damage in tissue
+
+Decubitus / Pressure ulcer: damage to skin over bone due to shear and long-term pressure
 
 #Liver
 Cirrhosis: formation of scar tissue due to damage, usually develops slowly

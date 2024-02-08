@@ -23,7 +23,7 @@
 		const directionChangeThreshold = 20;
 		const ratioChangeThreshold = 0.2;
 
-		canvas.addEventListener('mousedown', (e) => {
+		function startStroke(e) {
 			isDrawing = true;
 			trajectory = [];
 			//ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -33,22 +33,29 @@
 			const mouseX = e.clientX - canvas.getBoundingClientRect().left;
 			const mouseY = e.clientY - canvas.getBoundingClientRect().top;
 			trajectory.push({ x: mouseX, y: mouseY });
-		});
-
-		canvas.addEventListener('mousemove', (e) => {
+		}
+		function continueStroke(e) {
 			if (isDrawing) {
 				const mouseX = e.clientX - canvas.getBoundingClientRect().left;
 				const mouseY = e.clientY - canvas.getBoundingClientRect().top;
 				trajectory.push({ x: mouseX, y: mouseY });
 				drawLine(trajectory[trajectory.length-2], trajectory[trajectory.length-1]);
 			}
-		});
-
-		canvas.addEventListener('mouseup', () => {
+		}
+		function endStroke(e) {
 			isDrawing = false;
 			analyzeTrajectory();
 			drawSegments();
-		});
+		}
+
+		canvas.addEventListener('mousedown', (e) => {startStroke(e)});
+		canvas.addEventListener('touchstart', (e) => {startStroke(e)});
+
+		canvas.addEventListener('mousemove', (e) => {continueStroke(e)});
+		canvas.addEventListener('touchmove', (e) => {continueStroke(e)});
+
+		canvas.addEventListener('mouseup', (e) => {endStroke(e)});
+		canvas.addEventListener('touchend', (e) => {endStroke(e)});
 
 		function drawLine(from, to) {
 			//ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -97,14 +104,32 @@
 		}
 
 		function drawSegments() {
-			//ctx.clearRect(0, 0, canvas.width, canvas.height);
 			let color = '#000';
 			red = 0;
 			green = 0;
 			blue = 0;
-			ctx.lineWidth = 3;
+
+			let totalLength = 0;
+			let maxLength = 0;
 
 			for (const segment of segments) {
+				segmentLength = sum(calculateDistances(segment));
+				maxLength = Math.max(maxLength, segmentLength);
+				totalLength += segmentLength;
+			}
+
+			if (totalLength > 3*canvas.width) {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				return;
+			}
+
+			for (const segment of segments) {
+				length = sum(calculateDistances(segment));
+				if (compareSize(length, maxLength) > 3) {
+					continue;
+				}
+
+				ctx.lineWidth = 3;
 				ctx.beginPath();
 				ctx.moveTo(segment[0].x, segment[0].y);
 
@@ -124,10 +149,18 @@
 				ctx.strokeStyle = color;
 				ctx.stroke();
 				ctx.closePath();
+
+				ctx.fillStyle = '#0A0';
+				ctx.fillRect(segment[0].x-2,segment[0].y-2,5,5);
+				averagePoint = calculateAveragePoint(segment);
+				ctx.fillRect(averagePoint.x-2,averagePoint.y-2,5,5);
 			}
+
 		}
 
 	function compareSize(x, scale) {
+		if (x == 0) return 0;
+
 		let result = 1;
 
 		while (x <= scale / 2) {
@@ -200,6 +233,26 @@
 	function getDirection(points) {
 	}
 
+	function calculateAveragePoint(points) {
+	  if (points.length === 0) {
+		return null;
+	  }
+
+	  let sumX = 0;
+	  let sumY = 0;
+
+	  for (let i = 0; i < points.length; i++) {
+		sumX += points[i].x;
+		sumY += points[i].y;
+	  }
+
+	  const averageX = sumX / points.length;
+	  const averageY = sumY / points.length;
+
+	  const averagePoint = { x: averageX, y: averageY };
+	  return averagePoint;
+	}
+
 	function distanceToLine(point, lineStart, lineEnd) {
 		diffX = lineStart.x - lineEnd.x;
 		diffY = lineStart.y - lineEnd.y;
@@ -227,6 +280,18 @@
 		return angle;
 	}
 
+	function angle(firstPoint, secondPoint) {
+	  const deltaX = secondPoint.x - firstPoint.x;
+	  const deltaY = secondPoint.y - firstPoint.y;
+
+	  const angle = Math.atan2(deltaY, deltaX);
+
+		if (angle > 2 * Math.PI) {
+			angle = 2 * Math.PI - angle;
+		}
+
+	  return angle;
+	}
 	</script>
 </body>
 </html>

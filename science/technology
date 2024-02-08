@@ -178,3 +178,7 @@ Turbofan: turbojet with ducted fan, part of air bypasses engine, in aircraft, mo
 Rocket: without air, propellant is within rocket, in space
 
 Tunnel boring machine (TBM): tunnel excavation, usually circular, diameter 1-15m
+
+Pad printing: transfers 2D image on 3D object via silicone pad
+
+Actuator: converts input signal to mechanical energy, produces controlled movement

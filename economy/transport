@@ -84,6 +84,7 @@ Pickup: cargo bed without roof
 
 #rail
 track gauge: distance between two rails
+driverless: mostly only some metro lines
 
 #gauge
 historically different within a single countries 
