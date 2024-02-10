@@ -1,0 +1,9 @@
+#task
+Confirmation: yes/no
+Decision: select option
+Preparation: data/list/table
+
+#action-reaction / wave
+Crime in El Salvador: very high -> crackdown, incarceration -> low
+Economic bubble: high asset prices -> crash -> low asset prices
+Tsunami: water drawback -> high wave

@@ -1,0 +1,15 @@
+Avatar: user profile as picture
+Breadcrumbs: page location within hierarchy
+Button
+Calendar: date picker
+Carousel: content with slider animation
+Icon
+Accordion: list of items with show/hide option
+Modal window: dialog prompt, requires action
+Pagination: first / last / previous / next page
+Progressbar: progress feedback
+Toast: temporary small feedback popup
+Tooltip: hint when hovering over
+Toggle: two state setting
+Feed: display user activity
+Loader

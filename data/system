@@ -1,0 +1,33 @@
+#Dewey Decimal Classification (DDC): books in library by subject
+000: computer science, information
+100: philosophy
+- 150: psychology
+- 160: logic
+- 170: ethics
+200: religion
+300: social science
+- 320: political science
+- 330: economics
+- 340: law
+- 370: education
+400: language
+500: science
+- 510: mathematics
+- 520: astronomy
+- 530: physics
+- 540: chemistry
+- 550: geology
+- 560: paleontology
+- 570: biology
+- 580: botany
+- 590: zoology
+600: technology
+- 610: medicine
+- 620: engineering
+- 630: agriculture
+700: arts
+- 720: architecture
+- 750: painting
+- 780: music
+800: literature
+900: history

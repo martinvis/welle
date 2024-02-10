@@ -49,10 +49,10 @@
 		}
 
 		canvas.addEventListener('mousedown', (e) => {startStroke(e)});
-		canvas.addEventListener('touchstart', (e) => {startStroke(e)});
+		canvas.addEventListener('touchstart', (e) => {startStroke(e.touches[0])});
 
 		canvas.addEventListener('mousemove', (e) => {continueStroke(e)});
-		canvas.addEventListener('touchmove', (e) => {continueStroke(e)});
+		canvas.addEventListener('touchmove', (e) => {continueStroke(e.touches[0])});
 
 		canvas.addEventListener('mouseup', (e) => {endStroke(e)});
 		canvas.addEventListener('touchend', (e) => {endStroke(e)});
