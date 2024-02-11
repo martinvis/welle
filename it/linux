@@ -1,0 +1,164 @@
+#general
+alias new="command"
+date: current date and time
+uptime: time since startup
+man command: manual
+sudo: run as root
+shutdown (time): power off
+top: process viewer
+echo "text": print text
+ps: list processes
+- a: all users
+- u: cpu/memory
+- x: all processes
+kill ID: stop process
+history: latest commands
+which command: full path to command
+less: view file, space to go forward, 'w' to go backward
+tail (-n X) file: print last lines
+head (-n X) file: print first lines
+wc file: number of lines and words
+uname -a: OS information
+sort
+diff
+useradd
+userdel
+df: disk space usage
+-h: human readable
+du: directory space usage
+-h: human readable
+ln
+
+#access rights
+chmod permissions file: configure access rights
+. +access: add
+. -access: remove
+. =access: set
+. a: all
+. u: user
+. g: group
+. o: others
+. -R: recursive
+chown user files: set owner
+-R: recursive
+chgrp group files: set group
+-R: recursive
+
+#permissions
+7: rwx
+6: rw
+5: rx
+4: r
+0: nothing
+
+#filesystem
+pwd: print working directory
+cd name: change directory
+ls (name): list files
+-a: all
+-R: recursive
+-l: details
+-t: sort by last update
+-S: sort by size
+mkdir name: create directory
+rmdir name: remove directory
+-r: recursive
+cp old new: copy file/directory
+-r: recursive
+find name: search files
+-name pattern
+-iname pattern: case insensitive
+-type f/d: file or directory
+-exec command {} \;
+-execdir command {} \;
+=
+cat file: print file
+mv old new: rename file
+rm file: remove file
+touch file: create file
+
+#text
+grep pattern files: find in files
+-r: recursive
+-i: case insensitive
+-w: whole word
+-x: whole line
+-n: line number
+-B number: lines before
+-A number: lines after
+-v: inverse (not matching)
+sed command file: text editor
+'s/find/replace/': match can be referenced as '&'
+'s/find/replace/i': case insensitive
+'s/find/replace/g': replace all
+'y/find/replace/': replace letter by letter (tr)
+'1,2 s/find/replace/: range of lines, last line can be referenced as '$'
+'pattern/p': print matching lines
+'pattern/d': delete matching lines
+'pattern/!d': inverse (not matching)
+'pattern/a text': append after matching lines
+'pattern/i text': insert before matching lines
+'pattern/c text': change matching lines
+tr find replace: transform characters
+tr -d characters: delete characters
+
+=awk (-F separator) commands input: line-based processing, columns by separator
+'{print}': default
+'/pattern/ {print}': lines matching regex
+'{print $1}': first column
+'length($0) > X': line/column length
+'{print $1 FS $2}': field separator (-F)
+'{print $0 RS}': line separator
+'{print NF}': number of columns
+'NR>1': current line number
+'variable = value'
+'if (condition) {action} else {action}'
+'for (initialization; condition; increment) {action}'
+'while (condition) {action}'
+'do {action} while (condition)'
+'break'
+'continue'
+'substr(string, start, length)'
+'tolower(string)'
+'toupper(string)'
+'gsub(pattern, replace, string)': replace all
+'index(string, needle)': position of needle
+'split(string, output, pattern)'
+'strtonum(string)'
+
+#network
+dig: DNS records
+- domain-name (record-type)
+ip: configuration
+- ip address: interface IP addresses
+- ip route: routing table
+ss: list open sockets
+host: DNS lookup
+whois: domain info
+ping: test if host is reachable
+- domain-name/ip-address
+traceroute: routing
+- domain-name/ip-address
+mtr: ping + traceroute
+tcpdump: capture packets
+- host domain-name
+- port XYZ
+- -X: print content hex
+- -A: print content ASCII
+- -w output-file
+wget URL: download file
+-O file-name
+-P folder
+-b: run in backgroundk
+curl: network request
+-o file-name
+-T FTP-upload-file
+-X HTTP-method
+-H HTTP-header
+-d POST-data
+=
+ifconfig: similar to ip address
+route: similar to ip route
+nslookup: similar to dig
+netstat: similar to ss
+tracepath: similar to traceroute

@@ -54,3 +54,18 @@ clear
 #package management
 npm
 yarn
+
+#events
+Event
+- type: event name
+- target: element that fired
+- currentTarget: element with handler
+- preventDefault(): ignore default action
+- stopPropagation()
+TouchEvent
+- touches: touch points
+- targetTouches
+Touch
+- clientX, clientY
+- screenX, screenY
+- target: start element

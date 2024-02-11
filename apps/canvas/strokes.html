@@ -49,13 +49,13 @@
 		}
 
 		canvas.addEventListener('mousedown', (e) => {startStroke(e)});
-		canvas.addEventListener('touchstart', (e) => {startStroke(e.touches[0])});
+		canvas.addEventListener('touchstart', (e) => {e.preventDefault();startStroke(e.touches[0])});
 
 		canvas.addEventListener('mousemove', (e) => {continueStroke(e)});
-		canvas.addEventListener('touchmove', (e) => {continueStroke(e.touches[0])});
+		canvas.addEventListener('touchmove', (e) => {e.preventDefault();continueStroke(e.touches[0])});
 
 		canvas.addEventListener('mouseup', (e) => {endStroke(e)});
-		canvas.addEventListener('touchend', (e) => {endStroke(e)});
+		canvas.addEventListener('touchend', (e) => {e.preventDefault();endStroke(e)});
 
 		function drawLine(from, to) {
 			//ctx.clearRect(0, 0, canvas.width, canvas.height);

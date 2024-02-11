@@ -1,0 +1,55 @@
+#Domain Name System (DNS)
+translate domain name to IP address
+domain names are hierarchical tree structure (subsubdomain.subdomain.domain)
+
+#Top Level Domain (TLD): highest level in hierarchy
+cc: two letter ISO country code
+com: commercial (most popular)
+edu: university
+gov: government
+mil: military
+net: general
+org: organization
+eu: EU
+info: general
+shop: commercial
+
+#record
+origin time-to-live record-class record-type record-data
+- time to live in seconds
+- record class is usually "IN"
+- comment after character ";"
+- domain name wildcard with character "*"
+- domain name by default uses / extends previous definition
+
+#record types
+A: IPV4 address
+AAAA: IPV6 address
+CAA: certificate authority
+CNAME: domain name alias
+DNAME: domain name alias (including subdomains)
+MX: SMTP mail server + priority (0=highest)
+NS: name server
+PTR: reverse lookup (IP to domain name)
+SOA: start of authority, mandatory, info about server
+
+#CAA record
+example.com.  IN  CAA 0 issue "ca.example.com"
+- issue
+- issuewild: only subdomains
+
+#SOA record
+$ORIGIN example.org.
+$TTL 86400
+@   IN  SOA     ns.example.org. (
+        2010123101  ;serial number
+        86400       ;refresh
+        7200        ;retry (on error)
+        3600000     ;expire (caching)
+        172800      ;negative caching
+)
+
+#example
+www    IN CNAME  temp.com.
+*      IN A      192.0.0.1
+smtp   IN MX     10 mail.com.
