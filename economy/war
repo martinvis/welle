@@ -240,6 +240,12 @@ HIMARS: USA, 6 GMLRS / 1 ATACMS missiles
 #UAV: unmanned aerial vehicle / drone
 Reaper: USA, high-altitude, reconnaissance
 Bayraktar: Turkey, reconnaissance
+Black Hornet Nano: Norway, reconnaissance, ~10cm
+
+#Suicide drone
+Shahed 131/136: Iran
+Switchblade: USA
+ZALA Lancet: Russia
 
 #SPAAG: self-propelled anti-aircraft gun
 Gepard: Germany
@@ -251,21 +257,33 @@ Bell Cobra: USA
 Bell Viper: USA
 Kamov Ka-50/52: Russia
 Mil Mi-24/28: Russia
+Eurocopter Tiger
 
 #Utility helicopter: multi-purpose
 Sikorsky Black Hawk: USA
-Mil Mi-8/17: Russia
+Airbus H125/H135
 
-#Fighter aircraft: air-to-air combat
+#Transport helicopter
+Mil Mi-8/17: Russia
+Mil Mi-26: Russia
+Boeing CH-47: USA, tandem rotor
+Sikorsky CH-53: USA
+Eurocopter Caracal
+
+#Aircraft: air-to-air combat
+interceptor: defensive role (speed)
+fighter: air superiority (maneuverability, weapons)
+bomber: ground targets
 Second generation:
 - Mikoyan MiG-21: USSR
 Third generation:
 - Mikoyan MiG-23/27: USSR
-- Sukhoi Su-24: USSR
+- Sukhoi Su-24: USSR: bomber
 Fourth generation:
-- Mikoyan MiG-29: USSR
-- Sukhoi Su-27/30/34: USSR
-- Mikoyan MiG-25/31: USSR
+- Mikoyan MiG-29: USSR: fighter
+- Sukhoi Su-27/30/35: USSR, fighter
+- Sukhoi Su-34: bomber
+- Mikoyan MiG-25/31: USSR: interceptor
 - McDonnell Douglas F-15: USA
 - General Dynamics F-16: USA
 - Saab Gripen: Sweden

@@ -1,0 +1,11 @@
+#character encoding
+ASCII: 128 code points, 95 printable
+Unicode: international
+- UTF-8: 8b units, variable length, ASCII compatible
+- UTF-16: 16b units, variable length
+- UTF-32: 32b units, fixed length
+ISO 8859
+- 8859-1: english, spanish, french, german, italian
+- 8859-2: polish, czech, slovak, hungarian, croatian
+JIS: japanese
+Big5: traditional chinese
