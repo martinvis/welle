@@ -3,6 +3,10 @@ charter: leasing of vessel
 logictics: supply chain process
 terminal: designated area for (un)loading cargo
 
+Tare weight: weight of empty vehicle
+Net weight: weight of goods
+Gross weight: vehicle with goods
+
 #transport: uses most of oil production
 shipping/freight transport: transport of commodities and goods
 passenger: transport of people, private or public
@@ -107,6 +111,12 @@ chokepoints: narrow passage
 - Gibraltar strait
 - Danish straits
 - English channel
+sea routes
+- Shanghai/Rotterdam (Suez): 20 000 km
+- Shanghai/Rotterdam (Cape): 26 000 km
+- Shanghai/New York (Panama): 20 000 km
+- Shanghai/New York (Suez): 23 000 km
+- Shanghai/Los Angeles: 10 000 km
 
 #vessels
 tanker: oil transport
@@ -121,12 +131,14 @@ lanes in meter (LIM): capacity in 2m wide strips of deck
 
 #container
 reefer: refrigerated container (food, pharmaceuticals)
-TEU: capacity of 20*8*8 ft
+TEU: capacity of 20*8*8 ft (tare mass ~2t, max gross mass 20-30t)
 FEU: capacity of 40*8*8 ft
 worldwide shipping ~1G TEU
+Drewry: world container index (rates)
 
 #container ship
 worldwide capacity ~25M TEU
+speed 30-45 km/h
 categories
 - Feeder: max 3k TEU
 - Panamax: max 5k TEU

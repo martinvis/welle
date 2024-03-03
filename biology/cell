@@ -53,7 +53,7 @@ Melanosome: in animals, pigment storage
 
 #Cells: 30T in adult body
 erythrocytes: 85%
-placelets/thrombocytes: 5%
+platelets/thrombocytes: 5%
 bone marrow: 2.5%
 vascular endothelium: 2%
 lymphocytes: 1.5%
@@ -72,6 +72,40 @@ Goblet cell: secrete mucin
 
 #Gastrointestinal tract
 Microfold cell (M cell): selective endocytosis of antigens, transport to macrophages and lymphocytes
+
+#Nervous system
+=Neuron: electrically excitable, communicate in network via synapses, pass signal by neurotransmitters
+- Dendrites: multiple short projections, input
+- Axon: single long projection, output
+- Synapse: connection between dendrite and axon of two neurons
+Sensory: respond to stimuli from receptors
+Motor: control muscles and glands
+Interneurons: communication between sensory and motor neurons, central nervous system
+=Glia: non-neuron cells
+Oligodendrocyte: central nervous system, axon insulation as myelin sheath (multiple)
+Astrocyte: central nervous system, star shaped, provide nutritients
+Microglia: central nervous system, active immune defense
+Ependymal call: central nervous system, produces cerebrospinal fluid
+Satellite cell: peripheral nervous system, protective
+Schwann cell: peripheral nervous system, support neurons
+- myelinating: axon insulation as myelin sheath (single)
+- nonmyelinating
+
+#Circulatory system
+Erythrocyte: red blood cell, oxygen transport
+Thrombocytes/Platelet: no nucleus, stop bleeding by making blood clot
+
+#Integumentary system
+Keratinocyte: epidermis barrier
+Melanocyte: UV radiation protection
+Langerhans cell: resident macrophage
+Merkel cell: touch sensation
+=Epidermis layers
+1- Stratum basale: Basal cells
+2- Stratum spinosum: Spinous cells
+3- Stratum granulosum: Granular cells
+4- Stratum lucidum: palms and soles only
+5- Stratum corneum: Corneocytes, dead tissue
 
 Autocrine signaling
 Paracrine signaling

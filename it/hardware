@@ -5,7 +5,8 @@ Control flow:
 Integrated circuit: microchip, interconnected electronic components
 Capacitor: stores electrical energy, accumulates charges on two surfaces with insulator in between
 Diode: conducts current in one direction, converts AD to DC
-Transformer: 
+Transformer: transfers electrical energy between circuits, two coils wrapped around magnetic core
+- use: electricity transmission at high voltage
 
 #Resistor: reduces flow of electric current
 Color code: 2 digits + multiplier + tolerance, gives ohm value

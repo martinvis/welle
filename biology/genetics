@@ -1,3 +1,6 @@
+Horizontal gene transfer: between organisms (bacteria)
+Bateson-Dobzhansky–Muller model: speciation by incompatibility of two distinct mutation
+
 #Cnidaria
 life cycle with sessile polyp and motile medusa
 Strobilation: polyp splits horizontally into juvenile medusas
@@ -8,6 +11,11 @@ Gene/Cistron: region of DNA encoding function
 - Intron: part of gene removed by slicing
 Allele: variation of nucleotides at same position
 Locus: chromosomal position of gene
+Transgene: gene transferred between organisms
+Phenotype: observable characteristics of organism
+Polymorphism: multiple alternative phenotypes in population
+Mutation: alteration of genome, caused by copying error or damage
+Lactase persistence: mutation allowing lactose digestion in adulthood, lactase enzyme activity (mainly Europeans)
 
 #Gene expression
 Transcription: DNA copied to mRNA
@@ -181,12 +189,15 @@ Perforin (PRF1), cytolytic protein in granules of cytotoxic lymphocytes
 #Proteins
 
 Melatonin, controls sleep-wake cycle, synthesized from serotonin
-Cortisol, increased in stress, increases blood sugar, suppresses immune system, reduces bone formation
 Serotonin, neurotransmitter, derives from tryptophan
+- role in learning, memory, mood, aging
 Niacin = Vitamin B3, synthesized from tryptophan via Kynurenine
 
-Norepinephrine = Noradrenaline, precursor is phenylalanine, increases alertness and heart rate / blood pressure
-Epinephrine = Adrenaline, precursor is phenylalanine, increases blood flow to muscles and blood sugar level
+#Stress hormones
+Cortisol, increased in stress, increases respiration and blood sugar, suppresses immune system, reduces bone formation
+Norepinephrine/Noradrenaline, precursor is phenylalanine, increases alertness and heart rate / blood pressure
+Epinephrine/Adrenaline, precursor is phenylalanine, increases blood flow to muscles and blood sugar level
+
 Melanin, precursor is tyrosine, pigment, protection against UV radiation
 Dopamine (DA), precursor is phenylalanine, neurotransmitter, part of reward system, dysfunction causes Parkinson's disease
 

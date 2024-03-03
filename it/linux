@@ -75,6 +75,7 @@ find name: search files
 cat file: print file
 mv old new: rename file
 rm file: remove file
+shred file: securely delete file
 touch file: create file
 
 #text

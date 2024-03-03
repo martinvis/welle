@@ -167,7 +167,15 @@ intersection of satellite signal spheres determines position of receiver
 satellites broadcast their location and time
 satellites use atomic clocks to keep synchronized time
 
-#Jet engine: generates thrust by jet propulsion
+#Internal combustion engine (ICE): combustion of fuel with oxidizer (usually air)
+- power supply for vehicles
+- ignition by spark or compression
+Combustion chamber: burns fuel/air mixture
+Piston engine: reciprocating pistons create rotating motion
+Wankel engine: triangular rotor creates rotating motion, smaller and cheaper
+Jet engine: generates thrust by jet propulsion, more powerful
+
+=Jet engine
 Jet propulsion: movement by ejecting jet of fluid in opposite direction (cephalopods, jellyfish)
 Airbreathing: takes in atmospheric air, compresses and heats it, exhaustion through nozzle
 Pulsejet: combustion in pulses, minimum moving parts
@@ -193,3 +201,14 @@ Punched tape: paper strip with small holes, 5 or 8 holes wide
 Floppy disk: thin magnetic storage in square plastic enclosure, 1.4 MB
 Compact disc (CD): optical storage, polycarbonate plastic with thin aluminium layer, bumps read by laser, 700 MB
 Digital video disc DVD: more compact CD, 4.7 GB
+
+HVAC (Heating ventilation air conditioning): control indoor air temperature and humidity
+
+#Automobile
+Safety
+- Crumple zone: cotrolled deformation, increase time to reduce collision force
+- Seat belt: prevent sudden movement during collision
+- Airbag: cushion inflated at collision
+- ABS (Anti-lock braking system): improve steering control
+Snow tires: increase traction on snow
+- Snow chains: increase traction on snow

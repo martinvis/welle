@@ -1,4 +1,5 @@
 #Symptoms
+Catatonia: immobility and withdrawal
 Anemia: low number of red blood cells
 Arthritis: joints inflammation
 Jaundice: yellowish skin pigmentation, caused by high bilirubin level
@@ -8,6 +9,7 @@ Vomiting: stomach content expulsion through mouth or nose
 Bloating: excess buildup of gas in stomach
 Dysphagia: difficulty to swallow
 Dyspnea: difficulty to breathe
+Aphasia: inability to comprehend or to formulate language
 Tinnitus: ringing in ears
 Amnesia: memory deficit
 Pruritus: itching, desire to scratch
@@ -19,6 +21,7 @@ Alopecia: loss of hair
 Edema: swelling, caused by buildup of fluid
 Nystagmus: involuntary eye movement
 Malaise: feeling of general discomfort
+Tympany: excess gas in digestive tract
 Arrhythmia: irregularity in heartbeat
 - Bradycardia: decreased heart rate (under 60 beats), normal during sleep
 - Tachycardia: increased heart rate (over 100 beats), normal during exercise
@@ -46,9 +49,10 @@ Anamnese: investigation of patient's medical history
 Magnetic resonance imaging (MRI): uses strong magnetic fields
 - better contrast in soft tissues (brain)
 - in long tube, without implants and metal objects
+Functional magnetic resonance imaging (fMRI): measures brain activity based on blood flow changes
 Computed tomography scan (CT): uses rotating X-ray tube
 Positron emission tomography (PET): uses radioactive substances
-- imaging of tumors, radiotracer FDG (fluorodeoxyglucose)
+- imaging of tumors, radiotracer FDG (fluorodeoxyglucose) or oxygen (blood flow)
 Ultrasound scan (sonography): uses sound waves, soft tissues
 Blood test: blood from vein
 - arterial blood gas (BGA): O2 and CO2
@@ -76,6 +80,13 @@ Endoscopy: examines interior of body
 Intensive care unit (ICU): life threatening cases
 Defibrillation: delivers electric shock to heart, treats arrhytmia
 Palliative care: improving quality of life for patients with serious illnesses (pain relief)
+Artificial cardiac pacemaker: implanted, generates electrical pulses to maintain heart rate
+Electroconvulsive therapy: mental disorders, electrically induced seizure
+
+#Reproduction
+IVF (In vitro fertilisation): assisted reproduction
+Sterilization: permanent birth control
+- Vasectomy: male sterilization by cut spermatic cord
 
 #allergies
 Alpha-gal syndrome: red meat allergy after tick bite, reaction to carbohydrate
@@ -239,3 +250,6 @@ Decubitus / Pressure ulcer: damage to skin over bone due to shear and long-term 
 #Liver
 Cirrhosis: formation of scar tissue due to damage, usually develops slowly
 - symptoms: swelling in legs, buildup of fluid in abdomen, jaundice, varices
+
+Hirschsprung's disease: birth defect, missing nerves in parts of intestine
+- symptoms: constipation, vomiting, diarrhea

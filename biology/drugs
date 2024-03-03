@@ -207,10 +207,23 @@ Atorvastatin: prevent cardiovascular diseases
 Simvastatin: prevent cardiovascular diseases
 Fentanyl: analgesic
 Diclofenac: anti-inflammatory
-Venlafaxine: antidepressant
 Levothyroxine: synthetic thyroid hormone
-Sertraline: antidepressant
-Trazodone: antidepressant
+
+#Antipsychotic
+Chlorpromazine: schyzophrenia
+
+#Antidepressant
+Selective serotonin reuptake inhibitor (SSRI)
+- Fluoxetine (Prozac)
+- Citalopram
+- Fluvoxamine
+- Paroxetine
+- Sertraline
+Serotonin–norepinephrine reuptake inhibitor (SNRI)
+- Duloxetine
+- Venlafaxine
+Serotonin antagonist and reuptake inhibitor (SARI)
+- Trazodone
 
 #ACE inhibitor: lower high blood pressure
 Benazepril
@@ -248,6 +261,7 @@ H2 blocker: block histamine receptors in stomach
 
 #Antihistamine
 Cetirizine
+Promethazine
 
 #Antiasthmatic
 Epinephrine/adrenaline: anaphylaxis, cardiac arrest

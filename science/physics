@@ -440,6 +440,11 @@ Aristotle's wheel paradox: all points of wheel travel same distance during wheel
 - points travel same distance only horizontally but not vertically
 - points follow cycloid path, center travels 2πR (circumference) and all other points more
 
+Block-stacking problem (Leaning tower of Lyre): overhang of blocks over edge
+- maximum is sum(1/2i) for i stacked blocks, diverges to infinity
+
+Birthday paradox: probability of same birthday between people, 50% for 23, 99.9% for 70
+
 Newton's cradle: set of swinging spheres, show conservation of energy and momentum
 
 #optics

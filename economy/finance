@@ -36,6 +36,8 @@ derivatives: contract with value depending on underlying asset
 ETF (exchange traded fund): traded on stock exchange, most are index funds
 futures: contract to buy or sell at predetermined price and date
 stock: 
+publicly traded company:
+IPO (initial public offering): company transformed from privat to public, shares sold to investors
 
 #stock
 common: vote rights, dividend
@@ -295,6 +297,12 @@ Inventory: stock of goods for sale and materials for production
 Stakeholder: everyone affected by company (lender, investor, vendor, employee, customer)
 Economic moat: competitive advantage (network effect, IP, monopoly)
 Barrier to entry: cost to enter market
+Investor
+- institutional
+- individual (retail)
+Asset
+- tangible: physical
+- intangible: non-physical
 
 #Economy
 Demand shock

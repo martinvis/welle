@@ -52,7 +52,7 @@ removeItem(key)
 clear
 
 #package management
-npm
+npm: node.js default
 yarn
 
 #events

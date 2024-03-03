@@ -15,11 +15,31 @@ renewables
 20% of energy consumption
 source: 30% renewables (15% hydro), 10% nuclear, 25% natural gas, 35% coal
 losses: 50% generation, 5% delivery
+globally: 30 PWh
+distribution grid voltage: 5-30 kV
+home voltage:
+- USA: 120 V, 60Hz
+- China: 220 V, 50Hz
+- Europe: 230 V, 50Hz
+plug and socket: connect device
+- Type A/B: North America, 2 vertical flat pins
+- Type C/E: Europe, 2 round pins in line
+- Type D: India, 2 smaller and 1 larger round pins
+- Type F: C compatible, Schuko
+- Type G: UK, 3 rectangular pins
+- Type H: Israel
+- Type I: Australia, 2 rotated and 1 vertical flat pins
+- Type J: C compatible, Switzerland, 3 round pins
+- Type K: C compatible, Denmark
+- Type L: C compatible, Italy, 3 round pins in line
+- Type M: Commonwealth
+- Type N: Brazil, 3 round pins
 
 #oil
 50% on road transport
 
 #wind turbine
+wind globally: almost 1TW (2 PWh)
 onshore
 - tower height: ~100m
 - rotor radius: 40-60m

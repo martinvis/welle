@@ -276,22 +276,30 @@ fighter: air superiority (maneuverability, weapons)
 bomber: ground targets
 Second generation:
 - Mikoyan MiG-21: USSR
+- Dassault Mirage III: France, interceptor, single-engine
+- Dassault Mirage 5: France, fighter, single-engine
 Third generation:
 - Mikoyan MiG-23/27: USSR
 - Sukhoi Su-24: USSR: bomber
+- Dassault Mirage F1: France, interceptor, single-engine
 Fourth generation:
 - Mikoyan MiG-29: USSR: fighter
 - Sukhoi Su-27/30/35: USSR, fighter
 - Sukhoi Su-34: bomber
 - Mikoyan MiG-25/31: USSR: interceptor
-- McDonnell Douglas F-15: USA
-- General Dynamics F-16: USA
-- Saab Gripen: Sweden
-- Eurofighter Typhoon: Europe
+- Dassault Mirage 2000: France, fighter, single-engine
+- Dassault Rafale: France, fighter, twin-engine
+- McDonnell Douglas F-15: USA, fighter, twin-engine
+- General Dynamics F-16: USA, fighter, single-engine
+- Saab Gripen: Sweden, fighter, single-engine
+- Eurofighter Typhoon: Europe, fighter, twin-engine
+- T-50/FA-50: South Korea
+- Chengdu J-10: China, single-engine
 Fifth generation:
 - Sukhoi Su-57: Russia, stealth, twin-engine
 - Lockheed Martin F-22: USA, stealth, twin-engine
 - Lockheed Martin F-35: USA, stealth, single-engine
+- Chengdu J-20: China, stealth, twin-engine
 
 #Electronic warfare: EM spectrum
 Krasukha: Russia
