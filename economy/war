@@ -30,6 +30,16 @@ Europe
 - Spangdahlem, Germany
 - Incirlik, Turkey
 - Lakenheath, UK
+=Naval
+Norfolk, Virginia
+Mayport, Jacksonville
+New London, Connecticut, submarine
+China Lake, California
+San Diego, California
+Pearl Harbor, Hawaii
+Kitsap, Washington
+Corpus Christi, Texas, air station
+Pensacola, Florida, air station
 
 #Russia
 GRU: military intelligence agency, Armed Forces
@@ -129,11 +139,19 @@ Machine gun: fully automatic, sustained direct fire
 Cannon: flat trajectory
 Mortar: high-arc trajectory
 Howitzer: between cannon and mortar
+- Msta: USSR, self-propelled
+- Koalitsiya: Russia, self-propelled
+- CAESAR: France, self-propelled
+- K9 Thunder: South Korea, self-propelled
+- Zuzana: Slovakia, self-propelled
+- Krab: Poland, self-propelled
+- M109: USA, self-propelled
 
 #Directed-energy weapon (DEW): focused energy (laser, microwave), against missiles and drones
 
 #Explosives
 Bomb: explosive weapon, usually airdropped
+- Glide bomb: can be release at distance from target
 Grenade: hand-thrown explosive weapon
 Cluster munition: bomb ejecting explosive bomblets
 Mine: concealed, detonated by pressure
@@ -173,6 +191,7 @@ Kornet, Russia
 #MANPADS: man-portable surface-to-air missiles
 - threat to low flying aircraft
 Stinger, USA
+Starstreak, UK
 Mistral, France
 Igla, USSR
 Verba, Russia
@@ -241,6 +260,8 @@ HIMARS: USA, 6 GMLRS / 1 ATACMS missiles
 Reaper: USA, high-altitude, reconnaissance
 Bayraktar: Turkey, reconnaissance
 Black Hornet Nano: Norway, reconnaissance, ~10cm
+#USV: unmanned surface vehicle / drone boat
+MAGURA: Ukraine
 
 #Suicide drone
 Shahed 131/136: Iran
@@ -269,6 +290,10 @@ Mil Mi-26: Russia
 Boeing CH-47: USA, tandem rotor
 Sikorsky CH-53: USA
 Eurocopter Caracal
+
+#Airlifter: transport plane
+Antonov An-12: USSR
+Ilyushin Il-76: USSR
 
 #Aircraft: air-to-air combat
 interceptor: defensive role (speed)

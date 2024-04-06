@@ -5,7 +5,7 @@ line chart: change over time / trend (e.g. stock price)
 treemap: hierarchical data as nested rectangles (e.g. stock market) 
 candlestick chart: start/end and range (e.g. stock price movement)
 progress bar: percentage, single item
-Gantt chart: task schedule (e.g. project plan)
+Gantt chart: task schedule with dependencies (e.g. project plan)
 timeline: events within period
 
 #Table: rows and columns

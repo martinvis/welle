@@ -53,3 +53,9 @@ constructor: creating new object
 serialization: converting object to string
 comparison: checking if two objects are equal
 
+#parallel computing
+Deadlock: all processes waiting on each other
+
+#optimization
+Amdahl's law: performance improvement is limited by fraction of time used by improved part
+- optimize only long-running parts

@@ -53,7 +53,8 @@ output: ~1 GW
 thermal reactors: with neutron moderator
 - PWR (pressurized-water): water coolant, most common
 - BWR (boiling-water): water coolant
-- AGR (gas-cooled): graphite moderator, CO2 coolant
+- GCR (gas-cooled): graphite moderator, CO2 coolant
+- Water-cooled: graphite moderator, water coolant
 fast reactors: without neutron moderator
 - SFR (sodium-cooled fast): liquid sodium coolant, experimental
 - GFR (gas-cooled fast): He coolant, in development
@@ -66,7 +67,139 @@ Thorium based: in development
 - more abundant less weaponizable material
 - more efficient, less waste
 
+#nuclear power station
+complete phase-out in Austria, Italy and Germany
+planned phase-out in Belgium and Switzerland
+France: 70%, PWR
+- English Channel: Gravelines (5.5 GW) + Paluel (5.5 GW) + Penly + Flamanville
+- Moselle River: Cattenom (5 GW)
+- Rhône River: Tricastin + Cruas + Saint-Alban + Bugey
+- Loire River: Belleville + Dampierre + Chinon
+- Seine River: Nogent
+- Garonne River: Golfech
+Slovakia: 60%, PWR
+- Mochovce
+- Bohunice
+Ukraine: 50%, PWR
+- Dnieper River: Zaporizhzhia (6 GW)
+- Rivne
+Belarus: 50%, PWR
+- Ostrovets
+Czechia: 40%, PWR
+- Temelín
+- Dukovany
+Hungary: 40%, PWR
+- Paks: Danube
+Slovenia: 40%, PWR
+- Krško
+Finland: 35%, BWR + PWR, coastline
+- Olkiluoto
+Sweden: 30%, BWR + PWR, coastline
+- Forsmark
+- Oskarshamn
+- Ringhals
+Bulgaria: 30%, PWR
+- Kozloduy
+South Korea: 30%, PWR, coastline
+- Kori (8 GW)
+- Hanul (8 GW)
+Spain: 20%, PWR
+- Tagus River: Almaraz
+Russia: 20%
+- PWR: Novovoronezh + Leningrad + Kalinin + Balakovo
+- RBMK: Kursk + Smolensk
+USA: 20%, BWR + PWR
+- Arizona: Palo Verde
+- Georgia: Vogtle
+- Alabama: Browns Ferry
+Canada: 15%, PHWR
+- Lake Huron: Bruce (6.5 GW)
+- Lake Ontario: Darlington + Pickering
+UK: 10%, coastline
+- Heysham + Torness: GCR
+- Sizewell: PWR
+Japan: 10% (+ suspended 20%), coastline
+- Kashiwazaki-Kariwa: BWR, 8 GW, suspended
+- Takahama: PWR
+Taiwan: 10%
+- Maanshan: PWR
+China: 5%, PWR, coastline
+- Tianwan: 6 GW
+- Fuqing: 6 GW
+- Hongyanhe: 6 GW
+- Yangjiang: 6 GW
+- Fangchenggang
+- Haiyang
+- Ling Ao
+- Ningde
+- Qinshan
+India: Kudankulam (PWR)
+Brazil: Angra (PWR)
+Mexico: Laguna Verde (BWR)
+
 #solar panel
 efficiency ~20%
 power output ~0.5 kW
 area ~2 m^2, 72 silicon cells
+
+#dam
+China
+- Three Gorges Dam: Yangtze River, 22 GW, gravity dam
+- Baihetan Dam: Jinsha River, 16 GW
+- Xiluodu Dam: Jinsha River, 14 GW, arch dam
+- Wudongde Dam: Jinsha River, 10 GW
+- Jinping-I Dam: arch dam
+South America
+- Itaipu Dam: Brazil/Paraguay, Paraná River, 14 GW
+- Belo Monte Dam: Brazil, Xingu River, 11 GW
+- Guri Dam: Venezuela, 10 GW, gravity/embankment dam
+- Tucuruí Dam: Brazil, Tocantins River, 8 GW, gravity dam
+- Ilha Solteira Dam: Brazil, Paraná River, embankment dam
+- Yacyretá Dam: Argentina/Paraguay, Paraná River
+- Salto Grande Dam: Argentina/Uruguay, Uruguay River
+North America
+- Grand Coulee Dam: USA, Columbia River, Roosevelt Lake, gravity dam
+- Daniel-Johnson Dam: Canada, Lake Manicouagan (impact crater), buttress dam
+- Hoover Dam: USA, Colorado River, Lake Mead, arch-gravity dam
+Russia
+- Sayano-Shushenskaya Dam: Yenisey River, arch-gravity dam
+- Krasnoyarsk Dam: Yenisey River
+- Bratsk Dam: Angara River
+- Ust Ilimskaya: Angara River
+- Chirkey Dam: arch dam
+India
+- Tarbela Dam: Pakistan, Indus River, embankment dam
+- Tehri Dam: India, embankment dam
+- Koyna Dam: India
+- Srisailam Dam: India, Krishna
+Asia
+- Atatürk Dam: Turkey, Euphrates
+- Karakaya Dam: Turkey, Euphrates
+- Keban Dam: Turkey, Euphrates
+- Deriner Dam: Turkey, arch dam
+- Nurek Dam: Tajikistan, embankment dam
+Africa
+- Kariba Dam: Zambia/Zimbabwe, Zambezi River, arch dam
+- Cahora Bassa Dam: Mozambique, Zambezi River
+- Akosombo Dam: Ghana, Volta River, embankment dam
+- Kainji Dam: Nigeria, Niger River
+- Aswan Dam: Egypt, Nile, Lake Nasser, embankment dam
+- Merowe Dam: Sudan, Nile
+- Grand Ethiopian Renaissance Dam: under construction
+- Inga Dams: DRC, Congo River
+EU
+- Almendra Dam: Spain, arch dam
+- Alqueva Dam: Portugal, arch dam
+- Grand'Maison Dam: France, embankment dam
+- Entracque Dam: Italy, pumped storage
+- Kölnbrein Dam: Austria, arch dam
+- Solina Dam: Poland, pumped storage
+- Iron Gate Dams: Romania/Serbia, Danube
+- Gabčíkovo Dam: Slovakia, Danube
+- Kremenchuk Dam: Ukraine, Dnieper River
+- Dnipro Dam: Ukraine, Dnieper River
+- Mauvoisin Dam: Switzerland, arch dam
+- Grande Dixence Dam: Switzerland, pumped storage
+- Contra / Verzasca Dam: Switzerland, arch dam
+- Enguri Dam: Georgia, arch dam
+

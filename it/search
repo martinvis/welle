@@ -1,5 +1,7 @@
-#Sorted array: O(log n)
-Binary search: comparing with middle element
+#Search
+Unsorted array: O(n)
+Sorted array: O(log n)
+- Binary search: comparing with middle element
 
 #Sorting array: O(n*log n)
 Heapsort: repeated selecting of largest element from heap, not stable
@@ -13,6 +15,7 @@ Comb sort: bubble sort with big initial gap, gradually shrinking gap to 1, not s
 Cycle sort: finding index for item, moving it and finding index for replaced item, not stable
 Insert sort: sorting one item at time
 Selection sort: repeated finding of largest element
+Comparison counting: counting number of smaller elements, fault-tolerant
 
 #Sorting array
 Bucket sort: distributing into buckets, sorting buckets

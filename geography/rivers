@@ -1,0 +1,382 @@
+#Eurasia => Atlantic ocean
+=Seine
+Marne
+=Loire
+Central Massif
+Bay of Biscay
+=Garonne
+Pyrenees
+Dordogne River
+- Central Massif
+Bay of Biscay
+=Douro
+=Nazaré Canyon
+=Tagus / Tejo
+=Guadiana
+=Guadalquivir
+
+#Eurasia => North sea
+=Elbe
+Sudeten Mountains
+Vltava
+- Bohemian Forest
+=Weser
+Werra
+- Thuringian Forest
+Fulda
+=Ems
+=Rhine/Waal
+Alps
+Lake Constance
+Aar
+- Lake Neuchâtel
+- Lake Lucerne
+- Lake Zug
+- Lake Zurich
+Neckar
+Main
+Moselle
+Ruhr
+=Meuse/Maas
+Ardennes
+
+#Eurasia => Baltic sea
+=Neva River
+Svir River
+- Lake Onega
+Volkhov River
+- Lake Ilmen
+Lake Ladoga
+Gulf of Finland
+=Narva River
+Velikaya River
+Lake Peipus
+Gulf of Finland
+=Western Dvina / Daugava
+Gulf of Riga
+=Neman / Memel
+Neris
+=Vistula / Wisła
+Carpathian Mountains
+Bug River
+=Oder / Odra
+Sudeten Mountains
+Warta River
+
+#Eurasia => Mediterranean sea
+=Ebro
+Pyrenees
+=Rhône
+Lake Geneva
+Saône
+=Tiber
+Apennine Mountains
+=Po
+Alps
+Lake Maggiore
+Lake Lugano
+Lake Como
+Lake Garda
+Adriatic Sea
+=Adige / Etsch
+Alps
+Adriatic Sea
+
+#Eurasia => Black Sea
+=Kuban
+Caucasus Mountains
+Sea of Azov
+=Don
+Donets
+Sea of Azov
+=Dnieper
+Pripyat River
+Desna River
+Psel River
+Southern Bug
+Black Sea
+=Dniester
+Black Sea
+=Danube / Donau / Dunaj
+Alps
+Isar
+Inn
+Morava
+- Sudeten Mountains
+Váh
+- Carpathian Mountains
+Lake Balaton
+Drava
+Tisza
+- Carpathian Mountains
+Sava
+Great Morava
+Siret
+- Carpathian Mountains
+Prut
+- Carpathian Mountains
+Black Sea
+
+#Caspian sea
+=Ural
+Ural Mountains
+Caspian Sea
+=Volga
+Oka
+Kama
+Caspian Sea
+=Kuma
+Caucasus Mountains
+Caspian Sea
+=Terek
+Caucasus Mountains
+Caspian Sea
+
+#Africa
+=Nile
+Blue Nile
+- Lake Tana
+- Ethiopian Highlands
+White Nile
+- Lake Victoria
+- Lake Edward
+- Lake Albert
+Mediterranean Sea
+=Senegal
+Atlantic Ocean
+- Dakar Canyon
+=Volta
+Gulf of Guinea
+=Niger
+Gulf of Guinea
+=Sanaga River
+Gulf of Guinea
+=Congo
+Lake Tanganyika
+Atlantic Ocean
+- Congo Canyon
+=Orange River
+Atlantic Ocean
+=Limpopo
+Indian Ocean
+=Zambezi
+Victoria Falls
+Shire River
+- Lake Malawi
+Indian Ocean
+
+#Africa
+=Okavango River
+Kalahari Desert
+
+#Eurasia
+=Euphrates + Tigris
+Armenian Highlands
+Persian Gulf
+
+#Eurasia
+=Syr Darya
+Tian Shan
+Aral Sea
+=Amu Darya
+Pamir
+Aral Sea
+=Ili River
+Tianshan Mountains
+Lake Balkhash
+=Karakul (impact crater)
+Pamir Mountains
+=Issyk-Kul
+Tianshan Mountains
+=Qinghai Lake
+Kunlun Mountains
+
+#Eurasia
+=Indus
+Himalayas / Karakoram / Hindu Kush
+Arabic sea
+- Indus canyon
+=Krishna
+Bay of Bengal
+=Godavari
+Bay of Bengal
+=Ganges
+Himalayas
+Brahmaputra
+Bay of Bengal
+- Ganges canyon
+=Irrawaddy
+Tibetan Plateau
+Andaman Sea
+=Salween
+Tibetan Plateau
+Andaman Sea
+=Mekong
+Tibetan Plateau
+South China Sea
+=Pearl River
+South China Sea
+=Yangtze
+Tibetan Plateau
+Jinsha River
+Poyang Lake
+Chao Lake
+Hongze Lake
+- Gaoyou Lake
+Lake Tai
+East China Sea
+=Yellow River / Huang He
+Kunlun Mountains
+Yellow Sea
+=Amur
+Hulun Lake
+Lake Khanka / Xingkai
+Sea of Okhotsk
+
+#Eurasia => Arctic Ocean
+=Kolyma River
+East Siberian Sea
+=Lena River
+Aldan River
+Vilyuy River
+Laptev Sea
+=Olenyok River
+Laptev Sea
+=Yenisey River
+Angara River
+- Lake Baikal
+Kara Sea
+=Taz River
+Pur River
+Kara Sea
+=Ob River
+Irtysh River
+Kara Sea
+=Pechora
+Usa
+Barents Sea
+=Mezen
+Vashka
+White Sea
+=Northern Dvina
+Sukhona River
+White Sea
+=Onega River
+Lake Vozhe
+Lake Lacha
+White Sea
+
+#North America => Pacific Ocean
+=Yukon River
+Tanana River
+Bering Sea
+=Skeena River
+Babine Lake
+Pacific Ocean
+=Fraser River
+Rocky Mountains
+Stuart Lake
+Pacific Ocean
+=Columbia River
+Rocky Mountains
+Snake River
+Pacific Ocean
+=Sacramento River
+San Joaquin River
+- Yosemite Falls
+Pacific Ocean
+=Colorado River
+Green River
+Gulf of California
+
+#North America => Atlantic Ocean
+=Rio Grande
+Gulf of Mexico
+=Mississippi
+Missouri
+Ohio
+Arkansas
+Red River
+Gulf of Mexico
+=Roanoke River
+Atlantic Ocean
+=Potomac River
+Atlantic Ocean
+=St. Lawrence River
+Lake Nipigon
+Lake Superior
+Lake Michigan
+Lake Huron
+Lake Erie
+Niagara Falls
+Lake Ontario
+Atlantic Ocean
+
+#North America => Arctic Ocean
+=Nelson River
+Saskatchewan River
+Cedar Lake
+Lake Winnipegosis
+Lake Manitoba
+Lake Winnipeg
+Hudson Bay
+=Churchill River
+Wollaston Lake
+Reindeer Lake
+Hudson Bay
+=Mackenzie River
+Williston Lake
+Peace River
+Athabasca River
+Lake Athabasca
+Slave River
+Great Slave Lake
+Great Bear Lake
+Beaufort Sea
+
+#North America
+=Great Salt Lake
+=Pyramid Lake
+Tahoe Lake
+=Crater Lake
+
+#South America => Atlantic Ocean
+=Paraná River
+Brazilian Highlands
+Iguazu Falls
+Paraguay River
+Uruguay River
+=São Francisco River
+Brazilian Highlands
+=Tocantins River
+Brazilian Highlands
+Araguaia River
+=Amazon
+Andes
+Marañón + Ucayali
+Putumayo River
+Japurá River
+Purus River
+Rio Negro
+Madeira
+Tapajós
+Xingu River
+=Orinoco
+Andes
+Guiana Highlands
+- Angel Falls
+
+#South America
+=Lake Poopó
+Lake Titicaca
+
+#Australia
+=Swan River
+Indian Ocean
+- Perth Canyon
+=Murray River
+Australian Alps
+Murrumbidgee River
+Lachlan River
+Darling River
+Southern Ocean

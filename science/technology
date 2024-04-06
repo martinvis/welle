@@ -212,3 +212,72 @@ Safety
 - ABS (Anti-lock braking system): improve steering control
 Snow tires: increase traction on snow
 - Snow chains: increase traction on snow
+
+#Architecture
+Falsework: temporary structures during construction
+
+#Bridge
+Beam: horizontal, carry vertical load
+Pier: upright support
+Span: distance between two supports
+Viaduct: series of arches or piers
+Tower
+- Single vertical
+- Double vertical: parallel or inclined (A shape)
+- Portal: parallel, connected tops
+- H shape: portal with double parallel on top
+- inverted Y: double inclided with single on top
+=Beam bridge
+- support only by piers
+- span 5-50m
+=Truss bridge
+- Truss: connected beams forming triangles
+- strong and light
+- span 10-200m
+Continuous truss bridge
+- extends three or more supports
+- load distributed across all supports
+=Arch bridge
+- transfer part of load horizontally
+- Basket handle arch: two inclined ribs
+- span 50-450m
+Tied-arch bridge
+- arch and deck tied vertically
+- eliminated horizontal forces
+- can be prefabricated and moved
+Through-arch bridge
+- base below and top above deck
+=Cantilever bridge
+- Cantilever: projected horizontally, supported only on one end, beam or truss
+- span 100-450m
+=Cable-stayed bridge
+- tower and deck tied directly
+- Harp design: parallel cables
+- Fan design: all cables connect to top
+- span 150-700m
+=Suspension bridge
+- suspension cable runs between towers
+- suspension cable tied vertically to deck
+- allow long spans
+- risk of vibrations in high wind
+- not suitable for concentrated load (rail traffic)
+- span 300-2000m
+
+#Dam: provides energy, prevents floods
+- Reservoir: water held by dam
+Embankment dam:
+- mass of soil or rock particles
+- usable also on soft soil
+- overflow causes erosion damage
+Gravity dam:
+- concrete, independent stable sections
+- require rock foundations
+Barrage dam:
+- concrete, line of gates between piers
+- needs less material than gravity dam
+Buttress dam
+- concrete, series of vertical supports
+Arch dam: 
+- concrete, thin and curved
+- suitable for narrow gorges
+

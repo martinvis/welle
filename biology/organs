@@ -201,6 +201,7 @@ Broca's area: region in left frontal lobe, speech
 Brodmann area: cerebral cortex region, cognitive and behavioural functions
 Left part: linguistic, analytical
 Right part: intuitive, emotional, visual
+Piriform cortex: smell
 
 #Visual system: sight
 Cornea: transparent front layer, covers iris
@@ -220,6 +221,7 @@ Vitreous humor: transparent gel, between lens and retina
 Photoreceptive cells: light sensitive neurons in retina
 - Rods: outer edge, peripheral vision, can function in lower light
 - Cones: in center, color vision, need bright light, three types (570nm, 540nm, 430nm)
+Purkinje effect: eye shift to blue at low illumination, red becomes darker
 
 #Auditory system: hearing
 Outer ear
@@ -233,6 +235,10 @@ Middle ear: three small bones (ossicles), transmit and amplify vibrations
 Inner ear: bony labyrinth
 - Semicircular canals: three interconnected canals with fluid, motion sensors
 - Cochlea: hollow spiral with fluid, converts motion to neuron signals
+
+#Olfactory system: smell
+Olfactory neurons: have cilia with receptors binding odors
+Olfactory receptor: odor detection, G-protein coupled receptors
 
 #Circulatory / cardiovascular system
 Dextrocardia: heart on right side

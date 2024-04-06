@@ -1,2 +1,49 @@
 Hamming distance: number of positions with different characters between two words
 Levenshtein distance: minimum number of single-character edits between two words (delete/replace/insert)
+
+Dynamic programming
+Bellman equation
+
+#Optimal stopping: choose time to take action
+Secretary problem: select best applicant, immediate decision to accept/reject, distribution unknown
+- cutoff rule (37%): first look and do not accept (1/e time), then accept first so-far-best applicant
+- ignores cost of time
+- ignores delayed decision
+- ignores rejection by applicant
+Known distribution: cutoff is not needed, we can accept immediatelly (no looking phase)
+- threshold rule: accept applicant over threshold, threshold decreases in time
+Time discounting: unlimited offers, same offer later has additional cost
+Burglar problem: retire or continue after robbery, risk of failure
+
+#Explore-exploit tradeoff: best option vs new option, optimal lifetime strategy
+- discounted future reward
+- ignores cost of switching
+Upper confidence bound: choose highest possible reward
+Multi-armed bandit: multiple choices, unknown success rate, maximize reward
+Gittins index: switch to highest expected reward, recalculate after result
+A/B tests
+
+#Cache: small fast data storage
+Hit: data found in cache
+Miss: data not found in cache
+Eviction policy
+- FIFO: replaced old data, problem - removes still useful data
+- LFU (least frequently used): problem - keeps no longer useful data
+- LRU (least recently used): replaces unused data, common
+
+#Scheduling: jobs with processing time, priority (weight) and deadline
+Priority inversion: high priority job blocked by low priority job
+- Priority inheritance: blocking job inherits priority of blocked job
+Context switch: cost of switching between jobs
+- Thrashing: performance collapse when context switching takes most of time
+Variants
+- Single-machine scheduling
+- Identical-machines scheduling
+Algorithms
+- Earliest deadline first (EDF): minimize maximum lateness
+- Earliest due date (EDD): same as EDF
+- Moore-Hodgson algorithm: minimize number of late tasks, EDD + skipping longest past due tasks
+- minimize weighted completion time is NP-complete with more machines (Knapsack problem)
+- Shortest job next: minimize waiting + processing time
+- First come, first served (FCFS): job queue
+- Round-robin: fixed time per job, cycle jobs

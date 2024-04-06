@@ -1,59 +1,139 @@
-#Mediterranean sea (Strait of Gibraltar)
-- Cyprus
-- Crete
-- Djerba
-- Malta
-Tyrrhenian sea
-- Sicily + Aeolian/Lipari islands
-- Sardinia
-- Corsica
-- Elba
+#Eurasian plate
+Ural Mountains
+=North European Plain
+- Jutland Peninsula
+=Central European Uplands
+- Central Massif
+- Morvan Massif
+- Ardennes Forest
+- Rhine Massif
+- Vosges Massif
+- Black Forest
+- Thuringian Forest
+- Harz
+- Bohemian Forest / Šumava
+- Ore Mountains / Krušné hory
+- Sudeten Mountains
+=Baltic Shield
+Scandinavian Peninsula
+- Scandinavian Mountains
+- Vänern + Vättern Lake
+Ladoga + Onega Lake
+White Sea
+- Kola Peninsula
+- Kanin Peninsula
+- Solovetsky Islands
+=Iberian plate
+Iberian Peninsula
+- Cantabrian Mountains: northwest (Naranjo de Bulnes)
+- Pyrenees: northeast
+- Baetic Mountains: south
 Balearic islands
 - Mallorca
 - Menorca
 - Ibiza
-Aegean sea
-- Euboea
-- Lesbos
-- Chios
-- Lemnos
-- Samos
-- Thasos
-Dodecanese
-- Rhodos
-- Karpathos
-Cyclades
-- Naxos
-- Andros
-Ionian islands
-- Kefalonia
-- Corfu (Kerkyra)
-- Zakynthos
-- Lefkas
-Adriatic sea
+- Formentera
+- Balearic Sea
+=Tyrrhenian Basin
+Tyrrhenian sea
+Sicily 
+- Etna volcano
+Sardinia
+Corsica
+Elba
+Aeolian islands: north of Sicily, volcanic
+- Stromboli: volcano
+- Salina
+- Lipari
+- Vulcano
+=Pannonian Basin
+Carpathian Mountains
+- Tatra Mountains: western part (Gerlachovský štít + Lomnický štít + Rysy + Kriváň)
+- Transylvanian Alps: southern part (Moldoveanu Peak + Negoiu Peak)
+Lake Balaton
+Lake Neusiedl
+=Adriatic Plate
+Apennine Mountains: west
+- Corno Grande
+- Mount Vesuvius: volcano
+- Mount Vulture: volcano
+Alps: north
+--Western
+- Pennine Alps (Matterhorn)
+- Graian Alps (Mont Blanc)
+--Northern Limestone
+- Wetterstein mountains (Zugspitze)
+--Central
+- Hohe Tauern (Grossglockner)
+--Southern Limestone
+- Dolomites (Marmolada)
+- Julian Alps (Triglav)
+--
+- Lake Garda
+- Lake Como
+- Lake Geneva
+- Lake Zurich
+- Lake Constance / Bodensee
+Dinaric Alps: east
+Adriatic sea: shallow
 - Cres
 - Krk
 - Brač
 - Hvar
 - Pag
 - Korčula
+Istrian peninsula
+- Gulf of Trieste
+Gargano peninsula
+- Gulf of Manfredonia
+Salento peninsula
+- Gulf of Taranto
+=Iranian plate
+Iranian Plateau
+Caucasus Mountains: northwest
+- Elbrus: volcano
+Alborz Mountains: north
+- Damavand: volcano
+- Sabalan: volcano
+Hindu Kush: northeast
+- Terich Mir
+=Siberian Craton
+Lake Baikal
+Lena Plateau
+East Siberian Mountains
+- Verkhoyansk Range
+- Chersky Range
+- Kolyma Mountains
+South Siberian Mountains
+- Altai Mountains
+- Sayan Mountains
+=Tarim Basin
+Tian Shan: north
+- Issyk-Kul lake
+Kunlun Mountains: south
+Pamir Mountains: west
+=Tibetan Plateau
+Hengduan Mountains
+- Mount Gongga
+=Mediterranean sea
 Marmara Sea (Bosporus + Dardanelles)
-Black Sea + Sea of Azov
-
-#Atlantic ocean
-Baltic sea
+Black Sea: shallow north, deep south
+- Crimea
+- Sea of Azov (Kerch Strait): shallow
+=Atlantic ocean
+Baltic sea: shallow
 - Gulf of Bothnia
-- Gotland
-- Öland
+- Gulf of Finland
+- Gulf of Riga
+- Gotland + Öland
 - Åland islands
-- Saaremaa
-- Hiiumaa
+- Saaremaa + Hiiumaa
 Danish straits (Kattegat, Skagerrak)
 - North Jutlandic Island
 - Zealand
 - Lolland
 - Funen
-North sea
+North sea: shallow
 - Great Britain
 - Ireland
 - Shetland islands
@@ -62,69 +142,261 @@ North sea
 - Isle of Man
 - Channel Islands (Guernsey + Jersey)
 - Strait of Dover (English Channel)
+- Celtic sea
+Bay of Biscay
 Norwegian sea
-- Greenland
 - Denmark Strait
-- Iceland
 - Faroe islands
-East / Macaronesia
-- Azores
-- Canaries: Tenerife + Fuerteventura + Gran Canaria + Lanzarote + La Palma
-- Cape Verde
-- Madeira
-Gulf of Guinea
-- Bioko
-- São Tomé
-- Príncipe
-South
+=Okhotsk plate
+Kamchatka Peninsula
+- Klyuchevskoi: volcano
+- Kronotsky: volcano
+- Koryaksky: volcano
+Sea of Okhotsk: shallow
+- Kuril islands [Pacific plate]
+- Sakhalin Island (Strait of Tartary)
+=Amur plate
+Sea of Japan
+- Honshu (Fuji volcano)
+- Hokkaido
+- Kyushu (Sakurajima volcano)
+- Shikoku
+- Tsushima Island (Tsushima Strait + Korea Strait)
+Manchuria
+Korea Peninsula
+=Pacific Ocean
+Yellow Sea: shallow
+- Jeju Island
+East China Sea
+- Taiwan (Formosa)
+- Pescadores (Penghu)
+South China sea
+- Hainan
+
+#Eurasian / African
+Atlas Mountains
+Mediterranean sea
+- Strait of Gibraltar
+- Mediterranean Ridge
+- Crete
+
+=Aegean plate
+Peloponnese peninsula
+- Gulf of Corinth: north
+- Saronic Gulf + Saronic Islands: east
+- Argolic Gulf: east
+- Kythira Island: south
+Chalkidiki peninsula
+- Kassandra Peninsula
+- Sithonia Peninsula
+- Athos Peninsula (Mount Athos)
+Aegean sea
+- Euboea
+- Sporades archipelago (Skyros + Skiathos + Skopelos + Alonnisos)
+- Thasos
+- Lemnos
+- Lesbos
+- Chios
+- Samos
+Dodecanese
+- Rhodos
+- Karpathos
+Cyclades
+- Naxos
+- Andros
+Ionian sea
+- Kefalonia
+- Corfu (Kerkyra)
+- Zakynthos
+- Lefkas
+Sea of Crete
+Balkan Mountains
+Rhodope Mountains
+Pindus Mountains
+=Anatolian plate
+Pontic Mountains: north
+Taurus Mountains: south
+Cyprus
+
+#European / North American
+Mid-Atlantic Ridge
+- Iceland
+
+#South American / African
+Mid-Atlantic Ridge
 - Ascension Island
-- Saint Helena
-- Tristan da Cunha
-Davis Strait
-Hudson Strait + Hudson Bay
+
+#North American Plate
+=Great Basin
+Rocky Mountains
+Sierra Nevada
+Cascade Range
+- Mount Baker: volcano
+- Mount Rainier: volcano
+- Mount Adams: volcano
+- Mount St. Helens: volcano
+- Mount Hood: volcano
+- Mount Jefferson: volcano
+- Mount Shasta: volcano
+=Mexican Plateau
+Sierra Madre Occidental
+- Colima Volcano
+Sierra Madre Oriental
+- Citlaltépetl Volcano
+Popocatépetl + Iztaccihuatl Volcano
+Malinche Volcano
+Toluca Volcano
+--
+Gulf of Mexico
+Florida
+Sargasso sea
+- Bermudas
+Bahamas
+Greenland (Davis Strait)
+- Greenland sea
+- Irminger sea
+Hudson Bay (Hudson Strait): shallow
 Labrador Sea
 - Newfoundland
 Gulf of St. Lawrence
 - Anticosti Island
 - Prince Edward Island
-Sargasso sea
-- Bermudas
-Gulf of Mexico
-Falkland Islands
-Tierra del Fuego (Strait of Magellan)
+Chukchi Sea
+- Bering Strait
+Beaufort Sea
+Arctic Archipelago
+- Baffin Island
+- Victoria Island
+- Banks Island
+- Queen Elizabeth Islands (Ellesmere)
+Baffin Bay
+Bering Sea
+- Aleutian Islands [Pacific plate]
+- St. Lawrence Island
+- Nunivak Island
 
-#Caribbean sea
-Bahamas
+#North American / Pacific
+Aleutian Trench
+Gulf of Alaska
+- Kodiak
+- Kenai Peninsula
+Alexander Archipelago
+- Prince of Wales + Dall Island
+- Chichagof + Baranof Island
+- Admiralty Island
+- Kupreanof + Kuiu + Mitkof Island
+- Revillagigedo Island
+- Etolin + Wrangell Island
+- Zarembo Island
+Queen Charlotte Islands (Graham + Moresby)
+- Hecate Strait
+Vancouver Island
+- San Juan Islands
+- Salish sea + Georgia Strait + Strait of Juan de Fuca + Puget Sound
+San Francisco Bay
+Baja California peninsula
+- Gulf of California
+- Tiburón + Archangel Island
+- Channel Islands of California
+
+#South American plate
+Argentine sea
+- Falkland Islands
+- Tierra del Fuego (Strait of Magellan)
+
+#African plate
+=Africa (except east)
+Eratosthenes Seamount: submarine south of Cyprus
+Djerba: north coast of Africa
+Malta + Pantelleria: between Africa and Sicily
+Pelagie Islands: between Africa and Malta
+Etosha Pan: salt pan
+Makgadikgadi Pan: salt pan
+Great Escarpment: south
+- Drakensberg
+=Macaronesia: volcanic
+- Azores
+- Canaries: Tenerife (Teide volcano) + Fuerteventura + Gran Canaria + Lanzarote + La Palma
+- Cape Verde: Pico do Fogo volcano
+- Madeira
+- Gorringe Ridge: submarine east of Azores
+- Great Meteor Seamount: submarine south of Azores
+Libyan Sea
+Levantine Sea
+Gulf of Guinea
+Cameroon line: volcanic
+- Mount Manengouba
+- Mount Kupe
+- Mount Cameroon
+- Bioko island
+- São Tomé + Príncipe islands
+- Saint Helena island
+Walvis Ridge
+- Tristan da Cunha
+- Gough Island
+Victoria plate
+- East African Plateau
+- Lake Victoria
+
+#Caribbean plate
+Caribbean sea
+Cayman Ridge
+Central America
+- Mombacho: volcano
+
+#Carribean / North American
 Greater Antilles
-- Cuba (Isla de la Juventud)
+- Cuba + Isla de la Juventud
+- Cayman islands
+- Jamaica
 - Hispaniola
 - Puerto Rico
-- Jamaica
-- Cayman islands
-Lesser Antilles
-- Trinidad + Tobago
-- Margarita Island
-- Martinique
+Puerto Rico Trench
+
+#Carribean / South American
+=Lesser Antilles
+Leeward Islands
+- Virgin Islands
+- Anguilla
+- Saint Kitts + Nevis
+- Barbuda + Antigua
+- Montserrat
 - Guadeloupe
 - Dominica
+Windward Islands
+- Martinique
 - Saint Lucia
-- Barbados
 - Saint Vincent
 - Grenada
-- Antigua
-- Curaçao + Aruba + Bonaire
+- Barbados
+- Trinidad + Tobago
+Leeward Antilles
+- Aruba + Curaçao + Bonaire (ABC islands)
+- La Tortuga Island
+- Margarita Island
 
-#Southern ocean
-Weddell Sea
+#Scotia Plate
+- Scotia Sea
 - South Georgia + South Sandwich Islands
 - South Shetland Islands
 - South Orkney Islands
+
+#Antarctic / African
 Bouvet Island
-Kerguelen islands
-Ross Sea
+
+#Antarctic plate
+Antarctica
+- Antarctic Peninsula + Weddell Sea
+- Ross Sea
+- Mount Erebus: volcano
+Kerguelen Plateau
+- Kerguelen islands
+- Heard + McDonald islands
+Crozet Islands
 
 #Arctic ocean
 Barents Sea
+- Kolguyev Island
 - Svalbard (Spitsbergen)
 - Novaya Zemlya
 - Franz Josef Land
@@ -134,98 +406,248 @@ Laptev Sea
 - New Siberian Islands
 East Siberian Sea
 - Wrangel Island
-Chukchi Sea
-- Bering Strait
-Beaufort Sea
-Arctic Archipelago
-- Baffin Island
-- Victoria Island
-- Banks Island
-- Queen Elizabeth Islands (Ellesmere)
 
 #Indian ocean
-Arabian sea
-- Lakshadweep
-- Socotra
-Bay of Bengal
-- Ceylon
-- Andaman and Nicobar islands
-Gulf of Aden + Red sea
-Oman sea + Persian Gulf (Strait of Hormuz)
-Zanzibar
-Mozambique Channel
-- Madagascar
-- Comoros
-- Mayotte
-Mauritius
-Réunion
-Seychelles
+Somali + Indian + west of Australian plate
 
-#Malay Archipelago
-Philippines
-- Luzon
-- Mindanao
-- Mindoro
-- Visayas (Negros + Samar + Panay + Leyte + Cebu)
-- Ryukyu islands
-New Guinea (Arafura Sea + Torres Strait) + Bismarck Archipelago
-Greater Sunda islands
-- Borneo
-- Sumatra (Malacca Strait)
-- Java (Sunda Strait)
-- Sulawesi
-Lesser Sunda islands
-- Bali
-- Lombok
-- Sumbawa
+#Indian plate
+Arabian sea
+Laccadive Sea: between Arabian sea and Bay of Bengal
+- Laccadives / Lakshadweep
+- Maldives
+- Ceylon / Sri Lanka
+Bay of Bengal
+Indian Peninsula
+- Western Ghats
+- Eastern Ghats
+- Deccan Plateau: between Western and Eastern Ghats
+
+#Indian / Eurasian
+Sulaiman Mountains
+Karakoram
+- K2
+Himalayas
+- Everest
+- Cho Oyu
+- Nanga Parbat
+- Annapurna
+Arakan Mountains
+Andaman and Nicobar islands
+
+#Arabian / Eurasian
+Zagros Mountains
+
+#African / Arabian
+Sea of Galilee
+Dead Sea
+Sinai Peninsula
+Red Sea
+- Gulf of Suez
+- Gulf of Aqaba
+- Tiran + Sanafir
+Bab-el-Mandeb Strait: between Red Sea and Gulf of Aden
+Gulf of Aden
+
+#Arabian plate
+Arabian Peninsula
+Persian Gulf: shallow
+- Bahrain Island
+- Qatar Peninsula
+Strait of Hormuz: between Persian Gulf and Gulf of Oman
+Gulf of Oman
+
+#African / Somali
+Great Rift Valley
+- Ethiopian Highlands
+- Lake Albert
+- Rwenzori Mountains
+- Lake Edward
+- Mount Muhabura: volcano
+- Lake Kivu
+- Lake Tanganyika
+- Lake Malawi
+- Lake Turkana
+- Mount Elgon: volcano
+- Mount Kilimanjaro: volcano
+- Mount Kenya: volcano
+- Mount Meru: volcano
+
+#Somali Plate
+East Africa
+Madagascar
+- Mozambique Channel
+- Comoros + Mayotte
+Mascarene Plateau
+- Mauritius + Réunion: east of Madagascar
+- Seychelles: north of Madagascar
+Zanzibar (Unguja) + Pemba: coast of Africa
+Mafia Islands: coast of Africa
+Socotra: coast of Africa
+
+#Sunda Plate
+=Greater Sunda islands
+Borneo
+Sumatra (Malacca Strait)
+- Sinabung volcano
+- Kerinci volcano
+- Lake Toba: volcanic
+Krakatoa volcano: between Sumatra and Java
+Java (Sunda Strait)
+- Merapi volcano
+- Semeru volcano
+Sulawesi
+=Java Sea: between Java and Borneo, shallow
+=Celebes Sea: between Celebes and Mindanao
+=Sulu Sea: between Mindanao and Palawan
+=Banda Sea
+=Lesser Sunda islands
+- Bali (Agang volcano)
+- Lombok (Rinjani volcano)
+- Sumbawa (Tambora volcano)
 - Sumba
 - Flores
 - Timor
+--
+Spratly Islands
+Gulf of Thailand: shallow
 Moluccas
+Molucca Sea
+Palawan
+Andaman sea
+Flores sea
 
-#Pacific Ocean
-Vancouver Island
-Gulf of Alaska
-- Kodiak
-Bering Sea
-- Aleutian Islands
-Sea of Okhotsk
-- Sakhalin
-- Kuril islands
-Sea of Japan
-- Honsu
-- Hokkaido
-- Kyushu
-- Shikoku
-Yellow Sea
-- Jeju Island
-East China Sea
-- Taiwan (Formosa)
-South China sea
-- Hainan
-- Gulf of Thailand
+#Sunda / Philippine
+=Philippines
+Luzon
+- Mount Mayon: volcano
+- Mount Banahaw: volcano
+- Laguna de Bay: lake
+- Manila Bay
+Mindanao
+- Mount Matutum: volcano
+- Mount Apo: volcano
+Mindoro
+Visayas (Negros + Samar + Panay + Leyte + Cebu)
+- Mount Kanlaon: volcano
+Ryukyu islands
+
+#Philippine plate
+Philippine sea
+
+#Malay Archipelago
+Sunda islands + Philippines + New Guinea
+
+#Australian / Pacific
 Coral sea
-- Solomon islands (Guadalcanal)
-Tasman sea
-- New Zealand (Cook Strait) + Chatham islands
-- Tasmania (Bass Strait)
 Melanesia
-- Fiji
+- New Guinea (Torres Strait) + Bismarck Archipelago
+- Solomon sea
+- Solomon islands (Guadalcanal)
 - Vanuatu (New Hebrides)
 - New Caledonia
+- Fiji
+Tonga Trench
+Tonga
+=Zealandia
+New Zealand (Cook Strait)
+- Stewart Island: south
+Campbell Plateau: south of New Zealand
+- Auckland Islands
+- Campbell Island
+Challenger Plateau: west of New Zealand
+Chatham Rise: east of New Zealand
+- Chatham Islands
+Lord Howe Rise: north of Challenger Plateau
+=Macquarie Island
+
+#Australian plate
+=Australia
+- Shark Bay: west
+- Great Dividing Range: east
+Arafura Sea: between Australia and New Guinea, shallow
+Timor sea: between Timor and Australia, shallow
+- Tiwi Islands
+Cape York Peninsula: north
+- Gulf of Carpentaria
+Yorke Peninsula
+- Spencer Gulf
+- Gulf St Vincent
+- Kangaroo Island
+
+Tasmania
+- Bass Strait
+- Phillip + French Island: coast
+- King + Flinders Island
+Tasman sea: between Australia and New Zealand
+Melville Island: north coast of Australia
+
+#Pacific plate
 Micronesia
-- Guam
-- Gilbert Islands (Kiribati)
-- Caroline Islands
-- Mariana Islands
-- Marshall Islands
-- Nauru
-Polynesia
-- Hawaii
-- Society Islands (Tahiti)
-- Marquesas Islands
-- Samoa
-- Tonga
-- Niue
-- Cook Islands
-Galápagos Islands
+- Gilbert Islands: volcanic atolls
+- Caroline Islands: volcanic atolls
+- Marshall Islands: volcanic atolls
+- Nauru: volcanic
+=Louisville Ridge: seamount chain
+=Hawaiian–Emperor seamount chain: Kamchatka to Hawaii, volcanic
+Midway Atoll
+Hawaii Islands
+- Mauna Kea + Mauna Loa volcano
+=Polynesia
+Tuvalu: volcanic atolls
+Tokelau: volcanic atolls
+Phoenix Islands / Rawaki: volcanic atolls
+Tuamotu Archipelago: volcanic atolls
+Samoa: volcanic
+Niue: volcanic
+Cook Islands: volcanic
+Society Islands: volcanic
+- Bora Bora
+- Tahiti
+Marquesas Islands: volcanic
+Pitcairn Islands: volcanic
+
+#Pacific / Eurasian
+Kuril–Kamchatka Trench
+
+#Pacific / Philippine
+Mariana Trench
+Micronesia
+- Mariana Islands: volcanic
+- Guam: volcanic
+- Palau: volcanic
+
+#Pacific / Nazca
+Easter Island: volcanic
+
+#Nazca / South American
+Andes Mountains
+- Cayambe volcano
+- Antisana volcano
+- Cotopaxi volcano
+- Chimborazo volcano
+- Sangay volcano
+- Huascarán
+- Yerupajá
+--
+- Incahuasi volcano
+- Llullaillaco volcano
+- Pissis volcano
+- Aconcagua volcano
+=Altiplano / Andean Plateau
+Salar de Uyuni: salt pan
+Andes
+- Coropuna volcano
+- Hualca Hualca + Sabancaya + Ampato volcano
+- Lake Titicaca
+- Illimani
+- Tacora volcano
+- Pomerape + Parinacota volcano
+- Sajama volcano
+
+#Pacific / Cocos
+Galapagos Islands: volcanic
+- Isabela (Wolf volcano)
+- Fernandina (La Cumbre volcano)
+- Santa Cruz
+- San Cristóbal
+

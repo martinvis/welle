@@ -1,0 +1,17 @@
+Latitude
+Longitude
+Elevation
+
+#Map projection
+Equal-area: preserves areas, distorts shapes
+Conformal: preserves angles, distorts sizes
+Equirectangular: simple, distorts sizes and shapes
+Mercator: conformal cylindrical, poles inflation
+Behrmann: equal-area cylindrical
+Peters: equal-area cylindrical
+Eckert IV: equal-area pseudo-cylindrical
+Winkel Tripel: pseudo-cylindrical, minimize area/direction/distance distortions
+Robinson: pseudo-cylindrical, compromise between area and angle accuracy
+Dymaxion: surface of icosahedron
+
+Tissot's indicatrix: circles projected on map to indicate distortions

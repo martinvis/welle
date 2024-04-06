@@ -1,4 +1,6 @@
 #Realm
+#Bioregion: along hydrological boundaries
+#Ecoregion
 Holarctic = Palearctic + Nearctic
 Palearctic: Europe + North Asia + North Africa
 - Sahara
@@ -107,3 +109,7 @@ mammals: Lemurs, Fossa
 #Neotropic
 birds: Aras, Toucans
 reptiles: Boas
+
+#Andes
+Valdivian temperate forest: southern Andes, Pudu, Kodkod
+

@@ -51,18 +51,20 @@ Epstein–Barr virus
 - common, oncogenic
 - no vaccine
 - causes mononucleosis
-Influenza A virus
-- spread through air droplets
-- causes influenza: fever, cough
-- classified by surface proteins hemagglutinin (H) and neuraminidase (N)
-- H1N1 caused spanish flu
-- H5N1 causes bird flu
 Varicella zoster virus
 - causes chickenpox: skin rash
 
 =Riboviria
 RNA viruses
 genome size 3-30kb
+
+#Orthomyxoviridae
+Influenza A virus
+- spread through air droplets
+- causes influenza: fever, cough
+- classified by surface proteins hemagglutinin (H) and neuraminidase (N)
+- H1N1 caused spanish flu
+- H5N1 causes bird flu
 
 #Flaviviridae
 Dengue virus
@@ -131,3 +133,7 @@ Rotavirus
 - very contagious
 - causes gastroenteritis
 
+#Hantaviridae
+Orthohantavirus
+- spread through contact with rodents
+- can cause kidney damage
