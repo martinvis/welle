@@ -108,6 +108,16 @@ Occam's razor: simplest explanation is often correct, lowest amount of assumptio
 Diffusion of responsibility: person takes lower responsibility for action in group
 - Bystander effect: group of bystanders less likely to help than individual
 
+#Probability
+Bayes' rule: probability of event based on another event, P(A when B) = P(B when A) * P(A)/P(B)
+Laplace's rule of succession: probability of success based on previous results, P = successes+1 / total+2
+#Probability distribution
+Erlang distribution: 
+- additive rule: constant probability into future
+Normal distribution: 
+- average rule: decreasing probability into future
+Power law distribution: 
+- multiplicative rule: increasing probability into future
 
 #Marketing tricks
 Christmas toys
