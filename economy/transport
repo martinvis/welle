@@ -23,6 +23,9 @@ bulk cargo: unpackaged in large quantity, liquid or dry, ~70%
 - iron ore, coal, grains, fertilizers, steel
 containers: truck-sized package, dry cargo, ~20%
 
+#train
+railway coupling: connect train cars when pushed together
+
 #air
 worldwide count
 - civil planes: 25k

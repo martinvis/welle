@@ -1,3 +1,5 @@
+Gerrymandering: electoral boundaries manipulation to create advantage
+
 Pan-African colours: green, yellow, red
 Pan-Arab colors: black, white, green, red
 Pan-Slavic colors: blue, white, red
@@ -212,7 +214,23 @@ Parties
 
 #France
 18 regions, 96 departments
-- Corsica, Guadeloupe, Martinique, French Guiana, Mayotte, Réunion
+Regions
+- Paris
+- Brittany
+- Normandy
+- Hauts-de-France: north
+- Grand Est: Alsace, Lorraine
+- Burgundy
+- Val de Loire: center
+- Pays de la Loire
+- Aquitaine
+- Occitania: south
+- Rhône-Alpes
+- Provence-Alpes: south, Côte d'Azur
+Overseas departments
+- Corsica, French Guiana, Guadeloupe, Martinique, Mayotte, Réunion
+Overseas collectivities
+- Saint Pierre and Miquelon, Saint Martin, Saint Barthélemy, French Polynesia, New Caledonia, Wallis and Futuna
 National Assembly: 5y term, 2 round election (1 per constituency, 577 total)
 Senate
 President: 5y term (max 2 times)
@@ -255,8 +273,28 @@ Parties
 
 #Italy
 20 regions, 107 provinces
+regions
+- Liguria: Genoa
+- Piemonte: Turin
+- Lombardia: Milan
+- Venetia: Venice
+- Emilia-Romagna: Bologna
+- Toscana: Florence
+- Umbria
+- Marche
+- Lazio: Rome
+- Abruzzo
+- Campania: Naples
+- Molise
+- Calabria
+- Basilicata / Lucania
+- Apulia / Puglia: Bari
 autonomous areas
 - South Tyrol: german population
+- Friuli-Venezia: Trieste
+- Aosta Valley
+- Sardinia
+- Sicily: Palermo
 President: 7y term, elected by parliament
 Senate: upper house, 200 members, region basis, mixed system, 5y term
 Chamber of Deputies: lower house, 400 members, mixed system, 5y term
@@ -311,6 +349,15 @@ Parties
 
 #Canada: federation
 10 provinces + 3 territories
+- Yukon + Northwest Territories + Nunavut
+- British Columbia: Vancouver
+- Alberta: Edmonton, Calgary
+- Saskatchewan
+- Manitoba: Winnipeg
+- Ontario: Toronto
+- Quebec: Montreal
+- Newfoundland and Labrador
+- New Brunswick + Nova Scotia + Prince Edward Island
 British monarchy
 Parliament: opposing benches
 - Senate: 105 senators, until 75yo, chosen by prime minister, province basis

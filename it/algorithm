@@ -4,6 +4,10 @@ Levenshtein distance: minimum number of single-character edits between two words
 Dynamic programming
 Bellman equation
 
+#NP-complete problems
+Knapsack problem: items with weight and value, select items with maximum value not exceeding weight limit
+Travelling salesman problem: points with pair distances, find shortest route visiting each point exactly once
+
 #Optimal stopping: choose time to take action
 Secretary problem: select best applicant, immediate decision to accept/reject, distribution unknown
 - cutoff rule (37%): first look and do not accept (1/e time), then accept first so-far-best applicant
@@ -14,6 +18,8 @@ Known distribution: cutoff is not needed, we can accept immediatelly (no looking
 - threshold rule: accept applicant over threshold, threshold decreases in time
 Time discounting: unlimited offers, same offer later has additional cost
 Burglar problem: retire or continue after robbery, risk of failure
+
+Space–time tradeoff: increased data stored versus increased time
 
 #Explore-exploit tradeoff: best option vs new option, optimal lifetime strategy
 - discounted future reward
@@ -47,3 +53,50 @@ Algorithms
 - Shortest job next: minimize waiting + processing time
 - First come, first served (FCFS): job queue
 - Round-robin: fixed time per job, cycle jobs
+
+#Relaxation: approximation of difficult problem
+Constraint relaxation: constraint removal
+Continuous relaxation: codefinitionntinuous instead of discrete variables
+Lagrangian relaxation: violations penalization
+
+#Randomness
+Monte Carlo method: repeated random sampling, e.g. π value estimation
+- Fermat primality test: check if number is prime, a^(p-1) = 1 mod p
+- Miller–Rabin primality test: check if number is prime
+Bloom filter
+- test presence of element in set
+- gives false positives but needs less space
+- multiple hash functions mapping to small range
+- for every hash function remember which values were reached
+- do not remember results for any specific value
+- test element by checking if all values were reached already
+
+Interrupt coalescing: events to be process are held until certain amount or timeout reached
+Polling: actively sampling status of asynchronous activity
+
+#Game theory
+Nash equilibrium: solution of non-cooperative game
+Zero-sum game: advantage for one side is equivalent to loss for other side
+- examples: chess, poker, options
+Prisoner's dilemma: non-zero-sum game
+- two agents, choose to cooperate independently
+- good result for both, if both cooperate
+- bad result for both, if both do not cooperate
+- best result for one and worst result for other, if only one cooperates
+- best strategy in single game is to not cooperate
+- good strategy in repeated game is to repeat opponent's previous action
+
+#Heuristics
+Greedy algorithm: produces local maximum, selects best option at each step
+
+#Distributed computing
+Byzantine generals problem: consensus with unreliable actors
+- all generals have to agree on attack but messengers can fail
+- proof of work: in blockchains, tasks difficult to do but easy to verify
+- proof of stake: in blockchains, pledge assets to validate, more energy efficient than proof of work
+
+#Computation
+Recursion: base case and recursive step, function calling itself
+
+Halting problem: whether program will stop, undecidable
+Turing machine: abstract computer, memory tape with discrete cells, finite set of symbols, head reads/writes and moves

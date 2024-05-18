@@ -168,16 +168,25 @@ usa: Hilton, Hyatt, Marriott (Sheraton)
 #electric appliance
 china: Huawei
 germany: Bosch, Braun, Miele
-japan: Hitachi, Omron, Panasonic, Toshiba
+japan: Fujitsu, Hitachi, NEC, Omron, Panasonic, Toshiba
 korea: LG, Samsung
 netherlands: Philips
 slovenia: Gorenje
 sweden: Electrolux (AEG)
 usa: Whirlpool
 
+#optics/photography
+japan: Canon, Fujifilm, Nikon, Olympus
+usa: Kodak
+germany: Zeiss, Leica
+netherlands: ASML
+
+#photonics
+germany: Osram
+
 #computer technology
 china: Lenovo
-japan: Brother, Canon, Epson, Sony (PlayStation)
+japan: Brother, Epson, Sony (PlayStation)
 usa: Apple (iPhone), Cisco, Dell, HP, Xerox, F5
 
 #conglomerate
@@ -187,9 +196,8 @@ usa: General Electric, Honeywell
 vietnam: Vingroup
 
 #semiconductors
-netherlands: ASML
 taiwan: TSMC
-usa: AMD, Broadcom, Intel, Micron, Nvidia, Qualcomm
+usa: AMD, Broadcom, Intel, Micron, Nvidia, Qualcomm, Texas Instruments 
 
 #software
 canada: CGI

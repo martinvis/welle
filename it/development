@@ -1,0 +1,6 @@
+
+Agile software development
+DevOps: development and operations workflow automation
+Microservices: loosely coupled services, communication via lightweight protocols, independent deployment
+- cons: complexity, new interfaces, network communication
+- pros: modularity, scalability, allows mix of technologies

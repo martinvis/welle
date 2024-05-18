@@ -1,3 +1,27 @@
+#Processing
+#Structure: depend on processing
+#Properties: depend on structure
+mechanical
+electrical
+magnetic
+thermal
+optical
+deteriorative
+#Performance: depend on properties
+
+Annealing: heat treatment to improve ductility, heating above recrystallization temperature and slow cooling
+- prepares metal for further processing
+- recovery: softening metal by removing dislocations
+- recrystallization: new strain-free grains grow
+- grain-growth: metal loses strength
+Hardening: treatment to improve hardness
+- Grain boundary strengthening: decreasing grain size
+- Work hardening: plastic deformation
+- Quenching: heat treatment by rapid cooling, reduces grain size
+Tempering: heat treatment to improve toughness, usually after hardening
+- reheat metal under critical temperature
+- decrease hardness but increase toughness (less brittle)
+
 #Alloys: stronger
 Amalgam: mercury + others, dentistry
 Alnico: iron + Al + Ni + Co, permanent magnet
@@ -129,3 +153,14 @@ Synthetic resins:
 - Phenolic: thermoset, adhesive
 - Urea: thermoset, low water absorption, fiberboard (particle board)
 - Melamine: thermoset, laminates, tableware
+
+#Smart materials
+Shape-memory alloy: can be deformed when cold, reverts to original shape when heated
+- phase transformation between Martensite and Austenite crystal structure
+- Nitinol (NiTi)
+Piezoelectric ceramics: expand and contract in response to electric field, create electric field when stressed
+Magnetostrictive material: expand and contract in response to magnetic field
+Magnetorheological fluid: viscosity change in response to magnetic field
+- magnetic particles in fluid
+Electrorheological fluid: viscosity change in response to electric field
+- electric particles in fluid

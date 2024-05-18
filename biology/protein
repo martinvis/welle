@@ -8,8 +8,12 @@ Transmembrane
 Intracellular
 - Transcription factors: control transcription from DNA to mRNA
 
-#Transcription factors
+#Transcription factors: ~10% of proteins
 Autoimmune regulator (AIRE): eliminates self-reactive T cells
+T-box transcription factor T (TBXT): defines anterior-posterior axis, spine development
+
+#Receptors
+Trk receptors: tyrosine kinases, regulate synaptic strength and plasticity
 
 #Signaling - Transmitter
 #Neurotransmitter: neuron synapse
@@ -70,6 +74,10 @@ Troponin + Tropomyosin: regulate muscle contraction
 
 #Enzyme
 biological catalyst
+
+#Kinase: enzyme, catalyzes transfer of phosphates from ATP
+Tyrosine kinase: functional on/off switch in cell
+Serine/threonine kinases: cell differentiation, apoptosis
 
 Hydrolase: hydrolysis
 - Protease: breaking down proteins
@@ -138,6 +146,7 @@ Albumins: globular
 - Serum albumin: bind hormones, fatty acids and drugs
 - Alpha-fetoprotein (AFP): in fetus, bind bilirubin and fatty acids
 - D-binding (DBP): bind vitamin D
+Serotonin transporter (SERT): serotonin reuptake, repeat length gene polymorphism
 
 #Storage
 Ferritin (FTL/FTH) - intracellular, stores iron

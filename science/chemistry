@@ -129,18 +129,23 @@ Group: column of elements
 ionic radius: cations are smaller and anions are larger than neutral atom
 van der Waals radius: between unbonded atoms
 
+#Interatomic forces
+- attractive forces become dominant at longer distance and repulsive at shorter distance
+- attractive and repulsive forces are equal at around 300 pm
+- stronger forces cause higher melting point
+- force changes with distance affect material's flexibility and thermal expansion
+- slower force changes with distance cause higher flexibility and thermal expansion
+
 #Chemical bonds
 - normally only valence electrons are involved in bond
 - bond length decreases and strength increases with higher orders
+- bond distances are around 100-200 pm
 - bonds between smaller atoms are usually stronger (bond distance is smaller)
 Lone pair: pair of valence electron not in bond
 Bond order: multiplicity of shared electron pairs, single / double / triple
 Bond polarity: determined by electronegativity
 Bond angle: angle between bonds of atom, depends on number of lone pairs
 Dissociation energy: strength of bond, energy required to break bond
-Ionic: ions of opposite charges, strong electrostatic forces, form crystalline solids
-Covalent: shared pairs of electrons, strong intramolecular and weak intermolecular forces
-Metallic: bonding electrons free to move
 Diatomic molecules: hydrogen, nitrogen, oxygen, fluorine, chlorine, bromine, iodine
 Polyatomic molecules: phosphorus (P4), sulphur (S8)
 Octet rule: bond is stable when atoms get 8 valence electrons (s/p blocks)
@@ -148,6 +153,13 @@ Electronegativity: relative ability of atom to attract electrons in compound
 - highest: F, O, N, Cl, Br
 Oxidation state: hypothetical charge atom in compound would have if every bond was ionic
 Lewis structure: diagram showing bonds in molecule and electron lone pairs
+
+#Bond types
+Ionic: ions of opposite charges, strong electrostatic forces, form crystalline solids
+- materials have high melting point, are insulative and brittle
+Covalent: shared pairs of electrons, strong intramolecular and weak intermolecular forces
+Metallic: bonding electrons free to move
+- materials are conductive
 
 #Molecular orbitals
 - combinations of atomic orbitals
@@ -224,6 +236,8 @@ Polar: one atom has greater attraction
 weak interaction between atoms at short distance
 repulsive under contact distance because of electron clouds
 attractive over contact distance because of variable electron density
+fluctuating dipole: weaker, short-term distortions caused by electron vibrations
+permanent dipole: stronger, in polar molecules (eg hydrogen bond)
 
 #Molecule representation
 Empirical formula: relative numbers of atoms
@@ -254,7 +268,7 @@ Hydrates: contain specific ratios of loosely bound water molecules
 Acids: contains hydrogen cation, can donate proton
 Bases: contain hydroxide anion and metal cation, can accept proton
 Hydrocarbons: contain only carbon and hydrogen
-Salt: cation + anion, usually high melting point, insulators
+Salt: cation + anion, usually high melting point, insulators, ionic bonds
 Soap: salt of fatty acid
 - fat + base => soap
 - decrease surface tension and increase viscosity of water
@@ -283,8 +297,10 @@ Cracking - long-chain hydrocarbon into smaller molecules by breaking carbon-carb
 #Electrons
 Principal quantum number (n): shell, distance from nucleus, maximum 2*n^2 electrons
 Azimuthal quantum number (l): subshell, shape of orbital, s/p/d/f
+- all orbitals have same energy unless exposed to magnetic field
 Magnetic quantum number: orbital, -l to l
 Spin quantum number: angular momentum, +1/2 or -1/2
+Degenerate orbitals: orbitals with same enegy levels
 Pauli exclusion principle: two electrons in atom can not have same quantum numbers
 Aufbau principle: lower-energy orbitals are filled before higher-energy
 Hund's rule: every orbital in subshell is half-full before any is full, and with same spin
@@ -503,3 +519,11 @@ Carboxyl: -C=O-OH
 Ether: -O-
 Peroxide: -O-O-
 Cyanate: -O-C≡N
+
+Hygroscopy: attracting and holding water from environment by absorption or adsorption
+- Dessicant: hygroscopic substance
+Absorption: take in another substance
+Adsorption: adhesion of another substance to surface
+Surfactant: descrease surface tension
+- hydrophilic head and hydrophobic tail
+- detergents, emulsifiers, foaming agents

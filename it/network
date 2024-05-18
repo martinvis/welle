@@ -1,0 +1,13 @@
+Load balancing: network traffic distribution across servers
+- any server: round robin, least connection
+- same server: IP hash, sticky session
+Polling: periodic synchronous check of external status
+
+Content delivery network (CDN): geographically distributed proxy servers and data centers, availability and performance
+Cloud computing: on-demand resources, reduced capital expenses, availability / performance / security / scalability
+Cloud engineering: applications for cloud computing
+- automation
+- containers
+- stateless components
+
+WebSocket: simultaneous two-way communication over TCP, compatible with HTTP

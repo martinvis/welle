@@ -11,3 +11,8 @@ Composite number: natural number that is product of two smaller natural numbers
 
 Prime gap: difference between two successive prime numbers
 Bertrand's postulate: ∀ integer n ∃ prime number p where n < p < 2n
+
+Golden ratio (1.618): a+b / a = a / b
+
+#Sequences
+Fibonacci sequence: number is sum of two previous numbers, consecutive numbers converge to golden ratio

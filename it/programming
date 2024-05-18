@@ -59,3 +59,8 @@ Deadlock: all processes waiting on each other
 #optimization
 Amdahl's law: performance improvement is limited by fraction of time used by improved part
 - optimize only long-running parts
+
+#memory errors
+buffer overflow: writing data past end of allocated space
+memory leak: requesting memory without releasing it later
+segmentation fault: accessing memory without access permission

@@ -78,6 +78,9 @@ Primary battery: one time, chemical energy
 - Lithium metal: button cells
 Secondary battery: rechargeable, chemical energy
 - Lead-Acid: use in starter motors
+- Valve regulated lead–acid: (VRLA): limited amount of electrolyte, use in large portable devices, vibration resistant
+- Gel battery: VRLA battery, gelated electrolyte
+- Absorbent glass mat (AGM): VRLA battery, electrolyte in glass mats
 - Nickel-Cadmium (NiCd): 1.2 V, toxic
 - Nickel-Metal-Hydride (NiMH): 1.2 V, replaced NiCd
 - Nickel-Zinc (NiZn): 1.6 V, higher voltage
@@ -99,6 +102,21 @@ thermal: convert energy heat from decay into electricity (thermocouple)
 #Reflecting instruments: use mirrors, celestial navigation
 Octant: measure angular distance, up to 90 degrees
 Sextant: measure angular distance, up to 120 degrees
+
+#Mirror: reflects light
+- natural mirror is e.g. water surface
+- polished or with reflective coating
+Back-silvered: reflective layer behind glass
+Front-silvered: reflective layer on top
+Material
+- Aluminium: common, visible to near infrared wavelength
+- Silver: common, visible to near-infrared wavelength
+- Gold: infrared wavelength
+- Germanium: infrared wavelength
+- Dielectric: specific wavelengths, multiple thin layers
+One-way mirror: appears reflective from one side, transparent from other
+- light passes equally in both directions
+- one side brightly lit, other dark
 
 #Microscope: magnified images of small objects
 Optical microscope: uses visible light and system of lenses
@@ -136,6 +154,13 @@ Four-level laser: L1 (ground state), L2, L3, L4
 - softer parts are removed from substrate with solvent
 - photoresist consists of resin, sensitizer and solvent
 - integrated circuits fabrication
+
+#Extreme ultraviolet lithography (EUV)
+photon emission from laser-pulsed tin droplet plasma
+high-powered CO2 laser heats tin to 100k+ °C
+laser delivers 100k+ pulses per second
+multilayer molybdenum and silicon mirrors focus generated EUV light
+single machine costs 100M+ USD
 
 #Antenna
 - conductors connected to transmitter or receiver
@@ -190,6 +215,7 @@ Tunnel boring machine (TBM): tunnel excavation, usually circular, diameter 1-15m
 Pad printing: transfers 2D image on 3D object via silicone pad
 
 Actuator: converts input signal to mechanical energy, produces controlled movement
+Sensor: produces output signal based on physical phenomenon
 
 High-performance liquid chromatography (HPLC): identify and quantify mixture components
 - high pressure pump delivers solvents, mixture flows to cylinder with adsorbent material, UV detector

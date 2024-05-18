@@ -2,11 +2,35 @@
 Dataflow:
 Control flow:
 
+Vacuum tube: controls electric current in vacuum between electrodes, replaced by transistors
+Transistor: amplifies or switches electric signal
+- gate voltage determines conductivity
+MOSFET (metal-oxide-semiconductor field-effect-transistor): fabricated by controlled silicon oxidation
+
 Integrated circuit: microchip, interconnected electronic components
 Capacitor: stores electrical energy, accumulates charges on two surfaces with insulator in between
 Diode: conducts current in one direction, converts AD to DC
 Transformer: transfers electrical energy between circuits, two coils wrapped around magnetic core
 - use: electricity transmission at high voltage
+
+#Memory - Volatile
+Dynamic random-access memory (DRAM): stores data in memory cells, volatile, used for main memory
+- Memory cell: stores one bit, capacitor + transistor, need periodic refreshing
+- SDR: single data transfer per clock cycle
+- DDR to DDR5: multiple data transfers per clock cycle
+Static random-access memory (SRAM): stores data in flip-flops, volatile, used for cache
+
+#Memory - Persistent
+Floppy disk: magnetic storage
+Hard disk drive (HDD): rotating platters with magnetic storage
+- Platter: magnetic disk
+Flash memory: no moving parts, NOR or NAND logic gates from MOSFET
+- USB drive
+- Memory card
+- Solid-state drive (SSD)
+Compact disc (CD): optical disc, laser beam, 700 MB
+- Digital video disc (DVD): next generation CD, 4.7 GB
+- Blu-ray: next generation DVD, 25 GB
 
 #Resistor: reduces flow of electric current
 Color code: 2 digits + multiplier + tolerance, gives ohm value
@@ -28,5 +52,3 @@ Tolerance: maximum difference, default 20%
 
 #AI accelerator / Neural processing unit (NPU): machine learning, manycore, dataflow architecture
 
-MOSFET (metal-oxide-semiconductor field-effect-transistor): fabricated by controlled silicon oxidation
-- gate voltage determines conductivity

@@ -19,6 +19,39 @@ Egocentric bias: relying on own perspective
 Loss aversion: loss more powerful than gain
 - Endowment effect: object ownership increasing object value
 Base rate fallacy: false positive vs true positive (medical test)
+Halo effect: opinion influenced by previous positive impression in different area (attractive people are intelligent)
+Conjunction fallacy: more specific case appears more probable than general case (stereotypes)
+Framing effect: decision based on positive/negative connotations (half empty vs half full glass)
+Action vs inaction
+- Action bias: favoring action over inaction, even if the result is not better
+- Omission bias: favoring inaction over action, even if the result is not less harmful
+- Trolley problem: sacrifice person to save more people
+Fundamental attribution error: overestimate individual's impact and underestimate environment (victim blaming)
+- Self-serving bias: attribute positive outcome to own abilities and negative outcome to external factors
+Information bias: seeking more information when it is irrelevant for decision
+Barnum–Forer effect: general description perceived to be personalized (astrology)
+Introspection illusion: considering own opinions more reliable than other opinions
+- other lack information
+- other do not understand information
+- other have bad intentions
+Planning fallacy: underestimating time and resources needed to complete task
+- Strategic misrepresentation: deliberate underestimating to get project approved
+Professional deformation: looking at problems from narrow professional perspective
+Selective perception: forgetting/ignoring information contradicting prior beliefs
+
+#Social cognitive bias
+False consensus effect: people see their own opinions and actions as common
+- Social projection: expecting others to behave similar to us
+False uniqueness effect: people see their qualities as unique
+Illusory superiority: people overestimate their ability compared to others
+Abilene paradox: group of people decide against majority as individuals believe their preference is different from group
+In-group–out-group bias: favoring members of own group against others
+
+#Social comparison theory: defining oneself by comparing to others (social media)
+Social comparison bias: competitiveness with people better than oneself (instead of cooperation)
+
+#Self-fulfilling prophecy: prediction comes true due to people believing it
+Pygmalion effect: high expectations lead to improvement and vice versa
 
 Association: mental connection
 - Law of effect: rewarded behaviour repeats more and punished behaviour repeats less
@@ -26,7 +59,13 @@ Association: mental connection
 
 #Memory bias
 Fading affect bias: forgetting negative quicker than positive (good old times)
-Recency bias: favoring recent events over historic
+Serial-position effect: tendency to recall first and last events best
+- Primacy effect: first impression
+- Recency effect: top ten lists, favoring recent events over historic
+
+#Memory
+Flashbulb memory: vivid long-lasting memory of shocking event
+Zeigarnik effect: remembering unfinished tasks better than completed tasks
 
 #Propaganda/influence techniques
 Ad hominem: attacking person instead of argument
@@ -45,6 +84,9 @@ Scapegoating
 False dilemma: reducing choice to two extremes (with me or against me)
 Half-truth
 Lying
+Disinformation: deliberately spread false information
+Sleeper effect: delayed persuasion, when source of negative message is forgotten but message itself not
+- Source amnesia: keeping information but not remembering source
 
 #Influence
 Peer pressure: imitation, fear of social rejection
@@ -71,19 +113,31 @@ Mass suicides
 
 Conspiracy theory: ignores more probable explanations, resists falsification, faith
 
+#Informal fallacy: incorrect argument in natural language
+Equivocation: use of word in multiple senses
+
 #Logical fallacy: mistakes in reasoning
 Circular reasoning: proving argument validity by itself
 False equivalence/analogy: comparing based on unrelated shared trait (apples and oranges)
 Gambler's/Monte Carlo: believing past events (statistically independent) affect probability in future
 Selection bias: selecting samples not representative of population
+- Self-selection bias: people choosing to be part of survey
 - Survivorship bias: concentration on items passing selection process and overlooking rest (e.g. becoming movie star)
 Simpson's paradox: different trends within groups of data and their combination (e.g. kidney stone treatments)
 - caused by unequal representation within groups
+Will Rogers paradox: moving observations between groups increases average in both groups
+- changes total value in groups
+Association fallacy: assuming things in group have same properties
+
+Beginner's luck
+Impostor syndrome: doubting own skills despite evidence
 
 #Causal fallacy: incorrectly identified causality
 Cum hoc: correlation implying causation (lice are benefitial to health)
 Jumping to conclusions: deciding without having all facts
+- Law of small numbers: small data showing bias (bigger differences from average due to small size)
 Oversimplification: assuming single cause of outcome
+- Fallacy of the single cause
 Post hoc: assuming action is caused by event (rooster causes sun to rise)
 - Regression to mean: assuming action is responsible for change to normal (praise is bad/criticism is good)
 Texas sharpshooter: focusing on similarities in data, ignoring differences and randomness (Nostradamus prophecies)
@@ -108,6 +162,18 @@ Occam's razor: simplest explanation is often correct, lowest amount of assumptio
 Diffusion of responsibility: person takes lower responsibility for action in group
 - Bystander effect: group of bystanders less likely to help than individual
 
+Hedonic treadmill: return to stable happiness level after major positive/negative life change
+- Lifestyle inflation: income increase leads to spending increase, luxury becomes necessity
+Cognitive dissonance: inconsistent beliefs and actions
+- Self-justification: need to justify action
+
+#Decision making
+Alternative blindness: deciding between two options, not considering any other options
+Decision fatigue: exhaustion of making too many decisions
+Ambiguity aversion: preference for known risks over uncertainty
+Default effect: tendency to accept default option
+- Status quo bias: preference to not change current state
+
 #Probability
 Bayes' rule: probability of event based on another event, P(A when B) = P(B when A) * P(A)/P(B)
 Laplace's rule of succession: probability of success based on previous results, P = successes+1 / total+2
@@ -131,3 +197,8 @@ Low balling
 - customer becomes attached
 - seller cancels on discount
 - customer still buys
+
+#Attention
+Salience Effect: focus on attention-grabbing information (news)
+Spotlight effect: tendency to believe we are noticed by others
+Procrastination: delaying unpleasant but important actions

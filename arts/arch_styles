@@ -1,16 +1,19 @@
 apse: semicircular recess covered with hemispherical vault
 buttress: wall support
 - flying buttress : arch extending from upper part
-colonnade: sequence of columns
-cupola: small dome-like structure on top of building
-dome: hollow upper half of sphere
+Dome: hollow upper half of sphere
+- Cupola: small dome-like structure on top of building/dome
 niche: cavity in wall holding statue/vase
 rotunda: circular roofed building
 spire: tall pointed top of roof
 tracery: division of window into sections
+Lunette: decorative semicircular space
+Fluting: shallow grooves along surface
+Blind arcade: without openings
 
 #ancient egyptian
 Columns: cylindric shape on top
+Colonnade: sequence of columns
 Mastaba: rectangular base, inward slope, flat roof
 Obelisk: four-sided, tall, pointed
 Pylon: two battered towers with flat top joined by lower section with gate
@@ -32,6 +35,7 @@ Pediment: triangular wall above horizontal structure
 
 Monopteros: circular colonnade with roof
 Tholos: circular colonnade with walls and roof
+Portico: colonnade with roof leading to entrance, sometimes with pediment
 
 #ancient roman
 amphitheatres
@@ -40,21 +44,74 @@ arches
 domes
 mosaics: image from small pieces
 triumphal arches and columns
+bricks, concrete and marble
+Arcade: continuous arches supported by colonnade
+Superposed order: successive storeys have different column orders
+Engaged column: embedded in wall
+
+#Byzantine
+arches, domes
+columns without fluting
+mosaic with golden background
+bricks, stone and marble
+Composite order: Ionic with Corinthian
+Squinch: triangular corner, support dome over square room
+Pendentive: triangular segments of sphere, support dome over square room
+
+#Hindu
+horizontal layering
+pillars and walls with carvings
+Vimana: pyramidical roof-tower
+Shikhara: pyramidical tower
+
+#Iranian
+Chahartaq: four barrel vaults and dome
+Timurid architecture
+- Banna'i: glazed tiles creating geometric patterns, blue colors
+
+#Islamic
+Charbagh: four separated rectangular gardens, water in center
+Mosque: place of worship
+- Sahn: courtyard surrounded by Riwaq
+- Riwaq: arcade
+- Minaret: tower close to mosque
+Moorish architecture
+- Horseshoe arch: rounded or pointed
+Multifoil arch: multiple circular arcs
+Muqarnas: honeycomb-like decoration in domes and vaults
+Mashrabiya: window with wooden lattice openings
+
+#Castles
+Keep: fortified tower
+Palisade: defensive wooden wall
+Motte-and-bailey castle
+- Motte: stone keep on raised area
+- Bailey: walled courtyard surrounded by ditch and palisade
+Murder hole: ceiling opening, allows to shoot or pour on attackers
+Machicolation: floor opening on wall, allows to pour on attackers
+Moat: deep broad ditch around castle, sometimes filled with water
+- Drawbridge: movable entrance over moat
 
 #romanesque
+blind arcade
 barrel vaults
 semicircular arches
 towers
 
-#gothic
+#gothic: transcendent expression
+blind arcade
 flying buttresses
 pointed arches
 ribbed vaults
 stained glass windows
 spires
 - crockets: small decorations on spires
+cross plans of cathedrals
+portals with multiple arches that gradually decrease in size inwards
+Ogee arch: double-curved, concave and convex
+Trefoil arch: three circular arcs
 
-#renaissance
+#renaissance: rational expression
 arches
 columns
 cupolas
@@ -62,15 +119,25 @@ domes
 niches
 painted ceilings
 square plans
+Decorative column: raised surface from wall
+Orangerie: greenhouse for tropical trees in winter
+Giant order: columns span multiple storeys
+Superposed order
 
-#baroque
+#baroque: dramatic expression
 cupolas
 domes
 gilded sculptures
 grand stairways
+curved lines, oval spaces
 mirrors
 twisted columns
 quadratura
+Giant order
+Superposed order
+
+#Iberian
+Azulejo: painted glazed tiles
 
 #fort
 bastion fort: polygon with bastions at corners

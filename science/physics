@@ -200,14 +200,17 @@ Van der Waals equation: considers also gas molecule volume and intermolecular in
 - adjust to shape of container
 - slowed diffusion than in gases
 - fixed volume, small thermal expansion
-Surface tension: energy required to increase surface area, depends on intermolecular forces
-Capillary action: adhesive forces between liquid and container are smaller/greater than cohesive forces in liquid
-Viscosity: resistance to flow, depends on intermolecular forces
-Volatility: speed of vaporization
 Mpemba effect: hot liquid can freeze faster than cold (due to evaporation etc)
 
+#forces between particles
 Adhesion: forces between different particles
 Cohesion: forces between same particles
+Surface tension: energy required to increase surface area, depends on intermolecular forces
+- liquid shrinking into minimum surface area
+Capillary action: adhesive forces between liquid and container are smaller/greater than cohesive forces in liquid
+- liquid flowing in narrow space (against gravity)
+Viscosity: resistance to flow, depends on intermolecular forces
+Volatility: speed of vaporization
 
 #Fluid dynamics
 tea leaf paradox
@@ -331,6 +334,16 @@ Ritz combination principle - describes relationship of spectral lines
 emission of electrons by electromagnetic radiation
 photons need to have sufficient frequency (=energy)
 excess energy becomes electron's kinetic energy
+
+#Piezoelectricity: reversible
+electric charge accumulation in response to mechanical stress
+crystalline materials without centrosymmetry
+#Pyroelectricity
+electric charge generation in response to temperature change
+all materials are also piezoelectric (but not vice versa)
+#Ferroelectricity
+all materials are also pyroelectric (but not vice versa)
+#Ferromagnetism
 
 #Stimulated emission
 - photon of specific frequency interacts with excited electron, dropping it to lower energy level

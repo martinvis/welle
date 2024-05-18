@@ -70,3 +70,22 @@ Sizes:
 - CR2450
 - SRXX: silver oxide, coin shape
 - LRXX: alkaline, coin shape
+
+#SAE steel grades
+Carbon steel: 4 digits, 3+4 digits carbon content
+- 1xxx: carbon
+- 2xxx: nickel
+- 3xxx: nickel-chromium
+- 4xxx: molybdenum
+- 5xxx: chromium
+- 6xxx: chromium-vanadium
+- 7xxx: tungsten
+- 8xxx: nickel-chromium-molybdenum
+- 9xxx: silicon-manganese
+Stainless steel: 3 digits
+- 3xx: chromium-nickel
+- 304: most common, 18% Cr + 8% Ni
+- 316: marine environment, molybdenum
+- 4xx: chromium
+- 420: cutlery
+- 440: higher-grade cutlery

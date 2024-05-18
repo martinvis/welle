@@ -1,0 +1,36 @@
+#Operating system: manage hardware resources
+MS-DOS: text-based
+Microsoft Windows: proprietary graphical, desktop
+Mac OS X: proprietary graphical, desktop
+- iOS: mobile
+Linux: open source, kernel
+- Debian: DEB packages
+- Ubuntu: Debian based
+- Mint: Ubuntu based
+- Fedora: RPM packages
+- CentOS: Fedora based, servers
+Android: Linux based, mobile
+
+#Desktop environment: graphical user interface
+KDE
+Gnome
+Xfce: lightweight
+Cinnamon: Gnome based
+
+#File manager
+Dolphin: KDE
+Nautilus: Gnome
+Thunar: Xfce
+
+#Browser
+Google Chrome: WebKit engine
+- Chromium: open source
+Mozilla Firefox: open source, Gecko engine
+Safari: Mac OS + iOS
+Edge: Windows
+
+#File system: data storage
+FAT32: windows, no permissions, max filesize 4GB
+NTFS: windows, permissions
+EXT2/3/4: linux, permissions, journaling (ext3)
+BTRFS: linux, permissions, B-tree
