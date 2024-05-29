@@ -10,7 +10,20 @@ tracery: division of window into sections
 Lunette: decorative semicircular space
 Fluting: shallow grooves along surface
 Blind arcade: without openings
+Under overhanging structure
+- Corbel: big supporting projection
+- Modillion: medium-sized repeated decoration
+- Dentil: small-sized repeated decoration
+Eaves: edges of roof overhanging beyond walls
+Cornice: horizontal decorative moulding below roof
 
+#Christian Church
+Chancel: space around altar
+Choir: seating for clergy, part of chancel
+Nave: central aisle, from entrance to chancel
+Transept: area crosswise to nave, separates nave and chancel
+Cloister: covered arcade along walls forming rectangle
+  
 #ancient egyptian
 Columns: cylindric shape on top
 Colonnade: sequence of columns
@@ -77,26 +90,46 @@ Mosque: place of worship
 - Minaret: tower close to mosque
 Moorish architecture
 - Horseshoe arch: rounded or pointed
+- arcade with double tiers of arches
 Multifoil arch: multiple circular arcs
 Muqarnas: honeycomb-like decoration in domes and vaults
 Mashrabiya: window with wooden lattice openings
+Hypostyle: roof supported by columns
 
 #Castles
 Keep: fortified tower
+- Chemise: low wall around keep
+Turret: small tower, defends wall
+- Bartizan: overhanging turret
 Palisade: defensive wooden wall
+Albarrana tower: defensive tower connected to wall by bridge
 Motte-and-bailey castle
-- Motte: stone keep on raised area
+- Motte: wood/stone keep on raised area
 - Bailey: walled courtyard surrounded by ditch and palisade
 Murder hole: ceiling opening, allows to shoot or pour on attackers
-Machicolation: floor opening on wall, allows to pour on attackers
 Moat: deep broad ditch around castle, sometimes filled with water
 - Drawbridge: movable entrance over moat
+Concentric castle: multiple walls, outer lower than inner
+
+#Fortification
+Postern: hidden secondary gate
+Wall
+- Rampart: broad defensive wall, often with parapet
+- Battlement: Parapet + Crenellation
+- Parapet: upward extension of wall at roof edge
+- Crenellation: gaps in parapet, allows projectiles launch
+- Bastion: projection at wall corner
+Pincer gate: gate between two angled walls
+Faussebraye: lower wall outside main wall
+Barbican: fortified gateway or outpost, defends choke point
+Machicolation: floor opening on wall, allows to pour on attackers
 
 #romanesque
 blind arcade
 barrel vaults
 semicircular arches
 towers
+double-column arcade
 
 #gothic: transcendent expression
 blind arcade
@@ -105,7 +138,9 @@ pointed arches
 ribbed vaults
 stained glass windows
 spires
-- crockets: small decorations on spires
+- Flèche: tall spire
+- Crockets: small decorations on spires
+- Pinnacle: small spire
 cross plans of cathedrals
 portals with multiple arches that gradually decrease in size inwards
 Ogee arch: double-curved, concave and convex
@@ -142,3 +177,11 @@ Azulejo: painted glazed tiles
 #fort
 bastion fort: polygon with bastions at corners
 polygonal fort: multiple in ring, no bastions
+
+#Garden
+Roman garden: kitchen garden, pergolas, statues, shrines, nymphaeum
+- Peristyle: columns (supporting roof) surrounding courtyard
+- Pergola: shaded walkway, pillars supporting lattice
+Italian garden: symmetry, fountains, statues, grottoes
+French garden: geometric plan, terrace, central axis, water as mirror
+English garden: lawn, trees, lakes, classic temples, bridges

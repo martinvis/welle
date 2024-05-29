@@ -250,6 +250,8 @@ Submarine: underwater
 
 Torpedo: underwater, self-propelled
 
+Railgun: uses electromagnetic force to launch high-velocity projectiles along rails
+
 #MLRS (Multiple rocket launcher)
 Smerch: USSR, 12 rockets
 Grad: USSR, 40 rockets

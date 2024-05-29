@@ -149,11 +149,20 @@ Four-level laser: L1 (ground state), L2, L3, L4
 - pump transition from L1 to L4
 
 #Photolitography:
-- uses ultraviolet light to produce patterned thin film
-- photoresist breaks down or hardens when exposed to light
-- softer parts are removed from substrate with solvent
-- photoresist consists of resin, sensitizer and solvent
 - integrated circuits fabrication
+- uses ultraviolet light to produce thin patterned film
+- photoresist consists of resin, sensitizer and solvent
+- photoresist breaks down (positive) or hardens (negative) when exposed to light
+Process
+- Si wafer surface cleaned with H2O2 solution
+- wafer heated, surface SiO2 layer made water repellent
+- wafer covered with photoresist by spin coating
+- wafer baked
+- photoresist exposed to pattern of light
+- softer parts of photoresist are removed with solvent
+- wafer baked
+- etching: chemical agent removes unprotected upper layer of substrate
+- remaining photoresist removed
 
 #Extreme ultraviolet lithography (EUV)
 photon emission from laser-pulsed tin droplet plasma

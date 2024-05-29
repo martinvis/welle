@@ -1,0 +1,24 @@
+Cellular network: wireless communication between user devices and network
+- 2G (GSM): voice and text
+- 3G: mobile internet
+- 4G (LTE): video streaming
+- 5G
+BTS (Base transceiver station): cell tower, transmits and receives signal
+- Antenna: in sectors (usually 3 to 6) or omnidirectional
+- Power amplifier: amplify signal, between transceiver and antenna
+- Multiplexer: combine signals, between transceiver and antenna
+- Transceiver (TRX): transmitter+receiver, convert between digital and radio signals, one or more per antenna (on different frequencies)
+SIM card: identification for cellular network
+- PIN password: ordinary use
+- PUK password: PIN unlock
+Roaming: device outside of native network
+
+Radio tower: taller than cell tower, antenna for broadcasting signal, only transmits
+
+#Transmission
+Omnidirectional: uniform power in all directions
+Beamforming: directional signal transmission, better efficiency
+
+Cold email/call: personalized, without prior connection
+
+Yellow journalism / Tabloids: eye-catching headlines, emotional, exaggerated

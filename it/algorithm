@@ -85,6 +85,14 @@ Prisoner's dilemma: non-zero-sum game
 - best result for one and worst result for other, if only one cooperates
 - best strategy in single game is to not cooperate
 - good strategy in repeated game is to repeat opponent's previous action
+Revelation principle: if choice function can be implemented by non-truthful mechanism then it can be implemented by truthful mechanism
+- e.g. Sealed-bid versus Vickrey auction
+Incentive compatibility: every actor gets best outcome by acting truthfully
+Auction
+- English auction: opening bid is minimum and increases
+- Dutch auction: opening bid is maximum and decreases
+- Sealed-bid: everyone bids, highest wins
+- Vickrey auction: everyone bids, highest wins but pays second-highest bid
 
 #Heuristics
 Greedy algorithm: produces local maximum, selects best option at each step
@@ -100,3 +108,15 @@ Recursion: base case and recursive step, function calling itself
 
 Halting problem: whether program will stop, undecidable
 Turing machine: abstract computer, memory tape with discrete cells, finite set of symbols, head reads/writes and moves
+
+#Global maximum
+Optimization
+- Hill climbing: iterative search for local maximum
+- Shotgun hill climbing: random restarts (to find better local maximum)
+Randomization
+- Simulated annealing: iterative, jump to random place or stay, probability of jump depends on values and decreases with time
+
+#Networking: avoid congestion in traffic
+Exponential backoff: waiting after failure grows exponentially
+Additive increase/multiplicative decrease (AIMD): slowing down quickly
+Backchannel: feedback provided to control flow, prevents buffer overflow

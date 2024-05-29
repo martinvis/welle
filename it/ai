@@ -1,0 +1,42 @@
+#Latent variable model
+Diffusion model: forward process + reverse process + sampling procedure
+- image generation
+
+=Large Language Model (LLM)
+- Chain-of-thought
+- Least-to-most
+Transformer: multi-head attention mechanism
+
+#Machine learning
+Feature learning: automatically discover representation for classification of data
+
+K-means clustering
+Neural network: layers from input to output, weighted edges between layers
+- Input layer
+- Hidden layer
+- Output layer
+Principal component analysis (PCA): dimensionality reduction in exploratory data analysis
+- principal component is combination of variables, components are uncorrelated
+- puts maximum information in first component, maximum remaining in second etc
+- finds line with most spread out projection of data points to line
+
+#Probabilistic classifiers
+Naive Bayes classifier
+
+#Overfitting: model with too many parameters, fits closely to training data but fails on additional data
+Generalization error: performance on additional data
+Cross-validation: splitting data to train and test sets
+Regularization: penalize more complex models
+Early stopping: train until performance on test data stops improving
+
+Loss function: measurement of model predictions accuracy, smaller is better
+Gradient: vector field with values in direction of fastest increase, dimensions same as loss function
+- Gradient descent: optimization method, finds local minimum by iterative steps in direction opposite of gradient
+
+Stochastic gradient descent (SGD): optimization method
+Backpropagation: computes gradient of loss function in weight space of feedforward neural network
+Feedforward neural network (FNN): unidirectional neural network, usually fully connected
+Convolutional neural network (CNN): feedforward neural network, regularized weights over fewer connections
+Recurrent neural network (RNN): bidirectional neural network
+Neural Turing machine: recurrent neural network with external memory
+Long short-term memory (LSTM): recurrent neural network with memory

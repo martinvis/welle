@@ -1,0 +1,99 @@
+#Basic
+Edge: line joining two vertices
+Vertex: point shared by lines
+
+#Angles
+Size
+- Acute: <90
+- Right: 90
+- Obtuse: <180
+- Straight: 180
+- Reflex: >180
+Units
+- Degree: 360
+- Turn: 1
+- Radian: 2π
+- Gradian (gon): 400
+
+#Intersection
+Perpendicular: intersection is right angle
+Parallel: no intersection
+
+#Conic section: quadratic curve
+Focus: point defining curve
+Directrix: line defining curve
+Latus rectum: parallel to directix, through focus
+Eccentricity: characterizes shape, infinity for straight line
+Dandelin spheres: tangent to both cone and curve plane
+--
+Circle
+- special type of ellipse (single focus point)
+- eccentricity 0
+Ellipse
+- locus of points with constant distance from two focus points
+- eccentricity 0 to 1
+Parabola
+- locus of points equidistant from focus and straight directrix
+- special type of hyperbola (directrix with infinite radius)
+- eccentricity 1
+Hyperbola
+- locus of points with constant difference of distances from two focus points
+- locus of points equidistand from focus and circular directrix
+- eccentricity over 1
+
+#Circle
+- x*x + y*y = r*r
+- x = a + cos t, y = b + sin t
+- Area: π*r*r
+- Perimeter: 2*π*r (circumference)
+Arc: part of circle
+Secant: straing line sharing two points with circle
+Tangent: straing line sharing one point with circle
+Radius (r): distance to center
+Diameter (d): 2x radius
+
+#Semicircles
+Arbelos: 3 semicircles, centers on straight line
+Crescent: symmetric, 2 semicircles
+Salinon: symmetric, 4 semicircles, centers on straight line
+
+#Triangle
+- area: 1/2 * base * height
+- sum of angles is 180
+Circumcircle: passing all vertices
+- Circumcenter: center of circumcircle, intersection of perpendicular bisectors
+Incircle: tangent to all edges
+- Incenter: center of incircle, intersection of angle bisectors
+Hypotenuse: edge opposite to right angle
+Trigonometric function
+- relate angle of right-angle triangle to ratio of two sides
+- Sine: opposite to hypotenuse
+- Cosine: adjacent to hypotenuse
+- Tangent: opposite to adjacent
+- Cosecant: sine reciprocal
+- Secant: cosine reciprocal
+- Cotangent: tangent reciprocal
+Right-angle triangle
+- Pythagorean theorem: a^2 + b^2 = c^2 (where c is hypotenuse)
+- Pythagorean triple: side lengths of right-angle triangle
+Primitive Pythagorean triple: a/b/c are coprime
+- smallest triple is 3,4,5
+- exactly one of a/b/c is dividible by each of 3/4/5
+- 60 is largest dividor of a*b*c
+
+#Polygon: 2D shape, closed lines connecting points
+- n-polygon can be split into n-2 triangles
+Triangle: 3 vertices
+Pentagon: 5 vertices
+Hexagon: 6 vertices
+
+Euclidean geometry: flat plane
+Elliptic geometry: surface of sphere
+- all lines intersect (no parallel lines)
+Hyperbolic geometry: parallel lines only share one point
+- infinitely many parallel lines through one point
+- infinitely many non-parallel non-intersecting lines
+Poincaré disk model: 2D hyperbolic geometry
+- straight lines are arcs within disc orthogonal to disc boundary
+Klein disk model: 2D hyperbolic geometry
+- straight lines are chords within disc

@@ -16,3 +16,57 @@ Golden ratio (1.618): a+b / a = a / b
 
 #Sequences
 Fibonacci sequence: number is sum of two previous numbers, consecutive numbers converge to golden ratio
+
+#Algebra
+Scalar: single field element
+- arithmetic operations: addition, substraction, multiplication, division
+Vector: ordered list of elements
+Matrix: 2-dimensional array of elements
+- Transpose: flip over diagonal
+- Inverse matrix: square matrix that gives identity matrix when multiplied with original matrix
+Tensor: multi-dimensional array of elements
+
+#Vector
+Norm: measurement of vector size
+- Manhattan norm (L1): sum(v_i)
+- Euclidean norm (L2): sqrt(sum(v_i^2))
+- Chebyshev norm (L∞): max(v_i)
+Orthogonal vectors: perpendicular to each other, dot product is 0
+Orthonormal vectors: orthogonal, vector size is 1
+
+#Matrix
+Singular matrix: not invertible
+- when row/column elements are all zeroes
+- when row/column elements are same/proportional to other row/column
+- when row/column elements are linear combination of other rows/columns
+Matrix multiplication: dot product of rows and columns
+- Akl * Blm = Ckm, columns of first must match rows of second
+- Cij = sum (Aik * Bkj)
+- non-commutative, associative, distributive
+Scalar multiplication: each element multiplied by scalar
+Hadamard product: matrices with same dimensions, multiplication of corresponding elements
+Determinant: only square matrix, zero if matrix is singular
+- product of eigenvalues, measure of volume
+- same for matrix and its transpose
+- determinant of identity matrix is 1
+- in scalar multiplication, determinant multiplies by scalar
+- in matrix multiplication, determinant is product of determinants
+- if position of two rowes/columns is switched, determinant changes sign
+Symmetric matrix: equal to its transpose
+Diagonal matrix: non-zero elements only on main diagonal
+Orthogonal matrix: columns and rows are orthonormal vectors
+- transpose is equal to inverse matrix
+Diagonalizable matrix: if eigendecomposition exists
+Trace: sum of elements on main diagonal
+Moore–Penrose inverse (pseudoinverse)
+
+Eigendecomposition: canonical form of square matrix, represented by eigenvalues and eigenvectors
+- M = P * A * P^-1, A is diagonal matrix with eigenvalues, P is invertible matrix with eigenvectors as columns
+- M^-1 = P * A^-1 * P^-1, if M is invertible
+
+Singular value decomposition: canonical form of matrix
+- M = U * S * V, S is rectagonal diagonal matrix, U and V are orthogonal matrices
+- U and V represent rotation, S represents scaling
+
+Jordan canonical form  (JCF): block diagonal matrix, each block represents eigenvalue, elements above diagonals are 1
+Frobenius normal form: block diagonal matrix, each block represents polynomial, diagonal elements are 1 and last column has values

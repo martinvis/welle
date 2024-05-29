@@ -6,6 +6,7 @@ Vacuum tube: controls electric current in vacuum between electrodes, replaced by
 Transistor: amplifies or switches electric signal
 - gate voltage determines conductivity
 MOSFET (metal-oxide-semiconductor field-effect-transistor): fabricated by controlled silicon oxidation
+- Fin field-effect transistor (FinFET): 3D transistor, MOSFET with multigate structure
 
 Integrated circuit: microchip, interconnected electronic components
 Capacitor: stores electrical energy, accumulates charges on two surfaces with insulator in between

@@ -175,6 +175,11 @@ slovenia: Gorenje
 sweden: Electrolux (AEG)
 usa: Whirlpool
 
+#telecommunication equipment
+finland: Nokia
+sweden: Ericsson
+usa: Cisco, Juniper Networks, Motorola
+
 #optics/photography
 japan: Canon, Fujifilm, Nikon, Olympus
 usa: Kodak
@@ -187,7 +192,7 @@ germany: Osram
 #computer technology
 china: Lenovo
 japan: Brother, Epson, Sony (PlayStation)
-usa: Apple (iPhone), Cisco, Dell, HP, Xerox, F5
+usa: Apple (iPhone), Dell, HP, Xerox, F5
 
 #conglomerate
 germany: Siemens

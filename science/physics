@@ -13,6 +13,9 @@ Proton: positive charge, in nucleus, 1836 times mass of electron
 Neutron: neutral, in nucleus
 Photon: quantum of electromagnetic field, massless, chargeless
 Fermions: odd half-integer spin, quarks and leptons
+Hadrons: made of quarks
+- Baryons: made of odd number of quarks (usually 3)
+- Mesons: made of even number of quarks (usually quark and anti-quark)
 Bosons: integer spin, force carriers
 Quarks: up/down, top/bottom, strange/charm
 Leptons: do not affected by strong force
@@ -20,6 +23,8 @@ Neutrinos: neutral leptons
 Spin: amount of angular momentum
 Atomic number (Z): number of protons
 Mass number (A): number of protons and neutrons
+Pion: meson, decay into photons or muon + muon neutrino
+Muon: lepton, decay into electron + electron neutrino + muon neutrino
 
 #Radiation
 Alpha: helium nucleus
@@ -459,9 +464,17 @@ Block-stacking problem (Leaning tower of Lyre): overhang of blocks over edge
 Birthday paradox: probability of same birthday between people, 50% for 23, 99.9% for 70
 
 Newton's cradle: set of swinging spheres, show conservation of energy and momentum
+Newton beads / Chain fountain: chain pulled from jar falling under gravity, chain raises above jar
+- raises higher with higher speed
+- caused by chain stiffness
 
 #optics
 Beam splitter: splits light beam
 
 Mach–Zehnder interferometer: measures phase shift between beams
 
+#Quantum mechanics
+Supersymmetry: theoretical symmetry between bosons (force) and fermions (matter)
+Superposition: linear combination of multiple basis states
+Neutrino oscillation: neutrinos change flavor as they travel, superposition of 3 states
+Baryon asymmetry: more matter than anti-matter in universe, reason unknown

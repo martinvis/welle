@@ -60,9 +60,13 @@ Calakmul, Mexico
 Caracol, Belize
 Xunantunich, Belize
 
+#Achaemenid (550-330BC)
+Iran
+- Persepolis
+- Tomb of Cyrus
+
 #Ancient Greek (900BC - 100AD)
-Parthenon, Athens
-Erechtheion, Athens
+Acropolis (Parthenon + Erechtheion), Athens
 Temple of Hephaestus, Athens
 
 Herat Citadel, Afghanistan (rebuilt)
@@ -131,15 +135,21 @@ Istanbul
 Pisa Cathedral + Leaning Tower
 Basilica of Saint-Sernin, Toulouse
 Germany
-- Aachener Dom
-- Mainzer Dom
-- Naumburger Dom
-- Speyerer Dom
+- Aachener Dom, Kaiserdom
 - Trierer Dom
 - Maria Laach Abbey
 
+#Romanesque/Gothic
+Germany
+- Mainzer Dom: two chancels, Kaiserdom
+- Speyerer Dom: two chancels, Kaiserdom
+- Wormser Dom: two chancels, Kaiserdom
+- Bamberger Dom: two chancels
+- Naumburger Dom: two chancels
+
 #Umayyad (7th-8th century)
 Dome of the Rock, Jerusalem
+Umayyad Mosque, Damascus
 
 #Abbasid (8th-13th century)
 Great Mosque of Samarra, Iraq
@@ -207,8 +217,21 @@ Doge's Palace, Venice
 Siena Cathedral
 Milan Cathedral
 
-#Gothic (12th-16th century)
-Limburger Dom, Hesse
+#Norman/Gothic Cathedral
+England
+- Durham Cathedral
+- Canterbury Cathedral
+- Ely Cathedral
+- Lincoln Cathedral
+- Norwich Cathedral
+- York Minster
+- Bath Abbey
+
+#Gothic Cathedral
+England
+- Salisbury Cathedral
+- Wells Cathedral
+- Beverley Minster
 France
 - Notre-Dame, Paris
 - Strasbourg Cathedral, Grand Est
@@ -220,25 +243,22 @@ France
 - Bayeux Cathedral, Normandy
 - Chartres Cathedral, Centre Region
 - Bourges Cathedral, Centre Region
+- Cathedral of St. Andrew, Bordeaux, Aquitaine
+- Basilica of St. Michael, Bordeaux, Aquitaine
+Palma Cathedral, Mallorca
+Limburger Dom, Hesse
 Cologne Cathedral, Cologne
+Stephansdom, Vienna
+
+#Gothic (12th-16th century)
+Palais des Papes, Avignon
 England
 - University of Oxford
 - University of Cambridge
-- Canterbury Cathedral
-- Beverley Minster
-- York Minster
-- Bath Abbey
-Ely Cathedral, England
-Lincoln Cathedral, England
-Norwich Cathedral, England
-Salisbury Cathedral, England
-Wells Cathedral, England
-Palma Cathedral, Mallorca
 Westminster Abbey, London
-Stephansdom, Vienna
 Matthias Church, Budapest
 Germany
-- Kaiserdom, Frankfurt
+- Frankfurter Dom: Kaiserdom
 - Regensburger Dom
 - Ulm Minster
 - Freiburg Minster
@@ -341,9 +361,12 @@ Spain
 - Palacio Real de Aranjuez, Madrid
 
 #Safavid (1501-1722)
-Ali Qapu Palace, Isfahan, Iran (1597)
-Sheikh Lotfollah Mosque, Isfahan, Iran (1603-1619)
-Shah Mosque, Isfahan, Iran (1611-1629)
+Iran
+- Blue Mosque, Tabriz: damaged by earthquake
+- Ali Qapu Palace, Isfahan (1597)
+- Sheikh Lotfollah Mosque, Isfahan (1603-1619)
+- Shah Mosque, Isfahan (1611-1629)
+- Mausoleum of Sheikh Safi-ad-din, Ardabil
 
 #Mughal (16th-18th century)
 Taj Mahal, Agra
@@ -386,6 +409,7 @@ Germany
 Kloster Einsiedeln, Switzerland
 Santiago de Compostela Cathedral, Spain
 Palacio Real, Madrid
+Palácio Nacional de Mafra, Portugal
 St. George's Cathedral, Lviv
 Reggia di Caserta, Italy
 Basilica di Santa Maria Maggiore, Rome
@@ -440,6 +464,14 @@ Washington D.C.
 - Lincoln Memorial, Washington D.C. (1914–1922)
 - Washington Monument
 Palace of Justice, Brussels: large dome
+Shrine of Remembrance, Melbourne: war memorial
+
+#Ottoman Revival + Baroque Revival
+Istanbul
+- Dolmabahçe Palace
+- Yıldız Palace
+- Beylerbeyi Palace
+- Çırağan Palace
 
 #Patriotic Monumental
 Deutsches Eck, Koblenz
@@ -455,6 +487,8 @@ Lednice–Valtice Area, Czechia
 National Theatre, Prague: opera house
 Ascension Cathedral, Almaty
 Palácio de Monserrate, Sintra
+Hôtel de Ville, Paris: city hall
+Christuskirche, Mainz
 
 #Memorials (19th-20th century)
 Lion's Mound, Waterloo, Brussels: artificial hill
@@ -464,6 +498,7 @@ Mount Rushmore, South Dakota: presidents
 Berlin Cathedral, Berlin: large dome
 Corvin Castle, Romania
 Foros Church, Crimea
+Książ Castle, Silesia
 
 #Moorish Revival (19th century)
 Castello di Sammezzano, Tuscany
@@ -492,7 +527,7 @@ Vienna
 Hungarian Parliament, Budapest (1885–1904)
 Miramare Castle, Trieste, Italy
 Germany
-- Burg Hohenzollern, Baden-Württemberg
+- Burg Hohenzollern, Baden-Württemberg: hilltop castle
 - Schloss Sigmaringen, Baden-Württemberg
 - Schloss Lichtenstein, Baden-Württemberg
 - Marktkirche, Wiesbaden
@@ -505,18 +540,17 @@ Dunrobin Castle, Scotland
 St. Patrick’s Cathedral, New York
 Woolworth Building, New York
 Notre-Dame de Nice
+Santuario de Las Lajas, Colombia
 
 #Baroque Revival
 Palais Garnier, Paris: opera house
 Széchenyi thermal bath, Budapest
-Dolmabahçe Palace, Istanbul
 Herrenchiemsee, Bavaria
 Schloss Linderhof, Bavaria
 Belfast City Hall, Ireland
 
 #Romanesque Revival
 Fisherman's Bastion, Budapest (1851)
-Neuschwanstein Castle, Germany (1886)
 Schloss Wernigerode, Germany
 Church of the Redeemer, Bad Homburg, Germany (1908)
 
@@ -564,7 +598,10 @@ Slavín, Bratislava
 Soviet War Memorial, Vienna
 Soviet War Memorials, Berlin
 Palace of Culture and Science, Warsaw
-Seven Sisters, Moscow
+Moscow
+- Seven Sisters, Moscow
+- Ostankino Tower, Moscow
+- Exhibition of Achievements of National Economy (VDNKh): neoclassical, fountain
 
 #Chinese (20th century)
 Pavilion of Prince Teng: Nanchang
@@ -585,6 +622,7 @@ Oscar Niemeyer
 - Palácio do Congresso Nacional, Brasília
 - Tribunal Superior Eleitoral, Brasília
 - Niterói Contemporary Art Museum, Rio de Janeiro
+Kamzík TV Tower, Bratislava
 
 #Expressionist
 Sydney Opera House, Australia (1959-1973)
@@ -593,7 +631,7 @@ Einstein Tower, Germany
 
 #Futurism
 Transamerica Pyramid, San Francisco (1969-1972)
-Tokyo Tower: orange-white, Eiffel Tower
+Tokyo Tower: radio tower, orange-white, Eiffel Tower
 
 #Postmodern
 Petronas Towers, Kuala Lumpur (1996)
@@ -620,7 +658,7 @@ Nanjing International Youth Cultural Centre, China (2012-2015)
 Museum of Art, Architecture and Technology; Lisbon (2016)
 Astronomy Museum, Shanghai
 Jin Mao Tower, Shanghai
-Tokyo Skytree
+Tokyo Skytree: radio tower
 
 #Deconstructivism
 Elbphilharmonie, Hamburg (2007-2017)
@@ -657,8 +695,10 @@ The Hive, Singapore (2015)
 The Interlace, Singapore
 
 #Middle East
-Çamlıca Mosque (2019): Ottoman-like, large dome, 6 minarets
-Çamlıca Tower (2020): Zaha Hadid-like
+Turkey
+- Çamlıca Mosque (2019): Ottoman-like, large dome, 6 minarets
+- Çamlıca Tower (2020): Zaha Hadid-like
+Akhmad Kadyrov Mosque, Grozny (2008): Ottoman-like, 4 minarets
 
 #Fountains
 Renaissance
@@ -668,6 +708,8 @@ Baroque
 - Fontana dei Quattro Fiumi, Rome (Piazza Navona): with obelisk
 - Apollo + Latona Fountains, Versailles
 - Great Cascade + Great Fountain, Bergpark Wilhelmshöhe, Kassel
+Soviet
+- Druzhba Narodov, VDNKh, Moscow
 Later
 - Magic Fountain of Montjuïc, Barcelona (Plaza de España)
 - Jet d'Eau, Geneva
@@ -836,6 +878,7 @@ Independence Monument, Ashgabat
 Sheikh Zayed Grand Mosque, Abu Dhabi
 Al Saleh Mosque, Yemen
 Hassan II Mosque, Casablanca
+Moscow Cathedral Mosque
 
 #Buddhism
 Borobudur, Java, Indonesia
@@ -886,50 +929,109 @@ Turkey
 - Boyabat Castle
 - Çimenlik Castle
 
-#High Middle Ages - Castles (11th-14th century)
+Castillo de Colomares, Spain
+Christiansborg Palace, Copenhagen
+
+#Motte-and-Bailey Castle
+Cardiff Castle, Wales
+England
+- Windsor Castle, London: later palace
+- Arundel Castle
+- Warkworth Castle
+- Warwick Castle
+
+#Stone Keep Castle
+England
+- Alnwick Castle
+- Bamburgh Castle
+- Dover Castle
+- Leeds Castle
+- Lancaster Castle
+Wales
+- Pembroke Castle
+Netherlands
+- Muiderslot, Amsterdam: water brick castle
+
+#Concentric Castle
+Krak des Chevaliers, Syria: crusaders
+England
+- Bodiam Castle
+Wales
+- Beaumaris Castle
+- Caernarfon Castle
+- Caerphilly Castle: water castle
+- Conwy Castle: 8 towers
+- Harlech Castle
+
+#Hilltop castle: steep on all sides
 Slovakia
 - Bratislava Castle
-- Bojnice Castle
 - Červený Kameň Castle
-- Devín Castle
 - Orava Castle
-- Spiš Castle
-- Strečno Castle
 - Trenčín Castle
+Germany
+- Wartburg, Eisenach
+- Festung Marienberg, Würzburg
+Austria
+- Festung Hohensalzburg, Salzburg
+- Festung Hohenwerfen, Salzburg
+- Burg Hochosterwitz
+- Burg Kreuzenstein
+Wawel Castle, Krakow
+
+#Ridge castle: steep on two sides
+Germany
+- Burg zu Burghausen, Bavaria
+
+#Spur castle: steep on three sides
+Germany
+- Burg Rheinstein
+- Burg Rheinfels
+- Heidelberger Schloss
+
+#Brick castle
+Malbork Castle, Poland
+
+#Rock castle
+Slovakia
+- Devín Castle
+- Strečno Castle
+Edinburgh Castle
+Klis Fortress, Split, Croatia: ridge castle
+
+#Romantic castle
+Bojnice Castle, Slovakia
+Neuschwanstein Castle, Germany (1886)
+
+#Medieval fortress
+France, Loire
+- Château d'Angers
+- Château de Chinon
+Germany
+- Festung Königstein, Saxony
+- Festung Ehrenbreitstein, Koblenz
+Spiš Castle, Slovakia
+
+#High Middle Ages - Castles (11th-14th century)
 Mikulov Castle, Czechia
 Germany
-- Festung Marienberg, Würzburg
-- Heidelberger Schloss
-- Wartburg, Eisenach
 - Plassenburg, Kulmbach
 - Burg Eltz, Rheinland-Pfalz
 Austria
-- Burg Hochosterwitz
-- Burg Kreuzenstein
 - Burg Liechtenstein
-- Festung Hohensalzburg, Salzburg
-- Festung Hohenwerfen, Salzburg
 Belgium
 - Gravensteen, Ghent
 - Château de Bouillon
-Netherlands
-- Muiderslot, Amsterdam
 Bran Castle, Romania
 Castello di Montebello, Switzerland
 Kamianets-Podilskyi Castle, Ukraine
 
-Edinburgh Castle
 Peleș Castle, Romania
-Wawel Castle, Krakow
 Castillo de Coca, Spain
-Komárno fortification system
 Baba Vida, Bulgaria
 Saint George's Castle, Lisbon
 Castle of Leiria, Portugal
-Klis Fortress, Split, Croatia
-Malbork Castle, Poland
 
-Festung Königstein, Saxony
 Fortress of Guaita, San Marino
 Malta
 - Fortifications of Mdina
@@ -939,8 +1041,20 @@ Malta
 - Cittadella, Gozo
 
 #bastion fort (16-18th century)
-Fortress of Komárno, Slovakia
+Komárno fortification system, Slovakia/Hungary
+Terezín, Czechia
 Spandau Citadel, Berlin
+Neuf-Brisach, Alsace
+Spain
+- Montjuïc Castle, Barcelona
+- Pamplona Citadel
+Palmanova, Venezia
+Netherlands
+- Bourtange
+- Naarden
+Portugal
+- Almeida
+- Nossa Senhora da Graça (La Lippe)
 
 #Indo-Saracenic revival (19-20th century)
 India
@@ -950,6 +1064,7 @@ India
 - Lakshmi Vilas Palace, Vadodara, Gujarat
 - Khalsa College, Amritsar
 Ubudiah Mosque, Malaysia
+Royal Pavilion, Brighton, England
 
 #bronze statues (19-21th century)
 Tian Tan Buddha, Hong Kong
@@ -976,15 +1091,6 @@ Asia: Dubai, Tokyo, Kuala Lumpur, Jakarta, Bangkok, Singapore, Mumbai, Seoul, Bu
 Europe: Moscow, Istanbul, London, Paris, Frankfurt, Warsaw
 Australia: Melbourne, Sydney
 
-Windsor Castle, London
-Beaumaris Castle, Wales
-Cardiff Castle, Wales
-Conwy Castle, Wales: 8 towers
-Caernarfon Castle, Wales
-Caerphilly Castle, Wales
-Harlech Castle, Wales
-Pembroke Castle, Wales
-Castillo de Colomares, Spain
 
 #Seven Wonders
 Great Pyramid of Giza
