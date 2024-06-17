@@ -7,31 +7,20 @@ Oromo
 Somali
 Berber
 
-#Austro-Asiatic
-Vietnamese
-Khmer
-
-#Austronesian
-Indonesian/Malay
-Filipino/Tagalog
-Malagasy
-
-#Dravidian
-Telugu
-Tamil
-Kannada
-Malayalam
+#Niger–Congo
+Swahili
+Fulani
+Igbo
+Yoruba
 
 #Indo-European
 Albanian
 Armenian
 Greek
-
-#Indo-European (Celtic)
+=Celtic
 Irish
 Welsh
-
-#Indo-European (Germanic)
+=Germanic
 English
 German
 Dutch
@@ -39,8 +28,7 @@ Afrikaans
 Swedish
 Danish
 Norwegian
-
-#Indo-European (Italic)
+=Italic
 Spanish
 Catalan
 Galician
@@ -50,8 +38,7 @@ Italian
 Neapolitan
 Venetian
 Romanian
-
-#Indo-European (Slavic)
+=Slavic
 Russian
 Belarusian
 Ukrainian
@@ -62,8 +49,7 @@ Bulgarian
 Macedonian
 Serbo-Croatian
 Slovene
-
-#Indo-European (Indo-Iranian)
+=Indo-Iranian
 Hindi-Urdu
 Assamese
 Bengali
@@ -80,24 +66,12 @@ Pashto
 Kurdish
 Balochi
 
-#Isolates
-Basque
-
-#Kra–Dai
-Thai
-Lao
-
-#Niger–Congo
-Swahili
-Fulani
-Igbo
-Yoruba
-
 #Sino-Tibetan
 Chinese
 Burmese
 
-#Altaic - Turkic
+#Altaic
+=Turkic
 Turkish
 Azeri
 Kazakh
@@ -106,12 +80,34 @@ Tatar
 Turkmen
 Uyghur
 Uzbek
-
-#Altaic
+=Other
 Japanese
 Korean
 Mongolian
 
+#Austronesian
+Indonesian/Malay
+Filipino/Tagalog
+Malagasy
+
+#Austro-Asiatic
+Vietnamese
+Khmer
+
+#Kra–Dai
+Thai
+Lao
+
+#Dravidian
+Telugu
+Tamil
+Kannada
+Malayalam
+
 #Uralic
 Finnish
 Hungarian
+
+#Isolates
+Basque
+
