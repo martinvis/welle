@@ -64,6 +64,7 @@ Xunantunich, Belize
 Iran
 - Persepolis
 - Tomb of Cyrus
+- Naqsh-e Rostam, Persepolis: necropolis
 
 #Ancient Greek (900BC - 100AD): ruins
 Athens
@@ -109,6 +110,7 @@ Amphitheatre:
 - Arles Arena, France
 - Nîmes Arena, France
 Villa Hadriana, Tivoli
+Villa Jovis, Capri: Tiberius
 Aurelian Walls, Rome
 Pyramid of Cestius, Rome
 Castel Sant'Angelo / Mausoleum of Hadrian, Rome
@@ -135,6 +137,9 @@ China
 - Yungang Grottoes (云冈石窟), Datong, Shanxi
 - Dazu Rock Carvings (大足石刻), Chongqing
 
+#Sassanid
+Taq-e Bostan, Iran: rock reliefs
+
 #Hinduist Cave Temples (600-1200)
 India
 - Badami Caves, Karnataka
@@ -154,11 +159,19 @@ Basilica of San Vitale, Ravenna, Italy
 Kastamonu Castle
 Karaman Castle
 Silifke Castle
+Heptapyrgion, Thessaloniki: fortress
+Torcello Cathedral, Venice
 
 #Roman/Byzantine/Seljuk/Ottoman: castles in Turkey
 Ankara Castle
 Kayseri Castle
 Mamure Castle, Anamur
+
+#Byzantine/Norman/Islamic
+Cappella Palatina, Palermo
+
+#Gothic/Norman
+Palermo Cathedral
 
 #Romanesque (6th-11th century)
 Pisa Cathedral + Leaning Tower
@@ -250,17 +263,30 @@ Milan Cathedral: marble
 
 #Norman/Gothic Cathedral
 England
-- Durham Cathedral
+- Bristol Cathedral
 - Canterbury Cathedral
+- Chichester Cathedral
+- Durham Cathedral
 - Ely Cathedral
+- Exeter Cathedral
+- Gloucester Cathedral
+- Hereford Cathedral
 - Lincoln Cathedral
 - Norwich Cathedral
-- York Minster
+- Peterborough Cathedral
+- Rochester Cathedral
+- St Albans Cathedral
 - Bath Abbey
+- York Minster
+France
+- Bayeux Cathedral, Normandy
+- Coutances Cathedral, Normandy
 
 #Gothic Cathedral
 England
+- Lichfield Cathedral: 3 spires
 - Salisbury Cathedral
+- St Mary Redcliffe, Bristol
 - Wells Cathedral
 - Beverley Minster
 France
@@ -271,15 +297,23 @@ France
 - Amiens Cathedral, Hauts-de-France
 - Beauvais Cathedral, Hauts-de-France
 - Laon Cathedral, Hauts-de-France
-- Bayeux Cathedral, Normandy
 - Chartres Cathedral, Centre Region
 - Bourges Cathedral, Centre Region
+- Orléans Cathedral, Centre Region
+- Tours Cathedral, Centre Region
 - Cathedral of St. Andrew, Bordeaux, Aquitaine
 - Basilica of St. Michael, Bordeaux, Aquitaine
+- Poitiers Cathedral, Aquitaine
+- Rouen Cathedral, Normandy: 3 different towers
+- Saint-Ouen Abbey, Rouen, Normandy
+- Sées Cathedral, Normandy
 Palma Cathedral, Mallorca
 Limburger Dom, Hesse
+Erfurter Dom, Erfurt: Baroque altar
 Cologne Cathedral, Cologne
 Stephansdom, Vienna
+Zagreb Cathedral
+St. Anne's Church, Vilnius
 
 #Gothic (12th-16th century)
 Palais des Papes, Avignon
@@ -483,14 +517,15 @@ Drottningholm Palace, Stockholm
 Warsaw
 - Wilanów Palace
 - Łazienki Palace
+Poznań Fara, Poland
 Pažaislis Monastery, Kaunas, Lithuania: marble interior
 
 #Rococo (18th century)
 Germany
-- Schloss Charlottenburg, Berlin
-- Schloss Sanssouci, Potsdam
-- Schloss Nymphenburg, Munich
-- Würzburger Residenz
+- Schloss Charlottenburg, Berlin: gardens
+- Schloss Sanssouci + Neues Palace, Potsdam: Grottensaal, terraced gardens
+- Schloss Nymphenburg, Munich: gardens
+- Würzburger Residenz: Spiegelkabinett
 - Münchner Residenz
 Palácio de Queluz, Lisbon
 Catherine Palace, Saint Petersburg
@@ -514,7 +549,7 @@ Berlin
 Germany
 - Befreiungshalle, Regensburg (monument, rotunda)
 - Walhalla, Regensburg (memorial, after Parthenon)
-- Hermannsdenkmal, NRW
+- Hermannsdenkmal, NRW: Germanic victory over Rome
 - Ruhmeshalle + Bavaria Statue, Munich (doric colonnade, bronze statue)
 - Bayerische Staatsoper, Munich
 - Königsplatz, Munich
@@ -943,6 +978,17 @@ Al Saleh Mosque, Yemen
 Hassan II Mosque, Casablanca
 Moscow Cathedral Mosque
 
+#Fatimid architecture (10th-11th century)
+Al-Azhar Mosque, Cairo: 5 minarets
+Al-Hakim Mosque, Cairo: 2 minarets
+
+#Mamluk architecture (13-15th century)
+Citadel of Saladin, Cairo
+Mosque-Madrasa of Sultan Hasan, Cairo
+Sultan Qalawun Complex + Mosque-Madrasa of Sultan Barquq, Cairo
+Sultan Qaytbay Complex, Cairo
+Al-Muayyad Mosque, Cairo: 2 minarets
+
 #Buddhism
 Borobudur, Java, Indonesia
 Sewu, Java, Indonesia
@@ -1024,6 +1070,9 @@ Wales
 - Conwy Castle: 8 towers
 - Harlech Castle
 
+#Hill castle ruins
+Donaustauf Castle
+
 #Hilltop castle: steep on all sides
 Slovakia
 - Bratislava Castle
@@ -1031,7 +1080,7 @@ Slovakia
 - Orava Castle
 - Trenčín Castle
 Germany
-- Wartburg, Eisenach
+- Wartburg, Eisenach: Elisabeth's Chamber (mosaics), Sängersaal (fresco), Festsaal (top floor)
 - Festung Marienberg, Würzburg
 Austria
 - Festung Hohensalzburg, Salzburg
@@ -1062,7 +1111,7 @@ Klis Fortress, Split, Croatia: ridge castle
 
 #Romantic castle
 Bojnice Castle, Slovakia
-Neuschwanstein Castle, Germany (1886)
+Neuschwanstein Castle, Germany (1886): Thronsaal (Byzantine), Sängersaal (Wartburg), Grotto
 
 #Medieval fortress
 France, Loire
@@ -1101,6 +1150,16 @@ Malta
 - Fort Saint Angelo
 - Cittadella, Gozo
 
+#coastal fort
+Portuguese (15-16th century)
+- Mazagão Fortress, Morocco
+- Royal Walls of Ceuta
+- Diu Fortress, Gujarat
+- St. Angelo Fort, Kerala, India
+- Fort São Sebastião, Mozambique: on island
+- Fort Jesus, Mombasa, Kenya: on island
+- Elmina Castle, Ghana
+
 #bastion fort (16-18th century)
 Komárno fortification system, Slovakia/Hungary
 Terezín, Czechia
@@ -1116,6 +1175,7 @@ Netherlands
 Portugal
 - Almeida
 - Nossa Senhora da Graça (La Lippe)
+Petersberg Citadel, Erfurt
 
 #Indo-Saracenic revival (19-20th century)
 India

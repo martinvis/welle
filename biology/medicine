@@ -1,7 +1,6 @@
 #Symptoms
 Catatonia: immobility and withdrawal
 Anemia: low number of red blood cells
-Arthritis: joints inflammation
 Jaundice: yellowish skin pigmentation, caused by high bilirubin level
 Diarrhea: loose watery stool, usually caused by infection
 Fever: body temperature above normal (defense mechanism)
@@ -31,6 +30,7 @@ Arrhythmia: irregularity in heartbeat
 Anaphylaxis: rapid allergic reaction (to food, insect bite, medicine), caused by histamine release
 Rhinorrhea: discharge of mucus fluid from nose, can be side effect of crying
 Rhinitis: irritation inside nose
+Hypertension: high blood pressure, can cause stroke and heart failure
 Varix: abnormally dilated vessel, usually vein
 - Caput medusae: portal hypertension leads to increased blood volume in anterior abdomen veins
 - Hemorrhoid: swollen inflamed vein around anus, cause itching, very common
@@ -124,13 +124,13 @@ Hypersensitivity
 - Type IV: cell mediated (T cells, macrophages)
 
 #autoimmune type I
-Eosinophilic esophagitis: inflammation, difficult swallowing
+Eosinophilic esophagitis: inflammation of esophagus, difficult swallowing
 
 #autoimmune type II
-Bullous pemphigoid: blisters and itchy skin, antigen in keratinocytes
 Rheumatoid arthritis: joint capsule thickening, swollen warm joints
 Rheumatic fever: non-itchy rash, painful joints, heart failure
 Pernicious anemia: lack of intrinsic factor causes vitamin B12 deficiency
+Graves' disease: most common cause of Hyperthyroidism, eye bulging
 
 #autoimmune type III
 Lupus
@@ -146,13 +146,18 @@ Addison's disease: affects adrenal gland
 - symptoms: darkening of skin, weakness
 - diagnosis: low sodium, high potassium
 
+#Integumentary system - autoimmune
 Lichen planus
 - affects skin and mucous membranes
 - flat topped polygonal purple areas of papules and plaques
 Lichen sclerosus
 - anal and genital areas, white flat patches
-Vitiligo
-- patches of skin without pigment
+Vitiligo: patches of skin without pigment
+Psoriasis: patches of abnormal skin (red/itchy/scaly)
+Pemphigus: antibodies against desmoglein
+- symptoms: eroding blisters, skin and mucous membranes
+- Acantholysis: loss of intercellular connections (desmosomes)
+Bullous pemphigoid: blisters and itchy skin, antigen in keratinocytes
 
 Cutaneous horn: keratinous skin tumor, underlying epidermal lesion (possible carcinoma)
 
@@ -206,6 +211,12 @@ Beau's lines
 #respiratory disease
 Löffler's syndrome: eosinophils in lungs due to parasitic infection, difficult breathing
 
+#inflammatory
+Sarcoidosis: multi-system inflammation, often affects lungs
+- granulomas formation
+Vestibular neuritis: inflammation of inner ear nerve
+- symptoms: Vertigo, Nystagmus
+
 #cardiovascular disease
 Eosinophilic myocarditis: eosinophils in heart, inflammation
 - Löffler's endocarditis: last stadium, connective tissue replaces damaged muscle, poor contractions
@@ -213,6 +224,20 @@ Arteriosclerosis/Atherosclerosis: loss of artery elasticity due to fat buildup
 - cause: high cholesterol, diabetes, smoking, obesity
 - symptoms: higher blood pressure, dizziness, angina
 - diagnosis: EKG, blood test
+Vasculitis: blood vessels damage by inflammation
+Takayasu's arteritis: autoimmune vasculitis with intimal fibrosis
+- affects aorta and pulmonary artery
+- weak pulse in hands
+Antiphospholipid syndrome (APS): autoimmune, antiphospholipid antibodies
+- symptoms: blood clotting
+Kawasaki disease: vasculitis, affects medium-sized vessels
+- symptoms: fever, large lymph nodes, red tongue
+- in children under 5 years, lasts several weeks
+Giant cell arteritis (GCA): autoimmune vasculitis, affects cranial vessels
+- symptoms: headache, double vision
+
+Luxation: joint dislocation
+- Subluxation: partial dislocation
 
 #cancer
 Leukemia: bone marrow, abnormal blood cells
@@ -273,6 +298,7 @@ Hirschsprung's disease: birth defect, missing nerves in parts of intestine
 Skin tag (Acrochordon): benign tumor, usually where skin folds
 Morton's toe: first metatarsal bone shorter than second, causes short first toe
 
+
 #Gastroenteric
 Crohn's disease:
 - chronic inflammation anywhere in tract
@@ -283,8 +309,22 @@ Ulcerative colitis: autoimmune
 - chronic inflammation and ulcers in colon and rectum
 - increased risk of cancer and megacolon
 - symptoms: pain, diarrhea with blood
+Coeliac disease: autoimmune, affects small intestine, intolerance to gluten
 
 #Endocrine
+Thyroiditis: inflammation of thyroid gland
+=
 Diabetes insipidus
 - lack of vasopressin production
 - lage amounts of urine produced, increased thirst
+Hyperthyroidism
+- excessive thyroid hormones production
+- Goiter: enlarged thyroid gland
+- symptoms: muscle weakness, fast hearthbeat, increased perspiration, heat intolerance, diarrhea, weight loss, trouble sleeping
+- causes: autoimmune, tumor, inflammation, high iodine intake
+
+Osteoporosis: bone mass loss, porous bones, risk of fractures
+Arthritis: joints inflammation
+Osteoarthritis: joint cartilage degradation
+- often affects hands, knees, hips or neck
+- common at higher age

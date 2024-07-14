@@ -156,7 +156,7 @@ Pholidota: pangolins
 Perissodactyla
 - Equidae: horses
 - Tapiridae
-- Rhinocerotidae
+- Rhinocerotidae: nose horns, thick skin, big
 Artiodactyla
 - Tylopoda: camels
 - Suina: pigs
@@ -240,12 +240,18 @@ Ursidae
 - Helarctos: sun bear
 - Ursus: bear
 
-#Ruminantia
-Tragulidae: mouse-deer
+#Ruminantia: specialized stomach
+Tragulidae: mouse deer, small
+--
 Antilocapridae: pronghorn
-Cervidae: deer
+Giraffidae: ossicones
+- Giraffa: long neck, spotted
+- Okapia: partially striped
+--
+Moschidae: musk deer, saber teeth
+Cervidae: deer, antlers on males
 - Alces: moose
-- Rangifer: reindeer
+- Rangifer: reindeer, females may have antlers
 - Odocoileus: white-tailed deer
 - Mazama: brocket
 - Pudu: small
@@ -256,7 +262,7 @@ Cervidae: deer
 - Axis: chital
 - Rucervus: barasingha
 - Cervus: deer
-Bovidae
+Bovidae: horns
 - Aepyceros: Impala
 --
 - Alcelaphus: Hartebeest

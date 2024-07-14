@@ -50,15 +50,23 @@ twin-aisle: wide body
 Petroleum
 - Druzhba: Russia -> Poland/Slovakia -> Germany
 - Eastern Siberia–Pacific Ocean: Russia
-- Keystone: Canada -> USA
-- Colonial: USA
+- Keystone: Canada (Alberta) -> USA
+- Colonial: USA, Texas -> New York
+- Eastern Siberia–Pacific Ocean: Russia -> China
 Natural Gas
 - Bratstvo: Russia -> Ukraine
 - Yamal: Russia -> Poland -> Germany
 - Nord Stream: Russia -> Germany
 - Blue Stream: Russia -> Turkey
-- Rockies Express: USA
-- West-East: China
+- Rockies Express: USA, Colorado -> Ohio
+- Power of Siberia: Russia -> China
+- Central Asia–China: Turkmenistan -> Uzbekistan -> Kazakhstan -> Xinjiang
+- West-East: China, Xinjiang -> Shanghai | Guangzhou
+- Trans-Mediterranean: Algeria -> Italy
+- Maghreb–Europe: Algeria -> Morocco -> Andalusia
+- Medgaz: Algeria -> Spain
+- Greenstream: Libya -> Sicily
+- GASBOL: Bolivia -> Brazil
 
 #road
 truck
@@ -164,3 +172,9 @@ categories
 - Suezmax: max 200k DWT
 - VLCC: ~400k DWT
 
+#water canals
+Amu Darya
+- Qosh Tepa Canal: Afghanistan
+- Karakum Canal: Turkmenistan
+Grand Canal: China, Yellow river to Yangtze river
+Kiel Canal: Germany, North sea to Baltic sea

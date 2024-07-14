@@ -70,3 +70,8 @@ Singular value decomposition: canonical form of matrix
 
 Jordan canonical form  (JCF): block diagonal matrix, each block represents eigenvalue, elements above diagonals are 1
 Frobenius normal form: block diagonal matrix, each block represents polynomial, diagonal elements are 1 and last column has values
+
+#Combinatorics
+Latin square: n*n array, n different symbols in each row and column
+Euler square: two Latin squares, all value pairs are distinct
+- exist for every size except 2 and 6 (36 officer problem)
