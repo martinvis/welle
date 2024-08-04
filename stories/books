@@ -160,7 +160,12 @@ Andrew Lang: Fairy Books of Many Colors (1889-1913)
 - The Wounded Lion
 - The Bronze Ring (Aladdin)
 Charles Dickens: A Christmas Carol (1843) + Oliver Twist (1838)
-*Alexandre Dumas: The Three Musketeers (1844) + The Count of Monte Cristo (1844)
+*Alexandre Dumas: The Three Musketeers (1844)
+- protagonists: D'Artagnan + Constance Bonacieux, Athos + Porthos + Aramis
+- antagonists: Cardinal Richelieu, Milady de Winter
+Alexandre Dumas: The Count of Monte Cristo (1844)
+- protagonists: Edmond Dantès, Abbé Faria, Mercédès, Valentine + Maximilien
+- antagonists: Baron Danglars, Villefort, Fernand, Caderousse
 Lewis Carroll: Alice in Wonderland (1865)
 George MacDonald: The Princess and the Goblin (1872) + Phantastes (1858)
 Robert Louis Stevenson: Treasure Island (1883) + Dr. Jekyll and Mr. Hyde (1886)
@@ -169,6 +174,7 @@ Mark Twain: Adventures of Huckleberry Finn (1884)
 Oscar Wilde: The Picture of Dorian Gray (1890)
 
 Rudyard Kipling: The Jungle Book (1894)
+- characters: Mowgli, panther Bagheera, bear Baloo, snake Kaa, tiger Shere Khan
 H. G. Wells: The Time Machine (1895) + The Invisible Man (1897) + The War of the Worlds (1898)
 *Jules Verne (1863-1905):
 - Around the World in Eighty Days
@@ -185,6 +191,8 @@ Karl May (1887-1899):
 
 Bram Stoker: Dracula (1897)
 J. M. Barrie: Peter Pan (1911)
+- protagonists: Wendy Darling, Peter Pan + Lost Boys, Tinker Bell
+- antagonists: Captain Hook, Mr. Smee
 *Edgar Rice Burroughs (1912-1941): Barsoom + Tarzan
 Sir Arthur Conan Doyle: The Lost World (1912) + Sherlock Holmes (1887-1927)
 Franz Kafka: The Metamorphosis (1915)
@@ -198,27 +206,39 @@ John Steinbeck: Of Mice and Men (1937)
 Antoine de Saint-Exupéry: The Little Prince (1943)
 George Orwell: 1984 (1949) + Animal Farm (1945)
 
-J. R. R. Tolkien: The Hobbit (1937)
+#J. R. R. Tolkien: Middle-Earth
+places: The Shire, Rivendell, Misty Mountains (Moria), Mirkwood, Erebor / Lonely Mountain, Lórien, Isengard, Rohan (Helm's Deep), Gondor (Minas Tirith), Mordor (Minas Morgul, Mount Doom)
+The Hobbit (1937)
 - Protagonists: hobbit Bilbo Baggins, Gandalf, dwarfs (Thorin Oakenshield)
 - Antagonists: trolls, goblins, giant spiders, dragon Smaug
-J. R. R. Tolkien: The Lord of the Rings (1954)
+The Lord of the Rings (1954)
 - Protagonists: hobbits (Frodo Baggins + Sam + Pippin + Merry), elf Legolas + dwarf Gimli, Gandalf, Aragorn + Arwen, elves (Elrond, Galadriel), ents
 - Antagonists: Nazgûl, Balrog, orcs, Gollum, Saruman, Sauron
+
 C. S. Lewis: The Chronicles of Narnia (1950-1956)
+- characters: Peter + Susan + Edmund + Lucy, lion Aslan
 T.H. White: The Once and Future King (1958)
 
 Isaac Asimov
-- Foundation (1951)
-- I, Robot (1950) + The Caves of Steel (1953) + The Naked Sun (1958)
+- Galactic Empire (1950-1952)
+- I, Robot (1950) + Robot (1954-1957, 1983-1985)
+- Foundation (1951-1953, 1982-1986)
 - The End of Eternity (1955)
-Frank Herbert: Dune (1965)
-- Protagonists: Paul Atreides + Chani, Leto + Jessica Atreides, Duncan Idaho, Stilgar, Fremen
-- Antagonists: Harkonnens
+- The Gods Themselves (1972)
+- Nemesis (1989)
+- Nightfall (1990)
+
+Frank Herbert: Dune (1965) + Dune Messiah (1969) + Children of Dune (1976)
+- protagonists: Paul Atreides + Chani, Leto + Jessica Atreides, Duncan Idaho, Stilgar, Fremen
+- antagonists: Harkonnens
+- places: Arrakis, Caladan, Giedi Prime, Corrin
+- Brian Herbert: Legends of Dune (2002-2004)
 Philip K. Dick: Do Androids Dream of Electric Sheep? (1968)
 Arthur C. Clarke: 2001: A Space Odyssey (1968) + 2010: Odyssey Two (1982)
 Orson Scott Card: Ender's Game (1985)
 
 Ursula K. Le Guin: Earthsea (1968-1972)
+- characters: Ged + Tenar
 *Ursula K. Le Guin: Hainish Cycle (1966-1974)
 *William Goldman: The Princess Bride (1973)
 Roald Dahl: The Witches (1983) + Matilda (1988) + The BFG (1982) + James and the Giant Peach (1961) + Charlie and the Chocolate Factory (1964)
@@ -266,7 +286,11 @@ Christopher Paolini: The Inheritance Cycle / Eragon (2003-2011)
 - Protagonists: Eragon + Saphira + Arya, Roran, Murtagh + Thorn, Brom, Oromis + Glaedr, Angela + Solembum
 - Antagonists: Galbatorix + Shruikan, Ra'zac, shade Durza
 
-Rick Riordan: Percy Jackson & the Olympians (2005-2009) + The Kane Chronicles (2010-2012)
+Rick Riordan: Percy Jackson & the Olympians (2005-2009)
+- protagonists: Percy + Annabeth, Grover, Tyson, Clarisse, Thalia
+- antagonists: Luke, Kronos
+Rick Riordan: The Kane Chronicles (2010-2012)
+Patrick Rothfuss: The Kingkiller Chronicle (2007-2011)
 
 #Brandon Sanderson
 =Cosmere
@@ -285,23 +309,24 @@ Tress of the Emerald Sea (2023)
 Yumi and the Nightmare Painter (2023)
 The Sunlit Man (2023)
 =Cytoverse (2018-2023)
-Protagonists: Spensa + Jorgen + M-Bot + taynix Doomslug, kitsen Hesho, Alanik, dione Cuna
-Antagonists: Superiority, varvaw Winzik + Brade, Delvers
+protagonists: Spensa + Jorgen + M-Bot + taynix Doomslug, kitsen Hesho, Alanik, dione Cuna
+antagonists: Superiority, varvaw Winzik + Brade, Delvers
 
 *Liu Cixin: Remembrance of Earth's Past (2008-2010) + Ball Lightning + Of Ants and Dinosaurs
+Madeline Miller: The Song of Achilles (2011) + Circe (2018)
 
 Suzanne Collins: The Hunger Games (2008-2010)
-- Protagonists: Katniss Everdeen + Peeta Mellark, Prim, Gale, Finnick
-- Antagonists: president Snow
+- protagonists: Katniss Everdeen + Peeta Mellark, Prim, Gale, Finnick
+- antagonists: president Snow
 Leigh Bardugo: Shadow and Bone (2012-2014)
-- Protagonists: Alina Starkov + Mal, Sturmhond + Zoya, Genya + David, Baghra, Tamar + Tolya
-- Antagonists: Darkling
+- protagonists: Alina Starkov + Mal, Sturmhond + Zoya, Genya + David, Baghra, Tamar + Tolya
+- antagonists: Darkling
 Leigh Bardugo: Six of Crows (2015-2016)
-- Protagonists: Kaz Brekker + Inej, Matthias + Nina, Jesper + Wylan
-- Antagonists: Pekka Rollins, Jan Van Eck
+- protagonists: Kaz Brekker + Inej, Matthias + Nina, Jesper + Wylan
+- antagonists: Pekka Rollins, Jan Van Eck
 
 Taran Matharu: Summoner (2015-2017)
 Anthony Ryan: The Draconis Memoria (2016-2018)
 Neal Shusterman: Arc of a Scythe (2016-2019)
-- Protagonists: Citra + Rowan, Faraday + Curie
-- Antagonists: Goddard
+- protagonists: Citra + Rowan, Faraday + Curie
+- antagonists: Goddard

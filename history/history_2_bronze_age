@@ -1,6 +1,9 @@
 Bronze Age
 
 =Egypt: Nile river
+currency
+- Deben
+- Kidet = 0.1 Deben
 
 #Early Dynastic Period (3150-2686 BC)
 Narmer - unified Upper (22 nomes) and Lower (20 nomes) Egypt
@@ -58,14 +61,23 @@ Upper Egypt cities: Amarna
 - Ramesses III - battles with Sea People, decline
 
 =Mesopotamia: Tigris+Euphrates rivers
+currency
+- Mina = ~0.5kg
+- Talent = 60 Minas
+- Shekel = 1/60 Mina
 
 #Sumer (4500-1900 BC): lower Mesopotamia
-- city states: Eridu, Ur, Uruk, Lagash, Larsa, Nippur, Kish, Adab, Girsu
+city states: Eridu, Ur, Uruk, Lagash, Larsa, Nippur, Kish, Adab, Girsu
 #Elam (3200-539 BC): southwest Iran, capital Susa
 
-#Phoenicia (2500-539 BC): semitic, Levant
-- cities: Byblos, Tyre, Sidon, Beirut
-Canaan
+#Phoenicia/Canaan (2500-539 BC): semitic, Levant
+currency
+- Shekel (silver)
+cities: Byblos, Tyre, Sidon, Beirut
+colonies: 
+- Europe: Gades (Cádiz), Málaga, Malta, Caralis (Cagliari)
+- Africa: Tingis (Tangier), Utica, Carthage
+
 
 #Akkadian Empire (2334-2154 BC): semitic, capital Akkad
 - Sargon (2334-2279): conquered Sumer
@@ -91,7 +103,10 @@ Old Assyrian period (2025-1364 BC)
 - Labrys: double-headed axe
 
 #Mycenaean civilization (1700-1100 BC): Peloponnese + Thessaly
-palace-centered states: Mycenae, Pylos, Orchomenus, Thebes, Athens, Iolcus
+palace-centered states: Mycenae, Tiryns, Pylos, Orchomenus, Thebes, Athens, Iolcus
+
+#Anatolia
+cities: Troy, Ephesus, Miletus
 
 =India: Indus river
 Indus Valley Civilisation (3300-1300 BC)

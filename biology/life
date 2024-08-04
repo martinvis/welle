@@ -64,7 +64,7 @@ Insecta: six legs, most have 4 wings, metamorphosis, body = head + thorax + abdo
 - Zygentoma: silverfish, 3 long caudal filaments (2 cerci + epiproct), no ocelli
 - Archaeognatha: 3 caudal filaments - medial is longer
 - Ephemeroptera: mayflies, aquatic larvae, 2 cerci and optional epiproct
-- Odonata: dragonflies, aquatic larvae, insectivorous, 2 pairs of transparent wings
+- Odonata: dragonflies, aquatic larvae, insectivorous, 2 pairs of wings
 - Dermaptera: earwigs, pincer-like cerci
 - Zoraptera: angel insects, small, short cerci, beaded antennae
 - Plecoptera: stoneflies, long antennae and cerci, nymphs aquatic and sensitive to pollution
@@ -81,6 +81,11 @@ Crustacea
 - Decapoda: crabs, ten legs, front pair with claws, scavengers or predators
 - Branchiopoda: tadpole shrimps, oval body, long flexible abdomen with forked tail
 - Cirripedia: barnacles, covered with hard plates
+
+#Odonata
+Anisoptera: dragonflies, hold wings apart, transparent wings, large eyes
+Zygoptera: damselflies, fold wings
+- Calopterygidae: blue/green metallic-coloured
 
 #Arachnida
 Opiliones: harvesters, long legs, no venom or silk glands
@@ -117,6 +122,7 @@ Thysanoptera: thrips
 Cimicidae: bedbugs, parasitic, feed on blood
 Reduviidae: assassin bugs, ambush predators, curved proboscis
 Pentatomidae: shield bugs, mostly herbivore, triangular scutellum, pungent defensive spray
+Scutelleridae: jewel bugs, pungent defensive spray
 Gerridae: water striders, walk on water, mostly freshwater, hydrophobic hair
 
 #Endopterygota
@@ -245,4 +251,5 @@ Passeriformes
 #Passeriformes
 Estrildidae
 - Taeniopygia: zebra finch
-
+Muscicapidae
+- Luscinia: nightingale, sings during both night and day
