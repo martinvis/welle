@@ -1,0 +1,23 @@
+Tensegrity
+- compressed and tensioned parts (bars and cables)
+- compressed parts do not touch
+- tensioned parts are pre-stressed
+- no bending moment, no shear stress
+
+#Mechanical stress: deformation force
+Normal: perpendicular to surface
+Shear: parallel to surface
+Tension: pulling
+Compression: pushing
+Torsion: twisting
+Bending: curving
+
+#Strain: deformation relative to size
+
+Elasticity: return to initial shape when force removed
+- Hooke's law: force is proportional to extension/compression (stress is proportional to strain)
+Plasticity: permanent deformation when force removed
+Yield point: between elastic and plastic behaviour
+
+Roving bridge: over canal, allows crossing to horse towing boat
+- split in middle or spiral ramp
