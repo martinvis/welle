@@ -68,7 +68,7 @@ Insecta: six legs, most have 4 wings, metamorphosis, body = head + thorax + abdo
 - Dermaptera: earwigs, pincer-like cerci
 - Zoraptera: angel insects, small, short cerci, beaded antennae
 - Plecoptera: stoneflies, long antennae and cerci, nymphs aquatic and sensitive to pollution
-- Orthoptera: grasshoppers, elongated hindlegs
+- Orthoptera
 - Phasmatodea: stick insects
 - Mantodea: mantises, ambush predators, grasping forelegs, sexual cannibalism
 - Blattodea: cockroaches, termites
@@ -78,9 +78,41 @@ Myriapoda
 - Chilopoda: centipedes, one pair of legs per segment, nocturnal predators, many legs, poisonous
 - Diplopoda: millipedes, two pairs of legs per segment, herbivores, many legs
 Crustacea
-- Decapoda: crabs, ten legs, front pair with claws, scavengers or predators
-- Branchiopoda: tadpole shrimps, oval body, long flexible abdomen with forked tail
+- Malacostraca
+
+#Orthoptera: elongated hindlegs for jumping
+Ensifera: nocturnal, chirping, long antennae
+- Tettigoniidae: katydids, green, long wings
+- Gryllidae: crickets, brown
+Caelifera: diurnal, short antennae
+- Acrididae: grasshoppers, green, long wings
+- Tetrigidae: groundhoppers, brown, long pronotum, short wings
+
+Malacostraca: 20 segments
+- Decapoda: crabs, scavengers or predators
+- Euphausiacea: krill, small marine, daily vertical migration
+--
+- Isopoda
+- Branchiopoda: small, freshwater, oval body, long flexible abdomen with forked tail
 - Cirripedia: barnacles, covered with hard plates
+
+#Isopoda
+Oniscidea: woodlice / pillbugs, terrestrial, 7 pairs of legs
+Cirolanidae
+- Bathynomus: large (up to 50cm), deep sea, similar to pillbug, scavenger
+
+#Decapoda
+- cephalothorax/pereon: 2 pairs of antennae, 3 pairs of mouthparts (maxillipeds), 5 pairs of legs (pereiopods)
+- abdomen/pleon: 5 pairs of swimmerets (pleopods), tail fan (telson)
+Pleocyemata
+- Cancroidea: crabs, very short antennae and abdomen, 1st pair of legs with large pincers, walk sideways
+- Astacidea: lobsters, long antennae, 3 pairs of legs with pincers (1st pair is large)
+- Caridea: shrimps, long antennae, curved body, 2 pairs of legs with pincers
+Dendrobranchiata: prawns, long antennae, straight body, 3 pairs of legs with pincers
+
+#Brachiopoda
+Diplostraca: water fleas
+Notostraca: tadpole shrimps
 
 #Odonata
 Anisoptera: dragonflies, hold wings apart, transparent wings, large eyes
@@ -97,6 +129,17 @@ Araneae: spiders, most have 8 eyes
 Solifugae
 Acariformes: mites
 Parasitiformes: ticks
+
+#Araneomorphae
+Pholcidae: cellar spiders, long thin legs, nonsticky web
+--
+Agelenidae: fast runners, nonsticky web
+- Eratigena: Europe, large, in houses
+- Agelena: Europe
+- Agelenopsis: North America, 2 dark bands
+Salticidae: jumping spiders, short legs, 2 large frontal eyes
+Oxyopidae: lynx spiders, spines on legs, ambush hunters
+Thomisidae: crab spiders, robust front legs, ambush hunters
 
 #Araneomorphae
 Araneidae: orb-weavers, flat webs
@@ -142,6 +185,13 @@ Neuropterida
 Coleopterida
 - Coleoptera: beetles
 - Strepsiptera: endoparasites
+
+#Apocrita
+Apidae
+- Bombus [Bumblebee]: America + Eurasia, plump and furry, ground nests
+Vespidae
+- Vespa [Hornet]: northern hemisphere, large, tree nests
+- Vespula [Yellowjacket]: northern hemisphere, black and yellow
 
 #Coleoptera
 Adephaga

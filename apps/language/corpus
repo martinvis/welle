@@ -109,6 +109,7 @@ chinese|abstract/information|stav|状况|zhuàng kuàng |True|False|other|
 chinese|abstract/information|stav|状态|zhuàng tài|True|False|other|
 chinese|abstract/information|stupeň|级|jí|False|False|other|
 chinese|abstract/information|systém|制度|zhì dù|True|False|other|
+chinese|abstract/information|súvisiaci|沾边|zhān biān|False|False|other|
 chinese|abstract/information|vec|东西|dōng xi|False|False|other|
 chinese|abstract/information|vec|事|shì|False|False|other|
 chinese|abstract/information|vyriešiť|解决|jiě jué|True|False|other|
@@ -158,18 +159,20 @@ chinese|abstract/process|skončiť|完|wán |True|False|other|
 chinese|abstract/process|skončiť|完成|wánchéng|True|False|other|
 chinese|abstract/process|začať|开始|kāishǐ|True|False|other|
 chinese|abstract/process|znovu|再|zài|True|False|other|
-chinese|abstract/risk|bezpečie|安全|ānquán|True|False|other|
-chinese|abstract/risk|garantovať|保证|bǎozhèng|True|False|other|
-chinese|abstract/risk|nebezpečenstvo|危险|wēixiǎn|True|False|other|
-chinese|abstract/risk|poistenie|保险|bǎoxiǎn|True|False|other|
-chinese|abstract/risk|riziko|风险|fēngxiǎn|True|False|other|
-chinese|abstract/risk|zaručiť|确保|quèbǎo|True|False|other|
-chinese|abstract/risk|šanca|机会|jīhuì|True|False|other|
+chinese|abstract/risk|bezpečie|安全|ān quán|True|False|other|
+chinese|abstract/risk|garantovať|保证|bǎo zhèng|True|False|other|
+chinese|abstract/risk|katastrofa|大难|dà nàn|False|False|other|
+chinese|abstract/risk|nebezpečenstvo|危险|wēi xiǎn|True|False|other|
+chinese|abstract/risk|poistenie|保险|bǎo xiǎn|True|False|other|
+chinese|abstract/risk|riziko|风险|fēng xiǎn|True|False|other|
+chinese|abstract/risk|zaručiť|确保|què bǎo|True|False|other|
+chinese|abstract/risk|šanca|机会|jī huì|True|False|other|
 chinese|abstract/shape|diera|洞|dòng|False|False|other|
 chinese|abstract/shape|guľa|球|qiú|True|False|other|
 chinese|abstract/shape|hrot|尖|jiān|False|False|other|
 chinese|abstract/shape|kocka|立方体|lìfāngtǐ|False|False|other|
 chinese|abstract/shape|koleso|轮|lún|True|False|other|
+chinese|abstract/shape|krivý|歪|wāi|False|False|other|
 chinese|abstract/shape|kruh|圆圈|yuánquān|False|False|other|
 chinese|abstract/shape|medzera|缺口|quēkǒu|False|False|other|
 chinese|abstract/shape|pás|带|dài|True|False|other|
@@ -299,6 +302,7 @@ chinese|basic|alebo (otázka)|还是|hái shi|False|False|other|
 chinese|basic|alebo (veta)|或者|huò zhě|False|False|other|
 chinese|basic|ale|但是|dàn shì|False|False|other|
 chinese|basic|ale|可是|kě shì|False|False|other|
+chinese|basic|ani|也不|yě bù|False|False|other|
 chinese|basic|a|和|hé|False|False|other|
 chinese|basic|bez ohľadu|不管|bù guǎn|False|False|other|
 chinese|basic|bez|无|wú|False|False|other|
@@ -307,7 +311,7 @@ chinese|basic|genitív|的|de|True|False|other|
 chinese|basic|jediný|唯一|wéi yī|False|False|other|
 chinese|basic|každý (rovnaký)|每|měi|True|False|other|
 chinese|basic|každý (rôzny)|各|gè|True|False|other|
-chinese|basic|kdeže|并不|bìng bù|False|False|other|
+chinese|basic|kdeže|并不|bìng bù|False|True|other|
 chinese|basic|kto?|谁|shéi|True|False|other|
 chinese|basic|ktorý|哪|nǎ|False|False|other|
 chinese|basic|lebo|由于|yóu yú|False|False|other|
@@ -318,7 +322,7 @@ chinese|basic|naozaj|其实|qí shí |False|False|other|
 chinese|basic|naozaj|实在|shí zài|False|False|other|
 chinese|basic|naozaj|真|zhēn|False|False|other|
 chinese|basic|napríklad|例如|lì rú|True|False|other|
-chinese|basic|navyše|并且|bìngqiě|False|False|other|
+chinese|basic|navyše|并且|bìng qiě|False|False|other|
 chinese|basic|nie len ... ale aj|不仅 ... 而且|bù jǐn ... ér qiě|False|False|other|
 chinese|basic|nie|不|bù|False|False|other|
 chinese|basic|okrem|除了|chú le|False|False|other|
@@ -418,6 +422,7 @@ chinese|culture/calendar|víkend|周末|zhōu mò|False|False|other|
 chinese|culture/ethics|dobrý|善|shàn|False|False|other|
 chinese|culture/ethics|dobrý|好|hǎo|True|False|other|
 chinese|culture/ethics|zlý|坏|huài|True|False|other|
+chinese|culture/fantasy|duch|幽灵|yōu líng|False|False|other|
 chinese|culture/fantasy|kúzlo|魔法|mó fǎ|False|False|other|
 chinese|culture/fantasy|čarodejník|巫师|wū shī|False|False|other|
 chinese|culture/food/animal|bielok|蛋白|dànbái|True|False|other|
@@ -649,6 +654,7 @@ chinese|economy/cloth|šál|围巾|wéijīn|True|False|other|
 chinese|economy/construction|balkón|阳台|yáng tái|False|False|other|
 chinese|economy/construction|budova|房屋|fáng wū|True|False|other|
 chinese|economy/construction|cesta|路|lù|False|False|other|
+chinese|economy/construction|chodba|走廊|zǒu láng|False|False|other|
 chinese|economy/construction|dedina|村|cūn |False|False|other|
 chinese|economy/construction|dedina|村庄|cūn zhuāng|False|False|other|
 chinese|economy/construction|dom|房子|fáng zi|True|False|other|
@@ -658,6 +664,7 @@ chinese|economy/construction|hlavné mesto|首都|shǒu dū|False|False|other|
 chinese|economy/construction|hrad|城堡|chéng bǎo|False|False|other|
 chinese|economy/construction|izba|房间|fáng jiān|True|False|other|
 chinese|economy/construction|komín|烟囱|yān cōng|False|False|other|
+chinese|economy/construction|kuchyňa|厨房|chú fáng|False|False|other|
 chinese|economy/construction|malé mesto|城镇|chéng zhèn|False|False|other|
 chinese|economy/construction|mesto|城市|chéng shì|False|False|other|
 chinese|economy/construction|most|桥|qiáo|False|False|other|
@@ -665,6 +672,7 @@ chinese|economy/construction|múr|墙|qiáng|False|False|other|
 chinese|economy/construction|okno|窗|chuāng|False|False|other|
 chinese|economy/construction|omietka|灰泥|huī ní|False|False|other|
 chinese|economy/construction|parkovisko|停车场|tíng chē chǎng|False|False|other|
+chinese|economy/construction|podlaha|地板|dì bǎn|False|False|other|
 chinese|economy/construction|poschodie|楼层|lóu céng|False|False|other|
 chinese|economy/construction|prah|门槛|ménkǎn|False|True|other|
 chinese|economy/construction|predmestie|市郊|shì jiāo |False|False|other|
@@ -987,6 +995,7 @@ chinese|human/communication|otázka|问题|wèn tí|False|False|other|
 chinese|human/communication|oznámiť|告诉|gào su|False|False|other|
 chinese|human/communication|oznámiť|通知|tōng zhī|False|False|other|
 chinese|human/communication|oznámiť|陈述|chén shù|False|False|other|
+chinese|human/communication|podozrievať|怀疑|huái yí|False|False|other|
 chinese|human/communication|podvodník|骗子|piànzi|False|False|other|
 chinese|human/communication|povedať|说|shuō|False|False|other|
 chinese|human/communication|povoliť|允许|yǔn xǔ|False|False|other|
@@ -997,6 +1006,7 @@ chinese|human/communication|prezradiť|透露|tòu lù|False|False|other|
 chinese|human/communication|prijať|接受|jiē shòu|False|False|other|
 chinese|human/communication|prikázať|令|lìng|False|False|other|
 chinese|human/communication|privítať|欢迎|huānyíng|True|False|other|
+chinese|human/communication|prosiť|拜托|bài tuō|False|False|other|
 chinese|human/communication|prosiť|请|qǐng|False|False|other|
 chinese|human/communication|pýtať sa|询问|xún wèn|False|False|other|
 chinese|human/communication|rada|忠告|zhōnggào|False|False|other|
@@ -1005,11 +1015,13 @@ chinese|human/communication|reč|说话|shuōhuà|False|False|other|
 chinese|human/communication|rozprávať|讲|jiǎng|False|False|other|
 chinese|human/communication|správa|新闻|xīnwén|True|False|other|
 chinese|human/communication|spýtať sa|问|wèn|False|False|other|
+chinese|human/communication|súhlasiť|同意|tóng yì|False|False|other|
 chinese|human/communication|sľub|诺言|nuòyán|False|False|other|
 chinese|human/communication|sľúbiť|许诺|xǔnuò|False|False|other|
 chinese|human/communication|sťažovať sa|投诉|tóu sù|False|False|other|
 chinese|human/communication|uznať|承认|chéng rèn|False|False|other|
 chinese|human/communication|varovať|告诫|gào jiè|False|False|other|
+chinese|human/communication|veriť|相信|xiāng xìn|False|False|other|
 chinese|human/communication|verný|忠实|zhōngshí |False|False|other|
 chinese|human/communication|verný|忠诚|zhōngchéng|False|False|other|
 chinese|human/communication|vyhlásiť|公布|gōng bù|False|False|other|
@@ -1036,6 +1048,7 @@ chinese|human/family|mládež|青年|qīngnián|True|False|other|
 chinese|human/family|muž|男人|nánrén|False|False|other|
 chinese|human/family|otec|父亲|fùqīn|False|False|other|
 chinese|human/family|otec|爸爸|bàba |False|False|other|
+chinese|human/family|priatelia a príbuzní|亲朋好友|qīnpéng hǎoyǒu|False|False|other|
 chinese|human/family|priateľ|朋友|péngyou|False|False|other|
 chinese|human/family|pán|先生|xiān sheng|False|False|other|
 chinese|human/family|rodičia|父母|fùmǔ|False|False|other|
@@ -1255,6 +1268,7 @@ chinese|life/feeling|trápenie|烦恼|fán nǎo|False|False|other|
 chinese|life/feeling|trápny|别扭|biè niu|False|False|other|
 chinese|life/feeling|vtipný|搞笑|gǎo xiào|False|False|other|
 chinese|life/feeling|vytrvalý|一贯|yī guàn|False|False|other|
+chinese|life/feeling|zdesiť|惊恐|jīng kǒng|False|False|other|
 chinese|life/feeling|zúrivý|凶|xiōng|False|False|other|
 chinese|life/feeling|úzkosť|忧虑|yōu lǜ|False|False|other|
 chinese|life/feeling|ľutovať|可怜|kě lián|False|False|other|
@@ -2660,6 +2674,7 @@ deutsch|change/shape|vytrhnúť|ausreissen/riss/ausgerissen||False|True|verb|
 deutsch|change/shape|vytrhnúť|entreissen/entriss/entrissen||False|True|verb|
 deutsch|change/shape|zabočiť|einbiegen/bog/eingebogen||False|True|verb|
 deutsch|change/shape|zabočiť|umbiegen/bog/umgebogen||False|True|verb|
+deutsch|change/shape|zamotať sa|verschlingen sich||False|False|other|
 deutsch|change/shape|zaviazať|zubinden/band/zugebunden||False|True|verb|
 deutsch|change/shape|zlomiť|brechen/bricht/brach/gebrochen||True|False|verb|
 deutsch|change/shape|zohnúť|aufbiegen/bog/aufgebogen||False|True|verb|
@@ -3658,6 +3673,7 @@ deutsch|culture/religion|pochovať|begraben/begräbt/begrub/begruben||False|Fals
 deutsch|culture/religion|pohan|Heide/n||False|False|noun|r
 deutsch|culture/religion|pohreb|Begräbnis/se||False|False|noun|s
 deutsch|culture/religion|pohreb|Bestattung/en||False|False|noun|e
+deutsch|culture/religion|pokušenie|Versuchung/en||False|False|noun|e
 deutsch|culture/religion|pokánie|Busse/n||False|False|noun|e
 deutsch|culture/religion|posadnutý|besessen||False|False|verb|
 deutsch|culture/religion|posvätiť|weihen||False|False|verb|
@@ -3719,6 +3735,7 @@ deutsch|culture/script|čítať nahlas|vorlesen/liest/las/vorgelesen||False|True
 deutsch|culture/script|čítať|lesen/liest/las/gelesen||True|False|verb|
 deutsch|culture/sex|holý|nackt||False|False|other|
 deutsch|culture/sex|honiť si|wichsen||False|False|verb|
+deutsch|culture/sex|k ošukaniu|bumsbar||False|False|other|
 deutsch|culture/sex|nadržaný|geil||False|False|other|
 deutsch|culture/sex|nahý|bloss||False|False|other|
 deutsch|culture/sex|obnažiť|entblössen||False|True|verb|
@@ -3736,6 +3753,7 @@ deutsch|culture/stravovanie|chutný|lecker||True|False|other|
 deutsch|culture/stravovanie|dojesť|aufessen/isst/ass/aufgegessen||False|True|verb|
 deutsch|culture/stravovanie|hladný|hungrig||False|True|other|
 deutsch|culture/stravovanie|hlad|Hunger||True|False|noun|r
+deutsch|culture/stravovanie|hltať|schlingen||False|False|verb|
 deutsch|culture/stravovanie|hodovať|tafeln||False|False|verb|
 deutsch|culture/stravovanie|horár|Förster||True|False|noun|r
 deutsch|culture/stravovanie|jedlý|essbar||False|True|other|
@@ -3773,6 +3791,7 @@ deutsch|culture/stravovanie|uloviť|erjagen||False|True|verb|
 deutsch|culture/stravovanie|vykrmovať|mästen||False|False|verb|
 deutsch|culture/stravovanie|vypiť|austrinken/trank/ausgetrunken||False|True|verb|
 deutsch|culture/stravovanie|vystriehnuť|auflauern||False|True|verb|
+deutsch|culture/stravovanie|zhltnúť|verschlingen||False|True|verb|
 deutsch|culture/stravovanie|zjesť|verzehren||False|False|verb|
 deutsch|culture/stravovanie|zožrať|auffressen/frisst/frass/aufgefressen||False|True|verb|
 deutsch|culture/stravovanie|žrať|fressen/frisst/frass/gefressen||False|True|verb|
@@ -4536,6 +4555,7 @@ deutsch|deutsch/kultúra/estetika|pôvabný|hold||False|False|other|
 deutsch|deutsch/kultúra/estetika|pôvabný|wundervoll||False|False|other|
 deutsch|deutsch/kultúra/estetika|pôvab|Anmut||False|False|noun|e
 deutsch|deutsch/kultúra/estetika|rozkošný|entzückend||False|False|other|
+deutsch|deutsch/kultúra/estetika|rozkošný|niedlich||False|False|other|
 deutsch|deutsch/kultúra/estetika|skvelý|toll||True|False|other|
 deutsch|deutsch/kultúra/estetika|skvostný|prächtig||True|False|other|
 deutsch|deutsch/kultúra/estetika|strašný|grässlich||False|False|other|
@@ -4565,6 +4585,7 @@ deutsch|deutsch/kultúra/hry|uhádnuť|erraten/errät/erriet/erraten||False|True
 deutsch|deutsch/kultúra/hry|vyhrať|gewinnen/gewann/gewonnen||True|False|verb|
 deutsch|deutsch/kultúra/hry|víťazstvo|Sieg/e||True|False|noun|r
 deutsch|deutsch/logika|dokázať|beweisen||False|True|verb|
+deutsch|deutsch/logika|dokázať|erweisen||False|True|verb|
 deutsch|deutsch/logika|domnienka|Vermutung/en||True|False|noun|e
 deutsch|deutsch/logika|dôkaz|Beweis/e||True|False|noun|r
 deutsch|deutsch/logika|dôsledok|Auswirkung/en||True|False|noun|e
@@ -5063,6 +5084,7 @@ deutsch|deutsch/ľudské správanie/oslava|narodeniny|Geburtstag/e||True|False|n
 deutsch|deutsch/ľudské správanie/oslava|nádielka (darčekov)|Bescherung/en||False|False|noun|e
 deutsch|deutsch/ľudské správanie/oslava|oslava|Fest/e||True|False|noun|s
 deutsch|deutsch/ľudské správanie/oslava|sláviť|feiern||True|False|verb|
+deutsch|deutsch/ľudské správanie/oslava|slávnostný sprievod|Umzug/ü-e||False|False|noun|r
 deutsch|deutsch/ľudské správanie/oslava|sviatok|Feiertag||True|False|noun|r
 deutsch|deutsch/ľudské správanie/oslava|sviatok|Festtag||True|False|noun|r
 deutsch|deutsch/ľudské správanie/oslava|Štedrý večer|Heiligabend||True|False|noun|r
@@ -5377,6 +5399,7 @@ deutsch|economy/construction|dlážka|Estrich/e||False|False|noun|r
 deutsch|economy/construction|dvere|Tür/en||True|False|noun|e
 deutsch|economy/construction|fontána|Brunnen||True|False|noun|r
 deutsch|economy/construction|hobľovať|hobeln||False|False|verb|
+deutsch|economy/construction|hrádza|Deich/e||False|False|noun|r
 deutsch|economy/construction|hrádza|Staudamm/ä-e||True|False|noun|r
 deutsch|economy/construction|izba|Zimmer||True|False|noun|s
 deutsch|economy/construction|jama|Grube/n||True|False|noun|e
@@ -5567,6 +5590,7 @@ deutsch|economy/finance|nájom|Pacht/en||False|False|noun|e
 deutsch|economy/finance|nákupca|Einkäufer||False|True|noun|r
 deutsch|economy/finance|nákup|Einkauf/ä-e||False|True|noun|r
 deutsch|economy/finance|nákup|Kauf/ä-e||False|True|noun|r
+deutsch|economy/finance|núdza|Entbehrung/en||False|False|noun|e
 deutsch|economy/finance|obchodovať v malom|verhökern||False|False|verb|
 deutsch|economy/finance|obchodovať|handeln||False|True|verb|
 deutsch|economy/finance|obchod|Geschäft/e||True|False|noun|s
@@ -6579,6 +6603,7 @@ deutsch|human/behavior|obozretný|umsichtig||False|True|other|
 deutsch|human/behavior|obťažovanie|Belästigung/en||False|True|noun|e
 deutsch|human/behavior|obťažovať|belästigen||False|False|verb|
 deutsch|human/behavior|odporný|widerwärtig||False|False|other|
+deutsch|human/behavior|odpor|Auflehnung/en||False|False|noun|e
 deutsch|human/behavior|ohromiť|erstaunen||False|False|verb|
 deutsch|human/behavior|ohľaduplnosť|Rücksichtnahme||False|True|noun|e
 deutsch|human/behavior|ohľaduplný|rücksichtsvoll||False|True|other|
@@ -6928,6 +6953,7 @@ deutsch|human/love|zúrivý|wütend||False|True|other|
 deutsch|human/love|zúriť|wüten||False|True|verb|
 deutsch|human/love|ľúbiť|lieben||False|True|verb|
 deutsch|human/love|škriepiť sa|zanken sich||False|True|other|
+deutsch|human/love|žalovať|petzen||False|False|verb|
 deutsch|human/love|žiadostivosť|Begierde/n||False|True|noun|e
 deutsch|human/love|žiadostivý|begierig||False|True|other|
 deutsch|human/love|žiadostivý|gierig (auf)||False|True|other|
@@ -7112,6 +7138,7 @@ deutsch|human/trust|spoliehať sa|bauen auf||False|False|other|
 deutsch|human/trust|správny|korrekt||True|False|other|
 deutsch|human/trust|správny|recht||True|False|other|
 deutsch|human/trust|správny|richtig||True|False|other|
+deutsch|human/trust|svedomie|Gewissen||False|False|noun|s
 deutsch|human/trust|tajiť|geheim halten||False|True|verb|
 deutsch|human/trust|tajný|geheim||True|False|other|
 deutsch|human/trust|tajný|heimlich||True|False|other|
@@ -7991,6 +8018,7 @@ deutsch|life/life|porodiť|entbinden||True|False|verb|
 deutsch|life/life|porodiť|gebären||True|False|verb|
 deutsch|life/life|postarší|betagt||False|False|other|
 deutsch|life/life|prežiť|überleben||False|True|verb|
+deutsch|life/life|pučať|knospen||False|False|verb|
 deutsch|life/life|pôrod|Entbindung/en||True|False|noun|e
 deutsch|life/life|pôrod|Geburt/en||True|False|noun|e
 deutsch|life/life|roj|Schwarm/ä-e||True|False|noun|r
@@ -8413,6 +8441,7 @@ deutsch|nature/energy|teplo|Wärme||False|False|noun|e
 deutsch|nature/energy|teplý|warm||True|False|other|
 deutsch|nature/energy|var|Wallung/en||False|False|noun|e
 deutsch|nature/energy|vlažný|lau||False|False|other|
+deutsch|nature/energy|vrieť|sieden||False|False|verb|
 deutsch|nature/energy|vybitie|Entladung/en||False|False|noun|e
 deutsch|nature/energy|vybiť|entladen/entlädt/entlud/entgeladen||False|False|verb|
 deutsch|nature/energy|zmrznúť|erfrieren/erfror/erfroren||False|False|verb|
@@ -8892,6 +8921,7 @@ deutsch|nature/weather|pretiecť|überfliessen/floss/übergeflossen||False|True|
 deutsch|nature/weather|prievan|Luftzug||False|True|noun|r
 deutsch|nature/weather|prievan|Zugluft||False|True|noun|e
 deutsch|nature/weather|príliv a odliv|Gezeiten||False|False|verb|
+deutsch|nature/weather|príliv|Flut/en||False|False|noun|e
 deutsch|nature/weather|prúd|Strom/ö-e||False|False|noun|r
 deutsch|nature/weather|pršať|regnen||False|True|verb|
 deutsch|nature/weather|rosa|Tau||False|False|noun|r
@@ -9105,6 +9135,7 @@ english|difficult-words|cantankerous|hašterivý||False|False|other|
 english|difficult-words|caul|plodová blana||False|False|other|
 english|difficult-words|chicanery|právnické kľučky||False|False|other|
 english|difficult-words|churlish|nevrlý||False|False|other|
+english|difficult-words|click|kilometer||False|False|other|
 english|difficult-words|conniption|záchvat hnevu||False|False|other|
 english|difficult-words|contingent|závislý (na budúcnosti)||False|False|other|
 english|difficult-words|corroborate|dosvedčiť||False|False|other|
@@ -9119,6 +9150,7 @@ english|difficult-words|dodder|potácať sa||False|False|other|
 english|difficult-words|doleful|žalostný||False|False|other|
 english|difficult-words|dowager|bohatá vdova||False|False|other|
 english|difficult-words|ejaculate|vyhŕknuť||False|False|other|
+english|difficult-words|elocution|prednes||False|False|other|
 english|difficult-words|enunciate|vysloviť||False|False|other|
 english|difficult-words|excoriate|kritizovať||False|False|other|
 english|difficult-words|exigent|naliehavý||False|False|other|
@@ -9155,12 +9187,15 @@ english|difficult-words|obdurate|tvrdohlavý||False|False|other|
 english|difficult-words|obstreperous|neposlušný||False|False|other|
 english|difficult-words|opprobrium|kritika||False|False|other|
 english|difficult-words|ornery|nepríjemný||False|False|other|
+english|difficult-words|panegyric|chválospevný||False|False|other|
+english|difficult-words|panoply|plejáda||False|False|other|
 english|difficult-words|paroxysm|záchvat||False|False|other|
 english|difficult-words|parturition|pôrod||False|False|other|
 english|difficult-words|pauper|bedár||False|False|other|
 english|difficult-words|percolate|presakovať||False|False|other|
 english|difficult-words|perquisite|výhoda||False|False|other|
 english|difficult-words|pilfer|ukradnúť||False|False|other|
+english|difficult-words|pique|urazenosť||False|False|other|
 english|difficult-words|plod|vliecť sa||False|False|other|
 english|difficult-words|potamic|riečny||False|False|other|
 english|difficult-words|preen|parádiť sa||False|False|other|
@@ -9179,7 +9214,9 @@ english|difficult-words|smart|pálivo bolieť||False|False|other|
 english|difficult-words|smorgasbord|švédsky stôl||False|False|other|
 english|difficult-words|solecism|spoločenský prehrešok||False|False|other|
 english|difficult-words|soliloquize|rozprávať sa sám so sebou||False|False|other|
+english|difficult-words|soliloquy|monológ||False|False|other|
 english|difficult-words|soporific|uspávajúci||False|False|other|
+english|difficult-words|sty|chliev||False|False|other|
 english|difficult-words|succour|podpora||False|False|other|
 english|difficult-words|supercilious|povýšenecký||False|False|other|
 english|difficult-words|svelte|štíhly||False|False|other|
@@ -11724,6 +11761,8 @@ russkiy|culture/living|uhynúť|поги́бнуть||False|False|other|
 russkiy|culture/living|umrieť|умере́ть||False|False|other|
 russkiy|culture/living|život|жизнь||False|False|other|
 russkiy|culture/living|žiť|жить||False|False|other|
+russkiy|culture/politics|vládca|прави́тель||False|True|other|
+russkiy|culture/politics|vládnuť|пра́вить||False|False|other|
 russkiy|culture/religion|manželstvo|брак||False|False|other|
 russkiy|culture/religion|obeť|же́ртва||False|False|other|
 russkiy|culture/religion|peklo|ад||False|False|other|

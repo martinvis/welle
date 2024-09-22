@@ -37,9 +37,11 @@ Mertensian/Emsleyan: deadly prey mimics less-deadly (predator can survive and le
 Vavilovian: weed resembles crop
 
 Thermoregulation
-- larger animals maintain temperature easier, surface-area vs volume
+- larger animals conserve heat better, lower surface-area to volume ratio
+- slower metabolism and longer lifespan in cold
 - Bergmann's rule: species within clade are larger in colder environment
 - Allen's rule: animals in colder environment have shorter thicker limbs
+- Deep-sea gigantism: temperature lowers with depth
 - homeotherm: stable internal body temperature
 - poikotherm: variable internal body temperature
 - endotherm: body temperature relies on heat released by metabolism
@@ -117,6 +119,7 @@ Birds: north-south, magnetic field + sun compass
 Monarch butterfly: multiple generations within migration
 Salmon: saltwater to freshwater
 Sea turtle: breading beeches
+Diel vertical migration (DVM): movement between surface (night) and depth (day) of lakes/oceans, driven by light intensity
 
 =Speciation
 Allopatric: geographically separated populations
@@ -130,3 +133,12 @@ Beaver: build dams as shelter, restrict water flow
 - made of tree branches, rocks and mud
 Caddisfly: larvae create portable cases for protection
 - made of silk and plant material, rocks or snail shells
+
+#Ecology
+Island effect / Foster's rule: different size of animals on islands
+- Island gigantism: species become larger due to missing predators
+- Island dwarfism: species become smaller due to limited resources
+
+Kleiber's law: metabolic rate decreases with size
+Sexual bimaturism: different development timing between genders within species
+- females usually reach sexual maturity earlier

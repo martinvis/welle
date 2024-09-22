@@ -37,25 +37,41 @@ Zerynthia polyxena (Southern festoon)
 Trogonoptera trojana (Triangle birdwing)
 Pachliopta hector (Crimson rose)
 
-#Nymphalidae
-Aglais io (European peacock)
-Aglais urticae (Small tortoiseshell)
-Vanessa atalanta (Red admiral)
+#Nymphalidae: brightly colored upper side, dull underwings
+Aglais io (European peacock): Eurasia
+- wings: orange base, yellow and black spots, bottom margin black with blue spots
+- larvae feed on nettle
+Aglais urticae (Small tortoiseshell): Eurasia
+- wings: red base, blue-yellow eyespot on each wing
+- larvae feed on nettle
+Vanessa atalanta (Red admiral): northern hemisphere
+- wings: black base, red band on each wing, white spots near forewing tips
+- larvae feed on nettle
 Vanessa cardui (Painted lady)
-Danaus plexippus (Monarch)
-Danaus gilippus (Queen)
-Tirumala limniace (Blue tiger)
+--
+Danaus plexippus (Monarch): America + Oceania, migratory
+- caterpillar: 2 tentacle pairs, white-black-yellow stripes
+- wings: orange base, black veins, black border with white dots
+Danaus gilippus (Queen): America
+- caterpillar: 3 tentacle pairs, white-black-yellow stripes
+- wings: orange base, black border and white dots
+Tirumala (Blue tiger): Africa + south Asia + Australia, migratory
+- wings: dark base, light blue spots
+--
+Argynnis (Fritillary): northern hemisphere
+- wings: orange base, black markings
+--
 Lexias dirtea (Archduke)
 Limenitis archippus (Viceroy)
 Cethosia cyane (Leopard lacewing)
 Precis octavia (Gaudy commodore)
 Hamadryas amphinome (Red cracker)
 Myscelia cyaniris (Blue wave)
-Argynnis pandora (Cardinal)
 Heliconius charithonia (Zebra longwing)
 Heliconius erato (Red postman)
 Limenitis camilla (White admiral)
-Adelpha (Sister)
+Adelpha (Sister): America
+- wings: dark base, wide white band, orange spot near forewing tips
 
 #Pieridae
 Pieris brassicae (Large white)

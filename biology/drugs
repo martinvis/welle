@@ -15,6 +15,7 @@ Blinded trial: prevent biases
 - Control group: receive placebo
 - Placebo: treatment replacement for control group
 - Active placebo: produces noticeable effects
+Eroom's law: drug discovery is slower and more expensive despite new technology (opposite of Moore's law)
 
 #Activity
 Agonist: activates receptor
@@ -117,9 +118,26 @@ Theobromine
 psychedelic, hallucinations
 recreational drug
 
-#Artemisinin
-contains peroxide ring
-treatment of malaria and parasitic worms
+#Antimalarial
+Artemisinin
+- contains peroxide ring
+- treatment of malaria and parasitic worms
+Quinine:
+- treatment of malaria
+- less used due to serious side effects
+Chloroquine: 
+- treatment of malaria and lupus
+- less used for malaria due to drug resistance
+
+#Antiparasitics
+Albendazole: helminths
+Mebendazole: helminths
+Praziquantel: helminths
+Ivermectin: helminths, mites, lice
+Permethrin: mites, lice
+Metronidazole: protozoa
+Tinidazole: protozoa
+Nitazoxanide: protozoa
 
 #Antibiotics
 Penicillin: inhibits cell wall synthesis
