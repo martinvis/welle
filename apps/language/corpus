@@ -31,7 +31,7 @@ chinese|abstract/beauty|ľúbiť|爱|ài|True|False|other|
 chinese|abstract/beauty|škaredý|丑陋|chǒulòu|False|False|other|
 chinese|abstract/importance|bežný|一般|yībān|True|False|other|
 chinese|abstract/importance|bežný|俗|sú|False|False|other|
-chinese|abstract/importance|ceniť si|珍惜|zhēnxī|False|False|other|
+chinese|abstract/importance|ceniť si|珍惜|zhēn xī|False|False|other|
 chinese|abstract/importance|chcieť|想|xiǎng|True|False|other|
 chinese|abstract/importance|chcieť|想要|xiǎngyào|False|True|other|
 chinese|abstract/importance|cieľ|目标|mùbiāo|False|False|other|
@@ -65,7 +65,8 @@ chinese|abstract/importance|urgentný|紧迫|jǐnpò|False|False|other|
 chinese|abstract/importance|užitočný|有用|yǒuyòng|False|False|other|
 chinese|abstract/importance|vzácny|稀罕|xīhan|False|False|other|
 chinese|abstract/importance|význam|意思|yìsi|False|False|other|
-chinese|abstract/importance|zakázať|禁止|jìnzhǐ|True|False|other|
+chinese|abstract/importance|zahodiť|抛弃|pāo qì|False|False|other|
+chinese|abstract/importance|zakázať|禁止|jìn zhǐ|True|False|other|
 chinese|abstract/importance|zaujímavý|有趣|yǒuqù|False|False|other|
 chinese|abstract/importance|zbytočný|无用|wúyòng|False|False|other|
 chinese|abstract/importance|zvláštny|奇异|qíyì|False|False|other|
@@ -996,6 +997,8 @@ chinese|human/communication|oznámiť|告诉|gào su|False|False|other|
 chinese|human/communication|oznámiť|通知|tōng zhī|False|False|other|
 chinese|human/communication|oznámiť|陈述|chén shù|False|False|other|
 chinese|human/communication|podozrievať|怀疑|huái yí|False|False|other|
+chinese|human/communication|podozrivý|可疑|kě yí|False|False|other|
+chinese|human/communication|podozrivý|嫌疑|xián yí|False|False|other|
 chinese|human/communication|podvodník|骗子|piànzi|False|False|other|
 chinese|human/communication|povedať|说|shuō|False|False|other|
 chinese|human/communication|povoliť|允许|yǔn xǔ|False|False|other|
@@ -3025,6 +3028,7 @@ deutsch|culture/communication|pýtať sa|fragen (nach)||True|False|other|
 deutsch|culture/communication|rada|Rat/ä-e||False|True|noun|r
 deutsch|culture/communication|radiť|raten/rät/riet/geraten||True|False|verb|
 deutsch|culture/communication|rozporovať|anfechten||False|False|verb|
+deutsch|culture/communication|ručiť|bürgen (für)||False|False|other|
 deutsch|culture/communication|ručiť|einstehen/stand/eingestanden (für)||False|False|other|
 deutsch|culture/communication|schváliť|billigen||False|False|verb|
 deutsch|culture/communication|spomenúť|erwähnen||True|False|verb|
@@ -3503,6 +3507,7 @@ deutsch|culture/law|súdny|gerichtlich||False|True|other|
 deutsch|culture/law|súd|Gericht/e||False|True|noun|s
 deutsch|culture/law|vina|Schuld||True|False|noun|e
 deutsch|culture/law|vinný|schuldig||False|True|other|
+deutsch|culture/law|vyhovárať sa|verschanzen sich||False|False|other|
 deutsch|culture/law|vypovedať|aussagen||False|True|verb|
 deutsch|culture/law|väzenie|Gefängnis/se||True|False|noun|s
 deutsch|culture/law|väzeň|Gefangene/n||False|True|noun|r
@@ -4013,6 +4018,7 @@ deutsch|deutsch/akcia|sledovať|verfolgen||True|False|verb|
 deutsch|deutsch/akcia|splniť|erfüllen||True|False|verb|
 deutsch|deutsch/akcia|spravovanie|Verwaltung/en||False|True|noun|e
 deutsch|deutsch/akcia|spravovať|verwalten||True|False|verb|
+deutsch|deutsch/akcia|sprostredkovať|vermitteln||False|False|verb|
 deutsch|deutsch/akcia|spustnúť|verlottern||False|False|verb|
 deutsch|deutsch/akcia|spáchať|begehen/beging/begangen||True|False|verb|
 deutsch|deutsch/akcia|spáchať|verüben||True|False|verb|
@@ -4069,6 +4075,7 @@ deutsch|deutsch/akcia|voľná chvíľa|Musse||False|False|noun|e
 deutsch|deutsch/akcia|vybaviť|erledigen||True|False|verb|
 deutsch|deutsch/akcia|vybaviť|versehen/versieht/versah/versehen||False|False|verb|
 deutsch|deutsch/akcia|vybrať (vykopať)|ausheben/hob/ausgehoben||False|False|verb|
+deutsch|deutsch/akcia|vychovať|grossziehen||False|False|verb|
 deutsch|deutsch/akcia|vydať|ausgeben/gibt/gab/ausgegeben||False|False|verb|
 deutsch|deutsch/akcia|vyhnať|vertreiben/vertrieb/vertrieben||True|False|verb|
 deutsch|deutsch/akcia|vyhnúť sa|vermeiden/vermied/vermieden||True|False|verb|
@@ -4639,6 +4646,7 @@ deutsch|deutsch/ludske-sidla|predmestie|Vorstadt/ä-e||False|True|noun|e
 deutsch|deutsch/ludske-sidla|presťahovať sa|umziehen/zog/umgezogen||False|False|verb|
 deutsch|deutsch/ludske-sidla|prístrešie|Obdach||False|False|noun|s
 deutsch|deutsch/ludske-sidla|sused|Nachbar/n||True|False|noun|r
+deutsch|deutsch/ludske-sidla|tulák|Penner||False|False|noun|r
 deutsch|deutsch/ludske-sidla|ulica|Strasse/n||True|False|noun|e
 deutsch|deutsch/ludske-sidla|ulička|Gasse/n||False|False|noun|e
 deutsch|deutsch/ludske-sidla|usadlosť|Anwesen||False|False|noun|s
@@ -5525,6 +5533,7 @@ deutsch|economy/crime|výpalné|Schutzgeld/er||False|False|noun|s
 deutsch|economy/crime|zatknutie|Verhaftung/en||False|True|noun|e
 deutsch|economy/crime|zatknúť|verhaften||True|False|verb|
 deutsch|economy/crime|zavraždiť|ermorden||False|True|verb|
+deutsch|economy/crime|zavraždiť|meucheln||False|False|verb|
 deutsch|economy/crime|zavraždiť|umbringen/brachte/umgebracht||True|False|other|
 deutsch|economy/crime|zbojník|Räuber||False|True|noun|r
 deutsch|economy/crime|zlodej|Dieb||True|False|noun|r
@@ -5560,7 +5569,8 @@ deutsch|economy/finance|dopriať si|gönnen sich||False|False|other|
 deutsch|economy/finance|dostať|bekommen/bekam/bekommen||True|False|verb|
 deutsch|economy/finance|dostať|erhalten/erhält/erhielt/erhalten||True|False|verb|
 deutsch|economy/finance|dostať|kriegen||True|False|verb|
-deutsch|economy/finance|drahý|teuer||False|False|other|
+deutsch|economy/finance|drahý|aufwändig / aufwendig||False|False|other|
+deutsch|economy/finance|drahý|teuer||True|False|other|
 deutsch|economy/finance|dražiť|versteigern||False|False|verb|
 deutsch|economy/finance|drobné|Kleingeld||False|True|noun|s
 deutsch|economy/finance|faktúra|Rechnung/en||True|False|noun|e
@@ -5574,7 +5584,7 @@ deutsch|economy/finance|investovať|anlegen (in)||False|False|other|
 deutsch|economy/finance|inzerát|Anzeige||True|False|noun|e
 deutsch|economy/finance|klenot|Klunker/n||False|False|noun|e
 deutsch|economy/finance|kúpiť|kaufen||True|False|verb|
-deutsch|economy/finance|lacný|billig||False|False|other|
+deutsch|economy/finance|lacný|billig||True|False|other|
 deutsch|economy/finance|libra|Pfund/e||True|False|noun|s
 deutsch|economy/finance|majetok|Vermögen||True|False|noun|s
 deutsch|economy/finance|mať|haben/hat/hatte/gehabt||True|False|other|
@@ -6089,6 +6099,7 @@ deutsch|economy/medicine|čierna bodka|Mitesser||False|False|noun|r
 deutsch|economy/medicine|šarlatán|Quacksalber||False|False|noun|r
 deutsch|economy/medicine|škrabanec|Kratzer||True|False|noun|r
 deutsch|economy/medicine|žltačka|Gelbsucht||False|False|noun|e
+deutsch|economy/school|byť po škole|nachsitzen||False|False|verb|
 deutsch|economy/school|domáca úloha|Hausaufgabe/n||True|False|noun|e
 deutsch|economy/school|fakulta|Fakultät/en||False|False|noun|e
 deutsch|economy/school|krieda|Kreide/n||False|False|noun|e
@@ -6864,7 +6875,9 @@ deutsch|human/honor|prosím|bitte||True|False|other|
 deutsch|human/honor|slušnosť|Anständigkeit||False|False|noun|e
 deutsch|human/honor|slušný|anständig||False|False|other|
 deutsch|human/honor|urodzený|erlaucht||False|False|other|
+deutsch|human/honor|uznanie|Anerkennung/en||False|False|noun|e
 deutsch|human/honor|vzdorovitý|aufsässig||False|False|other|
+deutsch|human/honor|vznešený|vornehm||False|False|other|
 deutsch|human/honor|vďačnosť|Dank||True|False|noun|r
 deutsch|human/honor|zdvorilosť|Höflichkeit||False|True|noun|e
 deutsch|human/honor|zdvorilý|höflich||False|False|other|
@@ -7225,6 +7238,7 @@ deutsch|human/wisdom|poznatok|Einsicht/en||False|False|noun|e
 deutsch|human/wisdom|poznať|kennen/kannte/gekannt||True|False|other|
 deutsch|human/wisdom|predpokladať|voraussetzen||False|False|verb|
 deutsch|human/wisdom|predpoklad|Voraussetzung/en||False|True|noun|e
+deutsch|human/wisdom|predsavziať si|vornehmen sich||False|False|other|
 deutsch|human/wisdom|predstavovať si|einbilden sich||False|False|other|
 deutsch|human/wisdom|predvídateľný|vorhersehbar||False|True|other|
 deutsch|human/wisdom|predvídať|voraussehen/sieht/sah/vorausgesehen||False|False|verb|
@@ -8891,6 +8905,7 @@ deutsch|nature/weather|kaluž|Lache||True|False|noun|e
 deutsch|nature/weather|kaluž|Pfütze||True|False|noun|e
 deutsch|nature/weather|krúpy|Hagel||False|False|noun|r
 deutsch|nature/weather|kvapka|Tropfen||True|False|noun|r
+deutsch|nature/weather|kvapkať|träufeln||False|False|verb|
 deutsch|nature/weather|kúdol|Schwaden||False|False|noun|r
 deutsch|nature/weather|lejak|Platzregen||False|True|noun|r
 deutsch|nature/weather|lejak|Starkregen||False|True|noun|r
@@ -9430,6 +9445,7 @@ espanol|abstract/shape|hrana|arista||False|False|other|
 espanol|abstract/shape|hrana|arista||False|False|other|
 espanol|abstract/shape|hrboľ|bulto||False|False|other|
 espanol|abstract/shape|hrot|ápice||False|False|other|
+espanol|abstract/shape|hák|garfio||False|False|other|
 espanol|abstract/shape|kocka|cubo||False|False|other|
 espanol|abstract/shape|koleso|rueda||False|False|other|
 espanol|abstract/shape|koniec|cabo||False|False|other|
@@ -10011,6 +10027,7 @@ espanol|economy/agriculture|farmár|granjero||False|False|other|
 espanol|economy/agriculture|hnojivo|abono||False|False|other|
 espanol|economy/agriculture|hnojiť|abonar||False|False|other|
 espanol|economy/agriculture|hnoj|estiércol||False|False|other|
+espanol|economy/agriculture|háveď|bicho||False|False|other|
 espanol|economy/agriculture|jahňa|cordero||False|False|other|
 espanol|economy/agriculture|kobyla|yegua||False|False|other|
 espanol|economy/agriculture|kombajn|cosechadora||False|False|other|

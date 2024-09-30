@@ -1,19 +1,88 @@
+=Taxonomic rank
 Domain
 Kingdom
-Phylum
+Phylum/Division
 Class
 Order
-Superfamily: -oidea
 Family: -idae
-Subfamily: -inae
+- Superfamily: -oidea
+- Subfamily: -inae
 Genus
 Species
 
+=Domains and kingdoms
+Archaea
+Bacteria
+Eukaryota
+- Protozoa: single-celled
+- Plantae
+- Fungi
+- Animalia
 
+=Protozoa phylums and classes
+Amoebozoa
+Metamonada
 
-#Archaea
+=Plantaea divisions and classes
+Rhodophyta: red algae
+Chlorophyta: green algae
+Charophyta
+Marchantiophyta: liveworts, non-vascular
+Anthocerotophyta: hornworts, non-vascular
+Bryophyta: mosses, non-vascular
+Pteridophyta: vascular
+- Lycopodiopsida: clubmosses
+- Polypodiopsida: ferns
+Cycadophyta
+Ginkgophyta
+Pinophyta: conifers
+Gnetophyta
+Magnoliophyta
 
-#Bacteria
+=Magnoliophyta classes
+--magnoliids
+Magnoliales: large flowers with numerous petals
+Laurales
+Canellales
+Piperales: oval leaves, small flowers without petals in spikes
+--monocots:
+Poales: long narrow leaves with parallel veins, underground rhizomes, no petals, grain fruit
+Zingiberales: tropical climate, long leaves, underground rhizomes, large flowers with colorful petal-like stamens
+Arecales: tropical climate, unbranched trunk, large palmate or pinnate leaves, small flowers in large clusters, drupe fruit
+Liliales: linear leaves with parallel veins, underground rhizomes, large flowers with 6 tepals
+Alismatales: aquatic, underground rhizomes, small flowers in spadix surrounded by spathe
+Asparagales
+Commelinales
+Pandanales
+--eudicots
+Buxales
+Proteales
+Ranunculales
+Trochodendrales
+Dilleniales
+Gunnerales
+--superrosids
+Saxifragales
+Vitales
+--malvids
+Brassicales: lobed leaves, flowers with 4 petals
+Malvales
+Sapindales
+Myrtales: fleshy fruits, radially symmetrical flowers with numerous stamens
+
+#Animalia phylums and classes
+Cnidaria: aquatic, gelatinous body
+--Myxozoa: small parasites
+--Anthozoa: corals, marine, adults are sessile, colonial, predatory
+- Octocorallia: 8-fold symmetry, soft
+- Hexacorallia: 6-fold symmetry, hard
+- Ceriantharia
+--Medusozoa: medusa stage (umbrella-shaped body with stinging tentacles)
+- Hydrozoa: small predators
+- Polypodiozoa: fish egg parasites
+- Scyphozoa: jellyfish
+- Cubozoa: box jellyfish
+- Staurozoa: stalked jellyfish, attached to substrate
 
 #Eukaryota
 Plantae
@@ -26,10 +95,6 @@ Animalia
 - Deuterostomia
 - Lophotrochozoa
 - Ecdysozoa
-
-#Cnidaria
-Anthozoa: corals, marine, adults are sessile, colonial, predatory
-Medusozoa: jellyfish
 
 #Deuterostomia
 Echinodermata
@@ -274,6 +339,8 @@ Elapidae: venomous
 - Oxyuranus: taipans
 
 #Aves
+Anseriformes: waterfowl
+--
 Bucerotiformes
 - Upupidae: hoopoes, feather crown, old world
 - Bucerotidae: hornbills, long curved beak with casque, africa + orient
@@ -286,6 +353,7 @@ Coraciiformes
 - Coraciidae: rollers
 --
 Strigiformes: owls, solitary nocturnal predators, silent flight
+- can rotate head 270°, 14 neck vertebrae
 - Tytonidae: barn owls
 - Strigidae
 Accipitriformes: carnivorous, hooked beaks
@@ -297,6 +365,11 @@ Accipitriformes: carnivorous, hooked beaks
 Falconiformes
 Psittaciformes
 Passeriformes
+
+#Anseriformes
+Anatidae
+- Cygnus [Swan]: long neck
+- Anser [Goose]: long neck
 
 #Passeriformes
 Estrildidae

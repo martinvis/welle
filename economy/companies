@@ -212,9 +212,10 @@ usa: Adobe (Photoshop), IBM, Microsoft (Azure, Windows, Office, Xbox, LinkedIn),
 japan: Nintendo
 
 #internet
-china: Alibaba, Baidu, ByteDance (TikTok), JD, Meituan, Tencent
+china: Alibaba (Taobao, Alipay, AliExpress, Youku, Lazada), Baidu (iQIYI), ByteDance (TikTok), JD, Pinduoduo, Meituan, Tencent, Bilibili
 germany: Otto (Hermes)
-usa: Alphabet (Google, YouTube, Android, Chrome, Gmail, Waymo), Amazon (AWS), Meta (Facebook, Instagram, WhatsApp, Threads)
+usa: Alphabet (Google, YouTube, Android, Chrome, Gmail, Waymo), Amazon (AWS, Audible), Meta (Facebook, Instagram, WhatsApp, Threads, Oculus)
+sweden: Spotify
 
 #pharmaceutics
 france: Sanofi
@@ -238,6 +239,7 @@ us: DaVita
 #media
 canada: Thomson Reuters
 usa: Disney (ABC), Netflix, Paramount (CBS), Warner Bros (HBO)
+japan: Nippon Television
 
 #defense
 brazil: Embraer

@@ -1,10 +1,10 @@
 ##Fabales
-#Fabaceae
+#Fabaceae: nitrogen-fixing
 Acacia
 Albizia [Silk tree]
 Mimosa [Touch-me-not]
 
-Delonix [Flamboyant]
+Delonix [Flamboyant]: ornamental, Africa, large flowers, doubly pinnate leaves
 Pisum [Pea]
 Phaseolus [Bean]
 Medicago [Burclover/Alfalfa]
@@ -22,18 +22,18 @@ Sophora
 Wisteria
 Enterolobium [Elephant-ear tree]
 
-##Fagales
-#Fagaceae
-Fagus [Beech]
+##Fagales: catkin flowers
+=Fagaceae
+Fagus [Beech]: northern hemisphere, thin smooth bark, shade tolerant
 Castanea [Chestnut]
-Quercus [Oak]
-#Juglandaceae
-Juglans [Walnut]
+Quercus [Oak]: northern hemisphere, long living, thick bark, tough leaves, antifungal tannins, acorn fruit
+=Juglandaceae: nut fruit
+Juglans [Walnut]: deep taproot
 Carya [Hickory/Pecan]
-#Betulaceae
-Betula [Birch]
-Alnus [Alder]
-Corylus [Hazel]
+=Betulaceae
+Betula [Birch]: northern hemisphere, cold zones, white bark with horizontal lines
+Alnus [Alder]: near rivers, nitrogen-fixing
+Corylus [Hazel]: nut fruit
 Carpinus [Hornbeam]
 
 ##Cucurbitales
@@ -56,7 +56,7 @@ Fragaria [Strawberry]
 Rosa
 Crataegus [Hawthorn]
 #Ulmaceae
-Ulmus [Elm]
+Ulmus [Elm]: serrated leaves assymetrical at base, round samara fruit
 #Urticaceae
 Urtica [Nettle]
 #Moraceae
@@ -67,8 +67,8 @@ Artocarpus [Jackfruit/Breadfruit]
 Cannabis [Hemp]
 
 ##Malpighiales
-#Salicaceae
-Salix [Willow]
+#Salicaceae: short-lived, fast growing
+Salix [Willow]: near rivers, irregular crown, drooping branches
 Populus [Poplar]
 #Violaceae
 Viola
