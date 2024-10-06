@@ -112,7 +112,12 @@ Paratrooper: airborne forces
 Marine: naval infantry
 Sapper: military engineering, demolition, clearing minefields
 
-#Firearm: barreled ranged weapon
+Caliber: diameter of gun barrel, mm or inch/100
+Effective range: maximum distance of projectile, 500-1500 m/s
+Muzzle velocity: speed of projectile, increases with barrel length, 
+Rate of fire: frequency of projectiles, rounds per minute (RPM)
+
+#Firearm: barreled ranged weapon, caliber 5-13 mm
 Revolver: repeating handgun, revolving cylinder with chambers for cartridges
 - Colt
 - Smith and Wesson
@@ -135,10 +140,11 @@ Submachine gun: automatic
 Machine gun: fully automatic, sustained direct fire
 - M2 Browning: USA
 
-#Artillery
+#Artillery: caliber 20-200mm
+Shell: projectile with explosive/incendiary payload
 Cannon: flat trajectory
-Mortar: high-arc trajectory
-Howitzer: between cannon and mortar
+Mortar: high-arc trajectory: caliber 120mm
+Howitzer: between cannon and mortar, caliber 155mm (NATO) or 152mm (Russia)
 - Msta: USSR, self-propelled
 - Koalitsiya: Russia, self-propelled
 - CAESAR: France, self-propelled
@@ -146,6 +152,7 @@ Howitzer: between cannon and mortar
 - Zuzana: Slovakia, self-propelled
 - Krab: Poland, self-propelled
 - M109: USA, self-propelled
+Circular error probable (CEP): median error radius of munition
 
 #Directed-energy weapon (DEW): focused energy (laser, microwave), against missiles and drones
 
@@ -342,6 +349,10 @@ Borisoglebsk: Russia
 HARM: USA, radar targeting system
 Zoopark: Russia, counter-battery radar
 COBRA: Europe, counter-battery radar
+
+#Radar systems
+Nebo-M: mobile, long range, Russia
+Voronezh radars: static, early warning, Russia
 
 Espionage: obtaining intelligence
 Propaganda: influence

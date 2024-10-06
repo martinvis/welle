@@ -23,6 +23,12 @@ Eukaryota
 Amoebozoa
 Metamonada
 
+=Fungi divisions
+Mucoromycota: molds
+Ascomycota: sac fungi
+Basidiomycota
+- Agaricomycetes: mushrooms
+
 =Plantaea divisions and classes
 Rhodophyta: red algae
 Chlorophyta: green algae
@@ -37,7 +43,7 @@ Cycadophyta
 Ginkgophyta
 Pinophyta: conifers
 Gnetophyta
-Magnoliophyta
+Magnoliophyta: 300k species
 
 =Magnoliophyta classes
 --magnoliids
@@ -46,12 +52,12 @@ Laurales
 Canellales
 Piperales: oval leaves, small flowers without petals in spikes
 --monocots:
-Poales: long narrow leaves with parallel veins, underground rhizomes, no petals, grain fruit
+Poales: 20k species, long narrow leaves with parallel veins, underground rhizomes, no petals, grain fruit
 Zingiberales: tropical climate, long leaves, underground rhizomes, large flowers with colorful petal-like stamens
 Arecales: tropical climate, unbranched trunk, large palmate or pinnate leaves, small flowers in large clusters, drupe fruit
 Liliales: linear leaves with parallel veins, underground rhizomes, large flowers with 6 tepals
 Alismatales: aquatic, underground rhizomes, small flowers in spadix surrounded by spathe
-Asparagales
+Asparagales: 40k species, includes orchids
 Commelinales
 Pandanales
 --eudicots
@@ -64,13 +70,19 @@ Gunnerales
 --superrosids
 Saxifragales
 Vitales
+Fabales: 20k species
+Rosales
 --malvids
 Brassicales: lobed leaves, flowers with 4 petals
 Malvales
 Sapindales
 Myrtales: fleshy fruits, radially symmetrical flowers with numerous stamens
+--superasterids
+Asterales: 30k species
+Lamiales: 20k species
 
 #Animalia phylums and classes
+Porifera: sponges, aquatic, adults are sessile
 Cnidaria: aquatic, gelatinous body
 --Myxozoa: small parasites
 --Anthozoa: corals, marine, adults are sessile, colonial, predatory
@@ -83,20 +95,7 @@ Cnidaria: aquatic, gelatinous body
 - Scyphozoa: jellyfish
 - Cubozoa: box jellyfish
 - Staurozoa: stalked jellyfish, attached to substrate
-
-#Eukaryota
-Plantae
-Fungi
-- Basidiomycota
-- Ascomycota
-Animalia
-- Porifera: sponges, aquatic, adults are sessile
-- Cnidaria: aquatic
-- Deuterostomia
-- Lophotrochozoa
-- Ecdysozoa
-
-#Deuterostomia
+=Deuterostomia
 Echinodermata
 - Asteroidea: starfish
 - Ophiuroidea: brittle star
@@ -104,19 +103,24 @@ Echinodermata
 - Crinoidea: sea lily
 - Holothuroidea: sea cucumber
 Hemichordata
-Chordata
-
-#Lophotrochozoa
+Chordata: 100k species
+=Lophotrochozoa: ciliated tentacles around mouth
+Platyhelminthes: flat worms
+- Turbellaria
+- Trematoda: flukes, internal parasites
+- Cestoda: tapeworms, digestive tract parasites
 Annelida: segmented worms, paired lateral outgrows (parapodium) with chitinous bristle (chaeta)
 Brachiopoda: bivalve molluscs
-Mollusca
-
-#Ecdysozoa
+Mollusca: 100k species
+- Cephalopoda: marine, squirt ink
+- Gastropoda: snails (shell) and slugs (no shell), asymmetric
+- Bivalvia: aquatic, pair of shells
+=Ecdysozoa
 Nematoda
-Onychophora: velvet worms, segmented, conical feet, pair of antennae
 Priapulida: penis worms
+Onychophora: velvet worms, segmented, conical feet, pair of antennae
 Tardigrada
-Arthropoda: exoskeleton (chitin)
+Arthropoda: 1M species, exoskeleton (chitin)
 
 #Arthropoda
 Trilobita
@@ -251,12 +255,23 @@ Coleopterida
 - Coleoptera: beetles
 - Strepsiptera: endoparasites
 
-#Apocrita
-Apidae
-- Bombus [Bumblebee]: America + Eurasia, plump and furry, ground nests
+#Apocrita: narrow waist, mostly parasitoids
+=Aculeata: ovipositor modified into stinger
+Chrysididae: cuckoo wasps, metallic colors, lay eggs in host nests
+Scoliidae: black with yellow marks, lay eggs in scarab beetle larvae
 Vespidae
 - Vespa [Hornet]: northern hemisphere, large, tree nests
-- Vespula [Yellowjacket]: northern hemisphere, black and yellow
+- Vespula [Yellowjacket]: wasps, northern hemisphere, black and yellow
+Pompilidae: spider wasps, long spiny legs, solitary, lay eggs in paralyzed spiders
+Formicidae: ants, bent antennae, live in colonies, wingless females
+Apidae: pollinators
+- Apis [Honeybee]: eusocial
+- Bombus [Bumblebee]: America + Eurasia, plump and furry, ground nests
+- Melipona: stingless bees, Latin America, eusocial
+- Austroplebeia: stingless bees, Australia, eusocial
+- Euglossa: orchid bees, blue-green metallic color, solitary
+- Xylocopa: carpenter bees, black color, solitary, nectar robbers
+Sphecidae: thread-waisted wasps, black color, solitary predators
 
 #Coleoptera
 Adephaga
@@ -264,12 +279,14 @@ Adephaga
 Polyphaga
 - Cerambycidae: longhorn beetles, long antennae
 - Coccinellidae: ladybugs
-- Curculionoidea: weevils
+- Curculionoidea: weevils, elongated snout
 
-#Chordata
+#Chordata classes
+=Tunicata
+=Vertebrata
 Cyclostomi: jawless fish
-Thelodonti
-Placodermi: armoured fish
+†Thelodonti
+†Placodermi: armoured fish
 Acanthodii
 Chondrichthyes
 Osteichthyes: bony fish
@@ -277,9 +294,9 @@ Osteichthyes: bony fish
 - Actinopterygii: ray-finned fish
 Tetrapoda: four legs
 - Amphibia
-- Mammalia
 - Reptilia
-- Aves
+- Aves: 10k species
+- Mammalia
 
 #Actinopterygii
 Acipenseriformes: sturgeons
@@ -371,8 +388,19 @@ Anatidae
 - Cygnus [Swan]: long neck
 - Anser [Goose]: long neck
 
-#Passeriformes
+#Passeriformes: males often larger and more colorful
 Estrildidae
 - Taeniopygia: zebra finch
 Muscicapidae
 - Luscinia: nightingale, sings during both night and day
+Thraupidae: tanagers, Latin America, bright colors
+- Diglossa: flowerpiercers, upward beak with hook, nectar robbers
+Cardinalidae: America, bright colors in males
+- Cardinalis: red males, crest on head
+Icteridae: New World blackbirds, America, black color with some yellow
+Corvidae
+- Corvus: crows, black, intelligent
+- Coloeus: jackdaws, black with grey
+- Pica: magpies, black with white, long tail
+- Garrulus: jay, brown with black and blue
+- Cyanocitta: blue jay, North America

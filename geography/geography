@@ -172,6 +172,8 @@ Waterfall: vertical drop on river
 Lagoon: body of water separated by narrow land
 Peninsula: surrounded by water on most sides
 Isthmus: narrow connecting land
+Tidal island: land connected only during low tide
+Vanishing island: land exposed only during low tide
 
 #Terrestrial biomes
 Tundra: moss, lichen, grass, permafrost

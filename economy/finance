@@ -11,6 +11,8 @@ bond
 loan
 mortgage: loan secured by real estate
 
+Earnest payment: deposit to seller of high value property (real estate)
+
 #debt
 principal: amount loaned
 interest: payment from borrower to lender
