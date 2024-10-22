@@ -72,14 +72,21 @@ Saxifragales
 Vitales
 Fabales: 20k species
 Rosales
+Fagales: wind pollinated
+Cucurbitales
+Malpighiales
 --malvids
 Brassicales: lobed leaves, flowers with 4 petals
 Malvales
 Sapindales
 Myrtales: fleshy fruits, radially symmetrical flowers with numerous stamens
 --superasterids
-Asterales: 30k species
-Lamiales: 20k species
+Asterales: 30k species, composite flower head, inferior ovary
+Lamiales: 20k species, zygomorphic flowers with 5 petals
+Apiales: umbel inflorescence, small flowers with 5 petals, often deeply lobed leaves
+Gentianales: flowers with 5 fused petals
+Solanales: flowers with 5 fused petals
+Ericales: flowers with 5 petals
 
 #Animalia phylums and classes
 Porifera: sponges, aquatic, adults are sessile
@@ -296,7 +303,7 @@ Tetrapoda: four legs
 - Amphibia
 - Reptilia
 - Aves: 10k species
-- Mammalia
+- Mammalia: produce milk to feed young, endothermic
 
 #Actinopterygii
 Acipenseriformes: sturgeons
@@ -355,52 +362,3 @@ Elapidae: venomous
 - Dendroaspis: mambas
 - Oxyuranus: taipans
 
-#Aves
-Anseriformes: waterfowl
---
-Bucerotiformes
-- Upupidae: hoopoes, feather crown, old world
-- Bucerotidae: hornbills, long curved beak with casque, africa + orient
-Piciformes
-- Picidae: woodpeckers, except australia
-- Ramphastidae: toucans, dark or green, colorful beak and around eyes, large beak, neotropic
-Coraciiformes
-- Meropidae: bee-eaters
-- Alcedinidae: kingfishers
-- Coraciidae: rollers
---
-Strigiformes: owls, solitary nocturnal predators, silent flight
-- can rotate head 270°, 14 neck vertebrae
-- Tytonidae: barn owls
-- Strigidae
-Accipitriformes: carnivorous, hooked beaks
-- Accipitridae: eagles, hawks, vultures
-- Sagittariidae: secretary bird, long legs
-- Cathartidae: condors, scavengers, bald head, america
-- Pandionidae: ospreys, eat fish
---
-Falconiformes
-Psittaciformes
-Passeriformes
-
-#Anseriformes
-Anatidae
-- Cygnus [Swan]: long neck
-- Anser [Goose]: long neck
-
-#Passeriformes: males often larger and more colorful
-Estrildidae
-- Taeniopygia: zebra finch
-Muscicapidae
-- Luscinia: nightingale, sings during both night and day
-Thraupidae: tanagers, Latin America, bright colors
-- Diglossa: flowerpiercers, upward beak with hook, nectar robbers
-Cardinalidae: America, bright colors in males
-- Cardinalis: red males, crest on head
-Icteridae: New World blackbirds, America, black color with some yellow
-Corvidae
-- Corvus: crows, black, intelligent
-- Coloeus: jackdaws, black with grey
-- Pica: magpies, black with white, long tail
-- Garrulus: jay, brown with black and blue
-- Cyanocitta: blue jay, North America

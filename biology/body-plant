@@ -40,6 +40,10 @@ C = petals
 A = stamens
 G = carpels
 
+#Floral symmetry
+Actinomorphic: radially symmetric, 3+ identical sectors
+Zygomorphic: bilaterally symmetric (orchids)
+Pelorism: abnormal Actinomorphic flowers in species producing Zygomorphic flowers
 
 ##Diaspore
 #Spore
