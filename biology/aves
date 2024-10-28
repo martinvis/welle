@@ -1,42 +1,50 @@
 #Aves
 =Palaeognathae
-Struthioniformes [Ostrich]: large flightless, strong legs to run fast, long neck and legs, black males, Africa
+Aepyornithiformes [Elephant bird]: extinct, large flightless, long neck and legs, Madagascar
+Dinornithiformes [Moa]: extinct, large flightless, long neck and legs, New Zealand
+Struthioniformes [Ostrich]: large flightless, strong legs to run fast, long neck and legs, black males, 18 neck vertebrae, Africa
 Rheiformes [Nandu]: large flightless, strong legs to run fast, long neck and legs, South America
 Casuariiformes: large flightless, strong legs to run fast, long neck and legs
-- Casuarius [Cassowary]: black color, blue head with casque, New Guinea
+- Casuarius [Cassowary]: black color, blue head with casque, feed on fruit, New Guinea
 - Dromaius [Emu]: Australia
 Apterygiformes [Kiwi]: small flightless, New Zealand
 Tinamiformes: Latin America
 --
-Anseriformes: waterfowl
+Anseriformes: waterfowl, long neck, 16-25 neck vertebrae
 Galliformes: ground dwelling
+Gastornithidae: extinct, large flightless, long neck and legs
+Dromornithidae: extinct, large flightless, long neck and legs, Australia
 --
-Phoenicopteriformes: flamingos, aquatic, pink color, long neck and legs, curved bill, social
+Phoenicopteriformes: flamingos, tall, aquatic, pink color, long s-shaped neck, long legs, keeled bill, 19 neck vertebrae, social
 Podicipediformes: grebes, aquatic, lobed toes, crest, dense feathers
 --
-=Columbiformes: pigeons
+Columbiformes: pigeons
 - Columba: social
 - Streptopelia: doves, black patch on neck
 - Goura: blue color, crown, New Guinea
-=Cuculiformes
-Cuculidae
-- Geococcyx [Roadrunner]: fast runner, crest and long tail, North America
+- Raphus [Dodo]: extinct, large flightless, large bill, Mauritius
+Cuculiformes: long tail
+- Geococcyx [Roadrunner]: fast runner, crest, North America
 - Cuculus [Cuckoo]: brood parasite
-=Pterocliformes: sandgrouse, ground dwelling, granivore
-=Mesitornithiformes: flightless, Madagascar
-=Otidiformes: bustards, large, long neck and legs, grasslands
-=Musophagiformes: turacos, frugivorous, colorful with crest, long tail, Africa
+- Coua: blue around eyes, Madagascar
+- Phaenicophaeus: malkohas, red around eyes, South Asia
+Pterocliformes: sandgrouse, ground dwelling, granivore
+Mesitornithiformes: flightless, Madagascar
+Otidiformes: bustards, large, long neck and legs, grasslands
+Musophagiformes: turacos, frugivorous, colorful with crest, long tail, Africa
 --
 Opisthocomiformes [Hoatzin]: chicks have clawed wings, blue head with crest, long feathers along neck, South America
 --
-Gruiformes
-- Grus: cranes, long neck and feet
-- Balearica: crowned cranes, crest, long neck and feet, Africa
+Gruiformes: tall, long neck and legs, 18 neck vertebrae
+- Grus: cranes
+- Balearica: crowned cranes, crest, Africa
+- Aptornis [Adzebill]: extinct, New Zealand
 Charadriiformes
 - Laridae: gulls, social, seabird, webbed feet
 - Alcidae: auks, social, seabird, black-and-white, webbed feet
 - Scolopacidae: sandpipers, long legs
 - Recurvirostridae: avocets, long legs, upwards curved long bill
+- Stercorariidae: skuas, cleptoparasitic seabird, hooked bill, webbed feet
 --
 =Strisores
 Aegotheliformes: owlet-nightjars, nocturnal insectivore, small wide bill with whiskers, small feet, Malay + Australia
@@ -46,16 +54,16 @@ Podargiformes: frogmouths, nocturnal insectivore, small wide bill, small feet
 Steatornithiformes [Oilbird]: nocturnal, feed on fruit, small feet, echolocation
 Apodiformes
 - Trochilidae: hummingbirds, small colorful, long bill to feed on nectar, fast wingbeats (~60/sec) and metabolism, small feet, America
-- Apodidae: swifts, fast flier, small feet
+- Apodidae: swifts, fast flier, small feet, short wide bill to feed in air
 --
 Eurypygiformes
 - Rhynochetos [Kagu]: white, long legs, crest, New Caledonia
 Gaviiformes: loons, aquatic, webbed feet
-Sphenisciformes: penguins, flightless aquatic, social, Southern Hemisphere
+Sphenisciformes: penguins, flightless aquatic, webbed feet, tooth-like projections in bill to feed on fish, social, Southern Hemisphere
 - Aptenodytes: great penguin, black back and white belly, yellow patches near neck
 - Eudyptes: crested penguin, black back and white belly, yellow crest
 - Spheniscus: banded penguin, black-and-white
-Ciconiiformes: storks, large, long neck and legs, long bill
+Ciconiiformes: storks, tall, long neck and legs, 18 neck vertebrae, long bill to feed on fish and frogs, ambush predators
 - Ciconia: black-and-white, migratory
 - Ephippiorhynchus: saddlebill, red bill with black band and yellow wattles, Africa
 - Jabiru: white with black head and neck, red patch at neck base, Latin America
@@ -70,7 +78,7 @@ Suliformes: webbed feet
 - Fregatidae: seabird, males have red gular pouch, long wings, long hooked bill
 - Phalacrocoracidae: cormorants, hooked bill
 - Anhingidae: snakebird, long neck and bill
-Pelecaniformes
+Pelecaniformes: long neck and bill, 16-21 neck vertebrae
 --
 Coliiformes: mousebirds, long tail, crest, Africa
 Leptosomiformes: cuckoo-roller, small legs, Madagascar
@@ -81,24 +89,27 @@ Bucerotiformes
 - Upupidae: hoopoes, feather crown, old world
 - Bucerotidae: hornbills, long curved beak with casque, africa + orient
 Piciformes
-- Picidae: woodpeckers, red top of head or crest, except Australia
-- Ramphastidae: toucans, colorful, large beak, Latin America
+- Picidae: woodpeckers, red top of head or crest, solitary, except Australia
+- Ramphastidae: toucans, colorful, large lightweight serrated beak to feed on fruit, Latin America
+- Indicatoridae: honeyguides, brood parasites, feed on bee wax and larvae
 Coraciiformes
 --
-Strigiformes: owls, solitary nocturnal predators, silent flight, hooked beak and claws
-- can rotate head 270°, 14 neck vertebrae
+Strigiformes: owls, solitary nocturnal ambush predators, silent flight, hooked beak and claws, forward facing eyes
+- can rotate head 270°
 - Asio: earless owls
 - Bubo: eagle owls
 - Strix: eared owls
 - Tyto: barn owls
 Accipitriformes: carnivorous, hooked beak and claws
 --
-Cariamiformes: seriemas, large, crested, long neck and legs, South America
+Cariamiformes: seriemas, crested, long neck and legs, South America
+- Phorusrhacidae: terror birds, extinct, large flightless carnivores, South America
+- Bathornithidae: extinct, large flightless carnivores, North America
 Falconiformes: carnivorous, hooked beak and claws
-- Falco: fast flier, spotted plumage
+- Falco: fast flier, spotted plumage, solitary, forward facing eyes
 - Caracara: black cap and white neck, Latin America
 Psittaciformes: colorful herbivores, curved beak, tropical zones
-Passeriformes
+Passeriformes: males often larger and more colorful
 
 #Galliformes
 Megapodiidae
@@ -123,10 +134,11 @@ Phasianidae
 - Tetrao: black with red eyebrow, Eurasia
 
 #Coraciiformes
-Meropidae: bee-eaters, colorful, feed on bees and wasps
-Alcedinidae: kingfishers
+Meropidae: bee-eaters, colorful, feed on bees and wasps, social
+Alcedinidae: kingfishers, solitary, long bill
 - Alcedo: blue with orange chest
 - Ceryle: black-and-white
+- Dacelo [Kookaburra]: laugh-like call, Australia
 Coraciidae: rollers, Africa + South Asia
 - Coracias: blue and brown colors
 - Eurystomus: dollarbird, blue with black head, South Asia
@@ -136,12 +148,12 @@ Accipitridae
 - Gyps: vultures, featherless head and neck, white collar
 - Gypaetus: Bearded vulture, feathered head, feed on bones
 - Neophron: Egyptian vulture, white with yellow face
---
+-- forward facing eyes
 - Terathopius: Bateleur, black with red beak and legs, Africa
 - Pithecophaga: large eagle, shaggy crest, Philippines
-- Aquila: eagles, brown color, except South America
+- Aquila: eagles, brown color, solitary, except South America
 - Harpia: large eagle, black upperside and white underside, Latin America
---
+-- forward facing eyes
 - Accipiter: goshawks, barred chest
 - Buteo: buzzards, streaked chest
 - Haliaeetus: sea eagles, brown with white head, feed on fish
@@ -150,28 +162,30 @@ Cathartidae: New World vultures / condors, large scavengers, bald head, America
 - Sarcoramphus: King vulture, colorful head, caruncles on beak
 - Vultur: Andean condor, white collar, comb on head
 Pandionidae: Osprey, feed on fish, brown and white color
+Teratornithidae: extinct, large, America
 
-#Anseriformes: long neck, 16-25 neck vertebrae
+#Anseriformes
 Anhimidae: screamers, large feet
 Anseranatidae: magpie goose, black-and-white, bump on head, Australia
-Anatidae: migratory, webbed feet
+Anatidae: migratory, webbed feet, shovel-like bills
+- Cnemiornis [New Zealand goose]: extinct, large flightless
 - Anas [Duck]: males more colorful, social
 - Cygnus [Swan]: large, white color (black in Australia)
 - Anser [Goose]: orange bills and legs, social
 - Branta: black geese, back bills and legs, social, North America
 - Alopochen: Egyptian goose, brown spots around eyes, Africa
 
-#Pelecaniformes: long neck, 16-21 neck vertebrae
+#Pelecaniformes
 Balaenicipitidae [Shoebill]: long legs, large bill, Africa
-Ardeidae: herons, long legs
-Threskiornithidae: long bill and legs
+Ardeidae: herons, tall, retractable s-shaped neck, 19-21 neck vertebrae, long legs, ambush predators, use wings as umbrella to hunt, feed on fish and frogs
+Threskiornithidae: long legs
 -- curved bill
 - Threskiornis: ibises, black-and-white
 - Nipponia: crested ibis, white, red skin around eyes, East Asia
 - Eudocimus: ibises, red or white, America
 -- flat bill
 - Platalea: spoonbills, white or pink
-Pelecanidae: pelicans, large, long bill with throat pouch, short legs
+Pelecanidae: pelicans, large, bill with throat pouch to feed on fish, short legs
 
 #Psittaciformes
 Cacatuidae
@@ -180,25 +194,28 @@ Cacatuidae
 - Probosciger: Palm cockatoo, long crest, black with red cheek, New Guinea
 Strigopidae
 - Nestor: Kea, green color, New Zeland
-- Strigops: Kakapo, green color, cannot fly, nocturnal, New Zealand
+- Strigops: Kakapo, green color, cannot fly, nocturnal, solitary, New Zealand
 --
 Psittaculidae
 - Psittrichas: Dracula parrot, black with red belly, New Guinea
 - Agapornis: Lovebird, green with colorful head, Africa
 - Melopsittacus: Budgie, green with yellow head and black markings, Australia
-Psittacidae
-- Psittacus: Grey parrot, Africa
+Psittacidae: feed on fruit
+- Psittacus: Grey parrot, social, Africa
 - Amazona: green, Latin America
 - Aratinga: conures, green/yellow colors, Latin America
 - Ara: macaws, green/blue/red/yellow colors, long tail, Latin America
 - Anodorhynchus: blue macaws, South America
 
-#Passeriformes: males often larger and more colorful
+#Passeriformes
 Cotingidae: Latin America
 - Rupicola: orange males, fan-shaped crest
 - Cephalopterus: Umbrellabird, black color, crest and long wattle
+Eurylaimidae: colorful, broad bill, SE Asia
 Pipridae: manakins, Latin America
 Tyrannidae: America
+--
+Menuridae: lyrebirds, ground dwelling, strong legs, males have long tail, Australia
 =Passerides
 Cardinalidae: America, bright colors in males, short thick bill to feed on seeds
 - Cardinalis: red males, crest on head
@@ -218,12 +235,13 @@ Thraupidae: tanagers, Latin America, bright colors
 - Diglossa: flowerpiercers, upward beak with hook, nectar robbers
 --
 Alaudidae: larks, brown color, social
+Hirundinidae: swallows, short wide bill to feed in air, long tail, dark upperside and white underside
 Paridae: tits
 - Cyanistes: yellow and blue color
 - Parus: yellow and blue color, black-and-white head
 --
 Muscicapidae: solitary
-- Luscinia: nightingale, sings during both night and day
+- Luscinia: nightingale, sings during both night and day, males have colorful throat
 - Erithacus [Robin]: orange face and breast, Europe
 Sturnidae: social
 - Sturnus: starlings, black with metallic shine

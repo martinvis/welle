@@ -1,22 +1,31 @@
 #Mammalia orders
-Monotremata: lay eggs
-- Ornithorhynchidae: platypus
-- Tachyglossidae: echidnas
+Monotremata: lay eggs, nocturnal, electroreception
+- Ornithorhynchidae [Platypus]: semiaquatic, long broad bill and tail, webbed feet, venomous spur on legs, Australia
+- Tachyglossidae: echidnas, spines on back, long snout, long thin tongue to feed on ants, Australia + New Guinea
 =Marsupialia
-Didelphimorphia: opossums
-Dasyuromorphia: quolls, numbat
-Peramelemorphia: bandicoots
-Diprotodontia: wombats, koala, kangaroos
+Didelphimorphia: opossums, long naked prehensile tail, nocturnal, America
+Dasyuromorphia: Australia + New Guinea
+- Thylacinidae [Tasmanian tiger]: extinct, carnivore, black stripes on back, long tail
+- Dasyuridae: quolls (white spots) + Tasmanian devil (black), nocturnal carnivores
+- Myrmecobiidae [Numbat]: white stripes on back, long tail and snout, long thin tongue to feed on termites
+Peramelemorphia: Australia + New Guinea
+- Peramelidae: bandicoots, short tail, long snout
+- Thylacomyidae: bilbies, dig burrows, long ears and tail, long snout, nocturnal
+Diprotodontia: herbivores, 3 toes, 6 upper (in 3 rows) and 2 lower incisors, Australia + New Guinea
+- Phascolarctidae [Koala]: arboreal, no tail, round fluffy ears and large black nose, feed on Eucalyptus, nocturnal
+- Vombatidae: wombats, short tail, cubic faeces, teeth grow continuously, dig burrows, nocturnal
+- Macropodidae: kangaroos, long legs and tail to jump
+- Phalangeridae: cuscuses, arboreal, long tail, nocturnal
 =Placentalia
 Xenarthra: neotropic, single-color vision, slow metabolism
 - Cingulata: armadillos, dorsal armor
 -- Pilosa
-- Vermilingua: anteaters, elongated snout with thin long tonue, long tail
-- Folivora: sloths, round head, short tail, long curved claws to hang in trees
+- Vermilingua: anteaters, elongated snout with long thin tongue to feed on ants, long tail
+- Folivora: sloths, round head, short tail, long curved claws to hang in trees, unusual number of neck vertebrae, arboreal
 Afrotheria
-- Tubulidentata: aardvark
-- Afrosoricida: tenrecs
-- Macroscelidea: elephant shrews
+- Tubulidentata: aardvark, long ears + snout + tail, long thin tongue to feed on ants, dig burrows, nocturnal, Africa
+- Afrosoricida: tenrecs, small, spiny back, nocturnal, Africa
+- Macroscelidea: elephant shrews, fast small insectivores, long flexible snout and tail, Africa
 --
 - Hyracoidea: hyrax, small land herbivores, Africa
 - Proboscidea: elephants, large land herbivores, long tusks and trunk, large ears to thermoregulate, Africa + south Asia
@@ -28,23 +37,24 @@ Laurasiatheria
 - Artiodactyla: bear weight on 2 toes, digestion in stomach chambers
 - Perissodactyla: bear weight on 1 or 3 toes
 --
-- Pholidota: pangolins
-- Carnivora
+- Pholidota: pangolins, large claws to dig burrows, large protective scales, long thin tongue to feed on ants, nocturnal, Africa + South Asia
+- Carnivora: forward facing eyes
 Euarchontoglires
-- Lagomorpha
-- Rodentia
+- Lagomorpha: herbivores, all teeth grow continuously, 4 upper (in 2 rows) and 2 lower incisors
+- Rodentia: 2 upper and 2 lower incisors, incisors grow continuously
 - Dermoptera: colugos, nocturnal herbivores, membrane between limbs to glide between trees, southeast Asia
-- Primates
+- Primates: forward facing eyes for binocular vision, reduced snout
 
-#Lagomorpha: herbivores, all teeth grow continuously, 4 upper (in 2 rows) and 2 lower incisors
-Ochotonidae: pika
+#Lagomorpha
+Ochotonidae: pikas, small, no tail, round ears, mountains
 Leporidae: elongated ears to thermoregulate, elongated hind legs to jump
 - Oryctolagus: rabbits, Europe
 - Sylvilagus: rabbits, America
 - Lepus: hares
 
-#Rodentia: 2 upper and 2 lower incisors, incisors grow continuously
+#Rodentia
 =Anomaluromorpha
+Pedetidae: springhares, long tail, long legs to jump, dig burrows, large eyes, nocturnal, Africa
 =Sciuromorpha: squirrels, hibernation
 Aplodontiidae: mountain beaver
 Gliridae: dormouse, nocturnal
@@ -54,9 +64,9 @@ Sciuridae:
 - Tamias: chipmunks, ground squirrels
 - Pteromys: flying squirrels, nocturnal
 - Ratufa: cat-sized, tree squirrels
-- Sciurus: bushy-tailed, tree squirrels
+- Sciurus: long bushy tail, tufted ears in winter, tree squirrels
 =Castorimorpha:
-Castoridae: beaver, large, semiaquatic, construct dam
+Castoridae: beaver, large, semiaquatic, webbed feet, long flat scaly tail, construct dam
 Geomyidae: gopher, burrowing
 Heteromyidae: kangaroo mice, pocket mice
 =Hystricomorpha:
@@ -74,7 +84,7 @@ Cuniculidae: pacas, dotted/striped, large
 Bathyergidae: mole rats, burrowing
 Thryonomyidae: cane rats
 =Myomorpha
-Dipodidae: jerboas
+Dipodidae: jerboas, tail with tuft at end
 Zapodidae: jumping mice
 Cricetidae
 - Cricetus: hamster
@@ -88,43 +98,44 @@ Muridae
 - Acomys: spiny mouse
 
 #Primates
-=Tarsiiformes: tarsiers, small, big eyes
-=Lemuriformes
-Indriidae
-- Avahi: woolly lemurs
-- Indri
-- Propithecus: sifaka
-Lorisidae: loris
-Galagidae: galagos
-Lemuridae: lemurs
-Daubentonia: aye-aye
-Cheirogaleidae: mouse lemurs
-Lepilemuridae: sportive lemurs
-=Simiiformes: monkeys
-Hylobatidae
+=Tarsiiformes: tarsiers, small insectivores, big eyes, long tail and fingers, long legs to jump, arboreal, nocturnal, SE Asia
+=Lemuriformes: arboreal
+Daubentoniidae: aye-aye, long fingers, teeth grow continuously, long bushy tail, bat-like ears, nocturnal, Madagascar
+Indriidae: lemurs, herbivore, long limbs, Madagascar
+- Avahi: woolly lemurs, long tail
+- Indri: black-and-white, short tail
+- Propithecus: sifaka, long tail
+Lemuridae: lemurs, herbivore, long bushy tail, Madagascar
+Lepilemuridae: sportive lemurs, long tail, large eyes, nocturnal, Madagascar
+Cheirogaleidae: mouse lemurs, small, long tail, large eyes, nocturnal, Madagascar
+Galagidae: galagos, long bushy tail, bat-like ears, nocturnal, Africa
+Lorisidae: loris, no tail, nocturnal, Africa + South Asia
+=Simiiformes: monkeys, large brain
+Hylobatidae: long limbs and tail
 - Symphalangus: siamang
 - Hylobates: gibbon
-Hominidae
+Hominidae: large, no tail, long limbs
 - Pongo: orangutan
 - Gorilla
 - Pan: chimpanzee
 Cercopithecidae
+- Cercopithecus: guenons, long tail, bushy cheek hair, arboreal, Africa
 - Papio: baboon
 - Theropithecus: gelada
-- Mandrillus
+- Mandrillus: short tail, colorful face, large canines, social, Africa
 - Macaca: macaque
 - Allenopithecus
 - Erythrocebus: patas monkeys
 - Colobus
-- Nasalis: proboscis monkey
+- Nasalis: proboscis monkey, large nose
 - Pygathrix: doucs
 --
-Atelidae
+Atelidae: long limbs and tail
 - Ateles: spider monkey
 - Lagothrix: woolly monkey
 Pitheciidae
 - Pithecia: sakis
-- Cacajao: uakari (red facial skin)
+- Cacajao: uakari, red facial skin
 Cebidae
 - Cebus: capuchin monkeys
 - Saimiri: squirrel monkeys
@@ -132,7 +143,7 @@ Callitrichidae
 - Saguinus: tamarins
 - Leontopithecus: lion tamarins
 
-#Eulipotyphla: insectivores
+#Eulipotyphla
 Solenodontidae: elongated snout, long scaly tail
 Erinaceidae: hedgehogs, nocturnal, sharp spines for protection, short tail
 Soricidae: shrews, mouse-like
@@ -162,28 +173,37 @@ Ursidae
 =Musteloidea: long tail
 Ailuridae: red panda, herbivore, orange with white ears + muzzle + brows + cheeks, Himalayas
 Mephitidae: skunks, black-and-white, bushy tail, anal scent glands to deter predators
+- Mydaus: stink badger: short tail
 Mustelidae
-- Meles: badger
-- Arctonyx: hog badger
-- Mellivora: honey badger
-- Mydaus: stink badger
-- Taxidea: american badger
-- Lutra: otter
-- Enhydra: sea otter
-- Gulo: wolverine
-- Martes: marten
-- Mustela: weasel
-Procyonidae
-- Procyon: raccoon
-- Nasua: coati
-- Bassaricyon: olingo
-- Potos: kinkajou
+-- short tail, dig burrows, nocturnal
+- Meles: badger, long snout, black-and-white head
+- Taxidea: american badger, long snout, black-and-white head, North America
+- Arctonyx: hog badger, long snout, SE Asia
+- Mellivora: honey badger, white cap and backs, tough loose skin, solitary, Africa + South Asia
+-- webbed feet, long tail, dense fur
+- Lutra: otter, semiaquatic, 
+- Enhydra: sea otter, marine, North Pacific
 --
-=Feloidea: cats, short snout, rounded ears, long tail
+- Gulo: wolverine, short tail, solitary scavenger, dense fur, arctic zones
+- Martes: marten, long body and tail, arboreal, nocturnal
+-- long thin body, long tail, nocturnal
+- Mustela: weasel, small, orange upperside and white underside
+- Neogale: mink, semiaquatic, dark color
+Procyonidae: America
+- Procyon: raccoon, long bushy ringed tail, black mask around eyes, nocturnal
+- Nasua: coati, long snout and tail, Latin America
+- Bassaricyon: olingo, long tail, arboreal, nocturnal, South America
+- Potos: kinkajou, long prehensile tail, arboreal, nocturnal, South America
+--
+=Feloidea: cats, short snout, rounded ears, long tail, ambush predators
 Felidae
-- Panthera: lion, tiger, leopard, jaguar
-- Neofelis: clouded leopard
-- Acionyx: cheetah, small black spots, small rounded head, fast on short distances
+- Panthera [Lion]: males have mane, tail with tuft at end, social, Africa + India
+- Panthera [Leopard]: black spots in rosettes, solitary, Africa + South Asia
+- Panthera [Tiger]: orange with black stripes, solitary, South Asia
+- Panthera [Jaguar]: black spots in rosettes, solitary, Latin America
+- Panthera [Snow leopard]: black spots in rosettes, solitary, Himalayas
+- Neofelis: clouded leopard, solitary, SE Asia
+- Acionyx: cheetah, small black spots, small rounded head, fast on short distances, Africa
 - Felis
 - Pardofelis: marbled cat
 - Caracal: tufted pointed ears
@@ -191,7 +211,7 @@ Felidae
 - Leopardus: ocelot
 - Leptailurus: serval
 - Lynx: tufted pointed ears, short tail
-- Puma
+- Puma [Cougar]: solitary, America
 Prionodontidae: lisang, large spots and banded tail, very long tail, SE Asia
 =Viverroidea: civets
 Nandiniidae: African palm civet
@@ -215,7 +235,7 @@ Odobenidae: walrus, large, long tusks, Arctic Ocean
 Otariidae: eared seals
 
 #Perissodactyla
-Equidae: horses, zebras (black-and-white stripes), 1-toed feet with hooves
+Equidae: horses, zebras (black-and-white stripes), 1-toed feet with hooves, tufted tail
 Tapiridae: tapirs, short trunk, 4-toed front and 3-toed back feet, Latin America + SE Asia
 Rhinocerotidae: nose horns, thick skin, large, 3-toed feet
 - Ceratotherium: white rhino, two horns, Africa
@@ -271,9 +291,9 @@ Bovidae: horns
 --
 - Redunca: Reedbuck
 --
-- Oryx
-- Addax
-- Hippotragus
+- Addax: tail with tuft at end
+- Hippotragus: tufted tail
+- Oryx: tufted tail
 --
 - Cephalophus: Duiker
 --
@@ -285,10 +305,10 @@ Bovidae: horns
 - Pantholops: Tibetan antelope
 - Hemitragus: Tahr
 --
-- Bos: Yak
-- Bubalus: Water buffalo
-- Syncerus: African buffalo
-- Bison
+- Bos: Yak, tufted tail
+- Bubalus: Water buffalo, tufted tail
+- Syncerus: African buffalo, tufted tail
+- Bison: short tufted tail
 - Tragelaphus: Kudu/Nyala
 - Boselaphus: Nilgai
 - Pseudoryx: Saola
