@@ -1,13 +1,61 @@
-chinese|abstract/action|miznúť|消失|xiāo shī|False|False|other|
+chinese|abstract/action|blokovať|挡|dǎng|False|False|other|
+chinese|abstract/action|dať do poriadku|收拾|shōu shi|False|False|other|
+chinese|abstract/action|nahradiť|更替|gēng tì|False|True|other|
+chinese|abstract/action|nahradiť|替|tì|False|False|other|
+chinese|abstract/action|obnoviť|修复|xiū fù|False|True|other|
+chinese|abstract/action|obsahovať|含|hán|False|False|other|
 chinese|abstract/action|opraviť|修|xiū|False|False|other|
-chinese|abstract/action|poškodiť|损害|sǔnhài|False|False|other|
-chinese|abstract/action|premena|转变|zhuǎnbiàn|False|False|other|
-chinese|abstract/action|premeniť|转换|zhuǎnhuàn|False|False|other|
+chinese|abstract/action|pokazený|坏|huài|False|False|other|
+chinese|abstract/action|pokaziť|弄坏|nòng huài|False|True|other|
+chinese|abstract/action|poškodený|受损|shòu sǔn|False|True|other|
+chinese|abstract/action|poškodený|破|pò|False|False|other|
+chinese|abstract/action|poškodiť|损|sǔn|False|False|other|
+chinese|abstract/action|poškodiť|损坏|sǔn huài|False|True|other|
+chinese|abstract/action|poškodiť|损害|sǔn hài|False|True|other|
+chinese|abstract/action|prejsť cez|通|tōng|False|False|other|
+chinese|abstract/action|premeniť|转变|zhuǎn biàn|False|False|other|
+chinese|abstract/action|premeniť|转换|zhuǎn huàn|False|False|other|
+chinese|abstract/action|prísť o|失|shī|False|False|other|
+chinese|abstract/action|prísť o|失去|shī qù|False|True|other|
+chinese|abstract/action|spôsobiť|造成|zào chéng|False|True|other|
+chinese|abstract/action|stabilný|稳|wěn |False|False|other|
+chinese|abstract/action|stabilný|稳定|wěn dìng|False|False|other|
 chinese|abstract/action|stať sa|成|chéng|False|False|other|
-chinese|abstract/action|vytvoriť|创造|chuàngzào|False|False|other|
-chinese|abstract/action|zmeniť|改变|gǎibiàn|True|False|other|
+chinese|abstract/action|stratiť sa|消|xiāo|False|False|other|
+chinese|abstract/action|stratiť|丢|diū|False|False|other|
+chinese|abstract/action|stratiť|丢失|diū shī|False|True|other|
+chinese|abstract/action|striedať sa|轮流|lún liú|False|False|other|
+chinese|abstract/action|trend|走势|zǒu shì|False|False|other|
+chinese|abstract/action|trend|趋势|qū shì |False|False|other|
+chinese|abstract/action|urobiť|造|zào|False|False|other|
+chinese|abstract/action|uškodiť|害|hài|False|False|other|
+chinese|abstract/action|vymeniť|变换|biàn huàn|False|True|other|
+chinese|abstract/action|vymeniť|换|huàn|False|False|other|
+chinese|abstract/action|vymeniť|改换|gǎi huàn|False|True|other|
+chinese|abstract/action|vymeniť|更换|gēng huàn|False|True|other|
+chinese|abstract/action|vyrobiť|制作|zhì zuò|False|False|other|
+chinese|abstract/action|vyrobiť|制造|zhì zào|False|False|other|
+chinese|abstract/action|vyrovnaný|平稳|píng wěn|False|True|other|
+chinese|abstract/action|vytvoriť|创作|chuàngzuò|False|False|other|
+chinese|abstract/action|vytvoriť|创造|chuàng zào|False|False|other|
+chinese|abstract/action|zahodiť|丢弃|diū qì|False|True|other|
+chinese|abstract/action|zahodiť|丢掉|diū diào|False|True|other|
+chinese|abstract/action|zlikvidovať|毁灭|huǐ miè|False|True|other|
+chinese|abstract/action|zlikvidovať|消灭|xiāo miè|False|True|other|
+chinese|abstract/action|zlikvidovať|灭|miè|False|False|other|
+chinese|abstract/action|zmena|变化|biàn huà|False|True|other|
+chinese|abstract/action|zmeniť sa|变|biàn|False|False|other|
+chinese|abstract/action|zmeniť sa|变成|biàn chéng|False|True|other|
+chinese|abstract/action|zmeniť sa|改变|gǎi biàn|False|True|other|
+chinese|abstract/action|zmeniť sa|改成|gǎi chéng|False|True|other|
+chinese|abstract/action|zmeniť|改|gǎi|False|False|other|
+chinese|abstract/action|zmeniť|更改|gēng gǎi|False|True|other|
+chinese|abstract/action|zmiznúť|消失|xiāo shī|False|True|other|
+chinese|abstract/action|zničenie|破坏|pò huài|False|True|other|
+chinese|abstract/action|zničiť|摧毁|cuī huǐ|False|True|other|
 chinese|abstract/action|zničiť|毁|huǐ|False|False|other|
-chinese|abstract/action|zničiť|破坏|pòhuài|False|False|other|
+chinese|abstract/action|zničiť|毁坏|huǐhuài|False|True|other|
+chinese|abstract/action|škoda|损失|sǔn shī|False|True|other|
 chinese|abstract/beauty|krásny|秀丽|xiùlì|False|False|other|
 chinese|abstract/beauty|krásny|美丽|měilì|True|False|other|
 chinese|abstract/beauty|láska|爱情|àiqíng|True|False|other|
@@ -26,6 +74,7 @@ chinese|abstract/beauty|sláva|名声|míngshēng|False|False|other|
 chinese|abstract/beauty|slávny|有名|yǒumíng|False|False|other|
 chinese|abstract/beauty|strašný|糟糕|zāogāo|False|False|other|
 chinese|abstract/beauty|zákerný|阴险|yīnxiǎn|False|False|other|
+chinese|abstract/beauty|úžasný|棒|bàng|False|False|other|
 chinese|abstract/beauty|ľúbiť|爱|ài|True|False|other|
 chinese|abstract/beauty|škaredý|丑陋|chǒulòu|False|False|other|
 chinese|abstract/importance|bežný|一般|yībān|True|False|other|
@@ -36,7 +85,7 @@ chinese|abstract/importance|chcieť|想要|xiǎngyào|False|True|other|
 chinese|abstract/importance|cieľ|目标|mùbiāo|False|False|other|
 chinese|abstract/importance|dať sa|可|kě|False|False|other|
 chinese|abstract/importance|divný|奇怪|qíguài|True|False|other|
-chinese|abstract/importance|dôležitý|重要|zhòngyào|False|True|other|
+chinese|abstract/importance|dôležitý|重要|zhòngyào|False|False|other|
 chinese|abstract/importance|dôsledok|后果|hòuguǒ|False|False|other|
 chinese|abstract/importance|dôvod|理由|lǐyóu|False|False|other|
 chinese|abstract/importance|katastrofa|浩劫|hàojié|False|False|other|
@@ -61,9 +110,11 @@ chinese|abstract/importance|príčina|原因|yuányīn|False|False|other|
 chinese|abstract/importance|relatívny|相对|xiāngduì|False|False|other|
 chinese|abstract/importance|smieť|可以|kěyǐ|True|False|other|
 chinese|abstract/importance|spôsobiť|使|shǐ|False|False|other|
+chinese|abstract/importance|urgentný|急|jí|False|False|other|
 chinese|abstract/importance|urgentný|紧迫|jǐnpò|False|False|other|
 chinese|abstract/importance|užitočný|有用|yǒuyòng|False|False|other|
 chinese|abstract/importance|vzácny|稀罕|xīhan|False|False|other|
+chinese|abstract/importance|vážny|严重|yán zhòng|False|False|other|
 chinese|abstract/importance|význam|意思|yìsi|False|False|other|
 chinese|abstract/importance|zahodiť|抛弃|pāo qì|False|False|other|
 chinese|abstract/importance|zakázať|禁止|jìn zhǐ|True|False|other|
@@ -91,8 +142,10 @@ chinese|abstract/information|meno|名字|míng zi |False|False|other|
 chinese|abstract/information|metóda|方法|fāng fǎ|True|False|other|
 chinese|abstract/information|nazývať|称|chēng|False|False|other|
 chinese|abstract/information|nejaké|一些|yī xiē|True|False|other|
+chinese|abstract/information|nezvyčajný|异常|yìc háng|False|True|other|
 chinese|abstract/information|náhodný|偶然|ǒu rán|False|False|other|
 chinese|abstract/information|objekt|对象|duì xiàng|False|False|other|
+chinese|abstract/information|odlišný|异|yì|False|False|other|
 chinese|abstract/information|odlíšiť|分辨|fēn biàn|False|False|other|
 chinese|abstract/information|podobať sa|像|xiàng|True|False|other|
 chinese|abstract/information|podobný|相似|xiāng sì|True|False|other|
@@ -103,6 +156,7 @@ chinese|abstract/information|príklad|例子|lì zi|True|False|other|
 chinese|abstract/information|riešenie|答案|dá àn|True|False|other|
 chinese|abstract/information|rovnaký|同样|tóng yàng|False|False|other|
 chinese|abstract/information|rovnováha|平衡|píng héng|False|False|other|
+chinese|abstract/information|rozdiel|差异|chā yì|False|True|other|
 chinese|abstract/information|rýdzi|纯粹|chún cuì|False|False|other|
 chinese|abstract/information|situácia|情况|qíng kuàng|True|False|other|
 chinese|abstract/information|správny|对|duì|True|False|other|
@@ -150,17 +204,20 @@ chinese|abstract/number|štatistický|统计|tǒngjì|False|False|other|
 chinese|abstract/number|štyri|四|sì|True|False|other|
 chinese|abstract/process|končiť|结束|jiéshù|True|False|other|
 chinese|abstract/process|kopírovať|复制|fùzhì|False|True|other|
+chinese|abstract/process|miesto v poradí|名|míng|False|False|other|
+chinese|abstract/process|nasledovať|顺着|shùn zhe|False|False|other|
 chinese|abstract/process|nikdy viac|再也|zài yě|False|True|other|
 chinese|abstract/process|obmedziť|限制|xiànzhì|True|False|other|
 chinese|abstract/process|odhadnúť|估计|gūjì|True|False|other|
 chinese|abstract/process|odznovu|重新|chóngxīn|True|False|other|
-chinese|abstract/process|opakovať sa|反复|fǎnfù|False|True|other|
+chinese|abstract/process|opakovane|反复|fǎnfù|False|True|other|
 chinese|abstract/process|opakovať|重复|chóngfù|True|False|other|
 chinese|abstract/process|plán|计划|jìhuà|True|False|other|
 chinese|abstract/process|pokračovať|继续|jìxù|True|False|other|
-chinese|abstract/process|poradie|顺序|shùnxù|True|False|other|
+chinese|abstract/process|poradie|排名|páimíng|False|False|other|
 chinese|abstract/process|postup|程序|chéngxù|True|False|other|
 chinese|abstract/process|pripraviť|准备|zhǔnbèi|True|False|other|
+chinese|abstract/process|sekvencia|顺序|shùn xù|False|False|other|
 chinese|abstract/process|skončiť|完|wán |True|False|other|
 chinese|abstract/process|skončiť|完成|wánchéng|True|False|other|
 chinese|abstract/process|začať|开始|kāishǐ|True|False|other|
@@ -168,11 +225,16 @@ chinese|abstract/process|znovu|再|zài|True|False|other|
 chinese|abstract/risk|bezpečie|安全|ān quán|True|False|other|
 chinese|abstract/risk|garantovať|保证|bǎo zhèng|True|False|other|
 chinese|abstract/risk|katastrofa|大难|dà nàn|False|False|other|
-chinese|abstract/risk|nebezpečenstvo|危险|wēi xiǎn|True|False|other|
+chinese|abstract/risk|nebezpečenstvo|危险|wēi xiǎn|False|True|other|
+chinese|abstract/risk|nebezpečný|险|xiǎn|True|False|other|
 chinese|abstract/risk|poistenie|保险|bǎo xiǎn|True|False|other|
-chinese|abstract/risk|riziko|风险|fēng xiǎn|True|False|other|
+chinese|abstract/risk|riskovať|冒险|mào xiǎn|False|True|other|
+chinese|abstract/risk|riziko|风险|fēng xiǎn|False|True|other|
 chinese|abstract/risk|zaručiť|确保|què bǎo|True|False|other|
 chinese|abstract/risk|šanca|机会|jī huì|True|False|other|
+chinese|abstract/risk|šťastie|运|yùn |False|False|other|
+chinese|abstract/risk|šťastie|运气|yùn qi|False|False|other|
+chinese|abstract/risk|šťastný|幸运|xìng yùn|False|True|other|
 chinese|abstract/shape|diera|洞|dòng|False|False|other|
 chinese|abstract/shape|guľa|球|qiú|True|False|other|
 chinese|abstract/shape|hrot|尖|jiān|False|False|other|
@@ -184,6 +246,7 @@ chinese|abstract/shape|medzera|缺口|quēkǒu|False|False|other|
 chinese|abstract/shape|pás|带|dài|True|False|other|
 chinese|abstract/shape|sieť|网|wǎng|True|False|other|
 chinese|abstract/shape|trojuholník|三角形|sānjiǎoxíng|False|False|other|
+chinese|abstract/size|celkom|颇为|pō wéi|False|False|other|
 chinese|abstract/size|celý|全|quán|True|False|other|
 chinese|abstract/size|dlhý|长|cháng|False|False|other|
 chinese|abstract/size|dostatočný|足够|zú gòu|False|True|other|
@@ -197,10 +260,12 @@ chinese|abstract/size|málo|少|shǎo|True|False|other|
 chinese|abstract/size|niekoľko|几|jǐ|True|False|other|
 chinese|abstract/size|nízky|矮|ǎi|False|False|other|
 chinese|abstract/size|obrovský|巨|jù|False|False|other|
+chinese|abstract/size|plný|满|mǎn|False|False|other|
 chinese|abstract/size|plytký|浅|qiǎn|False|False|other|
 chinese|abstract/size|polomer|半径|bàn jìng|False|False|other|
 chinese|abstract/size|pribudnúť|增多|zēng duō|False|False|other|
 chinese|abstract/size|priemer|直径|zhí jìng|False|False|other|
+chinese|abstract/size|prázdny|空|kōng|False|False|other|
 chinese|abstract/size|príliš|太|tài|True|False|other|
 chinese|abstract/size|rozmer|大小|dà xiǎo|False|False|other|
 chinese|abstract/size|rozšíriť|广|guǎng|False|False|other|
@@ -213,6 +278,8 @@ chinese|abstract/size|veľmi|很|hěn|True|False|other|
 chinese|abstract/size|veľmi|非常|fēi cháng |True|False|other|
 chinese|abstract/size|viac|更|gèng|True|False|other|
 chinese|abstract/size|vysoký|高|gāo|False|False|other|
+chinese|abstract/size|zhromaždiť|收集|shōují|False|False|other|
+chinese|abstract/size|zhromaždiť|集|jí |False|False|other|
 chinese|abstract/size|zväčšiť|增加|zēng jiā|True|False|other|
 chinese|abstract/size|úplný|整|zhěng|True|False|other|
 chinese|abstract/size|úzky|窄|zhǎi|False|False|other|
@@ -307,9 +374,12 @@ chinese|abstract/time|často|常常|cháng cháng|True|False|other|
 chinese|abstract/time|často|经常|jīng cháng |True|False|other|
 chinese|abstract/time|čas|时间|shí jiān|True|False|other|
 chinese|basic|a/s|与|yǔ|False|False|other|
+chinese|basic|absolútne|绝对|jué duì|False|False|other|
 chinese|basic|ako (porovnanie)|比|bǐ|True|False|other|
-chinese|basic|ako?|怎么样|zěn me yàng|True|False|other|
+chinese|basic|ako?|如何|rú hé|False|False|other|
+chinese|basic|akoby|似乎|sì hū|False|False|other|
 chinese|basic|ak|如果|rú guǒ|False|False|other|
+chinese|basic|aký?|怎么样|zěn me yàng|True|False|other|
 chinese|basic|alebo (otázka)|还是|hái shi|False|False|other|
 chinese|basic|alebo (veta)|或者|huò zhě|False|False|other|
 chinese|basic|ale|但|dàn |False|False|other|
@@ -322,13 +392,13 @@ chinese|basic|bez|无|wú|False|False|other|
 chinese|basic|dokončená akcia|了|le|True|False|other|
 chinese|basic|genitív|的|de|True|False|other|
 chinese|basic|hoci|虽然|suī rán|False|False|other|
+chinese|basic|iba ak by|除非|chú fēi|False|True|other|
 chinese|basic|jediný|唯一|wéi yī|False|False|other|
 chinese|basic|každý (rovnaký)|每|měi|True|False|other|
 chinese|basic|každý (rôzny)|各|gè|True|False|other|
 chinese|basic|kdeže|并不|bìng bù|False|True|other|
-chinese|basic|koniec koncov|到底|dào dǐ|False|False|other|
 chinese|basic|kto?|谁|shéi|True|False|other|
-chinese|basic|ktorý|哪|nǎ|False|False|other|
+chinese|basic|ktorý?|哪|nǎ|True|False|other|
 chinese|basic|lebo|由于|yóu yú|False|False|other|
 chinese|basic|mať|有|yǒu|True|False|other|
 chinese|basic|možno|也许|yě xǔ |False|False|other|
@@ -343,10 +413,13 @@ chinese|basic|nečakane|居然|jū rán|False|False|other|
 chinese|basic|nie len ... ale aj|不仅 ... 而且|bù jǐn ... ér qiě|False|False|other|
 chinese|basic|nie|不|bù|False|False|other|
 chinese|basic|okrem|除了|chú le|False|False|other|
+chinese|basic|predsa len|毕竟|bì jìng|False|False|other|
+chinese|basic|prekvapivo|竟然|jìng rán|False|False|other|
 chinese|basic|pretože|因为|yīn wèi|False|False|other|
-chinese|basic|prečo?|为什么|wèi shén me|True|False|other|
+chinese|basic|prečo?|为什么|wèi shén me|False|True|other|
 chinese|basic|približne|大约|dà yuē|False|False|other|
 chinese|basic|priebeh|着|zhe|True|False|other|
+chinese|basic|prirovnanie|比喻|bǐ yù|False|True|other|
 chinese|basic|samozrejme|当然|dāng rán|False|False|other|
 chinese|basic|s|跟|gēn|False|False|other|
 chinese|basic|takmer|差不多|chà bu duō|True|False|other|
@@ -360,6 +433,8 @@ chinese|basic|zápor (minulý/budúci)|没|méi|True|False|other|
 chinese|basic|zápor (prítomný)|不|bù|True|False|other|
 chinese|basic|áno|是|shì|False|False|other|
 chinese|basic|čiže|即|jí|False|False|other|
+chinese|basic|čo vlastne?|到底|dào dǐ|False|False|other|
+chinese|basic|čo?|什么|shén me|True|False|other|
 chinese|culture/_people|Abraham Lincoln|亚伯拉罕.林肯||False|False|other|
 chinese|culture/_people|Adolf Hitler|阿道夫.希特勒||False|False|other|
 chinese|culture/_people|Albert Einstein|阿尔伯特.爱因斯坦||False|False|other|
@@ -447,12 +522,15 @@ chinese|culture/art|televízor|电视机|diànshìjī|False|True|other|
 chinese|culture/art|tragédia|悲剧|bēijù|False|False|other|
 chinese|culture/art|umenie|艺术|yìshù|False|False|other|
 chinese|culture/calendar|týždeň|周|zhōu|False|False|other|
-chinese|culture/calendar|víkend|周末|zhōu mò|False|False|other|
+chinese|culture/calendar|týždeň|星期|xīng qī|False|False|other|
+chinese|culture/calendar|víkend|周末|zhōu mò|False|True|other|
 chinese|culture/ethics|dobrý|善|shàn|False|False|other|
 chinese|culture/ethics|dobrý|好|hǎo|True|False|other|
+chinese|culture/ethics|výborný|优异|yōu yì|False|False|other|
 chinese|culture/ethics|zlý|坏|huài|True|False|other|
 chinese|culture/fantasy|duch|幽灵|yōu líng|False|False|other|
 chinese|culture/fantasy|kúzlo|魔法|mó fǎ|False|False|other|
+chinese|culture/fantasy|upír|吸血鬼|xī xuè guǐ|False|False|other|
 chinese|culture/fantasy|čarodejník|巫师|wū shī|False|False|other|
 chinese|culture/food/animal|bielok|蛋白|dànbái|True|False|other|
 chinese|culture/food/animal|bravčovina|猪肉|zhūròu|False|False|other|
@@ -532,7 +610,7 @@ chinese|culture/food/vegetable|cibuľa|洋葱|yángcōng|True|False|other|
 chinese|culture/food/vegetable|cukrová repa|糖用甜菜|tángyòng tiáncài|False|False|other|
 chinese|culture/food/vegetable|cícer|鹰嘴豆|yīngzuǐdòu|False|False|other|
 chinese|culture/food/vegetable|dyňa|西瓜|xīguā|False|False|other|
-chinese|culture/food/vegetable|fazuľa|红豆/紅豆|hóngdòu|False|False|other|
+chinese|culture/food/vegetable|fazuľa|红豆|hóngdòu|False|False|other|
 chinese|culture/food/vegetable|fazuľa|菜豆|càidòu |False|False|other|
 chinese|culture/food/vegetable|hrach|豌豆|wāndòu|False|False|other|
 chinese|culture/food/vegetable|jačmeň|大麦|dàmài|False|False|other|
@@ -604,28 +682,30 @@ chinese|culture/law|znásilniť|强奸|qiángjiān|False|False|other|
 chinese|culture/law|zákon|法律|fǎlǜ|False|False|other|
 chinese|culture/law|únos|劫持|jiéchí|False|False|other|
 chinese|culture/law|ústava|宪法|xiànfǎ|False|False|other|
-chinese|culture/politics|aristokracia|贵族|guìzú|False|False|other|
+chinese|culture/politics|aristokracia|贵族|guì zú|False|False|other|
 chinese|culture/politics|demokracia|民主主义|mínzhǔ zhǔyì|False|True|other|
-chinese|culture/politics|diktatúra|独裁|dúcái|False|False|other|
+chinese|culture/politics|diktatúra|独裁|dú cái|False|False|other|
 chinese|culture/politics|diplomacia|外交|wàijiāo|False|False|other|
 chinese|culture/politics|dynastia|朝代|cháodài|False|False|other|
 chinese|culture/politics|ideológia|主义|zhǔyì|False|False|other|
 chinese|culture/politics|kapitalizmus|资本主义|zīběn zhǔyì|False|True|other|
-chinese|culture/politics|konfederácia|邦联|bānglián|False|False|other|
+chinese|culture/politics|konfederácia|邦联|bāng lián|False|False|other|
 chinese|culture/politics|krajina|国|guó|True|False|other|
 chinese|culture/politics|kráľovná|女王|nǚwáng|False|True|other|
 chinese|culture/politics|kráľovstvo|王国|wángguó|False|True|other|
 chinese|culture/politics|kráľ|国王|guówáng|False|False|other|
 chinese|culture/politics|liberalizmus|自由主义|zìyóu zhǔyì|False|True|other|
 chinese|culture/politics|medzinárodný|国际|guójì|False|True|other|
-chinese|culture/politics|monarch|君主|jūnzhǔ|False|False|other|
+chinese|culture/politics|monarch|君主|jūn zhǔ|False|False|other|
 chinese|culture/politics|nacionalizmus|民族主义|mínzú zhǔyì|False|True|other|
 chinese|culture/politics|nacizmus|纳粹主义|nàcuì zhǔyì|False|True|other|
 chinese|culture/politics|parlament|国会|guóhuì|False|True|other|
-chinese|culture/politics|politika|政治|zhèngzhì|False|False|other|
+chinese|culture/politics|politický|政|zhèng|False|False|other|
+chinese|culture/politics|politika|政治|zhèng zhì|False|True|other|
+chinese|culture/politics|politik|政客|zhèng kè|False|True|other|
 chinese|culture/politics|populizmus|民粹主义|míncuì zhǔyì|False|True|other|
-chinese|culture/politics|premiér|总理|zǒnglǐ|False|False|other|
-chinese|culture/politics|prezident|总统|zǒngtǒng|False|False|other|
+chinese|culture/politics|premiér|总理|zǒng lǐ|False|False|other|
+chinese|culture/politics|prezident|总统|zǒng tǒng|False|False|other|
 chinese|culture/politics|princ|王子|wángzǐ|False|True|other|
 chinese|culture/politics|rasizmus|种族主义|zhǒngzú zhǔyì|False|True|other|
 chinese|culture/politics|republika|共和国|gònghéguó|False|True|other|
@@ -633,11 +713,13 @@ chinese|culture/politics|separatizmus|分离主义|fēnlí zhǔyì|False|True|ot
 chinese|culture/politics|socializmus|社会主义|shèhuì zhǔyì|False|True|other|
 chinese|culture/politics|terorizmus|恐怖主义|kǒngbù zhǔyì|False|True|other|
 chinese|culture/politics|totalita|极权主义|jíquán zhǔyì|False|True|other|
+chinese|culture/politics|tyrania|暴政|bào zhèng|False|False|other|
 chinese|culture/politics|verejnosť|公众|gōng zhòng|False|False|other|
-chinese|culture/politics|vláda|政府|zhèngfǔ|False|False|other|
-chinese|culture/politics|vládnuť|执政|zhízhèng |False|False|other|
-chinese|culture/politics|vládnuť|治理|zhìlǐ|False|False|other|
-chinese|culture/politics|vládnuť|统治|tǒngzhì |False|False|other|
+chinese|culture/politics|vláda|政府|zhèng fǔ|False|True|other|
+chinese|culture/politics|vládnuť|执政|zhí zhèng|False|True|other|
+chinese|culture/politics|vládnuť|治|zhì|False|False|other|
+chinese|culture/politics|vládnuť|治理|zhì lǐ|False|True|other|
+chinese|culture/politics|vládnuť|统治|tǒng zhì|False|True|other|
 chinese|culture/politics|ľud|民众|mín zhòng|False|False|other|
 chinese|culture/politics|štát|国家|guójiā|False|True|other|
 chinese|economy/agriculture|bič|鞭|biān|False|False|other|
@@ -712,26 +794,37 @@ chinese|economy/construction|schody|楼梯|lóu tī|False|False|other|
 chinese|economy/construction|stavať|建设|jiàn shè|True|False|other|
 chinese|economy/construction|stena|墙壁|qiáng bì|False|False|other|
 chinese|economy/construction|strecha|屋顶|wū dǐng|False|False|other|
+chinese|economy/construction|sála|大厅|dà tīng|False|False|other|
 chinese|economy/construction|tehla|砖块|zhuān kuài |False|False|other|
 chinese|economy/construction|tehla|砖头|zhuān tou|False|False|other|
 chinese|economy/construction|ulica|街道|jiē dào|False|False|other|
 chinese|economy/construction|veľkomesto|都市|dū shì|False|False|other|
 chinese|economy/construction|veža|塔|tǎ|False|False|other|
 chinese|economy/construction|výťah|电梯|diàn tī|False|False|other|
+chinese|economy/construction|zahrabať|埋|mái |False|False|other|
+chinese|economy/construction|zahrabať|埋藏|mái cáng|False|False|other|
 chinese|economy/education|dedukcia|演绎|yǎn yì|False|False|other|
 chinese|economy/education|domáca úloha|功课|gōng kè|False|True|other|
-chinese|economy/education|experiment|实验|shí yàn|False|False|other|
+chinese|economy/education|experiment|实验|shí yàn|False|True|other|
 chinese|economy/education|filozofia|哲学|zhé xué|False|False|other|
 chinese|economy/education|lekcia (škola)|课|kè|False|False|other|
 chinese|economy/education|lekcia (život)|教训|jiào xun|False|False|other|
 chinese|economy/education|logika|逻辑|luó ji|False|False|other|
 chinese|economy/education|majster|师傅|shī fu|False|True|other|
 chinese|economy/education|objaviť|发现|fā xiàn|False|False|other|
+chinese|economy/education|overiť|检验|jiǎn yàn|False|True|other|
+chinese|economy/education|overiť|验|yàn|False|False|other|
 chinese|economy/education|pokrok|进步|jìn bù|False|False|other|
-chinese|economy/education|pokus|试验|shì yàn|False|False|other|
+chinese|economy/education|pokus|试验|shì yàn|False|True|other|
 chinese|economy/education|profesor|教授|jiào shòu|False|True|other|
-chinese|economy/education|skúšať|考|kǎo|True|False|other|
+chinese|economy/education|skontrolovať|查|chá |False|False|other|
+chinese|economy/education|skontrolovať|查看|chá kàn|False|True|other|
+chinese|economy/education|skontrolovať|检|jiǎn|False|False|other|
+chinese|economy/education|skontrolovať|检查|jiǎn chá|False|True|other|
+chinese|economy/education|skúšať|考|kǎo |True|False|other|
+chinese|economy/education|skúšať|试|shì|True|False|other|
 chinese|economy/education|skúška|考试|kǎo shì|False|True|other|
+chinese|economy/education|skúška|考验|kǎo yàn|False|True|other|
 chinese|economy/education|stagnovať|停滞|tíngzhì|False|False|other|
 chinese|economy/education|stagnujúci|呆滞|dāizhì|False|False|other|
 chinese|economy/education|technológia|技术|jì shù|False|False|other|
@@ -746,6 +839,7 @@ chinese|economy/education|učiť|教|jiào|True|False|other|
 chinese|economy/education|veda|科学|kē xué|False|False|other|
 chinese|economy/education|vedec|学家|xué jiā|False|False|other|
 chinese|economy/education|vynájsť|发明|fā míng|False|False|other|
+chinese|economy/education|vyskúšať|测试|cè shì|False|True|other|
 chinese|economy/education|vyvíjať|发展|fā zhǎn|False|False|other|
 chinese|economy/education|vzdelanie|教育|jiào yù|False|True|other|
 chinese|economy/education|vzdelávať|培养|péi yǎng|False|False|other|
@@ -767,7 +861,8 @@ chinese|economy/finance|dlh|欠款|qiàn kuǎn|False|False|other|
 chinese|economy/finance|drahý|昂贵|áng guì|False|True|other|
 chinese|economy/finance|drahý|贵|guì|True|False|other|
 chinese|economy/finance|financie|金融|jīn róng|False|False|other|
-chinese|economy/finance|hodnota|价值|jià zhí|False|False|other|
+chinese|economy/finance|hodnota|价值|jià zhí|False|True|other|
+chinese|economy/finance|hodnota|值|zhí|False|False|other|
 chinese|economy/finance|inflácia|通胀|tōng zhàng|False|False|other|
 chinese|economy/finance|lacný|便宜|pián yi|True|False|other|
 chinese|economy/finance|mena|货币|huò bì|False|False|other|
@@ -835,11 +930,13 @@ chinese|economy/health|trápenie|痛苦|tòng kǔ|False|False|other|
 chinese|economy/health|umyť|洗|xǐ|True|False|other|
 chinese|economy/health|vred|溃疡|kuì yáng|False|False|other|
 chinese|economy/health|zdravie|健康|jiàn kāng|False|False|other|
+chinese|economy/health|znečistiť|污染|wū rǎn|False|True|other|
 chinese|economy/health|zranenie|伤|shāng|False|False|other|
 chinese|economy/health|zubár|牙医|yá yī|False|False|other|
 chinese|economy/health|únava|疲劳|pí láo|False|False|other|
 chinese|economy/health|čistý|干净|gān jìng|True|False|other|
 chinese|economy/health|šialený|疯狂|fēng kuáng|False|False|other|
+chinese|economy/health|špinavý|污|wū|False|False|other|
 chinese|economy/health|špinavý|脏|zāng|True|False|other|
 chinese|economy/industry|hadica|水龙|shuǐ lóng|False|False|other|
 chinese|economy/industry|lopata|铲子|chǎn zi|False|False|other|
@@ -888,6 +985,7 @@ chinese|economy/manufacture|telefón|电话|diàn huà|True|False|other|
 chinese|economy/manufacture|televízor|电视机|diàn shì jī|True|False|other|
 chinese|economy/manufacture|uterák|毛巾|máo jīn|False|False|other|
 chinese|economy/manufacture|vankúš|枕头|zhěn tou|False|False|other|
+chinese|economy/manufacture|vejár|扇子|shàn zi|False|False|other|
 chinese|economy/manufacture|vosk|蜡|là|False|False|other|
 chinese|economy/manufacture|vysávač|吸尘器|xī chén qì|False|False|other|
 chinese|economy/manufacture|zošit|本子|běn zi|True|False|other|
@@ -940,6 +1038,7 @@ chinese|economy/transportation|autobus|公共汽车|gōng gòng qìchē|False|Tr
 chinese|economy/transportation|auto|汽车|qì chē|False|True|other|
 chinese|economy/transportation|bicykel|自行车|zì xíng chē|False|True|other|
 chinese|economy/transportation|cesta|马路|mǎ lù|False|False|other|
+chinese|economy/transportation|doručiť|送|sòng|False|False|other|
 chinese|economy/transportation|električka|电车|diàn chē|False|True|other|
 chinese|economy/transportation|jachta|快艇|kuài tǐng|False|False|other|
 chinese|economy/transportation|kotva|锚|máo|False|False|other|
@@ -948,6 +1047,10 @@ chinese|economy/transportation|lietadlo|飞机|fēi jī|True|False|other|
 chinese|economy/transportation|loď|船|chuán|False|False|other|
 chinese|economy/transportation|metro|地铁|dì tiě|False|False|other|
 chinese|economy/transportation|ponorka|潜艇|qián tǐng|False|False|other|
+chinese|economy/transportation|poslať|寄|jì |False|False|other|
+chinese|economy/transportation|poslať|寄出|jì chū|False|False|other|
+chinese|economy/transportation|prijať|收|shōu |False|False|other|
+chinese|economy/transportation|prijať|收到|shōu dào|False|False|other|
 chinese|economy/transportation|prístav|海港|hǎi gǎng|False|False|other|
 chinese|economy/transportation|taxi|出租车|chū zū chē|False|True|other|
 chinese|economy/transportation|vlak|火车|huǒ chē|False|True|other|
@@ -1000,16 +1103,21 @@ chinese|economy/work|pomôcť|帮忙|bāng máng|False|False|other|
 chinese|economy/work|povolanie|行业|háng yè|False|False|other|
 chinese|economy/work|pozícia|职位|zhí wèi|False|False|other|
 chinese|economy/work|poľnohospodárstvo|农业|nóng yè|False|False|other|
+chinese|economy/work|pracovitý|辛勤|xīn qín|False|False|other|
 chinese|economy/work|prepustiť|解雇|jiě gù|False|False|other|
 chinese|economy/work|priemysel|工业|gōng yè|False|False|other|
+chinese|economy/work|produkovať|产|chǎn|False|False|other|
+chinese|economy/work|produkovať|生产|shēng chǎn|False|True|other|
 chinese|economy/work|práca|劳动|láo dòng|False|False|other|
 chinese|economy/work|práca|工作|gōng zuò |False|False|other|
 chinese|economy/work|robiť|做|zuò|False|False|other|
 chinese|economy/work|slúžiť|服务|fú wù|True|False|other|
+chinese|economy/work|snažiť sa|奋斗|fèn dòu|False|False|other|
 chinese|economy/work|termín|期限|qī xiàn|True|False|other|
 chinese|economy/work|továreň|工厂|gōng chǎng|False|False|other|
-chinese|economy/work|vyrobiť|制作|zhì zuò|False|False|other|
-chinese|economy/work|výrobok|产品|chǎn pǐn|False|False|other|
+chinese|economy/work|usilovný|勤劳|qín láo |False|False|other|
+chinese|economy/work|usilovný|勤奋|qín fèn|False|False|other|
+chinese|economy/work|výrobok|产品|chǎn pǐn|False|True|other|
 chinese|economy/work|zamestnanec|雇员|gù yuán|False|False|other|
 chinese|economy/work|zamestnať|雇佣|gù yōng|False|False|other|
 chinese|economy/work|zamestnávateľ|雇主|gù zhǔ|False|False|other|
@@ -1017,26 +1125,38 @@ chinese|economy/work|zaneprázdnený|忙|máng|True|False|other|
 chinese|economy/work|zaoberať sa|处理|chǔ lǐ|False|False|other|
 chinese|economy/work|zákazník|顾客|gù kè|False|False|other|
 chinese|economy/work|úloha|任务|rèn wu|True|False|other|
-chinese|human/communication|diskutovať|讨论|tǎo lùn|False|False|other|
+chinese|human/communication|diskusia|辩论|biàn lùn|False|True|other|
+chinese|human/communication|diskutovať|讨论|tǎo lùn|False|True|other|
+chinese|human/communication|diskutovať|辩|biàn|False|False|other|
 chinese|human/communication|dokázať|证明|zhèng míng|False|False|other|
 chinese|human/communication|dovoliť|让|ràng|False|False|other|
+chinese|human/communication|hovoriť o|议论|yì lùn|False|True|other|
 chinese|human/communication|hovoriť|谈|tán|False|False|other|
+chinese|human/communication|informovať sa|查询|chá xún|False|False|other|
 chinese|human/communication|informácia|资讯|zīxùn|False|False|other|
 chinese|human/communication|interview|采访|cǎifǎng|False|False|other|
 chinese|human/communication|jazyk|语|yǔ|False|False|other|
 chinese|human/communication|klamať|说谎|shuō huǎng|False|False|other|
 chinese|human/communication|klamstvo|谎话|huǎng huà|False|False|other|
-chinese|human/communication|komentovať|评论|píng lùn|False|False|other|
+chinese|human/communication|komentovať|评|píng|False|False|other|
+chinese|human/communication|komentovať|评论|píng lùn|False|True|other|
 chinese|human/communication|komunikovať|沟通|gōutōng|False|False|other|
 chinese|human/communication|komunikácia|交际|jiāojì|True|False|other|
 chinese|human/communication|konflikt|冲突|chōng tū|False|False|other|
 chinese|human/communication|konverzovať|交谈|jiāo tán|False|False|other|
 chinese|human/communication|konzultovať|商量|shāng liang|True|False|other|
-chinese|human/communication|kritizovať|批评|pī píng|False|False|other|
+chinese|human/communication|konzultácia|咨询|zī xún|False|False|other|
+chinese|human/communication|kritizovať|批|pī|False|False|other|
+chinese|human/communication|kritizovať|批判|pī pàn|False|True|other|
+chinese|human/communication|kritizovať|批评|pī píng|False|True|other|
 chinese|human/communication|legenda|传说|chuán shuō|False|True|other|
 chinese|human/communication|navrhnúť|建议|jiàn yì|False|False|other|
+chinese|human/communication|navrhnúť|议|yì|False|False|other|
+chinese|human/communication|návrh|倡议|chàng yì|False|True|other|
+chinese|human/communication|návrh|建议|jiàn yì|False|True|other|
 chinese|human/communication|náznak|暗示|àn shì|True|False|other|
 chinese|human/communication|názor|看法|kàn fǎ|True|False|other|
+chinese|human/communication|obhajovať|辩解|biàn jiě|False|True|other|
 chinese|human/communication|odmlčať sa|停顿|tíng dùn|False|False|other|
 chinese|human/communication|odpovedať|回答|huí dá|False|False|other|
 chinese|human/communication|odpustiť|原谅|yuán liàng|False|False|other|
@@ -1051,6 +1171,7 @@ chinese|human/communication|podozrivý|可疑|kě yí|False|False|other|
 chinese|human/communication|podozrivý|嫌疑|xián yí|False|False|other|
 chinese|human/communication|podvodník|骗子|piàn zi|False|False|other|
 chinese|human/communication|podvádzať|作弊|zuò bì|False|False|other|
+chinese|human/communication|potajomky|偷偷|tōu tōu|False|False|other|
 chinese|human/communication|povedať|说|shuō|False|False|other|
 chinese|human/communication|povoliť|允许|yǔn xǔ|False|False|other|
 chinese|human/communication|predstierať|假装|jiǎ zhuāng|False|False|other|
@@ -1062,29 +1183,39 @@ chinese|human/communication|prikázať|令|lìng|False|False|other|
 chinese|human/communication|privítať|欢迎|huān yíng|True|False|other|
 chinese|human/communication|prosiť|拜托|bài tuō|False|False|other|
 chinese|human/communication|prosiť|请|qǐng|False|False|other|
-chinese|human/communication|pýtať sa|询问|xún wèn|False|False|other|
 chinese|human/communication|rada|忠告|zhōng gào|False|False|other|
 chinese|human/communication|radiť|劝告|quàn gào|False|False|other|
 chinese|human/communication|reč|说话|shuōhuà|False|False|other|
 chinese|human/communication|rozprávať|讲|jiǎng|False|False|other|
+chinese|human/communication|skrytý|隐|yǐn|False|False|other|
+chinese|human/communication|skryť|隐藏|yǐn cáng|False|True|other|
 chinese|human/communication|správa|新闻|xīnwén|True|False|other|
+chinese|human/communication|spôsobiť|令人|lìng rén|False|True|other|
 chinese|human/communication|spýtať sa|问|wèn|False|False|other|
 chinese|human/communication|súhlasiť|同意|tóng yì|False|False|other|
+chinese|human/communication|súkromie|隐私|yǐn sī|False|True|other|
 chinese|human/communication|sľub|诺言|nuòyán|False|False|other|
 chinese|human/communication|sľúbiť|许诺|xǔnuò|False|False|other|
 chinese|human/communication|sťažovať sa|投诉|tóu sù|False|False|other|
+chinese|human/communication|tajomstvo|秘密|mì mì|False|False|other|
 chinese|human/communication|uznať|承认|chéng rèn|False|False|other|
 chinese|human/communication|varovať|告诫|gào jiè|False|False|other|
+chinese|human/communication|varovať|警告|jǐng gào|False|False|other|
 chinese|human/communication|veriť|相信|xiāng xìn|False|False|other|
 chinese|human/communication|verný|忠实|zhōngshí |False|False|other|
 chinese|human/communication|verný|忠诚|zhōngchéng|False|False|other|
 chinese|human/communication|vyhlásiť|公布|gōng bù|False|False|other|
 chinese|human/communication|vyhovoriť|劝阻|quàn zǔ|False|False|other|
-chinese|human/communication|vypytovať sa|查询|chá xún|False|False|other|
+chinese|human/communication|vyjednávať|谈判|tán pàn|False|False|other|
+chinese|human/communication|vypytovať sa|询问|xún wèn|False|False|other|
 chinese|human/communication|vyvrátiť|反驳|fǎnbó|False|False|other|
 chinese|human/communication|výhovorka|借口|jiè kǒu|False|False|other|
+chinese|human/communication|zatajiť|隐瞒|yǐn mán|False|True|other|
+chinese|human/communication|záhada|神秘|shén mì|False|False|other|
 chinese|human/communication|úprimný|真诚|zhēn chéng|False|False|other|
 chinese|human/communication|čestný|诚实|chéng shí|False|False|other|
+chinese|human/communication|šifra|密码|mì mǎ|False|False|other|
+chinese|human/communication|žiadať|讨|tǎo|False|False|other|
 chinese|human/communication|žiadosť|请求|qǐng qiú|False|False|other|
 chinese|human/family|babka|奶奶|nǎinai|False|False|other|
 chinese|human/family|dcéra|女儿|nǚér|False|False|other|
@@ -1165,6 +1296,8 @@ chinese|human/society|spoločnosť|社会|shèhuì|True|False|other|
 chinese|human/society|stretnutie|约会|yuēhuì|True|False|other|
 chinese|human/society|sviatok|节日|jiérì|False|True|other|
 chinese|human/society|zvyk|习惯|xíguàn|True|False|other|
+chinese|human/society|zúčastniť sa|参与|cān yù|False|False|other|
+chinese|human/society|zúčastniť sa|参加|cān jiā |False|False|other|
 chinese|human/society|želať|祝|zhù|False|False|other|
 chinese|human/štáty|Alžírsko|阿尔及利亚|āěrjílìyǎ|False|False|other|
 chinese|human/štáty|Argentína|阿根廷|āgēntíng|False|False|other|
@@ -1244,6 +1377,8 @@ chinese|life/body|chvost|尾巴|wěiba|False|False|other|
 chinese|life/body|dlaň|手掌|shǒuzhǎng|False|False|other|
 chinese|life/body|fúz|胡子|húzi|False|False|other|
 chinese|life/body|hlava|头|tóu|False|False|other|
+chinese|life/body|hlava|脑袋|nǎo dài|False|False|other|
+chinese|life/body|hrdlo|喉咙|hóulóng|False|False|other|
 chinese|life/body|jazyk|舌头|shétou|False|False|other|
 chinese|life/body|koleno|膝盖|xīgài|False|False|other|
 chinese|life/body|končatina|肢体|zhītǐ|False|False|other|
@@ -1271,13 +1406,12 @@ chinese|life/body|prst|手指|shǒuzhǐ|False|False|other|
 chinese|life/body|pľúca|肺|fèi|False|False|other|
 chinese|life/body|ruka|手|shǒu|False|False|other|
 chinese|life/body|slezina|脾脏|pízàng|False|False|other|
-chinese|life/body|slina|唾液|tuòyè|False|False|other|
 chinese|life/body|srdce|心脏|xīnzàng|False|False|other|
 chinese|life/body|srsť|毛皮|máopí|False|False|other|
 chinese|life/body|stavec|椎骨|zhuīgǔ|False|False|other|
 chinese|life/body|stehno|大腿|dàtuǐ|False|False|other|
 chinese|life/body|sval|肌肉|jīròu|False|False|other|
-chinese|life/body|telo|身体|shēntǐ|False|False|other|
+chinese|life/body|telo|身体|shēn tǐ|False|False|other|
 chinese|life/body|tvár|脸|liǎn|False|False|other|
 chinese|life/body|ucho|耳朵|ěrduo|False|False|other|
 chinese|life/body|vlasy|头发|tóufa|False|False|other|
@@ -1291,14 +1425,15 @@ chinese|life/feeling|des|恐惧|kǒng jù|False|False|other|
 chinese|life/feeling|dojať|感动|gǎn dòng|False|False|other|
 chinese|life/feeling|dúfať|希望|xī wàng|True|False|other|
 chinese|life/feeling|emócia|感情|gǎn qíng|False|False|other|
-chinese|life/feeling|hanbiť sa|惭愧|cán kuì|False|False|other|
 chinese|life/feeling|hanblivosť|胆怯|dǎn qiè|False|False|other|
+chinese|life/feeling|hanblivý|害羞|hài xiū|False|True|other|
 chinese|life/feeling|hnev|愤怒|fèn nù|False|False|other|
 chinese|life/feeling|hrôza|恐怖|kǒng bù|False|False|other|
 chinese|life/feeling|láska|爱情|ài qíng|False|False|other|
 chinese|life/feeling|mať obavy|担心|dān xīn|False|False|other|
 chinese|life/feeling|melanchólia|忧郁|yōu yù|False|False|other|
 chinese|life/feeling|mizerný|惨|cǎn|False|False|other|
+chinese|life/feeling|nadšený|兴奋|xīng fèn|False|False|other|
 chinese|life/feeling|nahnevaný|恼火|nǎo huǒ|False|False|other|
 chinese|life/feeling|nalákať|诱惑|yòu huò|False|False|other|
 chinese|life/feeling|nenávidieť|恨|hèn|True|False|other|
@@ -1322,6 +1457,8 @@ chinese|life/feeling|potešený|高兴|gāo xìng|True|False|other|
 chinese|life/feeling|povzbudiť|鼓励|gǔ lì|False|False|other|
 chinese|life/feeling|prekvapenie|惊喜|jīng xǐ|False|False|other|
 chinese|life/feeling|priaznivý|吉祥|jí xiáng|False|False|other|
+chinese|life/feeling|prísny|严|yán |False|False|other|
+chinese|life/feeling|prísny|严厉|yán lì|False|False|other|
 chinese|life/feeling|radosť|喜悦|xǐ yuè |False|False|other|
 chinese|life/feeling|radosť|愉悦|yú yuè|False|False|other|
 chinese|life/feeling|smutný|悲伤|bēi shāng|False|False|other|
@@ -1329,12 +1466,16 @@ chinese|life/feeling|strach|恐怕|kǒng pà|False|False|other|
 chinese|life/feeling|súcitiť|同情|tóng qíng|False|False|other|
 chinese|life/feeling|súcit|怜悯|lián mǐn|False|False|other|
 chinese|life/feeling|trápenie|烦恼|fán nǎo|False|False|other|
+chinese|life/feeling|trápiť sa|挣扎|zhēng zhá|False|False|other|
 chinese|life/feeling|trápny|别扭|biè niu|False|False|other|
 chinese|life/feeling|trápny|尴尬|gān gà|False|False|other|
 chinese|life/feeling|vtipný|搞笑|gǎo xiào|False|False|other|
 chinese|life/feeling|vytrvalý|一贯|yī guàn|False|False|other|
+chinese|life/feeling|zahanbený|惭愧|cán kuì|False|True|other|
+chinese|life/feeling|zahanbený|羞愧|xiū kuì|False|False|other|
 chinese|life/feeling|zdesiť|惊恐|jīng kǒng|False|False|other|
 chinese|life/feeling|zúrivý|凶|xiōng|False|False|other|
+chinese|life/feeling|úsilie|努力|nǔ lì|False|False|other|
 chinese|life/feeling|úzkosť|忧虑|yōu lǜ|False|False|other|
 chinese|life/feeling|ľutovať|可怜|kě lián|False|False|other|
 chinese|life/feeling|ľutovať|后悔|hòu huǐ|False|False|other|
@@ -1353,8 +1494,9 @@ chinese|life/pohyby|dotýkať sa|碰|pèng|False|False|other|
 chinese|life/pohyby|dupať|跺脚|duò jiǎo|False|False|other|
 chinese|life/pohyby|facka|耳光|ěr guāng|False|False|other|
 chinese|life/pohyby|hladkať|抚摸|fǔ mō|False|False|other|
-chinese|life/pohyby|hodiť|投|tóu|False|False|other|
+chinese|life/pohyby|hodiť|抛|pāo|False|False|other|
 chinese|life/pohyby|hrýzť|咬|yǎo|False|False|other|
+chinese|life/pohyby|hádzať|投|tóu|False|False|other|
 chinese|life/pohyby|kopnúť|踢|tī|False|False|other|
 chinese|life/pohyby|kopnúť|踢|tī|False|False|other|
 chinese|life/pohyby|kráčať|步行|bù xíng|False|False|other|
@@ -1365,6 +1507,7 @@ chinese|life/pohyby|ležať|躺|tǎng|False|False|other|
 chinese|life/pohyby|lízať|舔|tiǎn|False|False|other|
 chinese|life/pohyby|navliecť|套|tào|True|False|other|
 chinese|life/pohyby|niesť|提|tí|False|False|other|
+chinese|life/pohyby|odhodiť|扔|rēng|False|False|other|
 chinese|life/pohyby|odniesť|带走|dài zǒu|False|False|other|
 chinese|life/pohyby|oprieť sa|靠|kào|False|False|other|
 chinese|life/pohyby|padať|跌落|diē luò|False|False|other|
@@ -1393,8 +1536,12 @@ chinese|life/pohyby|tlačiť|推动|tuī dòng|False|False|other|
 chinese|life/pohyby|uchopiť|抓紧|zhuā jǐn|False|False|other|
 chinese|life/pohyby|udrieť|打|dǎ|False|False|other|
 chinese|life/pohyby|vliecť|拖|tuō|False|False|other|
-chinese|life/pohyby|vrátiť sa|回|huí|False|False|other|
+chinese|life/pohyby|vrhnúť|掷|zhì|False|False|other|
+chinese|life/pohyby|vrátiť sa|回|huí |False|False|other|
+chinese|life/pohyby|vrátiť sa|返|fǎn|False|False|other|
+chinese|life/pohyby|vrátiť sa|返回|fǎnhuí|False|True|other|
 chinese|life/pohyby|vstať|起|qǐ|False|False|other|
+chinese|life/pohyby|vyhodiť|扔掉|rēng diào|False|True|other|
 chinese|life/pohyby|vyjsť|出|chū|True|False|other|
 chinese|life/pohyby|vyjsť|出去|chū qu|False|True|other|
 chinese|life/pohyby|vyjsť|出来|chū lai|False|True|other|
@@ -1402,6 +1549,7 @@ chinese|life/pohyby|vyskočiť|纵身|zòng shēn|False|False|other|
 chinese|life/pohyby|vystaviť|陈列|chén liè|False|False|other|
 chinese|life/pohyby|vystopovať|跟踪|gēn zōng|False|False|other|
 chinese|life/pohyby|vytiahnuť (z vrecka)|掏出|tāo chū|False|False|other|
+chinese|life/pohyby|vyšmariť|甩掉|shuǎi diào|False|True|other|
 chinese|life/pohyby|vzdialenosť|距离|jù lí|False|False|other|
 chinese|life/pohyby|zostať|留|liú|True|False|other|
 chinese|life/pohyby|ísť|去|qù|True|False|other|
@@ -1413,31 +1561,46 @@ chinese|life/pohyby|šplhať sa|爬|pá|False|False|other|
 chinese|life/pohyby|ťahať|拉|lā|False|False|other|
 chinese|life/senses|chuť|味|wèi|False|False|other|
 chinese|life/senses|cítiť|觉得|juéde|True|False|other|
-chinese|life/senses|dýchať|呼吸|hūxī|False|False|other|
-chinese|life/senses|grcať|呕吐|ǒutù|False|False|other|
+chinese|life/senses|dusiť sa|呛|qiāng|False|False|other|
+chinese|life/senses|dychčať|喘|chuǎn|False|False|other|
+chinese|life/senses|dýchať|呼吸|hū xī|False|False|other|
+chinese|life/senses|grcať|呕吐|ǒu tù|False|False|other|
 chinese|life/senses|horký|苦|kǔ|True|False|other|
 chinese|life/senses|hrýzť|咬|yǎo|False|False|other|
 chinese|life/senses|jačať|嚷|rǎng|False|False|other|
 chinese|life/senses|jesť|吃|chī|False|False|other|
-chinese|life/senses|kričať|叫喊|jiàohǎn |False|False|other|
 chinese|life/senses|kričať|喊|hǎn|False|False|other|
 chinese|life/senses|kyslý|酸|suān|True|False|other|
+chinese|life/senses|mrmlať|嘀咕|dí gū|False|False|other|
+chinese|life/senses|nadýchnuť|吸|xī|False|True|other|
+chinese|life/senses|nariekať|啼|tí|False|False|other|
 chinese|life/senses|nemý|哑巴|yǎba|False|False|other|
 chinese|life/senses|piť|喝|hē|False|False|other|
-chinese|life/senses|povzdych|叹息|tànxī|False|False|other|
+chinese|life/senses|povzdychnúť si|叹|tàn|False|False|other|
+chinese|life/senses|povzdych|叹息|tàn xī|False|True|other|
 chinese|life/senses|počuť|听|tīng|False|False|other|
+chinese|life/senses|prehltnúť|吞|tūn|False|False|other|
 chinese|life/senses|revať|吼|hǒu|False|False|other|
 chinese|life/senses|sladký|甜|tián|True|False|other|
 chinese|life/senses|slaný|咸|xián|True|False|other|
+chinese|life/senses|sliny|口水|kǒu shuǐ|False|False|other|
+chinese|life/senses|sliny|唾沫|tuò mo|False|False|other|
+chinese|life/senses|sliny|唾液|tuò yè|False|False|other|
 chinese|life/senses|spať|睡|shuì|False|False|other|
 chinese|life/senses|spánok|睡眠|shuì mián|False|True|other|
+chinese|life/senses|stonať|呻吟|shēn yín|False|False|other|
 chinese|life/senses|volať|叫|jiào|False|False|other|
+chinese|life/senses|vydýchnuť|呼|hū|False|True|other|
 chinese|life/senses|vystrašiť|吓|xià|False|False|other|
+chinese|life/senses|vzlykať|唏嘘|xī xū|False|False|other|
 chinese|life/senses|zavolať si|召唤|zhàohuàn|False|False|other|
+chinese|life/senses|zavýjať|呼啸|hū xiào|False|False|other|
 chinese|life/senses|znieť|响|xiǎng|False|False|other|
 chinese|life/senses|zobudiť sa|醒|xǐng|False|False|other|
 chinese|life/senses|zvuk|声音|shēng yīn|False|False|other|
+chinese|life/senses|zívať|哈欠|hā qian|False|False|other|
 chinese|life/senses|čkať sa|呃逆|ènì|False|False|other|
+chinese|life/senses|štekať|吠|fèi|False|False|other|
 chinese|life/senses|žuť|嚼|jiáo|False|False|other|
 chinese|life/spravanie|bábätko|婴儿|yīng ér|False|False|other|
 chinese|life/spravanie|bývať|住|zhù|True|False|other|
@@ -1496,6 +1659,7 @@ chinese|life/stromy|tuja|崖柏|yábǎi|False|True|other|
 chinese|life/stromy|vavrín|月桂|yuèguì|False|False|other|
 chinese|life/stromy|vŕba|柳树|liǔshù|True|False|other|
 chinese|life/thinking|analyzovať|分析|fēnxī|True|False|other|
+chinese|life/thinking|denník|日记|rì jì|False|True|other|
 chinese|life/thinking|dojem|印象|yìn xiàng|False|False|other|
 chinese|life/thinking|dôvod|理由|lǐyóu|True|False|other|
 chinese|life/thinking|dôvod|缘故|yuángù|False|False|other|
@@ -1508,7 +1672,9 @@ chinese|life/thinking|nezmysel|胡说|húshuō|False|False|other|
 chinese|life/thinking|nápad|主意|zhǔyi |True|False|other|
 chinese|life/thinking|nápad|想法|xiǎngfǎ|True|False|other|
 chinese|life/thinking|očividný|明显|míng xiǎn|False|False|other|
-chinese|life/thinking|pamätať si|记得|jìde|True|False|other|
+chinese|life/thinking|pamätať si|记|jì|True|False|other|
+chinese|life/thinking|pamätať si|记得|jìde|False|True|other|
+chinese|life/thinking|pamäť|记忆|jì yì|False|True|other|
 chinese|life/thinking|pravda|实话|shíhuà|False|False|other|
 chinese|life/thinking|pravda|真话|zhēnhuà |False|False|other|
 chinese|life/thinking|predpovedať|预计|yùjì|True|False|other|
@@ -1518,11 +1684,14 @@ chinese|life/thinking|preventívny|预防|yùfáng|True|False|other|
 chinese|life/thinking|rozhodnúť|决定|juédìng|False|False|other|
 chinese|life/thinking|skutočnosť|真实|zhēnshí|False|False|other|
 chinese|life/thinking|skutočný|现实|xiànshí|False|False|other|
+chinese|life/thinking|spomienka|回忆|huí yì|False|True|other|
 chinese|life/thinking|sprostý|笨|bèn|False|False|other|
 chinese|life/thinking|vedieť|知道|zhīdào|True|False|other|
 chinese|life/thinking|vyriešiť|解决|jiějué|False|False|other|
 chinese|life/thinking|vysvetlenie|解释|jiěshì|False|False|other|
 chinese|life/thinking|výnimka|例外|lìwài|True|False|other|
+chinese|life/thinking|zabudnúť|忘|wàng |False|True|other|
+chinese|life/thinking|zabudnúť|忘记|wàngjì|False|True|other|
 chinese|life/thinking|zamýšľať|打算|dǎsuàn|True|False|other|
 chinese|life/thinking|zdať sa|显得|xiǎn de|False|False|other|
 chinese|life/thinking|zložitý|艰难|jiān nán|False|True|other|
@@ -1543,10 +1712,13 @@ chinese|life/vision|červený|红|hóng|True|False|other|
 chinese|life/vision|čierny|黑|hēi|True|False|other|
 chinese|life/vision|žltý|黄|huáng|True|False|other|
 chinese|measures|budova|所|suǒ|False|False|other|
+chinese|measures|dlhý časový úsek|段|duàn|False|False|other|
 chinese|measures|dobytok|头|tóu|False|False|other|
 chinese|measures|druh|种|zhǒng|False|False|other|
+chinese|measures|dvere/okno|扇|shàn|False|False|other|
 chinese|measures|fľaša|瓶|píng|False|False|other|
 chinese|measures|kniha|本|běn|False|False|other|
+chinese|measures|krátky časový úsek|阵|zhèn|False|False|other|
 chinese|measures|kus|块|kuài|False|False|other|
 chinese|measures|kôň|匹|pǐ|False|False|other|
 chinese|measures|list/obálka|封|fēng|False|False|other|
@@ -1557,7 +1729,9 @@ chinese|measures|ploché (papier)|张|zhāng|False|False|other|
 chinese|measures|plátok|片|piàn|False|False|other|
 chinese|measures|pohár|杯|bēi|False|False|other|
 chinese|measures|pár|双|shuāng|False|False|other|
+chinese|measures|strom|棵|kē|False|False|other|
 chinese|measures|vozidlo|辆|liàng|False|False|other|
+chinese|measures|vrstva|层|céng|False|False|other|
 chinese|measures|všeobecný|个|gè|False|False|other|
 chinese|measures|zviera|只|zhī|False|False|other|
 chinese|measures|úzke dlhé (cesta)|条|tiáo|False|False|other|
@@ -1738,6 +1912,8 @@ chinese|nature/fyzika|elektrina|电|diàn|False|False|other|
 chinese|nature/fyzika|gravitácia|引力|yǐn lì|False|False|other|
 chinese|nature/fyzika|hmotnosť|重量|zhòng liàng|False|False|other|
 chinese|nature/fyzika|horúci|热|rè|False|False|other|
+chinese|nature/fyzika|kolísať sa|起伏|qǐ fú|False|False|other|
+chinese|nature/fyzika|kývať sa|摇摆|yáo bǎi|False|False|other|
 chinese|nature/fyzika|odpor|阻力|zǔ lì|False|False|other|
 chinese|nature/fyzika|ohnúť|弯|wān|False|False|other|
 chinese|nature/fyzika|otáčať|转|zhuǎn|False|False|other|
@@ -1779,6 +1955,7 @@ chinese|nature/material|arzén|砷|shēn|False|False|other|
 chinese|nature/material|atóm|原子|yuánzǐ|False|False|other|
 chinese|nature/material|bronz|青铜|qīngtóng|False|True|other|
 chinese|nature/material|chlór|氯气|lǜqì|False|False|other|
+chinese|nature/material|chróm|铬|gè|False|False|other|
 chinese|nature/material|cín|锡|xī|False|False|other|
 chinese|nature/material|diamant|钻石|zuànshí|False|False|other|
 chinese|nature/material|drahokam|宝石|bǎoshí|False|False|other|
@@ -1791,9 +1968,12 @@ chinese|nature/material|hliník|铝|lǚ|False|False|other|
 chinese|nature/material|horčík|镁|měi|False|False|other|
 chinese|nature/material|hrdzavieť|锈|xiù|False|False|other|
 chinese|nature/material|hélium|氦|hài|False|False|other|
+chinese|nature/material|kobalt|钴|gǔ|False|False|other|
 chinese|nature/material|kov|金属|jīnshǔ|False|False|other|
 chinese|nature/material|kremík|硅|guī|False|False|other|
 chinese|nature/material|kyslík|氧气|yǎngqì|False|False|other|
+chinese|nature/material|lítium|锂|lǐ|False|False|other|
+chinese|nature/material|mangán|锰|měng|False|False|other|
 chinese|nature/material|materiál|材料|cáiliào|False|False|other|
 chinese|nature/material|meď|铜|tóng|False|False|other|
 chinese|nature/material|molekula|分子|fēnzǐ|False|False|other|
@@ -1810,6 +1990,7 @@ chinese|nature/material|sklo|玻璃|bōli|False|False|other|
 chinese|nature/material|sodík|钠|nà|False|False|other|
 chinese|nature/material|striebro|白银|báiyín|False|False|other|
 chinese|nature/material|síra|硫|liú|False|False|other|
+chinese|nature/material|titánium|钛|tài|False|False|other|
 chinese|nature/material|uhlie|煤炭|méitàn|False|False|other|
 chinese|nature/material|uhlík|碳|tàn|False|False|other|
 chinese|nature/material|urán|铀|yóu|False|False|other|
@@ -1830,6 +2011,8 @@ chinese|nature/movement|skrútiť|扭曲|niǔ qū|False|False|other|
 chinese|nature/movement|stúpať|涨|zhǎng|False|False|other|
 chinese|nature/movement|vložiť|插|chā|False|False|other|
 chinese|nature/movement|zatvoriť|关|guān|True|False|other|
+chinese|nature/movement|zatvoriť|关闭|guān bì|False|False|other|
+chinese|nature/movement|zatvoriť|闭|bì |False|False|other|
 chinese|nature/rastliny|agáve|龙舌兰|lóngshélán|False|False|other|
 chinese|nature/rastliny|aloe|芦荟|lúhuì|False|False|other|
 chinese|nature/rastliny|aníz|八角|bājiǎo|False|False|other|
@@ -1981,38 +2164,40 @@ chinese|nature/vesmir|východ|东|dōng|True|False|other|
 chinese|nature/vesmir|zatmenie Slnka|日食|rìshí|False|False|other|
 chinese|nature/vesmir|západ Slnka|日落|rìluò|False|False|other|
 chinese|nature/vesmir|západ|西|xī|True|False|other|
-chinese|nature/weather|blesk|闪电|shǎndiàn|True|False|other|
-chinese|nature/weather|búrka|暴风|bàofēng|True|False|other|
-chinese|nature/weather|cencúľ|冰柱|bīngzhù|False|False|other|
-chinese|nature/weather|dusno|闷热|mēnrè|False|False|other|
+chinese|nature/weather|blesk|闪电|shǎn diàn|True|False|other|
+chinese|nature/weather|búrka|暴风|bào fēng|True|False|other|
+chinese|nature/weather|cencúľ|冰柱|bīng zhù|False|False|other|
+chinese|nature/weather|chladný|冷|lěng|True|False|other|
+chinese|nature/weather|dusno|闷热|mēn rè|False|False|other|
 chinese|nature/weather|dážď|雨|yǔ|True|False|other|
-chinese|nature/weather|dúha|彩虹|cǎihóng|True|False|other|
-chinese|nature/weather|hmla|薄雾|bówù|True|False|other|
+chinese|nature/weather|dúha|彩虹|cǎi hóng|True|False|other|
+chinese|nature/weather|hmla|薄雾|bó wù|True|False|other|
 chinese|nature/weather|horúci|热|rè|True|False|other|
 chinese|nature/weather|hrom|雷|léi|True|False|other|
-chinese|nature/weather|kaluž|水坑|shuǐkēng|True|False|other|
-chinese|nature/weather|krúpy|冰雹|bīngbáo|False|False|other|
+chinese|nature/weather|kaluž|水坑|shuǐ kēng|True|False|other|
+chinese|nature/weather|krúpy|冰雹|bīng báo|False|False|other|
 chinese|nature/weather|námraza|霜|shuāng|False|False|other|
 chinese|nature/weather|oblak|云|yún|True|False|other|
-chinese|nature/weather|obloha|天空|tiānkōng|True|False|other|
-chinese|nature/weather|potopa|洪水|hóngshuǐ|False|False|other|
-chinese|nature/weather|povodeň|水灾|shuǐzāi|True|False|other|
-chinese|nature/weather|počasie|天气|tiānqì|True|False|other|
-chinese|nature/weather|pršať|下雨|xiàyǔ|True|False|other|
-chinese|nature/weather|rosa|露水|lùshuǐ|False|False|other|
+chinese|nature/weather|obloha|天空|tiān kōng|True|False|other|
+chinese|nature/weather|potopa|洪水|hóng shuǐ|False|False|other|
+chinese|nature/weather|povodeň|水灾|shuǐ zāi|True|False|other|
+chinese|nature/weather|počasie|天气|tiān qì|True|False|other|
+chinese|nature/weather|pršať|下雨|xià yǔ|True|False|other|
+chinese|nature/weather|rosa|露水|lù shuǐ|False|False|other|
 chinese|nature/weather|sneh|雪|xuě|True|False|other|
-chinese|nature/weather|snežiť|下雪|xiàxuě|True|False|other|
-chinese|nature/weather|studený|寒冷|hánlěng|True|False|other|
-chinese|nature/weather|teplota|温度|wēndù|True|False|other|
-chinese|nature/weather|teplý|温暖|wēnnuǎn|True|False|other|
+chinese|nature/weather|snežiť|下雪|xià xuě|True|False|other|
+chinese|nature/weather|studený|寒冷|hán lěng|False|True|other|
+chinese|nature/weather|teplota|温度|wēn dù|True|False|other|
+chinese|nature/weather|teplý|温暖|wēn nuǎn|True|False|other|
 chinese|nature/weather|vietor|风|fēng|True|False|other|
-chinese|nature/weather|vlna|波浪|bōlàng|True|False|other|
+chinese|nature/weather|vlna|波浪|bō làng|True|False|other|
 chinese|nature/weather|voda|水|shuǐ|True|False|other|
-chinese|nature/weather|vzduch|空气|kōngqì|True|False|other|
-chinese|nature/weather|vánok|微风|wēifēng|False|False|other|
-chinese|nature/weather|víchrica|狂风|kuángfēng|True|False|other|
+chinese|nature/weather|vzduch|空气|kōng qì|True|False|other|
+chinese|nature/weather|vánok|微风|wēi fēng|False|False|other|
+chinese|nature/weather|víchrica|狂风|kuáng fēng|True|False|other|
 chinese|nature/weather|zore (červené oblaky pri západe slnka)|霞|xiá|False|False|other|
-chinese|nature/weather|zrážky|降水|jiàngshuǐ|False|False|other|
+chinese|nature/weather|zrážky|降水|jiàng shuǐ|False|False|other|
+chinese|nature/weather|ľadový|冰冷|bīng lěng|False|True|other|
 chinese|nature/weather|ľad|冰|bīng|True|False|other|
 chinese|particles|a čo ...?|呢|ne|False|False|other|
 chinese|particles|ach|嘛|ma|False|False|other|
@@ -2034,15 +2219,34 @@ chinese|particles|zdar|喂|wèi|False|False|other|
 chinese|particles|ách|唉|āi|False|False|other|
 chinese|particles|áno/nie otázka|吗|ma|False|False|other|
 chinese|particles|čo?|啥|shá|False|False|other|
+chinese|phrases|bezprecedentný|前所未有||False|False|other|
 chinese|phrases|byť arogantný|目中无人||False|False|other|
 chinese|phrases|byť nerozhodnutý|三心二意||False|False|other|
 chinese|phrases|byť v panike|惊恐万状||False|False|other|
+chinese|phrases|byť vážny|一本正经||False|False|other|
+chinese|phrases|byť zrejmé|不言而喻||False|False|other|
 chinese|phrases|dovidenia|再见|zàijiàn|False|False|other|
-chinese|phrases|neuveriteľné|不可思议||False|False|other|
+chinese|phrases|horieť netrpezlivosťou|心急如焚||False|False|other|
+chinese|phrases|jedinečný|绝无仅有||False|False|other|
+chinese|phrases|neuveriteľný|不可思议||False|False|other|
+chinese|phrases|nezávislý|独立自主||False|False|other|
 chinese|phrases|nie je za čo|不客气|bùkèqi|False|False|other|
+chinese|phrases|perfektný|十全十美||False|False|other|
+chinese|phrases|preháňať|夸大其词||False|False|other|
 chinese|phrases|prekomplikovať|画蛇添足||False|False|other|
+chinese|phrases|prekrásna|沉鱼落雁||False|False|other|
+chinese|phrases|prekrásna|闭月羞花||False|False|other|
+chinese|phrases|prevziať iniciatívu|先发制人||False|False|other|
+chinese|phrases|pútajúci pozornosť|引人注目||False|False|other|
 chinese|phrases|s prepáčením|对不起|duìbuqǐ|False|False|other|
+chinese|phrases|samozrejmý|理所当然||False|False|other|
+chinese|phrases|tak či tak|无论如何||False|False|other|
+chinese|phrases|unikátny|独一无二||False|False|other|
+chinese|phrases|v skratke|总而言之||False|False|other|
+chinese|phrases|vhodné podmienky|风调雨顺||False|False|other|
+chinese|phrases|všetkými možnými spôsobmi|千方百计||False|False|other|
 chinese|phrases|zradiť|过河拆桥||False|False|other|
+chinese|phrases|zúriť|暴跳如雷||False|False|other|
 chinese|phrases|ísť k veci|开门见山||False|False|other|
 chinese|phrases|ďakujem|谢谢|xièxie|False|False|other|
 chinese|pronoun|ja|我|wǒ|True|False|other|
@@ -2060,6 +2264,7 @@ chinese|science/medicína|DNA|脱氧核糖核酸|tuōyǎng hétáng hésuān|Fal
 chinese|science/medicína|baktéria|细菌|xìjùn|False|False|other|
 chinese|science/medicína|bunka|细胞|xìbāo|False|False|other|
 chinese|science/medicína|chromosome|染色体|rǎnsètǐ|False|False|other|
+chinese|science/medicína|dezinfikovať|消毒|xiāo dú|False|False|other|
 chinese|science/medicína|epidemy|流行病|liúxíng bìng|False|False|other|
 chinese|science/medicína|erythrocyte|红细胞|hóngxìbāo|False|False|other|
 chinese|science/medicína|evolúcia|进化|jìnhuà|False|False|other|
@@ -3604,6 +3809,7 @@ deutsch|culture/law|obviniť|bezichtigen||False|False|verb|
 deutsch|culture/law|odsúdenec|Verurteilte/n||False|True|noun|r
 deutsch|culture/law|odsúdenie|Verurteilung/en||False|True|noun|e
 deutsch|culture/law|odsúdiť|verurteilen||False|True|verb|
+deutsch|culture/law|oprávnenie|Befugnis/se||False|False|noun|e
 deutsch|culture/law|policajt|Polizist/en||False|True|noun|r
 deutsch|culture/law|polícia|Polizei||True|False|noun|e
 deutsch|culture/law|poprava|Hinrichtung/en||False|True|noun|e
@@ -3715,6 +3921,7 @@ deutsch|culture/media|Eevee|Evoli||False|False|other|
 deutsch|culture/media|Ekans|Rettan||False|False|other|
 deutsch|culture/media|Gastly|Nebulak||False|False|other|
 deutsch|culture/media|Geodude|Kleinstein||False|False|other|
+deutsch|culture/media|Growlithe|Fukano||False|False|other|
 deutsch|culture/media|Koffing|Smogon||False|False|other|
 deutsch|culture/media|Lickitung|Schlurp||False|False|other|
 deutsch|culture/media|Pidgey|Taubsi||False|False|other|
@@ -4690,6 +4897,7 @@ deutsch|deutsch/kultúra/estetika|strašný|grässlich||False|False|other|
 deutsch|deutsch/kultúra/estetika|veľmi dobre|sauwohl||False|False|other|
 deutsch|deutsch/kultúra/estetika|vkusný|schick||True|False|other|
 deutsch|deutsch/kultúra/estetika|vynikajúci|hervorragend||True|False|other|
+deutsch|deutsch/kultúra/estetika|vynikajúci|prachtvoll||False|False|other|
 deutsch|deutsch/kultúra/estetika|vyzerať|aussehen/sieht/sah/ausgesehen||True|False|verb|
 deutsch|deutsch/kultúra/estetika|vzhľad|Aussehen||False|True|noun|s
 deutsch|deutsch/kultúra/estetika|výborný|ausgezeichnet||True|False|other|
@@ -5226,6 +5434,7 @@ deutsch|deutsch/ľudské správanie/povaha|nervózny|nervös||True|False|other|
 deutsch|deutsch/ľudské správanie/povaha|prefíkaný|schlau||False|False|other|
 deutsch|deutsch/ľudské správanie/povaha|prísny|streng||True|False|other|
 deutsch|deutsch/ľudské správanie/povaha|puntičkársky|ping(e)lig||False|False|other|
+deutsch|deutsch/ľudské správanie/povaha|rozjašený|überdreht||False|False|other|
 deutsch|deutsch/ľudské správanie/povaha|trápny|peinlich||True|False|other|
 deutsch|deutsch/ľudské správanie/povaha|tvrdohlavý|dickköpfig||False|False|other|
 deutsch|deutsch/ľudské správanie/povaha|tvrdohlavý|stur||False|False|other|
@@ -6572,6 +6781,7 @@ deutsch|economy/war|utečenec|Flüchtling/e||False|False|noun|r
 deutsch|economy/war|vojak|Soldat/en||True|False|noun|r
 deutsch|economy/war|vojna|Krieg/e||True|False|noun|r
 deutsch|economy/war|vojsko|Heer/e||True|False|noun|s
+deutsch|economy/war|votrelec|Eindringling/e||False|False|noun|r
 deutsch|economy/war|vystreliť|abschiessen/schoss/abgeschossen||False|True|verb|
 deutsch|economy/war|vystrieľať|verschiessen/verschoss/verschossen||False|True|verb|
 deutsch|economy/war|vzbura|Aufruhr/e||False|False|noun|r
@@ -6581,6 +6791,7 @@ deutsch|economy/war|výprask|Prügel||False|True|noun|e
 deutsch|economy/war|výstrel|Abschuss/ü-e||False|True|noun|r
 deutsch|economy/war|zastreliť|erschiessen/erschoss/erschossen||False|True|verb|
 deutsch|economy/war|zbraň|Waffe/n||True|False|noun|e
+deutsch|economy/war|zmlátiť|vermöbeln||False|False|verb|
 deutsch|economy/war|zmlátiť|verprügeln||False|True|verb|
 deutsch|economy/war|zostreliť|abschiessen/schoss/abgeschossen||False|True|verb|
 deutsch|economy/war|zákop|Schützengraben/ä||False|True|noun|r
@@ -8383,11 +8594,13 @@ deutsch|life/movement|žuť|kauen||True|False|verb|
 deutsch|life/physiology|dych|Atem||False|False|noun|r
 deutsch|life/physiology|dychčať|hecheln||False|False|verb|
 deutsch|life/physiology|dýchať|atmen||False|False|verb|
+deutsch|life/physiology|fúkať|pusten||False|False|verb|
 deutsch|life/physiology|fňukať|quengeln||False|False|verb|
 deutsch|life/physiology|nadýchnuť|einatmen||False|True|verb|
 deutsch|life/physiology|plakať|weinen||False|False|verb|
 deutsch|life/physiology|potiť sa|schwitzen||False|False|verb|
 deutsch|life/physiology|pot|Schweiss||False|False|noun|r
+deutsch|life/physiology|sfúknuť|auspusten||False|True|verb|
 deutsch|life/physiology|slina|Geifer||False|False|noun|r
 deutsch|life/physiology|slina|Speichel||False|False|noun|r
 deutsch|life/physiology|sliniť|geifern||False|False|verb|

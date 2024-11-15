@@ -25,23 +25,20 @@ Columbiformes: pigeons
 - Raphus [Dodo]: extinct, large flightless, large bill, Mauritius
 Cuculiformes: long tail
 - Geococcyx [Roadrunner]: fast runner, crest, North America
-- Cuculus [Cuckoo]: brood parasite
+- Cuculus [Cuckoo]: brood parasite, migratory
 - Coua: blue around eyes, Madagascar
 - Phaenicophaeus: malkohas, red around eyes, South Asia
-Pterocliformes: sandgrouse, ground dwelling, granivore
+Pterocliformes: sandgrouse, ground dwelling, granivore, dry regions, Old World
 Mesitornithiformes: flightless, Madagascar
 Otidiformes: bustards, large, long neck and legs, grasslands
 Musophagiformes: turacos, frugivorous, colorful with crest, long tail, Africa
 --
 Opisthocomiformes [Hoatzin]: chicks have clawed wings, blue head with crest, long feathers along neck, South America
 --
-Gruiformes: tall, long neck and legs, 18 neck vertebrae
-- Grus: cranes
-- Balearica: crowned cranes, crest, Africa
-- Aptornis [Adzebill]: extinct, New Zealand
+Gruiformes
 Charadriiformes
 - Laridae: gulls, social, seabird, webbed feet
-- Alcidae: auks, social, seabird, black-and-white, webbed feet
+- Alcidae: auks, social, seabird, black-and-white, webbed feet, diving
 - Scolopacidae: sandpipers, long legs
 - Recurvirostridae: avocets, long legs, upwards curved long bill
 - Stercorariidae: skuas, cleptoparasitic seabird, hooked bill, webbed feet
@@ -58,25 +55,26 @@ Apodiformes
 --
 Eurypygiformes
 - Rhynochetos [Kagu]: white, long legs, crest, New Caledonia
-Gaviiformes: loons, aquatic, webbed feet
-Sphenisciformes: penguins, flightless aquatic, webbed feet, tooth-like projections in bill to feed on fish, social, Southern Hemisphere
+Gaviiformes: loons, aquatic, webbed feet, diving
+Sphenisciformes: penguins, flightless aquatic, diving, webbed feet, tooth-like projections in bill to feed on fish, social, Southern Hemisphere
 - Aptenodytes: great penguin, black back and white belly, yellow patches near neck
 - Eudyptes: crested penguin, black back and white belly, yellow crest
 - Spheniscus: banded penguin, black-and-white
 Ciconiiformes: storks, tall, long neck and legs, 18 neck vertebrae, long bill to feed on fish and frogs, ambush predators
-- Ciconia: black-and-white, migratory
+- Ciconia: black-and-white, migratory, large nest
+- Jabiru: white with black head and neck, red patch at neck base, Latin America, large nest
 - Ephippiorhynchus: saddlebill, red bill with black band and yellow wattles, Africa
-- Jabiru: white with black head and neck, red patch at neck base, Latin America
 - Leptoptilos: marabou, featherless head and neck, Africa + South Asia
 - Anastomus: openbill, bill only meets at end, feed on molluscs, Africa + South Asia
 Phaethontiformes
 - Phaethon [Tropicbird]: seabird, white, long central tail feathers
-Procellariiformes: seabirds, webbed feet
-- Diomedeidae: albatrosses, large, long wings, hooked bill
+Procellariiformes: seabirds, webbed feet, long wings, hooked bill
+- Procellariidae: shearwaters, diving, migratory
+- Diomedeidae: albatrosses, large, long-lived
 Suliformes: webbed feet
-- Sulidae: seabird, blue feet
+- Sulidae: seabird, blue feet, diving
+- Phalacrocoracidae: cormorants, hooked bill, diving
 - Fregatidae: seabird, males have red gular pouch, long wings, long hooked bill
-- Phalacrocoracidae: cormorants, hooked bill
 - Anhingidae: snakebird, long neck and bill
 Pelecaniformes: long neck and bill, 16-21 neck vertebrae
 --
@@ -106,10 +104,20 @@ Cariamiformes: seriemas, crested, long neck and legs, South America
 - Phorusrhacidae: terror birds, extinct, large flightless carnivores, South America
 - Bathornithidae: extinct, large flightless carnivores, North America
 Falconiformes: carnivorous, hooked beak and claws
-- Falco: fast flier, spotted plumage, solitary, forward facing eyes
+- Falco: fast flier, spotted plumage, solitary, forward facing eyes, migratory
 - Caracara: black cap and white neck, Latin America
-Psittaciformes: colorful herbivores, curved beak, tropical zones
+Psittaciformes: colorful herbivores, curved beak, tropical zones, long-lived
 Passeriformes: males often larger and more colorful
+
+#Gruiformes
+Aptornithidae [Adzebill]: extinct, large flightless, long neck and legs, New Zealand
+Gruidae: tall, long bill, long neck and legs, 18 neck vertebrae
+- Grus: cranes
+- Balearica: crowned cranes, crest, Africa
+Aramidae: long bill, long neck and legs, America
+- Aramus [Limpkin]: feed on molluscs
+Rallidae
+- Fulica: coots, aquatic, short bill with frontal shield, lobed toes, black color
 
 #Galliformes
 Megapodiidae
@@ -151,17 +159,17 @@ Accipitridae
 -- forward facing eyes
 - Terathopius: Bateleur, black with red beak and legs, Africa
 - Pithecophaga: large eagle, shaggy crest, Philippines
-- Aquila: eagles, brown color, solitary, except South America
+- Aquila: eagles, brown color, solitary, except South America, large nest
 - Harpia: large eagle, black upperside and white underside, Latin America
 -- forward facing eyes
 - Accipiter: goshawks, barred chest
-- Buteo: buzzards, streaked chest
-- Haliaeetus: sea eagles, brown with white head, feed on fish
+- Buteo: buzzards, streaked chest, migratory
+- Haliaeetus: sea eagles, brown with white head, feed on fish, large nest
 Sagittariidae: secretary bird, large, long legs, long black feathers on back of head, Africa
 Cathartidae: New World vultures / condors, large scavengers, bald head, America
 - Sarcoramphus: King vulture, colorful head, caruncles on beak
 - Vultur: Andean condor, white collar, comb on head
-Pandionidae: Osprey, feed on fish, brown and white color
+Pandionidae: Osprey, feed on fish, brown and white color, large nest, migratory
 Teratornithidae: extinct, large, America
 
 #Anseriformes
@@ -198,7 +206,7 @@ Strigopidae
 --
 Psittaculidae
 - Psittrichas: Dracula parrot, black with red belly, New Guinea
-- Agapornis: Lovebird, green with colorful head, Africa
+- Agapornis: Lovebird, green with colorful head, white circles around eyes, blue color mutation, Africa
 - Melopsittacus: Budgie, green with yellow head and black markings, Australia
 Psittacidae: feed on fruit
 - Psittacus: Grey parrot, social, Africa
@@ -229,27 +237,28 @@ Fringillidae: social, finches, short thick bill to feed on seeds
 - Serinus: canaries, yellow color
 Passeridae: sparrows, social, short thick bill to feed on seeds
 Icteridae: New World blackbirds, America, social, black color with some yellow
-Ploceidae: weavers, woven nests, social
+Ploceidae: weavers, large communal nests, social
 - Ploceus: yellow color
 Thraupidae: tanagers, Latin America, bright colors
 - Diglossa: flowerpiercers, upward beak with hook, nectar robbers
 --
 Alaudidae: larks, brown color, social
-Hirundinidae: swallows, short wide bill to feed in air, long tail, dark upperside and white underside
+Hirundinidae: swallows, short wide bill to feed in air, long tail, dark upperside and white underside, migratory
 Paridae: tits
 - Cyanistes: yellow and blue color
 - Parus: yellow and blue color, black-and-white head
 --
 Muscicapidae: solitary
-- Luscinia: nightingale, sings during both night and day, males have colorful throat
+- Luscinia: nightingale, sings during both night and day, males have colorful throat, migratory
 - Erithacus [Robin]: orange face and breast, Europe
 Sturnidae: social
+- Acridotheres: mynas, yellow patch around eye, South Asia
 - Sturnus: starlings, black with metallic shine
 Turdidae: thrushes
 =Corvides
 Oriolidae: yellow with black wings
 --
-Laniidae: shrikes, solitary, impale prey, hooked beak, black stripe across eyes
+Laniidae: shrikes, solitary, impale prey, hooked beak, black stripe across eyes, migratory
 Paradisaeidae: birds-of-paradise, males have long colorful feathers and dance for courting, Malay + Australia
 Corvidae: social
 - Corvus: crows, black, intelligent

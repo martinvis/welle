@@ -1,13 +1,27 @@
 #Inflorescence
-Raceme (unbranched, pedicellate flowers)
-Spike (unbranched, sessile flowers)
-Panicle (much-branched, pedicellate flowers)
-Thyrse (branched, main axis indeterminate)
-Corymb (branched, flattish top) [Sorbus]
-Umbel (pedicels from common point)
+=Simple indeterminate / Racemose: unbranched, flowers on sides along main axis
+Raceme: pedicellate
+Spike: sessile
+Racemous corymb: pedicellate, flat-topped
+Umbel: pedicels from common point
+Spadix: sessile, fleshy stem, small flowers [Araceae]
+- Spathe (bract)
+Capitulum: sessile, short round stem [Asteraceae]
+Catkin/Ament: drooping stem, small flowers [Fagales, Saliceae]
+=Simple determinate / Cymose: pedicellate, branched, single flower on main axis
+Cyme: one secondary axis, buds alternate
+Bostryx: one secondary axis, buds on same side
+- Drepanium: pedicels on same plane
+Dichasium: two secondary axes [Caryophyllaceae]
+=Compound: flowers replaced by simple inflorescence
+Panicle: much-branched, pedicellate
+Cymose corymb: flat-topped [Sorbus]
+Anthela: lateral flowers higher than central
+Thyrse: indeterminate main axis, flowers replaced by cymes
+Compound raceme
+Compound spike
 Compound umbel [Apiaceae]
-Spadix (small flowers, fleshy stem) + Spathe (bract) [Araceae]
-Catkin/Ament (small flowers, drooping stem) [Fagales, Saliceae]
+Compound capitulum
 
 Pedicel (stem attaching single flower)
 Pedicellate<>Sessile
@@ -127,7 +141,46 @@ Edge
 - Spiny
 Tip
 Venation
-Shape
+
+=Leaf shape
+Oval: no points
+- Orbicular: circular
+- Elliptic: longer than wide
+- Linear: long and thin
+- Ovate: egg-like, wider near base
+- Obovate: egg-like, wider near tip
+Diamond: point-to-point
+- Rhombic: longer than wide
+- Acicular: needle-like, long and thin
+- Lanceolate: wider near base
+- Oblanceolate: wider near tip
+Drop: one point
+- Falcate: sickle-like, longer than wide
+- Deltate: triangular, wider near base
+- Spatulate: spoon-like, wider near tip
+Heart
+- Cordate: heart-like
+- Obcordate
+Bean
+- Reniform: kidney-like
+Lobed
+Other
+- Hastate: spear-like, pointed with lobes at base
+- Flabellate: fan-like, semicircular
+
+Pointed: outward tip
+Notched: inward tip
+Blunt: flat tip
+
+=Leaf folding
+Cucullate: hood-like, curved margins and tip (Sarracenia)
+Involute: curled inwards
+Revolute: curled outwards
+Plicate: parallel folds (Livistona)
 
 Pachycaul: plant with thick trunk and few branches
 Raphides: defense mechanism, needle shaped crystals of calcium oxalate or calcium carbonate [Ananas, Kiwi, Rhubarb, Spinach, Araceae]
+Chlorosis: insufficient chlorophyll production
+
+Leaching: loss of nutritients from soil due to water
+Soil pH: acidic in wet climate, alkaline in dry climate

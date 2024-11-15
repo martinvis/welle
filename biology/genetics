@@ -39,10 +39,17 @@ Gene/Cistron: region of DNA encoding function
 - Intron: part of gene removed by slicing
 Allele: variation of nucleotides at same position
 Locus: chromosomal position of gene
+Codon: sequence of three bases encoding single amino acid
 Transgene: gene transferred between organisms
 Phenotype: observable characteristics of organism
 Polymorphism: multiple alternative phenotypes in population
 Mutation: alteration of genome, caused by copying error or damage
+- Transversion: substitution between purine and pyrimidine
+- Transition: substitution within purines or pyrimidines (most common)
+- Indel mutation: insertion or deletion
+- Point mutation: change/insertion/deletion of single base
+- Frameshift: insertion or deletion of length not divisible by three
+Copy number variation (CNV): difference in number of copies between individuals
 Lactase persistence: mutation allowing lactose digestion in adulthood, lactase enzyme activity (mainly Europeans)
 
 #Gene expression

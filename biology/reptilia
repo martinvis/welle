@@ -1,0 +1,359 @@
+#Reptilia
+=Hylonomus: extinct, small lizard-like
+=Captorhinidae: extinct, lizard-like, triangular skull without fenestrae
+=Parareptilia: skull without fenestrae
+Millerosauria: extinct, small, lizard-like
+Mesosauria: extinct, small aquatic, long skull and tail
+Bolosauria: extinct, small bipedal, long tail
+Procolophonia: extinct
+- Pareiasauridae: robust, osteoderms
+- Procolophonidae: small, lizard-like
+=Ichthyosauria: extinct, large marine, dolphin-like, flippers + dorsal fin + tail fin
+=Sauropterygia: extinct, aquatic
+Nothosauria: marine, long neck and tail
+Plesiosauria: large marine, flat body with short tail and flippers
+- Plesiosauridae: long neck, small head
+- Pliosauridae: short neck, large head
+Placodontia: marine
+- Henodontidae: turtle-like
+- Placodontidae: long flat tail
+=Sauria
+Testudines: turtles, 8 neck vertebrae
+Kuehneosauridae: extinct, lizard-like, gliding
+Rhynchocephalia
+- Sphenodon [Tuatara]
+Squamata
+- Gekkota: geckos, no eyelids, nocturnal, adhesive toe pads
+- Scincomorpha
+- Laterata
+--
+- Mosasauria: extinct, large aquatic, flippers, long tail with two-lobed fin
+- Anguimorpha
+- Iguania
+- Serpentes: snakes, no eyelids, no limbs
+Phytosauria/Parasuchia: extinct, crocodile-like, long snout and tail
+Archosauria
+- Ornithosuchidae: extinct, facultatively bipedal, long tail
+- Pterosauria: extinct
+- Dinosauria: extinct, long tail
+- Suchia: long tail
+
+#Testudines
+Pleurodira: side-necked
+- Chelidae: long neck, Australia + South America
+- Pelomedusidae: Africa
+- Podocnemididae: South America
+
+#Suchia
+=Aetosauria: extinct, osteoderms
+- Desmatosuchus: long shoulder spikes
+=Notosuchia: extinct, erect limbs
+=Prestosuchidae: extinct, erect limbs, large head
+=Rauisuchidae: extinct, bipedal, robust, large head
+=Crocodilia
+Alligatoridae: rounded head
+- Caiman
+- Alligator
+Crocodylidae: triangular head
+Gavialidae: gharial, thin snout, South Asia
+
+#Pterosauria
+long tail, beak with teeth
+- Dimorphodon: short wings
+- Sordes: short wings
+- Campylognathoides
+- Rhamphorhynchus
+- Scaphognathus
+short tail, broad round mouth with teeth
+- Jeholopterus: small
+short tail, long beak
+- Pterodactylus
+- Pterodaustro: beak with baleen
+short tail, long beak
+- Pteranodon: long backward crest
+- Nyctosaurus: large backward crest on two thin spikes
+--
+- Anhanguera: beak with teeth
+- Maaradactylus: beak with teeth
+short tail
+- Quetzalcoatlus: large, long neck
+- Dsungaripterus: low crest
+- Tapejara: semicircular crest
+- Tupuxuara: long crest
+
+#Dinosauria
+=Ornithischia: herbivorous
+Ceratopsia: Laurasia, quadrupedal, large head with horns and frill
+- Psittacosaurus: small, bipedal + quadrupedal, Asia
+- Leptoceratops: small, bipedal + quadrupedal, North America
+- Protoceratops: small, frill, Asia
+- Zuniceratops: small, eye horns + frill, North America
+-- North America
+- Styracosaurus: long nose horn, frill with 4 long spikes
+- Centrosaurus: long nose horn, frill with hornlets (1 pair upward, 1 pair downward)
+- Pachyrhinosaurus: flattened nose horn, frill with 2 sideward hornlets
+- Achelousaurus: flattened nose horn, frill with 2 long spikes
+- Einiosaurus: forward-curved nose horn, frill with 2 long spikes
+- Diabloceratops: long eye horns, frill with 2 long spikes
+- Medusaceratops: long eye horns, frill with sideward hornlets
+- Albertaceratops: long eye horns, frill with 2 sideward hornlets
+- Nasutoceratops: long eye horns, frill
+- Xenoceratops: long eye horns, frill with 2 spikes and sideward hornlets
+-- North America
+- Triceratops: large, long eye and short nose horns, frill without holes
+- Torosaurus: large, long eye and short nose horns
+- Pentaceratops: long eye and short nose horns, high frill with hornlets
+- Agujaceratops: long eye and short nose horns, high frill with hornlets
+- Chasmosaurus: short eye and nose horns, high frill with hornlets
+- Utahceratops: short eye and nose horns, high frill with hornlets
+- Anchiceratops: long eye and short nose horns, high frill with hornlets
+- Arrhinoceratops: long eye and short nose horns, frill with hornlets
+- Kosmoceratops: long eye horns, frill with forward hornlets
+- Vagaceratops: short nose horn, frill with forward hornlets
+Pachycephalosauria: Laurasia, bipedal, thick skull roof
+- Pachycephalosaurus
+- Stegoceras: small
+--
+Scutellosaurus: small, bipedal, osteoderms, North America
+Scelidosaurus: quadrupedal, osteoderms, Europe
+Ankylosauria: osteoderms
+- Gastonia
+- Gargoyleosaurus
+- Mymoorapelta
+--
+- Borealopelta
+- Nodosaurus
+- Sauropelta
+--
+- Animantarx
+- Denversaurus
+- Edmontonia
+--
+- Minmi
+- Pinacosaurus
+- Saichania
+- Tarchia
+--
+- Ankylosaurus
+- Euoplocephalus
+- Talarurus
+- Zuul
+Stegosauria: plates and spikes
+- Stegosaurus
+- Dacentrurus
+- Hesperosaurus
+- Kentrosaurus
+- Miragaia
+- Tuojiangosaurus
+- Wuerhosaurus
+--
+Ornithopoda
+- Hypsilophodon
+- Dryosaurus
+- Rhabdodon
+- Zalmoxes
+--
+- Camptosaurus
+- Fukuisaurus
+- Iguanodon
+- Ouranosaurus
+--
+- Corythosaurus
+- Hypacrosaurus
+- Lambeosaurus
+- Nipponosaurus
+- Parasaurolophus
+- Tsintaosaurus
+--
+- Saurolophus
+- Edmontosaurus
+- Gryposaurus
+- Maiasaura
+=Sauropodomorpha
+Eoraptor
+Plateosaurus
+Thecodontosaurus
+--
+Massospondylidae
+- Lufengosaurus
+- Massospondylus
+--
+Aardonyx
+Anchisaurus
+Leonerasaurus
+--
+Sauropoda
+- Barapasaurus
+- Kotasaurus
+- Lessemsaurus
+- Shunosaurus
+- Spinophorosaurus
+- Turiasaurus
+Cetiosauridae
+- Cetiosaurus
+- Patagosaurus
+Mamenchisauridae
+- Chuanjiesaurus
+- Huangshanlong
+- Klamelisaurus
+- Mamenchisaurus
+- Omeisaurus
+Diplodocidae
+- Haplocanthosaurus
+- Rebbachisaurus
+--
+- Amargasaurus
+- Brachytrachelopan
+- Dicraeosaurus
+--
+- Diplodocus
+- Apatosaurus
+- Barosaurus
+- Brontosaurus
+- Galeamopus
+- Supersaurus
+Macronaria
+- Camarasaurus
+- Huanghetitan
+--
+- Brachiosaurus
+- Giraffatitan
+--
+- Euhelopus
+- Jiangshanosaurus
+Titanosauria
+- Ampelosaurus
+- Epachthosaurus
+- Malawisaurus
+- Nemegtosaurus
+- Rapetosaurus
+- Tapuiasaurus
+--
+- Argentinosaurus
+- Futalognkosaurus
+- Patagotitan
+--
+- Dreadnoughtus
+--
+- Saltasaurus
+- Alamosaurus
+=Theropoda: bipedal
+Herrerasaurus
+Staurikosaurus
+--
+Cryolophosaurus
+Dilophosaurus
+Liliensternus
+Sinosaurus
+Coelophysidae
+- Coelophysis
+- Procompsognathus
+- Segisaurus
+Ceratosauria
+- Ceratosaurus
+- Elaphrosaurus
+- Masiakasaurus
+--
+- Abelisaurus
+- Aucasaurus
+- Carnotaurus
+- Majungasaurus
+- Rajasaurus
+- Rugops
+- Skorpiovenator
+Megalosauria
+- Afrovenator
+- Eustreptospondylus
+- Megalosaurus
+- Torvosaurus
+--
+- Spinosaurus
+- Baryonyx
+- Irritator
+- Suchomimus
+Carnosauria / Allosauria: large head
+- Allosaurus
+- Saurophaganax
+- Sinraptor
+- Yangchuanosaurus
+--
+- Carcharodontosaurus
+- Acrocanthosaurus
+- Concavenator
+- Giganotosaurus
+- Mapusaurus
+- Tyrannotitan
+Tyrannosauridae: carnivorous, large head
+- Dilong
+- Dryptosaurus
+- Guanlong
+- Xiongguanlong
+- Yutyrannus
+--
+- Albertosaurus
+- Gorgosaurus
+-- narrow skull
+- Alioramus
+- Qianzhousaurus
+-- wide skull, very small forelegs with 2 digits
+- Tyrannosaurus: large, North America
+- Daspletosaurus
+- Lythronax
+- Nanuqsaurus
+- Tarbosaurus: large, Asia
+- Teratophoneus
+Compsognathidae
+- Compsognathus
+- Huaxiagnathus
+- Sinocalliopteryx
+- Sinosauropteryx
+- Xunmenglong
+Ornithomimosauria
+- Anserimimus
+- Archaeornithomimus
+- Deinocheirus
+- Gallimimus
+- Harpymimus
+- Ornithomimus
+- Shenzhousaurus
+- Struthiomimus
+Alvarezsauria
+- Alvarezsaurus
+- Mononykus
+- Patagonykus
+Therizinosauria
+- Alxasaurus
+- Beipiaosaurus
+- Falcarius
+- Suzhousaurus
+--
+- Erliansaurus
+- Nothronychus
+- Segnosaurus
+- Therizinosaurus
+Oviraptorosauria
+- Anzu
+- Avimimus
+- Caudipteryx
+- Gigantoraptor
+- Hagryphus
+-- 
+- Oviraptor
+- Citipati
+- Conchoraptor
+- Heyuannia
+- Khaan
+- Nemegtomaia
+Paraves
+- Archaeopteryx
+--
+- Dromaeosaurus
+- Deinonychus
+- Bambiraptor
+- Microraptor
+- Sinornithosaurus
+- Utahraptor
+- Velociraptor
+- Wulong
+- Zhenyuanlong
+

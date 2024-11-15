@@ -3,7 +3,7 @@ Monotremata: lay eggs, nocturnal, electroreception
 - Ornithorhynchidae [Platypus]: semiaquatic, long broad bill and tail, webbed feet, venomous spur on legs, Australia
 - Tachyglossidae: echidnas, spines on back, long snout, long thin tongue to feed on ants, Australia + New Guinea
 =Marsupialia
-Didelphimorphia: opossums, long naked prehensile tail, nocturnal, America
+Didelphimorphia: opossums, long naked prehensile tail, resistant to snake venom, nocturnal, America
 Dasyuromorphia: Australia + New Guinea
 - Thylacinidae [Tasmanian tiger]: extinct, carnivore, black stripes on back, long tail
 - Dasyuridae: quolls (white spots) + Tasmanian devil (black), nocturnal carnivores
@@ -70,8 +70,10 @@ Castoridae: beaver, large, semiaquatic, webbed feet, long flat scaly tail, const
 Geomyidae: gopher, burrowing
 Heteromyidae: kangaroo mice, pocket mice
 =Hystricomorpha:
-Erethizontidae: new world porcupines, large
-Hystricidae: porcupines, large
+Erethizontidae: New World porcupines, large, quills, arboreal, America
+- Coendou: long prehensile tail
+- Erethizon: short tail
+Hystricidae: porcupines, large, quills, short tail, Africa + South Asia
 Caviidae
 - Hydrochoerus: capybara, large
 - Cavia: guinea pigs
@@ -111,26 +113,31 @@ Cheirogaleidae: mouse lemurs, small, long tail, large eyes, nocturnal, Madagasca
 Galagidae: galagos, long bushy tail, bat-like ears, nocturnal, Africa
 Lorisidae: loris, no tail, nocturnal, Africa + South Asia
 =Simiiformes: monkeys, large brain
-Hylobatidae: long limbs and tail
-- Symphalangus: siamang
+Hylobatidae: long limbs and tail, arboreal, SE Asia
+- Symphalangus: siamang, throat pouch, black color
 - Hylobates: gibbon
+- Hoolock: white eyebrows, males dark and females bright, Barma
+- Nomascus: white cheeks, males dark and females bright
 Hominidae: large, no tail, long limbs
-- Pongo: orangutan
-- Gorilla
-- Pan: chimpanzee
+- Pongo: orangutan, orange color, feed on fruit, arboreal, Malay
+- Gorilla: feed on leaves, Africa
+- Pan: chimpanzee, Africa
 Cercopithecidae
 - Cercopithecus: guenons, long tail, bushy cheek hair, arboreal, Africa
 - Papio: baboon
 - Theropithecus: gelada
 - Mandrillus: short tail, colorful face, large canines, social, Africa
-- Macaca: macaque
-- Allenopithecus
+- Macaca: macaque, swimmer, South Asia
+- Allenopithecus: swimmer, social, Africa
 - Erythrocebus: patas monkeys
-- Colobus
-- Nasalis: proboscis monkey, large nose
-- Pygathrix: doucs
+-- feed on leaves, arboreal, long long limbs and tail
+- Colobus: black with white face frame, long white fur on shoulders, tail with white tuft, arboreal, Africa
+- Nasalis: proboscis monkey, large nose, swimmer, Borneo
+- Pygathrix: doucs, long white fur on cheeks, SE Asia
+- Presbytis: langurs, SE Asia
+- Semnopithecus: langurs, black face, India
 --
-Atelidae: long limbs and tail
+Atelidae: long limbs, long prehensile tail
 - Ateles: spider monkey
 - Lagothrix: woolly monkey
 Pitheciidae
@@ -145,7 +152,7 @@ Callitrichidae
 
 #Eulipotyphla
 Solenodontidae: elongated snout, long scaly tail
-Erinaceidae: hedgehogs, nocturnal, sharp spines for protection, short tail
+Erinaceidae: hedgehogs, nocturnal, sharp spines for protection, resistant to snake venom, short tail
 Soricidae: shrews, mouse-like
 Talpidae: moles, subterranean, clawed front limbs to dig, small eyes and ears
 - Condylura: star-nosed mole
@@ -196,7 +203,7 @@ Procyonidae: America
 - Potos: kinkajou, long prehensile tail, arboreal, nocturnal, South America
 --
 =Feloidea: cats, short snout, rounded ears, long tail, ambush predators
-Felidae
+Felidae: retractable claws
 - Panthera [Lion]: males have mane, tail with tuft at end, social, Africa + India
 - Panthera [Leopard]: black spots in rosettes, solitary, Africa + South Asia
 - Panthera [Tiger]: orange with black stripes, solitary, South Asia
@@ -221,10 +228,10 @@ Hyaenidae: hyenas
 - Crocuta: spotted hyena
 - Hyaena: striped hyena
 - Proteles: aardwolf
-Herpestidae
+Herpestidae: resistant to snake venom, long tail
 - Suricata: meerkat
 - Herpestes: mongoose
-- Mungos
+- Mungos: banded back, insectivore, social, Africa
 Eupleridae
 - Cryptoprocta: fossa
 --

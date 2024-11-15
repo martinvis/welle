@@ -1,72 +1,187 @@
-#Sulfide
-Galena = PbS
-Sphalerite = (Zn,Fe)S
-Realgar = As4S4
-Orpiment = As2S3
-Stibnite = Sb2S3
-Millerite = NiS
-Pyrite = FeS2
-Chalcopyrite = CuFeS2
-Cinnabar = HgS
-Acanthite = Ag2S
-Chalcocite = Cu2S
+#Color
+Idiochromatic: main elements
+Allochromatic: trace elements
+Sulfur: yellow
+Chromium: red/green
+Manganese: purple
+Iron: red/brown
+Cobalt: blue
+Nickel: green
+Copper: green/blue
 
-#Sulfate (SO4)
-Baryte = BaSO4
-Celestine = SrSO4
-Anglesite = PbSO4
+#Cleavage: planes mineral breaks along
+#Streak: color of powder trail
 
-#Halide
-Halite = NaCl
-Fluorite = CaF2
-Sylvite = KCl
-Calomel = Hg2Cl2
+#Luster: reflection of light
+Asterism: 4/6/8-rayed star
+Aventurescence: glitter-like reflection
+Chatoyancy: bands of reflection (Tiger's eye)
+Iridescence: rainbow colors (Opal)
+--
+Adamantine: diamond
+Dull: earth-like
+Greasy: fat-like
+Metallic: shiny
+Vitreous: glass-like
+Pearly
+Resinous
+Silky
 
-#Carbonate (CO3)
-Calcite = CaCO3
-Aragonite = CaCO3
-Smithsonite = ZnCO3
-Cerussite = PbCO3
-Magnesite = MgCO3
-Siderite = FeCO3
-Rhodochrosite = MnCO3
-Malachite = CuCO3(OH)2
-Azurite = Cu3(CO3)2(OH)2
+#Mohs scale: hardness
+1: Talc, softest
+2: Gypsum
+3: Calcite, not scratched by fingernail
+4: Fluorite
+5: Apatite
+6: Orthoclase, not scratched by knife or glass
+7: Quartz
+8: Topaz
+9: Corundum
+10: Diamond, hardest
 
-#Oxide
-Corundum = Al2O3
-- Ruby
-- Sapphire
-Hematite = Fe2O3
-Rutile = TiO2
-
-#Spinel (XY2O4)
-Spinel = MgAl2O4
-Magnetite = FeFe2O4
-
-#Silicate
-Quartz = SiO2
-- Amethyst
-- Citrine
-- Agate
-- Onyx
-- Coesite: high pressure, impact event
-Olivine = (Mg,Fe)2SiO4
-Peridot = Mg2SiO4
-Zircon = ZrSiO4
-Beryl = Be3Al2Si6O18
-Dioptase = CuSiO2(OH)2
-
-#Chromate
-Crocoite - PbCrO4
+#Crystal habit: external crystal shape
+rounded (hematite, goethite)
+- Botryoidal: bubble-like, hemispherical
+- Reniform: kidney-like, lobed
+- Colloform: concentric layers (agate, malachite)
+symmetrical
+- Prismatic: elongated polygonal (quartz, beryl)
+- Tetrahedral
+- Cubic (halite)
+- Octahedral: square bipyramid (spinel)
+- Dodecahedral (garnet)
+- Rhombohedral: distorted cubic
+- Scalenohedral: distorted octahedral
+branched (copper)
+- Arborescent- tree-like, branching
+- Dendritic: root-like, branching
+aggregate
+- Acicular: needle-like, slender (stibnite)
+- Plumose: feather-like, fine
+--
+- Hopper: hollowed-out lattice
+- Lenticular: plate-like, thin
+- Tabular: flat plates
+--
+- Druse: coating of surface (quartz)
+- Stalactite: hanging from cave ceiling (calcite)
+- Stalagmite: rising from cave floor (calcite)
 
 #Native
-Graphite - C
-Diamond - C
+Carbon
+- Graphite: hexagonal, soft, black, metallic
+- Diamond: cubic, octahedral, hard, transparent
+Sulfur: orthorhombic, resinous, soft, yellow color
+Copper
+Silver
+Gold
+
+#Oxide
+Corundum = Al2O3: trigonal, hard, allochromatic, translucent, no cleavage, vitreous
+- Ruby: red by chromium
+- Sapphire: blue by iron + titanium
+Rutile = TiO2: tetragonal, acicular, brown color, white pigment
+- Brookite: orthorhombic, tabular, translucent
+Hematite = Fe2O3: trigonal, botryoidal, red pigment, metallic
+Cassiterite = SnO2: tetragonal, metallic
+
+#Carbonate (CO3): transparent to translucent, vitreous
+Magnesite = MgCO3: trigonal
+Calcite = CaCO3: trigonal, various habits, colorless to white, vitreous to pearly
+Aragonite = CaCO3: orthorhombic, acicular and prismatic
+Rhodochrosite = MnCO3: trigonal, rhombohedral or scelanohedral, pink color, white streak
+Siderite = FeCO3: trigonal, tabular
+Malachite = CuCO3(OH)2: monoclinic, botryoidal, green pigment
+Azurite = Cu3(CO3)2(OH)2: monoclinic, blue pigment
+Smithsonite = ZnCO3: trigonal, botryoidal, allochromatic
+Cerussite = PbCO3: orthorhombic
+
+#Silicate: transparent to translucent, no cleavage, vitreous
+Quartz = SiO2: trigonal or hexagonal, prismatic or druse, allochromatic, conchoidal fracture, sharp edges
+- Amethyst: purple by iron
+- Citrine: yellow by iron
+- Coesite: high pressure, impact event
+- Jasper: red by iron, opaque
+--Chalcedony
+- Agate: banded
+- Onyx: parallel bands
+- Carnelian: brown
+Beryl = (BeO)3(Al2O3)(SiO2)6: hexagonal, prismatic, hard, allochromatic
+- Emerald: green by chromiumtrans
+- Aquamarine: blue-green by iron
+Olivine/Peridot = (Mg,Fe)2SiO4: orthorhombic, yellow-green
+Zircon = ZrSiO4: tetragonal, hard, allochromatic
+Phenakite = Be2SiO4: trigonal
+Willemite = Zn2SiO4: trigonal, UV fluorescent
+=Garnets: X3Y2(SiO4)3, cubic, dodecahedral
+Spessartine - Mn3Al2(SiO4)3: orange
+Almandine - Fe3Al2(SiO4)3 : purple
+Tourmaline: trigonal, prismatic, hard, allochromatic, with boron + aluminium
+- Elbaite: with lithium + sodium
+- Dravite: with sodium + magnesium
+- Schorl: with iron
+
+#Sulfate (SO4): orthorhombic, transparent to translucent, vitreous
+Anhydrite = CaSO4: pearly to greasy
+Celestine = SrSO4
+Baryte = BaSO4: tabular, colorless to white
+Anglesite = PbSO4
+
+#Hydroxide
+Gibbsite = Al(OH)3: monoclinic, botryoidal
+Goethite = FeO(OH): orthorhombic, acicular or botryoidal, brown pigment, rust component
+=Silicate
+Dioptase = CuSiO2(OH)2: trigonal, blue-green
+=Sulfate
+Brochantite = Cu4SO4(OH)6: monoclinic, acicular, green color, translucent
+
+#Spinels (XY2O4): cubic, octahedral
+Spinel = MgAl2O4: hard, transparent to translucent, allochromatic, vitreous
+Magnetite = FeFe2O4: metallic
+
+=Pyroxene (XYZ2O6)
+Jadeite = NaAlSi2O6: monoclinic, green color, pearly
+Diopside = MgCaSi2O6: monoclinic, green to white
+
+#Chromate
+Chromite - FeCr2O4: cubic
+Crocoite - PbCrO4: monoclinic, acicular, orange pigment, toxic
+#Molybdate
+Wulfenite - PbMoO4: tetragonal, tabular, yellow color, resinous
+#Tungstate
+Scheelite - CaWO4: tetragonal, UV fluorescent
+Wolframite - (Fe,Mn)WO4: monoclinic, tabular to prismatic, black
+
+#Sulfide: opaque
+Pyrite = FeS2: face-centered cubic, cubic, golden color, metallic, black streak
+Marcasite = FeS2: orthorhombic, tabular or reniform, silver to bronze color, metallic
+Arsenopyrite = FeAsS: monoclinic, metallic, found with gold
+Millerite = NiS: trigonal, acicular
+Covellite = CuS: hexagonal, soft, dark blue
+Chalcocite = Cu2S: monoclinic
+Chalcopyrite = CuFeS2: tetragonal, tetrahedral, golden color, metallic, black streak
+Sphalerite = (Zn,Fe)S: face-centered cubic, tetrahedral, resinous
+Realgar = As4S4: monoclinic, prismatic, soft, red pigment, resinous, toxic
+Orpiment = As2S3: monoclinic, soft, yellow pigment, resinous, toxic
+Molybdenite = MoS2: soft, black, metallic, similar to graphite
+Acanthite = Ag2S: monoclinic, metallic
+Stibnite = Sb2S3: orthorhombic, acicular, metallic, soft
+Cinnabar = HgS: trigonal, soft, red pigment, toxic
+Galena = PbS: cubic, octahedral, metallic, trace silver
+
+#Halide: transparent to translucent, vitreous
+Halite = NaCl: cubic, soft
+Sylvite = KCl: cubic, soft
+Fluorite = CaF2: cubic, allochromatic, UV fluorescent, white streak
+Calomel = Hg2Cl2: tetragonal, soft, toxic
 
 #Hydrate (H2O)
-Opal - SiO2
+Opal - SiO2: iridescent
 
-#Pyroxene (XYZ2O6)
-Diopside = MgCaSi2O6
-Jadeite = NaAlSi2O6
+#Phyllosilicate: sheet-like layers
+=Clay
+Kaolinite: white
+=Mica
+Muscovite: flakes
+
+Obsidian: volcanic glass, conchoidal fracture, sharp edges, black color

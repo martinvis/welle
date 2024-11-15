@@ -66,6 +66,12 @@ Screw: helical groove around outside, converts motion from rotational to linear
 - Hex: hexagonal
 - Torx: hexalobular
 
+Thermometer: measure temperature
+- thermal expansion of liquid mercury in glass, sealed
+Barometer: measure air pressure
+- liquid mercury column in glass, vacuum at top, one open end
+Manometer: measures gas pressure, U shape, two open ends
+
 #Battery: energy storage
 - food, fossil fuels
 Gravity battery: potential energy stored by raised mass
@@ -316,3 +322,4 @@ Arch dam:
 - concrete, thin and curved
 - suitable for narrow gorges
 
+Mutoscope: flip book on circular core, hand-driven

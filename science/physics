@@ -1,3 +1,9 @@
+#Properties
+Intrinsic: exists within subject (mass)
+Extrinsic: depends on external factor (weight)
+Intensive: magnitude independent of system size (temperature, velocity)
+Extensive: magnitude additive for subsystems (volume, mass)
+
 #Atoms
 Element: defined by number of protons
 Isotope: atomic variant (number of neutrons)
@@ -149,7 +155,8 @@ Normal: between solids in contact, perpendicular
 Friction: between solids in contact, resists sliding
 Tension: object pulled from opposite ends
 Elasticity: object returning to original shape
-Buoyancy: object submerged in fluid
+Buoyancy: upward force by fluid on submerged object
+- Archimedes' principle: F = (fluid density) * g * (volume of displaced fluid)
 Drag: resists motion through fluid
 Lift: fluid flowing around object
 Thrust: expelled fluid
@@ -180,8 +187,6 @@ Calorie (cal): unit of energy, 4.18J
 - max 10m column of water at 1atm
 Atmospheric pressure: ~101kPa = 1atm
 torr: mm of Hg, 1atm = 760mm
-Barometer: measures pressure of atmosphere
-Manometer: measures pressure of gas, U shape
 
 #Gases
 - at constant temperate all gas particles have same average kinetic energy
@@ -212,6 +217,7 @@ Adhesion: forces between different particles
 Cohesion: forces between same particles
 Surface tension: energy required to increase surface area, depends on intermolecular forces
 - liquid shrinking into minimum surface area
+- Meniscus: surface curve caused by tension
 Capillary action: adhesive forces between liquid and container are smaller/greater than cohesive forces in liquid
 - liquid flowing in narrow space (against gravity)
 Viscosity: resistance to flow, depends on intermolecular forces
@@ -234,13 +240,13 @@ Metallic: continuous metallic bonds, lustrous, good conductors
 Network: continuous covalent bond, e.g. graphite / diamond / quartz
 
 #Crystal systems
-Cubic: 2 right angles, 3 same sides (common in binary ionic compounds)
+Cubic/Isometric: 2 right angles, 3 same sides (common in binary ionic compounds)
 Tetragonal: 2 right angles, 2 same sides
 Orthorhombic: 2 right angles, all sides different
 Monoclinic: 1 right angle, all sides different
 Triclinic: no right angles, all sides different
-Rhombohedral: no right angles, 3 same sides
 Hexagonal: 6 sided, 120 degrees angle
+Rhombohedral: no right angles, 3 same sides
 
 #Single component crystals (common in metals)
 Hexagonal close-packed: 74% space occupied, A-B layers

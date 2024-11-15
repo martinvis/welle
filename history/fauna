@@ -57,8 +57,6 @@ Amphibia
 - Eryops: large
 
 #Mesozoic
-Ichthyosauria
-Plesiosauria
 Dinosauria
 Pterosauria
 
@@ -66,6 +64,7 @@ Pterosauria
 Archosauria
 - Herrerasaurus
 - Pisanosaurus
+Ichthyosauria
 Dinosauria / Theropoda
 - Coelophysis
 - Liliensternus
@@ -82,10 +81,8 @@ Reptilia
 - Shuvosaurus: theropoda-like crocodile
 
 #Jurassic
-Pterosauria
-- Dimorphodon: short wings, long tail
-- Rhamphorhynchus: long tail
-- Pterodactylus: short tail
+Plesiosauria
+Pterosauria: Rhamphorhynchus, Pterodactylus
 Thyreophora
 - Scelidosaurus
 - Scutellosaurus
@@ -126,13 +123,8 @@ Macronaria: longer forelimbs
 - Camarasaurus: smaller
 
 #Cretaceous
-Pterosauria
-- Geosternbergia: long backward crest
-- Pteranodon: long thin backward crest
-- Nyctosaurus: large backward crest on two thin spikes
-- Tapejara: semicircular crest
-- Tupuxuara: long crest
-- Quetzalcoatlus: large, long neck
+Mosasauria
+Pterosauria: Pteranodon, Quetzalcoatlus
 Nodosauridae
 - Edmontonia
 - Gastonia

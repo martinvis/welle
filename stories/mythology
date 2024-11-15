@@ -53,7 +53,7 @@ Creatures:
 #Arabic
 Almiraj (horned rabbit)
 Ghoul (graveyard, eat human flesh)
-Jinn
+Jinn: genie, invisible, can change shape
 
 #Persian
 Manticore (lion, tail with spines)
@@ -193,6 +193,7 @@ Heroes:
 - Perseus (killed Cetus, Medusa)
 - Theseus (killed Minotaur)
 Items:
+- Caduceus: staff of Hermer, wings and two entwined snakes
 - Cornucopia: horn of plenty
 Trojan War:
 - Troy: Paris, Hector, Aeneas
@@ -364,7 +365,10 @@ Yōkai:
 - Tatsu (dragon, long body, 3 claws)
 - Yamata no Orochi (dragon, 8 heads, 8 tails)
 - Yuki-onna (snow woman)
+- Futakuchi-onna: long movable hair, second mouth beneath hair
 - Yūrei (ghost, white cloth, black hair)
+- Hitotsume-kozō: bald-headed child, one eye in center
+- Yamauba: mountain witch
 Myths:
 - Creation Myth
 - Amaterasu and the Cave
@@ -375,6 +379,8 @@ Gods (Kami):
 
 #Hindu
 4 or 10 arms
+
+Naga: half-serpent
 
 Deva
 - Brahma (creator, 4 heads) => Marichi + Atri
@@ -493,6 +499,11 @@ Other:
 - Audhumbla (cow) => Búri => Borr
 - Garmr (dog, guards Hel's gate)
 
+#Scandinavian
+Huldra: seductive forest nymph
+Nixie: water nymph, shapeshifting
+Troll: turn to stone with sunlight
+
 #Slavic
 Gods:
 - Perún (lightning)
@@ -508,14 +519,15 @@ Godesses:
 Monsters:
 - Ježibaba/Baba Jaga (black cat, fly on mortar/broom)
 - Leshy (forest)
-- Rusalka (water)
+- Rusalka: water nymph
 - Striga (vampire, two hearts)
 - Vodník / Hastrman (water, frog)
 - Čert (devils - horns + hooves + tail)
 - Víla (nature spirit)
 - Kikimora (household spirit)
-- Domovoy (household spirit)
+- Domovoi (household spirit)
 - Licho (evil fate, one eyed old woman)
+- Vampire: feed on blood
 Heroes:
 - Ilya Muromets (bohatier)
 Philosopher's stone: turn metal into gold, immortality
@@ -538,12 +550,16 @@ People:
 - Percival
 
 #European
+Abarimon: people with reversed feet
+Blemmyes: no head, facial features on chest
+--
 Basilisk (kills with a look)
 Changeling (fairies replaced for babies)
 Dragon (winged serpent, 4 legs, breathe fire)
 Fairy (spirits of nature, modern: small with wings)
 Griffin (front eagle, back lion)
 Imp (small)
+Sandman: puts people to sleep with dust
 Succubus/Incubus (seduces men/women)
 Unicorn (horned horse, purity)
 Werewolf (wolf shapeshifter, full moon)
@@ -553,7 +569,11 @@ Heroes:
 - Juraj Jánošík: Slovak highwayman
 - Robin Hood: English archer, fights Sheriff of Nottingham, loves Maid Marian
 - William Tell and the apple: archer, resistance against Habsburgs, origin of Swiss Condeferacy
-- Väinämöinen: magical device Sampo
+
+#Finnish - Kalevala
+- Ilmarinen: blacksmith, forged magical mill Sampo
+- Louhi: witch queen, keeps Sampo
+- Väinämöinen: hero, steals Sampo from Louhi
 
 #Celtic
 Creatures:
@@ -571,6 +591,7 @@ Heroes:
 #English
 Boggart (marshes)
 Goblin (small)
+Hobgoblin: small, household spirit
 Pixie (small)
 Will-o'-the-wisp (light over marsh)
 
@@ -578,17 +599,23 @@ Will-o'-the-wisp (light over marsh)
 Carcolh (large snail with tentacles)
 Lutin (small)
 Matagot (black cat)
-Melusine (two fish tails)
+Melusine: water nymph, two fish tails, wings
 Tarasque (lion head, turtle carapace, 6 legs, serpent tail)
+
+#Spanish
+Xana: water nymph, beautiful
 
 #German
 Alp (nightmare)
+Doppelgänger: ghostly double
 Kobold (small, invisible)
 Krampus (horned, punished bad children)
 Nixe (drowns men)
 
 #Filipino
-Aswang (long blood-sucking tongue)
+Aswang: evil, nocturnal
+- Manananggal: long sucking tongue, wings, can split
+Tikbalang: half horse (head, hoofs)
 
 #North American
 Creatures:
@@ -608,8 +635,10 @@ Maya
 Creatures
 - Alicanto: bird, glowing feathers, eats precious metals
 
-#Polynesian
+#Polynesian / Hawaii
 Māui (fishhook)
+Gods
+- Pele: volcanoes
 
 #Christian
 Three Magi: kings, gifts to children, Epiphany
@@ -620,3 +649,11 @@ Santa Claus / Saint Nicholas: gifts to children, Christmas
 
 #Italy
 Befana: witch, gifts to children, Epiphany
+
+#recent
+Gremlin: small, sabotage machinery
+Elemental
+- Gnome: earth spirit
+- Salamander: fire spirit
+- Sylph: air spirit
+- Undine: water spirit
