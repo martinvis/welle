@@ -1,4 +1,6 @@
-#Symptoms
+#Symptom: observable indication of disease
+Hyperalgesia: increased pain sensitivity
+Allodynia: pain from non-painful stimuli (eg after sunburn)
 Hemorrage: bleeding
 Hematoma: blood within tissue
 - Bruise/Contusion: near epidermis, discoloration, reabsorbed
@@ -28,11 +30,13 @@ Alopecia: loss of hair
 Edema: swelling, caused by buildup of fluid
 Nystagmus: involuntary eye movement
 Malaise: feeling of general discomfort
-Tympany: excess gas in digestive tract
+Tympany / Meteorism: excess gas in digestive tract
 Arrhythmia: irregularity in heartbeat
 - Bradycardia: decreased heart rate (under 60 beats), normal during sleep
 - Tachycardia: increased heart rate (over 100 beats), normal during exercise
-- Torsades de pointes: can lead to sudden cardiac death, characteristic ECG, caused by medications, treatment by magnesium
+- Flutter: rapid heart beat, only involves part of heart (atrial or ventricular)
+- Fibrillation: irregular rapid heart beat, only involves part of heart (atrial or ventricular)
+- Torsades de pointes: characteristic ECG, caused by medications, treatment by magnesium
 Anaphylaxis: rapid allergic reaction (to food, insect bite, medicine), caused by histamine release
 Rhinorrhea: discharge of mucus fluid from nose, can be side effect of crying
 Rhinitis: irritation inside nose
@@ -57,6 +61,11 @@ Fistula: abnormal connection of epithels (e.g. urinary and intestinal tracts)
 Paresthesia: abnormal sensation of skin
 #Psychological
 Alexithymia: problem describing one's emotions
+
+Syndrome: set of correlated symptoms, specific for certain disease
+
+#disease mechanism
+Excitotoxicity: excessive glutamate receptor activation -> excessive Ca2+ -> enzyme activation -> neuron damage
 
 #Senses
 Hyposmia: reduced sense of smell
@@ -84,6 +93,17 @@ Blood pressure measurement: systolic/diastolic
 Body temperature
 Respiratory rate
 Pulse rate
+Electrocardiography (ECG)
+- P wave: atrial depolarization, small round upwards
+- Q wave: small downwards
+- R wave: ventricular depolarization, large upwards
+- S wave: small downwards
+- T wave: ventricular repolarization, round upwards
+- U wave: none or small
+- hypercalcemia: shorter ST interval
+- hypocalcemia: longer ST interval
+- hyperkalemia: large T wave
+- hypokalemia: flat or inverted T wave, prominent U wave
 
 #Therapy
 Intravenous therapy: fluids administered into vein (water, electrolytes, nutritients etc)
@@ -191,6 +211,8 @@ Parkinson's disease
 - cause: misfolded proteins
 - mechanism: cell death in basal ganglia
 Multiple sclerosis: damage of myelin sheaths
+Kuru: laughing sickness, rare prion disease, tremors
+Creutzfeldt–Jakob disease: rare prion disease, dementia
 
 #neurological
 Epilepsy: recurrent seizures due to excessive electrical discharges in brain

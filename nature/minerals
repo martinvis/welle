@@ -1,3 +1,6 @@
+Vug: cavity inside rock
+Polymorphism: different crystal structures based on temperature and pressure
+
 #Color
 Idiochromatic: main elements
 Allochromatic: trace elements
@@ -17,6 +20,8 @@ Asterism: 4/6/8-rayed star
 Aventurescence: glitter-like reflection
 Chatoyancy: bands of reflection (Tiger's eye)
 Iridescence: rainbow colors (Opal)
+Photochromism: change of color when exposed to light
+- Tenebrescence: darkening when exposed to light
 --
 Adamantine: diamond
 Dull: earth-like
@@ -97,29 +102,63 @@ Smithsonite = ZnCO3: trigonal, botryoidal, allochromatic
 Cerussite = PbCO3: orthorhombic
 
 #Silicate: transparent to translucent, no cleavage, vitreous
-Quartz = SiO2: trigonal or hexagonal, prismatic or druse, allochromatic, conchoidal fracture, sharp edges
+
+==Cyclosilicate: rings
+Beryl = (BeO)3(Al2O3)(SiO2)6: hexagonal, prismatic, hard, allochromatic
+- Emerald: green by chromium
+- Aquamarine: blue-green by iron
+Tourmaline: trigonal, prismatic, hard, allochromatic, with boron + aluminium
+- Elbaite: with lithium + sodium
+- Dravite: with sodium + magnesium
+- Schorl: with iron
+
+==Nesosilicate: isolated tetrahedra
+Phenakite = Be2SiO4: trigonal
+Willemite = Zn2SiO4: trigonal, UV fluorescent
+Olivine/Peridot = (Mg,Fe)2SiO4: orthorhombic, yellow-green
+Zircon = ZrSiO4: tetragonal, hard, allochromatic
+=Garnets: X3Y2(SiO4)3, cubic, dodecahedral
+Spessartine - Mn3Al2(SiO4)3: orange
+Almandine - Fe3Al2(SiO4)3 : purple
+
+==Sorosilicate: double tetrahedra
+Epidote: monoclinic, prismatic, greenish
+Zoisite: orthorhombic, prismatic
+- Tanzanite: violet by vanadium
+Vesuvianite/Idocrase: tetragonal, prismatic, green or brown
+Hemimorphite: orthorhombic, prismatic or reniform, white or bluish, zinc
+Allanite: monoclinic, prismatic, black, rare earths
+
+==Inosilicate: chain
+=Pyroxene (XYZ2O6)
+Jadeite = NaAlSi2O6: monoclinic, green color, pearly
+Diopside = MgCaSi2O6: monoclinic, green to white
+
+==Tectosilicate: 3D framework
+Coesite = SiO2: monoclinic, high pressure, impact event
+Tridymite = SiO2: orthorhombic or hexagonal, tabular, high temperature
+Cristobalite = SiO2: tetragonal, very high temperature
+=Quartz = SiO2: trigonal or hexagonal, prismatic or botryoidal, allochromatic, conchoidal fracture, sharp edges
 - Amethyst: purple by iron
 - Citrine: yellow by iron
-- Coesite: high pressure, impact event
 - Jasper: red by iron, opaque
 --Chalcedony
 - Agate: banded
 - Onyx: parallel bands
 - Carnelian: brown
-Beryl = (BeO)3(Al2O3)(SiO2)6: hexagonal, prismatic, hard, allochromatic
-- Emerald: green by chromiumtrans
-- Aquamarine: blue-green by iron
-Olivine/Peridot = (Mg,Fe)2SiO4: orthorhombic, yellow-green
-Zircon = ZrSiO4: tetragonal, hard, allochromatic
-Phenakite = Be2SiO4: trigonal
-Willemite = Zn2SiO4: trigonal, UV fluorescent
-=Garnets: X3Y2(SiO4)3, cubic, dodecahedral
-Spessartine - Mn3Al2(SiO4)3: orange
-Almandine - Fe3Al2(SiO4)3 : purple
-Tourmaline: trigonal, prismatic, hard, allochromatic, with boron + aluminium
-- Elbaite: with lithium + sodium
-- Dravite: with sodium + magnesium
-- Schorl: with iron
+=Feldspar: aluminium silicate
+Alkali
+- Orthoclase: KAlSi3O8, monoclinic, white streak
+- Microcline: KAlSi3O8, triclinic, white streak
+Plagioclase
+- Albite: NaAlSi3O8, triclinic, white streak
+- Anorthite: CaAl2Si2O8, triclinic, white streak
+
+=Phyllosilicate: sheet-like layers
+Clay
+- Kaolinite: white
+Mica
+- Muscovite: flakes
 
 #Sulfate (SO4): orthorhombic, transparent to translucent, vitreous
 Anhydrite = CaSO4: pearly to greasy
@@ -138,10 +177,6 @@ Brochantite = Cu4SO4(OH)6: monoclinic, acicular, green color, translucent
 #Spinels (XY2O4): cubic, octahedral
 Spinel = MgAl2O4: hard, transparent to translucent, allochromatic, vitreous
 Magnetite = FeFe2O4: metallic
-
-=Pyroxene (XYZ2O6)
-Jadeite = NaAlSi2O6: monoclinic, green color, pearly
-Diopside = MgCaSi2O6: monoclinic, green to white
 
 #Chromate
 Chromite - FeCr2O4: cubic
@@ -177,11 +212,5 @@ Calomel = Hg2Cl2: tetragonal, soft, toxic
 
 #Hydrate (H2O)
 Opal - SiO2: iridescent
-
-#Phyllosilicate: sheet-like layers
-=Clay
-Kaolinite: white
-=Mica
-Muscovite: flakes
 
 Obsidian: volcanic glass, conchoidal fracture, sharp edges, black color

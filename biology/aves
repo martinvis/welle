@@ -28,7 +28,7 @@ Cuculiformes: long tail
 - Cuculus [Cuckoo]: brood parasite, migratory
 - Coua: blue around eyes, Madagascar
 - Phaenicophaeus: malkohas, red around eyes, South Asia
-Pterocliformes: sandgrouse, ground dwelling, granivore, dry regions, Old World
+Pterocliformes: sandgrouse, ground dwelling, granivore, arid regions, Old World
 Mesitornithiformes: flightless, Madagascar
 Otidiformes: bustards, large, long neck and legs, grasslands
 Musophagiformes: turacos, frugivorous, colorful with crest, long tail, Africa
@@ -87,12 +87,13 @@ Bucerotiformes
 - Upupidae: hoopoes, feather crown, old world
 - Bucerotidae: hornbills, long curved beak with casque, africa + orient
 Piciformes
-- Picidae: woodpeckers, red top of head or crest, solitary, except Australia
+- Picidae: woodpeckers, red top of head or crest, feed on insect under bark, excavate nest in tree (fungi make wood softer), solitary, except Australia
 - Ramphastidae: toucans, colorful, large lightweight serrated beak to feed on fruit, Latin America
 - Indicatoridae: honeyguides, brood parasites, feed on bee wax and larvae
 Coraciiformes
 --
 Strigiformes: owls, solitary nocturnal ambush predators, silent flight, hooked beak and claws, forward facing eyes
+- nest in tree cavities
 - can rotate head 270°
 - Asio: earless owls
 - Bubo: eagle owls
@@ -244,7 +245,7 @@ Thraupidae: tanagers, Latin America, bright colors
 --
 Alaudidae: larks, brown color, social
 Hirundinidae: swallows, short wide bill to feed in air, long tail, dark upperside and white underside, migratory
-Paridae: tits
+Paridae: tits, nest in tree cavities
 - Cyanistes: yellow and blue color
 - Parus: yellow and blue color, black-and-white head
 --
@@ -255,6 +256,7 @@ Sturnidae: social
 - Acridotheres: mynas, yellow patch around eye, South Asia
 - Sturnus: starlings, black with metallic shine
 Turdidae: thrushes
+Sittidae: nuthatches, feed on insect under bark, bluish upperside, black eye stripe, short tail, nest in tree cavities
 =Corvides
 Oriolidae: yellow with black wings
 --

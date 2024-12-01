@@ -1,3 +1,6 @@
+Incertae sedis: uncertain placement
+Taxonomy: naming of organisms
+
 =Taxonomic rank
 Domain
 Kingdom
@@ -229,13 +232,14 @@ Thomisidae: crab spiders, ambush predators, two front legs larger, no webs
 Zodariidae: ant spiders, mimic and hunt ants
 
 #Paraneoptera
-Psocodea: lice
-Hemiptera: true bugs
-- Sternorrhyncha: aphids, whiteflies
-- Auchenorrhyncha: cicadas
-- Coleorrhyncha: moss bugs
-- Heteroptera
-Thysanoptera: thrips
+=Psocodea: lice
+=Hemiptera: true bugs
+Sternorrhyncha: aphids, whiteflies
+- Aphididae: suck sap from leaves, small soft body, pair of cornicles to excrete sugar-rich honeydew
+Auchenorrhyncha: cicadas
+Coleorrhyncha: moss bugs
+Heteroptera
+=Thysanoptera: thrips
 
 #Heteroptera
 Cimicidae: bedbugs, parasitic, feed on blood
@@ -272,7 +276,7 @@ Vespidae
 Pompilidae: spider wasps, long spiny legs, solitary, lay eggs in paralyzed spiders
 Formicidae: ants, bent antennae, live in colonies, wingless females
 Apidae: pollinators
-- Apis [Honeybee]: eusocial
+- Apis [Honeybee]: eusocial, wax nest of honeycombs (hexagonal cells), produce wax and honey (dark honey is not from nectar but from honeydew)
 - Bombus [Bumblebee]: America + Eurasia, plump and furry, ground nests
 - Melipona: stingless bees, Latin America, eusocial
 - Austroplebeia: stingless bees, Australia, eusocial
@@ -296,8 +300,12 @@ Cyclostomi: jawless fish
 †Placodermi: armoured fish
 Acanthodii
 Chondrichthyes
-Osteichthyes: bony fish, 30k species
+Osteichthyes: bony fish, 30k species, 3y-30y lifespan
 - Sarcopterygii: lobe-finned fish
+-- Coelacanthiformes: latimeria, living fossil, long-lived, deepwater
+-- Onychodontiformes: extinct
+-- Porolepiformes: extinct
+-- Ceratodontiformes: lungfish, can breathe air, long-lived, southern hemisphere
 - Actinopterygii: ray-finned fish
 Tetrapoda: four legs
 - Amphibia: 10k species
@@ -305,23 +313,62 @@ Tetrapoda: four legs
 - Aves: 10k species, variable number of neck vertebrae (usually 14)
 - Mammalia: produce milk to feed young, endothermic, 7 neck vertebrae
 
+#Amphibia
+Acanthostega: extinct
+Ichthyostega: extinct
+Baphetidae: extinct
+Lepospondyli: extinct
+- Diplocaulidae: boomerang-shaped skull
+Temnospondyli: extinct
+- Archegosauridae: crocodile-like, long snout
+- Eryopidae: large
+Anura: frogs, no tail, long folded legs to jump, long thin tongue to catch insects, predators
+Urodela: salamanders, short limbs
+Gymnophiona: caecilians, no limbs, no eyes, tropical regions
+
 #Actinopterygii
-Acipenseriformes: sturgeons
-Zeiformes: dories, dorsal fin spines
-Gadiformes: cods, spineless fins
-Esociformes: pikes, freshwater predators
-Salmoniformes: predators, spawn in freshwater
-Lophiiformes: anglerfish, seawater predators, luminescent, fin modified to lure (illicium)
-Tetraodontiformes: rigid body, slow
-Scorpaeniformes: predators, spiny heads
-Syngnathiformes: narrow body and tubular mouth, males house eggs
+=Chondrostei
+Acipenseriformes
+- Acipenseridae: sturgeon, long body with bony plates, long-lived
+- Polyodontidae: paddlefish, long flat snout
+=Holostei
+Lepisosteiformes: gar, elongated body and snout, North America
+=Teleostei
 Anguilliformes: eels, nocturnal, elongated, without pelvis fins, dorsal + caudal + anal fins fused 
+--
+Esociformes: pikes, freshwater, ambush predator
+Salmoniformes: predatory, spawn in freshwater
+--
 Aulopiformes:
 - Ipnopidae: tripod fish, deepsea
 - Synodontidae: lizardfish, benthic
 - Alepisauridae: long high dorsal fin, deepsea
 - Evermannellidae: sabertooth fish, deepsea
-...
+--
+Zeiformes: dories, dorsal fin spines
+Gadiformes: cods, spineless fins
+--
+--
+
+=Percomorpha
+Syngnathiformes: narrow body and tubular mouth, males house eggs
+Scombriformes
+- Scombridae: tuna (large) + mackerel, predators, two dorsal fins
+--
+Pleuronectiformes: flatfish, flat oval body, eyes on one side, live on seafloor, ambush predators
+Carangiformes
+- Echeneidae: remora, sucker-like dorsal fin to attach to larger animals
+- Nematistiidae: roosterfish, dorsal fin with 7 long spines, Pacific coast of America
+- Menidae: moonfish, thin disc-like body, Indo-Pacific
+- Toxotidae: archerfish, spit water to catch insects, freshwater, predatory
+Istiophoriformes
+- Sphyraenidae: barracuda, long body, ambush predators
+- Istiophoridae: marlin, spear-like snout, long dorsal fin, fast, predatory
+- Xiphiidae: swordfish, spear-like snout, long dorsal fin, fast, predatory
+--
+Lophiiformes: anglerfish, seawater, ambush predators, luminescent, fin modified to lure (illicium)
+Scorpaeniformes: predatory, spiny heads
+Tetraodontiformes: rigid body, slow
 
 #Reptilia
 Rhynchocephalia: tuatara

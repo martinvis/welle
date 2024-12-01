@@ -2,14 +2,16 @@
 Edge: line joining two vertices
 Vertex: point shared by lines
 
-#Angles
-Size
+Congruent: with same shape and size (can be mirror image)
+
+#angles
+size
 - Acute: <90
 - Right: 90
 - Obtuse: <180
 - Straight: 180
 - Reflex: >180
-Units
+units
 - Degree: 360
 - Turn: 1
 - Radian: 2π
@@ -83,9 +85,22 @@ Primitive Pythagorean triple: a/b/c are coprime
 
 #Polygon: 2D shape, closed lines connecting points
 - n-polygon can be split into n-2 triangles
-Triangle: 3 vertices
-Pentagon: 5 vertices
-Hexagon: 6 vertices
+=Triangle: 3 vertices
+Isosceles triangle: 2 sides same length
+Equilateral triangle: all sides same length
+Right triangle: 90 degrees angle
+Acute triangle: all angles under 90 degrees
+Obtuse triangle: angle over 90 degrees
+=Pentagon: 5 vertices
+=Hexagon: 6 vertices
+=Quadrilateral: 4 vertices
+Kite: reflection symmetry, made of 2 congruent triangles
+Trapezoid: 1 pair of parallel sides
+Parallelogram: 2 pairs of parallel sides
+- Rectangle: all right angles
+- Square: all right angles, all sides same size
+- Rhombus: all sides same length (diamond)
+- Rhomboid: no right angles, adjacent sides different length
 
 Euclidean geometry: flat plane
 Elliptic geometry: surface of sphere
@@ -97,3 +112,29 @@ Poincaré disk model: 2D hyperbolic geometry
 - straight lines are arcs within disc orthogonal to disc boundary
 Klein disk model: 2D hyperbolic geometry
 - straight lines are chords within disc
+
+#curve
+Cusp: point where direction reverses
+=parametric
+- Bézier curve: defined by paths moving along straight lines between control points
+- B-spline: defined by blending control points with basis function
+- Polynomial curve: defined by polynome
+=Roulette: point on curve rolling along another curve
+- Cycloid: point on circle rolling along straight line
+- Trochoid: point inside/outside circle rolling along straight line
+- Cardioid: point on circle rolling around same-size circle
+- Limaçon: point inside/outside circle rolling around same-sized circle
+- Epicycloid: point on circle rolling around circle
+- Epitrochoid: point inside/outside circle rolling around circle
+- Hypocycloid: point on circle rolling inside circle
+- Hypotrochoid: point inside/outside circle rolling inside circle
+
+#3D by revolving 2D
+Sphere: circle around its axis
+Torus: circle around external axis (doughnut)
+Spheroid: ellipse around its axis
+Lemon: circular arc of angle under 180 degrees
+- Fusiform: elongated
+Apple: circular arc of angle over 180 degrees
+Cone: right triangle around its leg
+Cylinder: rectangle around its side

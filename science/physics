@@ -72,6 +72,10 @@ Satellite: projectile whose trajectory is orbit
 Force: cause of change in motion or energy
 Work: action of change in energy
 
+=object sliding along curve without friction
+Tautochrone curve: same time to reach end regardless of starting point, cycloid
+Brachistochrone curve: shortest time between start and end points, cycloid
+
 #Newton's laws of motion
 1: object remains at rest or in motion at constant speed, unless acted upon by force
 2: change of momentum is equal to force acting upon object
@@ -363,7 +367,16 @@ Population inversion: rate of stimulated emission exceeds absorption, enables op
 
 #Spontaneous emission
 transition from excited to lower energy level, emits energy as photon
-luminescence: by light, chemical reaction, mechanical action, electrocity, radiation, heat
+=Incandescence: visible glow upon heating
+=Luminescence: not caused by heat
+Radioluminescence: absorbed from ionizing radiation
+Thermoluminescence: absorbed from radiation, released when heated (minerals)
+Photoluminescence: absorbed from radiation
+- Fluorescence: released immediately
+- Phosphorescence: released gradually
+Electroluminescence: absorbed from electric current
+Piezoluminescence: absorbed from pressure
+Triboluminescence: absorbed from mechanical stress
 
 #Pair production
 high energy photon near nucleus producing particle-antiparticle pair
@@ -490,3 +503,5 @@ Supersymmetry: theoretical symmetry between bosons (force) and fermions (matter)
 Superposition: linear combination of multiple basis states
 Neutrino oscillation: neutrinos change flavor as they travel, superposition of 3 states
 Baryon asymmetry: more matter than anti-matter in universe, reason unknown
+
+Cymatics: patterns in coating of vibrated surface showing displacement

@@ -1,12 +1,37 @@
 #Protein: activity depends on 3D structure
+Prion: misfolded protein, misfolding is propagated, causes fatal diseases
 
 #Signaling - Receptor: change cell behaviour when activated
-Transmembrane
-- Ion channel linked: controlled by neurotransmitters (Na+, K+, Ca+)
-- Enzyme-linked: catalytic, growth factors and insulin
-- G protein-coupled: 7 helices
-Intracellular
-- Transcription factors: control transcription from DNA to mRNA
+==Transmembrane: cell surface
+Ion channel linked: controlled by neurotransmitters (Na+, K+, Ca+)
+- Nicotinic acetylcholine receptor: muscle contraction
+- GABA-A receptor: Cl- selective, ligand GABA, inhibitory neurotransmitter
+- 5-HT3 serotonin receptors: excitatory neurotransmitter
+- Kainate receptors (KARs): glutamate, Na+ and K+
+- Capsaicin/Vanilloid receptor: body temperature regulation
+- NMDA receptor: glutamate, Ca2+, neurons, synaptic plasticity
+- AMPA receptor: glutamate, Na+, neurons, synaptic plasticity
+Enzyme linked: catalytic, growth factors and insulin
+=G-protein coupled (GPCR): 7 helices, molecular switch, GTP bound = on, GDP bound = off
+Opsins: ligand retinal (vitamin A), activation by photon, retina, vision
+- Rhodopsin: rod, no color
+- L-cone: red color
+- M-cone: green color
+- S-cone: blue color
+--
+- Opioid receptors: neurons
+- Dopamine receptors: neurons, motor control + motivation
+- Melatonin receptor: circadian rhythm, sleep promotion
+- Muscarinic acetylcholine receptors: parasympathetic NS
+- GABA-B receptor: opens K+ channel, closes Ca2+ channel, inhibitory neurotransmitter
+- 5-HT1 serotonin receptors: inhibitory neurotransmitter
+- 5-HT2C serotonin receptors: excitatory neurotransmitter, mood regulation, choroid plexus + limbic system
+- 5-HT4 serotonin receptors: excitatory neurotransmitter
+- 5-HT5 serotonin receptors: inhibitory neurotransmitter
+- 5-HT6 serotonin receptors: excitatory neurotransmitter, cortex + hippocampus, cognitive processes
+- 5-HT7 serotonin receptors: excitatory neurotransmitter, hypothalamus + thalamus, circadian rhythm
+==Intracellular
+Transcription factors: control transcription from DNA to mRNA
 
 #Transcription factors: ~10% of proteins
 Autoimmune regulator (AIRE): eliminates self-reactive T cells
@@ -34,7 +59,7 @@ Catecholamine
 Peptide
 - Oxytocin
 - Somatostatin
-- Substance P
+- Substance P: pain information, mood regulation
 - CART (cocaine amphetamine regulated transcript)
 - Opioids: like endorphins
 - Endorphins: inhibit pain, block substance P and GABA
@@ -99,8 +124,12 @@ Trypsin: digestion, cuts protein into smaller pieces
 #Hormone
 Leptin: made by adipocytes, regulates energy balance
 Adiponectin: made by adipocytes, regulates glucose level and fatty acid breakdown
-Angiotensin: made by liver, causes vasoconstriction and thirst, increases blood pressure
 Vasopressin
+=Renin-angiotensin-aldosterone system (RAAS)
+Renin (REN): secreted by kidneys, increases vasopressin secretion, stimulates thirst
+Angiotensin: made by liver, causes vasoconstriction and thirst, increases blood pressure, stimulates aldosterone secretion
+Angiotensin-converting enzyme (ACE): activates angiotensin
+Aldosterone - mineralocorticoid, stimulates Na+ and water reabsorption, K+ and H+ secretion
 
 #Structural - Extracellular
 Mucins (MUC)
@@ -156,3 +185,5 @@ Ferritin (FTL/FTH) - intracellular, stores iron
 Myoglobin (MB), in muscle tissue, binds iron and oxygen, stores oxygen
 
 Opsonin: extracellular, induce phagocytosis (label)
+
+Antifreeze proteins (AFPs): lower freezing point, bind to small ice crystals (fish, spruce)

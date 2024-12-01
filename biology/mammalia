@@ -75,10 +75,10 @@ Erethizontidae: New World porcupines, large, quills, arboreal, America
 - Erethizon: short tail
 Hystricidae: porcupines, large, quills, short tail, Africa + South Asia
 Caviidae
-- Hydrochoerus: capybara, large
+- Hydrochoerus: capybara, large, semiaquatic, no tail, social, South America
 - Cavia: guinea pigs
 - Dolichotis: mara, large
-Chinchillidae
+Chinchillidae: bushy tail, South America
 Octodontidae: degus
 Echimyidae: spiny rats
 Dasyproctidae: agoutis
@@ -250,10 +250,10 @@ Rhinocerotidae: nose horns, thick skin, large, 3-toed feet
 - Rhinoceros: one horn, skin folds and bumps, South Asia
 
 #Artiodactyla
-=Tylopoda: camels
+=Tylopoda: long neck and legs
 Camelidae
-- Lama
-- Camelus
+- Lama: narrow pointed ears, South America
+- Camelus: curved neck, one or two humps on back, arid regions, Old World
 =Suina: pigs
 Tayassuidae: peccaries
 Suidae: 4 toes

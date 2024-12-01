@@ -290,4 +290,19 @@ Artery: vessel carrying oxygenated blood from heart
 - Iliac: aorta to leg
 Arteriole: small artery
 Capillary: smallest blood vessel
-Heart rate variability: shift in timing between heartbeats
+Heart rate variability: shift in timing between heartbeats (RR interval)
+Blood pressure: pressure on vessel walls, maximum = systolic, minimum = diastolic, normal 120/80
+Vasodilation: widening of blood vessels, relaxation of muscles, decreased blood pressure
+- caused by nitric oxide, adenosine, histamine, prostacyclin
+Vasoconstriction: narrowing of blood vessels, contraction of muscles, increased blood pressure
+- body heat retention, blood loss reduction
+- caused by Ca2+, vasopressin, angiotensin, endothelin
+Heart rate (HR): frequency of contractions per minute, normal 60-100, lower at sleep
+Stroke volume (SV): volume of blood pumped through ventricle per beat
+Cardiac output (CO): volume of blood pumped through heart over time, SV * HR
+End-diastolic volume (EDV): volume of blood in ventricle at end of diastole
+Systole: contraction to eject blood
+Diastole: relaxation to fill with blood
+Preload: muscle stretch at end of diastole
+Afterload: resistance to eject blood during systole
+Starling's law: stroke volume increases with end diastolic volume (circulatory balance)

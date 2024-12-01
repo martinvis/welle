@@ -220,13 +220,30 @@ Homing guidance: guidance computer in missile
 - Short-range: up to 1Mm
 - Medium-range: up to 3Mm
 - Intercontinental: range over 5Mm
-Trident, USA, submarine-launched
+- SLBM: Submarine-launched ballistic missile
+- Multiple independently targetable reentry vehicle (MIRV): multiple warheads with different targets, 1960s
+- Fractional Orbital Bombardment System (FOBS): low orbit to conceal target and evade radars, smaller payload, 1960s
+- Hypersonic glide vehicle (HGV): manouver at hypersonic speed to evade air defenses, 2010s
 Topol, Russia, intercontinental
-Sarmat, Russia, intercontinental
-Minuteman, USA, intercontinental
 Iskander, Russia, short-range
 Kinzhal, Russia, air-based
 Tochka, USSR, tactical
+=Intercontinental: nuclear MIRV
+Israel
+- Jericho:
+North Korea
+- Hwasong:
+China
+- Dongfeng:
+India
+- Agni:
+USA
+- Trident: submarine-launched
+- Minuteman:
+Russia
+- RS-24 Yars:
+- RS-26 Rubezh:
+- RS-28 Sarmat: HGV
 
 #Cruise missile: against terrestrial or naval targets
 - can fly on non-ballistic and low-altitude trajectory
@@ -357,3 +374,4 @@ Voronezh radars: static, early warning, Russia
 Espionage: obtaining intelligence
 Propaganda: influence
 Sabotage: deliberate subversion
+ISTAR: intelligence, surveillance, target acquisition, reconnaissance

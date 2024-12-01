@@ -232,6 +232,9 @@ Levothyroxine: synthetic thyroid hormone
 #Antipsychotic
 Chlorpromazine: schyzophrenia
 
+#Antimigraine
+Sumatriptan: serotonin agonist
+
 #Antidepressant
 Selective serotonin reuptake inhibitor (SSRI)
 - Fluoxetine (Prozac)
@@ -245,14 +248,14 @@ Serotonin–norepinephrine reuptake inhibitor (SNRI)
 Serotonin antagonist and reuptake inhibitor (SARI)
 - Trazodone
 
-#ACE inhibitor: lower high blood pressure
+#ACE inhibitor: lower high blood pressure, common side effect coughing
 Benazepril
 Captopril
 Enalapril
 Lisinopril
 Ramipril
 
-#ARB: high blood pressure, block angiotensin receptor
+#Angiotensine receptor blocker (ARB) / Sartan: high blood pressure, angiotensine antagonist
 Irbesartan
 Losartan
 Valsartan
@@ -289,8 +292,8 @@ Promethazine
 Epinephrine/adrenaline: anaphylaxis, cardiac arrest
 Budesonide (Pulmicort)
 Montelukast (Singulair)
-Salbutamol (Ventolin)
-Tiotropium (Spiriva)
+Salbutamol (Albuterol, Ventolin): bronchodilator, β2-adrenergic agonist, short-term
+Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 
 #Analgesic: pain relievers
 Non-opioid
@@ -298,11 +301,12 @@ Non-opioid
 - Ibuprofen (Nurofen): anti-inflammatory
 - Aspirin: anti-inflammatory (overdose ~10g: brain/lungs edema)
 - Naproxen (Aleve): anti-inflammatory
-Opioid
+Opioid: μ-opioid agonist
 - Morphine: recreational drug, found in opium, addictive
 - Codeine: prodrug of morphine, found in opium
 - Heroin: recreational drug, addictive
 - Fentanyl: very strong, addictive
+- Methadone: relieves opioid withdrawal
 
 #Anesthetic: block nerve receptors, unconsciousness when general
 General via inhalation
@@ -311,7 +315,7 @@ General via inhalation
 - Halothane
 - Sevoflurane
 General
-- Ketamine
+- Ketamine: NMDA antagonist
 - Propofol: intravenous
 - Thiopental: intravenous
 Local: blocks sodium channels on neuron membrane
@@ -362,6 +366,27 @@ Calcineurin inhibitor (CNI): organ transplants
 - Cyclosporine: from fungus Tolypocladium
 - Tacrolimus: from bacteria Streptomyces
 
+#Antiemetic
+Setrons: serotonin antagonist, after cytostatic chemotherapy
+- Ondansetron
+Metoclopramide: dopamine antagonist
+
+#Cardiovascular system
+=Antianginal
+Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual
+Isosorbide dinitrate: vasodilator, oral
+Nifedipine: calcium channel blocker, oral
+=Antiarrhythmic
+Lidocaine: sodium channel blocker, intravenous
+Verapamil: calcium channel blocker, oral, not with beta blockers
+=Cardiac glycoside: sodium-potassium pump inhibitor, steroid code, increase output, decrease heart rate
+Digoxin / Digitalis: foxglove plant, excretion by kidney
+Digitoxin: foxglove plant
+
+=Tocolytic: suppress contractions
+=Uterotonic: induce contractions
+Oxytocin
+
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system
 
@@ -370,7 +395,6 @@ A02 / Antiacids
 A03 / Anticholinergic
 A03 / Antispasmodic: suppress muscle spasms
 A04 / Antiemetic: against vomitting
-- Setrons: block serotonin receptors in CNS and digestive system
 A06 / Laxative
 A07 / Antidiarrhoeal
 A11 / Vitamins
@@ -384,6 +408,7 @@ B02 / Antihemorrhagic: stop bleeding
 B03 / Antianemic
 
 #C / Cardiovascular system
+C01 / Cardiac therapy
 C02 / Antihypertensive: treat high blood pressure
 C03 / Diuretic: increase urine production
 

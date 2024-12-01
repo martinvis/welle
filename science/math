@@ -1,16 +1,12 @@
-Sieve of Eratosthenes
+#Combinatorics
+Inclusion–exclusion principle: number of elements in union of sets, alternately include/exclude n-set intersections
+
 
 Integer number (N): positive, negative or zero
 Natural number (Z): positive integer number
 Rational number (Q): fraction of two integers
 Real number (R): continuous one-dimensional
 Complex number (C): real number with imaginary unit, two-dimensional
-
-Prime number: natural number that is not product of two smaller natural numbers
-Composite number: natural number that is product of two smaller natural numbers
-
-Prime gap: difference between two successive prime numbers
-Bertrand's postulate: ∀ integer n ∃ prime number p where n < p < 2n
 
 Golden ratio (1.618): a+b / a = a / b
 

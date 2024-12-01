@@ -1,11 +1,19 @@
-#Saccharomycetaceae: yeasts
+#Agaricales
+=Physalacriaceae
+Armillaria: honey fungus, on wood, causes rot, long-lived, large networks
+Flammulina: enoki, on dead wood, long stipe and small cap, edible
+
+#Saccharomycetales
+=Saccharomycetaceae: yeasts
 Candida: opportunistic infection
 Saccharomyces: winemaking, brewing, baking, cheesemaking
 
-#Aspergillaceae
+#Eurotiales
+=Aspergillaceae
 Penicillium: blue/white cheese, antibiotics
 
-#Malasseziaceae
+#Malasseziales
+=Malasseziaceae
 Malassezia
 - part of skin microbiota
 - metabolizes triglycerides

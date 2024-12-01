@@ -83,38 +83,46 @@ Typha [Bulrush]
 
 
 
-##Asparagales
+##Asparagales: perennial, 6 tepals
 
-#Asparagaceae
-Asparagus
-Agave
-Dracaena/Sansevieria
-Yucca
-Hyacinthus
-Chlorophytum [Spider plant]
-Beaucarnea [Ponytail palm]
+=Asparagaceae
+Asparagus: tubers, branched stems instead of leaves, small red berries
+--
+Agave: succulent, large fleshy leaves in rosette, very tall stem with small flowers in panicle, America
+Chlorophytum [Spider plant]: tubers, leaves in rosette, small white flowers, plantlets on stem, tropical regions
+Yucca: houseplant, long tough leaves, tall stem with many small white flowers in panicle, America
+--
+Dracaena/Sansevieria: houseplant, long leaves, small flowers in panicle, small berries, tropical regions
+Beaucarnea [Ponytail palm]: houseplant, swollen trunk base, long leaves, small flowers in panicle, Central America
+--
+Hyacinthus: bulb, blue/violet flowers in raceme, Middle East
 
-#Asphodelaceae
-Aloe
-Hemerocallis [Daylily]
+=Asphodelaceae
+Aloe: succulent, large fleshy leaves in rosette, tall stem with small flowers in raceme, Africa
+Hemerocallis [Daylily]: tubers, large flower on scape, Asia
 
-#Orchidaceae
+=Orchidaceae: bilateral symmetry of flowers, modified petal labellum, aerial roots, alternate leaves
 Vanilla
-Phalaenopsis
 Miltonia
-Dendrobium
-Oncidium
+Dendrobium: houseplant
+Phalaenopsis: houseplant, overlapping petals and sepals
+Cattleya: houseplant, large frilly flowers
+Oncidium: houseplant, small flowers
+Paphiopedilum: houseplant, pouch-like labellum
+Vanda: houseplant, small labellum
 
-#Amaryllidaceae
-Allium [Onion/Garlic]
-Narcissus [Daffodil]
-Galanthus [Snowdrop]
-Scadoxus [Blood lily]
+=Amaryllidaceae: bulbous, linear leaves, flowers in umbel on scape, 6 tepals
+Allium [Onion/Garlic]: many small flowers, odor by sulfoxides
+Amaryllis: several large flowers, ornamental, South Africa
+Narcissus [Daffodil]: single large yellow/white flower with cup-shaped corona, ornamental, Iberia
+Galanthus [Snowdrop]: single white drooping flower, Europe
+Scadoxus [Blood lily]: many small red flowers and berries, Africa
 
-#Iridaceae
-Crocus [Saffron]
-Gladiolus
-Iris
+=Iridaceae: bulbous, linear leaves, 6 tepals
+Crocus [Saffron]: low growing, blooms in spring, Eurasia
+Iris: rhizomes, large flowers with drooping sepals and upright petals, northern hemisphere
+Gladiolus: one-sided spike inflorescence, Old World
+Freesia: one-sided spike inflorescence, south Africa
 
 
 
@@ -133,9 +141,10 @@ Dracunculus [Dragon lily]
 
 
 
-##Liliales
-#Liliaceae
-Tulipa
-Lilium
-#Philesiaceae: red, Chile
-#Colchicaceae
+##Liliales: perennial
+=Liliaceae: bulbous
+Tulipa: large cup-shaped flower on scape
+Lilium: large flowers in raceme
+=Philesiaceae: bell-shaped red flowers, Chile
+=Colchicaceae
+Colchicum: low growing, blooms in autumn, Old World

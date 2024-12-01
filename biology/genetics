@@ -1,3 +1,5 @@
+Phylogenetics: evolutionary history of life
+
 Mendelian inheritance
 - Law of dominance and uniformity: dominant allele takes effect over recessive allele (sometimes intermediate effect)
 - Law of segregation: gametes carry only one allele (reoccurence of grandparent characteristics)
@@ -224,18 +226,20 @@ Perforin (PRF1), cytolytic protein in granules of cytotoxic lymphocytes
 
 #Proteins
 
-Melatonin, controls sleep-wake cycle, synthesized from serotonin
-Serotonin, neurotransmitter, derives from tryptophan
+Melatonin: controls sleep-wake cycle, synthesized from serotonin
+Serotonin: neurotransmitter, derives from tryptophan
 - role in learning, memory, mood, aging
-Niacin = Vitamin B3, synthesized from tryptophan via Kynurenine
+- can trigger vomiting
+Niacin = Vitamin B3: synthesized from tryptophan via Kynurenine
 
 #Stress hormones
-Cortisol, increased in stress, increases respiration and blood sugar, suppresses immune system, reduces bone formation
-Norepinephrine/Noradrenaline, precursor is phenylalanine, increases alertness and heart rate / blood pressure
-Epinephrine/Adrenaline, precursor is phenylalanine, increases blood flow to muscles and blood sugar level
+Cortisol: increased in stress, increases respiration and blood sugar, suppresses immune system, reduces bone formation
+Norepinephrine/Noradrenaline: precursor is phenylalanine, increases alertness and heart rate / blood pressure
+Epinephrine/Adrenaline: precursor is phenylalanine, increases blood flow to muscles and blood sugar level
 
-Melanin, precursor is tyrosine, pigment, protection against UV radiation
-Dopamine (DA), precursor is phenylalanine, neurotransmitter, part of reward system, dysfunction causes Parkinson's disease
+Melanin: precursor is tyrosine, pigment, protection against UV radiation
+Dopamine (DA): precursor is phenylalanine, neurotransmitter, part of reward system, dysfunction causes Parkinson's disease
+- can trigger vomiting
 
 ###Endocrine system
 operates via feedback loops
@@ -284,7 +288,6 @@ Parathyrin (PTH), increases blood calcium
 Adrenaline
 Noradrenaline
 Cortisol - glucocorticoid
-Aldosterone - mineralocorticoid, stimulates Na+ and water reabsorption, K+ and H+ secretion
 #Kidneys
 Erythropoietin (EPO): stimulates red blood cell production
 
@@ -338,6 +341,7 @@ Proline [COOH-(C4N)]
 Tyrosine [-CH2-{C6}-OH], can be synthetized from Phenylalanine
 Cysteine [-CH2-SH], can be synthetized from Methionine
 Arginine [-CH2-CH2-CH2-NH-C-NH2-NH2], can be synthetized from Glutamine
+Glutamic acid / Glutamate (Glu/E): excitatory neurotransmitter, neuroplasticity, protein synthesis, NMDA + AMPA receptors
 
 #essential
 Tryptophan [-CH2-{C4N}|{C6}]
@@ -350,6 +354,8 @@ Isoleucine [-CH-CH3-CH2-CH3]
 Histidine [-CH2-{CCNCN}]
 Lysine [-CH2-CH2-CH2-CH2-NH3]
 
+#synthetic
+N-methyl-D-aspartic acid (NMDA): NMDA receptor agonist
 
 #Ascorbic acid / Vitamin C
 C4O-OH-OH=O-(CH-OH-CH2-OH)

@@ -1,3 +1,15 @@
+#Fungus
+Mushroom: fleshy fruit above ground
+- Agaric: lamellae on cap underside
+- Bolete: cap underside spongy with pores
+- Puffball: ball-shaped, release spores upon contact
+Stipe: stalk supporting cap
+Annulus: ring on stipe
+Volva: cup at base of mushroom
+Pileus: cap of mushroom
+Hymenium: tissue producing spores
+Lamellae/Gills: ribs on cap underside
+
 #Inflorescence
 =Simple indeterminate / Racemose: unbranched, flowers on sides along main axis
 Raceme: pedicellate
@@ -26,6 +38,9 @@ Compound capitulum
 Pedicel (stem attaching single flower)
 Pedicellate<>Sessile
 
+Peduncle: stalk supporting inflorescence
+- Scape: leafless, long, from ground
+
 #Bract (specialized leaf)
 Lemma (lower)
 Palea (upper)
@@ -39,6 +54,7 @@ Hypanthium/Floral cup: support for other flower parts
 Perianth/Tepals (non-reproductive part)
 - Calyx/Sepals (outer)
 - Corolla/Petals (inner)
+- Labellum: modified petal, landing platform for pollinators (orchids)
 Androecium/Stamens (produce pollen)
 - Filament (stalk)
 - Anther (tip)
@@ -110,12 +126,15 @@ Endozoochory (animal ingestion)
 
 Trichome (hair)
 
-#Root
-Root nodule (nitrogen-fixing bacteria) [Fabaceae]
-Taproot (large central root, storage)
-Tuber (storage)
-Rhizome (underground stem)
+Stolon: horizontal stem at ground level, vegetative propagation
 
+#Root: underground
+Root nodule: nitrogen-fixing bacteria [Fabaceae]
+Taproot: large central root, storage
+Rhizome: storage, horizontal stem
+Tuber: storage, thickened rhizome
+Bulb: storage, layers of scales
+Corm: storage, swollen stem
 
 #Leaf
 Petiole (stalk attaching to stem)
