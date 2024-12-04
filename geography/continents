@@ -1,4 +1,4 @@
-#North America
+#North America: 20M km2
 deserts
 - Sonoran (Baja California)
 - Mojave (Death Valley)
@@ -27,7 +27,7 @@ others
 - El Capitan + Yosemite Falls
 - Mexican Plateau
 
-#South America
+#South America: 18M km2, most wet
 Isthmus of Panama + Darién Gap
 deserts
 - Atacama
@@ -41,7 +41,7 @@ waters
 - Kaieteur Falls
 - Lake Maracaibo
 
-#Africa
+#Africa: 30M km2
 deserts
 - Sahara
 - Kalahari + Namib
@@ -71,7 +71,7 @@ peninsulas
 others
 - Ngorongoro Crater
 
-#Asia
+#Asia: 44M km2
 India
 - Deccan Plateau + Ghats
 - mountains: Himalayas + Karakoram
@@ -99,7 +99,7 @@ North
 - lakes: Baikal
 - peninsulas: Kamchatka
 
-#Europe
+#Europe: 10M km2
 North
 - mountains: Scandinavian
 - lakes: Vänern + Vättern, Onega + Ladoga, Saimaa, Peipus
@@ -115,7 +115,7 @@ East
 - lakes: Balaton + Neusiedl
 - peninsulas: Peloponnese, Crimea
 
-#Australia
+#Australia: 8M km2, most arid
 deserts: Great Victoria + Great Sandy + Tanami + Simpson + Gibson
 mountains: Great Dividing Range, Uluru / Ayers Rock
 rivers: Murray + Darling

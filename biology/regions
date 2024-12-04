@@ -3,7 +3,7 @@
 #Ecoregion
 Holarctic = Palearctic + Nearctic
 Palearctic: Europe + North Asia + North Africa
-- Sahara
+- Sahara: desert, 9M km2, 20% of global deserts
 - Arabia
 - Mediterranean
 - British Isles
@@ -32,7 +32,7 @@ Nearctic: North America
 Neotropic: Central and South America
 - Carribean
 - Isthmus: Central America
-- Amazonia
+- Amazonia: tropical rainforest, 7M km2, 15% of global freshwater discharge
 - Cerrado
 - Andes
 - Pampas
