@@ -1,0 +1,44 @@
+Number theory: integers and arithmetic functions
+Operation: function from set to itself
+- Successor: next natural number
+- Predecessor: previous natural number
+- Addition: sum of terms (summands), repeated successor
+- Subtraction: difference between terms, repeated predecessor
+- Multiplication: product of factors, repeated addition
+- Division: quotient of dividend to divisor, repeated subtraction
+- Exponentation: product of base to exponent, repeated multiplication
+- Root extraction: root of radicand to degree, inverse of exponentation for base
+- Logarithm: inverse of exponentation for exponent
+
+Prime number: natural number that is not product of two smaller natural numbers
+- Goldbach's conjecture: unproven, every even integer is sum of two primes
+- Euclid's theorem: infinitely many primes, p1*p2*..*pn + 1
+- sum of reciprocals of primes is divergent
+- Mersenne prime: 2^p - 1, easier to test primality
+- Sieve of Eratosthenes: find primes by removing prime multiples
+- Prime gap: difference between two successive prime numbers
+- Bertrand's postulate: ∀ integer n ∃ prime number p where n < p < 2n
+Composite number: natural number that is product of two smaller natural numbers
+Fundamental theorem of arithmetic: every integer is unique product of prime factors
+
+Twin prime: pair of primes with gap of two
+- Twin prime conjecture: unproven, infinitely many twin primes
+- Brun's theorem: sum of reciprocals of twin primes is convergent
+- Polignac's conjecture: infinitely many consecutive primes with any even-length gap
+Cousin prime: pair of primes with gap of four
+Sexy prime: pair of primes with gap of six
+Prime constellation: k-tuple of consecutive primes with smallest possible sum of gaps
+
+Practical number: all smaller integers are sum of its distinct divisors (10 is not)
+Aliquot sum: sum of all proper divisors
+- Perfect number: equal to sum of its proper divisors (e.g. 6 or 28)
+- Deficient number: greater than sum of its proper divisors
+- Abundant number: less than sum of its proper divisors
+
+=Lucas sequence: recursive, x_n = P * x_n-1 - Q * x_n-2
+Fibonacci numbers: 0/1/P+Q, ratio of consecutive terms approach golden ratio
+Lucas numbers: 2/1/P+Q, ratio of consecutive terms approach golden ratio
+Pell numbers: 0/1/2P+Q, Pell / Pell-Lucas fractions approach square root of two
+Pell–Lucas numbers: 2/2/2P+Q
+Jacobsthal number: 0/1/P+2Q
+Mersenne numbers: 0/1/3P-2Q, 2^n-1

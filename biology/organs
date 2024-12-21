@@ -144,8 +144,6 @@ Lungs
 - bronchioli: smaller airways
 - alveoli: small air sacs, actual air exchange, 90% of volume
 
-#Digestive system
-
 #Reproductive system
 =Male
 Scrotum: skin sac holding testicles outside body
@@ -213,6 +211,36 @@ Extracranial: facial expressions
 - Cervical branch
 =Nervus vagus: cranial nerv X, very long
 speech, swallowing, regulation of heart + lungs + digestive tract
+
+=Nerve fiber types
+Aα: myelinated, muscle fiber
+Aβ: myelinated, mechanoreceptors
+Aγ: myelinated, muscle fiber
+Aδ: free nerve endings, moderately myelinated, pressure + cold nociceptors, neospinothalamic tract
+B: moderately myelinated, GVA fibers
+C: unmyelinated, warm nociceptors, paleospinothalamic tract
+
+Neospinothalamic tract: spinal cord to thalamus directly, sharp localized pain
+Paleospinothalamic tract: spinal cord to thalamus via reticular formation, dull general pain
+
+=Motor/Efferent neuron
+General somatic efferent (GSE)
+General visceral efferent (GVE)
+Special visceral efferent (SVE)
+=Sensory/Afferent neuron
+General somatic afferent (GSA): pain + touch + temperature
+General visceral afferent (GVA): vagus nerve
+Special somatic afferent (SSA): sense of vision + hearing + balance
+Special visceral afferent (SVA): sense of taste
+Baroreceptor: respond to blood pressure
+Chemoreceptor: H+, K+, histamine, bradykinin, prostaglandins, substance P, capsaicin
+Nociceptor: respond to damage
+Photoreceptor: respond to light
+Electroreceptor: respond to electric field
+Magnetoreceptor:
+Proprioceptor: sense of position
+Thermoreceptor: respond to temperature
+Mechanoreceptor: respond to pressure
 
 #Visual system: sight
 Cornea: transparent front layer, covers iris
@@ -306,3 +334,19 @@ Diastole: relaxation to fill with blood
 Preload: muscle stretch at end of diastole
 Afterload: resistance to eject blood during systole
 Starling's law: stroke volume increases with end diastolic volume (circulatory balance)
+
+#Digestive system
+=Stomach: hollow muscular, between esophagus and small intestine, breakdown of food by gastric acid
+=Pancreas: gland behind stomach, secretes pancreatic juice into duodenum
+Pancreatic juice: digestive enzymes, alkaline by bicarbonate ions to neutralize gastric acid
+=Gallbladder: hollow pear-shaped under liver, stores bile, releases bile into duodenum
+=Liver: upper right abdomen, dark brown, two lobes, 1.5 kg
+- storage of nutrients
+- carbohydrates metabolism
+- red blood cells decomposition
+Kupffer cell: macrophage, recycle hemoglobin via phagocytosis
+Hepatocyte: 80%
+- bile, bilirubin
+- detoxification
+- protein synthesis
+- store and regulate iron

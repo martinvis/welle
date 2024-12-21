@@ -1,7 +1,9 @@
 #Symptom: observable indication of disease
 Hyperalgesia: increased pain sensitivity
 Allodynia: pain from non-painful stimuli (eg after sunburn)
+Hypovolemia: loss of extracellular fluid
 Hemorrage: bleeding
+Hirsutism: excessive body hair in female
 Hematoma: blood within tissue
 - Bruise/Contusion: near epidermis, discoloration, reabsorbed
 - Subungual: under nail
@@ -265,7 +267,7 @@ Vestibular neuritis: inflammation of inner ear nerve
 Eosinophilic myocarditis: eosinophils in heart, inflammation
 - Löffler's endocarditis: last stadium, connective tissue replaces damaged muscle, poor contractions
 Arteriosclerosis/Atherosclerosis: loss of artery elasticity due to fat buildup
-- cause: high cholesterol, diabetes, smoking, obesity
+- cause: high cholesterol (LDL), diabetes, smoking, obesity
 - symptoms: higher blood pressure, dizziness, angina
 - diagnosis: EKG, blood test
 Vasculitis: blood vessels damage by inflammation
@@ -279,6 +281,7 @@ Kawasaki disease: vasculitis, affects medium-sized vessels
 - in children under 5 years, lasts several weeks
 Giant cell arteritis (GCA): autoimmune vasculitis, affects cranial vessels
 - symptoms: headache, double vision
+Von Willebrand disease (VWD): hereditary dominant, blood clotting disease
 
 Luxation: joint dislocation
 - Subluxation: partial dislocation
@@ -386,3 +389,6 @@ Syndactyly: genetic, one or more digits joined together
 - type II: middle + ring + 6th finger (polydactyly)
 - type III: small + ring finger
 - type IV: all fingers
+
+Hyperkalemia
+- treatment: calcium gluconate, insuline + glucose, loop diuretics, dialysis

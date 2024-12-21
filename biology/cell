@@ -72,6 +72,7 @@ Megakaryocyte: large, produce thrombocytes
 #Epithelium
 Goblet cell: secrete mucin
 - in respiratory and gastrointestinal tracts
+Parietal cell: stomach, secrete HCl and intrinsic factor
 
 #Gastrointestinal tract
 Microfold cell (M cell): selective endocytosis of antigens, transport to macrophages and lymphocytes
@@ -98,6 +99,8 @@ Schwann cell: peripheral nervous system, support neurons
 #Circulatory system
 Erythrocyte: red blood cell, oxygen transport
 Thrombocytes/Platelet: no nucleus, stop bleeding by making blood clot
+Erythropoiesis: red blood cell production in bone marrow, stimulated by low O2 in circulation
+- essential are iron, vitamins B9 + B12
 
 #Integumentary system
 Keratinocyte: epidermis barrier

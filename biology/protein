@@ -2,10 +2,13 @@
 Prion: misfolded protein, misfolding is propagated, causes fatal diseases
 
 #Signaling - Receptor: change cell behaviour when activated
+LDL receptor (LDLR): endocytosis of LDL
+Aquaporins (AQP*): water channel, 6 transmembrane + 2 short helices, form tetramers
 ==Transmembrane: cell surface
 Ion channel linked: controlled by neurotransmitters (Na+, K+, Ca+)
 - Nicotinic acetylcholine receptor: muscle contraction
-- GABA-A receptor: Cl- selective, ligand GABA, inhibitory neurotransmitter
+- GABA-A receptor: Cl- selective, ligand GABA, CNS inhibitory neurotransmitter
+- Glycine receptor: Cl- selective, ligand glycine, CNS inhibitory neurotransmitter
 - 5-HT3 serotonin receptors: excitatory neurotransmitter
 - Kainate receptors (KARs): glutamate, Na+ and K+
 - Capsaicin/Vanilloid receptor: body temperature regulation
@@ -18,6 +21,12 @@ Opsins: ligand retinal (vitamin A), activation by photon, retina, vision
 - L-cone: red color
 - M-cone: green color
 - S-cone: blue color
+--
+- Histamine receptors
+- H1 receptor: smooth muscle contraction, sensory nerves stimulation
+- H2 receptor: stomach, HCl secretion
+- H3 receptor: modulates neurotransmitter release
+- H4 receptor: immune response, allergic reaction
 --
 - Opioid receptors: neurons
 - Dopamine receptors: neurons, motor control + motivation
@@ -72,6 +81,7 @@ Cytokine: small, do not cross cell membrane, interact with receptors on cell sur
 - Interleukin: produced by leukocytes
 - Lymphokine: produced by lymphocytes
 - Pyrogene: interleukins, induce fever, migrate to brain (hypothalamus)
+- Erythropoietin (EPO): produced by kidney, stimulates red blood cell production
 
 #Antibody / Immunoglobulin (Ig)
 immune system
@@ -100,6 +110,10 @@ Troponin + Tropomyosin: regulate muscle contraction
 #Enzyme
 biological catalyst
 
+Hephaestin (HEPH): oxidizes iron exported by ferraportin
+Cyclooxygenase: synthesis of thromboxane and prostaglandins from arachidonic acid
+Carbonic anhydrase: reversible hydration of carbon dioxide, contain zinc, regulate pH
+
 #Kinase: enzyme, catalyzes transfer of phosphates from ATP
 Tyrosine kinase: functional on/off switch in cell
 Serine/threonine kinases: cell differentiation, apoptosis
@@ -108,7 +122,9 @@ Protein serine/threonine phosphatase
 - Calcineurin: activates T cells
 
 Hydrolase: hydrolysis
-- Protease: breaking down proteins
+Protease: breaking down proteins
+- Plasmin (PLG): serine protease, degrades fibrin
+- Urokinase (PLAU): serine protease, activates plasminogen to plasmin
 Oxidoreductase: oxidation/reduction
 Isomerase: isomerization
 Ligase: joining by bond
@@ -122,6 +138,7 @@ Thrombin (F2): converts fibrinogen to fibrin
 Trypsin: digestion, cuts protein into smaller pieces
 
 #Hormone
+Hepcidin (HAMP): regulated ferroportin, produced in liver
 Leptin: made by adipocytes, regulates energy balance
 Adiponectin: made by adipocytes, regulates glucose level and fatty acid breakdown
 Vasopressin
@@ -172,18 +189,32 @@ Hemoglobin (HBA/HBB): in erythrocytes, carries oxygen
 - highly soluble in water
 - heme degrades into bilirubin
 Cytoglobin (CYGB): oxygen transfer to brain
-Ferroportin: transports iron
+Ferroportin: transports iron out of cell
+Transferrin (TF): transports iron (Fe3+) through plasma, produced in liver
 Sodium–potassium pump: exports Na+ and imports K+, controls cell volume, maintains ion concentrations
 Albumins: globular
 - Serum albumin: bind hormones, fatty acids and drugs
 - Alpha-fetoprotein (AFP): in fetus, bind bilirubin and fatty acids
 - D-binding (DBP): bind vitamin D
 Serotonin transporter (SERT): serotonin reuptake, repeat length gene polymorphism
+Na–K–Cl cotransporter (NKCC): membrane transport, reabsorption in kidney, Na + K + 2 Cl (electroneutral)
+Na-Cl cotransporter (NCC): membrane transport, reabsorption in kidney
 
 #Storage
-Ferritin (FTL/FTH) - intracellular, stores iron
+Ferritin (FTL/FTH) - intracellular, stores iron as Fe3+ (takes and releases as Fe2+)
+Hemosiderin: intracellular, stores excess iron
 Myoglobin (MB), in muscle tissue, binds iron and oxygen, stores oxygen
 
 Opsonin: extracellular, induce phagocytosis (label)
 
 Antifreeze proteins (AFPs): lower freezing point, bind to small ice crystals (fish, spruce)
+
+
+=Mevalonate pathway: converts acetyl-CoA into terpenoids
+HMG-CoA reductase (HMGCR): enzyme of rate limiting step in cholessterol synthesis
+
+Terpenoids / Isoprenoids
+- in plants: artemisinin, beta caroten, menthol, zingiberene
+
+#Coagulation / Clotting
+Von Willebrand factor (VWF): glycoprotein, platelet adhesion

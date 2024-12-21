@@ -28,6 +28,15 @@ trehalose = glucose + glucose
 #fats/lipids
 linoleic acid COOH(CH2)7CH=CHCH2CH=CH(CH2)4CH3
 
+Apolipoprotein (APO*): bind lipids into lipoprotein
+Lipoprotein: transports hydrophobic lipids in water
+- phospholipid outer shell with apolipoproteins
+- triglyceride and cholesterol in center
+- Low-density lipoprotein (LDL): 
+- High-density lipoprotein (HDL): 
+Prostaglandins (PG): from arachidonic acid, local vasodilators, inhibit platelet aggregation
+- Prostacyclin
+
 oxygenic photosynthesis: CO2 + H2O + light => O2 + glucose
 anoxygenic photosynthesis: CO2 + H2S + light => S + H2O + glucose
 aerobic resporation: O2 + glucose => CO2 + H2O + ATP
@@ -112,7 +121,7 @@ B12/Cobalamin: water-soluble, stored in liver
 - deficit: pernicious anemia
 C/Ascorbate: water-soluble
 - function: immune system, antioxidant
-- source: citrus fruids, strawberry, pineapple, kiwi, peppers, broccoli
+- source: citrus fruits, strawberry, pineapple, kiwi, peppers, broccoli
 - deficit: scurvy
 A/Retinol: fat-soluble, stored in liver, overdose is toxic
 - function: immune system, vision
@@ -122,12 +131,18 @@ D: fat-soluble, stored in liver
 - function: absorption of calcium, magnesium
 - source: sun (synthesis in skin), cod liver, fish
 - deficit: rickets, osteomalacia
+- Cholecalciferol / D3: synthesis in skin
+- Calcidiol / Calcifediol: converted in liver from D3
+- Calcitriol: active form, converted in kidney from calcifediol, increases calcium uptake
 E: fat-soluble, stored in liver
 - function: antioxidant
 - source: oils
 K: fat-soluble, stored in liver
 - function: blood coagulation
 - source: green vegetables, tomato, chicken
+- Phytomenadione / K1: in green vegetables
+- Menaquinone / K2: bacterial product
+- Menadione / K3: in animal feed
 
 Panthenol [OC-C(C)2-C(O)-C(=O)-NCCCO]
 B5 provitamin

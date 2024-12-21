@@ -108,9 +108,21 @@ recreational drug, addictive
 
 #Anxiolytics: reduce anxiety
 Barbiturates: depressant, general anesthesia
-Benzodiazepines: depressant
+Benzodiazepines: depressant, GABAA agonist
 - Diazepam
 - Lorazepam
+
+#Muscle relaxant
+Baclofen: GABAB agonist, oral
+Dantrolene: ryanodine antagonist
+=non-depolarizing: require controlled respiration
+Pancuronium: euthanasia
+Vecuronium: general anesthesia
+Atracurium: general anesthesia
+Cisatracurium: general anesthesia
+Rocuronium: intubation
+=depolarizing
+Suxamethonium/Succinylcholine: blocks acetylcholine, short term for intubation, intravenous
 
 #Xanthines
 Caffeine: CNS stimulant
@@ -203,31 +215,37 @@ Trikafta: cystic fibrosis
 Xarelto: anticoagulant
 
 #Antithrombotic
-Anticoagulant: reduce blood clotting
+=Anticoagulant: reduce blood clotting
+- Heparin: activates antithrombin
+- Aspirin (acetylsalicylic acid, ASA, {C6}(-COOH)-O-C(=O)-C): inactivates cyclooxygenase
+- Hirudin: thrombin inhibitor, in leeches
+- Apixaban: common, factor Xa inhibitor
+- Rivaroxaban: factor Xa inhibitor
+Coumarins: vitamin K antagonist
 - Warfarin
-- Heparin
-- Aspirin (acetylsalicylic acid, ASA, {C6}(-COOH)-O-C(=O)-C)
-Antiplatelet: reduce platelet aggregation
-- Clopidogrel (Plavix)
-- Prasugrel (Efient)
-- Ticagrelor (Brilinta)
+Thrombolytic: target fibrin
+- Streptokinase: produced by Streptococci, risk of antibodies
+- Urokinase
+- Alteplase: intravenous, recombinant DNA
+=Antiplatelet: P2Y ADP antagonist, reduce platelet aggregation
+- Clopidogrel
+- Prasugrel
+- Ticagrelor
 
 #Antidiabetic
-Insulin
+Insulin: common
 For type 2:
 - Gliclazide (Diamicron)
 - Empagliflozin (Jardiance)
-- Metformin (Glucophage)
+- Metformin (Glucophage): common
 - Dulaglutide (Trulicity)
 
 #Generics
-Amoxicillin: antibiotic
-Amlodipine: against high blood pressure
-Atorvastatin: prevent cardiovascular diseases
-Simvastatin: prevent cardiovascular diseases
+Amoxicillin: common, antibiotic
+Amlodipine: common, against high blood pressure
 Fentanyl: analgesic
 Diclofenac: anti-inflammatory
-Levothyroxine: synthetic thyroid hormone
+Levothyroxine: common, synthetic thyroid hormone
 
 #Antipsychotic
 Chlorpromazine: schyzophrenia
@@ -236,28 +254,30 @@ Chlorpromazine: schyzophrenia
 Sumatriptan: serotonin agonist
 
 #Antidepressant
+Bupropion: common
 Selective serotonin reuptake inhibitor (SSRI)
-- Fluoxetine (Prozac)
+- Sertraline: common
+- Fluoxetine (Prozac): common
+- Escitalopram: common
 - Citalopram
 - Fluvoxamine
 - Paroxetine
-- Sertraline
 Serotonin–norepinephrine reuptake inhibitor (SNRI)
-- Duloxetine
+- Duloxetine: common
 - Venlafaxine
 Serotonin antagonist and reuptake inhibitor (SARI)
-- Trazodone
+- Trazodone: common
 
 #ACE inhibitor: lower high blood pressure, common side effect coughing
 Benazepril
 Captopril
 Enalapril
-Lisinopril
+Lisinopril: common
 Ramipril
 
 #Angiotensine receptor blocker (ARB) / Sartan: high blood pressure, angiotensine antagonist
+Losartan: common
 Irbesartan
-Losartan
 Valsartan
 
 #Beta blocker: manage arrhythmia and high blood pressure, block receptors for adrenaline and noradrenaline
@@ -270,17 +290,20 @@ Selective
 - Atenolol
 - Bisoprolol
 - Esmolol
-- Metoprolol
+- Metoprolol: common
 - Nebivolol
 
 #Corticosteroid
 Glucocorticoid: bind to glucocorticoid receptor
-- Prednisone: decrease inflammation
+- Prednisone: common, decrease inflammation, oral
+- Fluticasone: common, treat nasal congestion
+- Budesonide
 Mineralocorticoid: bind to mineralocorticoid receptor
 
 #Antiulcer: against reflux
-Omeprazole: proton pump inhibitor
-Pantoprazole: proton pump inhibitor
+proton pump inhibitor
+- Omeprazole: common
+- Pantoprazole: common
 H2 blocker: block histamine receptors in stomach
 - Ranitidine: decrease stomach acid production
 
@@ -297,9 +320,9 @@ Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 
 #Analgesic: pain relievers
 Non-opioid
-- Paracetamol (Panadol): antipyretic (overdose ~5g: liver failure)
-- Ibuprofen (Nurofen): anti-inflammatory
-- Aspirin: anti-inflammatory (overdose ~10g: brain/lungs edema)
+- Paracetamol (Panadol): common, antipyretic (overdose ~5g: liver failure)
+- Ibuprofen (Nurofen): common, anti-inflammatory
+- Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
 - Naproxen (Aleve): anti-inflammatory
 Opioid: μ-opioid agonist
 - Morphine: recreational drug, found in opium, addictive
@@ -324,8 +347,11 @@ Local: blocks sodium channels on neuron membrane
 - Bupivacaine
 
 #Laxative
-Senna
-Bisacodyl
+Senna: peristaltic stimulant
+Bisacodyl: peristaltic stimulant
+Sorbitol: osmotic
+Lactulose: osmotic
+Castor oil
 
 #Contraceptive
 
@@ -343,7 +369,7 @@ Voriconazole
 Selenium disulfide: SeS2
 
 #Anticonvulsant
-Gabapentin
+Gabapentin: common
 
 #Antiviral
 Aciclovir: herpes
@@ -371,6 +397,13 @@ Setrons: serotonin antagonist, after cytostatic chemotherapy
 - Ondansetron
 Metoclopramide: dopamine antagonist
 
+#Antidiarrheal
+Loperamide: opioid agonist, oral
+
+#Blood
+=hypovolemia
+Hydroxyethyl starch (HES): intravenous volume expander
+
 #Cardiovascular system
 =Antianginal
 Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual
@@ -383,10 +416,44 @@ Verapamil: calcium channel blocker, oral, not with beta blockers
 =Cardiac glycoside: sodium-potassium pump inhibitor, steroid code, increase output, decrease heart rate
 Digoxin / Digitalis: foxglove plant, excretion by kidney
 Digitoxin: foxglove plant
+=Hypolipidemic: prevent cardiovascular diseases
+Statins: HMGCR inhibitor, increase LDL receptors in liver
+- Simvastatin: common
+- Atorvastatin: common
+- Rosuvastatin: common
+- Fluvastatin
+- Lovastatin
+- Pravastatin
+=Diuretic
+Thiazides: inhibit Na-Cl cotransporter, hypokalemia
+- Hydrochlorothiazide: common
+- Indapamide
+- Chlortalidone
+Loop diuretic: inhibit Na-K-Cl cotransporter
+- Furosemide: common
+- Torasemide
+Potassium sparing: with thiazides
+- Amiloride: sodium channel blocker, oral
+- Triamterene: sodium channel blocker, oral
+- Spironolactone: aldosterone antagonist (affects testosterone)
+- Eplerenone: aldosterone antagonist
+Acetazolamide: carbonic anhydrase inhibitor, oral, mild acidosis, treat glaucoma and epilepsy
+Mannitol: osmotic (inhibits reabsorption), intravenous, heart failure risk
+
+=vasopressin agonist, antidiuretic, increase blood pressure
+Desmopressin
+Terlipressin
 
 =Tocolytic: suppress contractions
 =Uterotonic: induce contractions
 Oxytocin
+
+=Erythropoietin: treat anemia due to kidney disease
+Darbepoetin: longer life-time
+Epoetin
+
+=Mineral supplements
+Calcium gluconate: protect heart from hyperkalemia
 
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system
@@ -411,7 +478,7 @@ B03 / Antianemic
 #C / Cardiovascular system
 C01 / Cardiac therapy
 C02 / Antihypertensive: treat high blood pressure
-C03 / Diuretic: increase urine production
+C03 / Diuretic: increase urine production, decrease blood pressure
 
 #D / Dermatologicals
 D01 / Antifungals
@@ -448,3 +515,5 @@ R06 / Antihistamines
 #V / Various
 V01 / Allergen: produce strong immune response
 V08 / Contrast media
+
+WHO Essential Medicines List (EML)

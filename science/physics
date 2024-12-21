@@ -14,23 +14,27 @@ Anion: ion with more electrons than protons
 Isoelectronic: same number of electron but different element
 
 #Particles
-Electron: negative charge, orbit nucleus
-Proton: positive charge, in nucleus, 1836 times mass of electron
-Neutron: neutral, in nucleus
-Photon: quantum of electromagnetic field, massless, chargeless
-Fermions: odd half-integer spin, quarks and leptons
-Hadrons: made of quarks
-- Baryons: made of odd number of quarks (usually 3)
-- Mesons: made of even number of quarks (usually quark and anti-quark)
-Bosons: integer spin, force carriers
-Quarks: up/down, top/bottom, strange/charm
-Leptons: do not affected by strong force
-Neutrinos: neutral leptons
 Spin: amount of angular momentum
 Atomic number (Z): number of protons
 Mass number (A): number of protons and neutrons
-Pion: meson, decay into photons or muon + muon neutrino
-Muon: lepton, decay into electron + electron neutrino + muon neutrino
+=Fermions: odd half-integer spin, quarks and leptons
+Quarks: up/down, top/bottom, strange/charm
+Leptons: not affected by strong force
+- Electron: negative charge, orbit nucleus
+- Muon: decay into electron + electron antineutrino + muon neutrino
+- Tau: decay into (pions | electron + electron antineutrino | muan + muon antineutrino) + tau neutrino
+- Neutrinos: neutral leptons
+=Bosons: integer spin, force carriers
+Photon: quantum of electromagnetic field, massless, chargeless
+
+#Composite particles
+=Hadrons: made of quarks
+Baryons: made of odd number of quarks (usually 3)
+- Proton: positive charge, in nucleus, 1836 times mass of electron
+- Neutron: neutral, in nucleus
+- Delta baryons: made of up and down quarks, decay into nucleon + pion
+Mesons: made of even number of quarks (usually quark and anti-quark)
+- Pion: made of up and down quarks, decay into photons or muon + muon neutrino
 
 #Radiation
 Alpha: helium nucleus

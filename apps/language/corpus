@@ -226,28 +226,29 @@ chinese|abstract/number|číslo|号|hào|True|False|other|
 chinese|abstract/number|šesť|六|liù|True|False|other|
 chinese|abstract/number|štatistický|统计|tǒngjì|False|False|other|
 chinese|abstract/number|štyri|四|sì|True|False|other|
-chinese|abstract/process|končiť|结束|jiéshù|True|False|other|
-chinese|abstract/process|kopírovať|复制|fùzhì|False|True|other|
+chinese|abstract/process|končiť|结束|jié shù|True|False|other|
+chinese|abstract/process|kopírovať|复制|fù zhì|False|True|other|
 chinese|abstract/process|miesto v poradí|名|míng|False|False|other|
 chinese|abstract/process|nasledovať|顺着|shùn zhe|False|False|other|
 chinese|abstract/process|nikdy viac|再也|zài yě|False|True|other|
 chinese|abstract/process|obmedziť|限制|xiàn zhì|True|False|other|
 chinese|abstract/process|odhadnúť|估计|gū jì|True|False|other|
-chinese|abstract/process|odznovu|重新|chóngxīn|True|False|other|
-chinese|abstract/process|opakovane|反复|fǎnfù|False|True|other|
-chinese|abstract/process|opakovať|重复|chóngfù|True|False|other|
+chinese|abstract/process|odznovu|重新|chóng xīn|True|False|other|
+chinese|abstract/process|opakovane|反复|fǎn fù|False|True|other|
+chinese|abstract/process|opakovať|重复|chóng fù|True|False|other|
 chinese|abstract/process|plán|计划|jì huà|True|False|other|
-chinese|abstract/process|pokračovať|继续|jìxù|True|False|other|
+chinese|abstract/process|pokračovať|继续|jì xù|True|False|other|
 chinese|abstract/process|poradie|排名|pái míng|False|True|other|
-chinese|abstract/process|postup|程序|chéngxù|True|False|other|
+chinese|abstract/process|postupne|渐渐|jiàn jiàn|False|False|other|
+chinese|abstract/process|postup|程序|chéng xù|True|False|other|
 chinese|abstract/process|pripraviť|准备|zhǔn bèi|True|False|other|
 chinese|abstract/process|rad|列|liè|False|False|other|
 chinese|abstract/process|sekvencia|顺序|shùn xù|False|False|other|
 chinese|abstract/process|skončiť|完|wán |True|False|other|
-chinese|abstract/process|skončiť|完成|wánchéng|True|False|other|
+chinese|abstract/process|skončiť|完成|wán chéng|True|False|other|
 chinese|abstract/process|séria|系列|xì liè|False|True|other|
 chinese|abstract/process|usporiadať|排列|pái liè|False|True|other|
-chinese|abstract/process|začať|开始|kāishǐ|True|False|other|
+chinese|abstract/process|začať|开始|kāi shǐ|True|False|other|
 chinese|abstract/process|znovu|再|zài|True|False|other|
 chinese|abstract/risk|bezpečie|安全|ān quán|True|False|other|
 chinese|abstract/risk|garantovať|保证|bǎo zhèng|True|False|other|
@@ -1085,9 +1086,12 @@ chinese|economy/religion|raj|乐园|lè yuán|False|False|other|
 chinese|economy/religion|svätý|圣|shèng|False|False|other|
 chinese|economy/religion|uctievať|崇拜|chóngbài|False|False|other|
 chinese|economy/religion|vianočný|圣诞|shèng dàn|False|False|other|
+chinese|economy/retail|kúpiť|买|mǎi|False|False|other|
 chinese|economy/retail|nákupné stredisko|商场|shāngchǎng|True|False|other|
 chinese|economy/retail|obchod|商店|shāngdiàn|True|False|other|
 chinese|economy/retail|obchod|贸易|màoyì|False|False|other|
+chinese|economy/retail|predať|卖|mài|False|False|other|
+chinese|economy/retail|predať|售|shòu|False|False|other|
 chinese|economy/retail|reklama|广告|guǎng gào|False|False|other|
 chinese|economy/retail|supermarket|超市|chāoshì|True|False|other|
 chinese|economy/retail|trh|市场|shìchǎng|True|False|other|
@@ -1111,6 +1115,7 @@ chinese|economy/transportation|metro|地铁|dì tiě|False|False|other|
 chinese|economy/transportation|ponorka|潜艇|qián tǐng|False|False|other|
 chinese|economy/transportation|poslať|寄|jì |False|False|other|
 chinese|economy/transportation|poslať|寄出|jì chū|False|False|other|
+chinese|economy/transportation|posol|使者|shǐ zhě|False|False|other|
 chinese|economy/transportation|prijať|收|shōu |False|False|other|
 chinese|economy/transportation|prijať|收到|shōu dào|False|False|other|
 chinese|economy/transportation|prístav|海港|hǎi gǎng|False|False|other|
@@ -1158,6 +1163,7 @@ chinese|economy/war|útočiť|攻击|gōngjī|False|False|other|
 chinese|economy/war|špión|间谍|jiàndié|False|False|other|
 chinese|economy/work|dovolenka|假期|jià qī|False|False|other|
 chinese|economy/work|ekonomika|经济|jīng jì|False|False|other|
+chinese|economy/work|expert|专家|zhuān jiā|False|False|other|
 chinese|economy/work|firma|公司|gōng sī|False|False|other|
 chinese|economy/work|konať|作|zuò|False|False|other|
 chinese|economy/work|mzda|工资|gōng zī|False|False|other|
@@ -1266,6 +1272,7 @@ chinese|human/communication|súkromie|隐私|yǐn sī|False|True|other|
 chinese|human/communication|sľub|诺言|nuòyán|False|False|other|
 chinese|human/communication|sľúbiť|许诺|xǔnuò|False|False|other|
 chinese|human/communication|sťažovať sa|投诉|tóu sù|False|False|other|
+chinese|human/communication|tajný|隐秘|yǐn mì|False|True|other|
 chinese|human/communication|tajomstvo|秘密|mì mì|False|False|other|
 chinese|human/communication|ticho|寂静|jì jìng|False|False|other|
 chinese|human/communication|ticho|沉寂|chén jì |False|False|other|
@@ -1506,6 +1513,7 @@ chinese|life/feeling|dúfať|希望|xī wàng|True|False|other|
 chinese|life/feeling|emócia|感情|gǎn qíng|False|False|other|
 chinese|life/feeling|hanblivosť|胆怯|dǎn qiè|False|False|other|
 chinese|life/feeling|hanblivý|害羞|hài xiū|False|True|other|
+chinese|life/feeling|hnev|怒气|nù qì|False|False|other|
 chinese|life/feeling|hnev|愤怒|fèn nù|False|False|other|
 chinese|life/feeling|hrôza|恐怖|kǒng bù|False|False|other|
 chinese|life/feeling|láska|爱情|ài qíng|False|False|other|
@@ -1719,6 +1727,7 @@ chinese|life/spravanie|smiech|笑|xiào|True|False|other|
 chinese|life/spravanie|smrť|死亡|sǐ wáng|False|True|other|
 chinese|life/spravanie|smädný|渴|kě|True|False|other|
 chinese|life/spravanie|starý|老|lǎo|True|False|other|
+chinese|life/spravanie|tehotenstvo|妊娠|rèn shēn|False|False|other|
 chinese|life/spravanie|tradícia|传统|chuán tǒng|False|True|other|
 chinese|life/spravanie|unavený|倦|juàn|False|False|other|
 chinese|life/spravanie|unavený|疲倦|pí juàn|False|True|other|
@@ -2039,11 +2048,13 @@ chinese|nature/fyzika|knísať sa|晃动|huàng dòng|False|False|other|
 chinese|nature/fyzika|kolísať sa|摇晃|yáo huàng|False|False|other|
 chinese|nature/fyzika|kolísať sa|起伏|qǐ fú|False|False|other|
 chinese|nature/fyzika|kývať sa|摇摆|yáo bǎi|False|False|other|
+chinese|nature/fyzika|lepkavý|粘|nián|False|False|other|
 chinese|nature/fyzika|odpor|阻力|zǔ lì|False|False|other|
 chinese|nature/fyzika|ohnúť|弯|wān|False|False|other|
 chinese|nature/fyzika|otáčať|转|zhuǎn|False|False|other|
 chinese|nature/fyzika|padnúť|掉下|diào xià|False|False|other|
 chinese|nature/fyzika|pohnúť|动|dòng|False|False|other|
+chinese|nature/fyzika|pohybovať sa|移动|yí dòng|False|True|other|
 chinese|nature/fyzika|pohyb|动作|dòng zuò|False|True|other|
 chinese|nature/fyzika|pomaly|徐徐|xúxú|False|False|other|
 chinese|nature/fyzika|pomalý|慢|màn|False|False|other|
@@ -2364,14 +2375,17 @@ chinese|phrases|dostať nápad|灵机一动||False|False|other|
 chinese|phrases|dovidenia|再见|zài jiàn|False|False|other|
 chinese|phrases|horieť netrpezlivosťou|心急如焚||False|False|other|
 chinese|phrases|jedinečný|绝无仅有||False|False|other|
+chinese|phrases|každoročný|一年一度||False|False|other|
 chinese|phrases|nedať sa inak|不禁|bù jīn|False|False|other|
 chinese|phrases|nemôcť sa dočkať|巴不得|bā bu de|False|False|other|
 chinese|phrases|neuveriteľný|不可思议||False|False|other|
 chinese|phrases|nezávislý|独立自主||False|False|other|
 chinese|phrases|nie je za čo|不客气|bù kè qi|False|False|other|
+chinese|phrases|očarujúca|千娇百媚||False|False|other|
 chinese|phrases|perfektný|十全十美||False|False|other|
 chinese|phrases|preháňať|夸大其词||False|False|other|
 chinese|phrases|prekomplikovať|画蛇添足||False|False|other|
+chinese|phrases|prekonávať prekážky|破关斩将||False|False|other|
 chinese|phrases|prekrásna|沉鱼落雁||False|False|other|
 chinese|phrases|prekrásna|闭月羞花||False|False|other|
 chinese|phrases|prevziať iniciatívu|先发制人||False|False|other|
@@ -2379,6 +2393,7 @@ chinese|phrases|pútajúci pozornosť|引人注目||False|False|other|
 chinese|phrases|s prepáčením|对不起|duì bu qǐ|False|False|other|
 chinese|phrases|samozrejmý|理所当然||False|False|other|
 chinese|phrases|superinteligentný|冰雪聪明||False|False|other|
+chinese|phrases|tajnostkársky|鬼鬼祟祟||False|False|other|
 chinese|phrases|tak či tak|无论如何||False|False|other|
 chinese|phrases|unikátny|独一无二||False|False|other|
 chinese|phrases|v skratke|总而言之||False|False|other|
@@ -4238,6 +4253,7 @@ deutsch|culture/stravovanie|kŕmiť|füttern||True|False|verb|
 deutsch|culture/stravovanie|kŕmiť|nähren||False|True|verb|
 deutsch|culture/stravovanie|labužník|Schlemmer||False|False|noun|r
 deutsch|culture/stravovanie|lahodný|köstlich||False|True|other|
+deutsch|culture/stravovanie|lačný|nüchtern||False|False|verb|
 deutsch|culture/stravovanie|lovec|Jäger||False|True|noun|r
 deutsch|culture/stravovanie|loviť|jagen||True|False|verb|
 deutsch|culture/stravovanie|lov|Jagd/en||False|True|noun|e
@@ -5420,6 +5436,7 @@ deutsch|deutsch/umiestnenie|premiestniť|versetzen||True|False|verb|
 deutsch|deutsch/umiestnenie|uložiť niekam|einräumen||True|False|verb|
 deutsch|deutsch/umiestnenie|umiestniť|platzieren||True|False|verb|
 deutsch|deutsch/umiestnenie|visieť|hängen/hing/gehangen||True|False|verb|
+deutsch|deutsch/umiestnenie|vynímať sa|prangen||False|False|verb|
 deutsch|deutsch/umiestnenie|vyčnievať|ragen||True|False|verb|
 deutsch|deutsch/umiestnenie|zavesiť|anhängen||True|False|verb|
 deutsch|deutsch/umiestnenie|zavesiť|aufhängen||True|False|verb|
@@ -5494,6 +5511,7 @@ deutsch|deutsch/ľudská povaha/odhodlanie|ctižiadostivosť|Ehrgeiz||True|False
 deutsch|deutsch/ľudská povaha/odhodlanie|ctižiadostivý|ehrgeizig||True|False|other|
 deutsch|deutsch/ľudská povaha/odhodlanie|dosiahnuť|erreichen||True|False|verb|
 deutsch|deutsch/ľudská povaha/odhodlanie|dosiahnuť|erzielen||True|False|verb|
+deutsch|deutsch/ľudská povaha/odhodlanie|dôkladný|akribisch||False|False|other|
 deutsch|deutsch/ľudská povaha/odhodlanie|komplikovaný|kompliziert||True|False|other|
 deutsch|deutsch/ľudská povaha/odhodlanie|lenivosť|Faulheit||False|False|noun|e
 deutsch|deutsch/ľudská povaha/odhodlanie|lenivý|faul||False|False|other|
@@ -8418,6 +8436,7 @@ deutsch|life/body|sval|Muskel/n||True|False|noun|r
 deutsch|life/body|temeno|Scheitel||False|False|noun|r
 deutsch|life/body|tenké črevo|Dünndarm||False|True|noun|r
 deutsch|life/body|tepna|Arterie/n||False|False|noun|e
+deutsch|life/body|tepna|Pulsader/n||False|False|noun|e
 deutsch|life/body|tepna|Schlagader||False|False|noun|e
 deutsch|life/body|tesák|Fangzahn||False|True|noun|r
 deutsch|life/body|ucho|Ohr/en||True|False|noun|s
@@ -8438,7 +8457,7 @@ deutsch|life/body|šošovka|Linse/n||False|False|noun|e
 deutsch|life/body|šľacha|Flechse||False|False|noun|e
 deutsch|life/body|šľacha|Sehne||False|False|noun|e
 deutsch|life/body|žalúdok|Magen/ä||True|False|noun|r
-deutsch|life/body|žila|Blutader||False|False|noun|e
+deutsch|life/body|žila|Blutader/n||False|False|noun|e
 deutsch|life/body|žila|Vene/n||False|False|noun|e
 deutsch|life/body|žlčník|Gallenblase||False|True|noun|e
 deutsch|life/body|žlč|Galle/n||False|False|noun|e
@@ -10190,13 +10209,17 @@ espanol|biology/physiology|dych|aliento||False|False|other|
 espanol|biology/physiology|dívať sa|mirar||False|False|other|
 espanol|biology/physiology|dýchanie|respiración||False|False|other|
 espanol|biology/physiology|dýchať|respirar||False|False|other|
+espanol|biology/physiology|hlt/glg|sorbo||False|False|other|
+espanol|biology/physiology|hlt/glg|trago||False|False|other|
 espanol|biology/physiology|hluchý|sordo||False|False|other|
 espanol|biology/physiology|hmat|tacto||False|False|other|
+espanol|biology/physiology|horký|amargo||False|False|other|
 espanol|biology/physiology|hrýzť|morder||False|False|other|
 espanol|biology/physiology|kašeľ|tos||False|False|other|
 espanol|biology/physiology|kašlať|toser||False|False|other|
 espanol|biology/physiology|klopať|golpetear||False|False|other|
 espanol|biology/physiology|krvácať|sangrar||False|False|other|
+espanol|biology/physiology|kyslý|agrio||False|False|other|
 espanol|biology/physiology|kýchnuť|estornudar||False|False|other|
 espanol|biology/physiology|lízať|lamer||False|False|other|
 espanol|biology/physiology|mrkať|parpadear||False|False|other|
@@ -10217,6 +10240,8 @@ espanol|biology/physiology|preskúmať|escudriñar||False|False|other|
 espanol|biology/physiology|prežúvať|masticar||False|False|other|
 espanol|biology/physiology|pískať|pitar||False|False|other|
 espanol|biology/physiology|pískať|silbar||False|False|other|
+espanol|biology/physiology|sladký|dulce||False|False|other|
+espanol|biology/physiology|slaný|salado||False|False|other|
 espanol|biology/physiology|slepý|ciego||False|False|other|
 espanol|biology/physiology|slina|saliva||False|False|other|
 espanol|biology/physiology|sliniť|salivar||False|False|other|
@@ -10403,6 +10428,7 @@ espanol|culture/oblecenie|ponožka|calcetín||False|False|other|
 espanol|culture/oblecenie|prsteň (lacný)|sortija||False|False|other|
 espanol|culture/oblecenie|prsteň|anillo||False|False|other|
 espanol|culture/oblecenie|rukáv|manga||False|False|other|
+espanol|culture/oblecenie|smoking|esmoquin||False|False|other|
 espanol|culture/oblecenie|sukňa|falda||False|False|other|
 espanol|culture/oblecenie|topánka|zapato||False|False|other|
 espanol|culture/oblecenie|vyobliekať sa|ataviarse||False|False|other|
@@ -10559,6 +10585,7 @@ espanol|economy/agriculture|kravský zvonec|cencerro||False|False|other|
 espanol|economy/agriculture|kvetináč|maceta||False|False|other|
 espanol|economy/agriculture|kôň|caballo||False|False|other|
 espanol|economy/agriculture|lopata|pala||False|False|other|
+espanol|economy/agriculture|loviť ryby|faenar||False|False|other|
 espanol|economy/agriculture|mačka|gato||False|False|other|
 espanol|economy/agriculture|motyka|azada||False|False|other|
 espanol|economy/agriculture|osev|siembra||False|False|other|
@@ -10599,7 +10626,9 @@ espanol|economy/buildings|okno|ventana||False|False|other|
 espanol|economy/buildings|pozemok|terreno||False|False|other|
 espanol|economy/buildings|stavať|construir||False|False|other|
 espanol|economy/buildings|stena|pared||False|False|other|
+espanol|economy/buildings|stoka|cloaca||False|False|other|
 espanol|economy/buildings|strecha|techo||False|False|other|
+espanol|economy/buildings|strešné okno|tragaluz||False|False|other|
 espanol|economy/buildings|tehla|ladrillo||False|False|other|
 espanol|economy/buildings|trosky|escombro||False|False|other|
 espanol|economy/cloths|ihla|aguja||False|False|other|
@@ -10658,6 +10687,7 @@ espanol|economy/furniture|posteľ|cama||True|False|other|
 espanol|economy/furniture|skriňa|armario||False|False|other|
 espanol|economy/furniture|stolička|silla||True|False|other|
 espanol|economy/furniture|stôl|mesa||True|False|other|
+espanol|economy/furniture|šuflík|cajón||False|False|other|
 espanol|economy/gastro|cedidlo|colador||False|False|other|
 espanol|economy/gastro|chamuscar|pripáliť||False|False|other|
 espanol|economy/gastro|dochutiť (nakoniec)|aderezar||False|False|other|
@@ -11255,6 +11285,7 @@ espanol|other|cudzí|ajeno||False|False|other|
 espanol|other|darebák|pillo||False|False|other|
 espanol|other|darebák|truhan||False|False|other|
 espanol|other|dosah|alcance||False|False|other|
+espanol|other|dostupný|asequible||False|False|other|
 espanol|other|dychčať|resoplar||False|False|other|
 espanol|other|handra|trapo||False|False|other|
 espanol|other|hlučný|ruidoso||False|False|other|

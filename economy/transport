@@ -46,6 +46,13 @@ twin-aisle: wide body
 - Boeing 747: 1.5k
 - Boeing 777: 1.5k
 
+=helicopter
+Coaxial rotors: two rotors in one axis, contra rotating (instead of tail rotor)
+Tandem rotors: two rotors in one plane, contra rotating (instead of tail rotor)
+NOTAR: uses Coandă effect (instead of tail rotor)
+=jet
+Trijet: central engine within tail, 1980s
+
 #pipeline
 Petroleum
 - Druzhba: Russia -> Poland/Slovakia -> Germany
