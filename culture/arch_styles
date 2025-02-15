@@ -130,7 +130,9 @@ Wall
 - Rampart: broad defensive wall, often with parapet
 - Battlement: Parapet + Crenellation
 - Parapet: upward extension of wall at roof edge
-- Crenellation: gaps in parapet, allows projectiles launch
+- Crenellation: Merlons + Crenels
+- Merlon: upright section of crenellation, cover defenders
+- Embrasure/Crenel: opening between merlons, fire ranged weapons
 - Bastion: projection at wall corner
 Pincer gate: gate between two angled walls
 Faussebraye: lower wall outside main wall

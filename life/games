@@ -104,7 +104,13 @@ Carcassone
 Scrabble
 Codenames
 Monopoly
+Ticket to Ride
+- setup: train cards (various colors), destination cards, map of colored routes between destinations
+- turn: draw trains, claim routes, get destinations
 
 #other
 Hide-and-seek
 Twister
+Mafia/Werewolf
+- setup: villagers + mafiosi
+- turn: mafiosi kill villager, villagers vote suspect

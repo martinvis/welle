@@ -11,6 +11,13 @@ CIA (Central Intelligence Agency): foreign intelligence, Langley, Virginia
 DIA (Defense Intelligence Agency): military intelligence, Washington DC
 NSA (National Security Agency): intelligence, Maryland
 
+=Classified information
+Levels
+- Confidential: low
+- Secret: medium
+- Top Secret: high
+SCIF (Sensitive compartmented information facility): area to proccess classified information
+
 #United States bases
 USA
 - Fort Liberty (Bragg), North Carolina

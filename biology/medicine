@@ -63,6 +63,9 @@ Fistula: abnormal connection of epithels (e.g. urinary and intestinal tracts)
 Paresthesia: abnormal sensation of skin
 #Psychological
 Alexithymia: problem describing one's emotions
+#Urinary
+Polyuria: excessive urine production
+Polydipsia: excessive thirst
 
 Syndrome: set of correlated symptoms, specific for certain disease
 
@@ -127,6 +130,7 @@ Extracorporeal membrane oxygenation (ECMO): artificial heart and lung, life supp
 Cardiopulmonary bypass (CPB): during surgery, replaces heart and lung function
 Stoma: artificial opening
 - Colostomy: large intestine, feces removal
+Coronary stent: expandable mesh tube, keeps coronary artery open, prevents angina and heart attack
 
 #Epidemiology: distribution of disease in population
 Communicable disease: caused by infection
@@ -174,7 +178,7 @@ Eosinophilic esophagitis: inflammation of esophagus, difficult swallowing
 Rheumatoid arthritis: joint capsule thickening, swollen warm joints
 Rheumatic fever: non-itchy rash, painful joints, heart failure
 Pernicious anemia: lack of intrinsic factor causes vitamin B12 deficiency
-Graves' disease: most common cause of Hyperthyroidism, eye bulging
+Graves' disease: most common cause of Hyperthyroidism, bulging eye
 
 #autoimmune type III
 Lupus
@@ -186,7 +190,7 @@ Hashimoto's thyroiditis: affects thyroid
 - symptoms: weight gain, hair loss, depression
 
 Addison's disease: affects adrenal gland
-- inadequate production of steroid hormones
+- inadequate production of cortisol and aldosterone
 - symptoms: darkening of skin, weakness
 - diagnosis: low sodium, high potassium
 
@@ -287,12 +291,21 @@ Luxation: joint dislocation
 - Subluxation: partial dislocation
 
 #cancer
-Leukemia: bone marrow, abnormal blood cells
+=Leukemia: bone marrow, abnormal blood cells
 - symptoms: bleeding, fatigue
 - lymphocytic: white blood cells
 - myelogenous: red blood cells
-Lymphoma: lymphocytic leukemia
+Philadelphia chromosome
+- translocation between chromosomes 9 and 22
+- defective tyrosine kinase signaling, uncontrolled cell division
+=Lymphoma: lymphocytic leukemia
 - Hodgkin lymphoma: enlarged lymph nodes, night sweats
+=Carcinoma: epithelium
+Small-cell carcinoma: lung, aggressive with metastases
+Large-cell carcinoma: lung
+=Sarcoma: connective tissue
+Osteosarcoma: bones, young adults
+Liposarcoma: fat cells
 
 #nephrology
 Rhabdomyolysis: damaged skeletal muscle breaks down, can cause kidney failure (myoglobin), dark colored urine
@@ -362,14 +375,24 @@ Irritable bowel syndrome (IBS): abdominal pain and bloating, 10% of population
 #Endocrine
 Thyroiditis: inflammation of thyroid gland
 =
+Diabeter mellitus:
+- lack of insulin production, hyperglycemia
+- excessive urination and thirst
+- weight loss, increased hunger
+- Type 1: autoimmune, insulin needed lifelong
+- Type 2: very common, caused by obesity
 Diabetes insipidus
 - lack of vasopressin production
-- lage amounts of urine produced, increased thirst
+- excessive urination and thirst
 Hyperthyroidism
 - excessive thyroid hormones production
 - Goiter: enlarged thyroid gland
 - symptoms: muscle weakness, fast hearthbeat, increased perspiration, heat intolerance, diarrhea, weight loss, trouble sleeping
 - causes: autoimmune, tumor, inflammation, high iodine intake
+Acromegaly: excess growth of some body part, caused by excess growth hormone
+Cushing's syndrome: prolonged glucocorticoids use, excess cortisol
+- abdominal obesity, thin arms and legs
+- round red face, weak bones and muscles, fragile skin
 
 Osteoporosis: bone mass loss, porous bones, risk of fractures
 Arthritis: joints inflammation
@@ -392,3 +415,6 @@ Syndactyly: genetic, one or more digits joined together
 
 Hyperkalemia
 - treatment: calcium gluconate, insuline + glucose, loop diuretics, dialysis
+
+Schizophrenia: low patient compliance
+Bipolar Disorder: low patient compliance

@@ -53,6 +53,9 @@ Mutation: alteration of genome, caused by copying error or damage
 - Frameshift: insertion or deletion of length not divisible by three
 Copy number variation (CNV): difference in number of copies between individuals
 Lactase persistence: mutation allowing lactose digestion in adulthood, lactase enzyme activity (mainly Europeans)
+Intercalation: insertion of molecule between planar bases of DNA
+- planar polycyclic aromatic (eg Berberine, Proflavine)
+- used in chemotherapy
 
 #Gene expression
 Transcription: DNA copied to mRNA
@@ -244,12 +247,16 @@ Dopamine (DA): precursor is phenylalanine, neurotransmitter, part of reward syst
 ###Endocrine system
 operates via feedback loops
 ##Hormones
+##Intestines
+Incretins: released after eating, enhance insulin secretion
+- Gastric inhibitory polypeptide (GIP): produced by K cells in small intestine
+- Glucagon-like peptide-1 (GLP1): produced by L cells in ileum and colon
 ##Pancreas
 Insulin (INS), produced by beta cells in pancreatic islets, lowers glucose level
 Glucagon (GCG), produced by alpha cells in pancreatic islets, raises glucose level
 ##Gastrointestinal tract
-Ghrelin (GHRL), increases drive to eat, stimulates secretion of gastric acid
-Somatostatin (SST), produced by delta cells, inhibits INS, GCG, TSH, GH, PRL
+Ghrelin (GHRL): increases drive to eat, stimulates secretion of gastric acid
+Somatostatin (SST): peptide hormone, produced by delta cells, inhibits INS, GCG, TSH, GH, PRL
 ##Hypothalamus
 links nervous and endocrine systems via hypophysis
 controls body temperature, hunger, thirst, fatigue, circadian rhythm
@@ -270,10 +277,10 @@ releases oxytocin, vasopressin
 Somatotropin/Growth hormone (GHRH)
 Thyroid-stimulating hormone (TSH)
 Prolactin (PRL)
-Adrenocorticotropic hormone - produced in biological stress, stimulates production of melanin
+Adrenocorticotropic hormone (ACTH) - produced in biological stress, stimulates production of melanin
 Gonadotropins - glycoprotein hormones
-- Follicle-stimulating hormone - stimulates maturation of germ cells
-- Luteinizing hormone - triggers ovulations, stimulates production of androgens
+- Follicle-stimulating hormone (FSH): stimulates maturation of germ cells
+- Luteinizing hormone (LH): triggers ovulations, stimulates production of androgens
 ##Epiphysis / Pineal gland
 produces melatonin, simulated by darkness and inhibited by light
 has profuse blood flow
@@ -281,9 +288,9 @@ has profuse blood flow
 - butterfly shaped, two connected lobes
 Triiodothyronine (T3) + Thyroxine (T4), tyrosine-based, regulate metabolism, contain iodine
 Levothyroxine = manufactured form of Thyroxine
-Calcitonin, reduces blood calcium
-#Paratryroid
-Parathyrin (PTH), increases blood calcium
+Calcitonin (CALC): secreted by parafollicular cells (C cells), reduces blood calcium, inhibits osteoclasts
+#Parathyroid glands
+Parathyrin (PTH): increases blood calcium, stimulates osteoclasts to release calcium from bones
 #Adrenal glands - above kidneys
 Adrenaline
 Noradrenaline

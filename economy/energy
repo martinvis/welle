@@ -44,9 +44,12 @@ onshore
 - tower height: ~100m
 - rotor radius: 40-60m
 - installed power: 2-5MW
+- rotor: 3 blades (3*10t) + hub (25t)
 offshore
+- tower height: ~150m
 - rotor radius: 75-100m
 - installed power: 6-12MW
+- rotor: 3 blades (3*25t) + hub (75t)
 
 #nuclear reactor
 output: ~1 GW

@@ -1,5 +1,29 @@
 #Protein: activity depends on 3D structure
 Prion: misfolded protein, misfolding is propagated, causes fatal diseases
+Structural motif: common 3D structure
+- Beta hairpin: 2 antiparallel strands
+- Greek key: 4 antiparallel strands, 4th adjacent to 1st
+- Zinc finger: 2 beta strands + alpha helix binding zinc ion
+
+=Secondary structure: hydrogen bonds between NH and C=O group
+Alpha helix: right-handed helix
+Beta sheet: connected beta strands
+=Tertiary structure
+All α
+- Alpha solenoid: antiparallel alpha helices form superhelix
+- Coiled coil: multiple alpha helices coiled together
+- Death fold: 6-7 alpha helices, apoptotic signaling
+All β
+- Beta barrel: antiparallel beta strands form closed toroid
+- Beta helix: parallel beta sheets form helix
+- Beta propeller: 4-8 beta sheets (of 4 antiparallel strands) form toroid around center
+α+β
+- Ferredoxin fold: βαββαβ, 4 antiparallel beta sheets between 2 alpha helices
+- DNA clamp: multimeric 6-domain ring, encircles double helix, domains made by two βαβββ repeats
+Alternating α/β
+- Thioredoxin fold: 4 beta sheets between 3 alpha helices
+- Flavodoxin fold: 5 parallel beta sheets between two alpha helix layers
+- TIM barrel: 8 parallel beta sheets and 8 alpha helices
 
 #Signaling - Receptor: change cell behaviour when activated
 LDL receptor (LDLR): endocytosis of LDL
@@ -39,12 +63,17 @@ Opsins: ligand retinal (vitamin A), activation by photon, retina, vision
 - 5-HT5 serotonin receptors: inhibitory neurotransmitter
 - 5-HT6 serotonin receptors: excitatory neurotransmitter, cortex + hippocampus, cognitive processes
 - 5-HT7 serotonin receptors: excitatory neurotransmitter, hypothalamus + thalamus, circadian rhythm
-==Intracellular
+==Intracellular / nuclear
 Transcription factors: control transcription from DNA to mRNA
+Peroxisome proliferator-activated receptor (PPAR): cellular differentiation and metabolism
+- PPAR-α (PPARA): liver, lipid metabolism and ketogenesis
+- PPAR-γ (PPARG): adipose tissue, fatty acid storage and glucose metabolism
 
 #Transcription factors: ~10% of proteins
 Autoimmune regulator (AIRE): eliminates self-reactive T cells
 T-box transcription factor T (TBXT): defines anterior-posterior axis, spine development
+#Regulatory protein
+Ubiquitin (UB*): attached to substrate proteins, marks for proteolysis, alters cellular location, affects activity
 
 #Receptors
 Trk receptors: tyrosine kinases, regulate synaptic strength and plasticity
@@ -107,37 +136,55 @@ Titin (TTN): large size, functions as spring, contraction of striated muscle tis
 Troponin + Tropomyosin: regulate muscle contraction
 - Troponin only in skeletal/cardiac muscles
 
-#Enzyme
+#Enzyme: -ase suffix
 biological catalyst
 
+Thyroid peroxidase: oxidizes I- ion into I atom
+Aromatase: aromatization of androgens into estrogens by elimination of methyl group
+
 Hephaestin (HEPH): oxidizes iron exported by ferraportin
-Cyclooxygenase: synthesis of thromboxane and prostaglandins from arachidonic acid
+Cyclooxygenase (COX): synthesis of thromboxane and prostaglandins from arachidonic acid
 Carbonic anhydrase: reversible hydration of carbon dioxide, contain zinc, regulate pH
 
-#Kinase: enzyme, catalyzes transfer of phosphates from ATP
+=Kinase
 Tyrosine kinase: functional on/off switch in cell
 Serine/threonine kinases: cell differentiation, apoptosis
 
 Protein serine/threonine phosphatase
 - Calcineurin: activates T cells
 
-Hydrolase: hydrolysis
-Protease: breaking down proteins
-- Plasmin (PLG): serine protease, degrades fibrin
-- Urokinase (PLAU): serine protease, activates plasminogen to plasmin
-Oxidoreductase: oxidation/reduction
-Isomerase: isomerization
-Ligase: joining by bond
-Lyase: other breaking of bond
-Transferase: transfering functional group
-Translocase: movement across membrane
+=Enzyme activity
+Oxidoreductase (EC1): oxidation/reduction
+Transferase (EC2): transfering functional group
+- Kinase: transfer of phosphate from ATP to substrate
+- Polymerase: synthesis of long chains
+- Phosphorylase: addition of inorganic phosphate group (-PO4)
+- Transaminase: exchange between amino and keto acids (=O and -NH2 groups)
+- Methyltransferase: methylation of substrate (-CH3 group)
+Hydrolase (EC3): hydrolysis
+- Protease / Peptidase: breaking down proteins
+- Lipase: breaking down fats
+- Nuclease: cleave phosphodiester bond (C-O-PO2-O-C)
+- GTPase: GTP -> GDP + inorganic phosphate
+- Helicase: move along and separate two strands
+Lyase (EC4): other breaking of bond
+- Dehydratase: double/triple bond by removal of water
+Isomerase (EC5): isomerization within molecule
+- Epimerase / Racemase: inversion of stereochemistry
+- Topoisomerase: break and rejoin DNA strands to change topology
+Ligase (EC6): joining with covalent bond
+Translocase (EC7): movement across membrane
 
-#Serine protease
-Elastase: breaks down elastin
-Thrombin (F2): converts fibrinogen to fibrin
-Trypsin: digestion, cuts protein into smaller pieces
+=Protease
+Plasmin (PLG): serine protease, degrades fibrin
+Urokinase (PLAU): serine protease, activates plasminogen to plasmin
+Serine protease
+- Elastase: breaks down elastin
+- Thrombin (F2): converts fibrinogen to fibrin
+- Trypsin: digestion, cuts protein into smaller pieces
 
 #Hormone
+Human chorionic gonadotropin (hCG): maternal recognition of pregnancy, made by syncytiotrophoblast in placenta
 Hepcidin (HAMP): regulated ferroportin, produced in liver
 Leptin: made by adipocytes, regulates energy balance
 Adiponectin: made by adipocytes, regulates glucose level and fatty acid breakdown
@@ -218,3 +265,11 @@ Terpenoids / Isoprenoids
 
 #Coagulation / Clotting
 Von Willebrand factor (VWF): glycoprotein, platelet adhesion
+
+#viruses
+=enzyme
+Reverse transcriptase: convert RNA to DNA, retroviruses
+
+#plants
+=carotenoids
+Lutein: green vegetables, egg yolk, protects macula

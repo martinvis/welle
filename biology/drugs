@@ -38,7 +38,7 @@ Dosage
 - capsule: powder/pellets in shell
 - tablet: solid pill
 Administration method
-- Intravenous: into vein
+- Intravenous (IV): into vein
 - Inhalation: breathing
 - Peroral: ingestion
 - Sublingual: under tongue
@@ -46,6 +46,9 @@ Administration method
 - Intramuscular
 - Rectal: anus
 - Subcutaneous: under skin
+- Intrathecal: spinal canal
+- Transdermal: skin patch
+- Intravesical: bladder by urinary catheter
 
 #Metabolism
 First pass effect: reduction in drug concentration
@@ -102,14 +105,18 @@ Ginger: anticoagulant
 enzyme breaking down asparagine
 used to tread lymphoblastic leukemia, many side effects
 
-#Amphetamine
+#stimulants: increase alertness
+=Amphetamine
 CNS stimulant, improves congnitive control
+ADHD and narcolepsy treatment
+obesity treatment historically
 recreational drug, addictive
 
 #Anxiolytics: reduce anxiety
 Barbiturates: depressant, general anesthesia
-Benzodiazepines: depressant, GABAA agonist
-- Diazepam
+Benzodiazepines: depressant, GABAA agonist, treat anxiety + insomnia + alcohol withdrawal + epileptic seizures
+- Diazepam: long-acting
+- Oxazepam: slow onset, diazepam metabolite
 - Lorazepam
 
 #Muscle relaxant
@@ -128,37 +135,179 @@ Suxamethonium/Succinylcholine: blocks acetylcholine, short term for intubation, 
 Caffeine: CNS stimulant
 Theobromine
 
-#Lysergic acid diethylamide (LSD)
-psychedelic, hallucinations
-recreational drug
-
-#Antimalarial
-Artemisinin
-- contains peroxide ring
-- treatment of malaria and parasitic worms
-Quinine:
-- treatment of malaria
-- less used due to serious side effects
-Chloroquine: 
-- treatment of malaria and lupus
-- less used for malaria due to drug resistance
+#Psychoactive
+Alcohol: ethanol, common recreational drug, liver and brain damage, moderately addictive
+Nicotine: tobacco, recreational drug, addictive, cardiovascular risks, indirectly lung cancer (smoking)
+Cocaine: coca leaves, CNS stimulant, recreational drug, addictive
+Methamphetamine: CNS stimulant, recreational drug, addictive
+Hashish: marihuana flowers, recreational drug
+=Hallucinogens, Psychedelics: altered state of consciousness
+Lysergic acid diethylamide (LSD): recreational drug
+Psilocin: mushrooms
+Psilocybin: mushrooms
+Bufotenin: toads
+Mescaline: cacti
 
 #Antiparasitics
-Albendazole: helminths
-Mebendazole: helminths
-Praziquantel: helminths
-Ivermectin: helminths, mites, lice
-Permethrin: mites, lice
-Metronidazole: protozoa
-Tinidazole: protozoa
+=Helminths
+Albendazole: inhibits microtubule synthesis, systemic circulation, oral
+Mebendazole: nematodes, inhibits microtubule synthesis, oral
+Praziquantel: tapeworms, trematodes, contracts muscles, systemic circulation, oral
+=
+Lindane: lice + scabies, neurotoxin, topical
+Pyrethroids: products of Chrysanthemum
+- Allethrins: scabies
+Ivermectin: helminths + scabies + lice, binds chloride channel, oral + topical
+Permethrin: scabies + lice, disrupts sodium channel, topical
+=
+Metronidazole: protozoa, damages DNA
+Tinidazole: protozoa, damages DNA
 Nitazoxanide: protozoa
+Suramin: sleeping sickness, injection
+Pentamidine: sleeping sickness, injection + inhalation
+=Antimalarial
+Mefloquine: prevention, oral
+Primaquine: liver stage, prevents relapse, oral
+Artemisinin: contains peroxide ring, oral + injection
+- treatment of malaria and helminths
+- Artemether: with Lumefantrine
+- Artesunate
+Proguanil: prevention, inhibits dihydrofolate reductase, oral
+Atovaquone: toxoplasmosis, malaria with Proguanil, oral
+Quinine: oral + injection
+- treatment of malaria + lupus + heumatoid arthritis
+- less used for malaria due to serious side effects
+Chloroquine: oral
+- treatment of malaria + lupus + heumatoid arthritis
+- less used for malaria due to drug resistance
+Pyrimethamine: toxoplasmosis, oral
+- less used for malaria due to drug resistance
 
 #Antibiotics
-Penicillin: inhibits cell wall synthesis
-Cephalosporin: inhibits cell wall synthesis
-Erythromycin: inhibits protein synthesis
-Streptomycin: inhibits protein synthesis
-Tetracycline: inhibits protein synthesis
+=Inhibit cell wall synthesis, inactivate transpeptidase enzyme
+Penicillins: fungi product, gram positive + syphilis, can cause allergic reaction
+- Benzylpenicillin/Penicillin G: injection
+- Penicillin V: oral
+- Methicillin: staphylococcus, injection
+- Oxacillin: staphylococcus, oral or injection
+- Nafcillin: staphylococcus, injection
+- Dicloxacillin: staphylococcus, oral
+- Flucloxacillin: staphylococcus, oral or injection
+- Ampicillin: also gram negative, injection
+- Amoxicillin: common, also gram negative, oral
+- Piperacillin: also gram negative including resistant Pseudomonas, injection
+Cephalosporin: fungi product, gram positive, can cause kidney damage
+- Cefazolin: injection
+- Cephalexin: oral
+- Cefuroxime: also staphylococcus and some gram negative, oral or injection
+- Ceftriaxone: 3rd gen, also gram negative, injection
+- Cefotaxime: 3rd gen, also gram negative, injection
+- Ceftazidime: 3rd gen, also gram negative including resistant Pseudomonas, injection
+- Cefepime: 4th gen, also gram negative including resistant Pseudomonas, injection
+- Ceftaroline: 5th gen, also gram negative including MRSA, injection
+- Cefiderocol: including resistant Pseudomonas, reserve, injection
+Carbapenems: bacteria product, against resistant bacteria
+- Imipenem: injection
+- Meropenem: injection
+Vancomycin: bacteria product, gram positive including MRSA, oral or injection, can cause kidney damage or hearing loss
+Bacitracin: inhibits transport of murein precursors, bacteria product, gram positive, topical ointment, can cause kidney damage
+Monobactams: aerobic gram negative
+- Aztreonam: injection
+Isoniazid: tuberculosis, oral
+=Create holes in cell wall
+Daptomycin: bacteria product, gram positive, can damage muscles, injection
+=Inhibits THF synthesis to inhibit DNA/RNA synthesis
+Trimethoprim: urinary infections, oral
+Sulfamethoxazole: urinary infections, used with Trimethoprim, can cause skin rash, oral
+=
+Nitrofurantoin: inhibits DNA and protein synthesis, urinary infections, oral
+=Inhibits DNA gyrase, fluoroquinolones, can damage nerves
+Norfloxacin: oral + eye drops
+Ciprofloxacin: oral + drops + injection
+Ofloxacin/Levofloxacin: oral + drops + injection
+=Inhibits protein synthesis
+Aminoglycosides: bacteria product, can cause hearing loss
+- Amikacin: injection
+- Gentamicin: injection
+- Kanamycin: oral + injection
+- Streptomycin: injection
+- Tobramycin: eye drops + injection
+- Plazomicin: urinary infections, reserve, injection
+Tetracyclines: bacteria product, cheap
+- Tigecycline: including MRSA, reserve, injection
+- Doxycycline: common, oral
+- Minocycline: oral
+Macrolides: gram positive
+- Erythromycin: can cause arrhytmia, oral + injection
+Chloramphenicol: can cause bone marrow suppression, eye drops + oral + injection
+Oxazolidinone
+- Linezolid: gram positive including MRSA, reserve, oral + injection
+=Inhibits DNA/RNA synthesis
+Rifampicin: tuberculosis, oral + injection
+Rifabutin: tuberculosis, oral
+Rifaximin: travelers' diarrhea, oral
+=
+Colistin: reserve, can damage kidneys and nerves
+=Antimycobacterials
+Delamanid: tuberculosis, oral
+Bedaquiline: tuberculosis, oral
+Ethambutol: tuberculosis, can damage vision, oral
+Pyrazinamide: tuberculosis, can damage liver, oral
+Dapsone: leprosy, oral
+Clofazimine: leprosy, oral
+
+#Antiviral
+=Nucleoside analogue: antimetabolites
+Deoxyuridine
+- Trifluridine: herpes, topical
+- Idoxuridine: herpes, topical
+Deoxyguanosine
+- Abacavir: HIV, oral
+- Entecavir: hepatitis B, oral
+- Ribavirin: hepatitis C, oral + inhaled
+- Aciclovir: topical + oral + injection
+- Ganciclovir: strong, cytomegalovirus, can cause blood diseases, oral + injection
+Deoxycytidine
+- Lamivudine: hepatitis B and HIV, oral
+- Zalcitabine: HIV, oral
+Deoxythymidine
+- Telbivudine: hepatitis B, oral
+- Stavudine: HIV, oral
+- Zidovudine: HIV, oral + injection
+Deoxyadenosine
+- Didanosine: HIV, oral
+- Remdesivir: ebola and covid, injection
+Phosphonic acid
+- Foscarnet: reserve, herpes, can damage kidneys, injection
+=Protease inhibitor
+Boceprevir: hepatitis C
+Telaprevir: hepatitis C
+Ritonavir: HIV, oral
+Darunavir: HIV, with Ritonavir, oral
+Saquinavir: HIV, with Ritonavir, oral
+Tipranavir: HIV, with Ritonavir, oral
+Indinavir: HIV, oral
+Nelfinavir: HIV, oral
+=Prevents uncoating
+Amantadine: influenza A prevention, oral
+=Neuraminidase inhibitor
+Zanamivir: influenza, inhaled
+Oseltamivir: influenza, oral
+=CCR5 antagonist
+Maraviroc: HIV, oral
+=Fusion inhibitor: prevent entering cell
+Enfuvirtide: reserve, HIV, subcutaneous
+
+#Antiviral
+Aciclovir: herpes
+HIV, reverse transcriptase inhibitors:
+- Biktarvy
+- Efavirenz: oral
+- Nevirapine: oral
+- Rilpivirine: oral
+HIV, integrase inhibitors:
+- Dolutegravir
+- Raltegravir
 
 #Vaccines: activate acquired immunity
 Attenuated: contain weakened live pathogen
@@ -203,7 +352,6 @@ Theralizumab (TGN1412): failed immunomodulator, caused organ failure [2006]
 Humira: monoclonal antibody (autoimmune diseases)
 Keytruda: humanized antibody (cancer)
 Paxlovid: covid-19
-Eliquis: anticoagulant
 Eylea: macular edema
 Revlimid: myeloma
 Stelara: monoclonal antibody
@@ -211,18 +359,89 @@ Dupixent: allergies
 Imbruvica: leukemia
 Opdivo: cancer
 Darzalex: myeloma
-Trikafta: cystic fibrosis
-Xarelto: anticoagulant
+Trikafta: cystic fibrosis, oral
+
+Ranibizumab: monoclonal antibody, angiogenesis factor inhibitor, macular edema or degeneration
+
+#Antineoplastic / Chemotherapy: inhibit cell division, side effects of fast dividing cells (hair follicles, digestive tract, bone marrow)
+=inhibit microtubule polymerization
+Vincristine (Oncovin): intravenous
+Vinblastine: intravenous
+=prevent microtubule disassembly
+Paclitaxel: from yew bark, intravenous
+=alkylating agents, crosslink DNA strands
+Chlormethine: chemical weapon (HN2)
+Chlorambucil: oral
+Melphalan: oral + intravenous
+Cyclophosphamide: oral + intravenous
+Ifosfamide: intravenous
+Lomustine: brain tumor, oral
+Temozolomide: brain tumor, oral + intravenous
+Busulfan: oral + intravenous
+Bendamustine: intravenous
+Mitomycin C: from bacteria, intravenous
+Procarbazine: Hodgkin lymphoma, brain tumor
+Dacarbazine: Hodgkin lymphoma, melanoma, intravenous
+Carboplatin: platinum, intravenous
+Cisplatin: platinum, intravenous
+=break DNA strands
+Bleomycin: can cause pulmonary fibrosis, injection
+=Anthracyclins: from bacteria, intercalation, topoisomerase II inhibitor
+Daunorubicin: can damage heart, intravenous
+Doxorubicin (Adriamycin): can damage heart, intravenous
+Epirubicin: isomer of Doxorubicin, intravenous
+=Camptothecins: topoisomerase I inhibitor
+Topotecan: oral + intravenous
+Irinotecan: intravenous
+=topoisomerase II inhibitor
+Mitoxantrone: intercalation, intravenous
+Pixantrone: intercalation, intravenous
+Teniposide: intravenous
+Etoposide: oral + intravenous
+=nucleoside analogue
+Cytarabine: pyrimidine, injection
+Gemcitabine: pyrimidine, intravenous
+Capecitabine: pyrimidine, oral
+Cladribine: purine, injection
+Fludarabine: purine, oral + intravenous
+Decitabine: cytidine, intravenous
+Azacitidine: cytidine, oral + injection
+=monoclonal antibody
+Bevacizumab: angiogenesis factor inhibitor (VEGF), can cause perforation or bleeding
+Cetuximab: HER1 receptor inhibitor
+Trastuzumab: HER2 receptor inhibitor, breast cancer
+Pertuzumab: with Trastuzumab, HER2 dimerization inhibitor, breast cancer
+=tyrosine kinase inhibitor
+Erlotinib: HER1 receptor, oral
+Sunitinib: multiple receptors, oral
+Imatinib: Philadelphia chromosome leukemias, oral
+Dasatinib: Philadelphia chromosome leukemias, oral
+Nilotinib: Philadelphia chromosome leukemias, oral
+=kinase inhibitor
+Sorafenib: oral
+=protease inhibitor
+Bortezomib: boron, injection
+=Hedgehog pathway inhibitor
+Vismodegib: oral
+=Chemotherapy regimens
+PCV: brain tumor, Procarbazine + Lomustine + Vincristine
+ABVD: Hodgkin lymphoma, Doxorubicin + Bleomycin + Vinblastine + Dacarbazine
+MOPP: Hodgkin lymphoma, Chlormethine + Vincristine + Procarbazine + Prednisone
+CHOP: non-Hodgkin lymphoma, Cyclophosphamide + Doxorubicin + Vincristine + Prednisone
+CEPP: non-Hodgkin lymphoma, Cyclophosphamide + Etoposide + Procarbazine + Prednisone
+RICE: recurrent lymphoma, Rituximab + Ifosfamide + Carboplatin + Etoposide
+=supportive
+Palifermin: recombinant protein, epithelial growth
 
 #Antithrombotic
 =Anticoagulant: reduce blood clotting
 - Heparin: activates antithrombin
 - Aspirin (acetylsalicylic acid, ASA, {C6}(-COOH)-O-C(=O)-C): inactivates cyclooxygenase
 - Hirudin: thrombin inhibitor, in leeches
-- Apixaban: common, factor Xa inhibitor
-- Rivaroxaban: factor Xa inhibitor
+- Apixaban (Eliquis): common, factor Xa inhibitor
+- Rivaroxaban (Xarelto): factor Xa inhibitor
 Coumarins: vitamin K antagonist
-- Warfarin
+- Warfarin: oral + intravenous
 Thrombolytic: target fibrin
 - Streptokinase: produced by Streptococci, risk of antibodies
 - Urokinase
@@ -234,39 +453,75 @@ Thrombolytic: target fibrin
 
 #Antidiabetic
 Insulin: common
-For type 2:
-- Gliclazide (Diamicron)
-- Empagliflozin (Jardiance)
-- Metformin (Glucophage): common
-- Dulaglutide (Trulicity)
+#For type 2:
+Metformin (Glucophage): common, oral
+=Sulfonylureas: inhibit ATP-sensitive K channels in beta cells, long duration
+Glibenclamide: oral
+Glimepiride: oral
+=Metglinides: inhibit ATP-sensitive K channels in beta cells, short duration
+Repaglinide
+Nateglinide
+=GLP1 agonists
+Exenatide: subcutaneous
+Liraglutide: subcutaneous
+Dulaglutide (Trulicity): subcutaneous
+Lixisenatide: subcutaneous
+Semaglutide (Ozempic): common, subcutaneous + oral
+Tirzepatide: subcutaneous
+=Glitazones / Thiazolidinediones (TZD): PPARG agonists
+Pioglitazone: oral
+Rosiglitazone: oral
+=
+Gliclazide (Diamicron)
+Empagliflozin (Jardiance)
 
 #Generics
-Amoxicillin: common, antibiotic
 Amlodipine: common, against high blood pressure
-Fentanyl: analgesic
 Diclofenac: anti-inflammatory
 Levothyroxine: common, synthetic thyroid hormone
 
-#Antipsychotic
-Chlorpromazine: schyzophrenia
+#Antipsychotics / Neuroleptics: treat schizophrenia
+Thioxanthenes: dopamine antagonists
+Phenothiazines: dopamine antagonists
+- Fluphenazine
+- Chlorpromazine
+Butyrophenones
+- Haloperidol: D2 antagonist, causes tremors and spasms
+Atypical: dopamine and serotonin antagonists
+- Olanzapine: D1 and histamine and muscarinic antagonist
+- Clozapine: D1 and histamine and muscarinic antagonist, can cause agranulocytosis
+- Loxapine: D4 antagonist, inhalation
+- Risperidone: D2 and D3 antagonist
 
 #Antimigraine
 Sumatriptan: serotonin agonist
 
-#Antidepressant
+#Antidepressant / Thymoleptics
 Bupropion: common
-Selective serotonin reuptake inhibitor (SSRI)
+Selective serotonin reuptake inhibitor (SSRI): depression and anxiety, side effects (sexual problems)
 - Sertraline: common
 - Fluoxetine (Prozac): common
 - Escitalopram: common
 - Citalopram
 - Fluvoxamine
 - Paroxetine
-Serotonin–norepinephrine reuptake inhibitor (SNRI)
+Serotonin–norepinephrine reuptake inhibitor (SNRI): depression and anxiety, side effects (feeling tired, headache, sexual problems)
 - Duloxetine: common
-- Venlafaxine
+- Venlafaxine: withdrawal effects
+Selective norepinephrine reuptake inhibitor (NRI): boosting energy and motivation
+- Atomoxetine: ADHD treatment
+- Reboxetine: depression
 Serotonin antagonist and reuptake inhibitor (SARI)
 - Trazodone: common
+Tricyclic: side effects (dry mouth, constipation, dizziness, weight gain)
+- Amitriptyline: migraines
+- Clomipramine: OCD treatment
+- Desipramine: less sedative
+- Imipramine
+- Opipramol: SIGMA1 agonist, anxiolytic
+
+#Mood stabilizers
+Lithium: treats mania (bipolar disorder), side effects (kidneys, increased urination, hand tremors, hypothyroidism)
 
 #ACE inhibitor: lower high blood pressure, common side effect coughing
 Benazepril
@@ -298,7 +553,11 @@ Glucocorticoid: bind to glucocorticoid receptor
 - Prednisone: common, decrease inflammation, oral
 - Fluticasone: common, treat nasal congestion
 - Budesonide
+- Dexamethasone: anti-inflammatory, chemotherapy
 Mineralocorticoid: bind to mineralocorticoid receptor
+
+#Immunostimulants
+Filgrastim: recombinant protein, increase neutrophils, injection
 
 #Antiulcer: against reflux
 proton pump inhibitor
@@ -321,30 +580,47 @@ Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 #Analgesic: pain relievers
 Non-opioid
 - Paracetamol (Panadol): common, antipyretic (overdose ~5g: liver failure)
-- Ibuprofen (Nurofen): common, anti-inflammatory
-- Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
-- Naproxen (Aleve): anti-inflammatory
-Opioid: μ-opioid agonist
+- Metamizole/Dipyrone (Novalgin): antipyretic, antispasmodic (colic), rarely causes agranulocytosis
+- Ibuprofen (Nurofen): common, anti-inflammatory, COX inhibitor
+- Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema), COX inhibitor
+- Naproxen (Aleve): anti-inflammatory, COX inhibitor
+Opioid: μ-opioid agonist, strong, hypoventilation + constipation
 - Morphine: recreational drug, found in opium, addictive
 - Codeine: prodrug of morphine, found in opium
-- Heroin: recreational drug, addictive
-- Fentanyl: very strong, addictive
+- Heroin/Diamorphine: recreational drug, very addictive, not used medically
+- Fentanyl: very strong, addictive, transdermal or intravenous
+- Carfentanil: very strong, large animals tranquilizer
+- Etorphine: very strong, large animals tranquilizer
 - Methadone: relieves opioid withdrawal
+Tramadol: opioid + SNRI, moderate pain
+Ziconotide: from cone snail, calcium channel blocker, chronic pain, intrathecal
+
+#Opioid antagonists
+Naloxone: overdose treatment, usually intranasal
+Naltrexone: addiction treatment, oral
 
 #Anesthetic: block nerve receptors, unconsciousness when general
 General via inhalation
-- Nitrous oxide
-- Isoflurane
-- Halothane
-- Sevoflurane
-General
-- Ketamine: NMDA antagonist
-- Propofol: intravenous
-- Thiopental: intravenous
+- Nitrous oxide: least potent
+- Chloroform: historical
+- Halothane: metabolized in liver
+- Isoflurane: airway irritation
+- Desflurane: airway irritation
+- Sevoflurane: most common
+General inductory, short-acting (due to redistribution in body), intravenous
+- Thiopental: intravenous, barbiturate
+- Methohexital: intravenous, barbiturate
+- Etomidate: intravenous
+- Propofol: intravenous, short-acting
+- Ketamine: NMDA antagonist, analgesic, preserves breathing, hallucinogenic, increases blood pressure
+General sedation
+- Midazolam: benzodiazepine, conscious sedation
 Local: blocks sodium channels on neuron membrane
-- Lidocaine
-- Benzocaine
-- Bupivacaine
+- Benzocaine: superficial only, short duration
+- Lidocaine: fast-acting, medium duration
+- Articaine: fast acting, medium duration, dental (penetrates bones)
+- Bupivacaine: long-acting, epidural
+- Ropivacaine: long-acting, epidural
 
 #Laxative
 Senna: peristaltic stimulant
@@ -356,46 +632,104 @@ Castor oil
 #Contraceptive
 
 #Antifungal
-Clotrimazole
-Fluconazole
-Flucytosine
-Griseofulvin
-Itraconazole
-Micafungin: inhibits creation of fungal cell walls
-Miconazole
-Nystatin
-Terbinafine
-Voriconazole
-Selenium disulfide: SeS2
+=Inhibits ergosterol synthesis (cell membrane)
+Imidazoles: topical
+- Clotrimazole
+- Econazole
+- Ketoconazole: can damage liver, topical or oral
+- Miconazole
+- Sertaconazole
+Triazoles: oral or injection
+- Fluconazole
+- Itraconazole
+- Voriconazole
+Terbinafine: oral or topical
+=Damage egosterol in membrane
+Polyenes: bacteria product
+- Amphotericin B: can cause fever or damage kidneys, injection
+- Nystatin: Candida, topical
+=Inhibits DNA/RNA synthesis
+Flucytosine: Candida, can cause bone marrow suppression, oral or injection
+=Inhibits mitosis
+Griseofulvin: dermatophytosis, oral
+=Inhibits cell wall synthesis
+Echinocandins
+- Caspofungin: injection
+- Micafungin: injection
+=
+Selenium disulfide (SeS2): shampoo
+
+#Antithyroid: inhibit thyroid peroxidase to reduce thyroid hormones
+Carbimazole
+Thiamazole
+Propylthiouracil
+#Gonadotropins
+Buserelin: GnRH superagonist (desensitization), prostate/breast cancer
+Leuprorelin: GnRH superagonist (desensitization), prostate/breast cancer
+Cetrorelix: GnRH antagonist, assisted reproduction
+Ganirelix: GnRH antagonist, assisted reproduction
+#
+Pegvisomant: growth hormone antagonist, treats acromegaly
+Octreotide: somatostatin analogue, treats acromegaly
+Lanreotide: somatostatin analogue, treats acromegaly
+#
+Glucocorticoids: anti-inflammatory, immunosuppression, side effects (osteoporosis, immunodeficiency, Cushing's syndrome)
+#Anabolic steroids: testosterone analogues
+Nandrolone: treats anemia and osteoporosis
+Oxandrolone: treats weight loss
+Stanozolol: treats hereditary angioedema
+Methenolone: treats anemia
+#Antiandrogens, steroidal
+Cyproterone: androgen antagonist, feminization, reduces libido, treats hirsutism
+Finasteride: 5α-reductase inhibitor (steroid metabolism), treats prostate enlargement and hair loss
+Dutasteride: 5α-reductase inhibitor (steroid metabolism), treats prostate enlargement and hair loss
+#Antiandrogens, non-steroidal
+Flutamide: androgen antagonist, prostate cancer, oral
+Bicalutamide: androgen antagonist, prostate cancer, oral
+Enzalutamide: androgen antagonist, prostate cancer, oral
+#Contraceptive
+Progestin: synthetic progesterone, with estrogen (estradiol), oral
+#
+Insulin: diabetes mellitus, subcutaneous
+Menotropin: treats infertility, from postmenopausal urine, contains FSH + LH
+#Abortion
+Mifepristone: used with Misoprostol, progesterone antagonist, oral, 1st trimester
+Misoprostol: prostaglandin analogue, causes contractions, oral or vaginal, 1st trimester
+#Selective estrogen receptor modulator (SERM)
+Raloxifene: prevent osteoporosis and breast cancer after menopause, oral
+Tamoxifen: prevent breast cancer, oral
+Clomifene: induces ovulation, oral
+=Aromatase inhibitors: block estrogen synthesis, treat breast cancer after menopause
+Exemestane: steroidal, oral
+Anastrozole: oral
+Letrozole: oral, visually pleasing symmetrical structure
+=Calcium homeostasis
+Teriparatide: PTH analogue, treats osteoporosis, low dose stimulates osteoblasts to  build bones, subcutaneous
+Cinacalcet: treats hyperparathyroidism, allosteric activation of Ca receptors
 
 #Anticonvulsant
 Gabapentin: common
 
-#Antiviral
-Aciclovir: herpes
-HIV, transcriptase inhibitors:
-- Abacavir
-- Biktarvy
-- Efavirenz
-- Lamivudine
-- Nevirapine
-- Zidovudine
-HIV, protease inhibitors:
-- Darunavir
-- Ritonavir
-HIV, integrase inhibitors:
-- Dolutegravir
-- Raltegravir
-
 #Immunosuppresant
+Sirolimus: from bacteria Streptomyces, organ transplants, coronary stent coat
 Calcineurin inhibitor (CNI): organ transplants
 - Cyclosporine: from fungus Tolypocladium
 - Tacrolimus: from bacteria Streptomyces
+monoclonal antibody
+- Muromonab-CD3: organ transplants
+- Basiliximab: kidney transplants, interleukin 2 receptor
+- Daclizumab: withdrawn, multiple sclerosis
+recombinant protein
+- Anakinra: interleukin 1 receptor antagonist, rheumatoid arthritis
+fusion protein
+- Abatacept: blocks T cell activation, rheumatoid arthritis
+Glatiramer acetate: random-sized peptides (Glu, Lys, Ala, Tyr), resembles myelin antigen, multiple sclerosis
 
 #Antiemetic
-Setrons: serotonin antagonist, after cytostatic chemotherapy
-- Ondansetron
+Setrons: serotonin antagonist, with chemotherapy
+- Ondansetron: oral + injection
 Metoclopramide: dopamine antagonist
+Aprepitant: with chemotherapy, oral
 
 #Antidiarrheal
 Loperamide: opioid agonist, oral
@@ -410,7 +744,7 @@ Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual
 Isosorbide dinitrate: vasodilator, oral
 Nifedipine: calcium channel blocker, oral
 =Antiarrhythmic
-Amiodarone: potassium channel blocker, contains iodine, oral, accumulates in body, serious side effects
+Amiodarone: potassium channel blocker, contains iodine, oral, accumulates in body, serious side effects (e.g. hypothyroidism)
 Lidocaine: sodium channel blocker, intravenous
 Verapamil: calcium channel blocker, oral, not with beta blockers
 =Cardiac glycoside: sodium-potassium pump inhibitor, steroid code, increase output, decrease heart rate
@@ -454,6 +788,28 @@ Epoetin
 
 =Mineral supplements
 Calcium gluconate: protect heart from hyperkalemia
+
+Colchicine
+Hydroxycarbamide
+
+=Antidotes: treat poisoning
+Chelation: bonding metal ions with multiple bonds
+- Sodium calcium edetate: lead poisoning, can damage kidneys, injection
+- Dimercaprol: arsenic/mercury/lead poisoning, pungent odor (sulfur), injection
+- Deferoxamine: from bacteria Streptomyces, iron/aluminium toxicity, injection
+- Deferasirox: iron overdose, oral
+- Penicillamine: copper (Wilson's disease), liver metabolism, oral
+Fomepizole: methanol poisoning (antifreeze, alcohol), intravenous
+Organophosphate poisoning: by acetylcholinesterase inhibitors (nerve gases)
+- Obidoxime
+- Pralidoxime
+- with Atropine (acetylcholine antagonist)
+Methemoglobin
+- Methylene blue: reduce Fe3+ to Fe2+
+Cyanide poisoning: smoke from fire
+- Sodium thiosulfate: intravenous
+Thalium poisoning: historically by rat poison
+- Prussian blue
 
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system
