@@ -1,4 +1,10 @@
 Turing test: whether natural language conversation can differentiate machine from human
+Superintelligence: exceed human performance in all domains
+Artificial general intelligence (AGI): matches human cognitive capabilities
+Intelligent agent: perceives environment and takes actions to achieve goal
+Instrumental convergence: all intelligent agents pursu same sub-goals (self-preservation, resource acquisition)
+AI alignment: prevent AI from harmful or unintended ways to achieve its goals
+- Reward hacking: exploit loophole to achieve goal
 
 #Latent variable model
 Diffusion model: forward process + reverse process + sampling procedure

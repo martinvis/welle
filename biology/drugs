@@ -19,6 +19,20 @@ Attrition: dropout of trial participants
 Intention-to-treat (ITT) analysis: results analysis based on initial assignment (include dropouts)
 Eroom's law: drug discovery is slower and more expensive despite new technology (opposite of Moore's law)
 
+True positive rate (TPR) / Sensitivity: true positive versus false negative
+True negative rate (TNR) / Specificity: true negative versus false positive
+False positive rate (FPR): 1 - TNR, type I error, false alarm
+False negative rate (FNR): 1 - TPR, type II error, miss rate
+--
+Positive predictive value (PPV): true positive versus false positive
+Negative predictive value (NPV): true negative versus false negative
+False discovery rate (FDR): 1-PPV
+False omission rate (FOR): 1-NPV
+--
+Positive likelihood ratio (LR+): TPR to FPR, should be above prevalence, probability of disease after test when positive
+Negative likelihood ratio (LR-): FNR to TNR, should be below prevalence, probability of disease after test when negative
+Diagnostic odds ratio (DOR): LR+ to LR-, test performance indicator
+
 #Activity
 Agonist: activates receptor
 Antagonist: blocks receptor
@@ -574,8 +588,13 @@ Promethazine
 Epinephrine/adrenaline: anaphylaxis, cardiac arrest
 Budesonide (Pulmicort)
 Montelukast (Singulair)
-Salbutamol (Albuterol, Ventolin): bronchodilator, β2-adrenergic agonist, short-term
 Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
+β2-adrenergic agonist: bronchodilator
+- Salbutamol (Albuterol/Levalbuterol, Ventolin): short-term, inhalation
+- Terbutaline: short-term, inhalation
+- Salmeterol: long-term, inhalation
+- Formoterol: long-term, inhalation
+- Clenbuterol: banned due to side effects
 
 #Analgesic: pain relievers
 Non-opioid

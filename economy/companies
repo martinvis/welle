@@ -54,7 +54,7 @@ construction: 10 T$
 #supermarket
 austria: Billa
 france: Carrefour
-germany: Aldi, Edeka, Metro, Penny, Rewe, Schwarz (Kaufland, Lidl)
+germany: Aldi, Edeka (Netto), Metro, Penny, Rewe (Penny), Schwarz (Kaufland, Lidl), Norma
 netherlands: Ahold (Albert), SPAR
 swiss: Migros (Tegut)
 uk: Tesco
@@ -136,18 +136,21 @@ uk: Vodafone
 usa: AT&T, Comcast (NBC/Peacock, Sky), Verizon
 
 #bank
-austria: Erste
-canada: Royal Bank of Canada, Toronto-Dominion Bank, Bank of Nova Scotia
-china: Industrial & Commercial Bank, Construction Bank, Agricultural Bank, Bank of China, Merchants Bank, Postal Savings Bank
-france: BNP Paribas (Cetelem)
-germany: Commerzbank, Deutsche Bank, DZ Bank
-italy: Intesa Sanpaolo, UniCredit
-netherlands: ING
-russia: Sberbank
-spain: CaixaBank, Santander
-swiss: Credit Suisse, UBS
+china: Industrial & Commercial Bank, Construction Bank, Agricultural Bank, Bank of China, Merchants Bank, Postal Savings Bank, Bank of Communications
+usa: Bank of America, JPMorgan Chase, Wells Fargo, Citigroup
+france: BNP Paribas (Cetelem), Crédit Agricole, Société Générale, BPCE, Crédit Mutuel
 uk: Barclays, HSBC, Lloyds
-usa: Bank of America, Citigroup, JPMorgan Chase, Wells Fargo
+spain: Santander, BBVA, Caixa, Sabadell
+canada: Royal Bank of Canada, Toronto-Dominion Bank, Bank of Nova Scotia, Bank of Montreal
+swiss: UBS (Credit Suisse)
+germany: Deutsche Bank, Commerzbank, DZ Bank
+netherlands: ING, Rabobank
+italy: Intesa Sanpaolo, UniCredit
+russia: Sberbank
+austria: Erste
+finland: Nordea
+denmark: Danske Bank
+sweden: SEB, Handelsbanken, Swedbank
 
 #insurance
 france: Axa
@@ -286,6 +289,9 @@ france: La Poste (DPD)
 germany: Deutsche Post (DHL)
 uk: Royal Mail (GLS)
 usa: FedEx, UPS
+
+#train/bus
+germany: Deutsche Bahn (Arriva), Flix
 
 #airline
 australia: Qantas

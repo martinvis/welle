@@ -1,3 +1,5 @@
+Isotropic: identical properties in all directions
+
 #Processing
 #Structure: depend on processing
 #Properties: depend on structure
@@ -52,9 +54,6 @@ corrosion resistance: Cr, Al (at higher temperatures)
 use: turbine engine
 
 #Metals: small grains
-Grain boundary: defect in crystal structure
-- decrease conductivity
-- disrupt motion of dislocations, increase strength
 Plasticity: creation and movement of dislocations
 - higher melting temperature means less plasticity
 - higher temperature means more plasticity
@@ -108,6 +107,7 @@ Kevlar
 - aramid (aromatic polyamid)
 - used in bulletproof vests and protective clothing
 - lightweight, strong, heat-resistant
+Plywood: odd number of this wood layers glued by resin, strong
 
 #Concrete
 cement + sand + water
@@ -164,3 +164,7 @@ Magnetorheological fluid: viscosity change in response to magnetic field
 - magnetic particles in fluid
 Electrorheological fluid: viscosity change in response to electric field
 - electric particles in fluid
+
+Particulate matter (PM): microscopic airborne
+- PM10: coarse particles
+- PM2.5: fine particles

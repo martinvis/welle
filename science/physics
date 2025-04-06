@@ -125,6 +125,16 @@ Period: time of one oscillation
 Wavelength (λ): displacement of one oscillation
 Bandwidth: range of frequencies
 
+Diffraction: bending of wave due to obstacle
+- X-ray diffraction: measurements under different angles determine crystal structure
+Interference: combination of two waves
+- constructive: greater aplitude
+- destructive: lower amplitude
+Superposition principle: in linear system result of multiple stimule is sum of individual stimuli (waves)
+Huygens–Fresnel principle: every wavefront point can be considered source of secondary spherical wavelets
+Wavefront: points in wave with same phase
+Bragg's law: interference of waves interacting with atoms in crystal depends on angle
+
 #Speed
 Raindrop: ~10 m/s
 Nerve impulse: ~50 m/s
@@ -240,6 +250,22 @@ tea leaf paradox
 #Solids
 - crystalline or amorphous
 - some are amorphous only when cooled down fast
+- Crystal: repetitive ordered pattern, atoms in lattice
+- Polycrystal: microscopic crystals fused together
+- Crystallite/Grain: microscopic crystal
+- Grain boundary: defects between grains, decrease conductivity, disrupt dislocation motion (increase strength)
+Crystal structure: arrangement of atoms in crystal
+- Unit cell: smallest repeating unit of lattice
+- Coordination number: number of neighbours of central atom
+- Atomic packing factor: fraction of volume occupied by atoms
+- Polymorphism: compoung existing in multiple crystal structures
+- Bravais lattice: discrete points describing atom arrangement, 14 unique
+- Miller index: integer triplet defining plane within lattice, eg (010)
+
+#Crystals
+Slip: large displacement
+- occur on close-packed planes in close-packed direction (linear+planar density)
+Critical resolved shear stress (CRSS): stress required to initiate slip
 
 #Solid types
 Ionic: ionic bond between atoms
@@ -247,7 +273,7 @@ Molecular: inter-molecular forces
 Metallic: continuous metallic bonds, lustrous, good conductors
 Network: continuous covalent bond, e.g. graphite / diamond / quartz
 
-#Crystal systems
+#Crystal systems: crystal structure classification
 Cubic/Isometric: 2 right angles, 3 same sides (common in binary ionic compounds)
 Tetragonal: 2 right angles, 2 same sides
 Orthorhombic: 2 right angles, all sides different
@@ -257,9 +283,9 @@ Hexagonal: 6 sided, 120 degrees angle
 Rhombohedral: no right angles, 3 same sides
 
 #Single component crystals (common in metals)
-Hexagonal close-packed: 74% space occupied, A-B layers
-Cubic close-packed: 74% space occupied, A-B-C layers
-Body-centered cubic: 68% space occupied, 8 corners + 1 in center
+Hexagonal close-packed: coordination 12, 74% space occupied, A-B layers
+Face-centered cubic: coordination 12, 74% space occupied, 8 corners + 6 face centers, A-B-C layers
+Body-centered cubic: coordination 8, 68% space occupied, 8 corners + 1 cube center
 
 #Van der Waals force
 London dispersion force: short-lived

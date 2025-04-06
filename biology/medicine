@@ -1,11 +1,13 @@
 #Symptom: observable indication of disease
+Halitosis / Foetor ex ore: bad breath
 Hyperalgesia: increased pain sensitivity
 Allodynia: pain from non-painful stimuli (eg after sunburn)
 Hypovolemia: loss of extracellular fluid
 Hemorrage: bleeding
 Hirsutism: excessive body hair in female
+Apoplexy: rupture of internal organ
 Hematoma: blood within tissue
-- Bruise/Contusion: near epidermis, discoloration, reabsorbed
+- Bruise/Contusion/Ecchymosis: near epidermis, discoloration, reabsorbed
 - Subungual: under nail
 Xerostomia: dry mouth, hyposalivation
 Catatonia: immobility and withdrawal
@@ -77,7 +79,14 @@ Hyposmia: reduced sense of smell
 Anosmia: no sense of smell
 Parosmia: change in smell perception
 
-#Diagnosis
+#Diagnosis: identification of cause
+Prognosis: expected disease development
+Screening: testing for disease before symptoms, early detection
+- Mammography: breast cancer
+- Pap smear: cervical cancer
+Survival time: remaining life duration after diagnosis
+Lead time bias: survival time appears longer due to earlier diagnosis
+Length time bias: survival time appears longer due to detection of slowly progressing cases (cancer)
 Anamnese: investigation of patient's medical history
 Magnetic resonance imaging (MRI): uses strong magnetic fields
 - better contrast in soft tissues (brain)
@@ -109,6 +118,18 @@ Electrocardiography (ECG)
 - hypocalcemia: longer ST interval
 - hyperkalemia: large T wave
 - hypokalemia: flat or inverted T wave, prominent U wave
+Valsalva maneuver: equalize presssure, forced exhalation against closed airways
+
+#specialization
+Cytology: cell structure and function
+Histology: microscopic tissue anatomy
+--
+Bariatrics: obesity treatment
+Anesthesiology: pain management
+--
+Cardiology: cardiovascular system
+Immunology: immune system
+Dermatology: integumentary system
 
 #Therapy
 Intravenous therapy: fluids administered into vein (water, electrolytes, nutritients etc)
@@ -131,6 +152,11 @@ Cardiopulmonary bypass (CPB): during surgery, replaces heart and lung function
 Stoma: artificial opening
 - Colostomy: large intestine, feces removal
 Coronary stent: expandable mesh tube, keeps coronary artery open, prevents angina and heart attack
+Auscultation: listening to internal body sounds (heart, lungs)
+- Stethoscope: resonator device
+
+#Surgery
+Nephrectomy: kidney removal
 
 #Epidemiology: distribution of disease in population
 Communicable disease: caused by infection
@@ -145,6 +171,11 @@ Infectivity: probability of infection after transmission
 Virulence: degree of damage caused by pathogen
 Incidence: number of new cases in population over time period
 Prevalence: number of all cases in population at point in time
+
+#Infection
+Discitis: intervertebral space, back pain
+Spondylitis: vertebrae, back pain
+Spondylodiscitis: Spondylitis + Discitis
 
 #Reproduction
 IVF (In vitro fertilisation): assisted reproduction
@@ -291,21 +322,48 @@ Luxation: joint dislocation
 - Subluxation: partial dislocation
 
 #cancer
+=Carconigen: can cause cancer
+mutagens: radiation, PAH (tobacco smoke, coal tar, charred food)
+inflammation: asbestos, sawdust, air pollution (particulate matter)
+viruses: HPV, Hepatitis B/C, Epstein-Barr
+bacteria: helicobacter pylori
+hormones: estrogen
 =Leukemia: bone marrow, abnormal blood cells
 - symptoms: bleeding, fatigue
 - lymphocytic: white blood cells
 - myelogenous: red blood cells
+Acute lymphoblastic leukemia (ALL): most prevalent cancer in children
+- treatment: chemotherapy
 Philadelphia chromosome
 - translocation between chromosomes 9 and 22
 - defective tyrosine kinase signaling, uncontrolled cell division
 =Lymphoma: lymphocytic leukemia
-- Hodgkin lymphoma: enlarged lymph nodes, night sweats
+Hodgkin lymphoma: enlarged lymph nodes, night sweats, often caused by Epstein-Barr virus
+- Reed–Sternberg cell: giant cells, abnormal B cells, often bilobed nucleus (owl eyes)
 =Carcinoma: epithelium
+Adenocarcinoma (AC): exocrine glands
+- Breast cancer: common in women
+- Prostate cancer: common in men
+- Colorectal cancer: common
+- Pancreatic cancer
 Small-cell carcinoma: lung, aggressive with metastases
 Large-cell carcinoma: lung
+Squamous cell carcinoma (SCC): common, skin (UV light), mouth + lung (smoking), genitals (HPV)
+Basal-cell carcinoma (BCC): skin, very common, low danger, caused by UV light
+Melanoma: skin, high danger, metastases, caused by UV light
 =Sarcoma: connective tissue
 Osteosarcoma: bones, young adults
 Liposarcoma: fat cells
+=Blastoma: precursor cells, usually in children
+Nephroblastoma / Wilms' tumor: kidneys, highly curable
+- treatment: nephrectomy + radiotherapy
+Neuroblastoma
+Retinoblastoma
+Hepatoblastoma
+Medulloblastoma: cerebellum
+
+#tumor
+Teratoma: made up of several tissue types (hair, muscle, bone)
 
 #nephrology
 Rhabdomyolysis: damaged skeletal muscle breaks down, can cause kidney failure (myoglobin), dark colored urine
@@ -418,3 +476,11 @@ Hyperkalemia
 
 Schizophrenia: low patient compliance
 Bipolar Disorder: low patient compliance
+
+#Anomalies
+Male
+- Cryptorchidism: undescended testi
+- Hypospadias: lower urinary opening
+- Epispadias: abnormal urinary opening, small penis
+Female
+- Uterus didelphys: two uteri

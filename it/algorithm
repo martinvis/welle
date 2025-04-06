@@ -76,9 +76,16 @@ Polling: actively sampling status of asynchronous activity
 
 #Game theory
 Nash equilibrium: solution of non-cooperative game
+Focal point / Schelling point: default solution without communication in cooperation game
 Zero-sum game: advantage for one side is equivalent to loss for other side
 - examples: chess, poker, options
-Prisoner's dilemma: non-zero-sum game
+Stag hunt: non-zero-sum, safety vs cooperation, hunt stag (cooperate) or hare (alone)
+- two agents, choose to cooperate independently
+- best result for both, if both cooperate
+- good result for both, if both do not cooperate
+- good result for one and bad for the other, if only one cooperates
+- two equilibria, best strategy is to choose the same
+Prisoner's dilemma: non-zero-sum, individual vs collective, be silent or betray
 - two agents, choose to cooperate independently
 - good result for both, if both cooperate
 - bad result for both, if both do not cooperate
