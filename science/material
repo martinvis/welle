@@ -27,11 +27,23 @@ Tempering: heat treatment to improve toughness, usually after hardening
 #Alloys: stronger
 Amalgam: mercury + others, dentistry
 Alnico: iron + Al + Ni + Co, permanent magnet
-Brass: copper + zinc, gold-like, corrosion-resistant
-Bronze: copper + tin, low melting point, ductile
 Duralumin: aluminum + copper, aviation
 Electrum: gold + silver, coins
-Pewter: tin + copper + antimony, tableware
+Pewter: tin + 2% copper + 5% antimony, tableware
+=Copper
+Brass: copper + zinc, gold-like, corrosion-resistant
+- Nordic Gold: 90% Cu + 5% Al + 5% Zn, coins
+Bronze: copper + tin, low melting point, ductile
+=Nickel
+Inconel: nickel + chromium, high temperature, jet engine
+Invar: 64% Fe + 36% Ni, low thermal expansion
+Chromel: 90% nickel + 10% chromium, thermocouple
+Nicrosil: 85% nickel + 14% chromium + 1% silicone, thermocouple
+Nisil: 95% nickel + 4% silicone + magnesium, thermocouple
+Alumel: 95% Ni + 2% Al + 2% Mn + 1% Si, thermocouple
+=Cupronickel: silver color, coins
+Constantan: 55% copper + 45% nickel, strain gauge
+Monel: nickel + copper, corrosion resistance, marine industry
 
 #Steel: iron + carbon (<2%), construction
 - more carbon makes it brittle

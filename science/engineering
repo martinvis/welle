@@ -21,3 +21,41 @@ Yield point: between elastic and plastic behaviour
 
 Roving bridge: over canal, allows crossing to horse towing boat
 - split in middle or spiral ramp
+
+Chain drive: transmits mechanical power (bicycle wheel)
+- Roller chain: rollers held together by chain links
+- Sprocket: rotating toothed wheel, teeth engage chain
+Gearwheel: rotating toothed wheel, engage together, change rotation speed and direction (car transmission)
+Geneva drive: translates continuous rotation to intermittent, pin on driving wheel engages slots [4/6] in driven wheel (movie projector)
+
+Multimeter: measures electrical properties
+Photoelectric sensor: infrared transmitter + receiver, detects presence or measures distance (automation)
+Hall effect sensor: detects magnetic field (rotating magnets) to measure speed (motor control)
+#Temperature
+Thermocouple: two conductors, voltage on join depends on temperature, self-powered
+- Type K: chromel/alumel, most common
+- Type J: iron/constantan, cheap but oxidizes
+- Type T: copper/constantan, low temperatures (fridge)
+- Type E: chromel/constantan, sensitive
+- Type N: nicrosil/nisil, high temperatures
+Thermistor: semiconductor resistor, made from metal oxides, resistance depends on temperature, cheap and sensitive (electronics)
+Resistance temperature detector (RTD): fine wire around insulating core, resistance depends on temperature, accurate and stable
+Infrared thermometer: measure radiation, non-contact, fast response
+Liquid-in-glass: liquid volume depends on temperature, mercury or alcohol
+
+#Freezer: food storage, -18°C, thermal insulation + heat pump from inside to outside
+Heat pump
+- warm vapor is pressurized in compressor
+- flows through condenser and cools down to liquid
+- warm liquid is depressurized in expansion valve
+- becomes cold liquid + vapour, liquid absorbs heat
+- flows through evaporator and warms up
+Refrigerant: used in heat pump, repeated liquid/gas transition
+- R-290: propane
+- R-600a: isobutane
+- R-717: NH3 (industrial use)
+- R-744: CO2
+- hydrofluorocarbons (HFC)
+- historically chlorofluorocarbons (CFC), banned
+Thermal expansion valve (TXV): controls amount of refrigerant released to evaporator
+- pressure increase in sensing bulb opens valve (flexible diaphragm actuates valve)

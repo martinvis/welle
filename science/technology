@@ -231,6 +231,7 @@ Pad printing: transfers 2D image on 3D object via silicone pad
 
 Actuator: converts input signal to mechanical energy, produces controlled movement
 Sensor: produces output signal based on physical phenomenon
+Diaphragm: thin semi-flexible barrier
 
 High-performance liquid chromatography (HPLC): identify and quantify mixture components
 - high pressure pump delivers solvents, mixture flows to cylinder with adsorbent material, UV detector

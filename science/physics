@@ -493,6 +493,14 @@ electron excited when illuminated by UV light and releases energy as light
 Gauss's law: electric field points from positive charge to negative charge, outflow is proportional to charge
 Gauss's law for magnetism: magnetic field forms loops, outflow is zero
 
+Diamagnetism: weak repellence from magnetic field
+Paramagnetism: magnetic moments aligned in same direction, weak attraction, only in magnetic field
+Ferromagnetism: magnetic moments aligned in same direction, strong attraction, permanent
+- Curie temperature: material becomes paramagnetic above it
+Antiferromagnetism: magnetic moments aligned in opposite directions, same magnitude
+- Néel temperature: material becomes paramagnetic above it
+Ferrimagnetism: magnetic moments aligned in opposite directions, different magnitude
+
 Doppler effect: change of wave frequency in movement
 - increased frequency when moving towards
 - decreased frequency when moving away

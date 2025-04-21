@@ -44,6 +44,8 @@ Efficacy: functional response of drug compared to endogenous agonist
 - Silent: 0
 - Inverse: <0
 
+Monoclonal antibody: isolating spleen cells and cloning individually selected B cell
+
 ADME: absorption, distribution, metabolism, excretion
 - drug levels and kinetics
 
@@ -423,12 +425,12 @@ Azacitidine: cytidine, oral + injection
 =monoclonal antibody
 Bevacizumab: angiogenesis factor inhibitor (VEGF), can cause perforation or bleeding
 Cetuximab: HER1 receptor inhibitor
-Trastuzumab: HER2 receptor inhibitor, breast cancer
+Trastuzumab / Herceptin: HER2 receptor inhibitor, breast cancer
 Pertuzumab: with Trastuzumab, HER2 dimerization inhibitor, breast cancer
 =tyrosine kinase inhibitor
 Erlotinib: HER1 receptor, oral
 Sunitinib: multiple receptors, oral
-Imatinib: Philadelphia chromosome leukemias, oral
+Imatinib / Gleevec: Philadelphia chromosome leukemias, oral
 Dasatinib: Philadelphia chromosome leukemias, oral
 Nilotinib: Philadelphia chromosome leukemias, oral
 =kinase inhibitor
@@ -810,6 +812,9 @@ Calcium gluconate: protect heart from hyperkalemia
 
 Colchicine
 Hydroxycarbamide
+
+=Vitamins
+Tretinoin / All-trans retinoic acid (ATRA): APL cancer (oral), acne (topical)
 
 =Antidotes: treat poisoning
 Chelation: bonding metal ions with multiple bonds

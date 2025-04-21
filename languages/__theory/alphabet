@@ -11,7 +11,22 @@ Circumflex (Â)
 Macron (Ā)
 Tilde (Ã)
 Umlaut (Ä)
-Special: ÅŮĄĘÇÑŁŻ
+--
+Ring (Å)
+Breve (ĂĞ)
+Ogonek (ĄĘ)
+Cedilla (ÇŞ)
+Dot (Ż)
+Special: ŁİȘȚẞÆŒØĐ
+
+#Punctuation
+Quotation mark: "«» (「」 in japanese)
+Question mark: ?¿;
+Exclamation mark: !¡
+Apostrophe: '
+Comma: ,
+Period: . (。 in chinese/japanese)
+Ellipsis: … (twice in chinese)
 
 #English (latin)
 
@@ -37,7 +52,7 @@ Special: ÅŮĄĘÇÑŁŻ
 - plus: ÁÉÍÓÚÄËÏÖÜ
 - rare: QXY
 
-#Danish (latin)
+#Danish/Norwegian (latin)
 - plus: ÅÆØ
 - rare: QWXZ
 
@@ -48,10 +63,12 @@ Special: ÅŮĄĘÇÑŁŻ
 #French (latin)
 - plus: ÉÀÈÙÂÊÎÔÛËÏÜŸÇÆŒ
 - rare: KW
+- punctuation: «»
 
 #Spanish (latin)
 - plus: ÑÁÉÍÓÚÝÜ
 - rare: KW
+- punctuation: ¿¡
 
 #Portuguese (latin)
 - plus: ÁÉÍÓÚÀÈÌÒÙÂÊÔÃÕÇ
@@ -92,4 +109,7 @@ Special: ÅŮĄĘÇÑŁŻ
 #Turkish (latin)
 - plus: ÇĞİÖŞÜ
 - rare: QWX
+
+#Malay/Indonesian (latin)
+- rare: QX
 

@@ -1,3 +1,55 @@
+#Trades
+Guard: armed protector
+Merchant: long-distance trader
+Peddler: short-distance trader
+Porter: cargo carrier
+Pawnbroker: money lender
+Tinker: utensil mender
+--
+Tanner: leather maker
+Cobbler: shoe maker
+Tailer: clothing maker
+Draper: clothing seller
+Weaver: fabric maker
+Mercer: fabric seller
+Dyer: cloth coloring
+--
+Chandler: candle maker
+Potter: ceramics maker
+Cooper: barrel maker
+Wheelwright: wheel maker
+Ropemaker
+Woodcarver
+--
+Carpenter: house framework builder
+Thatcher: straw roof builder
+Shipwright
+--
+Blacksmith: metal objects maker
+Bladesmith: weapon maker
+Armorer: armor maker
+Bowyer: bow maker
+Fletcher: arrow maker
+--
+Miner
+Lumberjack: wood cutter
+Glazier: glass cutter
+Mason: stone cutter
+--
+Farmer
+Miller: flour maker
+Baker: bread maker
+Butcher: meat maker
+Brewer: beer maker
+Vintner: wine maker
+--
+Chamberlain: household manager
+Butler: cellar manager
+Messenger: news delivering
+Minstrel: music entertainer
+Page: young servant
+Jeweler: jewelry maker
+
 #Tulip Mania
 Netherlands, 1634-1637
 

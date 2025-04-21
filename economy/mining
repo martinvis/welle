@@ -1,17 +1,17 @@
 #Iron: 2.5Gt
 hematite, magnetite
-production: Australia (1Gt), Brazil, China, India
+production: Australia (1Gt, Western), Brazil, China, India, Russia (Kursk), South Africa, Canada, USA (Minnesota)
 
 #Aluminium: 70Mt
 bauxite
-production: Australia (20Mt), China
+production: Guinea, Australia, China, Brazil, India
 
 #Chromium: 45Mt
 production: South Africa (20Mt), Turkey, Kazakhstan, India
 
 #Copper: 20Mt
 chalcopyrite, chalcocite
-production: Chile (6Mt), Peru, China
+production: Chile (6Mt), Peru, DRC, China, USA (Arizona), Indonesia, Russia, Australia
 
 #Manganese: 20Mt
 production: South Africa (6Mt), China, Australia, Gabon
@@ -44,7 +44,9 @@ reserves: Australia, Kazakhstan, Canada, Russia
 production: Mexico (6kt), China, Peru
 
 #Gold: 3kt
-production: China (300t), Australia, Russia, Canada
+production: China (300t), Australia (Western), Russia (Siberia), Canada, USA (Nevada, Alaska, California)
+historical production: South Africa (1kt, Witwatersrand Basin)
+reserves: Australia, Russia, South Africa, USA, Peru, Indonesia, Brazil, Canada
 
 #Platinum (PGM): 200t
 production: South Africa (120t), Russia, Zimbabwe
@@ -61,3 +63,5 @@ Measured: estimated with high confidence
 #Mineral reserve: economically mineable mineral resource
 Probable: indicated mineral resource
 Proved: measured mineral resource
+
+Acid mine drainage: outflow of acidic water due to oxidation of sulfide minerals (Witwatersrand, Rio Tinto)

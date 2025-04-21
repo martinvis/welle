@@ -175,6 +175,24 @@ Isomerase (EC5): isomerization within molecule
 Ligase (EC6): joining with covalent bond
 Translocase (EC7): movement across membrane
 
+#Signal transduction
+WNT pathway: regulates gene expression
+- WNT protein binds Frizzled receptor and activates DVL protein to inhibit β-catenin destruction complex
+MAPK/ERK pathway: regulates cell proliferation
+- mitogen binds RTK and activates RAS
+- RAS activates RAF
+- RAF activates MEK
+- MEK activates MAPK/ERK
+JAK-STAT pathway: regulates immune response
+- cytokine binds receptor and activates JAK
+- JAK activates STAT
+Hedgehog pathway: embryonic cell differentiation
+- HH protein binds and suppresses Patched receptor
+- uninhibited Smoothened receptor activates
+
+=GPTase
+RAS: small GTPase, signal transduction, proto-oncogene
+
 =Protease
 Plasmin (PLG): serine protease, degrades fibrin
 Urokinase (PLAU): serine protease, activates plasminogen to plasmin
@@ -259,8 +277,6 @@ Antifreeze proteins (AFPs): lower freezing point, bind to small ice crystals (fi
 
 =Mevalonate pathway: converts acetyl-CoA into terpenoids
 HMG-CoA reductase (HMGCR): enzyme of rate limiting step in cholessterol synthesis
-
-=Hedgehog pathway: signaling to embryonic cells for cell differentiation
 
 =Terpenoids / Isoprenoids
 - in plants: artemisinin, beta caroten, menthol, zingiberene

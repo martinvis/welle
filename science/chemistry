@@ -201,9 +201,6 @@ Resonance/Mesomerisml: combination of several structures, non-integer bond order
 - exhibit paramagnetism
 - e.g. O2 or NO
 
-Diamagnetism: weak repellence from magnetic field
-Paramagnetism: attraction to magnetic field
-
 #Bond angle
 - VSEPR theory: valence shell electron pair repulsion
 - geometry minimizing repulsion between electrons
@@ -382,7 +379,8 @@ Micelle
 - phospholipid bilayer in cell membrane
 Tyndall effect: light scattering by colloid particles, shorter wavelength (blue) scatters more
 Coagulation: aggregation of colloid particles
-Dialysis: separation of colloid particles from solution
+- Flocculation: clumping of colloid particles in solution into flakes
+Dialysis: separation of colloid particles from solution using semi-permeable membrane
 
 #Colligative properties
 depend on mass percentage of solutions instead of solute properties

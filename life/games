@@ -115,3 +115,58 @@ Twister
 Mafia/Werewolf
 - setup: villagers + mafiosi
 - turn: mafiosi kill villager, villagers vote suspect
+
+#Pokemon
+Types
+- Normal
+- Fire
+- Water
+- Grass
+- Electric
+- Ice
+- Dark
+- Poison
+- Flying
+- Fighting
+- Psychic
+- Ground
+- Rock
+- Steel
+- Bug
+- Ghost
+- Dragon
+Stats
+- Level
+- HP
+- Attack
+- Defense
+- Special Attack
+- Special Defense
+- Speed
+Conditions
+- Burn
+- Freeze
+- Paralysis
+- Poison
+- Sleep
+- Confusion
+Moves
+- Tackle
+- Scratch
+- Quick Attack
+- Body Slam
+- Growl
+- Leer
+- Hyper Beam
+- Low Kick
+- Double Kick
+- Gust
+- Razor Leaf
+- Vine Whip
+- Sleep Powder
+- Water Gun
+- Flamethrower
+- Thunderbolt
+- Poison Sting
+- String Shot
+- Mirror Move

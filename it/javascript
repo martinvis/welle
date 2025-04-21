@@ -69,3 +69,11 @@ Touch
 - clientX, clientY
 - screenX, screenY
 - target: start element
+
+#History API
+history
+- back()
+- forward()
+- go(-1): relative position
+- pushState({}, "", url): add new entry
+- replaceState({}, "", url): update current entry
