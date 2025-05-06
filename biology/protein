@@ -189,6 +189,16 @@ JAK-STAT pathway: regulates immune response
 Hedgehog pathway: embryonic cell differentiation
 - HH protein binds and suppresses Patched receptor
 - uninhibited Smoothened receptor activates
+PI3K/AKT/mTOR pathway: regulates cell cycle
+- growth factor or insulin binds RTK and activates PI3K
+- PI3K activates AKT
+- AKT activates mTOR
+- mTOR: kinase, protein synthesis, autophagy inhibition
+- PTEN: phosphatase, inhibits AKT activation
+=Extrinsic apoptosis pathway
+Death-inducing signaling complex (DISC): trimerization of FASL binding FAS receptor, recruitment of FADD and CASPACE
+=Intrinsic apoptosis pathway
+Mitochondrial Outer Membrane Permeabilization (MOMP): BCL2 proteins insert into membrane to form pores
 
 =GPTase
 RAS: small GTPase, signal transduction, proto-oncogene

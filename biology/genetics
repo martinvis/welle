@@ -373,7 +373,10 @@ C4O-OH-OH=O-(CH-OH-CH2-OH)
 #Steroids
 Gonane: C6|C6\C6/C5
 Sterol: OH-C6|C6\C6/C5
-Cholesterol: integrity of cell membrane, vitamin D synthesis
+Cholesterol: integrity of cell membrane
+- primarily produced in liver
+- in brain produced in astrocytes, myelin component
+- precursor of bile acid (liver), steroid hormones (adrenal glands + gonads), vitamin D (epidermis)
 Testosterone: male sex hormone
 Vitamin D: secosteroid (broken ring)
 
