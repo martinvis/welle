@@ -20,6 +20,7 @@ AI alignment|prevent AI from harmful or unintended ways to achieve its goals|../
 AIDS|immune system can not fight off infections|../../biology/virus
 AML (Anti Money Laundering)|detecting suspicious transactions|../../economy/compliance
 AMPA receptor|glutamate, Na+, neurons, synaptic plasticity|../../biology/protein
+AMPK|kinase|../../biology/protein
 AM|amplitude modulation, longer distance|../../science/technology
 ANO|populism, Andrej Babiš|../../history/politics
 APC (antigen presenting cell)|bind antigen by MHC proteins on surface|../../biology/genetics
@@ -75,6 +76,7 @@ Aciclovir|herpes|../../biology/drugs
 Aciclovir|topical + oral + injection|../../biology/drugs
 Acicular|needle-like, long and thin|../../biology/body-plant
 Acicular|needle-like, slender (stibnite)|../../nature/minerals
+Acid mine drainage|outflow of acidic water due to oxidation of sulfide minerals (Witwatersrand, Rio Tinto)|../../economy/mining
 Acid rain|caused by emissions of CO and SO2|../../geography/geography
 Acids|contains hydrogen cation, can donate proton|../../science/chemistry
 Acionyx|cheetah, small black spots, small rounded head, fast on short distances, Africa|../../biology/mammalia
@@ -95,11 +97,13 @@ Actinomorphic|radially symmetric, 3+ identical sectors|../../biology/body-plant
 Actinopterygii|ray-finned fish|../../biology/life
 Action bias|favoring action over inaction, even if the result is not better|../../science/logic
 Activated charcoal|small pores increase surface, adsorbs ingested poisons|../../biology/toxin
+Activated|with cost|../../life/mtg
 Activation energy|energy particles need to have to react on collision|../../science/chemistry
 Active placebo|produces noticeable effects|../../biology/drugs
 Activity diagram|flowchart|../../it/visualization
 Actuator|converts input signal to mechanical energy, produces controlled movement|../../science/technology
 Acute lymphoblastic leukemia (ALL)|most prevalent cancer in children|../../biology/medicine
+Acute promyelocytic leukemia (APL)|chromosomal translocation (RARA gene), resposive to all-trans retinoic acid|../../biology/medicine
 Acute triangle|all angles under 90 degrees|../../science/geometry
 Acute|<90|../../science/geometry
 Acute|lasts few days, cytokines promote migration of macrophages and neutrophils|../../biology/genetics
@@ -198,6 +202,7 @@ Airbus A330|1.5k|../../economy/transport
 Aircraft carrier|serving as airbase|../../economy/war
 Aizhai Bridge|Hunan|../../culture/architecture
 Ajvar|roasted pepper|../../culture/recipes
+Akari|square grid, black+white cells, place bulbs to illuminate all white cells by single bulb|../../life/games
 Akashi Kaikyo Bridge|Kobe, Japan, long|../../culture/architecture
 Akbar|military campaigns|../../history/history_8_modern
 Akhmad Kadyrov Mosque, Grozny (2008)|Ottoman-like, 4 minarets|../../culture/architecture
@@ -209,7 +214,6 @@ Al-Azhar Mosque, Cairo|5 minarets|../../culture/architecture
 Al-Hakim Mosque, Cairo|2 minarets|../../culture/architecture
 Al-Muayyad Mosque, Cairo|2 minarets|../../culture/architecture
 Alabama|Browns Ferry|../../economy/energy
-Aladdin [1992]|Jasmine + Aladdin + monkey Abu + Genie + !Jafar|../../stories/animated
 Alamillo Bridge|Seville, backward|../../culture/architecture
 Alans (45-418)|Pontic-Caspian steppe, migrated westwards|../../history/history_4_antiquity
 Alarm signal|warning of predator, social animals (birds, primates)|../../biology/ethology
@@ -217,6 +221,7 @@ Alaudidae|larks, brown color, social|../../biology/aves
 Albania|tourism, textiles|../../economy/states
 Albarrana tower|defensive tower connected to wall by bridge|../../culture/arch_styles
 Albendazole|inhibits microtubule synthesis, systemic circulation, oral|../../biology/drugs
+Alberta Oil Sands|Canada (heavy oil)|../../economy/energy
 Albertaceratops|long eye horns, frill with 2 sideward hornlets|../../biology/reptilia
 Albertaceratops|long eye horns, two frill hooks|../../history/fauna
 Alberta|Edmonton, Calgary|../../history/politics
@@ -236,6 +241,7 @@ Alcubierre drive|faster-than-light travel by space contraction|../../history/fut
 Alcyone and Ceyx|hubris|../../stories/mythology
 Aldehyde|-CH=O|../../science/chemistry
 Aldous Huxley|Brave New World (1932)|../../stories/books
+Alebrijes|brightly colored fantastical wooden sculptured|../../culture/holidays
 Alectura|bush turkey, black with red head, yellow wattle, Australia|../../biology/aves
 Alepisauridae|long high dorsal fin, deepsea|../../biology/life
 Alexander Bain|Electric clock (1840)|../../history/science
@@ -301,7 +307,7 @@ Alpha-gal syndrome|red meat allergy after tick bite, reaction to carbohydrate|..
 Alpha|helium nucleus|../../science/physics
 Alpine-Himalayan Belt|Alpes - Caucasus - Himalayas - Java|../../geography/geography
 Alpine|mountains|../../geography/geography
-Alprostadil|PGE1, treat erectile disfunction|../../biology/materials
+Alprostadil|PGE1, treat erectile disfunction|../../biology/protein
 Alps|north|../../geography/oceans
 Alqueva Dam|Portugal, arch dam|../../economy/energy
 Alteplase|intravenous, recombinant DNA|../../biology/drugs
@@ -309,6 +315,7 @@ Alternative blindness|deciding between two options, not considering any other op
 Alternative splicing|exons joined in different combinations, single gene codes multiple proteins|../../biology/genetics
 Alternator|generate alternating current|../../science/technology
 Altocumulus|larger patches|../../geography/geography
+Alumel|95% Ni + 2% Al + 2% Mn + 1% Si, thermocouple|../../science/material
 Aluminium|alloys|../../economy/materials
 Aluminium|common, visible to near infrared wavelength|../../science/technology
 Alzheimer's disease|loss of neuronal connections, causes dementia|../../biology/medicine
@@ -386,6 +393,7 @@ Angiotensin-converting enzyme (ACE)|activates angiotensin|../../biology/protein
 Angiotensin|made by liver, causes vasoconstriction and thirst, increases blood pressure, stimulates aldosterone secretion|../../biology/protein
 Anglicanism|UK|../../culture/religion
 Anglo-Spanish War (1585–1604)|caused by Protestand movement in Spanish Netherlands|../../history/history_8_modern
+Angola Basin|offshore|../../economy/energy
 Angola|petroleum, diamonds|../../economy/states
 Angstrom (A)|100 pm|../../science/physics
 Anguilla|island|../../history/politics
@@ -428,10 +436,12 @@ Anthocerotophyta|hornworts, non-vascular|../../biology/life
 Anthony Ryan|The Draconis Memoria (2016-2018)|../../stories/books
 Anthozoa|corals, marine, adults are sessile, colonial, predatory|../../biology/life
 Anthracite|black coal, 85%+ carbon|../../science/material
+Anti-oncogene|tumor suppressor, regulate cell division|../../biology/medicine
 Anti-ship glide bomb (1943)|Fritz X, WWII, Nazi Germany|../../history/science
 Antibonding orbital|by substracting, higher energy in molecule than atom, empty unless excited, marked with * symbol|../../science/chemistry
 Anticoagulant|causes anemia|../../economy/agriculture
 Antidorcas|Springbok|../../biology/mammalia
+Antiferromagnetism|magnetic moments aligned in opposite directions, same magnitude|../../science/physics
 Antifreeze proteins (AFPs)|lower freezing point, bind to small ice crystals (fish, spruce)|../../biology/protein
 Antigonus|Phrygia + Lycia|../../history/history_4_antiquity
 Antilocapridae|pronghorn|../../biology/mammalia
@@ -440,6 +450,7 @@ Antimony|flame retardant, alloys|../../economy/materials
 Antipater|Greece + Macedonia|../../history/history_4_antiquity
 Antiphospholipid syndrome (APS)|autoimmune, antiphospholipid antibodies|../../biology/medicine
 Antisocial|lack of remorse, manipulative|../../culture/psychology
+Antithrombin|serpin, inhibits Factors II + IX + X + XI + XII|../../biology/protein
 Antivenom|made by injecting venom into animal and extracting antibodies from blood|../../biology/toxin
 Antlers|temporary, bone covered with skin (velvet) while growing, top of head|../../biology/body-animal
 Antoine de Saint-Exupéry|The Little Prince (1943)|../../stories/books
@@ -495,6 +506,7 @@ Aqueous humor|transparent fluid, between lens and cornea|../../biology/organs
 Aquila|eagles, brown color, solitary, except South America, large nest|../../biology/aves
 Aquitaine|south-western France|../../history/history_6_middle_ages
 Arab Spring (2010-2012)|protests and rebellions in Tunis, Lybia, Egypt, Syria, Yemen|../../history/history_9_contemporary
+Arabasta|Drum Island|../../stories/manga
 Arachne Transformed into Spider|challenged Athena in weaving|../../stories/mythology
 Arachnida|eight legs, chelicerae, pedipalps, body = cephalothorax + abdomen|../../biology/life
 Arachnoid mater|thin, transparent, elastic|../../biology/organs
@@ -553,6 +565,7 @@ Armenia|copper, iron|../../economy/states
 Armillaria|honey fungus, on wood, causes rot, long-lived, large networks|../../biology/fungi
 Arminius|Germanic with Roman citizenship|../../history/history_4_antiquity
 Armistice Day|November 11 (end of WWI)|../../culture/holidays
+Armorer|armor maker|../../history/economy
 Armoured force|armoured vehicles|../../economy/war
 Aromatase|aromatization of androgens into estrogens by elimination of methyl group|../../biology/protein
 Aromatic|contain ring of six carbons|../../science/chemistry
@@ -579,6 +592,7 @@ Arthropoda|1M species, exoskeleton (chitin)|../../biology/life
 Arthropoda|Trilobita, Megacheira, Radiodonta, Crustacea|../../history/earth
 Articaine|fast acting, medium duration, dental (penetrates bones)|../../biology/drugs
 Articular process|two pairs, short, between vertebrae|../../biology/organs
+Artifact|colorless, cost to activate|../../life/mtg
 Artificial cardiac pacemaker|implanted, generates electrical pulses to maintain heart rate|../../biology/medicine
 Artificial general intelligence (AGI)|matches human cognitive capabilities|../../it/ai
 Artillery|ranged warfare|../../economy/war
@@ -765,6 +779,7 @@ Baidu|China|../../it/internet
 Baihetan Dam|Jinsha River, 16 GW|../../economy/energy
 Bailey|walled courtyard surrounded by ditch and palisade|../../culture/arch_styles
 Baishazhou Yangtze River Bridge|Wuhan|../../culture/architecture
+Baker|bread maker|../../history/economy
 Baklava|layered pastry, chopped nuts, honey|../../culture/recipes
 Balaenicipitidae [Shoebill]|long legs, large bill, Africa|../../biology/aves
 Balaenidae|curved upper jaw with long baleen|../../biology/mammalia
@@ -790,6 +805,7 @@ Bangladesh genocide / Gonohotta|against Bengali Hindus, 2M dead|../../history/hi
 Bangladesh|textiles|../../economy/states
 Banna'i|glazed tiles creating geometric patterns, blue colors|../../culture/arch_styles
 Banqiao Dam failure (1975)|Typhoon Nina, deadly flood|../../history/history_9_contemporary
+Baozi|steamed filled buns|../../culture/recipes
 Baphetidae|extinct|../../biology/life
 Barbarian|rage, STR|../../life/dnd
 Barbican|fortified gateway or outpost, defends choke point|../../culture/arch_styles
@@ -920,6 +936,7 @@ Battle of the Metaurus (207BC)|Roman victory over Hasdrubal in Italy|../../histo
 Battle of the Milvian Bridge (312)|Constantine defeated Maxentius|../../history/history_5_migration_period
 Battle of the Teutoburg Forest / Varian Disaster (9)|destroyed three roman legions|../../history/history_4_antiquity
 Battle on the Marchfeld (1278)|Rudolf I (Habsburg) defeats Ottakar II, acquires Austria+Styria|../../history/history_6_middle_ages
+Battlefield|casted permanents|../../life/mtg
 Battlement|Parapet + Crenellation|../../culture/arch_styles
 Battleship|large, armored, powerful guns|../../economy/war
 Battuto|onion + carrot + celety, slow cook|../../culture/recipes
@@ -1007,6 +1024,7 @@ Beylik|small kingdom|../../history/history_8_modern
 Bhopal Disaster (1984)|toxic gas leak at pesticide plant, India|../../history/science
 Bhutan|electricity, iron|../../economy/states
 Biafra|Igbo ethnic in Nigeria|../../history/politics
+Bibimbap|rice + vegetables + sliced beef + fried egg + chili paste|../../culture/recipes
 Bible|Old Testament (Tanakh) + New Testament|../../culture/religion
 Bicalutamide|androgen antagonist, prostate cancer, oral|../../biology/drugs
 Biceps|shoulder to elbow on front, forearm flexor|../../biology/anatomy
@@ -1042,8 +1060,11 @@ Black September (1970)|failed Palestinian attempt to overthrow Jordan government
 Black Wednesday (19992)|British pound not able to keep its exchange rate (George Soros)|../../history/economy
 Black sea|2%|../../geography/geography
 Black swan|highly improbable consequential event|../../science/logic
+Blacksmith|metal objects maker|../../history/economy
 Blackwater river|dark color and lower pH caused by leaching of soluble tannins from plants|../../biology/botanics
 Black|0|../../it/hardware
+Black|creature removal, sacrifice|../../life/mtg
+Bladesmith|weapon maker|../../history/economy
 Blast from the Past [1999]|raised in fallout shelter|../../stories/movies
 Blastocerus|marsh deer|../../biology/mammalia
 Blattodea|cockroaches, termites|../../biology/life
@@ -1065,6 +1086,7 @@ Blue Mosque, Tabriz|damaged by earthquake|../../culture/architecture
 Blue Stream|Russia -> Turkey|../../economy/transport
 Blue|6|../../it/hardware
 Blue|Gorgonzola, Roquefort, Stilton, Niva|../../biology/food
+Blue|card draw, counterspell|../../life/mtg
 Blunt|flat tip|../../biology/body-plant
 Boceprevir|hepatitis C|../../biology/drugs
 Body-centered cubic|coordination 8, 68% space occupied, 8 corners + 1 cube center|../../science/physics
@@ -1106,6 +1128,7 @@ Borisoglebsk|Russia|../../economy/war
 Boron|fiberglass, borosilicate glass|../../economy/materials
 Borophagus + Epicyon|bone-crushing dog|../../history/fauna
 Borosilicate|with B2O3 adding resistance to thermal stress|../../science/material
+Borscht|sour soup, vegetables (beetroot, cabbage, carrot, potato)|../../culture/recipes
 Bortezomib|boron, injection|../../biology/drugs
 Boselaphus|Nilgai|../../biology/mammalia
 Boshin War (1868-1869)|civil war, end of Shogunate|../../history/history_8_modern
@@ -1121,6 +1144,7 @@ Botswana|diamonds|../../economy/states
 Bougainvillea|ornamental vine/bush, 3 pink bracts, south America|../../life/rastliny-eudicots
 Boundary|separates system and surroundings|../../science/science
 Bovidae|horns|../../biology/mammalia
+Bowyer|bow maker|../../history/economy
 Boxer Rebellion (1899)|Eight Nation alliance victory|../../history/history_8_modern
 Boyar|high nobility rank|../../history/history_6_middle_ages
 Boyle's law|at constant temperature volume of gas is inversely proportional to pressure|../../science/physics
@@ -1128,6 +1152,7 @@ Brachiopoda|bivalve molluscs|../../biology/life
 Brachiosaurus + Giraffatitan|long forelimbs|../../history/fauna
 Brachistochrone curve|shortest time between start and end points, cycloid|../../science/physics
 Bradycardia|decreased heart rate (under 60 beats), normal during sleep|../../biology/medicine
+Bradykinin|promote inflammation, cause vasodilation and hyperalgesia, B1+B2 receptors|../../biology/protein
 Bragg's law|interference of waves interacting with atoms in crystal depends on angle|../../science/physics
 Brahmacharya|sexual restraint|../../culture/religion
 Brainwaves|oscillations of neural activity in CNS|../../biology/psychology
@@ -1150,6 +1175,7 @@ Breadcrumbs|page location within hierarchy|../../it/gui
 Breast cancer|common in women|../../biology/medicine
 Bremsstrahlung|produced by electron deceleration, continuous spectrum|../../science/physics
 Brent|sweet, Europe|../../economy/industry
+Brewer|beer maker|../../history/economy
 Brian Christian|Algorithms to Live By (2016)|../../science/books
 Brian Herbert|Legends of Dune (2002-2004)|../../stories/books
 Brick and mortar|physical presence|../../economy/marketing
@@ -1229,7 +1255,9 @@ Buserelin|GnRH superagonist (desensitization), prostate/breast cancer|../../biol
 Bushidō|Samurai moral code|../../history/history_8_modern
 Business cycle|intervals of expansion and recession|../../economy/finance
 Busulfan|oral + intravenous|../../biology/drugs
+Butcher|meat maker|../../history/economy
 Buteo|buzzards, streaked chest, migratory|../../biology/aves
+Butler|cellar manager|../../history/economy
 Butte|small steep-sided hill|../../geography/geography
 Buxus|small oval leaves, small flowers without petals, hedges|../../life/rastliny-eudicots
 By-law|rules of organization to regulate itself|../../economy/legal
@@ -1240,6 +1268,7 @@ Bábovka / Gugelhupf|1/2 with cocoa + 1/2 without cocoa|../../culture/recipes
 Béarnaise sauce|yolk + vinegar + herbs + butter|../../culture/recipes
 Béchamel sauce|butter + flour + milk|../../culture/recipes
 Bézier curve|defined by paths moving along straight lines between control points|../../science/geometry
+Börek|filled pastry|../../culture/recipes
 C-segment|medium car|../../economy/transport
 C. S. Lewis|The Chronicles of Narnia (1950-1956)|../../stories/books
 C/Ascorbate|water-soluble|../../biology/materials
@@ -1261,12 +1290,14 @@ CHOP|non-Hodgkin lymphoma, Cyclophosphamide + Doxorubicin + Vincristine + Predni
 CIA (Central Intelligence Agency)|foreign intelligence, Langley, Virginia|../../economy/war
 CLOB(n)|long text|../../it/sql
 CNAME|domain name alias|../../it/dns
+CO2 injection|reduce viscosity|../../economy/energy
 COBRA|Europe, counter-battery radar|../../economy/war
 CONNECT|tunneling|../../it/http
 COVID-19 pandemic (2020)|global, coronavirus, mRNA vaccines|../../history/history_9_contemporary
 CPM (cost per mille)|thousand views|../../economy/marketing
 CR2016|watches|../../economy/industry
 CR2032|most common CR|../../economy/industry
+CRISPR (2010s)|gene editing|../../history/science
 CRS (Common Reporting Standard)|between tax authorities|../../economy/finance
 CRXXYY|3V, lithium manganese oxide, coin shape, size XX/YY mm|../../economy/industry
 CTR (click-through rate)|% of clicks|../../economy/marketing
@@ -1322,12 +1353,14 @@ Camouflage|making hard to see (chameleon, octopus)|../../biology/ethology
 Campanelle / Gigli|flower-like|../../biology/food
 Campania|Naples|../../history/politics
 Campbell Plateau|south of New Zealand|../../geography/oceans
+Campos Basin|Brazil, offshore|../../economy/energy
 Canada Day|July 1|../../culture/holidays
 Canada|15%, PHWR|../../economy/energy
 Canada|CA/CAN|../../economy/person
 Canada|Toronto, Montreal, Vancouver|../../culture/architecture
 Canada|petroleum, wood, motor vehicles, machinery, aluminium|../../economy/states
 Canadian Thanksgiving|2nd Monday in October|../../culture/holidays
+Canagliflozin|oral|../../biology/drugs
 Canaries|Tenerife (Teide volcano) + Fuerteventura + Gran Canaria + Lanzarote + La Palma|../../geography/oceans
 Cancroidea|crabs, very short antennae and abdomen, 1st pair of legs with large pincers, walk sideways|../../biology/life
 Cancún|CUN|../../life/airports
@@ -1362,6 +1395,7 @@ Carabidae|ground beetles, mostly carnivorous, most have ridged wing covers|../..
 Caracalla (198-217)|son of Septimius Severus|../../history/history_4_antiquity
 Caracal|tufted pointed ears|../../biology/mammalia
 Caracara|black cap and white neck, Latin America|../../biology/aves
+Caramel|heated sugar|../../culture/recipes
 Carbapenems|bacteria product, against resistant bacteria|../../biology/drugs
 Carbon dioxide|0.04%|../../geography/geography
 Carbon fiber|strong, low thermal expansion, aerospace, sports|../../science/material
@@ -1399,6 +1433,7 @@ Caroline Islands|volcanic atolls|../../geography/oceans
 Carolingian Empire (800)|crowned by Pope|../../history/history_6_middle_ages
 Carotid|aorta to head|../../biology/organs
 Carousel|content with slider animation|../../it/gui
+Carpenter|house framework builder|../../history/economy
 Carpus|wrist|../../biology/organs
 Carrack (14th century)|multiple masts, single deck, sails for propulsion|../../history/science
 Cartesian scepticism|doubt about truth of beliefs|../../history/philosophy
@@ -1447,6 +1482,7 @@ Cefuroxime|also staphylococcus and some gram negative, oral or injection|../../b
 Cellular network|wireless communication between user devices and network|../../economy/communication
 Celosia [Cockscomb]|crested flower head, edible, ornamental|../../life/rastliny-eudicots
 Cementation|water ions forming new material|../../geography/geography
+Cempasúchil|marigold flowers|../../culture/holidays
 Cenozoic|butterflies, snakes, ungulates, carnivores, rodents, primates|../../history/geologic_time_scale
 CentOS|Fedora based, servers|../../it/operating-system
 Centaurs|Chiron|../../stories/mythology
@@ -1491,6 +1527,7 @@ Cetus|(sea monster)|../../stories/mythology
 Cetuximab|HER1 receptor inhibitor|../../biology/drugs
 Chad|petroleum|../../economy/states
 Chahartaq|four barrel vaults and dome|../../culture/arch_styles
+Chain drive|transmits mechanical power (bicycle wheel)|../../science/engineering
 Chalcocite = Cu2S|monoclinic|../../nature/minerals
 Chalcopyrite = CuFeS2|tetragonal, tetrahedral, golden color, metallic, black streak|../../nature/minerals
 Chalkaspides|hoplites with bronze shields|../../history/history_4_antiquity
@@ -1498,9 +1535,11 @@ Challenger Plateau|west of New Zealand|../../geography/oceans
 Chamaeleonidae|chameleons|../../biology/life
 Chamber of Deputies|lower house, 400 members, mixed system, 5y term|../../history/politics
 Chamber of Deputies|lower house, 500 members, 300  district basis + 200 nationwide, 3y term|../../history/politics
+Chamberlain|household manager|../../history/economy
 Champlain Sea|glacial origin, remnant Lake Champlain + St. Lawrence River|../../history/earth
 Chancellor|4y term|../../history/politics
 Chancel|space around altar|../../culture/arch_styles
+Chandler|candle maker|../../history/economy
 Chandragupta (322-297)|conquered Nanda empire, defeated Seleucid empire|../../history/history_4_antiquity
 Chandrasekhar limit|maximum mass|../../science/astronomy
 Chandrayaan programme|India, moon exploration|../../history/science
@@ -1540,9 +1579,11 @@ Cheirurus|long head and tail spines|../../history/fauna
 Cheka|secret police|../../history/history_8_modern
 Chelation|bonding metal ions with multiple bonds|../../biology/drugs
 Chelidae|long neck, Australia + South America|../../biology/reptilia
+Chemical|polymers to increase viscosity of injected water|../../economy/energy
 Chemise|low wall around keep|../../culture/arch_styles
 Chemokine|guide direction of cell movement by change in concentration|../../biology/protein
 Chemoreceptor|H+, K+, histamine, bradykinin, prostaglandins, substance P, capsaicin|../../biology/organs
+Chemotherapy (1940s)|nitrogen mustard|../../history/science
 Chengdu J-10|China, single-engine|../../economy/war
 Chengdu J-20|China, stealth, twin-engine|../../economy/war
 Chenghua/成化帝 (1464-1487)|autocratic, peasant uprisings|../../history/history_7_renaissance
@@ -1594,7 +1635,7 @@ Chlorosis|insufficient chlorophyll production|../../biology/body-plant
 Choeropsis|pygmy hippo, small|../../biology/mammalia
 Choir|seating for clergy, part of chancel|../../culture/arch_styles
 Cholecalciferol / D3|synthesis in skin|../../biology/materials
-Cholesterol|integrity of cell membrane, vitamin D synthesis|../../biology/genetics
+Cholesterol|integrity of cell membrane|../../biology/genetics
 Chongzhen/崇禎帝 (1627-1644)|brother of Tianqi, peasant rebellions, Manchu attacks, commited suicide|../../history/history_7_renaissance
 Chora / Kariye Mosque|mosaics and frescos, turned into mosque|../../culture/architecture
 Chordata|100k species|../../biology/life
@@ -1611,6 +1652,7 @@ Christmas elves|make toys|../../stories/mythology
 Christmastide/Twelvetide|December 25 - January 5|../../culture/holidays
 Christmas|December 25|../../culture/holidays
 Christopher Paolini|The Inheritance Cycle / Eragon (2003-2011)|../../stories/books
+Chromel|90% nickel + 10% chromium, thermocouple|../../science/material
 Chromite - FeCr2O4|cubic|../../nature/minerals
 Chromium|open source|../../it/operating-system
 Chromium|red/green|../../nature/minerals
@@ -1641,6 +1683,7 @@ Circassian genocide|ethnic cleansing, expulsion to Turkey|../../history/history_
 Circe|pigs|../../stories/mythology
 Circular error probable (CEP)|median error radius of munition|../../economy/war
 Circular reasoning|proving argument validity by itself|../../science/logic
+Circulating tumor cell (CTC)|detached from tumor and entered bloodstream|../../biology/medicine
 Circulatory/Cardiovascular|deliver nutritients|../../biology/anatomy
 Circum-Pacific Belt / Ring of Fire|New Zealand - Japan - California - Andes|../../geography/geography
 Circumcenter|center of circumcircle, intersection of perpendicular bisectors|../../science/geometry
@@ -1703,6 +1746,7 @@ Coagulation|aggregation of colloid particles|../../science/chemistry
 Coaxial rotors|two rotors in one axis, contra rotating (instead of tail rotor)|../../economy/transport
 Cobalt|alloys, batteries, catalysts|../../economy/materials
 Cobalt|blue|../../nature/minerals
+Cobbler|shoe maker|../../history/economy
 Cocaine|coca leaves, CNS stimulant, recreational drug, addictive|../../biology/drugs
 Coccinellidae|ladybugs|../../biology/life
 Coccosteus|small|../../history/fauna
@@ -1817,6 +1861,7 @@ Consistency principle|commitment, people want to be consistent with prior acts a
 Consolida [Larkspur]|gardens, spurred sepal|../../life/rastliny-eudicots
 Conspiracy theory|ignores more probable explanations, resists falsification, faith|../../science/logic
 Constans|center|../../history/history_5_migration_period
+Constantan|55% copper + 45% nickel, strain gauge|../../science/material
 Constantine (306-337)|west, son of Constantius|../../history/history_5_migration_period
 Constantine II|west|../../history/history_5_migration_period
 Constantine VI (780-797)|ruled with mother|../../history/history_6_middle_ages
@@ -1840,6 +1885,7 @@ Convolutional neural network (CNN)|feedforward neural network, regularized weigh
 Conwy Castle|8 towers|../../culture/architecture
 Cook Islands|volcanic|../../geography/oceans
 Cooperative|american badger and coyote sometimes hunt in tandem (cover both under and overground)|../../biology/ethology
+Cooper|barrel maker|../../history/economy
 Coordination number|number of neighbours of central atom|../../science/physics
 Copenhagen|CPH|../../life/airports
 Copper|electrical wire|../../economy/materials
@@ -1887,6 +1933,7 @@ Coturnix|quails, small, round with short tail|../../biology/aves
 Cotyledon|seed leaf, single or pair|../../biology/body-plant
 Coua|blue around eyes, Madagascar|../../biology/aves
 Coumarins|vitamin K antagonist|../../biology/drugs
+Counter|marker on permanent or player|../../life/mtg
 Coupé|two doors|../../economy/transport
 Cousin prime|pair of primes with gap of four|../../science/arithmetic
 Covalent|shared pairs of electrons, strong intramolecular and weak intermolecular forces|../../science/chemistry
@@ -1895,6 +1942,7 @@ Crab mentality|prevent others from succeeding|../../culture/psychology
 Cracidae|Latin America|../../biology/aves
 Crassula [Jade plant]|Africa, houseplant, small flowers in clusters|../../life/rastliny-eudicots
 Crax|curassows, black color, crest|../../biology/aves
+Creature|can attack or block|../../life/mtg
 Crenellation|Merlons + Crenels|../../culture/arch_styles
 Crescent|symmetric, 2 semicircles|../../science/geometry
 Crest|feathers on head (cockatoo, crane)|../../biology/body-animal
@@ -1962,7 +2010,9 @@ Cupressus|ornamental, evergreen tree, scale-like leaves, round cones|../../life/
 Curare|blowgun darts|../../biology/toxin
 Curaçao|island|../../history/politics
 Curculionoidea|weevils, elongated snout|../../biology/life
+Curie temperature|material becomes paramagnetic above it|../../science/physics
 Current ratio|assets / liabilities|../../economy/finance
+Curry paste|chilli + shallot + garlic + lemongrass + galangal|../../culture/recipes
 Cushing's syndrome|prolonged glucocorticoids use, excess cortisol|../../biology/medicine
 Cusp|point where direction reverses|../../science/geometry
 Cutaneous horn|keratinous skin tumor, underlying epidermal lesion (possible carcinoma)|../../biology/medicine
@@ -2017,7 +2067,7 @@ DDR to DDR5|multiple data transfers per clock cycle|../../it/hardware
 DECIMAL(precision, scale)|money value|../../it/sql
 DELETE|remove data|../../it/http
 DIA (Defense Intelligence Agency)|military intelligence, Washington DC|../../economy/war
-DNA (Deoxyribonucleic acid)|two polynucleotide chains in double helix|../../biology/genetics
+DNA (Deoxyribonucleic acid)|two polynucleotide chains in double helix, more stable, longer|../../biology/genetics
 DNA clamp|multimeric 6-domain ring, encircles double helix, domains made by two βαβββ repeats|../../biology/protein
 DNAME|domain name alias (including subdomains)|../../it/dns
 DRC|copper, cobalt, diamonds|../../economy/states
@@ -2036,6 +2086,7 @@ Dalton's law|pressure of gas mixture equals to sum of gas pressures|../../scienc
 Dalton's law|total pressure is sum of partial pressures|../../science/chemistry
 Dalton|atomic mass unit, 1/12 of C12|../../science/physics
 Dal|legumes + onion + tomato, butter + spices|../../culture/recipes
+Damage-associated molecular pattern (DAMP)|molecule from damaged cells, initiate inflammation|../../biology/genetics
 Damavand|volcano|../../geography/oceans
 Dama|fallow deer|../../biology/mammalia
 Dan Ariely|Predictably Irrational (2008)|../../science/books
@@ -2050,8 +2101,10 @@ Daniel Rutherford|Nitrogen (1772)|../../history/science
 Daniel-Johnson Dam|Canada, Lake Manicouagan (impact crater), buttress dam|../../economy/energy
 Danjiang Bridge|Taiwan, asymmetrical cable-stayed, under construction|../../culture/architecture
 Dantrolene|ryanodine antagonist|../../biology/drugs
+Dapagliflozin|oral|../../biology/drugs
 Dapsone|leprosy, oral|../../biology/drugs
 Daptomycin|bacteria product, gram positive, can damage muscles, injection|../../biology/drugs
+Daqing Oil Field|north China|../../economy/energy
 Darbepoetin|longer life-time|../../biology/drugs
 Dardanelles Bridge|tall and long|../../culture/architecture
 Darien Scheme|failed attempt of Scotland for colony in Panama|../../history/history_8_modern
@@ -2084,6 +2137,8 @@ David Livingstone|missionary and explorer, discovered Zambezi river, Victoria fa
 De Beers|diamonds, Cecil Rhodes|../../economy/finance
 Deadlock|all processes waiting on each other|../../it/programming
 Death fold|6-7 alpha helices, apoptotic signaling|../../biology/protein
+Death-inducing signaling complex (DISC)|trimerization of FASL binding FAS receptor, recruitment of FADD and CASPACE|../../biology/protein
+Deathtouch|any amount of damage dealt destroys target|../../life/mtg
 Deba|fish, curved, thick|../../culture/cooking
 Debian|DEB packages|../../it/operating-system
 Debt crisis (2009)|Greece bailout|../../history/history_9_contemporary
@@ -2100,6 +2155,7 @@ Decorative column|raised surface from wall|../../culture/arch_styles
 Decubitus / Pressure ulcer|damage to skin over bone due to shear and long-term pressure|../../biology/medicine
 Deep-sea gigantism|temperature lowers with depth|../../biology/ethology
 Default effect|tendency to accept default option|../../science/logic
+Defender|can not attack|../../life/mtg
 Defensin|antimicrobial and immune signaling|../../biology/protein
 Deferasirox|iron overdose, oral|../../biology/drugs
 Deferoxamine|from bacteria Streptomyces, iron/aluminium toxicity, injection|../../biology/drugs
@@ -2116,6 +2172,7 @@ Deinotherium|elephant-like, downward-curved tusks on lower jaw|../../history/fau
 Deinotherium|extinct, downward curved tusks on lower jaw, Africa + Asia|../../biology/mammalia
 Delamanid|tuberculosis, oral|../../biology/drugs
 Delian League|led by Athens, Aegean sea coast|../../history/history_4_antiquity
+Deli|filling + caramel in chocolate|../../culture/recipes
 Delonix [Flamboyant]|ornamental, Africa, large flowers, doubly pinnate leaves|../../life/rastliny-fabids
 Delphinapterus|beluga, blunt snout, white color, Arctic Ocean|../../biology/mammalia
 Delphinus|dolphin, dark back and light belly|../../biology/mammalia
@@ -2187,13 +2244,14 @@ Diadochi|generals of Alexander the Great|../../history/history_4_antiquity
 Diagnostic odds ratio (DOR)|LR+ to LR-, test performance indicator|../../biology/drugs
 Diagonal matrix|non-zero elements only on main diagonal|../../science/math
 Diagonalizable matrix|if eigendecomposition exists|../../science/math
-Dialysis|separation of colloid particles from solution|../../science/chemistry
-Diamagnetism|weak repellence from magnetic field|../../science/chemistry
+Dialysis|separation of colloid particles from solution using semi-permeable membrane|../../science/chemistry
+Diamagnetism|weak repellence from magnetic field|../../science/physics
 Diameter (d)|2x radius|../../science/geometry
 Diamond|cubic, octahedral, hard, transparent|../../nature/minerals
 Diamond|point-to-point|../../biology/body-plant
 Diana and her Nymphs Surprised by the Fauns (1640)|Prado|../../culture/arts
 Diana of Ephesus (1st century)|copy of Greek bronze, Louvre|../../culture/arts
+Diaphragm|thin semi-flexible barrier|../../science/technology
 Diarrhea|loose watery stool, usually caused by infection|../../biology/medicine
 Diastole|relaxation to fill with blood|../../biology/organs
 Diatomic molecules|hydrogen, nitrogen, oxygen, fluorine, chlorine, bromine, iodine|../../science/chemistry
@@ -2231,7 +2289,7 @@ Dinar|Iraq (IQD), Lybia (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denar
 Dinka|5M, South Sudan|../../culture/tribes
 Dinocephalia|large early therapsids|../../history/fauna
 Dinocrocuta|hyena-like|../../history/fauna
-Dinoprostone|PGE2, labor induction|../../biology/materials
+Dinoprostone|PGE2, labor induction|../../biology/protein
 Dinornis|giant moa, flightless, New Zealand|../../history/fauna
 Dinornithiformes [Moa]|extinct, large flightless, long neck and legs, New Zealand|../../biology/aves
 Dinosaur [2000]|raised by lemurs|../../stories/animated
@@ -2289,6 +2347,7 @@ Dome|hollow upper half of sphere|../../culture/arch_styles
 Dominican Republic|tourism, gold, tobacco|../../economy/states
 Domitian (81-96)|brother of Titus, assassinated|../../history/history_4_antiquity
 Donald Duck|Daisy, Huey + Dewey + Louie, Uncle Scrooge, Gladstone Gander, Gyro + Helper, Magica De Spell, Beagle Boys|../../stories/comics
+Donald Trump (2025-)|federal layoffs, tariffs, Elon Musk|../../history/history_9_contemporary
 Donation of Constantine|forged decree transferring authority over Rome to Pope|../../history/history_6_middle_ages
 Donglin movement|against corrupted eunuchs, return to Confucian values|../../history/history_7_renaissance
 Doolittle Raid (1942)|air raid on Tokyo|../../history/history_8_modern
@@ -2304,6 +2363,7 @@ Dorset (500BC-1000)|arctic culture|../../history/history_8_modern
 Dose|amount administered|../../biology/drugs
 Dosing interval|time between administrations|../../biology/drugs
 Dot-com bubble (1995-2000)|Internet-related companies|../../history/economy
+Double Strike|first strike and normal attack|../../life/mtg
 Double vertical|parallel or inclined (A shape)|../../science/technology
 Double-blind|researcher and patient blind|../../biology/drugs
 Doubloon|Spain [double]|../../economy/finance
@@ -2314,9 +2374,11 @@ Dracaena/Sansevieria|houseplant, long leaves, small flowers in panicle, small be
 Drachma|Greece (GRD)|../../economy/finance
 Draco|flying lizards|../../biology/life
 Drag|resists motion through fluid|../../science/physics
+Draper|clothing seller|../../history/economy
 Dravite|with sodium + magnesium|../../nature/minerals
 Drawbridge|movable entrance over moat|../../culture/arch_styles
 Drepanium|pedicels on same plane|../../biology/body-plant
+Dressrosa|Punk Hazard|../../stories/manga
 Drewry|world container index (rates)|../../economy/transport
 Dromaius [Emu]|Australia|../../biology/aves
 Dromornis|large, flightless, Australia|../../history/fauna
@@ -2352,6 +2414,7 @@ Dutasteride|5α-reductase inhibitor (steroid metabolism), treats prostate enlarg
 Dutch East India Company / VOC (1602-1799)|first joint stock company|../../history/history_7_renaissance
 Dutch auction|opening bid is maximum and decreases|../../it/algorithm
 Duzong/宋度宗 (1264-1274)|nephew of Lizong, rebellions, three young sons as emperors|../../history/history_6_middle_ages
+Dyer|cloth coloring|../../history/economy
 Dymaxion|surface of icosahedron|../../geography/map
 Dynamic random-access memory (DRAM)|stores data in memory cells, volatile, used for main memory|../../it/hardware
 Dynamics|motion and forces|../../science/physics
@@ -2359,9 +2422,11 @@ Dynamo|generate direct current|../../science/technology
 Dysentery|bloody diarrhea|../../biology/medicine
 Dyson sphere|capture star energy output|../../history/future
 Dysphagia|difficulty to swallow|../../biology/medicine
+Dysplasia|abnormal cell growth|../../biology/medicine
 Dyspnea|difficulty to breathe|../../biology/medicine
 D|drive forward|../../life/car
 D|fat-soluble, stored in liver|../../biology/materials
+Día de Muertos|November 1+2, skull masks|../../culture/holidays
 Düsseldorf|DUS|../../life/airports
 E-commerce|online presence|../../economy/marketing
 E-segment|executive car|../../economy/transport
@@ -2407,6 +2472,7 @@ Earth|6 GEg|../../science/physics
 East African Federation|Kenya + Tanzania + Uganda + Rwanda + Burundi + South Sudan + DRC|../../history/politics
 East African Rift|African/Somali plate, lakes Albert + Tanganyika + Malawi|../../geography/geography
 East Asia|Chengdu, Chongqing, Shenzen, Shanghai, Beijing, Xi'an, Tokyo|../../economy/transport
+East Blue|Baratie, Loguetown|../../stories/manga
 Easter / Pascha|Sunday|../../culture/holidays
 Easter Island|volcanic|../../geography/oceans
 Easter Week|after Good Friday|../../culture/holidays
@@ -2513,16 +2579,20 @@ Emirate of Granada (1232-1492)|Moorish kingdom|../../history/history_6_middle_ag
 Emission nebula|gas ionized by young star, Ring, Omega|../../science/astronomy
 Emotional blunting|failure to express feelings|../../culture/psychology
 Emotional dependency|submissive, lonely|../../culture/psychology
+Empagliflozin (Jardiance)|oral|../../biology/drugs
 Empanada|filled pastry|../../culture/recipes
 Empirical formula|relative numbers of atoms|../../science/chemistry
 Emulsion|liquid dispersed in liquid, e.g. mayonnaise|../../science/chemistry
 Enantiomer|isomers by mirror image|../../science/chemistry
 Enceladus|500 km, covered by ice, bright, orbital resonance with Dione fuels geysers of water|../../science/sun
+Enchantment|no cost to activate|../../life/mtg
+Enchilada|filled tortilla (meat, vegetables, cheese) + chilli sauce|../../culture/recipes
 Encomienda|forced labor of natives|../../history/history_7_renaissance
 End-diastolic volume (EDV)|volume of blood in ventricle at end of diastole|../../biology/organs
 Endemism|species found in single location, often island or mountain|../../biology/ethology
 Endoceras|large, straight, cone-like|../../history/fauna
 Endocrine|hormones|../../biology/anatomy
+Endocrinology|endocrine system|../../biology/medicine
 Endoplasmic reticulum|protein folding|../../biology/cell
 Endopterygota|complete metamorphosis|../../biology/life
 Endorphins|inhibit pain, block substance P and GABA|../../biology/protein
@@ -2540,6 +2610,7 @@ English Reformation (1530s)|break away from Catholic Church|../../history/histor
 English auction|opening bid is minimum and increases|../../it/algorithm
 English garden|lawn, trees, lakes, classic temples, bridges|../../culture/arch_styles
 Enguri Dam|Georgia, arch dam|../../economy/energy
+Enhanced oil recovery (EOR)|tertiary recovery, altering oil properties|../../economy/energy
 Enhydra|sea otter, marine, North Pacific|../../biology/mammalia
 Enigma machine|cipher device used by Nazi Germany|../../history/history_8_modern
 Enlargement (2004)|10 new countries, central+eastern europe|../../history/history_9_contemporary
@@ -2587,6 +2658,7 @@ Equestrians|wealthy, with horse|../../history/history_4_antiquity
 Equidae|horses, zebras (black-and-white stripes), 1-toed feet with hooves, tufted tail|../../biology/mammalia
 Equilateral triangle|all sides same length|../../science/geometry
 Equilibrium constant|value of reaction quatient at equilibrium|../../science/chemistry
+Equipment|attaches to creature|../../life/mtg
 Equirectangular|simple, distorts sizes and shapes|../../geography/map
 Equisetum|living fossil, leaves in whorls|../../life/rastliny-basic
 Equivocation|use of word in multiple senses|../../science/logic
@@ -2693,6 +2765,7 @@ Execution of Louis XVI, Marie Antoinette (1793)|guillotine|../../history/history
 Exemestane|steroidal, oral|../../biology/drugs
 Exenatide|subcutaneous|../../biology/drugs
 Exhibition of Achievements of National Economy (VDNKh)|neoclassical, fountain|../../culture/architecture
+Exile|outside game|../../life/mtg
 Exon|part of gene used in final RNA|../../biology/genetics
 Exosphere|outer space|../../geography/geography
 Expansion|increase of economic activity|../../economy/finance
@@ -2734,6 +2807,18 @@ Fabales|20k species|../../biology/life
 Face-centered cubic|coordination 12, 74% space occupied, 8 corners + 6 face centers, A-B-C layers|../../science/physics
 Facebook|social media, Mark Zuckerberg|../../economy/finance
 Facial|front part of skull|../../biology/organs
+Factor I (Fibrinogen)|glycoprotein, cleaved into Fibrin, polymerizes into long strands|../../biology/protein
+Factor II (Prothrombin)|protease, cleaved into Thrombin, activates platelets, cleaves Factors I + V + VIII + XIII|../../biology/protein
+Factor III (Tissue factor)|cell surface glycoprotein|../../biology/protein
+Factor IV (Calcium)|binding to phospholipid surfaces|../../biology/protein
+Factor IX (Christmas factor)|protease, cleaves Factor X|../../biology/protein
+Factor V (Proaccelerin)|binds factor X|../../biology/protein
+Factor VII (Proconvertin)|protease, produced in liver, binds Factor III, cleaves Factor X|../../biology/protein
+Factor VIII|binds factor IX|../../biology/protein
+Factor XII (Hageman factor)|protease, activated by negatively charged surfaces, cleaves Factor XI and Prekallikrein|../../biology/protein
+Factor XIII|crosslinks Fibrin|../../biology/protein
+Factor XI|protease, cleaves Factor IX|../../biology/protein
+Factor X|protease, cleaves Factor II|../../biology/protein
 Facultative parasite|can reproduce without host, fungi|../../biology/ethology
 Fading affect bias|forgetting negative quicker than positive (good old times)|../../science/logic
 Fagales|wind pollinated|../../biology/life
@@ -2787,12 +2872,13 @@ Female|low number, large, non-motile|../../biology/ethology
 Feminism|gender equality; right to vote, education and work; legal abortions, domestic violence|../../history/politics
 Fentanyl|very strong, addictive, transdermal or intravenous|../../biology/drugs
 Ferdinand I (1521-1564)|Austria + Bohemia + Hungary + Croatia|../../history/history_8_modern
-Ferdinand [2017]|bull loves flowers, anti-bullfighting|../../stories/animated
 Ferdinand von Zeppelin|Airship (1900)|../../history/science
 Fermat primality test|check if number is prime, a^(p-1) = 1 mod p|../../it/algorithm
 Fermi paradox|no evidence of VS high likelihood of extraterrestrial life|../../history/philosophy
 Ferredoxin fold|βαββαβ, 4 antiparallel beta sheets between 2 alpha helices|../../biology/protein
 Ferrel cell|30to to 60th parallel, weak|../../geography/geography
+Ferrimagnetism|magnetic moments aligned in opposite directions, different magnitude|../../science/physics
+Ferromagnetism|magnetic moments aligned in same direction, strong attraction, permanent|../../science/physics
 Ferroportin|transports iron out of cell|../../biology/protein
 Fever|body temperature above normal (defense mechanism)|../../biology/medicine
 Fialuridine|failed hepatitis B treatment, caused liver failure [1993]|../../biology/drugs
@@ -2814,6 +2900,7 @@ Filgrastim|recombinant protein, increase neutrophils, injection|../../biology/dr
 Filip/Philip/Felipe/Filippo/Philippe|germanic, west slavic, italic|../../life/names
 Fillet knife|fish, thin, flexible|../../culture/cooking
 Fin field-effect transistor (FinFET)|3D transistor, MOSFET with multigate structure|../../it/hardware
+Final|Egghead, Elbaph|../../stories/manga
 Financial Planning and Analysis (FP&A)|support financial decisioning|../../economy/finance
 Financials|banks, insurance|../../economy/companies
 Finasteride|5α-reductase inhibitor (steroid metabolism), treats prostate enlargement and hair loss|../../biology/drugs
@@ -2836,6 +2923,7 @@ First Ottoman–Venetian War (1463–1479)|Ottomans gain Euboea and Albania|../.
 First Peloponnesian War (460–445 BC)|Athens against Sparta|../../history/history_4_antiquity
 First Republic (1824-1835)|president Santa Anna|../../history/history_8_modern
 First Sino-Japanese War (1894)|Taiwan ceded to Japan|../../history/history_8_modern
+First Strike|deals damage before normal attack|../../life/mtg
 First Wave|Germans, Goths, Huns|../../history/history_5_migration_period
 First come, first served (FCFS)|job queue|../../it/algorithm
 First pass effect|reduction in drug concentration|../../biology/drugs
@@ -2861,7 +2949,9 @@ Flashbulb memory|vivid long-lasting memory of shocking event|../../science/logic
 Flashforward|scene from future|../../stories/story
 Flavodoxin fold|5 parallel beta sheets between two alpha helix layers|../../biology/protein
 Flax (Linum usitatissimum)|fabric|../../economy/plants
+Fletcher|arrow maker|../../history/economy
 Flights / year|40M|../../life/airports
+Flocculation|clumping of colloid particles in solution into flakes|../../science/chemistry
 Floppy disk|magnetic storage|../../it/hardware
 Floppy disk|thin magnetic storage in square plastic enclosure, 1.4 MB|../../science/technology
 Florence Cathedral|large brick dome|../../culture/architecture
@@ -2882,6 +2972,7 @@ Fluticasone|common, treat nasal congestion|../../biology/drugs
 Fluting|shallow grooves along surface|../../culture/arch_styles
 Flutter|rapid heart beat, only involves part of heart (atrial or ventricular)|../../biology/medicine
 Flying reindeer|pull sleigh|../../stories/mythology
+Flying|only flying creatures can block|../../life/mtg
 Flèche|tall spire|../../culture/arch_styles
 Foam|gas dispersed in liquid|../../science/chemistry
 Focal point / Schelling point|default solution without communication in cooperation game|../../it/algorithm
@@ -2900,7 +2991,8 @@ Force|cause of change in motion or energy|../../science/physics
 Ford|vehicles, Henry Ford|../../economy/finance
 Foreskin|skin fold covering glans|../../biology/organs
 Forest|at most one path between any two vertices (set of trees)|../../science/graph_teory
-Forever (2014)|Henry Morgan|../../stories/shows
+Forest|green|../../life/mtg
+Forever (2014)|immortal Henry Morgan + Abe|../../stories/shows
 Forgetting curve|decline of memory retention in time, if not reviewed|../../biology/psychology
 Forint|Hungary (HUF) [Florin]|../../economy/finance
 Formicidae|ants, bent antennae, live in colonies, wingless females|../../biology/life
@@ -3050,6 +3142,7 @@ Gascony|France/Spain|../../history/history_6_middle_ages
 Gastornithidae|extinct, large flightless, long neck and legs|../../biology/aves
 Gastric inhibitory polypeptide (GIP)|produced by K cells in small intestine|../../biology/genetics
 Gastrocnemius + Soleus|knee to heel on back, flexor|../../biology/anatomy
+Gastroenterology|digestive system|../../biology/medicine
 Gastropoda|snails (shell) and slugs (no shell), asymmetric|../../biology/life
 Gastroscopy|stomach|../../biology/medicine
 Gas|NO, CO, H2S|../../biology/protein
@@ -3058,6 +3151,7 @@ Gauss's law for magnetism|magnetic field forms loops, outflow is zero|../../scie
 Gauss's law|electric field points from positive charge to negative charge, outflow is proportional to charge|../../science/physics
 Gavialidae|gharial, thin snout, South Asia|../../biology/reptilia
 Gaviiformes|loons, aquatic, webbed feet, diving|../../biology/aves
+Gearwheel|rotating toothed wheel, engage together, change rotation speed and direction (car transmission)|../../science/engineering
 Geckos|adhesive toe pads with small setae|../../biology/body-animal
 Geisha|female entertainers|../../history/history_8_modern
 Gekkota|geckos, no eyelids, nocturnal, adhesive toe pads|../../biology/reptilia
@@ -3076,6 +3170,7 @@ General visceral afferent (GVA)|vagus nerve|../../biology/organs
 Generalization error|performance on additional data|../../it/ai
 General|army, air forces|../../economy/war
 Generic drug|non-proprietary, after patent expiration|../../biology/drugs
+Geneva drive|translates continuous rotation to intermittent, pin on driving wheel engages slots [4/6] in driven wheel (movie projector)|../../science/engineering
 Geniculate|bent at sharp angle|../../biology/body-animal
 Genome|full genetic information of organism, split into chromosomes|../../biology/genetics
 Genpei War (1180-1185)|civil war between Taira and Minamoto clans|../../history/history_8_modern
@@ -3095,6 +3190,7 @@ Georgia|copper, iron, wine|../../economy/states
 Gepard|Germany|../../economy/war
 Geranium|5 petals|../../life/rastliny-malvids
 Gerhard|german|../../life/names
+Geriatrics|elderly|../../biology/medicine
 German Empire (1871)|southern states joined|../../history/history_8_modern
 German Peasants' War (1524-1525)|suppressed, farmers executed|../../history/history_7_renaissance
 German Unity Day|October 3|../../culture/holidays
@@ -3129,11 +3225,14 @@ Gladiolus|one-sided spike inflorescence, Old World|../../life/rastliny-monocots
 Gladius|short sword|../../history/history_4_antiquity
 Glans|rounded end of penis|../../biology/organs
 Glasnost and Perestroika (1985)|Mikhail Gorbachev, reforms|../../history/history_9_contemporary
+Glass noodles|starch (mung bean) + water|../../culture/recipes
 Glatiramer acetate|random-sized peptides (Glu, Lys, Ala, Tyr), resembles myelin antigen, multiple sclerosis|../../biology/drugs
 Glaucus and Scylla (1580)|Vienna|../../culture/arts
 Glaze|glassy coating from ash/salt/tin/lead, impermeable to water|../../science/material
+Glazier|glass cutter|../../history/economy
 Gleaning|birds, plucking insects from foliage or ground|../../biology/ethology
 Glibenclamide|oral|../../biology/drugs
+Gliclazide (Diamicron)|oral|../../biology/drugs
 Glide bomb|can be release at distance from target|../../economy/war
 Glimepiride|oral|../../biology/drugs
 Gliridae|dormouse, nocturnal|../../biology/mammalia
@@ -3155,6 +3254,7 @@ Gnocchi|dumplings|../../biology/food
 Gnomeo & Juliet [2011]|garden gnomes, forbidden love|../../stories/animated
 Gnome|earth spirit|../../stories/mythology
 Goblet cell|secrete mucin|../../biology/cell
+Gochujang|chili paste|../../culture/recipes
 Gods|Anunnaki, wings|../../stories/mythology
 Goethite = FeO(OH)|orthorhombic, acicular or botryoidal, brown pigment, rust component|../../nature/minerals
 Goiter|enlarged thyroid gland|../../biology/medicine
@@ -3212,6 +3312,7 @@ Grapefruit|inhibitor|../../biology/drugs
 Graphene|single layer of hexadecimal structure, great strength and conductivity|../../science/material
 Graphite|hexagonal, soft, black, metallic|../../nature/minerals
 Graves' disease|most common cause of Hyperthyroidism, bulging eye|../../biology/medicine
+Graveyard|discarded cards, casted spells, destroyed permanents|../../life/mtg
 Gravitational on earth (g)|9.8 m/s^2|../../science/physics
 Gravitational on sun|270 m/s^2|../../science/physics
 Gravity battery|potential energy stored by raised mass|../../science/technology
@@ -3247,9 +3348,11 @@ Greek Junta (1967-1974)|right-wing military dictatorship|../../history/history_9
 Greek War of Independence (1821-1829)|Greek victory|../../history/history_8_modern
 Greek key|4 antiparallel strands, 4th adjacent to 1st|../../biology/protein
 Green Revolution|fertilizers (1970s)|../../history/science
+Green/Red curry|coconut milk + curry paste + fish sauce|../../culture/recipes
 Greenland|part of Denmark|../../history/politics
 Greenstream|Libya -> Sicily|../../economy/transport
 Green|5|../../it/hardware
+Green|mana acceleration, creatures|../../life/mtg
 Gregariousness / withdrawal|company of others|../../culture/psychology
 Gremlin|small, sabotage machinery|../../stories/mythology
 Grenade|hand-thrown explosive weapon|../../economy/war
@@ -3272,6 +3375,7 @@ Guangzhou|CAN|../../life/airports
 Guangzong/宋光宗 (1189-1194)|forced to abdicate|../../history/history_6_middle_ages
 Guanine (G)|pairs wtih C, purine|../../biology/genetics
 Guardians of the Galaxy Vol. 3 [2023]|Rocket origin story, High Evolutionary|../../stories/movies
+Guard|armed protector|../../history/economy
 Guatemala|sugarcane, coffee, bananas|../../economy/states
 Guilder|Netherlands (NLG) [gold]|../../economy/finance
 Guilds|associations of artisans in craft/trade|../../history/history_6_middle_ages
@@ -3283,6 +3387,7 @@ Gulf of Corinth|north|../../geography/oceans
 Gulf of Mexico oil spill (1979)|exploratory oil well blowout|../../history/history_9_contemporary
 Gulf of Mexico oil spill (2004-2019)|oil platform destroyed by hurricane, ongoing|../../history/history_9_contemporary
 Gulf of Mexico oil spill (2010)|BP oil platform explosion|../../history/history_9_contemporary
+Gulf of Mexico|USA|../../economy/energy
 Gulf of Thailand|shallow|../../geography/oceans
 Gullfoss|waterfall|../../geography/parks
 Gulo|wolverine, short tail, solitary scavenger, dense fur, arctic zones|../../biology/mammalia
@@ -3290,6 +3395,8 @@ Gupta Empire (240-550)|prosperity|../../history/history_5_migration_period
 Guri Dam|Venezuela, 10 GW, gravity/embankment dam|../../economy/energy
 Guyot|underwater, flat-topped|../../geography/geography
 Gymnophiona|caecilians, no limbs, no eyes, tropical regions|../../biology/life
+Gynecology|female reproductive system|../../biology/medicine
+Gyoza|filled dumplings|../../culture/recipes
 Gypaetus|Bearded vulture, feathered head, feed on bones|../../biology/aves
 Gyps|vultures, featherless head and neck, white collar|../../biology/aves
 Gyros|wrapped, with tatziki|../../culture/recipes
@@ -3314,7 +3421,7 @@ HEAD|GET without response body|../../it/http
 HEAD|latest commit on current branch|../../it/git
 HEV|hybrid|../../economy/transport
 HIMARS|USA, 6 GMLRS / 1 ATACMS missiles|../../economy/war
-HIV/AIDS|1.5%|../../life/life
+HIV/AIDS|1.5%|../../life/death
 HMG-CoA reductase (HMGCR)|enzyme of rate limiting step in cholessterol synthesis|../../biology/protein
 HQLA (High quality liquid assets)|cash + bonds|../../economy/finance
 HVAC (Heating ventilation air conditioning)|control indoor air temperature and humidity|../../science/technology
@@ -3337,6 +3444,7 @@ Hajj|pilgrimage to Mecca|../../culture/religion
 Haliaeetus|sea eagles, brown with white head, feed on fish, large nest|../../biology/aves
 Halite = NaCl|cubic, soft|../../nature/minerals
 Halitosis / Foetor ex ore|bad breath|../../biology/medicine
+Hall effect sensor|detects magnetic field (rotating magnets) to measure speed (motor control)|../../science/engineering
 Halley's comet|200 Pg|../../science/physics
 Halley's comet|period 75 years|../../science/sun
 Halloween|October 31|../../culture/holidays
@@ -3355,6 +3463,8 @@ Hammurabi (1792-1750 BC)|conquered Mesopotamia, law code|../../history/history_2
 Hamstring|hip to knee on back, knee flexor, hip extensor|../../biology/anatomy
 Han dynasty (202 BC - 220)|China|../../history/history_4_antiquity
 Handicap principle|honest signal that is costly (peacock tail)|../../biology/ethology
+Hand|drawn and not played cards, max 7|../../life/mtg
+Hanuta|2 wafers + cocoa and hazelnut filling|../../culture/recipes
 Hapalochlaena (blue ringed octopus)|tetrodotoxin|../../biology/toxin
 Haplodiploidy|Hymenoptera, haploid males, diploid females|../../biology/ethology
 Hard boiled|solid white and yolk|../../culture/recipes
@@ -3371,6 +3481,7 @@ Haseki Sultan|wife of sultan|../../history/history_8_modern
 Hashimoto's thyroiditis|affects thyroid|../../biology/medicine
 Hashish|marihuana flowers, recreational drug|../../biology/drugs
 Hastate|spear-like, pointed with lobes at base|../../biology/body-plant
+Haste|ignores summoning sickness|../../life/mtg
 Hatchback|larger cargo|../../economy/transport
 Haumea|elongated shape|../../science/sun
 Hauts-de-France|north|../../history/politics
@@ -3388,6 +3499,7 @@ Heat map|magnitude as color intensity (e.g. temperature/precipitation)|../../it/
 Hebei (河北)|Shijiazhuang (石家庄)|../../history/politics
 Hecatomb|large sacrifice of cattle|../../history/history_4_antiquity
 Hedera [Ivy]|climbing, two leaf types|../../life/rastliny-asterids
+Hedgehog pathway|embryonic cell differentiation|../../biology/protein
 Hedgehog's dilemma|intimacy vs risk of harm|../../history/philosophy
 Hedonic treadmill|return to stable happiness level after major positive/negative life change|../../science/logic
 Heian period (794-1185)|Hiragana and Katakana|../../history/history_8_modern
@@ -3403,6 +3515,7 @@ Hellenoturkism|Greece + Cyprus + Türkiye unification|../../history/politics
 Hellfire|USA|../../economy/war
 Helmut|german|../../life/names
 Hematite = Fe2O3|trigonal, botryoidal, red pigment, metallic|../../nature/minerals
+Hematology|blood|../../biology/medicine
 Hematoma|blood within tissue|../../biology/medicine
 Hemerocallis [Daylily]|tubers, large flower on scape, Asia|../../life/rastliny-monocots
 Hemimorphite|orthorhombic, prismatic or reniform, white or bluish, zinc|../../nature/minerals
@@ -3429,8 +3542,9 @@ Henry's law|solubility of gases increases with pressure|../../science/chemistry
 Heparin|activates antithrombin|../../biology/drugs
 Hepatic|liver to inferior vena cava|../../biology/organs
 Hepatocyte|80%|../../biology/organs
+Hepatology|liver|../../biology/medicine
 Hepatotoxin|affect liver|../../biology/toxin
-Hepcidin (HAMP)|regulated ferroportin, produced in liver|../../biology/protein
+Hepcidin (HAMP)|regulates ferroportin, produced in liver|../../biology/protein
 Hephaestin (HEPH)|oxidizes iron exported by ferraportin|../../biology/protein
 Hephthalites (440-560)|Bactria + Tarim Basin|../../history/history_5_migration_period
 Heptapyrgion, Thessaloniki|fortress|../../culture/architecture
@@ -3460,6 +3574,7 @@ Hexacorallia|6-fold symmetry, hard|../../biology/life
 Hexagonal close-packed|coordination 12, 74% space occupied, A-B layers|../../science/physics
 Hexagonal|6 sided, 120 degrees angle|../../science/physics
 Hexagonal|loosely coupled components, connected by ports and adapters|../../it/architecture
+Hexproof|can not be target of opponent's spell or ability|../../life/mtg
 Hex|hexagonal|../../science/technology
 Heysham + Torness|GCR|../../economy/energy
 Hezbollah|militant islamic|../../history/politics
@@ -3468,6 +3583,7 @@ High challenge|Anxiety|../../culture/psychology
 High challenge|Arousal|../../culture/psychology
 High challenge|Flow|../../culture/psychology
 High level|3-8 km in polar, 6-18 km in tropics|../../geography/geography
+High-molecular-weight kininogen (HMWK, Fitzgerald factor)|binds Factor XII and Prekallikrein|../../biology/protein
 High-performance liquid chromatography (HPLC)|identify and quantify mixture components|../../science/technology
 Hijra/Hegira (622)|journey of Mohammad from Mecca to Medina|../../history/history_6_middle_ages
 Hill climbing|iterative search for local maximum|../../it/algorithm
@@ -3502,7 +3618,6 @@ Holocaust|genocide of Jews, concentration/extermination camps in Poland (Auschwi
 Holodomor (1932)|man-made famine in Ukraine|../../history/history_8_modern
 Holothuroidea|sea cucumber|../../biology/life
 Holy League|coalition against ottomans, Holy Roman Empire + Polish-Lithuanian Commonwealth + Venetian Republic + Tsardom of Russia|../../history/history_7_renaissance
-Home Alone [1990]|Kevin McCallister, Harry + Marv, kid against thieves|../../stories/movies
 Homeostasis|state of steady internal conditions|../../biology/organs
 Homer|Iliad + Odyssey|../../stories/books
 Homing guidance|guidance computer in missile|../../economy/war
@@ -3526,6 +3641,7 @@ Hoolock|white eyebrows, males dark and females bright, Barma|../../biology/mamma
 Hoover Dam|USA, Colorado River, Lake Mead, arch-gravity dam|../../economy/energy
 Hoplite|armed with spear and shield|../../history/history_4_antiquity
 Hopper|hollowed-out lattice|../../nature/minerals
+Horalky|wafer layers + peanut filling in chocolate|../../culture/recipes
 Horizontal gene transfer|between organisms (bacteria)|../../biology/genetics
 Hormizd II (303-309)|killed by nobility|../../history/history_5_migration_period
 Hormizd IV (579-590)|wars, killed by nobility|../../history/history_5_migration_period
@@ -3555,9 +3671,11 @@ Huajiang Grand Canyon Bridge|Guizhou, tall, under construction|../../culture/arc
 Huayangosaurus + Tuojiangosaurus|two rows of spiky back plates, tail spikes|../../history/fauna
 Hubei (湖北)|Wuhan (武汉)|../../history/politics
 Hudson Bay (Hudson Strait)|shallow|../../geography/oceans
+Huevos rotos|fried eggs|../../culture/recipes
 Hugo Chávez (1999-2013)|president of Venezuela, socialism|../../history/history_8_modern
 Huguenot rebellions (1620s)|revolts of Protestans, leader Henri de Rohan|../../history/history_8_modern
 Huldra|seductive forest nymph|../../stories/mythology
+Human Genome Project / HGP (2000s)|sequencing|../../history/science
 Human Settlements Programme|Nairobi|../../history/politics
 Human chorionic gonadotropin (hCG)|maternal recognition of pregnancy, made by syncytiotrophoblast in placenta|../../biology/protein
 Humber Bridge|England|../../culture/architecture
@@ -3689,7 +3807,7 @@ Ilkhanate|Persia|../../history/history_6_middle_ages
 Illusory superiority|people overestimate their ability compared to others|../../science/logic
 Ilmarinen|blacksmith, forged magical mill Sampo|../../stories/mythology
 Ilyushin Il-76|USSR|../../economy/war
-Imatinib|Philadelphia chromosome leukemias, oral|../../biology/drugs
+Imatinib / Gleevec|Philadelphia chromosome leukemias, oral|../../biology/drugs
 Imbruvica|leukemia|../../biology/drugs
 Imidazoles|topical|../../biology/drugs
 Imidazole|{CCNCN}|../../science/chemics
@@ -3697,6 +3815,7 @@ Imipenem|injection|../../biology/drugs
 Immature|lack of personal responsibility|../../culture/psychology
 Immaturity|naive, careless|../../culture/psychology
 Immune|defense against pathogens|../../biology/anatomy
+Immunity|no damage|../../life/dnd
 Immunology|immune system|../../biology/medicine
 Impairment|downward revaluation of assets|../../economy/finance
 Imperialism|power over foreign nation, empire|../../history/politics
@@ -3716,10 +3835,13 @@ Inclusion–exclusion principle|number of elements in union of sets, alternately
 Inclusive economic institutions|property rights|../../science/_books
 Inclusive political institutions|democracy|../../science/_books
 Income tax|on personal income|../../economy/finance
+Inconel|nickel + chromium, high temperature, jet engine|../../science/material
 Incretins|released after eating, enhance insulin secretion|../../biology/genetics
 Incus|from malleus to stapes|../../biology/organs
 Indel mutation|insertion or deletion|../../biology/genetics
 Independence Day|July 4|../../culture/holidays
+Independence Day|September 16, from Spain|../../culture/holidays
+Indestructible|no amount of damage will destroy|../../life/mtg
 Indian Rebellion (1857)|resulted in nazionalization of company|../../history/history_7_renaissance
 Indian Removal Act (1830)|move west of Mississippi|../../history/history_8_modern
 Indian Territory|mainly Oklahoma, Five Civilized Tribes|../../history/history_8_modern
@@ -3754,6 +3876,7 @@ Inflation|increase in price of goods and services|../../economy/finance
 Inflection|modification of word to express tense, person, gender etc|../../culture/language
 Information Technology|software, hardware, semiconductors|../../economy/companies
 Information bias|seeking more information when it is irrelevant for decision|../../science/logic
+Infrared thermometer|measure radiation, non-contact, fast response|../../science/engineering
 Infrared|700 nm - 1 mm, heat, night vision|../../science/physics
 Infusion pump|automated administration|../../biology/medicine
 Inga Dams|DRC, Congo River|../../economy/energy
@@ -3791,6 +3914,7 @@ Interference|combination of two waves|../../science/physics
 Interferon|released by host cells in response to virus presence, inhibit protein synthesis, increase MHC expression|../../biology/protein
 Interjection|feeling|../../culture/language
 Interleukin|produced by leukocytes|../../biology/protein
+Internal/General|adults|../../biology/medicine
 International Civil Aviation Organization|Montreal|../../history/politics
 International Court of Justice|Hague|../../history/politics
 International Fund for Agricultural Development|Rome|../../history/politics
@@ -3812,6 +3936,7 @@ Intrinsic|exists within subject (mass)|../../science/physics
 Intristically disordered proteins|lacking fixed 3D structure|../../biology/genetics
 Intron|part of gene removed by slicing|../../biology/genetics
 Introspection illusion|considering own opinions more reliable than other opinions|../../science/logic
+Invar|64% Fe + 36% Ni, low thermal expansion|../../science/material
 Invasion of Czechoslovakia (1968)|stopped Prague Spring reforms of Alexander Dubček|../../history/history_9_contemporary
 Invasion of Poland (1939)|occupation by Germany and Soviet Union|../../history/history_8_modern
 Invasions of Levant (1260-1323)|repelled by Mamluk Sultanate|../../history/history_6_middle_ages
@@ -3867,6 +3992,7 @@ Islamic State (2014)|ISIL, parts of Iraq+Syria|../../history/history_9_contempor
 Island dwarfism|species become smaller due to limited resources|../../biology/ethology
 Island effect / Foster's rule|different size of animals on islands|../../biology/ethology
 Island gigantism|species become larger due to missing predators|../../biology/ethology
+Island|blue|../../life/mtg
 Ismail I|gunpowder empire|../../history/history_7_renaissance
 Isobar|atoms of different element with same atomic number|../../science/physics
 Isoelectronic|same number of electron but different element|../../science/physics
@@ -3909,6 +4035,7 @@ J-segment|off-road, SUV|../../economy/transport
 J. J. Thomson|Electron (1897), Isotope (1912)|../../history/science
 J. K. Rowling|Harry Potter (1997-2007)|../../stories/books
 J. M. Barrie|Peter Pan (1911)|../../stories/books
+JAK-STAT pathway|regulates immune response|../../biology/protein
 JIS|japanese|../../it/text
 JOIN table|connect tables|../../it/sql
 JPEG|lossy compression (configurable), photos|../../it/media-formats
@@ -3932,6 +4059,7 @@ Japan|81|../../economy/person
 Japan|JP/JPN|../../economy/person
 Japan|Tokyo, Osaka, Nagoya|../../culture/architecture
 Japan|motor vehicles, machinery, electronics|../../economy/states
+Japchae|sweet potato glass noodles + vegetables + sliced meat|../../culture/recipes
 Jared Diamond|Guns, Germs, and Steel (1997)|../../science/books
 Jaroslav Foglar|Záhada hlavolamu (1941)|../../stories/books
 Jaroslav Hašek|The Good Soldier Švejk (1921)|../../stories/books
@@ -3946,11 +4074,14 @@ Jet propulsion|movement by ejecting jet of fluid in opposite direction (cephalop
 Jetty|open source, java|../../it/internet
 Jevons paradox|total resource use grows with more efficient use (increased demand)|../../economy/management
 Jewel Changi Airport, Singapore (2019)|indoor waterfall|../../culture/architecture
+Jeweler|jewelry maker|../../history/economy
+Jeżyki|biscuit + caramel + chopped nuts/raisins in chocolate|../../culture/recipes
 Jiajing/嘉靖帝 (1521-1567)|cousin of Zhengde, deadly earthquake, pursued immortality|../../history/history_7_renaissance
 Jiang Zemin|international trade and relationships, modernization|../../history/history_9_contemporary
 Jiangsu (江苏)|Nanjing (南京), Suzhou (苏州)|../../history/politics
 Jiangxi (江西)|Nanchang (南昌)|../../history/politics
 Jiangxi Bridge|Chengdu|../../culture/architecture
+Jiaozi|filled dumplings|../../culture/recipes
 Jiaqing/嘉慶帝 (1796-1820)|prosecuted Heshen|../../history/history_8_modern
 Jilin (吉林)|Changchun (长春)|../../history/politics
 Jimmy Carter (1977)|USA president|../../history/history_9_contemporary
@@ -3958,6 +4089,7 @@ Jingnan campaign (1399-1402)|civil war|../../history/history_7_renaissance
 Jinn|genie, invisible, can change shape|../../stories/mythology
 Jinping-I Dam|arch dam|../../economy/energy
 Jintang Bridge|Zhejiang, blue|../../culture/architecture
+Joe Biden (2021-2025)|Afghanistan withdrawal, Ukraine aid|../../history/history_9_contemporary
 Johannes Gutenberg|Printing press (1440)|../../history/science
 John Carter [2012]|book|../../stories/movies
 John James Audubon Bridge|Louisiana, Mississippi River|../../culture/architecture
@@ -4065,6 +4197,7 @@ Kiel Canal|Germany, North sea to Baltic sea|../../economy/transport
 Kill Bill|Vol. 1 [2003]|../../stories/movies
 Kill Bill|Vol. 2 [2004]|../../stories/movies
 Kilonova|merge of neutron stars|../../science/astronomy
+Kimchi|spicy pickled cabbage|../../culture/recipes
 Kinase|transfer of phosphate from ATP to substrate|../../biology/protein
 Kinematics|motion|../../science/physics
 Kinetic energy|energy caused by movement, 1/2 * m * v^2|../../science/physics
@@ -4074,6 +4207,7 @@ Kingdom of Lydia (1200-546 BC)|western Anatolia, capital Sardis, indo-european|.
 Kingdom of Phrygia (1200-675 BC)|central Anatolia, capital Gordion, indo-european|../../history/history_3_iron_age
 Kingsman|The Secret Service [2014]|../../stories/movies
 Kirkwood gap|orbits affected by Jupiter, very few asteroids|../../science/sun
+KitKat|wafer in chocolate|../../culture/recipes
 Kite|reflection symmetry, made of 2 congruent triangles|../../science/geometry
 Kleiber's law|metabolic rate decreases with size|../../biology/ethology
 Klein disk model|2D hyperbolic geometry|../../science/geometry
@@ -4107,11 +4241,11 @@ Kremenchuk Dam|Ukraine, Dnieper River|../../economy/energy
 Kronborg Castle|fortress|../../culture/architecture
 Krone|Denmark (DKK), Norway (NOK), Sweden (SEK) [crown]|../../economy/finance
 Kronotsky|volcano|../../geography/oceans
+Krówki|milky candy|../../culture/recipes
 Ku Klux Klan (1865–1872)|white supremacy, pointed hats|../../history/history_8_modern
 Kuala Lumpur|KUL|../../life/airports
 Kuehneosauridae|extinct, lizard-like, gliding|../../biology/reptilia
 Kuna|Croatia (HRK)|../../economy/finance
-Kung Fu Panda [2008]|Po + Tigress + Shifu + Oogway|../../stories/animated
 Kunlun Mountains|south|../../geography/oceans
 Kupffer cell|liver|../../biology/genetics
 Kupffer cell|macrophage, recycle hemoglobin via phagocytosis|../../biology/organs
@@ -4125,6 +4259,8 @@ Kyrgyzstan|gold|../../economy/states
 Kythira Island|south|../../geography/oceans
 K|1.5-2 mg/l|../../biology/human
 K|fat-soluble, stored in liver|../../biology/materials
+Kármán line|100km, edge of space|../../geography/geography
+Kávenky|wafer layers + coffee filling|../../culture/recipes
 Käsespätzle|spätzle (egg dumplings) + cheese + fried onion|../../culture/recipes
 Kölnbrein Dam|Austria, arch dam|../../economy/energy
 Köprülü era|influential grand viziers|../../history/history_8_modern
@@ -4160,7 +4296,7 @@ Lagoon|body of water separated by narrow land|../../geography/geography
 Lagothrix|woolly monkey|../../biology/mammalia
 Lagrangian relaxation|violations penalization|../../it/algorithm
 Laguna de Bay|lake|../../geography/oceans
-Lahmacun|flatbread + minced meat + vegetables + spices|../../culture/recipes
+Lahmacun|round flatbread + minced meat + vegetables + spices|../../culture/recipes
 Lake Agassiz|proglacial, now remnant Winnipeg and Manitoba lakes|../../history/earth
 Lake Bonneville|Utah, now remnant Great Salt Lake|../../history/earth
 Lake Bosumtwi|east Africa|../../geography/mountains
@@ -4170,6 +4306,7 @@ Lake Elgygytgyn|Siberia|../../geography/mountains
 Lake Huron|Bruce (6.5 GW)|../../economy/energy
 Lake Karakul|Pamir Mountains|../../geography/mountains
 Lake Lahontan|NW Nevada|../../history/earth
+Lake Maracaibo Basin|Venezuela (heavy oil)|../../economy/energy
 Lake Ontario|Darlington + Pickering|../../economy/energy
 Lake Toba|volcanic|../../geography/oceans
 Lakh|100 000, India|../../culture/numbers
@@ -4185,6 +4322,7 @@ Lamington|sponge cake + chocolate + coconut|../../culture/recipes
 Lamivudine|hepatitis B and HIV, oral|../../biology/drugs
 Lanceolate|wider near base|../../biology/body-plant
 Landmark case|establishes new precedent|../../economy/legal
+Land|produce mana, color or colorless|../../life/mtg
 Langerhans cell|resident macrophage|../../biology/cell
 Langerhans cell|skin|../../biology/genetics
 Laniidae|shrikes, solitary, impale prey, hooked beak, black stripe across eyes, migratory|../../biology/aves
@@ -4277,7 +4415,7 @@ Lesion|damage in tissue|../../biology/medicine
 Less|celery, potato, corn, grape|../../biology/food
 Lethal dose (LD50)|concentration causing death in 50%|../../biology/drugs
 Letrozole|oral, visually pleasing symmetrical structure|../../biology/drugs
-Leukotrienes|inflammation mediators|../../biology/materials
+Leukotrienes|inflammation mediators|../../biology/protein
 Leuprorelin|GnRH superagonist (desensitization), prostate/breast cancer|../../biology/drugs
 Leu|Romania (RON), Bulgaria (BGN)|../../economy/finance
 Lev Nikolayevich Tolstoy|War and Peace (1869) + Anna Karenina (1878)|../../stories/books
@@ -4295,11 +4433,14 @@ Liberal Party|Scott Morrison|../../history/politics
 Liberalism|individual rights and freedoms, equality, free market|../../history/politics
 Liberal|Justin Trudeau|../../history/politics
 Liberia|rubber, diamonds|../../economy/states
+Library|drawing pile|../../life/mtg
 Lichfield Cathedral|3 spires|../../culture/architecture
 Licinius (308-324)|east, defeated by Constantine|../../history/history_5_migration_period
 Lidocaine|fast-acting, medium duration|../../biology/drugs
 Lidocaine|sodium channel blocker, intravenous|../../biology/drugs
+Lifelink|player gains life equal to damage dealt|../../life/mtg
 Lifestyle inflation|income increase leads to spending increase, luxury becomes necessity|../../science/logic
+Life|20 points per player|../../life/mtg
 Lift|fluid flowing around object|../../science/physics
 Ligase (EC6)|joining with covalent bond|../../biology/protein
 Ligation|joining of two DNA fragments|../../biology/genetics
@@ -4333,6 +4474,7 @@ Lion's Mound, Waterloo, Brussels|artificial hill|../../culture/architecture
 Lipase|breaking down fats|../../biology/protein
 Lipoprotein|transports hydrophobic lipids in water|../../biology/materials
 Liposarcoma|fat cells|../../biology/medicine
+Liquid-in-glass|liquid volume depends on temperature, mercury or alcohol|../../science/engineering
 Liraglutide|subcutaneous|../../biology/drugs
 Lira|Italy (ITL) [libra]|../../economy/finance
 Lira|Turkey (TRY)|../../economy/finance
@@ -4361,6 +4503,7 @@ Locus|chromosomal position of gene|../../biology/genetics
 Logarithm|inverse of exponentation for exponent|../../science/arithmetic
 Loire River|Belleville + Dampierre + Chinon|../../economy/energy
 Lok Sabha|lower house, ~550 MPs, 5y term, constituency basis, first-past-the-post|../../history/politics
+Lokum / Turkish delight|sugar + starch + chopped nuts|../../culture/recipes
 Lombardia|Milan|../../history/politics
 Lombards (568-774)|conquered Italy|../../history/history_5_migration_period
 Lombardy|northern Italy|../../history/history_6_middle_ages
@@ -4421,6 +4564,7 @@ Luddites|textile workers opposing machines replacing them in England|../../histo
 Luftwaffe|air forces|../../history/history_8_modern
 Lumbago|low back pain|../../biology/medicine
 Lumbar|5 vertebrae|../../biology/organs
+Lumberjack|wood cutter|../../history/economy
 Lunette|decorative semicircular space|../../culture/arch_styles
 Luo|20M, Great Lakes|../../culture/tribes
 Lupulella|jackal|../../biology/mammalia
@@ -4452,6 +4596,7 @@ László Bíró|Ballpoint pen (1938)|../../history/science
 Löffler's endocarditis|last stadium, connective tissue replaces damaged muscle, poor contractions|../../biology/medicine
 Löffler's syndrome|eosinophils in lungs due to parasitic infection, difficult breathing|../../biology/medicine
 Lötschberg Tunnel|Switzerland|../../culture/architecture
+M&Ms|chocolate candy in colorful sugar shell|../../culture/recipes
 M-cone|green color|../../biology/protein
 M-segment|minivan|../../economy/transport
 M1 Garand|USA|../../economy/war
@@ -4459,6 +4604,7 @@ M109|USA, self-propelled|../../economy/war
 M16|USA|../../economy/war
 M2 Browning|USA|../../economy/war
 MAGURA|Ukraine|../../economy/war
+MAPK/ERK pathway|regulates cell proliferation|../../biology/protein
 MAU|monthly|../../economy/marketing
 MDB (Movimento Democrático Brasileiro)|big tent|../../history/politics
 MENA|Middle East + North Africa (Maghreb + Mashrek)|../../history/geography
@@ -4509,6 +4655,7 @@ Maes Howe|passage grave|../../culture/architecture
 Mafia Islands|coast of Africa|../../geography/oceans
 Maghreb|Morocco + Tunisia + Algeria + Libya|../../history/geography
 Maghreb–Europe|Algeria -> Morocco -> Andalusia|../../economy/transport
+Magic|The Gathering (MTG)|../../life/mtg
 Magna Carta (1215)|grant of rights by King John of England|../../history/history_6_middle_ages
 Magna Graecia (800-200 BC)|greek speaking Southern Italy + Sicily|../../history/history_4_antiquity
 Magnesite = MgCO3|trigonal|../../nature/minerals
@@ -4525,10 +4672,12 @@ Magnoliophyta|300k species|../../biology/life
 Mahmud I (1730-1754)|son of Mustafa II, raised in Kafes|../../history/history_8_modern
 Mahmud II (1808-1839)|son of Abdul Hamid I, reforms|../../history/history_8_modern
 Maidan Demonstrations (2013)|end of president Yanukovych|../../history/history_9_contemporary
+Main phase|before/after combat|../../life/mtg
 Mainzer Dom|two chancels, Kaiserdom|../../culture/architecture
 Makarov|USSR|../../economy/war
 Makemake|1.4 Mm|../../science/sun
 Makgadikgadi Pan|salt pan|../../geography/oceans
+Maki|swapped in seaweed|../../culture/recipes
 Malacca strait|30% of trade, piracy risk|../../economy/transport
 Malachite = CuCO3(OH)2|monoclinic, botryoidal, green pigment|../../nature/minerals
 Malacostraca|20 segments|../../biology/life
@@ -4550,6 +4699,7 @@ Mammography|breast cancer|../../biology/medicine
 Mammut/Mastodon|extinct, smaller ears, Northern Hemisphere|../../biology/mammalia
 Mammuthus/Mammoth|extinct, large twisted tusks, thick fur, smaller ears|../../biology/mammalia
 Mammuthus|long curved tusks, long hair|../../history/fauna
+Mana cost|cost to cast|../../life/mtg
 Manananggal|long sucking tongue, wings, can split|../../stories/mythology
 Mandible|flexible, lower jaw|../../biology/organs
 Mandrillus|short tail, colorful face, large canines, social, Africa|../../biology/mammalia
@@ -4561,6 +4711,7 @@ Manhattan Bridge|New York|../../culture/architecture
 Manhattan norm (L1)|sum(v_i)|../../science/math
 Manicouagan|Labrador Peninsula|../../geography/mountains
 Manitoba|Winnipeg|../../history/politics
+Manner|wafers + filling|../../culture/recipes
 Mannitol|osmotic (inhibits reabsorption), intravenous, heart failure risk|../../biology/drugs
 Manometer|measures gas pressure, U shape, two open ends|../../science/technology
 Mantodea|mantises, ambush predators, grasping forelegs, sexual cannibalism|../../biology/life
@@ -4606,6 +4757,7 @@ Mashrabiya|window with wooden lattice openings|../../culture/arch_styles
 Mashrek|Egypt + Sudan + Syria + Iraq + Saudi Arabia + Yemen + Oman + UAE|../../history/geography
 Mask of Agamemnon (1500 BC)|gold, Athens|../../culture/arts
 Mask of Tutankhamun (1330 BC)|Cairo|../../culture/arts
+Mason|stone cutter|../../history/economy
 Mass number (A)|number of protons and neutrons|../../science/physics
 Mass percentage|mass of solute to mass of solution|../../science/chemistry
 Mass-energy equivalence|E = m * c^2|../../science/physics
@@ -4615,6 +4767,8 @@ Massagetae (8th-3rd century BC)|central Asia|../../history/history_4_antiquity
 Mast cell|granulocyte, cause allergy, round nucleus, similar to basophil|../../biology/genetics
 Mast year|large quantity of seeding (oak, beech)|../../biology/botanics
 Mastaba|rectangular base, inward slope, flat roof|../../culture/arch_styles
+Master Settlement Agreement (1998)|lawsuit against tobacco industry|../../history/science
+Masyu|square grid, black+white circles, loop through all circles|../../life/games
 Mata Hari|Dutch exotic dances, French spy, suspected German spy, executed|../../history/history_8_modern
 Matadi Bridge|DRC, Congo River|../../culture/architecture
 Matej/Matthew/Matthias/Maciej/Matteo|germanic, west slavic, italic|../../life/names
@@ -4706,6 +4860,8 @@ Menuridae|lyrebirds, ground dwelling, strong legs, males have long tail, Austral
 Mephitidae|skunks, black-and-white, bushy tail, anal scent glands to deter predators|../../biology/mammalia
 Mercantilism|maximize export and minimize import|../../history/politics
 Mercator|conformal cylindrical, poles inflation|../../geography/map
+Mercer|fabric seller|../../history/economy
+Merchant|long-distance trader|../../history/economy
 Mercury|4.9 Mm, many craters, no atmosphere|../../science/sun
 Mercury|thermometers, amalgam|../../economy/materials
 Mercury|toxic, muscle weakness, kidney and brain damage|../../biology/materials
@@ -4731,6 +4887,7 @@ Mesosaurus|marine reptile|../../history/fauna
 Mesosphere|meteor incineration, 50-85km|../../geography/geography
 Mesozoic|ammonites, dinosaurs, pterosaurs, cycads|../../history/geologic_time_scale
 Messenger|Facebook messages|../../it/internet
+Messenger|news delivering|../../history/economy
 Messerschmitt|main fighter plane|../../history/history_8_modern
 Metacarpus|five long, between Carpus and Phalanges|../../biology/organs
 Metallic|bonding electrons free to move|../../science/chemistry
@@ -4739,6 +4896,7 @@ Metallic|shiny|../../nature/minerals
 Metals|good conductors, ductile, malleable, lustrous|../../science/chemistry
 Metamizole/Dipyrone (Novalgin)|antipyretic, antispasmodic (colic), rarely causes agranulocytosis|../../biology/drugs
 Metasequoia|China, deciduous tree, opposite leaves, fast-growing|../../life/rastliny-basic
+Metastasis|spread to other body parts|../../biology/medicine
 Metatarsal|five long, between Tarsal and Phalanges|../../biology/organs
 Meteor shower|higher number of meteors from one point|../../science/astronomy
 Meteorite|solid debris from outer space object|../../science/astronomy
@@ -4803,6 +4961,7 @@ Millau Viaduct|France, multi-span, tall, single towers|../../culture/architectur
 Miller index|integer triplet defining plane within lattice, eg (010)|../../science/physics
 Millerite = NiS|trigonal, acicular|../../nature/minerals
 Millerosauria|extinct, small, lizard-like|../../biology/reptilia
+Miller|flour maker|../../history/economy
 Miller–Rabin primality test|check if number is prime|../../it/algorithm
 Miloš Zeman|prime minister, president|../../history/politics
 Mimar Sinan Mosque, Istanbul/Asia|4 minarets|../../culture/architecture
@@ -4812,6 +4971,7 @@ Mineralocorticoid|bind to mineralocorticoid receptor|../../biology/drugs
 Mine|concealed, detonated by pressure|../../economy/war
 Minocycline|oral|../../biology/drugs
 Minpu Bridge|Shanghai|../../culture/architecture
+Minstrel|music entertainer|../../history/economy
 Mint|Ubuntu based|../../it/operating-system
 Miocene (23-5 My)|giraffes, deer, apes, hyenas|../../history/geologic_time_scale
 Mir (1996)|USSR, continuously inhabited, decommission in 2001|../../history/science
@@ -4822,7 +4982,7 @@ Mirepoix|onion + carrot + celery, low heat|../../culture/recipes
 Mirror Image|duplicates|../../life/dnd
 Miscibility|ability to mix in all proportions (e.g. water and ethanol)|../../science/chemistry
 Misogyny|hatred of women|../../history/politics
-Misoprostol|PGE1, treat gastric ulcers, labor induction|../../biology/materials
+Misoprostol|PGE1, treat gastric ulcers, labor induction|../../biology/protein
 Misoprostol|prostaglandin analogue, causes contractions, oral or vaginal, 1st trimester|../../biology/drugs
 Mission|Impossible 2 [2000]|../../stories/movies
 Mission|Impossible III [2006]|../../stories/movies
@@ -4831,6 +4991,7 @@ Mission|Impossible – Ghost Protocol [2011]|../../stories/movies
 Mission|Impossible – Rogue Nation [2015]|../../stories/movies
 Miss|data not found in cache|../../it/algorithm
 Mithridates I (165-132 BC)|defeated Seleucid Empire|../../history/history_4_antiquity
+Mitochondrial Outer Membrane Permeabilization (MOMP)|BCL2 proteins insert into membrane to form pores|../../biology/protein
 Mitochondrion|double membrane, aerobic respiration generates ATP|../../biology/cell
 Mitomycin C|from bacteria, intravenous|../../biology/drugs
 Mitoxantrone|intercalation, intravenous|../../biology/drugs
@@ -4838,6 +4999,7 @@ Mitral valve|two cusps, between left atrium and ventricle|../../biology/organs
 Mnemonic device|technique aiding information retention or retrieval|../../biology/psychology
 Moana [2016]|Moana + Maui + Te Fiti + !Te Ka|../../stories/animated
 Moat|deep broad ditch around castle, sometimes filled with water|../../culture/arch_styles
+Mochi|filled rice cake|../../culture/recipes
 Modal window|dialog prompt, requires action|../../it/gui
 Modesty / Veiled Truth (1752)|Naples|../../culture/arts
 Modillion|medium-sized repeated decoration|../../culture/arch_styles
@@ -4856,12 +5018,14 @@ Molybdenium|steel|../../economy/materials
 Mombacho|volcano|../../geography/oceans
 Mona Lisa (1506)|oil, Louvre + copy in Prado|../../culture/arts
 Monarch butterfly|multiple generations within migration|../../biology/ethology
+Monel|nickel + copper, corrosion resistance, marine industry|../../science/material
 Money mule|person laundering money on behalf of others (often unaware)|../../economy/finance
 Mongolia|coal, copper, livestock|../../economy/states
 Monika/Monica/Monique|germanic, west slavic, italic|../../life/names
 Monk|train, DEX+WIS|../../life/dnd
 Monobactams|aerobic gram negative|../../biology/drugs
 Monoclinic|1 right angle, all sides different|../../science/physics
+Monoclonal antibody|isolating spleen cells and cloning individually selected B cell|../../biology/drugs
 Monocular|eyes on opposite sides, independent movement, wider field|../../biology/ethology
 Monocyte|bone marrow and blood|../../biology/genetics
 Monodon|narwhal, blunt snout, males have long tusk, Arctic Ocean|../../biology/mammalia
@@ -4931,8 +5095,10 @@ Mount St. Helens|volcano|../../geography/oceans
 Mount Vesuvius|volcano|../../geography/oceans
 Mount Vulture|volcano|../../geography/oceans
 Mountain|high hill|../../geography/geography
+Mountain|red|../../life/mtg
 Moving water|waterfalls, rivers, fountains|../../topten/topten
 Mozambique|coal, aluminium, titanium|../../economy/states
+Mozartkugel|pistachio + marzipan + nougat in chocolate|../../culture/recipes
 Mozilla Firefox|open source, Gecko engine|../../it/operating-system
 Mpemba effect|hot liquid can freeze faster than cold (due to evaporation etc)|../../science/physics
 Msta|USSR, self-propelled|../../economy/war
@@ -4944,11 +5110,11 @@ Mughal War of Succession (1707-1709)|between sons of Aurangzeb|../../history/his
 Mughal-Maratha wars (1680-1707)|decline of Mughal Empire|../../history/history_8_modern
 Muhammad/Mohammad/Mohammed/Mehmet|arabic, indoiranian, turkey|../../life/names
 Muiderslot, Amsterdam|water brick castle|../../culture/architecture
-Mulan [1998]|Mulan + Li Shang + dragon Mushu + !Shan Yu|../../stories/animated
 Multi-armed bandit|multiple choices, unknown success rate, maximize reward|../../it/algorithm
 Multifoil arch|multiple circular arcs|../../culture/arch_styles
 Multigraph|allows multiple edges between same verices|../../science/graph_teory
 Multilateration|uses distances from multiple stations|../../science/technology
+Multimeter|measures electrical properties|../../science/engineering
 Multiple independently targetable reentry vehicle (MIRV)|multiple warheads with different targets, 1960s|../../economy/war
 Multiple sclerosis|damage of myelin sheaths|../../biology/medicine
 Multiplexer|combine signals, between transceiver and antenna|../../economy/communication
@@ -5023,6 +5189,7 @@ NUMERIC(precision, scale)|money value|../../it/sql
 NYSE (New York)|largest|../../economy/finance
 Na-Cl cotransporter (NCC)|membrane transport, reabsorption in kidney|../../biology/protein
 Naan|flour + water + yeast|../../culture/recipes
+Naegleria fowleri|freshwater, can cause fatal brain infection (through nose)|../../biology/protozoa
 Nafcillin|staphylococcus, injection|../../biology/drugs
 Naga|half-serpent|../../stories/mythology
 Nail|keratin, flat, grow continuously (primates)|../../biology/body-animal
@@ -5093,6 +5260,7 @@ Neo-Babylonian Empire (626-539 BC)|Mesopotamia + Levant|../../history/history_3_
 Neofelis|clouded leopard, solitary, SE Asia|../../biology/mammalia
 Neogale|mink, semiaquatic, dark color|../../biology/mammalia
 Neogene|mastodons|../../history/geologic_time_scale
+Neonatology|newborn|../../biology/medicine
 Neon|electric signs|../../economy/materials
 Neopanamax|max 15k TEU|../../economy/transport
 Neophron|Egyptian vulture, white with yellow face|../../biology/aves
@@ -5101,6 +5269,7 @@ Neotropic|Central and South America|../../biology/regions
 Nepal|textiles|../../economy/states
 Nephrectomy|kidney removal|../../biology/medicine
 Nephroblastoma / Wilms' tumor|kidneys, highly curable|../../biology/medicine
+Nephrology|kidney|../../biology/medicine
 Nepotism|granting advantage to relatives/friends|../../history/politics
 Neptune (1567)|bronze fountain, Bologna|../../culture/arts
 Neptune and Triton (1623)|London|../../culture/arts
@@ -5123,6 +5292,7 @@ Network|continuous covalent bond, e.g. graphite / diamond / quartz|../../science
 Neural Turing machine|recurrent neural network with external memory|../../it/ai
 Neural network|layers from input to output, weighted edges between layers|../../it/ai
 Neurocranium|upper and back part of skull|../../biology/organs
+Neurology|nervous system|../../biology/medicine
 Neuroplasticity|ability of brain to change by making new neuron connections|../../biology/psychology
 Neuroptera|lacewings|../../biology/life
 Neurotoxin|affect nervous system|../../biology/toxin
@@ -5158,12 +5328,15 @@ Nickel|green|../../nature/minerals
 Nickel|stainless steel, alloys|../../economy/materials
 Nicotine|tobacco, recreational drug, addictive, cardiovascular risks, indirectly lung cancer (smoking)|../../biology/drugs
 Nicotinic acetylcholine receptor|muscle contraction|../../biology/protein
+Nicrosil|85% nickel + 14% chromium + 1% silicone, thermocouple|../../science/material
 Nictitating membrane|translucent third eyelid, moistens and protects eye|../../biology/body-animal
 Nifedipine|calcium channel blocker, oral|../../biology/drugs
+Niger Delta Basin|Nigeria|../../economy/energy
 Nigerian Civil War (1967-1970)|failed Biafra secession|../../history/history_9_contemporary
 Nigeria|petroleum, cocoa, IT|../../economy/states
 Niger|uranium|../../economy/states
 Night at the Museum|Battle of the Smithsonian [2009]|../../stories/movies
+Nigiri|salmon/tuna|../../culture/recipes
 Nihilism|life is meaningless, knowledge is impossible|../../history/philosophy
 Nikita Khrushchev (1953)|destalinization|../../history/history_9_contemporary
 Nikolai Vasilievich Gogol|The Inspector General (1835) + The Overcoat (1842) + Dead Souls (1842)|../../stories/books
@@ -5173,6 +5346,7 @@ Ningxia (宁夏)|Hui people (islam)|../../history/politics
 Ningzong/宋寧宗 (1194-1224)|strong wife Empress Yang|../../history/history_6_middle_ages
 Niobium|steel|../../economy/materials
 Nipponia|crested ibis, white, red skin around eyes, East Asia|../../biology/aves
+Nisil|95% nickel + 4% silicone + magnesium, thermocouple|../../science/material
 Nitazoxanide|protozoa|../../biology/drugs
 Nitrofurantoin|inhibits DNA and protein synthesis, urinary infections, oral|../../biology/drugs
 Nitrogen|78%|../../geography/geography
@@ -5194,10 +5368,12 @@ Nonmetals|poor conductors, brittle|../../science/chemistry
 Nonparental infanticide|male killing youngs fathered by other males (carnivores)|../../biology/ethology
 Nonpolar|equally shared electrons|../../science/chemistry
 Nord Stream|Russia -> Germany|../../economy/transport
+Nordic Gold|90% Cu + 5% Al + 5% Zn, coins|../../science/material
 Nordics|Denmark + Sweden + Finland + Norway + Iceland|../../history/geography
 Norepinephrine/Noradrenaline|precursor is phenylalanine, increases alertness and heart rate / blood pressure|../../biology/genetics
 Norfloxacin|oral + eye drops|../../biology/drugs
 Noricum|Iuvavum (Salzburg)|../../history/history_4_antiquity
+Nori|seaweed|../../culture/recipes
 Normalization|Gustáv Husák|../../history/history_9_contemporary
 Normal|between solids in contact, perpendicular|../../science/physics
 Normal|perpendicular to surface|../../science/engineering
@@ -5209,6 +5385,7 @@ Norm|measurement of vector size|../../science/math
 North America|Strawberry, Blueberry, Blackberry, Raspberry|../../life/rastliny-stats
 North Korea|iron, coal|../../economy/states
 North Macedonia|textiles|../../economy/states
+North Sea|Norway|../../economy/energy
 North sea|shallow|../../geography/oceans
 Northern Ireland|secession from UK, reunification with Ireland|../../history/politics
 Northern Satraps (60 BC-150)|northern India, conquered by Kushan empire|../../history/history_4_antiquity
@@ -5222,6 +5399,7 @@ Nothosauria|marine, long neck and tail|../../biology/reptilia
 Notostraca|tadpole shrimps|../../biology/life
 Notosuchus + Baurusuchus|crocodile-like|../../history/fauna
 Notre Dame Fire (2019)|destroyed wooden roof|../../history/science
+Nougat|ground hazelnuts + sugar + cocoa|../../culture/recipes
 Noun|object|../../culture/language
 Nozzle|controls direction / pressure / speed of fluid|../../science/technology
 Nubia|Sudan|../../history/history_8_modern
@@ -5246,6 +5424,7 @@ Nymphs|Dryads (tree) + Naiads (freshwater) + Nereids (seawater) + Oreads (mounta
 Nystagmus|involuntary eye movement|../../biology/medicine
 Nystatin|Candida, topical|../../biology/drugs
 N|neutral, start|../../life/car
+Néel temperature|material becomes paramagnetic above it|../../science/physics
 Nüwa Repairs the Pillars of Heaven|five colored stones|../../stories/mythology
 OCR (Optical character recognition)|conversion of image to text|../../it/machine-learning
 ODS|conservative, Václav Klaus|../../history/politics
@@ -5253,6 +5432,7 @@ OFFSET i FETCH FIRST j|paging|../../it/sql
 OGG (Vorbis)|open source|../../it/media-formats
 OPEX / operating expense|ongoing cost of business|../../economy/finance
 ORDER BY col ASC/DESC|ordering|../../it/sql
+Oathbringer|alliance against Odium, Parshendi occupy Kholinar, Thaylenah city saved from Fused, Dalinar captures Thrill, Shallan marries Adolin|../../stories/books
 Obelisk|four-sided, tall, pointed|../../culture/arch_styles
 Oberbaum Bridge|Berlin, double-deck|../../culture/architecture
 Oberon|1.5 Mm|../../science/sun
@@ -5264,6 +5444,7 @@ Obovate|egg-like, wider near tip|../../biology/body-plant
 Obsessive-compulsive|perfectionism, conformity to rules|../../culture/psychology
 Obsessive–compulsive disorder (OCD)|need to perform routines repeatedly|../../culture/psychology
 Obsidian|volcanic glass, conchoidal fracture, sharp edges, black color|../../nature/minerals
+Obstetrics|pregnancy|../../biology/medicine
 Obtuse triangle|angle over 90 degrees|../../science/geometry
 Obtuse|<180|../../science/geometry
 Occam's razor|simplest explanation is often correct, lowest amount of assumptions|../../science/logic
@@ -5288,6 +5469,7 @@ Odrysian kingdom (480-340 BC)|Thrace, conquered by Macedonian|../../history/hist
 Oedipus complex|son desiring mother and rivaling father|../../culture/psychology
 Offer|promise|../../economy/legal
 Ofloxacin/Levofloxacin|oral + drops + injection|../../biology/drugs
+Ofrenda|home altar with candles, favorite food and photo of dead|../../culture/holidays
 Ogee arch|double-curved, concave and convex|../../culture/arch_styles
 Oil Embargo (1973)|on states supporting Israel - USA, UK, Canada, Japan, Netherlands|../../history/history_9_contemporary
 Okapia|partially striped|../../biology/mammalia
@@ -5308,6 +5490,8 @@ Omission bias|favoring inaction over action, even if the result is not less harm
 Omnidirectional|uniform power in all directions|../../economy/communication
 Omnivore|consumes animals and plants (crows)|../../biology/ethology
 Oncidium|houseplant, small flowers|../../life/rastliny-monocots
+Oncogene|gain-of-function mutation, cell division|../../biology/medicine
+Oncology|cancer|../../biology/medicine
 Ondansetron|oral + injection|../../biology/drugs
 Ondatra|muskrat|../../biology/mammalia
 One Hundred and One Dalmatians [1961]|Perdita + Pongo + Anita + Roger + !Cruella De Vil, evil fashion|../../stories/animated
@@ -5331,6 +5515,7 @@ Operation|function from set to itself|../../science/arithmetic
 Ophidiophobia|snakes|../../culture/psychology
 Ophiophage|consumes snakes|../../biology/ethology
 Ophiuroidea|brittle star|../../biology/life
+Ophthalmology|eye|../../biology/medicine
 Opiliones|harvesters, long legs, no venom or silk glands|../../biology/life
 Opioid receptors|neurons|../../biology/protein
 Opioids|like endorphins|../../biology/protein
@@ -5356,6 +5541,8 @@ Ordovician (485-444 My)|corals, cephalopods|../../history/geologic_time_scale
 Organic|post-traumatic|../../culture/psychology
 Organophosphate poisoning|by acetylcholinesterase inhibitors (nerve gases)|../../biology/drugs
 Orhan (1323-1362)|conquests in Anatolia, created Janissaries|../../history/history_8_modern
+Original equipment manufacturer (OEM)|products rebranded by other companies|../../economy/management
+Orinoco Belt|Venezuela (heavy oil)|../../economy/energy
 Oriolidae|yellow with black wings|../../biology/aves
 Orionids|late October (Halley comet)|../../science/astronomy
 Orlando|MCO|../../life/airports
@@ -5394,6 +5581,7 @@ Otariidae|eared seals|../../biology/mammalia
 Other colonies|Cape Verde, Ceylon, East Timor, Spice Islands, Macau, Nagasaki|../../history/history_7_renaissance
 Otidiformes|bustards, large, long neck and legs, grasslands|../../biology/aves
 Otocyon|bat-eared fox|../../biology/mammalia
+Otorhinolaryngology|ear + nose + throat|../../biology/medicine
 Otto I (962)|crowned by pope|../../history/history_6_middle_ages
 Ottokar II (Přemysl)|Bohemia, Moravia, Austria, Styria|../../history/history_6_middle_ages
 Ottoman–Safavid War (1623–1639)|Ottoman victory, recaptured Iraq, partitioned Caucasus|../../history/history_8_modern
@@ -5431,6 +5619,7 @@ PCM|no compression, WAV|../../it/media-formats
 PCV|brain tumor, Procarbazine + Lomustine + Vincristine|../../biology/drugs
 PEG ratio|P/E divided by EPS growth|../../economy/finance
 PEP (Politically Exposed Person)|person with public function (higher risk for AML)|../../economy/compliance
+PI3K/AKT/mTOR pathway|regulates cell cycle|../../biology/protein
 PIN password|ordinary use|../../economy/communication
 PL (Partido Liberal)|conservative, Jair Bolsonaro|../../history/politics
 PM10|coarse particles|../../science/material
@@ -5447,6 +5636,7 @@ PPSh-41|USSR|../../economy/war
 PRI (Partido Revolucionario Institucional)|big tent|../../history/politics
 PSOE (Partido Socialista Obrero Español)|social-democratic, Felipe González, Pedro Sánchez|../../history/politics
 PT (Partido dos Trabalhadores)|social democracy, Lula da Silva|../../history/politics
+PTEN|phosphatase, inhibits AKT activation|../../biology/protein
 PTR|reverse lookup (IP to domain name)|../../it/dns
 PUK password|PIN unlock|../../economy/communication
 PUT|replace data|../../it/http
@@ -5461,9 +5651,10 @@ Pachyrhinosaurus|flattened nose horn, frill with 2 sideward hornlets|../../biolo
 Pacific|Coconut|../../life/rastliny-stats
 Pack hunter|in group (lion, hyena, wolf, chimpanzee, dolphin)|../../biology/ethology
 Paclitaxel|from yew bark, intravenous|../../biology/drugs
-Pad Thai|rice noodle + shrimp + scrambled egg|../../culture/recipes
+Pad Thai|rice noodle + shrimp + scrambled egg + peanuts|../../culture/recipes
 Pad printing|transfers 2D image on 3D object via silicone pad|../../science/technology
 Paella|rice + meat + vegetables|../../culture/recipes
+Page|young servant|../../history/economy
 Pagination|first / last / previous / next page|../../it/gui
 Pakistan|45% Punjabis, 20% Pashtuns, 15% Sindhis, 10% Saraikis|../../geography/countries
 Pakistan|92|../../economy/person
@@ -5544,7 +5735,7 @@ Paraguayan War (1864-1870)|Paraguay defeated by Triple Alliance (Brazil+Argentin
 Paraguay|soybeans, meat, corn, rice|../../economy/states
 Parallelogram|2 pairs of parallel sides|../../science/geometry
 Parallel|no intersection|../../science/geometry
-Paramagnetism|attraction to magnetic field|../../science/chemistry
+Paramagnetism|magnetic moments aligned in same direction, weak attraction, only in magnetic field|../../science/physics
 Paraneoptera|no cerci|../../biology/life
 Paranoid|irrational suspicion|../../culture/psychology
 Parapatric|hybrid zone|../../biology/ethology
@@ -5584,6 +5775,8 @@ Patatas bravas|potatoes + sauce|../../culture/recipes
 Patella|flat and round, protects joint|../../biology/organs
 Patent office|issues patents|../../economy/legal
 Patent|invention (drug, software)|../../economy/legal
+Pathogen-associated molecular pattern (PAMP)|molecule from microbe recognized by receptor, initiate immune response|../../biology/genetics
+Pathology|tissue and cell analysis|../../biology/medicine
 Path|walk with all vertices distinct|../../science/graph_teory
 Patricians|ruling|../../history/history_4_antiquity
 Patrick Rothfuss|The Kingkiller Chronicle (2007-2011)|../../stories/books
@@ -5593,6 +5786,7 @@ Paul Kearney|Monarchies of God (1995-2002)|../../stories/books
 Pauli exclusion principle|two electrons in atom can not have same quantum numbers|../../science/chemistry
 Pavilion of Prince Teng|Nanchang|../../culture/architecture
 Pavo|males are blue-green with long tail feathers with eyespots for courting, crest, South Asia|../../biology/aves
+Pawnbroker|money lender|../../history/economy
 Paxlovid|covid-19|../../biology/drugs
 Pažaislis Monastery, Kaunas, Lithuania|marble interior|../../culture/architecture
 Peace of Vervins (1598)|peace with Spain|../../history/history_8_modern
@@ -5601,7 +5795,9 @@ Peanut allergy [6]|1% of population|../../biology/medicine
 Peasants' Revolt (1381)|led by Wat Tyler in England, demanded economic and social reforms|../../history/history_7_renaissance
 Pecten oculi|sharp eyesight|../../biology/body-animal
 Pectoralis major|chest, humerus flexor|../../biology/anatomy
+Peddler|short-distance trader|../../history/economy
 Pedetidae|springhares, long tail, long legs to jump, dig burrows, large eyes, nocturnal, Africa|../../biology/mammalia
+Pediatrics|children|../../biology/medicine
 Pediculus humanus|infects head and body, feeds on blood|../../biology/parasite
 Pediment|triangular wall above horizontal structure|../../culture/arch_styles
 Peduncle|stalk supporting inflorescence|../../biology/body-plant
@@ -5616,6 +5812,7 @@ Pele|volcanoes|../../stories/mythology
 Pelješac Bridge|Croatia, multi-span|../../culture/architecture
 Pell numbers|0/1/2P+Q, Pell / Pell-Lucas fractions approach square root of two|../../science/arithmetic
 Pell–Lucas numbers|2/2/2P+Q|../../science/arithmetic
+Pelmeni|dumplings filled with minced meat|../../culture/recipes
 Pelomedusidae|Africa|../../biology/reptilia
 Peloponnesian League|led by Sparta, Peloponnese|../../history/history_4_antiquity
 Pelorism|abnormal Actinomorphic flowers in species producing Zygomorphic flowers|../../biology/body-plant
@@ -5624,6 +5821,7 @@ Pelycosauria|primitive mammals|../../history/fauna
 Pemphigus|antibodies against desmoglein|../../biology/medicine
 Pendentive|triangular segments of sphere, support dome over square room|../../culture/arch_styles
 Penetration|proximity of electrons in orbital to nucleus, affected by shielding, determines orbital energy|../../science/chemistry
+Penicilin (1928)|Alexander Fleming|../../history/science
 Penicillamine|copper (Wilson's disease), liver metabolism, oral|../../biology/drugs
 Penicillin V|oral|../../biology/drugs
 Penicillins|fungi product, gram positive + syphilis, can cause allergic reaction|../../biology/drugs
@@ -5632,6 +5830,7 @@ Penile raphe|vertical ridge along penis underside and scrotum|../../biology/orga
 Peninsula|surrounded by water on most sides|../../geography/geography
 Penis|urinary and ejaculatory duct, erogenous zone|../../biology/organs
 Penne|diagonal cut|../../biology/food
+Pennon|long narrow flag on lance|../../history/coats-of-arms
 Pentaceratops|long eye and short nose horns, high frill with hornlets|../../biology/reptilia
 Pentamidine|sleeping sickness, injection + inhalation|../../biology/drugs
 Pentatomidae|shield bugs, mostly herbivore, triangular scutellum, pungent defensive spray|../../biology/life
@@ -5657,7 +5856,9 @@ Perissodactyla|bear weight on 1 or 3 toes|../../biology/mammalia
 Peristyle|columns (supporting roof) surrounding courtyard|../../culture/arch_styles
 Permethrin|scabies + lice, disrupts sodium channel, topical|../../biology/drugs
 Permian (300-250 My)|reptiles, sharks, beetles, conifers, Dimetrodon|../../history/geologic_time_scale
+Permian Basin|Texas|../../economy/energy
 Pernicious anemia|lack of intrinsic factor causes vitamin B12 deficiency|../../biology/medicine
+Perník|2 gingerbread layers + jam in chocolate|../../culture/recipes
 Peroral|ingestion|../../biology/drugs
 Peroxide|-O-O-|../../science/chemistry
 Peroxisome proliferator-activated receptor (PPAR)|cellular differentiation and metabolism|../../biology/protein
@@ -5681,13 +5882,14 @@ Peru|copper, gold, cocaine|../../economy/states
 Perverse incentive|reward making issue worse (cobra effect)|../../science/logic
 Peseta|Spain (ESP)|../../economy/finance
 Peso|Argentina (ARS), Chile (CLP), Colombia (COP), Mexico (MXN), Philippines (PHP) [piece of eight]|../../economy/finance
+Pesto|basil + garlic + pine nuts + olive oil + parmesan|../../culture/recipes
 Peter Freund|Laura|../../stories/books
 Peter Pan [1953]|book|../../stories/animated
 Peter Wohlleben|Hidden Life of Trees (2015)|../../science/books
 Peter principle|employees promoted until getting incompetent|../../economy/management
 Peter/Petr/Piotr/Pedro/Pierre/Pietro|germanic, slavic, italic|../../life/names
 Peters|equal-area cylindrical|../../geography/map
-Pewter|tin + copper + antimony, tableware|../../science/material
+Pewter|tin + 2% copper + 5% antimony, tableware|../../science/material
 Phacochoerus|warthog|../../biology/mammalia
 Phaenicophaeus|malkohas, red around eyes, South Asia|../../biology/aves
 Phaethon [Tropicbird]|seabird, white, long central tail feathers|../../biology/aves
@@ -5738,6 +5940,7 @@ Phosphorus|fertilizer|../../economy/materials
 Phosphorylase|addition of inorganic phosphate group (-PO4)|../../biology/protein
 Photic zone|up to 200m depth, sunlight, phytoplankton|../../geography/geography
 Photochromism|change of color when exposed to light|../../nature/minerals
+Photoelectric sensor|infrared transmitter + receiver, detects presence or measures distance (automation)|../../science/engineering
 Photographic film (1888)|George Eastman, Kodak|../../history/science
 Photography (1826)|Nicéphore Niépce, metal plate|../../history/science
 Photoluminescence|absorbed from radiation|../../science/physics
@@ -5746,6 +5949,7 @@ Photoreceptive cells|light sensitive neurons in retina|../../biology/organs
 Photoreceptor|respond to light|../../biology/organs
 Photosynthesis|energy from sunlight|../../biology/botanics
 Photovoltaics|converts light into electricity|../../science/technology
+Pho|rice noodles + sliced meat + herbs in light broth|../../culture/recipes
 Phylogenetics|evolutionary history of life|../../biology/genetics
 Physeteridae|sperm whale, large marine predator, block-shaped head with narrow lower jaw|../../biology/mammalia
 Phytomenadione / K1|in green vegetables|../../biology/materials
@@ -5759,6 +5963,7 @@ Picea [Spruce]|northern hemisphere, cold zones, antifreeze proteins|../../life/r
 Picidae|woodpeckers, red top of head or crest, feed on insect under bark, excavate nest in tree (fungi make wood softer), solitary, except Australia|../../biology/aves
 Pickup|cargo bed without roof|../../economy/transport
 Picts|Scotland|../../history/history_4_antiquity
+Pide / Turkish pizza|oval flatbread with toppings|../../culture/recipes
 Piemonte|Turin|../../history/politics
 Pierogi / Varenyky|filled pastry, baked or fried|../../culture/recipes
 Pier|upright support|../../science/technology
@@ -5783,7 +5988,6 @@ Pion|made of up and down quarks, decay into photons or muon + muon neutrino|../.
 Piperacillin|also gram negative including resistant Pseudomonas, injection|../../biology/drugs
 Piperales|oval leaves, small flowers without petals in spikes|../../biology/life
 Pipridae|manakins, Latin America|../../biology/aves
-Pirates of the Caribbean|Jack Sparrow, Will Turner + Elizabeth Swann, !Barbossa, !Davy Jones|../../stories/movies
 Piriform cortex|smell|../../biology/organs
 Piscivore|consumes fish (sharks)|../../biology/ethology
 Piston engine|reciprocating pistons create rotating motion|../../science/technology
@@ -5795,10 +5999,12 @@ Placebo|treatment replacement for control group|../../biology/drugs
 Placodontia|marine|../../biology/reptilia
 Placodontidae|long flat tail|../../biology/reptilia
 Plague of Justinian (541-549)|bubonic plague, 50M dead, Europe + Middle East|../../history/history_5_migration_period
+Plains|white|../../life/mtg
 Plain|flat land|../../geography/geography
 Planc constant|663 aaJ/Hz|../../science/physics
 Planck constant|663 aaJ*s|../../science/chemistry
 Planck relation|photon energy is proportional to frequency (E = h*f = h*c / λ)|../../science/physics
+Planeswalker|represent player|../../life/mtg
 Planet of the Apes [1968]|Taylor + Nova, Cornelius + Zira, Zaius|../../stories/movies
 Planet of the Apes|Caesar, Koba|../../stories/movies
 Planetary nebula|ionized gas of red giant, Cat's Eye, Helix|../../science/astronomy
@@ -5910,6 +6116,7 @@ Porcelain|from Kaolinite, strong|../../science/material
 Porifera|sponges, aquatic, adults are sessile|../../biology/life
 Porolepiformes|extinct|../../biology/life
 Portal|parallel, connected tops|../../science/technology
+Porter|cargo carrier|../../history/economy
 Portico|colonnade with roof leading to entrance, sometimes with pediment|../../culture/arch_styles
 Portugal|Angola, Mozambique|../../history/history_8_modern
 Portugal|Lisbon|../../culture/architecture
@@ -5931,10 +6138,12 @@ Potassium|fertilizer|../../economy/materials
 Potassium|purple color in fire|../../science/chemistry
 Potential energy|energy caused by position, m * a * s|../../science/physics
 Potos|kinkajou, long prehensile tail, arboreal, nocturnal, South America|../../biology/mammalia
+Potter|ceramics maker|../../history/economy
 Pound|UK (GBP), Egypt (EGP), Sudan (SDG), Syria (SYP) [libra]|../../economy/finance
 Power amplifier|amplify signal, between transceiver and antenna|../../economy/communication
 Power distance index|society hierarchy|../../culture/culture
 Power of Siberia|Russia -> China|../../economy/transport
+Power|damage creature deals|../../life/mtg
 Practical number|all smaller integers are sum of its distinct divisors (10 is not)|../../science/arithmetic
 Praetorian guard|emperor bodyguards|../../history/history_4_antiquity
 Pragmatic Sanction (1713)|daughter can inherit Austrian throne|../../history/history_8_modern
@@ -5947,6 +6156,7 @@ Predator|consumes organisms it kills|../../biology/ethology
 Predecessor|previous natural number|../../science/arithmetic
 Prednisone|common, decrease inflammation, oral|../../biology/drugs
 Preening|plumage maintenance by bill, birds|../../biology/ethology
+Prekallikrein (PK, Fletcher factor)|protease, cleaved into Kallikrein, activates Factor XII|../../biology/protein
 Preload|muscle stretch at end of diastole|../../biology/organs
 Preposition|space/time relation|../../culture/language
 Presbytis|langurs, SE Asia|../../biology/mammalia
@@ -6022,12 +6232,15 @@ Propofol|intravenous, short-acting|../../biology/drugs
 Proportional symbol map|symbol size represents quantity (e.g. cities)|../../it/visualization
 Proprioceptor|sense of position|../../biology/organs
 Prosopagnosia|inability to recognize faces|../../biology/medicine
-Prostacyclin|PGI2, inhibit platelet aggregation|../../biology/materials
-Prostaglandins (PG)|local vasodilators|../../biology/materials
+Prostacyclin|PGI2, inhibit platelet aggregation|../../biology/protein
+Prostaglandins (PG)|local vasodilators|../../biology/protein
 Prostate cancer|common in men|../../biology/medicine
 Protagonist|main character|../../stories/story
 Protease / Peptidase|breaking down proteins|../../biology/protein
 Protease|enzyme catalyzing proteolysis|../../biology/materials
+Protein C|protease, inactivates Factors V + VIII|../../biology/protein
+Protein S|produced in liver, binds Protein C|../../biology/protein
+Protein Z|degrades Factor X|../../biology/protein
 Protein dynamics|transition between protein states|../../biology/genetics
 Proteles|aardwolf|../../biology/mammalia
 Proteolysis|breakdown of proteins|../../biology/materials
@@ -6058,6 +6271,7 @@ Psittacus|Grey parrot, social, Africa|../../biology/aves
 Psittrichas|Dracula parrot, black with red belly, New Guinea|../../biology/aves
 Psoriasis|patches of abnormal skin (red/itchy/scaly)|../../biology/medicine
 Psyche Revived by Cupid's Kiss (1787)|Louvre + Hermitage|../../culture/arts
+Psychiatry|mental health|../../biology/medicine
 Psychopathy|lack of empathy and remorse|../../culture/psychology
 Psychosis|difficulty to recognize what is real|../../culture/psychology
 Pteranodon|long backward crest|../../biology/reptilia
@@ -6082,6 +6296,7 @@ Puli Bridge|Yunnan, yellow|../../culture/architecture
 Pulmonary artery|heart to lungs|../../biology/organs
 Pulmonary valve|three cusps, between right ventricle and pulmonary artery|../../biology/organs
 Pulmonary vein|lungs to heart|../../biology/organs
+Pulmonology|respiratory system|../../biology/medicine
 Pulsar|regular quick rotation, emits radiation out of magnetic poles|../../science/astronomy
 Pulsejet|combustion in pulses, minimum moving parts|../../science/technology
 Puma [Cougar]|solitary, America|../../biology/mammalia
@@ -6154,12 +6369,17 @@ Quorum sensing|gene regulation based on cell population density|../../biology/ce
 Quran|holy book|../../culture/religion
 Q|quadratic curve|../../it/svg
 R wave|ventricular depolarization, large upwards|../../biology/medicine
+R-290|propane|../../science/engineering
+R-600a|isobutane|../../science/engineering
+R-717|NH3 (industrial use)|../../science/engineering
+R-744|CO2|../../science/engineering
+RAS|small GTPase, signal transduction, proto-oncogene|../../biology/protein
 RBC|4.5-5 TCell/l|../../biology/human
 RBMK|Kursk + Smolensk|../../economy/energy
 RBMK|graphite moderator, water coolant (Soviet)|../../economy/energy
 RICE|recurrent lymphoma, Rituximab + Ifosfamide + Carboplatin + Etoposide|../../biology/drugs
 RICO (Racketeer Influenced and Corrupt Organizations Act)|against organized crime, assets seizure|../../economy/crime
-RNA (Ribonucleic acid)|single polynucleotide chain|../../biology/genetics
+RNA (Ribonucleic acid)|single polynucleotide chain, less stable, shorter|../../biology/genetics
 RNA splicing|removed introns and produced mRNA|../../biology/genetics
 RS-28 Sarmat|HGV|../../economy/war
 Race to bottom|incrementally reduced product quality due to competition|../../economy/management
@@ -6171,6 +6391,7 @@ Radio tower|taller than cell tower, antenna for broadcasting signal, only transm
 Radio waves|over 10mm, radar, broadcasting|../../science/physics
 Radiodonta|arthropods|../../history/fauna
 Radioisotope thermoelectric generator (RTG)|alpha radiation, plutonium / curium / strontium / americium|../../science/technology
+Radiology|medical imaging|../../biology/medicine
 Radioluminescence|absorbed from ionizing radiation|../../science/physics
 Radiosynthesis|energy from ionizing radiation, melanin pigment, fungi|../../biology/botanics
 Radio|Guglielmo Marconi (1894)|../../history/science
@@ -6187,6 +6408,7 @@ Rajesh|india|../../life/names
 Rajya Sabha|upper house, 250 MPs, 6y term, union territory basis, single transferable vote, elections every 2y|../../history/politics
 Raloxifene|prevent osteoporosis and breast cancer after menopause, oral|../../biology/drugs
 Ram in a Thicket (2500 BC)|London|../../culture/arts
+Ramen|noodles + sliced meat + vegetables in dark broth|../../culture/recipes
 Ramie (Boehmeria nivea)|fabric|../../economy/plants
 Ramjet|at supersonic speed, takes in air using forward motion, requires assisted take-off|../../science/technology
 Rampart|broad defensive wall, often with parapet|../../culture/arch_styles
@@ -6211,6 +6433,7 @@ Rattus|rat|../../biology/mammalia
 Ratufa|cat-sized, tree squirrels|../../biology/mammalia
 Raya and the Last Dragon [2021]|Raia + Namaari + dragon Sisu|../../stories/animated
 Raynaud syndrome|reduced blood flow in fingers, white color, triggered by cold or stress|../../biology/medicine
+Reach|can block flying creatures|../../life/mtg
 Reactance|unpleasant reaction to limiting choice (banned books)|../../science/logic
 Reaction mechanism|sequece of elementary reactions (intermediate products)|../../science/chemistry
 Reaction quotient|relative amount of products and reactants for reaction|../../science/chemistry
@@ -6229,6 +6452,7 @@ Reboxetine|depression|../../biology/drugs
 Recency effect|top ten lists, favoring recent events over historic|../../science/logic
 Recession|decrease of economic activity|../../economy/finance
 Reciprocity principle|responding to action with similar action (reward/punishment)|../../science/logic
+Recombinant protein (1977)|Genentech, insulin|../../history/science
 Rectal|anus|../../biology/drugs
 Rectangle|all right angles|../../science/geometry
 Rectus abdominis|abdomen, lower spine flexor|../../biology/anatomy
@@ -6241,11 +6465,12 @@ Reddit|forum|../../it/internet
 Redunca|Reedbuck|../../biology/mammalia
 Reduviidae|assassin bugs, ambush predators, curved proboscis|../../biology/life
 Red|2|../../it/hardware
+Red|direct damage|../../life/mtg
 Reed–Sternberg cell|giant cells, abnormal B cells, often bilobed nucleus (owl eyes)|../../biology/medicine
 Refactoring|Improving the Design of Existing Code|../../todo/books
 Reflection nebula|reflects light of nearby star|../../science/astronomy
 Reflex|>180|../../science/geometry
-Refrigerator|James Harrison (1851)|../../history/science
+Refrigerant|used in heat pump, repeated liquid/gas transition|../../science/engineering
 Regenerate|high level|../../life/dnd
 Regensburger Dom|twin-spired|../../culture/architecture
 Registration|FDA in USA, EMA in EU|../../biology/drugs
@@ -6274,6 +6499,8 @@ Request|async events|../../it/javascript
 Reservoir|water held by dam|../../science/technology
 Resident Evil|Apocalypse [2004]|../../stories/movies
 Resident Evil|Extinction [2007]|../../stories/movies
+Resistance temperature detector (RTD)|fine wire around insulating core, resistance depends on temperature, accurate and stable|../../science/engineering
+Resistance|half damage|../../life/dnd
 Resonance/Mesomerisml|combination of several structures, non-integer bond order|../../science/chemistry
 Respiratory|gas exchange|../../biology/anatomy
 Resurrection of the Flesh (1502)|fresco|../../culture/arts
@@ -6296,6 +6523,7 @@ Rheiformes [Nandu]|large flightless, strong legs to run fast, long neck and legs
 Rhenium|superalloys in jet engines|../../economy/materials
 Rheumatic fever|non-itchy rash, painful joints, heart failure|../../biology/medicine
 Rheumatoid arthritis|joint capsule thickening, swollen warm joints|../../biology/medicine
+Rheumatology|autoimmune|../../biology/medicine
 Rhinitis|irritation inside nose|../../biology/medicine
 Rhinoceros|one horn, skin folds and bumps, South Asia|../../biology/mammalia
 Rhinocerotidae|nose horns, thick skin, large, 3-toed feet|../../biology/mammalia
@@ -6314,12 +6542,14 @@ Rhombus|all sides same length (diamond)|../../science/geometry
 Rhyacian (2300-2050 My)|Huronian glaciation|../../history/geologic_time_scale
 Rhynchocephalia|tuatara|../../biology/life
 Rhynochetos [Kagu]|white, long legs, crest, New Caledonia|../../biology/aves
+Rhythm of War|Fused attack Urithiru, Adolin+Shallan take trial in Shadesmar, Navani bonds Sibling, Taravangian becomes Odium|../../stories/books
 Rhône River|Tricastin + Cruas + Saint-Alban + Bugey|../../economy/energy
 Rial|Saudi Arabia (SAR), Iran (IRR) [Real]|../../economy/finance
 Ribavirin|hepatitis C, oral + inhaled|../../biology/drugs
 Ribes [Currant/Gooseberry]|shrub, lobed leaves, thorns, edible berries|../../life/rastliny-eudicots
 Ribosome|protein synthesis, without membrane|../../biology/cell
 Rib|long curved, 12 pairs, attached to thoracic vertebrae|../../biology/organs
+Rice noodles|rice flour + water|../../culture/recipes
 Richard Dawkins|The Selfish Gene  (1976)|../../science/books
 Richard Nixon (1969)|USA president|../../history/history_9_contemporary
 Ricinus communis|ricin|../../biology/toxin
@@ -6339,7 +6569,7 @@ Right|90|../../science/geometry
 Rilpivirine|oral|../../biology/drugs
 Ring of Brodgar|stone circle|../../culture/architecture
 Ring of Gyges|invisibility|../../stories/mythology
-Rio [2011]|last blue macaw pair escapes bird smugglers|../../stories/animated
+Rio 2 [2014]|blue macaws unite against illegal loggeres|../../stories/animated
 Rio–Antirrio Bridge|Gulf of Corinth, multi-span|../../culture/architecture
 Risi e Bisi|with prosciutto and peas|../../culture/recipes
 Risperidone|D2 and D3 antagonist|../../biology/drugs
@@ -6374,6 +6604,7 @@ Rods|outer edge, peripheral vision, can function in lower light|../../biology/or
 Roger Zelazny|The Chronicles of Amber (1970-1991)|../../stories/books
 Rogue|stealth, DEX|../../life/dnd
 Rolf Dobelli|The Art of Thinking Clearly (2011)|../../science/books
+Roller chain|rollers held together by chain links|../../science/engineering
 Roman garden|kitchen garden, pergolas, statues, shrines, nymphaeum|../../culture/arch_styles
 Romania|40|../../economy/person
 Romania|Bucharest|../../culture/architecture
@@ -6516,6 +6747,7 @@ Sankey diagram|flow diagram, width represents flow size (e.g. customer flow)|../
 Santa Claus / Saint Nicholas|gifts to children, Christmas|../../stories/mythology
 Santiago|Arturo Merino Benítez SCL|../../life/airports
 Santoku|all-purpose, flat|../../culture/cooking
+Santos Basin|Brazil, offshore|../../economy/energy
 Sapper|military engineering, demolition, clearing minefields|../../economy/war
 Sapphire|blue by iron + titanium|../../nature/minerals
 Saprophage|consumes decomposing organisms|../../biology/ethology
@@ -6531,6 +6763,7 @@ Sarmatians (5th century BC - 4th century)|western Eurasian steppe, Scythian|../.
 Saronic Gulf + Saronic Islands|east|../../geography/oceans
 Saros cycle|~18 period between eclipses (repeated Sun-Moon-Earth position)|../../science/astronomy
 Sartorius|hip to knee on front, long and thin, synergist|../../biology/anatomy
+Sashimi|sliced raw fish|../../culture/recipes
 Satellite cell|peripheral nervous system, protective|../../biology/cell
 Satellite|projectile whose trajectory is orbit|../../science/physics
 Satellite|smaller body orbiting larger body, star and planet, planet and moon|../../science/astronomy
@@ -6703,9 +6936,11 @@ Serotonin|neurotransmitter, derives from tryptophan|../../biology/genetics
 Serotonin–norepinephrine reuptake inhibitor (SNRI)|depression and anxiety, side effects (feeling tired, headache, sexual problems)|../../biology/drugs
 Serpentes|snakes, no eyelids, no limbs|../../biology/reptilia
 Serpentes|snakes|../../biology/life
+Serpins|serine protease inhibitors|../../biology/protein
 Sertraline|common|../../biology/drugs
 Serum albumin|bind hormones, fatty acids and drugs|../../biology/protein
 Servi|slaves|../../history/history_4_antiquity
+Sesame ball|filled rice flour ball, fried, coated with sesame|../../culture/recipes
 Seta|hair-like structure|../../biology/body-animal
 Setrons|serotonin antagonist, with chemotherapy|../../biology/drugs
 Seven Years' War (1756)|France+Austria against Britain+Prussia+Hanover|../../history/history_8_modern
@@ -6769,6 +7004,7 @@ Shovel|lamellate, flat wide, feed on algae and plankton (ducks)|../../biology/bo
 Shredding|removal of side branches|../../economy/agriculture
 Shrek [2001]|ogre Shrek with Donkey rescues princess Fiona|../../stories/animated
 Shrine of Remembrance, Melbourne|war memorial|../../culture/architecture
+Shroud|can not be target of any spell or ability|../../life/mtg
 Shuangbao Bridge|Chongqing, two arches|../../culture/architecture
 Shunosaurus|short neck, club on tail|../../history/fauna
 Shuvosaurus|theropoda-like crocodile|../../history/fauna
@@ -6845,6 +7081,7 @@ Sir Arthur Conan Doyle|The Lost World (1912) + Sherlock Holmes (1887-1927)|../..
 Sirenia|see cows, large aquatic herbivores, tropical zones, 6 cervical vertebrae|../../biology/mammalia
 Sirius|-1.4|../../science/astronomy
 Sirolimus|from bacteria Streptomyces, organ transplants, coronary stent coat|../../biology/drugs
+Sirte Basin|Libya|../../economy/energy
 Sisal (Agave sisalana)|ropes, paper, fabric|../../economy/plants
 Sistine Chapel (1512)|frescos (The Creation of Adam), Vatican|../../culture/arts
 Sisyphus Rolling the Boulder Uphill|killed visitors|../../stories/mythology
@@ -6874,6 +7111,7 @@ Smilodon|large, saber-toothed tiger|../../history/fauna
 Smithsonite = ZnCO3|trigonal, botryoidal, allochromatic|../../nature/minerals
 Smooth|walls of hollow organs|../../biology/genetics
 Snapchat|temporary messages|../../it/internet
+Snickers|nougat + peanuts + caramel in chocolate|../../culture/recipes
 Sniper rifle|long-range rifle|../../economy/war
 Snout / Muzzle|projection of nose + mouth|../../biology/body-animal
 Snow White and the Seven Dwarfs [1937]|fairy tale|../../stories/animated
@@ -6881,6 +7119,7 @@ Snow White|magic mirror, 7 dwarfs, poisoned apple|../../stories/fairy-tales
 Snow chains|increase traction on snow|../../science/technology
 Snow tires|increase traction on snow|../../science/technology
 Soap|salt of fatty acid|../../science/chemistry
+Soba|buckwheat noodles|../../culture/recipes
 Social comparison bias|competitiveness with people better than oneself (instead of cooperation)|../../science/logic
 Social projection|expecting others to behave similar to us|../../science/logic
 Socialism|social ownership|../../history/politics
@@ -6890,6 +7129,7 @@ Socotra|coast of Africa|../../geography/oceans
 Soda-lime|with Na2CO3 lowering transition temperatrure|../../science/material
 Sodium calcium edetate|lead poisoning, can damage kidneys, injection|../../biology/drugs
 Sodium thiosulfate|intravenous|../../biology/drugs
+Sodium-glucose cotransporter (SGLT)|glucose reabsorption in kidney|../../biology/protein
 Sodium|preservative|../../economy/materials
 Sodium|yellow color in fire|../../science/chemistry
 Sodium–potassium pump|exports Na+ and imports K+, controls cell volume, maintains ion concentrations|../../biology/protein
@@ -7000,6 +7240,8 @@ Splenius|back of neck, neck extensor and rotator|../../biology/anatomy
 Spondylitis|vertebrae, back pain|../../biology/medicine
 Spondylodiscitis|Spondylitis + Discitis|../../biology/medicine
 Spotlight effect|tendency to believe we are noticed by others|../../science/logic
+Spring roll|filled with vegetables, deep-fried|../../culture/recipes
+Sprocket|rotating toothed wheel, teeth engage chain|../../science/engineering
 Squad|<10 soldiers|../../economy/war
 Squamous cell carcinoma (SCC)|common, skin (UV light), mouth + lung (smoking), genitals (HPV)|../../biology/medicine
 Square|all right angles, all sides same size|../../science/geometry
@@ -7037,6 +7279,7 @@ States|US, Australia, Austria, Brazil, Germany, India, Mexico|../../economy/pers
 State|complete description of system by properties|../../science/science
 Static random-access memory (SRAM)|stores data in flip-flops, volatile, used for cache|../../it/hardware
 Statics|forces|../../science/physics
+Static|permanent|../../life/mtg
 Statins|HMGCR inhibitor, increase LDL receptors in liver|../../biology/drugs
 Statue of Anubis (1330 BC)|wood, Cairo|../../culture/arts
 Status quo bias|preference to not change current state|../../science/logic
@@ -7137,6 +7380,7 @@ Suezmax|max 200k DWT|../../economy/transport
 Sufferer's threat|I did something for you|../../culture/psychology
 Sufism|mysticism|../../culture/religion
 Sugarloaf (16th-19th century)|tall cone of refined sugar, cut by large pincers|../../culture/food_history
+Sugo|tomato sauce|../../culture/recipes
 Sui dynasty (581-618)|reunification, Buddhism|../../history/history_8_modern
 Suidae|4 toes|../../biology/mammalia
 Suits (2011-2019)|Harvey Specter + Donna, Michael Ross + Rachel, Louis Litt, Jessica|../../stories/shows
@@ -7152,6 +7396,8 @@ Sulidae|seabird, blue feet, diving|../../biology/aves
 Suliformes|webbed feet|../../biology/aves
 Sultanate of Women (1534-1683)|wifes and mothers of sultan with strong political influence|../../history/history_8_modern
 Sumatriptan|serotonin agonist|../../biology/drugs
+Summit War|Amazon Lily, prison Impel Down, Marineford|../../stories/manga
+Summoning sickness|creatures can not be tapped same turn as casted|../../life/mtg
 Sun Tzu|The Art of War|../../stories/books
 Sun around galaxy|230 km/s|../../science/physics
 Sun radius|700 Mm|../../science/physics
@@ -7185,6 +7431,7 @@ Suricata|meerkat|../../biology/mammalia
 Surroundings|everything outside of system|../../science/science
 Survival time|remaining life duration after diagnosis|../../biology/medicine
 Survivorship bias|concentration on items passing selection process and overlooking rest (e.g. becoming movie star)|../../science/logic
+Sushi|rice + raw seafood|../../culture/recipes
 Suspension|larger particles than in colloid, separate on standing (blood, paint)|../../science/chemistry
 Sus|pig/boar|../../biology/mammalia
 Sutong Yangtze River Bridge|Shanghai, tall and long|../../culture/architecture
@@ -7192,6 +7439,7 @@ Suxamethonium/Succinylcholine|blocks acetylcholine, short term for intubation, i
 Suzanne Collins|The Hunger Games (2008-2010)|../../stories/books
 Svalbard|archipelago|../../history/politics
 Swabia/Alamannia|south-eastern Germany|../../history/history_6_middle_ages
+Swamp|black|../../life/mtg
 Sweden|30%, BWR + PWR, coastline|../../economy/energy
 Sweden|46|../../economy/person
 Sweden|SE/SWE|../../economy/person
@@ -7253,6 +7501,8 @@ TRON|Legacy [2010]|../../stories/movies
 Tabular|flat plates|../../nature/minerals
 Tachycardia|increased heart rate (over 100 beats), normal during exercise|../../biology/medicine
 Tachyglossidae|echidnas, spines on back, long snout, long thin tongue to feed on ants, Australia + New Guinea|../../biology/mammalia
+Tachykinin (TAC)|promote inflammation, cause vadilation and hyperalgesia, smooth muscle contraction, NK receptors|../../biology/protein
+Taco/Burrito|filled tortilla (meat, vegetables, cheese)|../../culture/recipes
 Tacoma Narrows Bridge collapse (1940)|wind, Washington, shortly after opening|../../history/science
 Tacrolimus|from bacteria Streptomyces|../../biology/drugs
 Tactical|range up to 300km|../../economy/war
@@ -7261,6 +7511,7 @@ Taenia solium|from undercooked pork|../../biology/parasite
 Taeniopygia|zebra finch|../../biology/aves
 Tagus River|Almaraz|../../economy/energy
 Taiga|coniferous forest|../../geography/geography
+Tailer|clothing maker|../../history/economy
 Taiping Rebellion (1850-1864)|led by Hong Xiuquan, claimed to be brother of Jesus, ~20M dead|../../history/history_8_modern
 Taiwan|10%|../../economy/energy
 Taizong/宋太宗 (976-997)|brother of Taizu, completed reunification (but without Beijing)|../../history/history_6_middle_ages
@@ -7283,6 +7534,7 @@ Tang dynasty (618-907)|great prosperity|../../history/history_8_modern
 Tangent|opposite to adjacent|../../science/geometry
 Tangent|straing line sharing one point with circle|../../science/geometry
 Tangled [2010]|Rapunzel + Flynn Rider + chameleon Pascal + !Mother Gothel|../../stories/animated
+Tanner|leather maker|../../history/economy
 Tantalizer's threat|I will do something for you|../../culture/psychology
 Tantalum|electronics|../../economy/materials
 Tanzania|gold, tobacco, coffee|../../economy/states
@@ -7295,12 +7547,14 @@ Tapinocephalus|herbivore, thick skull|../../history/fauna
 Tapiridae|tapirs, short trunk, 4-toed front and 3-toed back feet, Latin America + SE Asia|../../biology/mammalia
 Taproot|carrot|../../life/rastliny-stats
 Taproot|large central root, storage|../../biology/body-plant
+Tap|to attack or use activated ability|../../life/mtg
 Taq-e Bostan, Iran|rock reliefs|../../culture/architecture
 Taran Matharu|Summoner (2015-2017)|../../stories/books
 Tarantulas and frogs (Microhylidae)|spider protects frog and provides shelter, frog protects eggs from ants|../../biology/ethology
 Tarbela Dam|Pakistan, Indus River, embankment dam|../../economy/energy
 Tarbosaurus|large, Asia|../../biology/reptilia
 Tare weight|weight of empty vehicle|../../economy/transport
+Target|recipient of spell or ability|../../life/mtg
 Tarte Tatin|pastry over caramelized apples, turned upside-down|../../culture/recipes
 Tarzan [1999]|book|../../stories/animated
 Tasman sea|between Australia and New Zealand|../../geography/oceans
@@ -7337,6 +7591,7 @@ Tempered/toughened|rapidly cooled, stronger, shatters into small pieces|../../sc
 Tempering|heat treatment to improve toughness, usually after hardening|../../science/material
 Temporal bone|pair, sides of skull|../../biology/organs
 Temporal branch|forehead|../../biology/organs
+Tempura|vegetables/seafood in batter, deep-fried|../../culture/recipes
 Ten Great Campaigns|conquered Xinjiang (Dzungar genocide), campaigns in Burma + Nepal + Vietnam|../../history/history_8_modern
 Tendon|tough dense fibrous connective tissue, connects muscle to bone|../../biology/organs
 Tenebrescence|darkening when exposed to light|../../nature/minerals
@@ -7389,6 +7644,7 @@ Thalia|comedy|../../stories/mythology
 Thalium poisoning|historically by rat poison|../../biology/drugs
 Thanatophage|consumes decomposing plants|../../biology/ethology
 Thanksgiving|4th Thursday in November|../../culture/holidays
+Thatcher|straw roof builder|../../history/economy
 Thaumetopoea (Processionary)|larvae have venomous hair, build silk nests, move in single file, eat host tree leaves (oak, pine)|../../nature/butterflies
 The Adventures of Sinbad (1996-1998)|Sinbad, Doubar, Firouz, Rongar, Maeve|../../stories/shows
 The Ash Lad|In Search of the Golden Castle [2019]|../../stories/movies
@@ -7421,7 +7677,6 @@ The Jungle Book [1967]|book|../../stories/animated
 The Knight Before Christmas [2019]|medieval time-travel|../../stories/movies
 The Last Supper (1498)|fresco, Milan|../../culture/arts
 The Librarian|Quest for the Spear [2004]|../../stories/movies
-The Lion King [1994]|Simba + Nala + Timon + Pumba + !Scar|../../stories/animated
 The Little Mermaid (1913)|bronze, Copenhagen|../../culture/arts
 The Little Mermaid [1989]|Ariel + Eric + crab Sebastian + fish Flounder + !Ursula|../../stories/animated
 The Lorax [2012]|nature protection|../../stories/animated
@@ -7431,6 +7686,7 @@ The Matrix [1999]|Neo + Trinity, Morpheus, !Agent Smith|../../stories/movies
 The Mentalist (2008-2015)|Patrick + Teresa, Wayne + Grace|../../stories/shows
 The Mummy [1999]|Rick + Evelyn + !Imhotep|../../stories/movies
 The NeverEnding Story [1984]|book|../../stories/movies
+The Office (2005-2013)|Michael, Jim + Pam, Dwight|../../stories/shows
 The Path of Daggers|battle against Seanchan in Ebou Dar|../../stories/books
 The Princess Bride [1987]|book|../../stories/movies
 The Princess and the Frog [2009]|Tiana|../../stories/animated
@@ -7444,6 +7700,7 @@ The Seventh Scroll [1999]|book, Ancient Egypt|../../stories/movies
 The Shadow Rising|journey to Aiel Waste, Rand becomes Car'a'carn in Rhuidean, Perrin saves Two Rivers, Elaida overthrows Siuan as Amyrlin|../../stories/books
 The Simpsons|Homer + Marge, Bart + Milhouse, Lisa, Maggie, Nelson, Mr. Burns, Ned Flanders, Barney, Principal Skinner + Edna, Krusty the Clown|../../stories/shows
 The Starry Night (1889)|New York|../../culture/arts
+The Sunlit Man (2023)|Nomad=Sigzil on run helps local woman Rebeke fight again Cinder King|../../stories/books
 The Sword in the Stone [1963]|book|../../stories/animated
 The Terminator [1984]|Sarah Connor|../../stories/movies
 The Thinker (1880)|statue|../../culture/arts
@@ -7452,6 +7709,7 @@ The Time Machine [2002]|book|../../stories/movies
 The Tipping Point|How Little Things Can Make a Big Difference|../../todo/books
 The Tourist [2010]|fake identity|../../stories/movies
 The Triumph of Galatea (1512)|fresco, Rome|../../culture/arts
+The Way of Kings|Alethi battle Parshendi on Shattered Plains, Shallan becomes Jasnah's apprentice, Kaladin leads Bridge Four, Dalinar has visions, Kaladin saves Dalinar+Adolin betrayed by Sadeas|../../stories/books
 The Wedding Feast at Cana (1563)|Louvre|../../culture/arts
 The White Cat|quests (small dog, soft fabric, pretty princess), animal bride|../../stories/fairy-tales
 The Witches [1990]|book|../../stories/movies
@@ -7466,7 +7724,11 @@ Theodosius I (379-395)|east|../../history/history_5_migration_period
 Theralizumab (TGN1412)|failed immunomodulator, caused organ failure [2006]|../../biology/drugs
 Theridiidae|tangle-web spiders|../../biology/life
 Thermal energy|energy caused by heat|../../science/physics
+Thermal expansion valve (TXV)|controls amount of refrigerant released to evaporator|../../science/engineering
+Thermal|heat to reduce viscosity|../../economy/energy
+Thermistor|semiconductor resistor, made from metal oxides, resistance depends on temperature, cheap and sensitive (electronics)|../../science/engineering
 Thermite|metal powder and metal oxid (often aluminium)|../../science/chemics
+Thermocouple|two conductors, voltage on join depends on temperature, self-powered|../../science/engineering
 Thermocouple|two electrical conductors with different thermal conductivity|../../science/physics
 Thermoelectric effect|conversion between temperature difference and voltage|../../science/physics
 Thermoluminescence|absorbed from radiation, released when heated (minerals)|../../science/physics
@@ -7522,7 +7784,7 @@ Thrombin (F2)|converts fibrinogen to fibrin|../../biology/protein
 Thrombocytes/Platelet|no nucleus, stop bleeding by making blood clot|../../biology/cell
 Thrombolytic|target fibrin|../../biology/drugs
 Thrombosis|blood clot in blood vessel|../../biology/medicine
-Thromboxane|vasoconstrictor, platelet aggregation|../../biology/materials
+Thromboxane|vasoconstrictor, platelet aggregation|../../biology/protein
 Thrombus|blood clot|../../biology/medicine
 Thrust|expelled fluid|../../science/physics
 Thryonomyidae|cane rats|../../biology/mammalia
@@ -7541,6 +7803,7 @@ Thyroiditis|inflammation of thyroid gland|../../biology/medicine
 Thyrse|indeterminate main axis, flowers replaced by cymes|../../biology/body-plant
 Tian Shan|north|../../geography/oceans
 Tiananmen Square Massacre (1989)|suppressed student demonstrations|../../history/history_9_contemporary
+Tianfu International Financial Center, Chengdu|twin towers|../../culture/architecture
 Tiangong (2021)|China|../../history/science
 Tianjin explosions (2015)|ammonium nitrate at port|../../history/science
 Tianqi/天啓帝 (1620-1627)|grandson of Wanli|../../history/history_7_renaissance
@@ -7564,6 +7827,7 @@ Timor sea|between Timor and Australia, shallow|../../geography/oceans
 Tinamiformes|Latin America|../../biology/aves
 Tinea versicolor / Pityriasis versicolor|skin rash|../../biology/fungi
 Tinidazole|protozoa, damages DNA|../../biology/drugs
+Tinker|utensil mender|../../history/economy
 Tinnitus|ringing in ears|../../biology/medicine
 Tin|solder, bronze, alloys|../../economy/materials
 Tiotropium (Spiriva)|bronchodilator, muscarinic antagonist, long-term|../../biology/drugs
@@ -7581,12 +7845,16 @@ Titan|5.1 Mm, nitrogen atmosphere, methane instead of water|../../science/sun
 Titin (TTN)|large size, functions as spring, contraction of striated muscle tissue|../../biology/protein
 Titus (79-81)|son of Vespasian|../../history/history_4_antiquity
 Toast|temporary small feedback popup|../../it/gui
+Tobacco regulation (1960s)|warning labels|../../history/science
+Toblerone|honey + almonds + chocolate|../../culture/recipes
 Tobramycin|eye drops + injection|../../biology/drugs
+Tofu|soy curd block|../../culture/recipes
 Toggle|two state setting|../../it/gui
 Togo|cocoa, coffee, cotton|../../economy/states
 Tokamak|controlled nuclear fusion, strong magnetic field around plasma|../../history/future
 Tokelau|archipelago|../../history/politics
 Tokelau|volcanic atolls|../../geography/oceans
+Token|created by spell or ability|../../life/mtg
 Tokio|Haneda HND + Narita NRT|../../life/airports
 Tokyo Skytree|radio tower|../../culture/architecture
 Tokyo Tower|radio tower, orange-white, Eiffel Tower|../../culture/architecture
@@ -7618,12 +7886,14 @@ Torsades de pointes|characteristic ECG, caused by medications, treatment by magn
 Torsion|twisting|../../science/engineering
 Torta caprese|butter + sugar + egg + chocolate + almond|../../culture/recipes
 Tortilla|omelette with potatoes|../../culture/recipes
+Tortilla|thin flatbread|../../culture/recipes
 Torus|circle around external axis (doughnut)|../../science/geometry
 Torx|hexalobular|../../science/technology
 Tor|short range|../../economy/war
 Toscana|Florence|../../history/politics
 Total pressure|pressures of all gases in volume|../../science/chemistry
 Total|4G|../../life/airports
+Toughness|damage to destroy creature|../../life/mtg
 Toulouse chemical factory explosion (2001)|ammonium nitrate at factory|../../history/science
 Tourmaline|trigonal, prismatic, hard, allochromatic, with boron + aluminium|../../nature/minerals
 Toxalbumin|cytotoxic protein, disables ribosomes|../../biology/toxin
@@ -7643,6 +7913,7 @@ Trajan (98-117)|annexed Dacia|../../history/history_4_antiquity
 Trajectory|path of motion|../../science/physics
 Tramadol|opioid + SNRI, moderate pain|../../biology/drugs
 Trammel of Archimedes|two shuttles moving along perpendicular rails with rod attached, makes ellipse shape|../../science/technology
+Trample|remaining damage can be dealt to player|../../life/mtg
 Trans-Mediterranean|Algeria -> Italy|../../economy/transport
 Transaminase|exchange between amino and keto acids (=O and -NH2 groups)|../../biology/protein
 Transceiver (TRX)|transmitter+receiver, convert between digital and radio signals, one or more per antenna (on different frequencies)|../../economy/communication
@@ -7672,7 +7943,7 @@ Transversion|substitution between purine and pyrimidine|../../biology/genetics
 Transylvanian Alps|southern part (Moldoveanu Peak + Negoiu Peak)|../../geography/oceans
 Trapezius|upper spine to scapula, moves scapula, supports arm|../../biology/anatomy
 Trapezoid|1 pair of parallel sides|../../science/geometry
-Trastuzumab|HER2 receptor inhibitor, breast cancer|../../biology/drugs
+Trastuzumab / Herceptin|HER2 receptor inhibitor, breast cancer|../../biology/drugs
 Trauma|serious distressing event|../../culture/psychology
 Travelling salesman problem|points with pair distances, find shortest route visiting each point exactly once|../../it/algorithm
 Trazodone|common|../../biology/drugs
@@ -7698,6 +7969,7 @@ Tree|exactly one path between any two vertices|../../science/graph_teory
 Trefoil arch|three circular arcs|../../culture/arch_styles
 Tremarctos|spectacled bear|../../biology/mammalia
 Trematoda|flukes, internal parasites|../../biology/life
+Tretinoin / All-trans retinoic acid (ATRA)|APL cancer (oral), acne (topical)|../../biology/drugs
 Trial and error|repeated attempts until success (immune system, natural selection)|../../economy/management
 Triamterene|sodium channel blocker, oral|../../biology/drugs
 Triassic (250-200 My)|ichthyosaurs, crocodiles, flies, Pangea supercontinent|../../history/geologic_time_scale
@@ -7715,6 +7987,7 @@ Trident|submarine-launched|../../economy/war
 Tridymite = SiO2|orthorhombic or hexagonal, tabular, high temperature|../../nature/minerals
 Trierer Dom|two chancels|../../culture/architecture
 Trifluridine|herpes, topical|../../biology/drugs
+Triggered|conditional|../../life/mtg
 Trigonias|hornless|../../history/fauna
 Trijet|central engine within tail, 1980s|../../economy/transport
 Trikafta|cystic fibrosis, oral|../../biology/drugs
@@ -7750,6 +8023,7 @@ Trypophobia|holes|../../culture/psychology
 Trypsin|digestion, cuts protein into smaller pieces|../../biology/protein
 Tsing Ma Bridge|Hong Kong|../../culture/architecture
 Tsuga [Hemlock]|western NA + eastern Asia|../../life/rastliny-basic
+Tteokbokki|rice cakes + fish cakes + boiled egg + chili paste|../../culture/recipes
 Tuamotu Archipelago|volcanic atolls|../../geography/oceans
 Tuareg|4M, Sahel|../../culture/tribes
 Tubal|pair, near Eustachian tube opening|../../biology/genetics
@@ -7776,7 +8050,6 @@ Turkey|90|../../economy/person
 Turkey|Istanbul, Ankara|../../culture/architecture
 Turkey|tourism, machinery, textiles|../../economy/states
 Turkish coup d'état attempt (2016)|against Recep Tayyip Erdogan|../../history/history_9_contemporary
-Turkish delight / Lokum|sugar + starch + chopped nuts|../../culture/recipes
 Turkish invasion of Cyprus (1974)|occupation of northern part|../../history/history_9_contemporary
 Turkiye|TR/TUR|../../economy/person
 Turkmenistan|petroleum|../../economy/states
@@ -7789,7 +8062,9 @@ Tuya|flat-topped, steep-sided, volcano that erupted when covered by glacier|../.
 Twin River Bridges|Chongqing, Yangtze River, pair|../../culture/architecture
 Twin prime conjecture|unproven, infinitely many twin primes|../../science/arithmetic
 Twin prime|pair of primes with gap of two|../../science/arithmetic
+Twix|buscuit + caramel in chocolate|../../culture/recipes
 Two Weeks Notice [2002]|underappreciated assistant|../../stories/movies
+Two and a Half Men (2003-2015)|Charlie + Alan Harper, Jake, Berta|../../stories/shows
 Tympanic membrane / Eardrum|membrane between outer and middle ear|../../biology/organs
 Tympany / Meteorism|excess gas in digestive tract|../../biology/medicine
 Tyndall effect|light scattering by colloid particles, shorter wavelength (blue) scatters more|../../science/chemistry
@@ -7798,6 +8073,7 @@ Type 2|very common, caused by obesity|../../biology/medicine
 Type A/B|North America, 2 vertical flat pins|../../economy/energy
 Type C/E|Europe, 2 round pins in line|../../economy/energy
 Type D|India, 2 smaller and 1 larger round pins|../../economy/energy
+Type E|chromel/constantan, sensitive|../../science/engineering
 Type F|C compatible, Schuko|../../economy/energy
 Type G|UK, 3 rectangular pins|../../economy/energy
 Type H|Israel|../../economy/energy
@@ -7809,10 +8085,14 @@ Type I|Australia, 2 rotated and 1 vertical flat pins|../../economy/energy
 Type I|IgE antibodies, mast cells, histamine (allergy)|../../biology/medicine
 Type I|aluminium, mercury, lead|../../science/physics
 Type J|C compatible, Switzerland, 3 round pins|../../economy/energy
+Type J|iron/constantan, cheap but oxidizes|../../science/engineering
 Type K|C compatible, Denmark|../../economy/energy
+Type K|chromel/alumel, most common|../../science/engineering
 Type L|C compatible, Italy, 3 round pins in line|../../economy/energy
 Type M|Commonwealth|../../economy/energy
 Type N|Brazil, 3 round pins|../../economy/energy
+Type N|nicrosil/nisil, high temperatures|../../science/engineering
+Type T|copper/constantan, low temperatures (fridge)|../../science/engineering
 Tyrannidae|America|../../biology/aves
 Tyrannosauridae|carnivorous, large head|../../biology/reptilia
 Tyrannosaurus|large, North America|../../biology/reptilia
@@ -7844,6 +8124,7 @@ UTF-32|32b units, fixed length|../../it/text
 UTF-8|8b units, variable length, ASCII compatible|../../it/text
 Ubiquitin (UB*)|attached to substrate proteins, marks for proteolysis, alters cellular location, affects activity|../../biology/protein
 Ubuntu|Debian based|../../it/operating-system
+Udon|thick noodles|../../culture/recipes
 Ufology|crop circles (astronomy)|../../culture/critical thinking
 Uganda|coffee, tobacco|../../economy/states
 Uintatherium|large herbivore, long canines, six ossicones|../../history/fauna
@@ -7897,6 +8178,7 @@ Urine test|hormones, drugs, pregnancy|../../biology/medicine
 Urodela|salamanders, short limbs|../../biology/life
 Urokinase (PLAU)|serine protease, activates plasminogen to plasmin|../../biology/protein
 Urolithiasis (kidney stone)|mineral crystal formed in kidney, can block ureter|../../biology/medicine
+Urology|urinary system|../../biology/medicine
 Ursula K. Le Guin|Earthsea (1968-1972)|../../stories/books
 Ursula|german|../../life/names
 Ursus|bear|../../biology/mammalia
@@ -7921,6 +8203,7 @@ VI|subdwarf|../../science/astronomy
 VLCC tanker|300 Gg|../../science/physics
 VLCC|~400k DWT|../../economy/transport
 VSEPR theory|valence shell electron pair repulsion|../../science/chemistry
+Vaccination (1796)|Edward Jenner, smallpox|../../history/science
 Vacuole|in plants and fungi, process water and waste products|../../biology/cell
 Vacuum tube|controls electric current in vacuum between electrodes, replaced by transistors|../../it/hardware
 Vagaceratops|short nose horn, frill with forward hornlets|../../biology/reptilia
@@ -8018,12 +8301,14 @@ Viet Cong|communist, in South Vietnam, led by North Vietnam|../../history/histor
 Vietnam|84|../../economy/person
 Vietnam|VN/VNM|../../economy/person
 Vietnam|tourism, electronics, machinery, textiles|../../economy/states
+Vigilance|does not tap when attacking|../../life/mtg
 Villa Jovis, Capri|Tiberius|../../culture/architecture
 Villus|small projection from membrane|../../biology/body-animal
 Vimana|pyramidical roof-tower|../../culture/arch_styles
 Vinblastine|intravenous|../../biology/drugs
 Vincent van Gogh|oil|../../culture/arts
 Vincristine (Oncovin)|intravenous|../../biology/drugs
+Vintner|wine maker|../../history/economy
 Vinyl record|flat disc with spiral groove, music reproduction|../../science/technology
 Violet|7|../../it/hardware
 Vipera|Adder|../../biology/life
@@ -8035,6 +8320,7 @@ Visible|380-750 nm, colors, rainbow (violet/blue/cyan/green/yellow/orange/red)|.
 Vismodegib|oral|../../biology/drugs
 Vitamin D overdose|causes kidney/heart damage|../../economy/agriculture
 Vitamin D|secosteroid (broken ring)|../../biology/genetics
+Vitamin K|carboxylation of Factors II + VII + IX + X and Proteins C + S + Z|../../biology/protein
 Vitamins|Casimir Funk + Frederick Gowland Hopkins + Christiaan Eijkman (1912)|../../history/science
 Vitiligo|patches of skin without pigment|../../biology/medicine
 Vitreous humor|transparent gel, between lens and retina|../../biology/organs
@@ -8058,7 +8344,7 @@ Vomer|back of nose|../../biology/organs
 Vomiting|stomach content expulsion through mouth or nose|../../biology/medicine
 Vomitoxin / Deoxynivalenol (DON)|Fusarium, contaminate grains, cause vomiting, inhibit protein synthesis|../../biology/toxin
 Von Willebrand disease (VWD)|hereditary dominant, blood clotting disease|../../biology/medicine
-Von Willebrand factor (VWF)|glycoprotein, platelet adhesion|../../biology/protein
+Von Willebrand factor (VWF)|glycoprotein, binds inactive factor VIII, platelet adhesion|../../biology/protein
 Voronezh radars|static, early warning, Russia|../../economy/war
 Votivkirche (1856-1879)|twin-spired|../../culture/architecture
 Vox|nationalism|../../history/politics
@@ -8066,6 +8352,7 @@ Voyages of Zheng He (1405-1433)|south Asia, east Africa|../../history/history_7_
 Vredefort|south Africa|../../geography/mountains
 Vug|cavity inside rock|../../nature/minerals
 Vulcanization|rubber hardening with sulfur|../../science/chemistry
+Vulnerability|double damage|../../life/dnd
 Vulpes|fox, fennec|../../biology/mammalia
 Vultur|Andean condor, white collar, comb on head|../../biology/aves
 Vulva|external genitalia, clitoris + labia|../../biology/organs
@@ -8081,6 +8368,7 @@ WHERE value <>= ANY/ALL (query)|subquery|../../it/sql
 WHERE value IN (query)|subquery|../../it/sql
 WMA|Windows|../../it/media-formats
 WMV|Windows|../../it/media-formats
+WNT pathway|regulates gene expression|../../biology/protein
 Wacker process|CH2=CH2 + O2 => CH3-CH=O|../../science/chemics
 Wahhabism / Salafism|revivalist, Saudi Arabia, UAE|../../culture/religion
 Wales|part of UK|../../history/politics
@@ -8091,6 +8379,7 @@ Wallachia, Moldavia (1848)|suppressed|../../history/history_8_modern
 Walter Fiers|Gene sequence (1972)|../../history/science
 Wankel engine|triangular rotor creates rotating motion, smaller and cheaper|../../science/technology
 Wanli/萬曆帝 (1572-1620)|economic growth but poverty|../../history/history_7_renaissance
+Wano|Onigashima|../../stories/manga
 War in Afghanistan|Bush starts invasion, overthrowing Taliban|../../history/history_9_contemporary
 War of Chioggia (1378–1381)|Venetian victory|../../history/history_6_middle_ages
 War of the Austrian Succession (1740)|Maria Theresa becomes ruler|../../history/history_8_modern
@@ -8105,6 +8394,7 @@ Wars of the Three Kingdoms (1639-1653)|England / Scotland / Ireland|../../histor
 Warsaw Pact (1955)|defense treaty between USSR and Eastern Bloc republics|../../history/history_9_contemporary
 Warsaw|Chopin WAW|../../life/airports
 Wartburg, Eisenach|Elisabeth's Chamber (mosaics), Sängersaal (fresco), Festsaal (top floor)|../../culture/architecture
+Water 7|Enies Loby|../../stories/manga
 Water cycle|evaporation -> condensation -> precipitation -> infiltration -> runoff|../../geography/geography
 Waterfall|vertical drop on river|../../geography/geography
 Watergate scandal (1974)|breaking into Democratic National Committee headquarters, resignation|../../history/history_9_contemporary
@@ -8115,6 +8405,7 @@ Wavefront|points in wave with same phase|../../science/physics
 Wavelength (λ)|displacement of one oscillation|../../science/physics
 WeChat|China, messages, payments|../../it/internet
 Wealth tax|on assets / net worth|../../economy/finance
+Weaver|fabric maker|../../history/economy
 WebM|HTML5, fast compression|../../it/media-formats
 WebP|lossy/lossless compression, transparency, animations|../../it/media-formats
 WebSocket|simultaneous two-way communication over TCP, compatible with HTTP|../../it/network
@@ -8134,6 +8425,8 @@ Western Zhou (1046-771 BC)|capital Xi'an|../../history/history_3_iron_age
 Western front|Germany vs UK+France, trench warfare, artillery|../../history/history_8_modern
 What Women Want [2000]|can hear women's thoughts|../../stories/movies
 WhatsApp|messages|../../it/internet
+Wheelwright|wheel maker|../../history/economy
+While Cake Island|Zou, Totto Land|../../stories/manga
 While You Were Sleeping [1995]|comatose patient|../../stories/movies
 Whiskers/Vibrissae|stiff hair around muzzle (cat, mouse)|../../biology/body-animal
 Whit Sunday|7 Sundays after Easter|../../culture/holidays
@@ -8144,6 +8437,7 @@ White Terror (1795)|against Jacobins|../../history/history_8_modern
 White rot|break down cellulose and lignin, spongy wood|../../biology/botanics
 White|9|../../it/hardware
 White|Camembert, Brie|../../biology/food
+White|life gain, exile|../../life/mtg
 Why the Sea Is Salt|rival brothers, magic mill|../../stories/fairy-tales
 Will Rogers paradox|moving observations between groups increases average in both groups|../../science/logic
 Willemite = Zn2SiO4|trigonal, UV fluorescent|../../nature/minerals
@@ -8151,6 +8445,7 @@ William Brockedon|Pill (1843)|../../history/science
 William Gilbert|Magnetism (1600)|../../history/science
 William Herschel|Uranus (1781)|../../history/science
 William Tell and the apple|archer, resistance against Habsburgs, origin of Swiss Condeferacy|../../stories/mythology
+Wind and Truth|Kaladin+Szeth journey Shinovar, Dalinar+Shallan journey spiritual realm, Adolin saves Azimir, Dalinar dies, Kaladin becomes Herald, Taravangian becomes Retribution|../../stories/books
 Windsor Castle, London|later palace|../../culture/architecture
 Wings|butterflies, birds, dragons|../../topten/topten
 Winkel Tripel|pseudo-cylindrical, minimize area/direction/distance distortions|../../geography/map
@@ -8164,9 +8459,11 @@ Wolframite - (Fe,Mn)WO4|monoclinic, tabular to prismatic, black|../../nature/min
 Wolfram|tungsten carbide, alloys|../../economy/materials
 Wollemia|Australia, living fossil, long-lived|../../life/rastliny-basic
 Women's Day|March 8|../../culture/holidays
+Wonton|filled soup dumplings|../../culture/recipes
 Won|Korea (KRW)|../../economy/finance
 Word of Recall|evacuation|../../life/dnd
 Word stem|part of word with lexical meaning|../../culture/language
+Words of Radiance|Shallan is betrothed to Adolin, Parshendi summon Everstorm, Kaladin saves Dalinar from Szeth, Adolin kills Sadeas, Kaladin+Shallan become Radiant|../../stories/books
 Work hardening|plastic deformation|../../science/material
 Workers' Day|May 1|../../culture/holidays
 Work|action of change in energy|../../science/physics
@@ -8190,6 +8487,7 @@ X-Men|The Last Stand [2006]|../../stories/movies
 X-ray diffraction|measurements under different angles determine crystal structure|../../science/physics
 X-ray microscope|uses X-rays and differences in absorption, higher penetration depth|../../science/technology
 X2|X-Men United [2003]|../../stories/movies
+XIST (X-inactive specific transcript)|non-coding, inactivate one X chromozome in females|../../biology/genetics
 Xana|water nymph, beautiful|../../stories/mythology
 Xenarthra|neotropic, single-color vision, slow metabolism|../../biology/mammalia
 Xenoceratops|long eye horns, frill spikes|../../history/fauna
@@ -8200,6 +8498,7 @@ Xfce|lightweight|../../it/operating-system
 Xi Jinping (2012-)|militarization|../../history/history_9_contemporary
 Xia dynasty (2070-1600 BC)|Erlitou culture|../../history/history_2_bronze_age
 Xianbei (1st-3rd century)|eastern Eurasian steppe|../../history/history_4_antiquity
+Xiaolongbao|steamed dumplings filled with minced meat|../../culture/recipes
 Xiaozong/宋孝宗 (1162-1189)|abdicated but still ruled until 1194|../../history/history_6_middle_ages
 Xihoumen Bridge|Zhejiang, yellow, long|../../culture/architecture
 Xiluodu Dam|Jinsha River, 14 GW, arch dam|../../economy/energy

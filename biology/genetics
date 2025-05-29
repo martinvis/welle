@@ -388,8 +388,19 @@ Chromosome: single DNA molecule
 Telomere: end of linear chromosome, repetitive TTAGGG sequence ending with G sequence
 Shelterin: protein protecting telomeres from DNA repairs
 Nucleic acid: carries genetic information
-- DNA (Deoxyribonucleic acid): two polynucleotide chains in double helix
-- RNA (Ribonucleic acid): single polynucleotide chain
+- DNA (Deoxyribonucleic acid): two polynucleotide chains in double helix, more stable, longer
+- RNA (Ribonucleic acid): single polynucleotide chain, less stable, shorter
+- mRNA (Messenger RNA): transcription
+- tRNA (Transfer RNA): translation
+- ncRNA (Non-coding RNA)
+- rRNA (Ribosomal RNA): non-coding, ribozyme (catalyze peptide bond)
+- snRNA (Small nuclear RNA): non-coding, splicing
+- snoRNA (Small nucleolar RNA): non-coding, rRNA modification
+- scaRNA (Small Cajal body RNA): non-coding, snRNA modification
+- piRNA (Piwi-interacting RNA): non-coding, transposon silencing
+- miRNA (Micro RNA): non-coding, mRNA silencing
+- siRNA (Small Interfering RNA): non-coding, mRNA silencing, double-stranded
+- XIST (X-inactive specific transcript): non-coding, inactivate one X chromozome in females
 Nucleotide: monomer of nucleic acid, nitrogenous base + pentose + phosphate
 Nitrogenous bases:
 - Cytosine (C): pairs with G, pyrimidine

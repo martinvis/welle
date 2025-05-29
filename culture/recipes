@@ -1,12 +1,14 @@
 #Spain
 Tapas: small portions
+- Patatas bravas: potatoes + sauce
+- Huevos rotos: fried eggs
+- Tortilla: omelette with potatoes
+- Albondigas: meatballs + tomato sauce
 Paella: rice + meat + vegetables
 Churro: fried dough (flour + water + butter + egg)
 Empanada: filled pastry
+=
 Sofrito: onion + garlic + pepper, low heat
-Tortilla: omelette with potatoes
-Patatas bravas: potatoes + sauce
-Albondigas: meatballs + tomato sauce
 
 #Slavic
 Pierogi / Varenyky: filled pastry, baked or fried
@@ -14,7 +16,8 @@ Pancake / Palacinka
 - 1 flour + 2 milk + 2 eggs
 
 #Russia
-Pelmeni
+Borscht: sour soup, vegetables (beetroot, cabbage, carrot, potato)
+Pelmeni: dumplings filled with minced meat
 Chicken Kyiv
 - cutlet around butter + breading (egg, breadcrumbs)
 
@@ -44,16 +47,12 @@ Roti canai
 - egg + butter (100g) + flour (500g) + milk + water + salt + sugar
 
 #Thailand
-Pad Thai: rice noodle + shrimp + scrambled egg
+Pad Thai: rice noodle + shrimp + scrambled egg + peanuts
+Green/Red curry: coconut milk + curry paste + fish sauce
+- Curry paste: chilli + shallot + garlic + lemongrass + galangal
 
 #Vietnam
-Pho
-
-#Türkiye
-Baklava: layered pastry, chopped nuts, honey
-Börek
-Lahmacun: flatbread + minced meat + vegetables + spices
-Pide
+Pho: rice noodles + sliced meat + herbs in light broth
 
 #Meatball
 ground meat in ball
@@ -72,6 +71,9 @@ Chili con carne
 - stew: meat + beans + chili + tomato sauce (+ corn)
 - garlic + onion + cumin + sugar
 Guacamole: avocado + onions + lime juice
+Tortilla: thin flatbread
+- Taco/Burrito: filled tortilla (meat, vegetables, cheese)
+- Enchilada: filled tortilla (meat, vegetables, cheese) + chilli sauce
 
 #France
 Coq au vin
@@ -118,18 +120,42 @@ Chow Mein
 - stir-fried noodles + meat + vegetables
 - sesame oil + soy sauce
 Sweet and sour pork
-Jiaozi
-Xiaolongbao
+=Dim sum: small dishes
+Jiaozi: filled dumplings
+Baozi: steamed filled buns
+Xiaolongbao: steamed dumplings filled with minced meat
+Wonton: filled soup dumplings
+Spring roll: filled with vegetables, deep-fried
+Sesame ball: filled rice flour ball, fried, coated with sesame
+=
+Glass noodles: starch (mung bean) + water
+Rice noodles: rice flour + water
 
 #Japan
 Chicken Teriyaki
 - soy sauce + sugar + rice wine + starch + garlic + ginger + sesame
-Sushi
-- seaweed + rice + fish
-Gyoza
-Ramen
-Udon
-Mochi
+Sushi: rice + raw seafood
+- Maki: swapped in seaweed
+- Nigiri: salmon/tuna
+- Nori: seaweed
+- Sashimi: sliced raw fish
+Ramen: noodles + sliced meat + vegetables in dark broth
+=
+Udon: thick noodles
+Soba: buckwheat noodles
+Tofu: soy curd block
+=
+Tempura: vegetables/seafood in batter, deep-fried
+Gyoza: filled dumplings
+Mochi: filled rice cake
+
+#Korea
+Bibimbap: rice + vegetables + sliced beef + fried egg + chili paste
+Tteokbokki: rice cakes + fish cakes + boiled egg + chili paste
+Japchae: sweet potato glass noodles + vegetables + sliced meat
+=
+Gochujang: chili paste
+Kimchi: spicy pickled cabbage
 
 #Chicken Adobo
 soy sauce + vinegar + pepper + bayleaf + sugar
@@ -221,6 +247,8 @@ Torta caprese: butter + sugar + egg + chocolate + almond
 Tiramisu
 Battuto: onion + carrot + celety, slow cook
 Bolognese sauce: battuto + ground meat + wine + tomato
+Sugo: tomato sauce
+Pesto: basil + garlic + pine nuts + olive oil + parmesan
 
 #Quark balls
 1 flour + 1 quark + 2 eggs
@@ -284,11 +312,18 @@ Scotch egg
 #Scotland
 Haggis: minced sheep organs + onion + oatmeal, encased
 
-#Turkish/Greek
+#Türkiye/Greece
+Baklava: layered pastry, chopped nuts, honey
+Lokum / Turkish delight: sugar + starch + chopped nuts
+=
+Lahmacun: round flatbread + minced meat + vegetables + spices
+Pide / Turkish pizza: oval flatbread with toppings
+=
+Börek: filled pastry
+Simit: bread ring with sesame seeds
+=
 Hayadari: yogurt + feta + garlic + lemon juice + olive oil
 Tzatziki: yogurt + cucumber + garlic + lemon juice + olive oil
-Simit: bread ring with sesame seeds
-Turkish delight / Lokum: sugar + starch + chopped nuts
 
 #Middle east
 Hummus: chickpeas + garlic + lemon juice + olive oil
@@ -324,6 +359,8 @@ Germany
 Austria
 - Manner: wafers + filling
 - Mozartkugel: pistachio + marzipan + nougat in chocolate
+Swiss
+- Toblerone: honey + almonds + chocolate
 USA
 - Snickers: nougat + peanuts + caramel in chocolate
 - Twix: buscuit + caramel in chocolate

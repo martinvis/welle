@@ -79,6 +79,12 @@ sudoku (1 to 9 in each row, column and block)
 - killer sudoku (extra sums)
 - sandwich sudoku (extra sums of digits between 1 and 9 in row/column)
 nonogram (coloring grid by numbers)
+Masyu: square grid, black+white circles, loop through all circles
+- white: straight through, turn before or after
+- black: turn through, straight before and after
+Akari: square grid, black+white cells, place bulbs to illuminate all white cells by single bulb
+- black cells with number of adjacent bulbs
+- bulb illuminates horizontally and vertically, blocked by black cells
 Rubik's cube
 tangram (7 polygons)
 ubongo (polyominos)
@@ -111,6 +117,9 @@ Galaxy Trucker: build (engine, cannon, shield, battery, cabin, cargo) + travel (
 7 Wonders
 Patchwork
 Small World
+Citadels
+- setup: characters, building cards, coins
+- turn: choose characters, play characters in order (take coins or cards, build cards for coins)
 
 #other
 Hide-and-seek

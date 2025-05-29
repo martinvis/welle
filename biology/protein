@@ -200,6 +200,12 @@ Death-inducing signaling complex (DISC): trimerization of FASL binding FAS recep
 =Intrinsic apoptosis pathway
 Mitochondrial Outer Membrane Permeabilization (MOMP): BCL2 proteins insert into membrane to form pores
 
+#Metabolism
+AMPK: kinase
+- ketogenesis, glycolysis, autophagy activation
+- activation by energy stress (AMP vs ATP)
+- inhibits lipogenesis and cholesterol synthesis
+
 =GPTase
 RAS: small GTPase, signal transduction, proto-oncogene
 
@@ -211,9 +217,12 @@ Serine protease
 - Thrombin (F2): converts fibrinogen to fibrin
 - Trypsin: digestion, cuts protein into smaller pieces
 
-#Hormone
+#Regulatory
+Serpins: serine protease inhibitors
+
+#Hormones
 Human chorionic gonadotropin (hCG): maternal recognition of pregnancy, made by syncytiotrophoblast in placenta
-Hepcidin (HAMP): regulated ferroportin, produced in liver
+Hepcidin (HAMP): regulates ferroportin, produced in liver
 Leptin: made by adipocytes, regulates energy balance
 Adiponectin: made by adipocytes, regulates glucose level and fatty acid breakdown
 Vasopressin
@@ -222,6 +231,19 @@ Renin (REN): secreted by kidneys, increases vasopressin secretion, stimulates th
 Angiotensin: made by liver, causes vasoconstriction and thirst, increases blood pressure, stimulates aldosterone secretion
 Angiotensin-converting enzyme (ACE): activates angiotensin
 Aldosterone - mineralocorticoid, stimulates Na+ and water reabsorption, K+ and H+ secretion
+
+#Autacoids: brief duration, metabolized locally
+=Kininogen: cleaved into Kinin by Kallikrein
+Bradykinin: promote inflammation, cause vasodilation and hyperalgesia, B1+B2 receptors
+Tachykinin (TAC): promote inflammation, cause vadilation and hyperalgesia, smooth muscle contraction, NK receptors
+=Eicosanoid: by oxidation of arachidonic acid
+Prostaglandins (PG): local vasodilators
+- Prostacyclin: PGI2, inhibit platelet aggregation
+- Dinoprostone: PGE2, labor induction
+- Misoprostol: PGE1, treat gastric ulcers, labor induction
+- Alprostadil: PGE1, treat erectile disfunction
+Thromboxane: vasoconstrictor, platelet aggregation
+Leukotrienes: inflammation mediators
 
 #Structural - Extracellular
 Mucins (MUC)
@@ -256,8 +278,6 @@ Tubulin (TUB*): structural support, DNA segregation
 
 #Structural
 Spectrin (SPT*)
-Fibrin
-Fibrinogen
 
 #Transport
 Hemoglobin (HBA/HBB): in erythrocytes, carries oxygen
@@ -274,6 +294,7 @@ Albumins: globular
 Serotonin transporter (SERT): serotonin reuptake, repeat length gene polymorphism
 Na–K–Cl cotransporter (NKCC): membrane transport, reabsorption in kidney, Na + K + 2 Cl (electroneutral)
 Na-Cl cotransporter (NCC): membrane transport, reabsorption in kidney
+Sodium-glucose cotransporter (SGLT): glucose reabsorption in kidney
 
 #Storage
 Ferritin (FTL/FTH) - intracellular, stores iron as Fe3+ (takes and releases as Fe2+)
@@ -293,7 +314,30 @@ HMG-CoA reductase (HMGCR): enzyme of rate limiting step in cholessterol synthesi
 Cantharidin: secreted by male blister beetles, poisonous, wart treatment
 
 #Coagulation / Clotting
-Von Willebrand factor (VWF): glycoprotein, platelet adhesion
+Factor IV (Calcium): binding to phospholipid surfaces
+Von Willebrand factor (VWF): glycoprotein, binds inactive factor VIII, platelet adhesion
+Vitamin K: carboxylation of Factors II + VII + IX + X and Proteins C + S + Z
+=Extrinsic pathway: primary, faster, damaged tissue, glycoproteins
+Factor III (Tissue factor): cell surface glycoprotein
+Factor VII (Proconvertin): protease, produced in liver, binds Factor III, cleaves Factor X
+=Intrinsic pathway: slower, damaged blood vessel, glycoproteins, produced in liver
+Factor XII (Hageman factor): protease, activated by negatively charged surfaces, cleaves Factor XI and Prekallikrein
+Prekallikrein (PK, Fletcher factor): protease, cleaved into Kallikrein, activates Factor XII
+High-molecular-weight kininogen (HMWK, Fitzgerald factor): binds Factor XII and Prekallikrein
+Factor XI: protease, cleaves Factor IX
+Factor IX (Christmas factor): protease, cleaves Factor X
+Factor VIII: binds factor IX
+=Common pathway: both intrinsic and extrinsic, glycoproteins, produced in liver
+Factor X: protease, cleaves Factor II
+Factor V (Proaccelerin): binds factor X
+Factor II (Prothrombin): protease, cleaved into Thrombin, activates platelets, cleaves Factors I + V + VIII + XIII
+Factor I (Fibrinogen): glycoprotein, cleaved into Fibrin, polymerizes into long strands
+Factor XIII: crosslinks Fibrin
+=Anticoagulation pathway: glycoproteins
+Protein C: protease, inactivates Factors V + VIII
+Protein S: produced in liver, binds Protein C
+Protein Z: degrades Factor X
+Antithrombin: serpin, inhibits Factors II + IX + X + XI + XII
 
 Procalcitonin (PCT): calcitonin precursor, produced by C cells
 - marker, level rises during bacterial infection (but not calcitonin)
