@@ -40,11 +40,28 @@ Early stopping: train until performance on test data stops improving
 Loss function: measurement of model predictions accuracy, smaller is better
 Gradient: vector field with values in direction of fastest increase, dimensions same as loss function
 - Gradient descent: optimization method, finds local minimum by iterative steps in direction opposite of gradient
+- Learning rate: determines step size of parameter updates during learning
+
+Training: learning, minimize errors on training data
+Inference: doing, use trained model to generate outputs
+
+#Neural network
+Activation function: introduces non-linearity, transforms weighted sum of inputs to output
+Bias: constant added to weighted sum of inputs, increases flexibility
+Backpropagation: allows learning, adjusts weights and biases to minimize error (expected vs real output)
+- computes gradient of loss function in weight space
+Attention
+- Query: element of interest
+- Key: input data
+- Value: content data
+- Attention weights: sum up to 1
+- Multi-head attention: captures different aspects
 
 Stochastic gradient descent (SGD): optimization method
-Backpropagation: computes gradient of loss function in weight space of feedforward neural network
-Feedforward neural network (FNN): unidirectional neural network, usually fully connected
-Convolutional neural network (CNN): feedforward neural network, regularized weights over fewer connections
-Recurrent neural network (RNN): bidirectional neural network
+Feedforward neural network (FNN): unidirectional neural network, usually fully connected (classification)
+Convolutional neural network (CNN): feedforward neural network, regularized weights over fewer connections (image)
+Recurrent neural network (RNN): bidirectional neural network (speech)
+- Long short-term memory (LSTM): recurrent neural network with memory
+Transformer: self-attention, parallel processing
+- Large Language Model (LLM): (content generation, summarization, translation)
 Neural Turing machine: recurrent neural network with external memory
-Long short-term memory (LSTM): recurrent neural network with memory

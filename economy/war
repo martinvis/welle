@@ -1,3 +1,6 @@
+#Doctrine
+Mutual assured destruction (MAD): nuclear weapons use
+
 NORAD: USA+Canada air defense command, HQ Colorado Springs
 
 #USA
@@ -32,11 +35,11 @@ Pacific
 - Misawa, Japan
 - Yokota, Japan
 Europe
-- Aviano, Italy
-- Ramstein, Germany
-- Spangdahlem, Germany
-- Incirlik, Turkey
-- Lakenheath, UK
+- Aviano airbase, Italy
+- Ramstein airbase, Germany
+- Spangdahlem airbase, Germany
+- Incirlik airbase, Turkey
+- Lakenheath airbase, UK
 =Naval
 Norfolk, Virginia
 Mayport, Jacksonville
@@ -47,6 +50,11 @@ Pearl Harbor, Hawaii
 Kitsap, Washington
 Corpus Christi, Texas, air station
 Pensacola, Florida, air station
+=Airforce
+Minot: North Dakota, bombers
+Ellsworth: South Dakota, bombers
+Dyess: Texas, bombers
+Barksdale: Louisiana, bombers
 
 #Russia
 GRU: military intelligence agency, Armed Forces
@@ -57,18 +65,27 @@ Sevastopol, Crimea (Black Sea fleet)
 Kaliningrad (Baltic fleet)
 Rostov-on-Don (Southern district)
 Yekaterinburg (Central district)
+- Belaya airbase: Irkutsk, bombers
+- Engels airbase: Saratov, bombers
 Saint Petersburg (Western district)
+- Dyagilevo airbase: Ryazan, bombers
 Severomorsk (Northern district)
-- Murmansk
+- Murmansk (Northern fleet)
+- Olenya airbase: bombers
 Khabarovsk (Eastern district)
-- Vladivostok
+- Vladivostok (Pacific fleet)
+- Ukrainka airbase: bombers
+
+#China bases
+Anshan airbase: Liaoning
+Wuhu airbase: Anhui
 
 #UK
 MI5: domestic intelligence agency
 MI6/SIS: foreign intelligence agency
 
 #UK bases
-HMNB (His Majesty'y Naval Base)
+HMNB (His Majesty's Naval Base)
 - Clyde (Scotland, nuclear submarines)
 - Devonport (nuclear repair facility)
 - Portsmouth
@@ -164,6 +181,7 @@ Circular error probable (CEP): median error radius of munition
 #Directed-energy weapon (DEW): focused energy (laser, microwave), against missiles and drones
 
 #Explosives
+Close air support (CAS)
 Bomb: explosive weapon, usually airdropped
 - Glide bomb: can be release at distance from target
 Laser-guided bomb (LGB)
@@ -340,6 +358,14 @@ Ilyushin Il-76: USSR
 interceptor: defensive role (speed)
 fighter: air superiority (maneuverability, weapons)
 bomber: ground targets
+- Strategic bomber: long-range, strategic targets (factories)
+- Tactical bomber: air support (equipment)
+- Tupolev Tu-95: USSR, strategic bomber, 4 turboprop engines
+- Tupolev Tu-160: USSR, strategic bomber, supersonic, 4 turbofan engines
+- Boeing B-52: USA, strategic bomber, 8 turbojet engines
+- Rockwell B-1: USA, strategic bomber, supersonic, 4 turbofan engines
+- Northrop B-2 : stealth bomber, 4 turbofan engines, wide + no tail
+- Northrop B-21 : stealth bomber, in development
 Second generation:
 - Mikoyan MiG-21: USSR
 - Dassault Mirage III: France, interceptor, single-engine
@@ -381,4 +407,5 @@ Voronezh radars: static, early warning, Russia
 Espionage: obtaining intelligence
 Propaganda: influence
 Sabotage: deliberate subversion
+Fifth column: group undermining from within
 ISTAR: intelligence, surveillance, target acquisition, reconnaissance
