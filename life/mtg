@@ -1,0 +1,72 @@
+Magic: The Gathering (MTG)
+
+#Permanent: casted to battlefield
+Land: produce mana, color or colorless
+- Forest: green
+- Plains: white
+- Island: blue
+- Swamp: black
+- Mountain: red
+Creature: can attack or block
+Artifact: colorless, cost to activate
+- Equipment: attaches to creature
+Enchantment: no cost to activate
+Planeswalker: represent player
+Token: created by spell or ability
+#Spell: casted to graveyard
+Instant
+Sorcery
+
+#Colors
+Green: mana acceleration, creatures
+White: life gain, exile
+Blue: card draw, counterspell
+Black: creature removal, sacrifice
+Red: direct damage
+
+Life: 20 points per player
+Ability
+- Static: permanent
+- Activated: with cost
+- Triggered: conditional
+Mana cost: cost to cast
+Power: damage creature deals
+Toughness: damage to destroy creature
+Target: recipient of spell or ability
+Counter: marker on permanent or player
+Summoning sickness: creatures can not be tapped same turn as casted
+Tap: to attack or use activated ability
+
+#Static ability
+Deathtouch: any amount of damage dealt destroys target
+Defender: can not attack
+Double Strike: first strike and normal attack
+First Strike: deals damage before normal attack
+Flying: only flying creatures can block
+Haste: ignores summoning sickness
+Hexproof: can not be target of opponent's spell or ability
+Indestructible: no amount of damage will destroy
+Lifelink: player gains life equal to damage dealt
+Reach: can block flying creatures
+Shroud: can not be target of any spell or ability
+Trample: remaining damage can be dealt to player
+Vigilance: does not tap when attacking
+
+#Turn
+Untap permanents
+Upkeep costs
+Draw card from library
+Main phase: before/after combat
+- play one land
+- cast spells and non-land permanents
+Combat phase
+- declare attackers
+- declare blockers
+- combat damage
+
+#Zones
+Library: drawing pile
+Hand: drawn and not played cards, max 7
+Battlefield: casted permanents
+Graveyard: discarded cards, casted spells, destroyed permanents
+Exile: outside game

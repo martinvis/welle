@@ -1,0 +1,246 @@
+#character
+Ability score
+- Strength
+- Dexterity
+- Constitution
+- Intelligence
+- Wisdom
+- Charisma
+Proficiency
+--STR
+- Athletics
+--DEX
+- Acrobatics
+- Stealth
+- Sleight of Hand
+--INT
+- Arcana
+- History
+- Nature
+- Religion
+--WIS
+- Perception
+- Insight
+- Survival
+- Medicine
+- Animal Handling
+--CHA
+- Deception
+- Intimidation
+- Persuasion
+- Performance
+Saving throw
+Hit points
+Armor class
+Initiative
+Speed
+Immunity: no damage
+Resistance: half damage
+Vulnerability: double damage
+Spell slots
+
+#turn
+Movement
+Action
+- Attack
+- Dash
+- Dodge
+- Disengage
+- Grapple
+- Help
+- Hide
+- Magic
+- Search/Study
+- Ready
+- Shove
+Bonus action
+Reaction
+
+#damage
+Poison
+Physical
+- Piercing
+- Bludgeoning
+- Slashing
+Elemental
+- Acid
+- Fire
+- Cold
+- Lightning
+- Thunder
+Spiritual
+- Force
+- Necrotic
+- Psychic
+- Radiant
+
+#races
+Elf
+Gnome
+Human
+Dwarf
+Orc
+Goblin
+--
+Dragonborn
+Kobold
+--
+Tiefling
+Changeling
+Warforged
+
+#classes
+Barbarian: rage, STR
+- Reckless Attack
+Bard: inspiration, CHA
+- Jack of All Trades
+Cleric: religion, WIS
+- Channel Divinity
+Druid: nature, WIS
+- Wild Shape
+Fighter: combat, STR/DEX
+- Second Wind
+Monk: train, DEX+WIS
+Paladin: oath, STR+CHA
+- Lay on Hands, Divine Smite
+Ranger: hunt, DEX+WIS
+- Favored Enemy
+Rogue: stealth, DEX
+- Sneak Attack
+Sorcerer: bloodline, CHA
+- Metamagic
+Warlock: contract, CHA
+Wizard: study, INT
+
+#monsters
+Dragon
+Pseudodragon: small
+Basilisk: petrification
+Bulette
+Hydra
+--
+Hag
+Succubus
+Rakshasa
+Nightmare
+Hell Hound
+Vampire
+Vrock
+--
+Golem
+Mimic
+Rust Monster
+Umber Hulk
+Purple Worm
+Gelatinous Cube
+Black Pudding
+--
+Owlbear
+Peryton
+Gnoll
+Drider
+
+#spells
+self-preservation
+- Healing Word
+- Cure Wounds
+- Raise Dead: 10 days
+- Vampiric Touch: transfer HP
+- Reincarnate
+- Clone
+- Regenerate: high level
+- Resurrection: high level
+illusion
+- Hypnotic Pattern: paralysis
+- Phantasmal Killer: nightmare
+- Mirror Image: duplicates
+attack
+- Cone of Cold
+- Chain Lightning
+- Fireball
+- Wall of Fire
+- Sickening Radiance: exhaustion
+- Harm: reduce HP maximum
+- Chill Touch: no healing
+- Sunbeam
+- Disintegrate
+defense
+- Absorb Elements
+- Antimagic Field
+- Banishment
+- Blur
+- Counterspell
+control
+- Silence
+- Sleep
+- Hold Person
+- Dominate Person
+transformation
+- Alter Self
+- Polymorph
+- Animate Objects
+- Flesh to Stone
+- Shape Water
+transportation
+- Misty Step
+- Passwall
+- Teleportation Circle
+- Word of Recall: evacuation
+- Teleport: high level
+observation
+- Arcane Eye
+buff
+- Bless
+- Haste
+- Barkskin
+- Stoneskin
+- Mage Armor
+debuff
+- Bane
+- Slow
+abilities
+- Invisibility
+- Speak with Dead
+- Zone of Truth
+- Wish: high level
+- Time Stop: high level
+
+#items
+potion
+- Potion of Healing
+- Potion of Growth
+- Potion of Invulnerability
+- Potion of Fire Breath
+- Potion of Speed
+armor
+- Adamantine Armor
+- Mithral Armor
+weapon
+- Flame Tongue
+- Moonblade: elves, sentient
+ring
+- Ring of Spell Storing
+- Ring of Warmth
+- Ring of Mind Shielding
+modifier
+- Amulet of Health: constitution
+- Belt of Giant Strength
+- Boots of Speed
+- Headband of Intellect
+- Luckstone: ability check + saving throw
+other
+- Bag of Holding
+- Broom of Flying
+- Carpet of Flying
+- Cloak of Invisibility
+- Dust of Disappearance
+- Eyes of Charming
+- Gloves of Thievery
+- Hat of Disguise
+- Lantern of Revealing
+- Manual of Golems
+- Marvelous Pigments
+- Mirror of Life Trapping
+- Necklace of Fireballs
+- Wings of Flying
+- Sending Stones

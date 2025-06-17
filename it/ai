@@ -47,6 +47,7 @@ Inference: doing, use trained model to generate outputs
 
 #Neural network
 Activation function: introduces non-linearity, transforms weighted sum of inputs to output
+- Softmax function: normalize input, probability distribution (sum to 1)
 Bias: constant added to weighted sum of inputs, increases flexibility
 Backpropagation: allows learning, adjusts weights and biases to minimize error (expected vs real output)
 - computes gradient of loss function in weight space
