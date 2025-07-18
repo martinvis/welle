@@ -96,11 +96,11 @@ drug interaction: caused by other drugs or food (grapefruit)
 - synergistic: more than sum of two
 - antagonistic: less than sum of two
 frequency
-- very common: <1/10
-- common: <1/100
-- uncommon: <1/1000
-- rare: <1/10000
-- very rare: <1/100000
+- very common: >1/10
+- common: >1/100
+- uncommon: >1/1000
+- rare: >1/10000
+- very rare: >1/100000
 
 #Adverse reactions
 Severe cutaneous adverse reactions (SCAR): type IV
@@ -451,11 +451,15 @@ Palifermin: recombinant protein, epithelial growth
 
 #Antithrombotic
 =Anticoagulant: reduce blood clotting
-- Heparin: activates antithrombin
+- Heparin: intravenous, activates antithrombin
 - Aspirin (acetylsalicylic acid, ASA, {C6}(-COOH)-O-C(=O)-C): inactivates cyclooxygenase
 - Hirudin: thrombin inhibitor, in leeches
 - Apixaban (Eliquis): common, factor Xa inhibitor
 - Rivaroxaban (Xarelto): factor Xa inhibitor
+Low-molecular-weight heparin (LMWH): subcutaneous, activates antithrombin
+- Enoxaparin (Lovenox)
+- Dalteparin (Fragmin)
+- Nadroparin (Fraxiparin)
 Coumarins: vitamin K antagonist, teratogenic
 - Warfarin: oral + intravenous
 Thrombolytic: target fibrin
@@ -616,7 +620,7 @@ Opioid: μ-opioid agonist, strong, hypoventilation + constipation
 - Carfentanil: very strong, large animals tranquilizer
 - Etorphine: very strong, large animals tranquilizer
 - Methadone: relieves opioid withdrawal
-Tramadol: opioid + SNRI, moderate pain
+Tramadol (Tramal): opioid + SNRI, moderate pain, oral
 Ziconotide: from cone snail, calcium channel blocker, chronic pain, intrathecal
 
 #Opioid antagonists
@@ -749,6 +753,8 @@ recombinant protein
 fusion protein
 - Abatacept: blocks T cell activation, rheumatoid arthritis
 Glatiramer acetate: random-sized peptides (Glu, Lys, Ala, Tyr), resembles myelin antigen, multiple sclerosis
+Cereblon modulators
+- Thalidomide: oral, teratogenic
 
 #Antiemetic
 Setrons: serotonin antagonist, with chemotherapy

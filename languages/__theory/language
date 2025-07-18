@@ -23,7 +23,7 @@ Hausa
 
 #Niger–Congo
 =Bantu
-Swahili
+Swahili: 100M
 Kongo
 Lingala
 Shona
@@ -57,8 +57,8 @@ Welsh
 =Germanic
 Gothic †
 West
-- English: 400M
-- German: 80M
+- English: 1B
+- German: 100M
 - Dutch
 - Afrikaans
 North
@@ -80,7 +80,7 @@ Sardinian
 Romanian
 =Slavic
 East
-- Russian: 150M
+- Russian: 200M
 - Belarusian
 - Ukrainian
 West
@@ -94,23 +94,25 @@ South
 - Slovene
 =Baltic
 Lithuanian
+Latvian/Lettish
 =Indo-Iranian
 Indic
 - Sanskrit †
-- Hindi-Urdu: 400M
+- Hindi-Urdu: 500M
+- Bihari: Bhojpuri + Maithili
+- Pahari: Nepali, Hindi allied
 - Bengali: 250M
-- Assamese
-- Gujarati
-- Marathi
-- Nepali
-- Odia
-- Punjabi
-- Rajasthani
-- Sindhi
+- Assamese: Bengali allied
+- Odia: Bengali allied
+- Gujarati: 50M
+- Rajasthani: Gujarati allied
+- Marathi: 100M
+- Punjabi: 150M
+- Sindhi: Punjabi allied
 - Sinhala
 Iranian
 - Bactrian †
-- Persian/Farsi/Dari/Tajik: 90M
+- Persian/Farsi/Dari/Tajik: 100M
 - Pashto
 - Kurdish
 - Balochi
@@ -143,11 +145,11 @@ Mongolian
 
 #Austric
 =Austronesian
-Indonesian/Malay
-Filipino/Tagalog
+Indonesian/Malay: 200M
+Filipino/Tagalog: 80M
 Malagasy
 =Austro-Asiatic
-Vietnamese: 90M
+Vietnamese: 100M
 Khmer
 =Kra–Dai
 Thai: 60M

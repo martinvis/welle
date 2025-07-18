@@ -75,6 +75,8 @@ T-box transcription factor T (TBXT): defines anterior-posterior axis, spine deve
 #Regulatory protein
 Ubiquitin (UB*): attached to substrate proteins, marks for proteolysis, alters cellular location, affects activity
 
+Proteasomes: protein complex, degrage proteins tagged by ubiquitin using proteases
+
 #Receptors
 Trk receptors: tyrosine kinases, regulate synaptic strength and plasticity
 
@@ -177,7 +179,9 @@ Translocase (EC7): movement across membrane
 
 #Signal transduction
 WNT pathway: regulates gene expression
-- WNT protein binds Frizzled receptor and activates DVL protein to inhibit β-catenin destruction complex
+- WNT protein binds Frizzled receptor and activates Dishevelled protein (DVL)
+- DVL binds Axin (DIX domain) and inhibits β-catenin destruction complex
+- β-catenin initiates transcription in kernel (cell proliferation and differentiation genes)
 MAPK/ERK pathway: regulates cell proliferation
 - mitogen binds RTK and activates RAS
 - RAS activates RAF
@@ -200,7 +204,17 @@ Death-inducing signaling complex (DISC): trimerization of FASL binding FAS recep
 =Intrinsic apoptosis pathway
 Mitochondrial Outer Membrane Permeabilization (MOMP): BCL2 proteins insert into membrane to form pores
 
-#Metabolism
+β-catenin destruction complex: keeps β-catenin levels low
+- Axin: oligomerizes through DIX domain, adjacently binds GSK3 enzyme and β-catenin, recruits APC through RGS domain
+- APC (Adenomatous polyposis coli): multiple β-catenin and Axin binding motifs
+- CK1 (Casein kinase) and then GSK3 (Glycogen synthase kinase) phosphorylate β-catenin
+
+#Metabolism: chemical reactions in organism
+Poison: harmful chemical substance
+Nutrition: beneficial chemical substance
+Xenobiotic: unnatural chemical substance (pollutants, drugs)
+Anabolism: construct macromolecules from smaller units, require energy
+Catabolism: break down molecules to smaller units, release energy
 AMPK: kinase
 - ketogenesis, glycolysis, autophagy activation
 - activation by energy stress (AMP vs ATP)
@@ -269,9 +283,19 @@ Decorin (DCN)
 - Actin
 
 =Intermediate filament
-- Keratin (KRT*) in hair, nail, beak, claw, horn, hoof, feather
-- Vimentin (VIM) mesenchymal cells, positioning organelles
-- Desmin (DES) in sarcomeres
+Type I + II
+- Keratin (KRT*): in hair, nail, beak, claw, horn, hoof, feather
+Type III
+- Vimentin (VIM): mesenchymal cells, positioning organelles
+- Desmin (DES): in muscle (sarcomeres)
+- Peripherin (PRPH): in neurons
+- Glial fibrillary acidic protein (GFAP): in CNS (astrocytes)
+Type IV
+- Syncoilin (SYNC): in muscle
+- Synemin (SYNM): in muscle
+- Neurofilaments (NF): in neurons
+Type V
+- Lamin (LMN): in cell nucleus
 
 =Microtubule
 Tubulin (TUB*): structural support, DNA segregation
@@ -341,6 +365,14 @@ Antithrombin: serpin, inhibits Factors II + IX + X + XI + XII
 
 Procalcitonin (PCT): calcitonin precursor, produced by C cells
 - marker, level rises during bacterial infection (but not calcitonin)
+
+#Cell adhesion: binding cells
+Cadherin: crosses cell membrane, extracellular homophilic binding requires calcium ions
+- β-catenin: binds Cadherin and α-catenin
+- α-catenin: binds Actin directly or with Vinculin
+Integrin: crosses cell membrane, binding to extracellular matrix
+- Talin: binds Integrin and Actin directly or with Vinculin
+Vinculin: binds Talin/α-catenin and actin cytoskeleton, reinforcement
 
 #viruses
 =enzyme

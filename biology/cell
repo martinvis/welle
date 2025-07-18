@@ -23,6 +23,11 @@ Bacteria
 - Peptidoglycan/Murein: sugar + aminoacids in mesh-like layer
 - Transpeptidase: enzyme, cross-links aminoacids
 
+=Cytoskeleton
+Microfilament: actin polymer, 2 strands
+Intermediate filament: diverse polymers
+Microtubule: tubulin polymer, hollow tube
+
 #Eukaryotic cell: fungi, plantae, animalia
 diameter around 10μm
 nucleus with double membrane containing DNA
@@ -53,7 +58,7 @@ Vesicle: material transport
 Chloroplast: in plants, photosynthesis
 Glyoxysome: in plants
 Centrosome: in animals, microtubule formation
-Cilium: in animals, short hairlike protuberance on outside, motility, move fast
+Cilium: in animals, short hairlike protuberance on outside, motility, move fast, microtubules
 Lysosome: in animals, break down of biomolecules
 Melanosome: in animals, pigment storage
 
@@ -90,6 +95,7 @@ Microfold cell (M cell): selective endocytosis of antigens, transport to macroph
 - Synapse: connection between dendrite and axon of two neurons
 - Rosehip neuron: in cerebral cortex, inhibitory GABAergic
 - Node of Ranvier: myelin-sheath gaps along axon, Na + K ion channels
+- Myelin: insulates axon, speeds up nerve impulse, lipid-rich (mostly cholesterol)
 Sensory: respond to stimuli from receptors
 Motor: control muscles and glands
 Interneurons: communication between sensory and motor neurons, central nervous system

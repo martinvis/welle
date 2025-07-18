@@ -93,8 +93,11 @@ usa: Burger King, Domino's Pizza, McDonald's, Subway, Wendy's, Yum! (KFC, Pizza 
 #beverage
 belgium: AB InBev (Budweiser)
 netherlands: Heineken
-uk: Diageo (Guiness)
+denmark: Carlsberg
+uk: Diageo (Guiness, Baileys, Smirnoff, Captain Morgan)
 usa: Coca-Cola, PepsiCo, Starbucks
+france: Pernod Ricard (Absolut, Becherovka, Jameson, Malibu)
+japan: Asahi (Pilsner Urquell, Kozel)
 
 #footwear
 germany: Adidas, Puma
@@ -246,12 +249,15 @@ japan: Nippon Television
 
 #defense
 brazil: Embraer
+china: Comac
 eu: Airbus
-france: Thales
-germany: MTU Aero Engines, Rheinmetall
-italy: Leonardo
-sweden: SAAB
-usa: Boeing, Lockheed Martin, Northrop Grumman, Raytheon
+france: Thales, Dassault (Rafale), Safran (engines)
+germany: Rheinmetall, MTU Aero Engines
+italy: Leonardo (helicopters)
+sweden: SAAB (Gripen)
+uk: BAE Systems, Rolls-Royce (engines)
+usa: Boeing, Lockheed Martin (Sikorsky), Northrop Grumman, RTX Raytheon (Pratt & Whitney), L3Harris, GE Aerospace (engines)
+israel: Rafael
 
 #oil
 brasil: Petrobras

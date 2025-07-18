@@ -424,3 +424,8 @@ Polymerase chain reaction (PCR): produces high amount of DNA copies
 - steps repeated in 10s of cycles
 Reverse transcription PCR: RNA converted to DNA by reverse transcription and multiplied by PCR
 Quantitative PCR: monitors DNA quantities after each cycle by fluorescent dyes
+
+CRISPR: short repeated palindromic sequences interspaced with spacers, provide antiviral immunity in bacteria
+- Spacer: bacteriophage DNA fragment, genetic memory
+- Cas9: enzyme, cuts spacer-matching sequence from DNA
+- Guide RNA (gRNA): guides Cas9, ~20 nucleotides

@@ -34,6 +34,15 @@ plug and socket: connect device
 - Type L: C compatible, Italy, 3 round pins in line
 - Type M: Commonwealth
 - Type N: Brazil, 3 round pins
+Transformer: passive electricity transfer between circuits, used to change AC voltage level
+- core with two coils, core is path for magnetic flux
+Overhead power line: large distance electricity transmission
+- aluminum conductors (usually triplets) suspended by towers, insulation by air
+- polymer/ceramic suspension (hanging) or pin insulators
+- Low voltage: <1kV, residential, pin insulators
+- Medium voltage: <50kV, urban/industrial, 2-6 suspension insulators
+- High voltage: <200kV, regional, 8-18 suspension insulators
+- Extra high voltage: <800kV, national, 20-60 suspension insulators
 
 #oil
 50% on road transport

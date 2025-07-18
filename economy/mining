@@ -1,17 +1,18 @@
 #Iron: 2.5Gt
 hematite, magnetite
-production: Australia (1Gt, Western), Brazil, China, India, Russia (Kursk), South Africa, Canada, USA (Minnesota)
+production: Australia (1Gt, Western), Brazil (0.5Gt, Minas Gerais + Pará), China, India, Russia (Kursk), South Africa, Canada, USA (Minnesota)
 
-#Aluminium: 70Mt
-bauxite
-production: Guinea, Australia, China, Brazil, India
+#Aluminium
+bauxite: 450Mt, 15% aluminium yield (energy intensive)
+production: Guinea (100Mt), Australia (100Mt), China, Brazil (Pará), India
+aluminium (70Mt): China (40Mt), India, Russia, Canada, UAE
 
 #Chromium: 45Mt
 production: South Africa (20Mt), Turkey, Kazakhstan, India
 
-#Copper: 20Mt
+#Copper: 20Mt, ofter silver and gold as byproducts
 chalcopyrite, chalcocite
-production: Chile (6Mt), Peru, DRC, China, USA (Arizona), Indonesia, Russia, Australia
+production: Chile (6Mt, Escondida), Peru, DRC (Kamoa-Kakula), China, USA (Arizona), Indonesia (Papua, Grasberg), Russia, Australia
 
 #Manganese: 20Mt
 production: South Africa (6Mt), China, Australia, Gabon
@@ -28,10 +29,10 @@ production: Indonesia (800kt), Philippines, Russia
 
 #Tin: 300kt
 cassiterite
-production: China (85kt), Indonesia, Myanmar
+production: China (85kt), Indonesia (Bangka + Belitung), Myanmar
 
 #Cobalt: 200kt
-production: DR Congo (130kt)
+production: DR Congo (130kt, Tenke Fungurume)
 
 #Lithium: 130kt
 production: Australia (60kt), Chile, China
@@ -41,11 +42,12 @@ production: Kazakhstan (20kt), Namibia, Canada, Australia
 reserves: Australia, Kazakhstan, Canada, Russia
 
 #Silver: 25kt
-production: Mexico (6kt), China, Peru
+production: Mexico (6kt), China, Peru, Chile
+historical production: Poland (Tarnowskie Góry, Katowice), Austria (Schwaz, Tirol), Germany (Freiberg, Saxony)
 
 #Gold: 3kt
-production: China (300t), Australia (Western), Russia (Siberia), Canada, USA (Nevada, Alaska, California), Ghana, Indonesia
-historical production: South Africa (1kt, Witwatersrand Basin)
+production: China (300t), Australia (Western), Russia (Siberia), Canada, USA (Nevada, Alaska, California), Ghana, Indonesia (Papua, Grasberg)
+historical production: South Africa (1kt, Witwatersrand Basin, Johannesburg)
 reserves: Australia, Russia, South Africa, USA, Peru, Indonesia, Brazil, Canada
 
 #Platinum (PGM): 200t
@@ -65,3 +67,4 @@ Probable: indicated mineral resource
 Proved: measured mineral resource
 
 Acid mine drainage: outflow of acidic water due to oxidation of sulfide minerals (Witwatersrand, Rio Tinto)
+Heavy mineral sands: zircon + ilmenite + rutile accumulated on coastlines

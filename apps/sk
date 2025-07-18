@@ -99,4 +99,9 @@ default xkb_symbols "basic"	{
 	key <KPMU>	{ [ KP_Multiply,  KP_Multiply,    e,      E       ]   };
 	key <KPDV>	{ [ KP_Divide,    KP_Divide,  f,      F       ]   };
 
+	key <UP>	{ [ Up, Up, Up, Up ]	};
+	key <DOWN>	{ [ Down, Down, Down, Down ]	};
+	key <LEFT>	{ [ Left, Left, Left, Left ]	};
+	key <RIGHT>	{ [ Right, Right, Right, Right ]	};
+
 };

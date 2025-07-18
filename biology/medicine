@@ -158,6 +158,7 @@ Intravenous therapy: fluids administered into vein (water, electrolytes, nutriti
 - Syringe pump: gradually administered fluids
 - Infusion pump: automated administration
 Catheter: tube inserted in body cavity allowing drainage of fluids or gases
+Insulin pump: type I diabetes, continuous subcutaneous, battery
 Robotic surgery: telemanipulator or computer controlled
 Endoscopy: examines interior of body
 - Colonoscopy: large intestine
@@ -178,6 +179,7 @@ Auscultation: listening to internal body sounds (heart, lungs)
 
 #Surgery
 Nephrectomy: kidney removal
+Amputation: removal of limb
 
 #Epidemiology: distribution of disease in population
 Communicable disease: caused by infection
@@ -466,12 +468,13 @@ Irritable bowel syndrome (IBS): abdominal pain and bloating, 10% of population
 #Endocrine
 Thyroiditis: inflammation of thyroid gland
 =
-Diabeter mellitus:
+Diabetes mellitus:
 - lack of insulin production, hyperglycemia
 - excessive urination and thirst
 - weight loss, increased hunger
 - Type 1: autoimmune, insulin needed lifelong
-- Type 2: very common, caused by obesity
+- Type 2: very common, caused by obesity, increased cancer risk
+- Diabetic foot: peripheral nerve disfunction, amputation risk
 Diabetes insipidus
 - lack of vasopressin production
 - excessive urination and thirst
@@ -496,14 +499,6 @@ Meningitis: inflammation of brain membranes, usually due to infection
 Necrotizing fasciitis: flesh eating bacteria, high mortality
 - symptoms: pain, fever, purple skin
 
-Syndactyly: genetic, one or more digits joined together
-- incomplete: joined partially
-- complete: joined all the way
-- type I: middle + ring finger
-- type II: middle + ring + 6th finger (polydactyly)
-- type III: small + ring finger
-- type IV: all fingers
-
 Hyperkalemia
 - treatment: calcium gluconate, insuline + glucose, loop diuretics, dialysis
 
@@ -518,4 +513,22 @@ Male
 Female
 - Uterus didelphys: two uteri
 
+Thalidomide scandal (1960s): used as sedative, caused severe birth defects (phocomelia)
+
+#birth defects
 Teratogen: can cause birth defects (alcohol, tobacco, drugs, retinoic acid)
+Conjoined/Siamese twins
+=Dysmelia: limbs
+Amelia: absence of one or more limbs
+Phocomelia: malformation of limbs
+Cephalomelia: extra limb on head
+Notomelia: extra limb on back
+Ectrodactyly: absence of central fingers
+Syndactyly: genetic, two or more digits joined together
+- incomplete: joined partially
+- complete: joined all the way
+- type I: middle + ring finger
+- type II: middle + ring + 6th finger
+- type III: small + ring finger
+- type IV: all fingers
+Polydactyly: extra fingers

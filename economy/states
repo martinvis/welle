@@ -34,7 +34,7 @@ Egypt: tourism, cotton, citrus fruit, petroleum
 Morocco: tourism, textiles, citrus fruit
 Tunisia: tourism, textiles, olive oil
 
-Sudan: gold, cotton, livestock, petroleum
+Sudan: gold, sesame seeds, peanuts, livestock, cotton, petroleum
 Somalia: livestock
 Eritrea: livestock, gold
 Djibouti: livestock, coffee
@@ -51,10 +51,10 @@ South Africa: diamonds, gold, platinum, coal, iron
 Namibia: diamonds, uranium
 Botswana: diamonds
 Angola: petroleum, diamonds
-DRC: copper, cobalt, diamonds
+DRC: copper, cobalt, diamonds, gold
 
 Mozambique: coal, aluminium, titanium
-Zimbabwe: platinum
+Zimbabwe: platinum, gold, diamonds, tobacco
 Zambia: copper
 
 Chad: petroleum
@@ -168,7 +168,7 @@ Vietnam: tourism, electronics, machinery, textiles
 India: jewelry, textiles, machinery, rice, IT
 Pakistan: textiles, rice
 Bangladesh: textiles
-Nepal: textiles
+Nepal: tourism, textiles
 Bhutan: electricity, iron
 Sri Lanka: textiles, tea
 Cambodia: tourism, textiles

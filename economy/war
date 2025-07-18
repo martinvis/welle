@@ -9,10 +9,18 @@ Gettysburg National Cemetery, Pennsylvania
 West Point, New York: military academy
 
 #USA
-FBI (Federal Bureau of Investigation): domestic intelligence, Washington DC
 CIA (Central Intelligence Agency): foreign intelligence, Langley, Virginia
-DIA (Defense Intelligence Agency): military intelligence, Washington DC
-NSA (National Security Agency): intelligence, Maryland
+DOD (Department of Defense)
+- DIA (Defense Intelligence Agency): military intelligence, Washington DC
+- NSA (National Security Agency): intelligence, Maryland
+DOJ (Department of Justice)
+- DEA (Drug Enforcement Administration): drug trafficking
+- FBI (Federal Bureau of Investigation): domestic intelligence, Washington DC
+- USMS (Marshals Service)
+DHS (Department of Homeland Security): public security
+- ICE (Immigration and Customs Enforcement): illegal immigration
+- BCP (Customs and Border Protection): border control
+- FEMA (Federal Emergency Management Agency): disaster management
 
 =Classified information
 Levels
@@ -22,6 +30,7 @@ Levels
 SCIF (Sensitive compartmented information facility): area to proccess classified information
 
 #United States bases
+Quantico: Marine Corps + FBI + DEA training base
 USA
 - Fort Liberty (Bragg), North Carolina
 - Fort Moore (Benning), Alabama/Georgia
@@ -306,6 +315,7 @@ Submarine: underwater
 Torpedo: underwater, self-propelled
 
 Railgun: uses electromagnetic force to launch high-velocity projectiles along rails
+Graphite bomb: non-lethal, fine carbon filaments disable electrical grid (short-circuit)
 
 #MLRS (Multiple rocket launcher)
 Smerch: USSR, 12 rockets
@@ -409,3 +419,4 @@ Propaganda: influence
 Sabotage: deliberate subversion
 Fifth column: group undermining from within
 ISTAR: intelligence, surveillance, target acquisition, reconnaissance
+Deconfliction: communication preventing accidental friendly fire
