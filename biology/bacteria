@@ -1,15 +1,40 @@
 =Pseudomonadota
 gram negative
 
+#Burkholderiales
+Burkholderia pseudomallei: weaponizable
+- rod shape
+- causes Melioidosis: fever, pneumonia, abscesses
+Burkholderia cepacia complex (BCC): antibiotic-resistant
+- rod shape
+- in patients with cystic fibrosis
+
+#Hyphomicrobiales
+Brucella melitensis: coccobacillus, spread by unpasteurized milk, weaponizable
+- causes Brucellosis: fever, sweats, joint pain
+
+#Thiotrichales
+Francisella tularensis: coccobacillus, weaponizable
+- causes Tularemia: rabbit fever
+- spread by ticks
+
+#Neisseriales
+Neisseria gonorrhoeae: diplococci, sexually transmitted
+- causes Gonorrhea: dysuria, inflammation, can spread to joints/heart
+
 #Pseudomonadales
 Acinetobacter baumannii
 - rod shape
 - in hospitals, antibiotic-resistant
+Pseudomonas aeruginosa
+- rod shape
+- in hospitals, antibiotic-resistant
+- in patients with cystic fibrosis
 
 #Pasteurellales
 Haemophilus influenzae
 - round shape
-- causes pneumonia and meningitis
+- causes pneumonia and meningitis in children
 - often resistant to penicillin
 
 #Legionellales
@@ -25,7 +50,7 @@ Escherichia coli
 Salmonella enterica
 - rod shape
 - food infection (egg whites)
-Yersinia pestis
+Yersinia pestis: coccobacillus
 - causes plague, spread by rat flea
 Shigella
 - infects colon
@@ -93,9 +118,9 @@ Lactococcus lactis
 - fermentation (cheese)
 
 #Bacillales
-Bacillus anthracis
+Bacillus anthracis: bioweapon
 - rod shape
-- causes anthrax
+- causes Anthrax: skin blisters
 Staphylococcus saprophyticus
 - round shape
 - urinary tract infection
@@ -109,11 +134,18 @@ Listeria monocytogenes
 - causes listeriosis
 - from unpasteurized dairy
 
-#Eubacteriales
-Clostridium tetani
+#Clostridiales
+Clostridium botulinum: produces botulinum neurotoxin, lethal dose 1ng/1kg
 - rod shape
-- causes tetanus
+- causes Botulism: weakness, trouble seeing/speaking
+- from improperly canned food, from honey (infants)
+Clostridium tetani: produces neurotoxin
+- rod shape
+- causes Tetanus
 - in soil, through wound
+Clostridium perfringens: tissue necrosis, gas gangrene
+- rod shape
+- causes food poisoning
 Clostridioides difficile
 - rod shape
 - causes diarrhea

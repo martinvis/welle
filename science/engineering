@@ -22,6 +22,8 @@ Yield point: between elastic and plastic behaviour
 Roving bridge: over canal, allows crossing to horse towing boat
 - split in middle or spiral ramp
 
+Gimbal: pivotal support allowing rotation, provides stability
+
 Chain drive: transmits mechanical power (bicycle wheel)
 - Roller chain: rollers held together by chain links
 - Sprocket: rotating toothed wheel, teeth engage chain
@@ -59,3 +61,17 @@ Refrigerant: used in heat pump, repeated liquid/gas transition
 - historically chlorofluorocarbons (CFC), banned
 Thermal expansion valve (TXV): controls amount of refrigerant released to evaporator
 - pressure increase in sensing bulb opens valve (flexible diaphragm actuates valve)
+
+#Floodgates
+Delta Works: Netherlands, Maeslant barrier near Rotterdam + Oosterschelde barrier + Haringvliet dam
+MOSE: Venice, floodgates sealing off lagoon during high tide
+Thames Barrier: London
+
+#mechanical clock
+Mainspring: spiral torsion spring, power source (~40 hours)
+Suspended weight: drops over time, power source (~8 days)
+Wheel train: transmits force from source to escapement, gears turn at various speed (hands)
+Escapement: transforms rotating motion into impulses driving balance wheel or pendulum, locks and releases wheel train (constant speed)
+Balance wheel/Pendulum: swings back and forth (time)
+Balance spring: attached to balance wheel, causes oscillation with resonant frequency (accuracy)
+

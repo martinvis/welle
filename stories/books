@@ -7,21 +7,21 @@ Marcus Aurelius: Meditations
 
 #Ancient greek
 Aesop: Fables:
-- The Tortoise and the Hare
-- The Ant and the Grasshopper
-- The Boy Who Cried Wolf
-- The Lion and the Mouse
-- The Fox and the Crow
-- The Fox and the Stork
-- The Fox and the Grapes
-- The Town Mouse and the Country Mouse
-- The Dog and Its Reflection
-- The Lion's Share
-- Belling the Cat
-- The Wolf and the Crane
-- The Gnat and the Bull
-- The Two Goats
-- The Bundle of Sticks
+- The Tortoise and the Hare: slow and steady wins race
+- The Ant and the Grasshopper: hard work and planning
+- The Boy Who Cried Wolf: consequences of lying
+- The Lion and the Mouse: small act makes big difference
+- The Fox and the Crow: beware of flattery
+- The Fox and the Stork: treat others as you want to be treated
+- The Fox and the Grapes: pretending to despise what you cannot have
+- The Town Mouse and the Country Mouse: security over wealth
+- The Dog and Its Reflection: greed risks losing everything, bubbles
+- The Lion's Share: strong take disproportionately, oligarchs
+- Belling the Cat: clever versus practical idea
+- The Wolf and the Crane: not all good deeds are rewarded
+- The Gnat and the Bull: Dunning-Kruger effect
+- The Two Goats: cooperation over arrogance, Prisoner's Dilemma
+- The Bundle of Sticks: unity is strength
 - The Ass And The Load Of Salt
 - The Goose that Laid the Golden Eggs
 - The Dog and the Wolf
@@ -35,6 +35,8 @@ Aesop: Fables:
 Homer: Iliad + Odyssey
 Plato: The Republic
 *Aristotle: Politics
+
+=plays
 Aeschylus: Oresteia
 Euripides: Medea
 Sophocles: Theban plays (Oedipus Rex + Oedipus at Colonus + Antigone) + Ajax + Electra
@@ -97,8 +99,15 @@ Charles Perrault: Mother Goose Tales (1697)
 - Diamonds and Toads
 - Donkeyskin
 
-Daniel Defoe: Robinson Crusoe (1719)
-Jonathan Swift: Gulliver's Travels (1726)
+Daniel Defoe
+- Robinson Crusoe (1719): after several unfortunate journeys englishman shipwrecks on deserted island, turns it into home, rescues cannibal captives and sailors of ship after mutiny
+
+=Jonathan Swift
+Gulliver's Travels (1726): satire of society
+- Lilliput/Blefuscu: tiny people, petty conflicts
+- Brobdingnag: giants, inflated pride
+- Laputa/Balnibarbi: flying island, impractical intellectualism
+- Houyhnhnms: intelligent horses, greed and cruelty
 
 Pu Songling: Strange Tales from a Chinese Studio (1766)
 
@@ -175,47 +184,61 @@ Andrew Lang: Fairy Books of Many Colors (1889-1913)
 - The Wounded Lion
 - The Bronze Ring (Aladdin)
 Charles Dickens: A Christmas Carol (1843) + Oliver Twist (1838)
-*Alexandre Dumas: The Three Musketeers (1844)
-- protagonists: D'Artagnan + Constance Bonacieux, Athos + Porthos + Aramis
-- antagonists: Cardinal Richelieu, Milady de Winter
-Alexandre Dumas: The Count of Monte Cristo (1844)
-- protagonists: Edmond Dantès, Abbé Faria, Mercédès, Valentine + Maximilien
-- antagonists: Baron Danglars, Villefort, Fernand, Caderousse
-Lewis Carroll: Alice in Wonderland (1865)
+Lewis Carroll
+- Alice in Wonderland (1865): nonsense, falling down rabbit hole, potions changing size, tea party with Mad Hatter, Queen of Hearts orders beheadings
 George MacDonald: The Princess and the Goblin (1872) + Phantastes (1858)
 Robert Louis Stevenson: Treasure Island (1883) + Dr. Jekyll and Mr. Hyde (1886)
 H. Rider Haggard: King Solomon's Mines (1885)
 Mark Twain: Adventures of Huckleberry Finn (1884)
-Oscar Wilde: The Picture of Dorian Gray (1890)
+Oscar Wilde
+- The Picture of Dorian Gray (1890): painted portrait reflects corrupted soul while young man remains beautiful
 
-Rudyard Kipling: The Jungle Book (1894)
-- characters: Mowgli, panther Bagheera, bear Baloo, snake Kaa, tiger Shere Khan
-H. G. Wells: The Time Machine (1895) + The Invisible Man (1897) + The War of the Worlds (1898)
-Jules Verne (1863-1905):
-- Around the World in Eighty Days
-- Journey to the Center of the Earth
+#France
+=Alexandre Dumas: historical France
+The Three Musketeers (1844)
+- protagonists: D'Artagnan + Constance Bonacieux, Athos + Porthos + Aramis
+- antagonists: Cardinal Richelieu, Milady de Winter
+The Count of Monte Cristo (1844): revenge for false imprisonment funded by hidden treasure
+- protagonists: Edmond Dantès, Abbé Faria, Mercédès, Valentine + Maximilien
+- antagonists: Baron Danglars, Villefort, Fernand, Caderousse
+=Jules Verne (1863-1905):
+- Around the World in Eighty Days: englishman Phileas Fogg mistaken for bank thief travels with servant Passepartout to win bet and rescues indian princess Aouda along way
+- Journey to the Center of the Earth: professor Otto Lidenbrock with his nephew Axel enter lost world underground via volcano in Iceland and exit via erupting volcano in Italy
 - Twenty Thousand Leagues Under the Seas
-- The Mysterious Island
+- The Mysterious Island: americans in baloon crash on deserted pacific island and transform it into home, leave on Nemo's submarine as he dies and island is destroyed by volcano eruption
 - The Vanished Diamond / The Star of the South
 - Facing the Flag / The Deadly Invention
-Karl May (1887-1899):
-- Winnetou
-- Old Surehand
-- Der Schatz im Silbersee
-- Der Geist des Llano estakado
-- Der Ölprinz
 
-Bram Stoker: Dracula (1897)
+Rudyard Kipling: The Jungle Book (1894)
+- boy raised in Indian jungle by wolves, eventually returns to village
+- characters: Mowgli, panther Bagheera, bear Baloo, snake Kaa, tiger Shere Khan
+
+H. G. Wells:
+- The Time Machine (1895): scientists travels into future where subterranean Morlocks prey on weak Eloi (class division, evolution)
+- The Island of Doctor Moreau (1896)
+- The Invisible Man (1897): scientist Griffin invents invisibility and becomes criminal, is hunted and killed (power corrupts)
+- The War of the Worlds (1898): invasion of Martians, tripods with heat rays and poison gas (colonialism critique)
+Karl May (1887-1899): american Wild West, blood brothers Old Shatterhand and apache Winnetou
+- Winnetou I: Santer kills Klekih-petra, Old Shatterhand saves Winnetou from Kiowas, Nscho-tschi heals Old Shatterhand, Santer kills Nscho-tschi
+- Winnetou II: Winnetou saves assiniboin Ribanna, Ribanna marries soldier for peace, Forrester imprisons newlyweds and Winnetou saves them
+- Winnetou III: Rollins provokes conflict between settlers and indians, Winnetou dies saving Old Shatterhand
+- Old Surehand: Old Surehand pursues man called "General" to avenge his family
+- Der Schatz im Silbersee
+- Der Geist des Llano Estacado
+- Der Ölprinz: swindler selling worthless oil fields to naive buyers
+
+Bram Stoker: Dracula (1897): vampire, Transylvania
 - characters: Jonathan + Mina Harker, Van Helsing, !Count Dracula
 J. M. Barrie: Peter Pan (1911)
 - protagonists: Wendy Darling, Peter Pan + Lost Boys, Tinker Bell
 - antagonists: Captain Hook, Mr. Smee
 Edgar Rice Burroughs (1912-1941): Barsoom
+- Mars
 - characters: John Carter + Dejah Thoris, Tars Tarkas
 Edgar Rice Burroughs (1912-1944): Tarzan
+- Africa
 - characters: Tarzan + Jane Porter, Professor Porter, gorilla Kerchak
 - coincidental shipwrecks, dead lions, superman, fast language learning
-Sir Arthur Conan Doyle: The Lost World (1912) + Sherlock Holmes (1887-1927)
 Franz Kafka: The Metamorphosis (1915)
 Johnston McCulley: The Curse of Capistrano / The Mark of Zorro (1919)
 Norman Hinsdale Pitman: A Chinese Wonder Book (1919)
@@ -224,6 +247,20 @@ Jaroslav Hašek: The Good Soldier Švejk (1921)
 *Romain Rolland: Pierre and Luce (1920)
 Jaroslav Foglar: Záhada hlavolamu (1941)
 - Rychlé šípy, ježek v kleci
+
+=Sir Arthur Conan Doyle: 
+The Lost World (1912)
+Sherlock Holmes (1887-1927): detective, London (221B Baker Street)
+- A Study in Scarlet: John Warson + Sherlock Holmes, inspector Lestrade
+- The Sign of Four: Mary Watson
+- The Hound of the Baskervilles
+--
+- The Red-Headed League
+- The Speckled Band
+- The Six Napoleons
+- Charles Augustus Milverton
+- A Scandal in Bohemia: Irene Adler
+- The Final Problem: James Moriarty
 
 *Yevgeny Zamyatin: We (1924)
 Aldous Huxley: Brave New World (1932)
@@ -262,6 +299,7 @@ Dr. Seuss
 - The Lorax (1971)
 
 =Alfred Hitchcock and The Three Investigators (1964-1986)
+- Rocky Beach, California
 - characters: Jupiter + Peter + Bob
 Robert Arthur
 - The Secret of Terror Castle
@@ -292,7 +330,12 @@ M. V. Carey
 - The Mystery of the Invisible Dog
 - The Mystery of Death Trap Mine
 
+=Poland
 Stanisław Lem: Solaris (1961)
+Andrzej Sapkowski: The Witcher (1992-1999)
+- protagonists: Geralt of Rivia + Yennefer of Vengerberg + Ciri of Cintra, Triss Merigold, Dandelion, Mousesack, Cahir
+- antagonists: Stregobor, Vilgefortz + Rience, Dijkstra + Philippa, Francesca, Fringilla, Emhyr var Emreis + Nilfgaardians
+
 Frank Herbert: Dune (1965) + Dune Messiah (1969) + Children of Dune (1976)
 - protagonists: Paul Atreides + Chani, Leto + Jessica Atreides, Duncan Idaho, Stilgar, Fremen
 - antagonists: Harkonnens
@@ -302,6 +345,7 @@ Philip K. Dick: Do Androids Dream of Electric Sheep? (1968)
 Arthur C. Clarke: 2001: A Space Odyssey (1968) + 2010: Odyssey Two (1982)
 Orson Scott Card: Ender's Game (1985)
 
+Lloyd Alexander: The Chronicles of Prydain (1964-1968)
 Ursula K. Le Guin: Earthsea (1968-1972)
 - characters: Ged + Tenar
 *Ursula K. Le Guin: Hainish Cycle (1966-1974)
@@ -310,7 +354,7 @@ Roald Dahl: The Witches (1983) + Matilda (1988) + The BFG (1982) + James and the
 Michael Ende: The Neverending Story (1979)
 Terry Brooks: Shannara (1977)
 
-=Guy Gavriel Kay
+=Guy Gavriel Kay: Canada
 Tigana (1990)
 - medieval Italy, peninsula Palm, province name erased from memory by magic
 - rebels (Alessan + Catriana) orchestrate battle between two tyrants (Brandin + Alberico)
@@ -337,9 +381,6 @@ Robert Jordan: The Wheel of Time (1990-2013)
 - Winter's Heart: Rand and Nynaeve cleanse Saidin
 - Crossroads of Twilight: nothing
 - Knife of Dreams: Mat marries Seanchan empress, Elayne becomes Andor queen
-Andrzej Sapkowski: The Witcher (1992-1999)
-- protagonists: Geralt of Rivia + Yennefer of Vengerberg + Ciri of Cintra, Triss Merigold, Dandelion, Mousesack, Cahir
-- antagonists: Stregobor, Vilgefortz + Rience, Dijkstra + Philippa, Francesca, Fringilla, Emhyr var Emreis + Nilfgaardians
 
 Terry Goodkind: The Sword of Truth (1994-2007)
 - protagonists: seeker Richard Cypher + confessor Kahlan Amnell, Zeddicus Zu’l Zorander, Cara
@@ -374,15 +415,14 @@ Eoin Colfer: Artemis Fowl (2001-2012)
 - protagonists: Artemis Fowl + Holly Short, Butler
 - antagonists: Opal Koboi
 Luc Besson: Arthur and the Minimoys (2002)
-Dmitry Glukhovsky: Metro 2033 (2002)
+Dmitry Glukhovsky
+- Metro 2033 (2002): post-apocalyptic Moscow, Artyom travels tunnels between stations
 Alexey Pehov: Chronicles of Siala (2002-2003)
-Jonathan Stroud: Bartimaeus (2003-2005)
-- protagonists: Nathaniel + Bartimaeus, Kitty
-- antagonists: Lovelace, Faquarl, Jabor, Nouda
 Christopher Paolini: The Inheritance Cycle / Eragon (2003-2011)
 - protagonists: Eragon + Saphira + Arya, Roran, Murtagh + Thorn, Brom, Oromis + Glaedr, Angela + Solembum
 - antagonists: Galbatorix + Shruikan, Ra'zac, shade Durza
 
+#Germany
 Frank Schätzing: The Swarm (2004)
 
 James Dashner: The Maze Runner (2009-2011)
@@ -423,7 +463,14 @@ The Sunlit Man (2023): Nomad=Sigzil on run helps local woman Rebeke fight again 
 protagonists: Spensa + Jorgen + M-Bot + taynix Doomslug, kitsen Hesho, Alanik, dione Cuna
 antagonists: Superiority, varvaw Winzik + Brade, Delvers
 
-*Liu Cixin
+
+Meg Cabot: Avalon High (2005)
+Madeline Miller: The Song of Achilles (2011) + Circe (2018)
+
+Sue Lynn Tan: Malaysia
+- Daughter of the Moon Goddess (2022): daughter of moon goddess Xingyin + celestial prince Liwei
+
+=Liu Cixin: China
 Remembrance of Earth's Past (2008-2010): first contact with alien civilization, struggle for survival
 - intelligence: Shi Qiang, Thomas Wade
 - scientists: Wang Miao (nanomaterial), Cheng Xin (aerospace)
@@ -433,10 +480,24 @@ Remembrance of Earth's Past (2008-2010): first contact with alien civilization, 
 Ball Lightning
 Of Ants and Dinosaurs
 
-Meg Cabot: Avalon High (2005)
-Madeline Miller: The Song of Achilles (2011) + Circe (2018)
-Sue Lynn Tan: Daughter of the Moon Goddess (2022)
+=UK
+Jonathan Stroud: Bartimaeus (2003-2005)
+- protagonists: Nathaniel + Bartimaeus, Kitty
+- antagonists: Lovelace, Faquarl, Jabor, Nouda
+Taran Matharu: Summoner (2015-2017)
+Anthony Ryan: The Draconis Memoria (2016-2018)
+- victorian era, powerful corporates, powers from dragon blood
+- Blue drakes: large oceanic, telepathic communication
+- Green drakes: terrestrial, strength + speed + healing
+- Red drakes: fire, power for ship engine
+- Black drakes: intelligent, telekinesis
+- protagonists: Lizanne Lethridge + Claydon Torcreek, Corrick Hilemore, Black Drake Lutheron
+- antagonists: Silverpin, White Drake + Spoiled
+- places: Arradsia, Ironship Syndicate, Corvantine Empire, Scorazin
 
+=US
+Chris Colfer: Land of Stories (2012-2017)
+Chris Columbus: House of Secrets (2013-2016)
 Suzanne Collins: The Hunger Games (2008-2010)
 - protagonists: Katniss Everdeen + Peeta Mellark, Prim, Gale, Finnick
 - antagonists: president Snow
@@ -446,15 +507,12 @@ Leigh Bardugo: Shadow and Bone (2012-2014)
 Leigh Bardugo: Six of Crows (2015-2016)
 - protagonists: Kaz Brekker + Inej, Matthias + Nina, Jesper + Wylan
 - antagonists: Pekka Rollins, Jan Van Eck
-
-Chris Colfer: Land of Stories (2012-2017)
-Chris Columbus: House of Secrets (2013-2016)
-Taran Matharu: Summoner (2015-2017)
-
-Anthony Ryan: The Draconis Memoria (2016-2018)
-- protagonists: Lizanne Lethridge + Claydon Torcreek, Corrick Hilemore, Black Drake Lutheron
-- antagonists: Silverpin, White Drake + Spoiled
-- places: Arradsia, Ironship Syndicate, Corvantine Empire, Scorazin
 Neal Shusterman: Arc of a Scythe (2016-2019)
 - protagonists: Citra + Rowan, Faraday + Curie
 - antagonists: Goddard
+N. K. Jemisin:
+- Broken Earth (2015-2017): orogenes Alabaster + Damaya/Essun/Syenite, guardian Schaffa
+- Inheritance (2010-2011)
+R. F. Kuang:
+- Poppy War (2018-2020)
+- Babel (2022): Oxford

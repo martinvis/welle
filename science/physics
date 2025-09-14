@@ -76,6 +76,34 @@ Satellite: projectile whose trajectory is orbit
 Force: cause of change in motion or energy
 Work: action of change in energy
 
+#Energy
+hydrogen bond: 10 µfJ
+1 eV: 150 µfJ
+visible photon: 500 µfJ
+electron mass-energy: 80 fJ
+proton mass-energy: 150 pJ
+1 Erg: 100 nJ
+1g at 10m/s: 50 mJ
+1g ice melt: 300 J
+1g water evaporate: 2 kJ
+1 Calorie: 4 kJ
+1g at 10km/s: 50 kJ
+1g TNT: 4 kJ
+1g oil: 40 kJ
+daily energy man: 10 MJ
+lightning bolt: 1 GJ
+1g nuclear fission: 80 GJ
+1g matter+antimatter: 100 TJ
+Sun to Earth 1s: 100 PJ
+annual energy consumption: 500 kPJ
+Sun to Earth 1y: 5 GPJ
+Sun output 1s: 300 GPJ
+Sun output 1y: 10 kPPJ
+Earth mass-energy: 500 GPPJ
+Foe (supernova): 1 PPPJ
+Sun mass-energy: 100 PPPJ
+Milky way mass-energy: 100 kEEEJ
+
 =object sliding along curve without friction
 Tautochrone curve: same time to reach end regardless of starting point, cycloid
 Brachistochrone curve: shortest time between start and end points, cycloid
@@ -542,4 +570,13 @@ Superposition: linear combination of multiple basis states
 Neutrino oscillation: neutrinos change flavor as they travel, superposition of 3 states
 Baryon asymmetry: more matter than anti-matter in universe, reason unknown
 
+#Quantumm electrodynamics
+Compton scattering: high-frequency photon hitting electron transfers part of its energy to electron
+- both electron and photon move from impact at new angle
+- more energy lost with larger angle
+- photon behaves as particle
+
 Cymatics: patterns in coating of vibrated surface showing displacement
+
+Zeeman effect: spectral line splits in magnetic field
+Stark effect: spectral line splits in electric field

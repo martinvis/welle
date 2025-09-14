@@ -27,20 +27,45 @@ Crop rotation
 
 Green Revolution: fertilizers (1970s)
 
+Imhotep (~2500 BC): architecture, medicine
 
 =Maths and Astronomy
 Anaxagoras (~500 BC): Moon reflects light of Sun, Sun is star
+Hippocrates (~400BC): medicine (diagnosis, prognosis)
 Archimedes (~250 BC): Pi value
 Eratosthenes (~250 BC): Earth circumference, prime numbers algorithm
 Hipparchus (~150 BC): size and distances of Moon and Sun
 --
-Zu Chongzhi (~500): Pi value
+Galen (~200): roman, anatomy
+Zhang Heng (~100): polymath
+Zhang Zhongjing (~200): medicine
+Liu Hui (~250): Pi value
+Zu Chongzhi (~500): Pi value (355/113)
 Aryabhata (~500): solar and lunar eclipse, Pi value
 Brahmagupta (~650) zero and negative numbers
 --
-Leonhard Euler
-Carl Friedrich Gauss
+Gottfried Wilhelm Leibniz (1646-1716): calculus, binary system, mathematical notation (∫, dx)
+- Leibniz wheel (1673): calculator
+Johann Bernoulli: Brachistochrone curve (1696)
+Jacob Bernoulli: Euler's number (compound interest), law of large numbers
+Daniel Bernoulli (1700-1782): probability and statistics, Bernoulli's principle (1738)
+Leonhard Euler (1707-1783): graph theory, topology, mathematical notation (Σ,i,e,π)
+Carl Friedrich Gauss (1777-1855): number theory, magnetism
+- Normal distribution (1823)
 Georg Cantor
+Bernhard Riemann (1826-1866): integral, higher dimensions
+
+=Islamic Golden Age
+Al-Khwarizmi (~800): mathematics (algebra, quadratic equations, decimals, Arabic numerals)
+Al-Kindi (~850): philosophy, mathematics, optics, cryptography
+Al-Battani (~900): astronomy
+Rhazes / Al-Razi (~900): medicine (pharmacy, pediatrics)
+Avicenna (~1000): polymath, medicine
+Al-Biruni (~1000): polymath, astronomy
+Abulcasis / Al-Zahrawi (~1000): surgery
+Omar Khayyam (~1100): mathematics, astronomy
+Nasir al-Din al-Tusi (~1200): polymath, astronomy, trigonometry
+Ibn al-Nafis (~1200): physiology (pulmonary circulation)
 
 =Transport
 
@@ -69,7 +94,8 @@ Igor Sikorsky: Helicopter (1939)
 =War
 
 Steel (2000 BC)
-China: Gunpowder (9th century)
+Gunpowder / Black powder (9th century): China, explosive
+Fire lance (10th century): China, small pyrotechnic device attached to polearm
 Cannon (13th century)
 Arquebus: (15th century)
 Musket: against plate armor (16th century)
@@ -129,6 +155,15 @@ China: Printing (7th century)
 China: Toothbrush (9th century)
 Hiram Maxim: Machine gun (1884)
 
+#Song dynasty
+Shen Kuo: astronomy
+- Geomorphology: fossil shells in mountains
+- Magnetic declination: magnetic vs true north
+
+#india
+Madhava of Sangamagrama
+- Infinite series: Pi value, trigonometry
+
 Marco Polo (1271-1295): merchant from Venice, travelled Silk Road, met Kublai Khan
 Ibn Battuta (1325-1354): Maghrebi traveller, visited North Africa + Middle East + East Africa + Asia (Central, South, Southeast)
 Zheng He (1405-1433): Chinese mariner, voyages to East Africa + Asia (South, Southeast)
@@ -143,16 +178,35 @@ Age of Discovery (15th-17th century)
 
 David Livingstone: missionary and explorer, discovered Zambezi river, Victoria falls and Lake Malawi
 
-Albert Einstein [Theory of relativity, Quantum mechanics] (1905-1915)
-Werner Heisenberg [Uncertainty principle] (1927)
-Niels Bohr
 Ernest Rutherford
-Max Planck
-Michael Faraday
-Richard Feynman
+Hendrik Lorentz
+- Length contraction
+=Theoretical physics, german
+Max Planck (1858-1947): quantum theory (1900)
+Albert Einstein (1879-1955): [Theory of relativity, Quantum mechanics] (1905-1915)
+Werner Heisenberg [Uncertainty principle] (1927)
+Erwin Schrödinger
+- Schrödinger equation (1925): wave function
+- Schrödinger's cat (1935): quantum superposition
+- Quantum entanglement
+
+Michael Faraday: english
+- Benzene (1825)
+- Electromagnetic induction (1831)
+- Electrolysis (1833)
+
 Stephen Hawking
-Marie Curie
-Blaise Pascal
+Marie Curie: polish, radioactivity
+- Radium + Polonium (1898)
+Barometer (1643): Evangelista Torricelli
+Gerolamo Cardano: probability, negative numbers, imaginary numbers
+Blaise Pascal (1623-1662): french, probability, physics (pressure, vacuum), public transport
+Nikola Tesla (1856-1943): serbian
+- Induction motor (1887): alternating current
+Wilhelm Röntgen (1845-1923):
+- X-rays (1895):
+Henri Becquerel:
+- Radioactivity (1896): X-rays
 
 Alan Turing
 
@@ -163,7 +217,11 @@ Thomas Saint: Sewing machine (1790)
 
 Alfred Russel Wallace: Natural selection, Warning coloration, Reinforcement/Wallace effect
 
-Alfred Nobel: Dynamite
+Nitroglycerine (1847): explosive
+Dynamite (1867): explosive, mining, nitroglycerine-based, Alfred Nobel
+TNT (1891): explosive, military
+RDX / Hexogen (1930s): explosive, military, C-4
+
 Louis Pasteur: Vaccination, Pasteurization
 Louis Pasteur + Robert Koch: Antibiotics (1877)
 Charles Goodyear: Vulcanized rubber
@@ -184,8 +242,34 @@ Chemical revolution
 - John Dalton [Atomic theory]
 - Robert Boyle [Boyle's law]
 
-William Herschel: Uranus (1781)
-Urbain Le Verrier: Neptune (1846)
+Lord Kelvin (1824-1907): thermodynamics
+- Kelvin scale: absolute zero
+James Prescott Joule (1818-1889): thermodynamics
+- Conservation of energy: heat/work
+- Joule heating: electric current produces heat
+
+#astronomy
+=Copernican Revolution (16th-17th century)
+Giordano Bruno: Italian
+- [Cosmic pluralism: stars are suns, life on other planets]
+Nicolaus Copernicus: Polish
+- [Heliocentrism]
+Johannes Kepler: German
+- [Laws of planetary motion]
+Galileo Galilei: Italian
+- Telescope (1609) + 4 Jupiter's moons, Saturn's rings, Sunspots (1610)
+
+#astronomy
+Giovanni Cassini: Italian
+- moons of Saturn (1671-1684): Iapetus + Rhea + Tethys + Dione
+William Herschel: German
+- Uranus (1781)
+- infrared radiation (1800)
+- moons of Uranus (Titania+Oberon) and Saturn (Enceladus+Mimas)
+Urbain Le Verrier: French
+- Neptune (1846)
+William Lassell: English
+- moons of Uranus (Ariel+Umbriel) and Neptune (Triton)
 
 Robert Koch: Anthrax, Tuberculosis, Cholera
 Joseph Lister: Antiseptic surgery
@@ -208,15 +292,10 @@ Genetics
 - Walter Fiers: Gene sequence (1972)
 - Human genome (2003)
 
-Copernican Revolution (16th-17th century)
-- Giordano Bruno [Cosmic pluralism: stars are suns, life on other planets]
-- Nicolaus Copernicus [Heliocentrism]
-- Johannes Kepler [Laws of planetary motion]
-- Galileo Galilei: Telescope (1609) + Jupiter's moons, Saturn's rings, Sunspots (1610)
-
 Venetian Patent Statute (1474)
 
 Robert Hooke: Cell (1665)
+- Meteorology
 Theodor Schwann + Matthias Jakob Schleiden: Cell theory (1839)
 - All living organisms are composed of one or more cells
 - The cell is the most basic unit of life
@@ -226,11 +305,15 @@ Rudolf Virchow: Cell theory (1855)
 Age of Enlightenment (17th-18th century)
 - Francis Bacon [Scientific method]
 - René Descartes [Cogito ergo sum]
-- Isaac Newton [Laws of motion, Universal gravitation]
+- Isaac Newton: [Laws of motion, Universal gravitation], calculus
 - Immanuel Kant
 - John Locke [Tabula rasa, Supply and demand]
 - Jean-Jacques Rousseau [The Social Contract]
 - Voltaire
+Pierre-Simon Laplace (1749-1827): astronomy, mathematics
+- Nebular hypothesis: solar system evolution
+- Black hole: invisible star
+- Laplace's demon: absolute determinism
 
 Industrial Revolution (1760-1840)
 - Steam engine (Thomas Newcomen, James Watt)
@@ -312,11 +395,15 @@ Atomic Age
 - Chernobyl disaster (1986)
 - Fukushima disaster (2011): tsunami
 
-Space exploration
+=Space exploration
 - Konstantin Tsiolkovsky: rocket scientist, astronautic theory
 - V-2 rocket, guided ballistic missile (Wernher von Braun) [1944]
-- Artificial sattelite (Sputnik, Laika) [1957]
+Sergei Korolev: rocket engineer
+- Artificial sattelite (Sputnik) [1957]
+- Laika (1957): dog in space, died
+- Belka and Strelka (1960): dogs in space
 - Astronaut, Vostok (Yuri Gagarin) [1961]
+--
 - Moon landing, Apollo 11 (Neil Armstrong, Buzz Aldrin) [1969]
 - Interstellar (Voyager) [1977]
 - Space Shuttle Challenger disaster [1986]: launch
@@ -338,6 +425,7 @@ Digital Revolution (1947-now)
 - Smartphone
 - Data, Algorithm
 - Artificial intelligence
+- LLM (2017): ChatGPT
 
 #Electronics
 Walkman (1979): portable audio player
@@ -355,8 +443,89 @@ Tacoma Narrows Bridge collapse (1940): wind, Washington, shortly after opening
 Tenerife Airport Disaster (1977): collision of two diverted jets
 Francis Scott Key Bridge collapse (2024): container ship, Baltimore
 
+Charles-Augustin de Coulomb
+- Coulomb's law (1785)
+Alessandro Volta: italian
+- Methane (1776)
+- Electric battery (1799)
+Joseph Louis Gay-Lussac: chemistry
+- H2O composition: 2-to-1 ratio
+- Law of combining volumes (1808)
+- Boron (1808)
+- Iodine (1811)
+- Cyanogen (1815)
+André-Marie Ampère
+- Fluorine (1810)
+- Ampère's law
+- Solenoid (1823)
+Hans Christian Oersted (1777-1851): danish
+- electric current creates magnetic field
+- Aluminium (1824)
+
+Johann Heinrich Lambert: π is irrational, map projections
+- Hygrometer
+Siméon Denis Poisson: 
+- Poisson distribution
+Emmy Noether: algebra
+Amedeo Avogadro:
+- Avogadro's law: mole
+Joseph-Louis Lagrange (1736-1813): italian, mathematics
+- Lagrangian points: three-body problem
+Augustin-Louis Cauchy (1789-1857): french, calculus (limit, convergence), permutations
+- Gradient descent
+Hermann von Helmholtz (1821-1894): german, conservation of energy, physiology
+Henri Poincaré (1854-1912): french, topology, relativity
+- Chaos theory: three-body problem
+- Gravitational wave
+Srinivasa Ramanujan (1887-1920): indian, mathematics
+
+#Dutch Golden Age
+Christiaan Huygens: Dutch
+- moon Titan (1655)
+- Pendulum clock (1656): accurate clock
+- Balance spring (1657): accurate pocket watch
+- Centrifugal force (1659)
+- Tautochrone curve (1659): clock accuracy
+- Wave Theory of Light (1690)
+Antonie van Leeuwenhoek: dutch, microscope
+- Microbiology (1670s): bacteria, erythrocytes
+
+=Manhattan Project: atomic bomb
+Niels Bohr:
+- Bohr model of atom
+Enrico Fermi (1901-1954): italian
+- Nuclear reactor (1942)
+Robert Oppenheimer: american, quantum mechanics, astrophysics
+Richard Feynman (1918-1988): american, quantum mechanics, quantum computing
+- Nanotechnology: concept
+Leo Szilard: hungarian
+- Nuclear chain reaction: concept
+Hans Bethe: german, nuclear physics
+John von Neumann (1903-1957): hungarian, quantum mechanics
+- Game theory
+- Merge sort (1945)
+Stanisław Ulam (1909-1984): polish
+- Nuclear pulse propulsion: hypothetical
+Chien-Shiung Wu:
+Arthur Compton:
+Ernest Lawrence:
+- Cyclotron (1930): particle accelerator
+Monte Carlo method: neutron diffusion, Ulam + Neumann
+ENIAC (1945): turing-complete computer, hydrogen bomb
+
 #medicine
+Andreas Vesalius (1514-1564): anatomy
+Claude Bernard
+- Homeostasis
+- Glycogen: liver, blood sugar
+- Pancreatic juice: digestion
+- Sympathetic nervous system
+- Vasodilation
 Vaccination (1796): Edward Jenner, smallpox
+Paul Ehrlich: german, immunology, hematology
+- Mast cell (1877): staining
+- Antibiotic (1910): syphilis cure
+Gram stain (1884): bacteria
 Penicilin (1928): Alexander Fleming
 Chemotherapy (1940s): nitrogen mustard
 Tobacco regulation (1960s): warning labels

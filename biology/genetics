@@ -257,6 +257,7 @@ Incretins: released after eating, enhance insulin secretion
 ##Pancreas
 Insulin (INS), produced by beta cells in pancreatic islets, lowers glucose level
 Glucagon (GCG), produced by alpha cells in pancreatic islets, raises glucose level
+C-peptide: released in equal amount as insulin, assists in correct insulin folding
 ##Gastrointestinal tract
 Ghrelin (GHRL): increases drive to eat, stimulates secretion of gastric acid
 Somatostatin (SST): peptide hormone, produced by delta cells, inhibits INS, GCG, TSH, GH, PRL
@@ -333,10 +334,10 @@ symptoms: immunodeficiency, underdeveloped thymus
 mechanism: accumulation of deoxyadenosine, buildup of dATP in cells
 cause: recessive inherited, mutation in ADA gene
 
-#Wilson's disease
-symptoms: vomiting, edema, jaundice, tremors
-mechanism: copper buildup, liver damage
+#Wilson's disease: copper buildup, liver damage
+symptoms: vomiting, edema, jaundice, tremors, psychosis
 cause: recessive inherited, mutation in WND gene
+Kayser–Fleischer ring: dark ring around cornea
 
 ##Amino acids
 R-CH-NH2-COOH

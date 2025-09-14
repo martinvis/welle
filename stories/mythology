@@ -75,7 +75,7 @@ Titans:
 - Hyperion + Theia => Helios (son) + Selene (moon) + Eos (dawn)
 - Coeus + Phoebe => Leto + Asteria (stars)
 - Crius + Eurybia => Astraeus (dusk) + Perses (destruction) + Pallas (warcraft)
-- Cronus + Rhea => Hestia (hearth) + Demeter (harvest) + Hera (marriage) + Hades (underworld) + Poseidon (sea) + Zeus (lightning)
+- Cronus + Rhea => Hestia (hearth) + Demeter (harvest) + Hera (marriage) + Hades (underworld) + Poseidon [Hippios] (sea) + Zeus [Olympios] (lightning)
 - Iapetus + oceanid Clymene => Prometheus + Epimetheus + Atlas
 - Nereus + oceanid Doris => 50 Nereids (Thetis)
 - Pallas + oceanid Styx => Bia (force) + Kratos (strength) + Nike (victory) + Zelus (zeal)
@@ -98,14 +98,14 @@ Muses:
 - Melpomene: tragedy
 - Urania: astronomy
 Gods:
-- Zeus +1 oceanid Metis (wisdom) => Athena (wisdom)
+- Zeus +1 oceanid Metis (wisdom) => Athena [Pallas,Parthenos] (wisdom)
 - Zeus +2 Themis (law) => three Moirai/Fates (Clotho + Lachesis + Atropos)
 - Zeus +3 oceanid Eurynome => three Charites/Graces (Aglaea + Euphrosyne + Thalia)
 - Zeus +4 Demeter => Persephone
 - Zeus +5 Mnemosyne (memory) => Muses (arts)
-- Zeus +6 Leto => Apollo (archery, music) + Artemis (hunt)
+- Zeus +6 Leto => Apollo [Phoebus] (archery, music, sun) + Artemis [Cynthia,Agrotera] (hunt, moon)
 - Zeus +7 Hera => Ares (war) + Hephaestus (metallurgy) + Eris (discord) + Hebe (youth)
-- Zeus + Dione => Aphrodite
+- Zeus + Dione => Aphrodite [Cypris]
 - Zeus + pleiad Maia => Hermes (messenger, winged sandals, trickster)
 - Zeus + mortal Semele => Dionysus (wine)
 - Poseidon + nereid Amphitrite => Triton (merman) + Rhodos
@@ -305,6 +305,15 @@ The Journey of Odysseus:
 - Calypso: 7 years
 - Ithaca: bow, suitors
 
+Places
+- Mount Olympus: home of gods
+- Mount Parnassus: home of muses, Oracle of Delphi
+- Mount Ida: island Crete, birthplace of Zeus
+- Mount Cynthus: island Delos, birthplace of Artemis + Apollo
+- Mount Cyllene: birthplace of Hermes
+- Mount Othrys: base of titans during war with gods
+- Mount Pelion: home of Chiron
+
 #Roman
 Greek:
   Terra=Gaia
@@ -335,11 +344,11 @@ Creatures:
 
 #Chinese
 Myths:
-- Great Yu Controls the Waters (flood)
-- Gonggong and the Heaven Pillar
 - Pangu, the Giant Who Created the World
-- Goddess Nüwa Creates Humans
+- Eight Pillars of the Sky: mountains
+- Gonggong and the Heaven Pillar: Mount Buzhou damaged (不周山)
 - Nüwa Repairs the Pillars of Heaven: five colored stones
+- Goddess Nüwa Creates Humans
 - Pan Hu: the Princess and the Dog
 - The Dragon Pearl (transformation)
 - The Four Dragons (rivers)
@@ -348,12 +357,25 @@ Myths:
 - Archer Hou Yi and the Ten Suns
 - Chang-Er, the Moon Goddess
 - Jade Rabbit, the Rabbit on the Moon
+- Great Yu Controls the Waters (flood)
+- Eight Immortals (八仙)
+Gods:
+- Gonggong (共工): water god, snake body
 Creatures:
-- Jiangshi (reanimated corpse)
+- Jiangshi (僵尸): reanimated corpse
 - Long (dragon, antlers, long body, 5 claws)
 - Pixiu (winged horned beast, protection)
 - Qilin (horned beast, good luck)
 - Xiezhi (horned beast, justice)
+- Xiangliu (相柳): nine-headed snake, caused floods
+Emperors
+- Fuxi (伏羲) + Nüwa (女娲)
+- Shennong (神農): bull head, agriculture
+- Huangdi / Yellow Emperor (黄帝): calendar and writing
+- Zhuanxu (颛顼): 
+- Ku (喾): music
+- Yao (尧): 
+- Shun (舜): 
 
 #Japanese
 Yōkai:
@@ -384,16 +406,22 @@ Gods (Kami):
 4 or 10 arms
 
 Naga: half-serpent
-Hamsa: white bird
+
+Vahana: deity mounts
+- Shesha: many-headed snake, mount of Vishnu
+- Garuda: giant bird / man with wings, mount of Vishnu
+- Nandi: bull, mount of Shiva
+- Hamsa: white bird, mount of Brahma
+- Airavata: three-headed white elephant, mount of Indra
 
 Deva
 - Brahma (creator, 4 heads) => Marichi + Atri
 - Vishnu (protector, blue)
 - Shiva (destroyer, third eye)
-- Ganesha (luck, elephant head, Parvati+Shiva)
+- Ganesha (luck, elephant head, Parvati+Shiva, on mouse)
 - Atri + Anasuya =>  Chandra/Soma (moon)
 - Marichi => Kashyapa
-- Kashyapa => Agni (fire) + Indra (weather, on white elephant) + Surya (sun) + Varuna (water, on crocodile) + Vayu (wind)
+- Kashyapa => Agni (fire) + Indra (weather) + Surya (sun) + Varuna (water, on crocodile) + Vayu (wind)
 - Surya + Sanjna => Yama (death, on buffalo)
 - Manasa: snakes
 

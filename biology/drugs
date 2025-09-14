@@ -131,9 +131,10 @@ recreational drug, addictive
 #Anxiolytics: reduce anxiety
 Barbiturates: depressant, general anesthesia
 Benzodiazepines: depressant, GABAA agonist, treat anxiety + insomnia + alcohol withdrawal + epileptic seizures
-- Diazepam: long-acting
-- Oxazepam: slow onset, diazepam metabolite
+- Diazepam (Valium): long-acting, oral + intravenous
+- Oxazepam: slow onset, diazepam metabolite, oral
 - Lorazepam
+- Alprazolam (Xanax): fast-acting, oral
 
 #Muscle relaxant
 Baclofen: GABAB agonist, oral
@@ -500,7 +501,6 @@ Gliclazide (Diamicron): oral
 
 #Generics
 Amlodipine: common, against high blood pressure
-Diclofenac: anti-inflammatory
 Levothyroxine: common, synthetic thyroid hormone
 
 #Antipsychotics / Neuroleptics: treat schizophrenia
@@ -515,6 +515,14 @@ Atypical: dopamine and serotonin antagonists
 - Clozapine: D1 and histamine and muscarinic antagonist, can cause agranulocytosis
 - Loxapine: D4 antagonist, inhalation
 - Risperidone: D2 and D3 antagonist
+
+#Antipruritics: inhibit itching
+=Antihistamines: H1 antagonist
+Dimetindene (Fenistil): oral/topical, antipruritic
+Diphenhydramine (Benadryl): oral/topical/injection
+Hydroxyzine: oral, itchiness and anxiety
+Cetirizine: oral, hay fever
+Loratadine (Claritin): oral, hay fever
 
 #Antimigraine
 Sumatriptan: serotonin agonist
@@ -578,6 +586,8 @@ Glucocorticoid: bind to glucocorticoid receptor
 - Budesonide
 - Dexamethasone: anti-inflammatory, chemotherapy
 Mineralocorticoid: bind to mineralocorticoid receptor
+Both
+- Hydrocortisone: cortisol, oral/topical/injection
 
 #Immunostimulants
 Filgrastim: recombinant protein, increase neutrophils, injection
@@ -591,7 +601,10 @@ H2 blocker: block histamine receptors in stomach
 
 #Antihistamine
 Cetirizine
-Promethazine
+Cyproheptadine: H1 and serotonin antagonist, hay fever, migraine prevention, increase appetite, oral
+
+#Cardiac stimulant
+Dobutamine: heart failure, β1 agonist, intravenous
 
 #Antiasthmatic
 Epinephrine/adrenaline: anaphylaxis, cardiac arrest
@@ -605,13 +618,16 @@ Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 - Formoterol: long-term, inhalation
 - Clenbuterol: banned due to side effects
 
+NSAID (Nonsteroidal anti-inflammatory drug): also analgesic, COX inhibitors
+- Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
+- Ibuprofen (Nurofen): common
+- Naproxen (Aleve):
+- Diclofenac (Voltaren):
+
 #Analgesic: pain relievers
 Non-opioid
 - Paracetamol (Panadol): common, antipyretic (overdose ~5g: liver failure)
 - Metamizole/Dipyrone (Novalgin): antipyretic, antispasmodic (colic), rarely causes agranulocytosis
-- Ibuprofen (Nurofen): common, anti-inflammatory, COX inhibitor
-- Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema), COX inhibitor
-- Naproxen (Aleve): anti-inflammatory, COX inhibitor
 Opioid: μ-opioid agonist, strong, hypoventilation + constipation
 - Morphine: recreational drug, found in opium, addictive
 - Codeine: prodrug of morphine, found in opium
@@ -642,7 +658,7 @@ General inductory, short-acting (due to redistribution in body), intravenous
 - Propofol: intravenous, short-acting
 - Ketamine: NMDA antagonist, analgesic, preserves breathing, hallucinogenic, increases blood pressure
 General sedation
-- Midazolam: benzodiazepine, conscious sedation
+- Midazolam: benzodiazepine, conscious sedation, oral + intravenous
 Local: blocks sodium channels on neuron membrane
 - Benzocaine: superficial only, short duration
 - Lidocaine: fast-acting, medium duration
@@ -739,6 +755,20 @@ Cinacalcet: treats hyperparathyroidism, allosteric activation of Ca receptors
 #Anticonvulsant
 Gabapentin: common
 
+#N
+
+=Hypnotics: treat insomnia
+Z-drugs, first line
+- Zolpidem: oral
+- Zopiclone: oral
+- Zaleplon: fast short acting, oral
+benzodiazepines, second line
+- Triazolam: benzodiazepine, fast short acting, oral
+- Lormetazepam: benzodiazepine, oral
+- Temazepam: benzodiazepine, oral
+
+#
+
 #Immunosuppresant
 Sirolimus: from bacteria Streptomyces, organ transplants, coronary stent coat
 Calcineurin inhibitor (CNI): organ transplants
@@ -759,8 +789,9 @@ Cereblon modulators
 #Antiemetic
 Setrons: serotonin antagonist, with chemotherapy
 - Ondansetron: oral + injection
-Metoclopramide: dopamine antagonist
+Metoclopramide: dopamine antagonist, treat migraine, oral + intravenous
 Aprepitant: with chemotherapy, oral
+Promethazine: H1 antagonist, sedative, treat allergy, oral
 
 #Antidiarrheal
 Loperamide: opioid agonist, oral
@@ -771,7 +802,7 @@ Hydroxyethyl starch (HES): intravenous volume expander
 
 #Cardiovascular system
 =Antianginal
-Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual
+Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual, causes headache
 Isosorbide dinitrate: vasodilator, oral
 Nifedipine: calcium channel blocker, oral
 =Antiarrhythmic
@@ -820,7 +851,7 @@ Epoetin
 =Mineral supplements
 Calcium gluconate: protect heart from hyperkalemia
 
-Colchicine
+Colchicine: oral, treat gout, overdose very toxic
 Hydroxycarbamide
 
 =Vitamins

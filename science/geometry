@@ -78,10 +78,12 @@ Trigonometric function
 Right-angle triangle
 - Pythagorean theorem: a^2 + b^2 = c^2 (where c is hypotenuse)
 - Pythagorean triple: side lengths of right-angle triangle
+- Inverse Pythagorean theorem: 1/a^2 + 1/b^2 = 1/h^2 (where h is perpendiculat to hypotenuse)
 Primitive Pythagorean triple: a/b/c are coprime
 - smallest triple is 3,4,5
 - exactly one of a/b/c is dividible by each of 3/4/5
 - 60 is largest dividor of a*b*c
+Napoleon's theorem: if equilateral triangles are formed on sides then their centers form equilateral triangle, proof by symmetry
 
 #Polygon: 2D shape, closed lines connecting points
 - n-polygon can be split into n-2 triangles

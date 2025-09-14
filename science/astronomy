@@ -137,9 +137,22 @@ Emission nebula: gas ionized by young star, Ring, Omega
 Planetary nebula: ionized gas of red giant, Cat's Eye, Helix
 Reflection nebula: reflects light of nearby star
 
+=motion
 Orbit: regularly repeating elliptic trajectory of body around center of mass
+- Inclination: tilt of orbit, retrograde orbit if angle greater than 90°
+- Eccentricity: deviation from circle (0), below 1 elliptical, above 1 hyperbolic
+- Orbital speed: faster when closer to center
+- Periapsis/Pericenter: nearest point of orbit
+- Apoapsis/Apocenter: furthest point of orbit
+Rotation: circular movement around central axis
+- Axial tilt / Obliquity: angle between rotational and orbital axis
+Retrograde: motion in direction opposite of primary
+Prograde: motion in direction of primary
+
 Barycenter: center of mass of two or more orbiting bodies
 Satellite: smaller body orbiting larger body, star and planet, planet and moon
+- Regular satellite: prograde orbit, low inclination and eccentricity, formed in orbit, usually tidally locked
+- Irregular satellite: distant or inclined or retrograde or eccentric orbit, captured
 Trojan: celestial body sharing orbit of larger body, ahead/behind by 60°
 Tidal locking
 - rotation around partner takes as long as around own axis

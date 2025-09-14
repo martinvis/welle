@@ -73,6 +73,9 @@ Calakmul, Mexico
 Caracol, Belize
 Xunantunich, Belize
 
+#Minoan (3000-1000 BC): Crete
+Knossos, Heraklion: palace
+
 #Achaemenid (550-330BC)
 Iran
 - Persepolis
@@ -80,9 +83,23 @@ Iran
 - Naqsh-e Rostam, Persepolis: necropolis
 
 #Ancient Greek (900BC - 100AD): ruins
-Athens
-- Acropolis (Parthenon + Erechtheion)
-- Temple of Hephaestus
+Acropolis: Athens
+- Parthenon: doric
+- Erechtheion: ionic, Porch of Maidens (6 caryatids)
+- Temple of Athena Nike: ionic
+Greece
+- Athens: Temple of Hephaestus + Ancient Agora
+- Delphi: Temple of Apollo + Tholos
+- Temple of Poseidon: cape Sounion
+- Delos: Cyclades
+Peloponnese
+- Temple of Apollo Epicurius
+- Theatre of Epidaurus
+- Olympia
+- Ancient Corinth
+- Ancient Messene
+- Mycenae
+- Nemea
 Turkey
 - Ephesus: Library of Celsus
 - Pergamon: Altar moved to Berlin
@@ -109,7 +126,7 @@ Petra/Raqmu, Jordan
 
 #Ancient Roman (500BC - 4th century)
 Temple
-- Pantheon, Rome: large concrete dome
+- Pantheon, Rome: large concrete dome (largest dome at time)
 - Maison carrée, Nîmes, France
 Diocletian's Palace + Cathedral of Saint Domnius, Split: tower added later
 Forum Romanum, Rome
@@ -136,6 +153,7 @@ Basilica of Saint Paul Outside the Walls, Rome
 Campania, Italy
 - Herculaneum: city destroyed by Vesuvius eruption
 - Pompeii: city destroyed by Vesuvius eruption
+Timgad, Algeria: city
 Germany
 - Porta Nigra, Trier
 - Saalburg, Hessen
@@ -224,6 +242,7 @@ Great Mosque of Samarra, Iraq
 Mustansiriya Madrasah, Baghdad
 Haydar-Khana Mosque, Baghdad
 Mosque of Ibn Tulun, Cairo
+Imam Reza shrine, Mashhad, Iran
 Samanid Mausoleum, Bukhara (10th century): Chahartaq
 
 #Indo-islamic
@@ -279,12 +298,13 @@ Turkey
 - Alanya Castle
 
 #Italian Byzantine/Gothic
-St Mark's Basilica, Venice: marble, mosaics
+St Mark's Basilica, Venice: marble, facade with gold-ground mosaics
 Basilica Pontificia di Sant'Antonio, Padua
 
 #Italian Gothic (12th-15th century)
 Doge's Palace, Venice
-Siena Cathedral
+Siena Cathedral: facade with gold-ground mosaics
+Orvieto Cathedral: facade with gold-ground mosaics
 Milan Cathedral: marble, large
 
 #Norman/Gothic Cathedral
@@ -317,7 +337,7 @@ England
 - Beverley Minster
 France
 - Notre-Dame, Paris
-- Strasbourg Cathedral, Grand Est: tall
+- Strasbourg Cathedral, Grand Est: tall spire (second never built)
 - Reims Cathedral, Grand Est
 - Troyes Cathedral, Grand Est
 - Amiens Cathedral, Hauts-de-France
@@ -340,8 +360,9 @@ Spain
 - Barcelona Cathedral
 Limburger Dom, Hesse
 Erfurter Dom, Erfurt: Baroque altar
-Cologne Cathedral, Cologne: high, twin-spired
-Stephansdom, Vienna: tall
+Cologne Cathedral, Cologne: tall twin spires
+Martinskirche, Landshut: tall brick spire
+Stephansdom, Vienna: tall spire
 Zagreb Cathedral: twin-spired
 St. John's Cathedral, Netherlands
 St. Mary's Church, Gdańsk: bricks
@@ -359,7 +380,7 @@ Matthias Church, Budapest
 Germany
 - Frankfurter Dom: Kaiserdom
 - Regensburger Dom: twin-spired
-- Ulm Minster: high
+- Ulm Minster: tall spire, tallest church
 - Freiburg Minster
 Altes Rathaus, Munich
 St Elisabeth Cathedral, Košice, Slovakia
@@ -387,7 +408,7 @@ Po-i-Kalyan, Bukhara, Uzbekistan
 Mausoleum of Ali, Mazar-i-Sharif, Afghanistan
 Great Mosque of Herat, Afghanistan
 Mausoleum of Khoja Ahmed Yasawi, Turkistan, Kazakhstan
-Goharshad Mosque, Mashad, Iran
+Goharshad Mosque, Mashhad, Iran
 Amir Chakhmaq Complex, Yazd, Iran
 
 #Chinese Ming (14th-17th century)
@@ -469,10 +490,13 @@ Germany
 - Augsburger Rathaus + Perlachturm
 - Schloss Johannisburg, Aschaffenburg
 Florence
-- Florence Cathedral: large brick dome
+- Florence Cathedral: large brick dome (largest dome at time), free standing tower
 - Palazzo Pitti
 - Basilica of San Lorenzo: marble interior
-Basilica Palladiana, Vicenza, Italy
+Andrea Palladio (1540-1580): Vicenza, Italy
+- Basilica Palladiana
+- Villa La Rotonda
+- Teatro Olimpico
 St. Peter's Basilica, Vatican: large dome, marble interior
 Marciana Library, Venice
 Esztergom Basilica, Hungary: large dome
@@ -515,15 +539,15 @@ Bibi Ka Maqbara, Aurangabad
 Basilica of Our Lady of the Pillar, Zaragoza
 Vienna
 - Karlskirche
-- Belvedere
-- Schönbrunn
+- Belvedere: copper roof
+- Schönbrunn: ~Versailles
 Melk Abbey, Austria
 Grassalkovich Palace, Bratislava
 France
 - Vaux-le-Vicomte, Melun
 - Versailles, Paris
 - Louvre, Paris
-- Les Invalides, Paris
+- Les Invalides, Paris: gilded dome with cupola
 Dresden
 - Dresden Castle
 - Zwinger
@@ -544,12 +568,13 @@ Germany
 - Dom St. Stephan, Passau
 - Kloster Wiblingen, Ulm: stucco marble
 - Margravial Opera House, Bayreuth: princess Wilhelmine
+- Schloss Seehof, Bamberg: fountain
 Kloster Einsiedeln, Switzerland
 Santiago de Compostela Cathedral, Spain
 Palacio Real, Madrid
 Palácio Nacional de Mafra, Portugal
 St. George's Cathedral, Lviv
-Reggia di Caserta, Italy
+Reggia di Caserta, Italy: ~Versailles
 Basilica di Santa Maria Maggiore, Rome
 Archbasilica of Saint John Lateran, Rome
 Buda Castle, Budapest
@@ -561,6 +586,8 @@ Poznań Fara, Poland
 Pažaislis Monastery, Kaunas, Lithuania: marble interior
 Palace of Mafra, Portugal
 Schleissheim Palace, Munich
+St Paul’s Cathedral, London: large dome with cupola, twin cupola towers, two-story facade with corinthian column pairs
+Peterhof Palace, Saint Petersburg: ~Versailles
 
 #Rococo (18th century)
 Germany
@@ -581,7 +608,7 @@ Nasir-ol-Molk Mosque, Shiraz, Iran
 Arc de Triomphe du Carrousel, Paris
 Panthéon, Paris
 Victor Emmanuel II Monument, Rome
-British Museum, London
+British Museum, London: ionic columns
 St. Stephen's Basilica, Budapest
 Austrian Parliament Building, Vienna
 Basilica di San Francesco di Paola, Neapol
@@ -603,12 +630,14 @@ Admiralty, Saint Petersburg
 Kazan Cathedral, Saint Petersburg
 Statue of Liberty, New York (1886)
 Washington D.C.
-- White House, Washington D.C. (1792-1800)
-- United States Capitol, Washington D.C. (1793-1800)
-- Lincoln Memorial, Washington D.C. (1914–1922)
-- Washington Monument
+- Washington Monument: center, ~Obelisk
+- White House, Washington D.C. (1792-1800): north, residence of President, Oval Office
+- United States Capitol, Washington D.C. (1793-1800): east, Congress meetings
+- Jefferson Memorial: south, ~Pantheon, ionic columns, stairs, marble
+- Lincoln Memorial, Washington D.C. (1914–1922): west, ~Parthenon, doric columns (ionic inside), stairs, marble
 Palace of Justice, Brussels: large dome
 Shrine of Remembrance, Melbourne: war memorial
+Church of Our Lady, Copenhagen
 
 #Patriotic Monumental
 Deutsches Eck, Koblenz
@@ -627,12 +656,15 @@ Palácio de Monserrate, Sintra
 Hôtel de Ville, Paris: city hall
 Christuskirche, Mainz
 
+#Neo-Palladian
+Holkham Hall: Norfolk, England
+
 #Memorials (19th-20th century)
 Lion's Mound, Waterloo, Brussels: artificial hill
 Mount Rushmore, South Dakota: presidents
 
 #Mixed
-Berlin Cathedral, Berlin: large dome
+Berliner Dom, Berlin: large dome with cupola, copper roof, 2 pairs of cupola towers, corinthian columns
 Corvin Castle, Romania
 Foros Church, Crimea
 Książ Castle, Silesia
@@ -677,6 +709,7 @@ Germany
 - Neues Rathaus, Munich
 - Römer, Frankfurt
 Lednice Castle, Czechia
+Neuer Dom, Linz: tall spire
 Dunrobin Castle, Scotland
 St. Patrick’s Cathedral, New York
 Woolworth Building, New York
@@ -686,7 +719,7 @@ Santuario de Las Lajas, Colombia
 #Baroque Revival
 Palais Garnier, Paris: opera house
 Széchenyi thermal bath, Budapest
-Herrenchiemsee, Bavaria
+Herrenchiemsee, Bavaria: ~Versailles
 Schloss Linderhof, Bavaria
 Belfast City Hall, Ireland
 
@@ -709,6 +742,14 @@ Russian Orthodox Cathedral, Nice
 #Manueline Revival
 Quinta da Regaleira, Sintra (1904–1910)
 Pena Palace, Sintra
+
+#Isambard Kingdom Brunel
+Thames Tunnel: first tunnel under navigable river
+Clifton Suspension Bridge, Bristol: three wrought iron chains
+Royal Albert Bridge, Plymouth: two lenticular trusses
+SS Great Western: first purpose-built transatlantic steamship
+SS Great Britain: first iron-hulled screw-propelled ship, largest at time
+SS Great Eastern: first double-hull ship, largest at time
 
 #Art Nouveau (1883-1914)
 Eiffel Tower, Paris (1887-1889)
@@ -930,7 +971,7 @@ Other
 - Zhivopisny Bridge: Moscow, arch across
 - Juscelino Kubitschek bridge (2002): Brasilia, three arches, asymmetrical
 =Cantilever
-- Forth Bridge: Edinburgh, red
+- Forth Bridge (1890): Edinburgh, three spans, red
 - Quebec Bridge: Canada
 - Tokyo Gate Bridge
 Cantilever cable-stayed (Calatrava):
@@ -1062,7 +1103,7 @@ Sewu, Java, Indonesia
 Lhasa, Tibet
 - Potala Palace
 - Samye Monastery
-Shwedagon Pagoda, Yangon, Myanmar
+Shwedagon Pagoda, Yangon, Myanmar: stupa with gold and diamonds
 Wat Phra Kaew, Bangkok
 Wat Rong Khunm Thailand
 
@@ -1078,6 +1119,7 @@ Ranganathaswamy Temple, Srirangam, India (16th century)
 Brihadisvara Temple, Thanjavur, India
 #Dravidian
 Group of Monuments at Hampi (Virupaksha Temple), Karnataka
+Padmanabhaswamy Temple, Trivandrum: golden roof, vault with gold
 
 #Hoysala architecture (11th-14th century)
 Chennakeshava Temple, Karnataka
@@ -1088,6 +1130,7 @@ Veera Narayana Temple, Karnataka
 Himeji Castle
 Matsumoto Castle
 Osaka Castle
+Tokyo Imperial Palace: former Edo Castle
 
 Mehrangarh Fort, Jodhpur, India
 Grottoes of Catullus, Sirmione, Italy
@@ -1109,7 +1152,7 @@ Castillo de Colomares, Spain
 Christiansborg Palace, Copenhagen
 
 #Motte-and-Bailey Castle
-Cardiff Castle, Wales
+Cardiff Castle, Wales: later Gothic Revival (Arab Room, Banqueting Hall, Library, Smoking Room), World War II tunnels
 England
 - Windsor Castle, London: later palace
 - Arundel Castle
@@ -1135,7 +1178,7 @@ England
 Wales
 - Beaumaris Castle
 - Caernarfon Castle
-- Caerphilly Castle: water castle
+- Caerphilly Castle: water castle, leaning tower
 - Conwy Castle: 8 towers
 - Harlech Castle
 
@@ -1300,6 +1343,8 @@ Asia: Dubai, Tokyo, Kuala Lumpur, Jakarta, Bangkok, Singapore, Mumbai, Seoul, Bu
 Europe: Moscow, Istanbul, London, Paris, Frankfurt, Warsaw
 Australia: Melbourne, Sydney
 
+#Iran
+Mausoleum of Omar Khayyam (1963): Nishapur
 
 #Seven Wonders
 Great Pyramid of Giza

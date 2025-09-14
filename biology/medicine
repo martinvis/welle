@@ -1,17 +1,23 @@
 #Symptom: observable indication of disease
+Inflammation (-itis): response to pathogens and irritants
+Hepatomegaly: liver enlargement
 Halitosis / Foetor ex ore: bad breath
 Hyperalgesia: increased pain sensitivity
+Arthralgia: joint pain
 Allodynia: pain from non-painful stimuli (eg after sunburn)
 Hypovolemia: loss of extracellular fluid
 Hemorrage: bleeding
 Hirsutism: excessive body hair in female
 Apoplexy: rupture of internal organ
+Cataplexy: muscle weakness
+Aneurysm: bulge in blood vessel
 Hematoma: blood within tissue
 - Bruise/Contusion/Ecchymosis: near epidermis, discoloration, reabsorbed
 - Subungual: under nail
 Xerostomia: dry mouth, hyposalivation
 Catatonia: immobility and withdrawal
 Anemia: low number of red blood cells
+- symptoms: fatigue, dyspnea
 Jaundice: yellowish skin pigmentation, caused by high bilirubin level
 Diarrhea: loose watery stool, usually caused by infection
 - Dysentery: bloody diarrhea
@@ -57,7 +63,6 @@ Hypoxemia: low oxygen level in blood
 Ischemia: restriction of blood supply to tissue
 - Angina: chest pain caused by ischemia to heart muscle
 Hypergraphia: intense desire to draw or write
-Hernia: tissue protruding through muscle, caused by muscle strain
 Lumbago: low back pain
 - Sciatica/Ischias: pain in legs, caused by spinal disc hernia pressing nerve
 Fistula: abnormal connection of epithels (e.g. urinary and intestinal tracts)
@@ -68,6 +73,12 @@ Alexithymia: problem describing one's emotions
 #Urinary
 Polyuria: excessive urine production
 Polydipsia: excessive thirst
+=neurological
+Seizure: abnormal brain activity
+Ataxia: lack of muscle movement coordination
+Catalepsy: loss of muscle control
+pregnancy
+Morning sickness: nausea and vomiting, first trimester
 
 Syndrome: set of correlated symptoms, specific for certain disease
 
@@ -79,7 +90,8 @@ Hyposmia: reduced sense of smell
 Anosmia: no sense of smell
 Parosmia: change in smell perception
 
-#Diagnosis: identification of cause
+#Diagnosis: identification of cause, based on symptoms + tests + medical history
+Differential diagnosis: list of possible causes based on symptoms, tests to narrow down
 Prognosis: expected disease development
 Screening: testing for disease before symptoms, early detection
 - Mammography: breast cancer
@@ -205,6 +217,11 @@ IVF (In vitro fertilisation): assisted reproduction
 Sterilization: permanent birth control
 - Vasectomy: male sterilization by cut spermatic cord
 
+Amyloidosis: buildup of misfolded proteins, in elderly
+- symptoms: fatigue, dyspnea, weight loss
+Hemochromatosis: organ damage (liver, heart) by oxidative stress due to iron overload
+- symptoms: cirrhosis, diabetes, bronze skin
+
 #allergies
 Alpha-gal syndrome: red meat allergy after tick bite, reaction to carbohydrate
 Milk allergy [1]: reaction to milk proteins, 2% of population
@@ -224,6 +241,13 @@ Hypersensitivity
 - Type II: IgG/IgM antibodies
 - Type III: inflammation
 - Type IV: cell mediated (T cells, macrophages)
+
+#mixed types
+Guillain-Barré syndrome
+- rapid onset, often after infection
+- muscle weakness, breathing difficulties
+- damage to myelin sheath in peripheral nervous system (T cells, macrophages)
+- or damage to cell membrane in axon (IgG antibodies)
 
 #autoimmune type I
 Eosinophilic esophagitis: inflammation of esophagus, difficult swallowing
@@ -245,7 +269,7 @@ Hashimoto's thyroiditis: affects thyroid
 
 Addison's disease: affects adrenal gland
 - inadequate production of cortisol and aldosterone
-- symptoms: darkening of skin, weakness
+- symptoms: abdominal pain, darkening of skin, weakness
 - diagnosis: low sodium, high potassium
 
 #Integumentary system - autoimmune
@@ -313,6 +337,14 @@ Beau's lines
 - deep horizontal ridges on nail
 
 #respiratory disease
+Asthma: very common, long term, bronchioles constriction caused by allergens (pollen, dust)
+- symptoms: wheeze, cough, dyspnea
+Pneumonia: very common, alveoli inflammation
+- symptoms: cough, dyspnea, chest pain, fever
+- risks: cystic fibrosis, COPD, asthma, diabetes, smoking
+Chronic obstructive pulmonary disease (COPD): very common, progressive, damaged airways
+- symptoms: dyspnea, cough
+- risks: smoking, air pollution
 Löffler's syndrome: eosinophils in lungs due to parasitic infection, difficult breathing
 
 #inflammatory
@@ -322,12 +354,24 @@ Vestibular neuritis: inflammation of inner ear nerve
 - symptoms: Vertigo, Nystagmus
 
 #cardiovascular disease
+Arteriosclerosis/Atherosclerosis: loss of artery elasticity due to fat buildup, very common with age
+- cause: high cholesterol (LDL), diabetes, smoking, obesity
+- symptoms: hypertension, dizziness, angina
+- diagnosis: EKG, blood test
+Coronary artery disease (CAD): very common, ischemia due to atheroma plaque
+- symptoms: angina
+- diagnosis: EKG
+- risks: hypertension, smoking, diabetes, obesity
+Congenital heart defect (CHD): very common at birth, defect in heart structure (valves, walls)
+- symptoms: rapid breathing, cyanosis
+Cardiomyopathy: thickened/stiffened/weakened heart muscle, can be genetic
+- symptoms: dispnea, edema
+Myocardial infarction (Heart attack): infarction of heart muscle
+- symptoms: chest pain, dizziness
+Pericarditis: pericardium inflammation
+- symptoms: chest pain, fever
 Eosinophilic myocarditis: eosinophils in heart, inflammation
 - Löffler's endocarditis: last stadium, connective tissue replaces damaged muscle, poor contractions
-Arteriosclerosis/Atherosclerosis: loss of artery elasticity due to fat buildup
-- cause: high cholesterol (LDL), diabetes, smoking, obesity
-- symptoms: higher blood pressure, dizziness, angina
-- diagnosis: EKG, blood test
 Vasculitis: blood vessels damage by inflammation
 Takayasu's arteritis: autoimmune vasculitis with intimal fibrosis
 - affects aorta and pulmonary artery
@@ -344,6 +388,7 @@ Haemophilia: X-linked recessive, prolonged bleeding
 - Haemophilia A: deficient Factor VIII
 - Haemophilia B: deficient Factor IX
 - Haemophilia C: autosomal recessive, deficient Factor XI
+Aortic dissection: sudden onset, severe chest pain, high mortality
 
 Luxation: joint dislocation
 - Subluxation: partial dislocation
@@ -401,6 +446,9 @@ Medulloblastoma: cerebellum
 Teratoma: made up of several tissue types (hair, muscle, bone)
 
 #nephrology
+Chronic kidney disease (CKD): very common, long term, progressive damage to nephrons or glomeruli
+- risks: diabetes, hypertension
+- symptoms: none, leg edema, fatigue, vomiting
 Rhabdomyolysis: damaged skeletal muscle breaks down, can cause kidney failure (myoglobin), dark colored urine
 - diagnosis: creatine kinase in blood
 
@@ -420,8 +468,6 @@ Muscular dystrophy: breakdown of skeletal muscles, caused by mutation in dystrop
 Raynaud syndrome: reduced blood flow in fingers, white color, triggered by cold or stress
 --
 Infarction: necrosis due to insufficient blood supply
-Myocardial infarction (heart attack): infarction of heart muscle
-- symptom: chest pain
 Stroke (Cerebral infarction): brain cell death due to blood flow lack
 - symptoms: inability to move one side of body, problem speaking or understanding
 - risks: high blood pressure, smoking
@@ -453,6 +499,17 @@ Morton's toe: first metatarsal bone shorter than second, causes short first toe
 
 
 #Gastroenteric
+Hernia: very common, tissue protruding through muscle, caused by muscle strain
+- Hiatal hernia: common, stomach through diaphragm, can cause reflux
+- Inguinal hernia: common, intestines in groin area
+- Femoral hernia: intestines in femoral canal
+- risks: smoking, COPD, obesity, pregnancy
+Irritable bowel syndrome (IBS): abdominal pain and bloating, long term, common (10% of population)
+Gastroesophageal reflux disease (GERD): stomach content flowing into esophagus, long term, common (10% of population)
+- symptoms: heartburn, dysphagia, regurgitation, chest pain
+- risks: obesity, pregnancy, smoking
+Appendicitis: common, appendix inflammation, caused by blockage, surgical removal
+- symptoms: abdomen pain, nausea, vomiting
 Crohn's disease:
 - chronic inflammation anywhere in tract
 - increased risk of cancer and fistulas
@@ -463,7 +520,12 @@ Ulcerative colitis: autoimmune
 - increased risk of cancer and megacolon
 - symptoms: pain, diarrhea with blood
 Coeliac disease: autoimmune, affects small intestine, intolerance to gluten
-Irritable bowel syndrome (IBS): abdominal pain and bloating, 10% of population
+Pancreatitis: pancreas inflammation
+- symptoms: abdomen pain + vomiting
+- cause: gallstone blocking bile duct, alcoholism
+Diverticulitis: intestine pouches inflammation
+- symptoms: abdomen pain, diarrhea or constipation
+- risks: obesity, smoking
 
 #Endocrine
 Thyroiditis: inflammation of thyroid gland
@@ -472,8 +534,10 @@ Diabetes mellitus:
 - lack of insulin production, hyperglycemia
 - excessive urination and thirst
 - weight loss, increased hunger
-- Type 1: autoimmune, insulin needed lifelong
-- Type 2: very common, caused by obesity, increased cancer risk
+- Type 1: autoimmune, insulin needed lifelong, GAD antibodies, low c-peptide level
+- Type 2: very common, caused by obesity, increased cancer risk, normal c-peptide level
+- Type 1.5 / LADA (latent autoimmune diabetes in adults): slowly evolving, often mistaken for type 2
+- Gestational diabetes: during pregnancy, high c-peptide level
 - Diabetic foot: peripheral nerve disfunction, amputation risk
 Diabetes insipidus
 - lack of vasopressin production
@@ -514,6 +578,8 @@ Female
 - Uterus didelphys: two uteri
 
 Thalidomide scandal (1960s): used as sedative, caused severe birth defects (phocomelia)
+
+Couvade syndrome: sympathetic pregnancy, father has symptoms (weight gain, hormones, nausea)
 
 #birth defects
 Teratogen: can cause birth defects (alcohol, tobacco, drugs, retinoic acid)

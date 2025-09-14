@@ -1,0 +1,4 @@
+=Poisson distribution: DNA mutations, radioactive decay, photons over time
+discrete, number of events in time interval
+λ = average number of events
+probability of k events is (λ^k * e^-λ) / k!

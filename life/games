@@ -74,8 +74,8 @@ uno
 
 #puzzles
 crossword
-kakuro (sums given)
-sudoku (1 to 9 in each row, column and block)
+Kakuro: sums given
+Sudoku: 1 to 9 in each row, column and block
 - killer sudoku (extra sums)
 - sandwich sudoku (extra sums of digits between 1 and 9 in row/column)
 nonogram (coloring grid by numbers)
@@ -85,9 +85,10 @@ Masyu: square grid, black+white circles, loop through all circles
 Akari: square grid, black+white cells, place bulbs to illuminate all white cells by single bulb
 - black cells with number of adjacent bulbs
 - bulb illuminates horizontally and vertically, blocked by black cells
-Rubik's cube
-tangram (7 polygons)
-ubongo (polyominos)
+Rubik's cube: 6 colors, permutations
+15 puzzle: 4x4 tiles, permutations
+Tangram: 7 polygons
+Ubongo: polyominos
 
 #problems
 rope burning

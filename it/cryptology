@@ -1,0 +1,7 @@
+Substitution cipher: replacement of letters
+- Caesar cipher: letters shifted by fixed distance along alphabet
+Transposition cipher: permutation of letters
+- Scytale: written diagonally down, read one line at time
+- Rail fence cipher: written diagonally down and up, read one line at time
+- Route cipher: written in grid, read following specific path
+- Columnartransposition: written in fixed-length rows, read  by columns in some order

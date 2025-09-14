@@ -1,6 +1,8 @@
+below ~500km irregularly shaped
+
 #Terrestrial planets: composed mainly of silicates and metals
-Mercury: 4.9 Mm, many craters, no atmosphere
-Venus: 12 Mm, dense CO2 atmosphere, high surface temperature
+Mercury: 4.9 Mm, many craters, no atmosphere, inclined eccentric orbit, slow rotation
+Venus: 12 Mm, dense CO2 atmosphere, high surface temperature, slow retrograde rotation
 Earth: 13 Mm
 - Moon: 3.5 Mm, 1/6 of Earth's gravity, slows down Earth's rotation, many craters
 Mars: 6.8 Mm, volcano Olympus Mons, canyons Valles Marineris, polar ice caps, reddish because of iron oxide
@@ -16,40 +18,80 @@ Hygiea: 400 km
 #Gas giants: composed mainly of hydrogen and helium
 Jupiter: largest planet, many trojans, faint rings, giant storm Great Red Spot 
 - Ganymede: 5.3 Mm, largest moon, metallic core, underground water ocean, no atmosphere
-- Callisto: 4.8 Mm, many craters
+- Callisto: 4.8 Mm, many craters, distant orbit
 - Io: 3.6 Mm, orbital resonance with Ganymede, many volcanoes caused by tidal heating, very dense, coated with sulfur
 - Europa: 3.1 Mm, orbital resonance with Ganymede, smooth surface
-Saturn: distinctive rings, yellowish due to ammonia
+-- irregular shape
+- Amalthea: 130-250 km
+- Himalia: 140 km, very distant inclined orbit
+- Thebe: 100 km
+- Elara: 80 km, very distant inclined orbit
+- Pasiphae: 60 km, very distant retrograde eccentric orbit
+- Carme: 50 km, very distant retrograde orbit
+Saturn: distinctive rings, yellowish due to ammonia, larger moons in general more distant
 - Titan: 5.1 Mm, nitrogen atmosphere, methane instead of water
 - Rhea: 1.5 Mm, icy body
-- Iapetus: 1.5 Mm, icy body, half dark half bright, many craters
+- Iapetus: 1.5 Mm, icy body, half dark half bright, many craters, distant inclined orbit
 - Dione: 1.1 Mm, orbital resonance with Enceladus, trojan moons Helene and Polydeuces
 - Tethys: 1.1 Mm, icy body, bright, trojan moons Telesto and Calypso, large crater Odysseus
 - Enceladus: 500 km, covered by ice, bright, orbital resonance with Dione fuels geysers of water
-- Mimas: 400 km, smallest with rounded shape, icy body, giant crater Herschel, responsible for Cassini Division in rings
+- Mimas: 400 km, smallest with rounded shape, icy body, giant crater Herschel
+-- irregular shape
+- Hyperion: 200-350 km, distant orbit, orbital resonance with Titan
+- Phoebe: 200 km, very distant retrograde orbit
+- Janus: 180 km
+- Epimetheus: 120 km
+- Prometheus: 60-130 km, elongated shape
+- Pandora: 80 km
+Rings of Saturn:
+- F ring: outermost, very thin (Prometheus + Pandora)
+- Roche Division: between A and F ring
+- A ring: Encke Gap (moon Pan), Keeler gap
+- Cassini Division: between A and B ring (moon Mimas), Huygens Gap
+- B ring: widest, brightest
+- C ring: Maxwell Gap, Colombo Gap
+- D ring: faint, innermost
 
 #Ice giants: composed mainly of water + methane + ammonia ices
-Uranus: faint rings
+Uranus: faint rings, sideways rotation (tilt ~90°), larger moons in general more distant
 - Titania: 1.6 Mm
 - Oberon: 1.5 Mm
 - Umbriel: 1.2 Mm
 - Ariel: 1.2 Mm
 - Miranda: 500 km
-Neptune: faint rings
+-- irregular shape
+- Sycorax: 160 km, very distant eccentric retrograde orbit
+- Puck: 160 km
+- Portia: 140 km
+- Juliet: 100 km
+- Belinda: 90 km
+- Cressida: 80 km
+- Rosalind: 70 km
+- Desdemona: 60 km
+Neptune: faint rings, larger moons in general more distant
 - Triton: 2.7 Mm, retrograde orbit, nitrogen ice surface
+-- irregular shape
+- Proteus: 420 km
+- Nereid: 360 km, distant eccentric inclined orbit
+- Larissa: 200 km
+- Galatea: 180 km
+- Despina: 160 km
+- Thalassa: 80 km
+- Naiad: 60 km, inclined orbit
+- Halimede: 60 km, very distant eccentric retrograde orbit
+- Neso: 60 km, very distant eccentric retrograde orbit
 
-#Kuiper belt
-Pluto: 2.4 Mm, moon Charon (mutually tidally locked)
+#Trans-Neptunion object (TNO): Kuiper belt + scattered disc + sednoids 
+=Kuiper belt
+Pluto: 2.4 Mm, moon Charon (mutually tidally locked), retrograde rotation
 Makemake: 1.4 Mm
 Haumea: elongated shape
 Quaoar: 1.1 Mm
 Orcus: 900 km
-
-#Scattered disc
+=Scattered disc
 Eris: 2.3 Mm, moon Dysnomia (mutually tidally locked)
 Gonggong: 1.2 Mm, eccentric orbit
-
-Sedna: 1 Mm, very large elongated orbit
+=Sedna: 1 Mm, very large elongated orbit
 
 #Oort cloud: comets
 Halley's comet: period 75 years

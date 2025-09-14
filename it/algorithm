@@ -59,10 +59,19 @@ Constraint relaxation: constraint removal
 Continuous relaxation: codefinitionntinuous instead of discrete variables
 Lagrangian relaxation: violations penalization
 
+#Complexity
+ZPP ⊆ RP ⊆ BPP ⊆ PP
+PP: probabilistic Turing machine in polynomial time
+
 #Randomness
-Monte Carlo method: repeated random sampling, e.g. π value estimation
+Monte Carlo algorithm: repeated random sampling, e.g. π value estimation
 - Fermat primality test: check if number is prime, a^(p-1) = 1 mod p
 - Miller–Rabin primality test: check if number is prime
+- complexity class BPP: bounded error both-sides
+- complexity class RP: bounded error one-side, no error second-side
+Las Vegas algorithm: gives correct result or indicates failure
+- complexity class ZPP: expected polynomial time on average
+- can be converted to Monte Carlo by giving random answer after X attempts
 Bloom filter
 - test presence of element in set
 - gives false positives but needs less space

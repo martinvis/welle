@@ -5,7 +5,8 @@ Dome: hollow upper half of sphere
 - Cupola: small dome-like structure on top of building/dome
 niche: cavity in wall holding statue/vase
 rotunda: circular roofed building
-spire: tall pointed top of roof
+Spire: tall pointed top of roof
+- Steeple: tall tower with spire
 tracery: division of window into sections
 Lunette: decorative semicircular space
 Fluting: shallow grooves along surface
@@ -20,6 +21,23 @@ Finial: decorative roof top
 - Kalasha: spire shaped, Hindu temples
 - Chigi: forked, Shinto
 Tumulus: mound over grave
+Rose window: circular, segmented
+Venetian/Palladian window: arched central flanked by two rectangular
+Roof
+- Gable: triangular wall under sloping sides of roof
+- Shed roof: single slope (simple)
+- Flat roof: no slope (bad drainage)
+- Hip roof: all sides slope, no gable (less steep slope)
+- Gablet roof: hip roof with small gable
+- Mansard roof: hip roof with two slopes on each side (more space)
+- Tented roof: hip roof with steep slope (religious)
+- Hip-and-gable roof: East Asia, hip roof with two gables
+- Mokoshi: Japan, decorative roof below actual roof, attached to wall
+- Attic: space below pitched roof
+- Gutter: water discharge
+
+Caisson: watertight structure, becomes base of bridge foundation
+Cofferdam: temporary watertight enclosure during dam construction
 
 #Christian Church
 Chancel: space around altar
@@ -42,6 +60,7 @@ Doric order: circular cushion on top of columns
 - frieze relief separated by triglyphs into metopes
 Ionic order: rectangular voluted top of columns (spiral ornament)
 - Caryatid: female figure used instead of column
+- Kore: free-standing female figure
 Corinthian order: ornate top of columns
 
 Columns: with vertical grooves
@@ -49,6 +68,8 @@ Entablature: horizontal structure above columns
 - Frieze: wide centrum, decorated by reliefs
 Pediment: triangular wall above horizontal structure
 - with sculpture
+Crepidoma: multi-step foundation (usually three)
+- Stylobate: top step of Crepidoma
 
 Monopteros: circular colonnade with roof
 Tholos: circular colonnade with walls and roof
@@ -152,7 +173,8 @@ flying buttresses
 pointed arches
 ribbed vaults
 stained glass windows
-spires
+Rose window
+Spire
 - Flèche: tall spire
 - Crockets: small decorations on spires
 - Pinnacle: small spire
@@ -181,8 +203,9 @@ gilded sculptures
 grand stairways
 curved lines, oval spaces
 mirrors
-twisted columns
 quadratura
+Solomonic columns: twisted spiral
+Coupled column: pair
 Giant order
 Superposed order
 Stucco marble: artificial marble imitation
@@ -201,5 +224,8 @@ Roman garden: kitchen garden, pergolas, statues, shrines, nymphaeum
 Italian garden: symmetry, fountains, statues, grottoes
 French garden: geometric plan, terrace, central axis, water as mirror
 English garden: lawn, trees, lakes, classic temples, bridges
+
+#Iberian
+Bell-gable / Espadaña: triangular wall with arched openings for bells (economic)
 
 Palapa: open-sided, thatched roof from palm leaves, Central America

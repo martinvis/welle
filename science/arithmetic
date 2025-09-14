@@ -18,10 +18,12 @@ Prime number: natural number that is not product of two smaller natural numbers
 - Sieve of Eratosthenes: find primes by removing prime multiples
 - Prime gap: difference between two successive prime numbers
 - Bertrand's postulate: ∀ integer n ∃ prime number p where n < p < 2n
+- probability of two integers being coprime is 6/π^2
+- Ulam spiral: integers in square spiral, lines with many primes
 Composite number: natural number that is product of two smaller natural numbers
 Fundamental theorem of arithmetic: every integer is unique product of prime factors
 
-Twin prime: pair of primes with gap of two
+Twin prime: pair of pprime farimes with gap of two
 - Twin prime conjecture: unproven, infinitely many twin primes
 - Brun's theorem: sum of reciprocals of twin primes is convergent
 - Polignac's conjecture: infinitely many consecutive primes with any even-length gap
@@ -42,3 +44,23 @@ Pell numbers: 0/1/2P+Q, Pell / Pell-Lucas fractions approach square root of two
 Pell–Lucas numbers: 2/2/2P+Q
 Jacobsthal number: 0/1/P+2Q
 Mersenne numbers: 0/1/3P-2Q, 2^n-1
+
+Pi/π: ratio of circle circumference to diameter, irrational
+- value: 3.14159265358979323846264338327950
+
+Geometric series: cake splitting
+- ∑ 1/x^n = 1/(x-1)
+
+=Riemann zeta function: ζ(s) = ∑ 1/(n^s)
+Riemann hypothesis: Riemann zeta function has zeroes only at negative integers and complex numbers with real part 1/2
+Harmonic series: ∑ 1/n, divergent
+Basel problem: ∑ 1/(n^2) = π^2/6
+- proof: apparent brightness of stars, inverse pythagorean theorem, line as infinite circle
+
+=Faulhaber's formula: ∑ n^p, sum of first n p-th powers
+Bernoulli numbers
+Triangular numbers: ∑ n = n*(n+1) / 2
+Pyramidal numbers: ∑ n^2 = n*(n+1)(2n+1) / 6
+
+=Factorial: n!, product of first n integers
+Permutation: arrangements of elements in sequence

@@ -3,6 +3,9 @@ Lexeme: set of words related by inflection
 Inflection: modification of word to express tense, person, gender etc
 - Conjugation: inflection of verbs
 - Declesion: conjugation of non-verbs
+Pangram: sentence using every letter of alphabet
+Anagram: word formed by letter rearrangement of another word (listen/silent)
+Palindrome: reads same backwards and forwards (madam)
 
 Morpheme: smallest unit with meaning
 Word stem: part of word with lexical meaning
@@ -74,3 +77,5 @@ Determiner: with noun
 - Quantifier: few/many
 - Distributive: none/every
 - Interrogative: what/who
+
+Epithet: descriptive term accompanying name (Richard the Lionheart)
