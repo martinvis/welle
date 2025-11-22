@@ -4,6 +4,8 @@ Tensegrity
 - tensioned parts are pre-stressed
 - no bending moment, no shear stress
 
+Poka-yoke: making mistake physically impossible (microwave door)
+
 #Mechanical stress: deformation force
 Normal: perpendicular to surface
 Shear: parallel to surface
@@ -23,6 +25,8 @@ Roving bridge: over canal, allows crossing to horse towing boat
 - split in middle or spiral ramp
 
 Gimbal: pivotal support allowing rotation, provides stability
+Orrery: mechanical model of Solar system
+- Antikythera mechanism: ancient Greece, geocentric
 
 Chain drive: transmits mechanical power (bicycle wheel)
 - Roller chain: rollers held together by chain links
@@ -67,7 +71,15 @@ Delta Works: Netherlands, Maeslant barrier near Rotterdam + Oosterschelde barrie
 MOSE: Venice, floodgates sealing off lagoon during high tide
 Thames Barrier: London
 
-#mechanical clock
+
+#clocks
+
+Sundial: gnomon casting shade on flat plate, required sunlight
+Water clock / Clepsydra: liquid flowing to/from measured container
+Candle clock: burning candle with spaced markings
+Hourglass: sand flowing through narrow neck between two glass bulbs
+
+=mechanical clock
 Mainspring: spiral torsion spring, power source (~40 hours)
 Suspended weight: drops over time, power source (~8 days)
 Wheel train: transmits force from source to escapement, gears turn at various speed (hands)
@@ -75,3 +87,16 @@ Escapement: transforms rotating motion into impulses driving balance wheel or pe
 Balance wheel/Pendulum: swings back and forth (time)
 Balance spring: attached to balance wheel, causes oscillation with resonant frequency (accuracy)
 
+=Quartz clock: SiO2 piezoelectric oscillator, more accurate than mechanical, used in electronics
+subject to electricity crystal vibrates at stable resonant frequency
+circuit counts pulses by detecting voltage polarity changes
+
+=Atomic clock: more accurate than quartz, used in GPS
+Cs133/Rb87 have stable electron transition frequency with narrow peak as perfect resonance
+quartz oscillator produces signal near target frequency, Cs/Rb atoms absorb it and help to adjust frequency
+Cs/Rb atoms are radiated by microwave frequency, number of transitioned atoms detects error in signal (difference from perfect resonance)
+Optical clock: uses transition in optical frequency range (Sr/Yb/Al), more accurate due to higher frequency
+
+=Nuclear clock: in development, nuclear isomeric transition as reference frequency (Th229), less electromagnetic interference
+
+Quantum radar: theoretical, signal beam is quantum-entangled with idler beam to allow detection of returning signal with greater sensitivity

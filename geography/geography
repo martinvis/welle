@@ -1,7 +1,14 @@
 #Earth
-Crust: 
-Mantle:
-Core:
+Crust: outer, thin, less dense
+- oceanic: 5-10 km, basalt
+- continental: 25-70 km, granite
+Mantle: center, thick, solid, 2/3 of mass, 4/5 of volume
+- upper: 30-400 km, olivine + pyroxene
+- transition zone: 400-660 km, wadsleyite + ringwoodite, water within minerals
+- lower: 660-3000 km, bridgmanite
+Core: inner, dense, iron + nickel
+- outer: 3000-5000 km, liquid, magnetic field, 1/3 of mass
+- inner: solid
 
 #Earth
 Atmosphere: gases in multiple layers
@@ -41,6 +48,18 @@ Horse latitudes: around 30th parallel
 Jet stream
 - fast narrow eastwards air current between cells
 - speed 150-200 km/h, at height 10-15 km
+
+Ice–albedo feedback: climate change loop
+- ocean ice melt -> lower albedo ocean -> warming
+- ice cover increase -> higher albedo -> cooling
+Albedo: reflected fraction of sunlight, low albedo surface gets hotter
+- snow: 0.8
+- ocean ice: 0.6
+- sand: 0.4
+- grass: 0.25
+- deciduous: 0.15
+- conifers: 0.1
+- ocean: 0.06
 
 #Atmosphere composition
 Nitrogen: 78%
@@ -161,6 +180,23 @@ Volcanic
 - Geyser: hot spring with rapid discharge of water
 Plateau: high plain above surroundings
 - volcanic, tectonic or by erosion
+
+=volcanoes
+Tephra: solid material produced by explosive eruption
+- Volcanic ash: particles under 2mm diameter
+- Tuff: soft rock made of volcanic ash
+Lava: molten rock produced by effusive eruption, 800-1200 °C
+- Felsic lava: 60+% silica, high viscosity, cooler
+- Mafic lava: ~50% silica, Mg/Fe oxides, low viscosity
+
+=volcano types
+Volcanic cone: conical hill around volcanic vent
+- Cinder cone: small and steep, tephra, explosive eruptions
+- Lava dome: steep, high viscosity lava
+- Stratovolcano: steep, alternating lava/tephra layers, high viscosity lava, some have caldera
+- Shield volcano: broad, low viscosity lava, effusive eruptions, some have caldera
+Fissure vent: long narrow volcanic vent, effusive eruptions
+Caldera: large cauldron-like hollow after collapse of magma chamber in eruption
 
 #Fluvial: moving water
 Beach: eroded by waves
@@ -283,3 +319,30 @@ Black sea: 2%
 Oceans: 3.5%
 Red sea: 4%
 Mediterranean sea: 4%
+
+=Craton: ancient large stable part of continental crust
+Shield: exposed basement rocks
+Platform: sedimentary cover oevr basement rocks
+--
+North American craton (Laurentia): Canadian shield
+East European craton (Baltica): Fennoscandia + Volgo-Uralia + Sarmatia
+Siberian Craton (Angara): 
+North Atlantic craton: Greenland
+North China craton:
+South China craton:
+--
+Amazonian craton:
+Río de la Plata craton: Uruguay
+São Francisco craton: Minas Gerais + Bahia
+--
+Kalahari craton: south Africa, Kaapvaal (Archaean) + Zimbabwe
+Congo craton: central Africa
+Tanzania craton: east Africa
+West African craton:
+--
+Pilbara craton: western Australia, Archaean
+Yilgarn craton: western Australia
+Gawler craton: southern Australia
+
+=Geomorphology: origin and evolution of topographic features
+Karst: dissolution of soluble carbonate rocks (limestone, dolomite), underground drainage systems

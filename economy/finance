@@ -1,27 +1,39 @@
 #general
-arbitrage: taking advantage of price difference without risk
-hedge: position used to offset potential losses
-insolvency: inability to pay debt
-leverage: multiplies gains and losses, uses borrowed funds
+Arbitrage: taking advantage of price difference without risk
+Hedge: position used to offset potential losses
+Insolvency: inability to pay debt
+Leverage: multiplies gains and losses, uses borrowed funds
 AUM (assets under management): total market value of assets
-valuation: subjective total value of company
+Valuation: subjective total value of company
 
 #debt
-bond
-loan
-mortgage: loan secured by real estate
+Debt: obligation to repay money with interest
+- Default: failure to meet obligations of debt
+- Collateral: asset pledged as security for debt
+- Guarantor: repays debt in case of default
+- Secured debt: backed by collateral (mortgage)
+- Unsecured debt: without collateral and guarantor
+Credit: potential debt
+Bond: public, balloon payment
+Loan: private, amortization
+- Mortgage: loan secured by real estate
+- Payday loan: short-tem, unsecured, high interest rate
+Non-performing loan (NPL): loan with late repayments (90d+), unlikely to be repaid in full
+Repayment plan: installment schedule of loan
+- Amortization: fixed amount, variable principal + interest (initially more interest less principal)
+- Balloon payment: most of principal paid at end
 
 Earnest payment: deposit to seller of high value property (real estate)
 
 #debt
 principal: amount loaned
 interest: payment from borrower to lender
+- Usury: excessive interest rate, illegal
 repayment
 credit bureau: agency gathering account information from creditors
 credit rating agency: company assigning credit ratings
 credit rating: evaluation of credit risk of debtor
 credit risk: likelihood of debtor defaulting
-default: failure to meet obligations of debt
 bankruptcy: process enabling debtor in default to seek relief on part of debt
 
 #investment
@@ -31,6 +43,7 @@ venture debt: loan to fund capital combined with warrants
 venture capital: funds in exchange for ownership stake
 
 #security: tradable financial asset
+Tranche: slice of securities within financing agreement
 bond: issuer owes holder debt and pays interest
 commodity: raw materials, agricultural products
 currency: 
@@ -159,6 +172,10 @@ Profic margin: percentage of profit to revenue
 - Net margin: net profit to revenue, considers all cashflows (debt, taxes)
 Gain: positive change in asset price
 Loss: negative change in asset price
+
+Volatility (σ): variation of price over time
+Beta (β): price movement relative to whole market
+Diversification: reducing exposure to single asset or risk
 
 #currencies
 Dinar: Iraq (IQD), Lybia (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denarius]

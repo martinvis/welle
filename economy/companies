@@ -323,9 +323,10 @@ netherlands: KPMG
 uk: Deloitte, Ernst & Young, PricewaterhouseCoopers
 
 #payment
-usa: American Express, PayPal (Venmo), Mastercard, Visa, Square
-netherlands: PayU
-sweden: Klarna
+usa: American Express, PayPal (Venmo), Mastercard, Visa, Square, Fiserv (First Data)
+uk: Wise (TransferWise)
+netherlands: PayU, Adyen
+sweden: Klarna, Trustly
 ireland: Stripe
 
 #finance

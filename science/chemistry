@@ -27,6 +27,7 @@ Supercritical fluid
 - at high pressure and temperature
 - properties between liquid and gas
 - in black smokers or atmosphere of Venus + gas giants
+Bose–Einstein condensate (BEC): gas of bosons near absolute zero, superfluid, atoms overlap to single wave
 
 #Phase transition - change in state of matter
 - temperatute does not change during change
@@ -252,7 +253,8 @@ Allotropy: element existing in multiple forms in same conditions (e.g. carbon)
 Stereoisomerism: isomers differing by 3D molecular structure
 Enantiomer: isomers by mirror image
 - Racemate: mixture with equal number of left and right enantiomers
-Isotopomer: different arrangement but same number of isotopes
+Isotopologue: molecules differing by isotopic composition
+- Isotopomer: different arrangement but same number of isotopes
 
 #Tacticity: position of groups in polymer chain
 Isotactic: all chiral centers with same configuration
@@ -539,3 +541,11 @@ Hall–Héroult process: aluminium smelting, consumes lots of electricity
 - electrolysing Al2O3 dissolved in molten Na3AlF6 at 950°C
 - Al2O3 + C => Al + CO2
 - allowed cheap aluminium production, previously costed more than gold
+
+Uranium–lead dating: 1M to 5B years, zircon crystals incorporate uranium but not lead, uranium decays to lead (2 separate chains), golden standard
+Potassium–argon dating: 100k to 5B years, K40 decays to Ar40, argon stuck in solid rock, requires 2 samples, errors due to weathering
+- Argon–argon dating: Ar40 from radioactive decay vs Ar39 from stable K39 via irradiation in nuclear reactor, more accurate
+Rubidium–strontium dating: 50M to 5B years, extraterrestrial samples, Rb87 decays to Sr87
+Radiocarbon dating: 100 to 50k years, organic materials, C14 decay, C14 created in atmosphere and photosynthesized in CO2, exchange stops at death
+Surface exposure dating: 1k to 1M years, glacial dynamics, Be10 created from O16 in atmosphere
+

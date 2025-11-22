@@ -7,38 +7,53 @@ Period: 1-10 My
 Epoch: 0.1-1 My
 Age: 1-100 ky
 
-=eons
-Precambrian
-- Hadean (4.5-4 By): formation of Earth and Moon
-- Archean (4-2.5 Gy): Late Heavy Bombardment, bacteria
-- Proterozoic (2.5-0.5 Gy): eukaryotes
-Phanerozoic (0.5-0 Gy): life on land, mass extinctions
+#eons
+=Precambrian
+Banded iron formation (BIF): alternating iron-oxides and iron-poor layers, caused by ocean (Fe rich and H2S poor) oxidation
+Hadean (4.5-4 By): heavy atmosphere (H2O, CO2)
+- Theia Impact: formation of Earth and Moon
+- Faint Young Sun: 70% output
+- H2O to liquid oceans, CO2 to carbonate rocks
+Late Heavy Bombardment (LHB): asteroids and comets
+Archean (4-2.5 GProterozoicy): water world, archaea + bacteria, N2 atmosphere, greenhouse gases (CO2, CH4), Fe rich oceans
+- Primordial soup: NH3 + CH4 + H2 + H2O + energy => amino acids + nucleotides + sugars + lipids
+- Abiogenesis: monomers, mineral-assisted polymerization, lipid membrane, RNA self-replication
+- Protocell / Protobiont: cell precursor, self-replicating lipid membrane with internal metabolism
+- Warm little pond: origin of life on land near hotsprings
+- Hydrothermal vent: origin of life in ocean near vents
+Proterozoic (2.5-0.5 Gy): eukaryotes (archaea + bacteria as mitochondria/chloroplast)
+=Phanerozoic (0.5-0 Gy): life on land, mass extinctions
 
 =Proterozoic periods
+Boring Billion (1800-800 My): tectonic and climatic stability, slow evolution
+- Canfield ocean / Euxinia: anoxic (no O2) sulfidic (H2S) deep ocean
 Paleo
 - Siderian (2500-2300 My): Great Oxygenation Event
 - Rhyacian (2300-2050 My): Huronian glaciation
-- Orosirian (2050-1800 My)
+- Orosirian (2050-1800 My): Columbia supercontinent, end of BIF formation (Fe poor oceans)
 - Statherian (1800-1600 My)
 Meso
-- Calymmian (1600-1400 My)
-- Ectasian (1400-1200 My)
-- Stenian (1200-1000 My)
+- Calymmian (1600-1400 My):
+- Ectasian (1400-1200 My):
+- Stenian (1200-1000 My): Rodinia supercontinent
 Neo
-- Tonian (1000-720 My): red and green algae, Rodinia supercontinent
-- Cryogenian (720-635 My): Snowball Earth
+- Tonian (1000-720 My): red and green algae
+-- Neoproterozoic Oxygenation Event (NOE): oxygen rise in atmosphere and oceans
+- Cryogenian (720-635 My): Snowball Earth (Sturtian + Marinoan glaciations), volcanic CO2 accumulation caused greenhouse effect
 - Ediacaran (635-540 My): jellyfish, sponges
+-- Gaskiers glaciation (580 My): short
 
 =Phanerozoic eras and periods
 Palaeozoic: trilobites
-- Cambrian (540-485 My): molluscs, crustaceans
-- Ordovician (485-444 My): corals, cephalopods
+- Cambrian (540-485 My): molluscs (CaCO3), crustaceans (chitin)
+- Ordovician (485-444 My): corals, cephalopods, moss
 - Silurian (444-420 My): fish, myriapods
-- Devonian (420-360 My): bony fish, ferns, trees
-- Carboniferous (360-300 My): moss, insects, spiders, amphibians
+- Devonian (420-360 My): bony fish, ferns
+- Carboniferous (360-300 My): insects, spiders, amphibians, Pangea supercontinent
 - Permian (300-250 My): reptiles, sharks, beetles, conifers, Dimetrodon
 Mesozoic: ammonites, dinosaurs, pterosaurs, cycads
-- Triassic (250-200 My): ichthyosaurs, crocodiles, flies, Pangea supercontinent
+- Triassic (250-200 My): ichthyosaurs, crocodiles, flies, Pangea => Laurasia + Gondwana
+--- Tethys ocean: between Laurasia and Gondwana, later Mediterranean Sea and Indian ocean
 - Jurassic (200-145 My): plesiosaurs, crabs, turtles, wasps, mammals, Archaeopteryx, Allosaurus, Stegosaurus, Diplodocus
 - Cretaceous (145-66 My): mosasaurs, flowers, palms, marsupials, birds, bees, ants, Tyrannosaurus, Triceratops, Ankylosaurus
 Cenozoic: butterflies, snakes, ungulates, carnivores, rodents, primates
@@ -54,3 +69,43 @@ Neogene: mastodons
 Quaternary: ice ages, humans
 - Pleistocene (2.5-0.01 My): Smilodon, Woolly mammoth, Neanderthal
 - Holocene
+
+Geochronology: determine age of rocks and fossils by isotopes and paleomagnetism
+Paleomagnetism: magnetic field direction recorded in iron minerals at formation time, latitude information
+
+Carbonate–silicate cycle: 
+- Silicate weathering: by carbonic acid (rainwater + CO2), 2 H2CO3 + CaSiO3 -> Ca + 2 HCO3 + SiO2 + H2O
+- Carbonate precipitation: sedimentation, Ca + 2 HCO3 -> CaCO3 + CO2 + H20
+- metamorphosis in mantle, CaCO3 + SiO2 -> CaSiO3 + CO2
+- CO2 released to atmosphere by volcanism
+
+Sulfur cycle:
+- sulfides: by mineralization of organic sulfur
+- sulfur: by mineralization of organic sulfur
+- sulfates: by oxidation of sulfur and sulfides
+- Assimilatory sulfate reduction: sulfate assimilated by organisms into cysteine
+- Dissimilatory sulfate reduction: anaerobic respiration, SO4 -> H2S
+- Sulfur oxidizing bacteria (SOB): energy source, H2S -> SO4
+
+Volcanic winter: temperature decrease caused by sulfuric acid droplets blocking sun
+
+#Paleoclimatology
+S34/S32 ratio: S34 increase after Great Oxidation Event due to FeS2 oxidation, ozone layer ended mass-independent fractation
+=Paleothermometer: estimate of temperature at formation time of material
+O16/O18 ratio: more O18 in CaCO3 at lower temperature, less O18 in ice at low temperature
+Mg/Ca ratio: more Mg replacing Ca in CaCO3 at high temperature
+
+=types
+Hawaiian eruption: gentle lava flow, effusive eruption, hotspot volcanoes
+Strombolian eruption: mild blast, thicker lava
+Vulcanian eruption: explosive blast, dense ash cloud
+Plinian/Vesuvian eruption: ejection into stratosphere, can cause caldera
+
+Dense-rock equivalent (DRE): volcanic eruption volume estimate
+Volcanic explosivity index (VEI): volcanic eruption explosive size, logarithmic, 8 = supervolcano
+--
+Samalas eruption (1257): Lombok, left caldera, crop failures, famine
+Laki eruption (1783): Iceland, 10 km3 into atmosphere, 50% livestock death, famine
+Tambora eruption (1815): Sumbawa, 40 km3 into atmosphere, left caldera
+- Year Without a Summer (1816): temperature decrease, crop failures, famine
+Krakatoa eruption (1883): Sunda Strait, 10 km3 into atmosphere, tsunami, left caldera

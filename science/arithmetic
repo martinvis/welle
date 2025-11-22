@@ -57,10 +57,19 @@ Harmonic series: ∑ 1/n, divergent
 Basel problem: ∑ 1/(n^2) = π^2/6
 - proof: apparent brightness of stars, inverse pythagorean theorem, line as infinite circle
 
-=Faulhaber's formula: ∑ n^p, sum of first n p-th powers
-Bernoulli numbers
+=Faulhaber's formula: sum of first n p-th powers, ∑ n^p = (1/p-1) * ∑(p+1 r)n^(p+1-r)Br
+Bernoulli numbers: additional coefficients in binomial expansion
 Triangular numbers: ∑ n = n*(n+1) / 2
 Pyramidal numbers: ∑ n^2 = n*(n+1)(2n+1) / 6
 
 =Factorial: n!, product of first n integers
-Permutation: arrangements of elements in sequence
+Permutation: arrangement of elements in sequence, order matters, n!
+Combination: selection of k elements, order does not matter, (n k) = n! / [(n-k)! * k!]
+
+Pascal's triangle: binomial coeficients, each entry is sum of left and right parent
+- diagonals: 1s on edges, then natural numbers, then triangular numbers, then tetrahedral numbers etc
+- rows: sum of row is 2x sum of previous row
+Binomial theorem: (x+y)^n expressed as polynomial with n-th row of Pascal's triandle as coefficients
+- (x+y)^2 = x^2 + 2xy + y^2
+- (x+y)^3 = x^3 + 3x^2y + 3xy^2 + y^3
+

@@ -66,3 +66,5 @@ Recurrent neural network (RNN): bidirectional neural network (speech)
 Transformer: self-attention, parallel processing
 - Large Language Model (LLM): (content generation, summarization, translation)
 Neural Turing machine: recurrent neural network with external memory
+
+Model Context Protocol (MCP): integration standard between AI assistants and external data systems

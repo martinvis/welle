@@ -72,6 +72,11 @@ Barometer: measure air pressure
 - liquid mercury column in glass, vacuum at top, one open end
 Manometer: measures gas pressure, U shape, two open ends
 
+#material identification
+Mass spectrometer: separate charged particles by mass-to-charge ratio (isotopes have different mass)
+- vaporization -> ionization -> acceleration in electric field -> deflection in magnetic field
+Optical spectrometer: measure emitted/absorbed/reflect light over portion of EM spectrum (molecules have different signature)
+
 #Battery: energy storage
 - food, fossil fuels
 Gravity battery: potential energy stored by raised mass

@@ -71,3 +71,7 @@ Frobenius normal form: block diagonal matrix, each block represents polynomial, 
 Latin square: n*n array, n different symbols in each row and column
 Euler square: two Latin squares, all value pairs are distinct
 - exist for every size except 2 and 6 (36 officer problem)
+
+#Logic
+Conjunctive normal form (CNF): conjunction of disjunctions, no nested negation, e.g. (P∨Q)∧(¬Q∨R)
+Disjunctive normal form (DNF): disjunction of conjunctions, no nested negation, e.g. (P∧Q)∨(¬Q∧R)

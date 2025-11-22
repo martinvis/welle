@@ -1,6 +1,11 @@
 =Pseudomonadota
 gram negative
 
+#Rickettsiales
+Wolbachia pipientis:infects arthropods
+- reproductive parasite (spread through females, feminization, male killing, parthenogenesis without males)
+- Cytoplasmatic incompatibility: infected males can not reproduce with uninfected females
+
 #Burkholderiales
 Burkholderia pseudomallei: weaponizable
 - rod shape
@@ -40,7 +45,10 @@ Haemophilus influenzae
 #Legionellales
 Legionella pneumophila
 - rod shape
+- no vaccine
 - invades macrophages
+- spread by inhaled water (air conditioning, hot tub)
+- causes Legionnaires' disease: cough, dyspnea, fever
 
 #Enterobacterales
 Escherichia coli
@@ -56,6 +64,11 @@ Shigella
 - infects colon
 - causes Shigellosis: diarrhoea, fever, abdominal pain
 - spread by contaminated food and water
+Klebsiella pneumoniae: diazotroph
+- rod shape
+- can cause pneumonia, urinary tract infection, sepsis
+Buchnera aphidicola: obligate endosymbiont of aphids, small genome lacking important pathways, overproduce essential amino acids
+Hamiltonella defensa: obligate endosymbiont of aphids, protection against parasitoid wasps (only when infected by virus)
 
 #Vibrionales
 Vibrio cholerae
@@ -131,7 +144,7 @@ Staphylococcus aureus
 - antibiotic-resistant strains
 Listeria monocytogenes
 - rod shape
-- causes listeriosis
+- causes listeriosis: gastroenteritis/sepsis/meningitis/encephalitis, high mortality
 - from unpasteurized dairy
 
 #Clostridiales

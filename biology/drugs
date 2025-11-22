@@ -555,29 +555,29 @@ Tricyclic: side effects (dry mouth, constipation, dizziness, weight gain)
 Lithium: treats mania (bipolar disorder), side effects (kidneys, increased urination, hand tremors, hypothyroidism)
 
 #ACE inhibitor: lower high blood pressure, common side effect coughing
-Benazepril
-Captopril
-Enalapril
+Benazepril:
+Captopril:
+Enalapril:
 Lisinopril: common
-Ramipril
+Ramipril:
 
 #Angiotensine receptor blocker (ARB) / Sartan: high blood pressure, angiotensine antagonist
 Losartan: common
-Irbesartan
-Valsartan
+Irbesartan:
+Valsartan:
 
 #Beta blocker: manage arrhythmia and high blood pressure, block receptors for adrenaline and noradrenaline
 Nonselective
-- Labetalol
-- Pindolol
-- Propranolol
+- Labetalol:
+- Pindolol:
+- Propranolol:
 Selective
-- Acebutolol
-- Atenolol
-- Bisoprolol
-- Esmolol
+- Acebutolol:
+- Atenolol:
+- Bisoprolol:
+- Esmolol:
 - Metoprolol: common
-- Nebivolol
+- Nebivolol:
 
 #Corticosteroid
 Glucocorticoid: bind to glucocorticoid receptor

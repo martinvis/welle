@@ -61,7 +61,10 @@ Lagrangian relaxation: violations penalization
 
 #Complexity
 ZPP ⊆ RP ⊆ BPP ⊆ PP
+PSPACE = NSPACE
 PP: probabilistic Turing machine in polynomial time
+Savitch's theorem: NSPACE(n) ⊆ DSPACE(n^2)
+Cook–Levin theorem: Boolean satisfiability problem (SAT) is NP-complete
 
 #Randomness
 Monte Carlo algorithm: repeated random sampling, e.g. π value estimation

@@ -148,6 +148,16 @@ Rotation: circular movement around central axis
 - Axial tilt / Obliquity: angle between rotational and orbital axis
 Retrograde: motion in direction opposite of primary
 Prograde: motion in direction of primary
+Conservation of angular momentum:
+- galaxy/star/planet material collapses under gravity, spins faster and flattens
+- stars and planets mostly share rotation axis of galaxy
+
+Galactic plane: plane with most of disc galaxy mass
+
+=Star formation
+Molecular cloud: gas and dust, forms stars if cold and dense
+- inward gravity pull against outward thermal pressure
+Protostar: young star, infrared radiation from thermal energy due to gravitational compression
 
 Barycenter: center of mass of two or more orbiting bodies
 Satellite: smaller body orbiting larger body, star and planet, planet and moon
@@ -162,8 +172,43 @@ Roche limit
 - distance where satellite will disintegrate and form ring
 - tidal forces exceed satellite self-gravitation
 
-Saros cycle: ~18 period between eclipses (repeated Sun-Moon-Earth position)
+Eclipse season: every ~6 months for ~1 month, solar eclipse at new moon, lunar eclipse at full moon
+- Saros cycle: ~18 years period between eclipses (repeated Sun-Moon-Earth position)
+- Exeligmos: 3x Saros, period between eclipses on similar location
 Synodic month: moon orbit period in respect to sun, 29.5 days
 Sidereal month: moon orbit period in respect to stars, 27.3 days
 
 Conjunction: astronomical objects appearing close to each other in sky
+
+#Stellar nucleosynthesis: creation of elements by nuclear fusion
+=p-p chain: star mass <= 1.3 Sun, H => He4
+Proton–proton chain (p-p I): temperature 10-18 MK, 90% of Sun energy
+- H + H -> D
+- D + H -> He3
+- He3 + He3 -> He4 + 2H
+Lithium burning (p-p II): He3 + He4 -> Be7 -> Li7, Li7 + H -> 2He4, temperature 18-25 MK, 10% of Sun energy
+Boron branch (p-p III): He3 + He4 -> Be7, Be7 + H -> B8 -> Be8 -> 2He4, temperature >25 MK, high energy neutrino
+=CNO cycle: star mass > 1.3 Sun, H => He4, catalytic cycle, temperature 15-100 MK
+C12 + H -> N13 -> C13
+C13 + H -> N14
+N14 + H -> O15 -> N15
+N15 + H -> C12 + He4
+=Triple-alpha process: 3He4 => C12, temperature >100 MK
+=Alpha ladder: helium to heavier elements (up to Fe56), star mass > 10 Sun, supernova
+=heavier elements
+Carbon burning: 
+- 2C12 -> Ne20 + He4
+- 2C12 -> Na23 + H
+Neon burning:
+- Ne20 -> O16 + He4
+- Ne20 -> Mg24
+Oxygen burning:
+- 2O16 -> Si28 + He4
+- 2O16 -> S32
+Silicon burning: alpha ladder
+=Neutron capture: elements beyond iron
+r-process (rapid): another capture before decay, neutron star merger
+s-process (slow): decay before another neuron captured
+=Proton capture:
+rp-process (rapid): capture until decay is necessary, accreting neutron star
+=Photodisintegration: atomic nucleus excited by high energy gamma ray decays

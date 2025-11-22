@@ -36,10 +36,27 @@ Alarm signal: warning of predator, social animals (birds, primates)
 
 #Mimicry: evolved resemblance to another object / organism
 Aggressive: predator avoids identification (anglerfish)
+Gilbertian: host drives away parasite (leaf outgrowth resembling butterfly eggs)
 Batesian: harmless mimics harmful (hoverflies)
 Müllerian: shares honest warning signal (predator learns faster)
 Mertensian/Emsleyan: deadly prey mimics less-deadly (predator can survive and learn)
 Vavilovian: weed resembles crop
+
+#microbial transmission: vaginal, skin-to-skin, fecal-oral
+Vertical transmission: mother to child
+- Transovarial: arthropods, within eggs (tick, mosquito)
+- Transovum: arthropods, surface of eggs (stink bug)
+- Pap: specialized bacteria-containing feces produced by mother for juvenile (koala)
+Horizontal transmission: between peers
+- Trophallaxis: mouth-to-mouth or anal-to-mouth transfer (termite)
+- Coprophagy: feces consumption (earwig, elephant)
+
+#Beewolf
+- mother burrows tunnels with brood cells
+- mother stores several paralyzed bees per cell, each cell is for single larva
+- mother:s cephalic glands secrete anti-condensation substance to delay mold
+- mother's antennae glands secrete Streptomyces bacteria to protect from fungi
+- eggs release NO gas to sterilize cell
 
 Thermoregulation
 - larger animals conserve heat better, lower surface-area to volume ratio
@@ -59,6 +76,7 @@ Torpor: decreased body temperature and metabolic rate
 Beau Geste hypothesis: some birds utilize big song repertoires to simulate higher population
 
 #Gender
+Fecundity: reproductive rate of organism
 
 #Gamete
 Male: large number, small, motile
@@ -114,6 +132,8 @@ Transmission
 - Directly transmitted: spread by contact, e.g. lice or mites
 Obligate parasite: relies on host to reproduce, viruses or helminths
 Facultative parasite: can reproduce without host, fungi
+
+Holobiont: host with symbiotic microbiome
 
 #Dominance hierarchy: ranked order in group, reduces fights
 affects reproduction, territory, access to resources
@@ -181,6 +201,8 @@ Nectarivore: consumes nectar (butterflies)
 Palynivore: consumes pollen (bees)
 Mellivore: consumes honey (bears)
 
+Diazotroph: organism capable of nitrogen fixation (Rhizobium, Klebsiella)
+
 #Feeding
 Hawking: birds, catching insects in air
 Gleaning: birds, plucking insects from foliage or ground
@@ -189,6 +211,7 @@ Nectar robbing: getting to nectar through hole in flower, no pollination
 
 Preening: plumage maintenance by bill, birds
 Billing: bills touching during courtship, birds
+Anting: rubbing insects on feathers, birds
 
 #Electroreception
 Electrolocation: passive, sense electric fields around (shark, sturgeon, platypus)
@@ -209,3 +232,4 @@ Moulting: benefitial loss of parts of body at specific time of year or life cycl
 - Sclerotization: hardening of new exoskeleton after ecdysis
 
 Ant mill: death spiral, continuous circling until exhaustion due to loss of pheromone track
+Adenotrophic viviparity: female retains egg within uterus, feeding through milk glands, internal development during first larval stages (tsetse fly)
