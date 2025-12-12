@@ -220,11 +220,20 @@ AMPK: kinase
 - activation by energy stress (AMP vs ATP)
 - inhibits lipogenesis and cholesterol synthesis
 
+=metabolism types
+Autotroph: carbon from abiotic sources such as CO2 (algae, plant)
+Heterotroph: carbon from organic matter (animal, fungi)
+Phototroph: energy from light (algae, plant)
+Chemotroph: energy from oxidation (bacteria, animal, fungi)
+Lithotroph: reductants from inorganic matter (algae, plant)
+Organotroph: reductants from organic matter (bacteria, animal, fungi)
+Chemosynthesis: conversion of CO2 or CH4 into organic matter
+
 =GPTase
 RAS: small GTPase, signal transduction, proto-oncogene
 
 =Protease
-Plasmin (PLG): serine protease, degrades fibrin
+Plasmin (PLG): serine protease, degrades fibrin (fibrinolysis)
 Urokinase (PLAU): serine protease, activates plasminogen to plasmin
 Serine protease
 - Elastase: breaks down elastin
@@ -362,6 +371,8 @@ Protein C: protease, inactivates Factors V + VIII
 Protein S: produced in liver, binds Protein C
 Protein Z: degrades Factor X
 Antithrombin: serpin, inhibits Factors II + IX + X + XI + XII
+Fibrin degradation product (FDP): protein fragments after blood clot dissolution by plasmin
+- D-dimer:
 
 Procalcitonin (PCT): calcitonin precursor, produced by C cells
 - marker, level rises during bacterial infection (but not calcitonin)

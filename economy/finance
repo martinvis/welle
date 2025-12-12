@@ -35,6 +35,7 @@ credit rating agency: company assigning credit ratings
 credit rating: evaluation of credit risk of debtor
 credit risk: likelihood of debtor defaulting
 bankruptcy: process enabling debtor in default to seek relief on part of debt
+Synthetic lease: taxed as loan, accounted as lease (off balance sheet), SPE holds asset
 
 #investment
 stock based compensation (SBC): equity compensation to employee
@@ -267,6 +268,7 @@ Value-added tax (VAT): on price of product
 Wealth tax: on assets / net worth
 Property tax: on property
 
+Special-purpose entity (SPE) / Special-purpose vehicle (SPV): legal entity created for specific financial transaction
 Shell corporation: vehicle for business transactions without assets or operations
 - can be used for anonymity, tax avoidance, money laundering
 - can hold intellectual property
@@ -283,6 +285,8 @@ Watermark: pattern appearing as shades of lightness/darkness
 #legal
 FATCA (Foreign Account Tax Compliance Act): requires to search for customers connected to US
 CRS (Common Reporting Standard): between tax authorities
+
+Provision: account recording liability of entity (tax, warranty, litigation)
 
 #liquidity
 Current ratio: assets / liabilities

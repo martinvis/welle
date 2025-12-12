@@ -25,6 +25,8 @@ maltose = glucose + glucose
 sucrose = fructose + glucose
 trehalose = glucose + glucose
 
+FODMAP (ermentable oligosaccharides, disaccharides, monosaccharides, and polyols): short-chain saccharides, poorly absorbed in small intestine, ferment in colon
+
 #fats/lipids
 linoleic acid COOH(CH2)7CH=CHCH2CH=CH(CH2)4CH3
 

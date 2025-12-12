@@ -10,6 +10,9 @@ Empanada: filled pastry
 =
 Sofrito: onion + garlic + pepper, low heat
 
+#Portugal
+Pastel de Nata: egg custard tart
+
 #Slavic
 Pierogi / Varenyky: filled pastry, baked or fried
 Pancake / Palacinka
@@ -38,11 +41,15 @@ Kadai Chicken
 - sauce: onion + tomato + ginger + garlic + turmeric
 Biryani: meat + onion + spices, rice + raisins + cashew
 Dal: legumes + onion + tomato, butter + spices
+Dosa: pancake
 Flatbread
 - Naan: flour + water + yeast
 - Roti / Chapati: flour + water
-- Paratha
-- Kulcha
+- Paratha:
+- Parotta: layered
+- Papadam: crunchy
+- Dhebra:
+- Kulcha: dough flour + water + yogurt + yeast, filling boiled potato + spices + herbs
 Mukhwas: colorful coated seeds, after-meal breath freshener
 Paneer: soft cheese, cubes
 - Shahi paneer: cream + cashew + tomato + spices
@@ -50,14 +57,15 @@ Paneer: soft cheese, cubes
 - Pasanda paneer: stuffed paneer sandwich, cream + cashew + almond + onion + tomato + spices
 - Matar paneer: pea + tomato + onion + spices
 - Palak paneer: spinach + onion + spices
+Thali: selection of dishes in bowls on round platter
 
 #Asia
 Samosa: fried triangular pastry with filling
 
 #Southeast asia
-Fried rice
-Nasi goreng
-Roti canai
+Fried rice:
+Nasi goreng:
+Roti canai:
 - egg + butter (100g) + flour (500g) + milk + water + salt + sugar
 
 #Malay
@@ -66,6 +74,7 @@ Satay: grilled meat on skewer
 #Thailand
 Pad Thai: rice noodle + shrimp + scrambled egg + peanuts
 Pad Krapow: minced chicken + holy basil + fried egg + rice
+Pad Kee Mao / Drunken noodles: broad rice noodles + meat + vegetables + holy basil
 Green/Red curry: coconut milk + curry paste + fish sauce
 - Curry paste: chilli + shallot + garlic + lemongrass + galangal
 
@@ -94,6 +103,10 @@ Tortilla: thin flatbread
 - Taco/Burrito: filled tortilla (meat, vegetables, cheese)
 - Enchilada: filled tortilla (meat, vegetables, cheese) + chilli sauce
 
+#Colombia
+Arepa: round corn flour patty
+Bandeja paisa: beans + ground meat + pork belly + chorizo + rice + fried egg + plantain + avocado + arepa
+
 #France
 Coq au vin
 - chicken + wine + onion + garlic + mushroom + bacon + bay leaf + thyme
@@ -104,6 +117,7 @@ Ratatouille
 - tomato + pepper + eggplant + zucchini
 Macaron: circular with filling, egg white + sugar + almond
 Croissant: layered buttery pastry
+Baguette: elongated
 Pain au chocolat
 Hollandaise sauce: yolk + lemon + butter
 Béarnaise sauce: yolk + vinegar + herbs + butter
@@ -121,7 +135,7 @@ Goulash
 Paprikás
 Pörkölt 
 Jókai bean soup
-Lángos
+Lángos: deep fried flatbread, dough flour + water + yeast, topping garlic + cheese
 Chimney Cake / Trdelník
 
 #Bulgaria
@@ -140,6 +154,10 @@ Chow Mein
 - sesame oil + soy sauce
 Sweet and sour pork
 Chuan: grilled meat on skewer
+Red braised pork belly: meat + rice + green vegetables
+- blanch 5m
+- braise 1h+ (garlic + ginger + bay leaf + cinnamon + soy sauce + sugar)
+- thicken
 =Dim sum: small dishes
 Jiaozi: filled dumplings
 Baozi: steamed filled buns
@@ -150,6 +168,8 @@ Sesame ball: filled rice flour ball, fried, coated with sesame
 =
 Glass noodles: starch (mung bean) + water
 Rice noodles: rice flour + water
+Bing:
+- Laobing: flatbread
 
 #Japan
 Chicken Teriyaki
@@ -170,6 +190,7 @@ Tempura: vegetables/seafood in batter, deep-fried
 Gyoza: filled dumplings
 Yakitori: grilled chicken on skewer
 Mochi: filled rice cake
+Dorayaki: small patty filled with bean paste
 
 #Korea
 Bibimbap: rice + vegetables + sliced beef + fried egg + chili paste
@@ -185,9 +206,11 @@ Mandu: steamed/boiled/fried filled dumplings
 #Chicken Adobo
 soy sauce + vinegar + pepper + bayleaf + sugar
 
-
-#Tajine + couscous
-sugar, paprika, cumin, cinnamon, ginger, cloves, pepper, salt
+#Maghreb
+Tajine + couscous
+- sugar, paprika, cumin, cinnamon, ginger, cloves, pepper, salt
+Msemmen: flatbread
+Baghrir: spongy pancake
 
 #Apple pie / Jablkové pité
 dough + filling + dough
@@ -243,6 +266,7 @@ Pizza
 - garlic/oregano
 - mozzarella
 - 200C 10 min
+Focaccia:
 Pasta with peas and bacon
 - garlic + bacon + peas + parmesan
 Spaghetti ala carbonara
@@ -269,7 +293,7 @@ Pasta
 - short other: Campanelle, Conchiglie, Farfalle, Fusilli, Gemelli, Orecchiette
 Polenta: boiled corn flour
 Torta caprese: butter + sugar + egg + chocolate + almond
-Tiramisu
+Tiramisu:
 Battuto: onion + carrot + celety, slow cook
 Bolognese sauce: battuto + ground meat + wine + tomato
 Sugo: tomato sauce
@@ -317,6 +341,7 @@ Sachertorte: cake + apricot jam + cake + chocolate icing
 Zimtschnecke: cinnamon roll
 Mutzenmandel: shortcrust pastry + ground almonds, small almond-shaped
 Nussecke: shortbread base + caramelized nut top, chocolate corners
+Zwieback: baked + sliced + baked, dough flour + water + yeast + milk + eggs + butter + sugar
 
 #Central Europe
 Bábovka / Gugelhupf: 1/2 with cocoa + 1/2 without cocoa
@@ -352,8 +377,17 @@ Simit: bread ring with sesame seeds
 =
 Hayadari: yogurt + feta + garlic + lemon juice + olive oil
 Tzatziki: yogurt + cucumber + garlic + lemon juice + olive oil
+Moussaka: layered, eggplant + potato + ground meat + custard
+Pastitsio: layered, tubular pasta + ground meat + custard
+
+#Iran
+Taftan: flatbread, flour + yeast + milk + butter + yogurt
+Sheermal: flatbread, flour + yeast + milk + butter + sugar + saffron
+Sangak: flatbread, flour + yeast + water + sesame seeds
 
 #Middle east
+Pita / Arabic bread:
+Lavash: flatbread
 Hummus: chickpeas + garlic + lemon juice + olive oil
 Kebab: ground meat + vegetables + pita bread
 - Gyros: wrapped, with tatziki

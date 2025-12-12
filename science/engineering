@@ -16,6 +16,8 @@ Bending: curving
 
 #Strain: deformation relative to size
 
+Spring: rigid elastic material, usually bent into coil, stores energy when compressed/extended (bow)
+
 Elasticity: return to initial shape when force removed
 - Hooke's law: force is proportional to extension/compression (stress is proportional to strain)
 Plasticity: permanent deformation when force removed

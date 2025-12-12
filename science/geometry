@@ -134,6 +134,7 @@ Cusp: point where direction reverses
 
 #3D by revolving 2D
 Sphere: circle around its axis
+- Great circle: intersection of sphere and plain passing through its center
 Torus: circle around external axis (doughnut)
 Spheroid: ellipse around its axis
 Lemon: circular arc of angle under 180 degrees

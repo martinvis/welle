@@ -506,7 +506,7 @@ n-type doping: P, As, Sb
 p-type doping: B, Al, Ga
 compounds: GaAs, GaN, SiC
 
-Quantum fluctuation: random changes in amont of energy in space
+Quantum fluctuation: random changes in amount of energy in space
 - virtual particles created in particle-antiparticle pairs
 Quantum tunnelling: object passing barrier due to wave nature of matter
 - probability decreases with object's mass and barrier size
@@ -567,8 +567,18 @@ Mach–Zehnder interferometer: measures phase shift between beams
 #Quantum mechanics
 Supersymmetry: theoretical symmetry between bosons (force) and fermions (matter)
 Superposition: linear combination of multiple basis states
+- Wave function collapse: superposition reduced to simple state by observation (measurement)
 Neutrino oscillation: neutrinos change flavor as they travel, superposition of 3 states
 Baryon asymmetry: more matter than anti-matter in universe, reason unknown
+Quantum entanglement: multiple particles sharing combined quantum state regardless of distance (spooky action at distance)
+Einstein–Podolsky–Rosen paradox (EPR): quantum mechanics conflicts with local realism
+- locality: information does not propagate faster than light
+- realism: physical properties are definite before measurement
+- Bell's theorem: quantum mechanics conflicts with local hidden-variable theory
+- Bell inequality: theoretical boundary on correlations in local realism
+- CHSH inequality: measurable boundary on correlations in local realism
+- Superdeterminism: everything is predetermined
+- Many-worlds: no wave function collapse, all possible outcomes are realized (parallel non-interacting worlds)
 
 #Quantumm electrodynamics
 Compton scattering: high-frequency photon hitting electron transfers part of its energy to electron
