@@ -153,6 +153,11 @@ Period: time of one oscillation
 Wavelength (λ): displacement of one oscillation
 Bandwidth: range of frequencies
 
+Harmonic oscillator: object displaced from equilibrium experiences restoring force proportional to displacement (F = -kx)
+- Simple harmonic oscillator: sinusoidal oscillations with constant amplitude and frequency
+- Damped oscillator: frictional force proportional to velocity (F = -cv)
+Wave equation: linear partial differential, describes wave in spacetime
+
 Diffraction: bending of wave due to obstacle
 - X-ray diffraction: measurements under different angles determine crystal structure
 Interference: combination of two waves
@@ -445,7 +450,6 @@ matter wave: λ = h / (m*v)
 Planck relation: photon energy is proportional to frequency (E = h*f = h*c / λ)
 Planc constant: 663 aaJ/Hz
 Mass-energy equivalence: E = m * c^2
-Heisenberg's uncertainty principle: sum of uncertainties in position and momentum of particle is at least h / (4π)
 
 #Special relativity
 time dilation: time slows down with greater velocity
@@ -565,9 +569,27 @@ Beam splitter: splits light beam
 Mach–Zehnder interferometer: measures phase shift between beams
 
 #Quantum mechanics
-Supersymmetry: theoretical symmetry between bosons (force) and fermions (matter)
+Correspondence principle: quantum mechanics at large scale reproduces classical physics
+Copenhagen interpretation: probabilistic wave function, superposition, complementarity, indeterminism
+- Schrödinger's cat: thought experiment, critique of superposition applied universally
+Wave function (ψ): mathematical description of quantum state, probability amplitude
+- normalized wave function has total integral equal to 1
 Superposition: linear combination of multiple basis states
 - Wave function collapse: superposition reduced to simple state by observation (measurement)
+Schrödinger equation: partial differential, evolution of wave function over time, i * ℏ * ∂ψ/∂t
+- normalized wave function remains normalized after time evolution
+Born rule: probability of particle at given position, square law analogy, P(x) = ψ(x)^2
+Ehrenfest theorem: expectation values of momentum follow Newton's second law, d⟨p⟩/dt = ⟨F⟩
+Heisenberg's uncertainty principle: sum of uncertainties in position and momentum of particle is at least ℏ/2
+Matter wave / de Broglie wave: matter behaves like wave, λ = h/p
+Dirac equation: relativistic wave equation, describes spin 1/2 particles, predicted antimatter
+Dirac sea: vacuum is filled with electrons occupying all available negative energy states (Pauli exclusion principle), holes are positrons
+Dirac delta function: zero everywhere except zero, integral equal to 1 (continuous Kronecker delta)
+Quantum field theory (QFT): 
+Free particle: particle in region of uniform potential, not bound by external force, continuous energy levels
+Bound state: particle trapped in region of potential well, discrete energy levels
+--
+Supersymmetry: theoretical symmetry between bosons (force) and fermions (matter)
 Neutrino oscillation: neutrinos change flavor as they travel, superposition of 3 states
 Baryon asymmetry: more matter than anti-matter in universe, reason unknown
 Quantum entanglement: multiple particles sharing combined quantum state regardless of distance (spooky action at distance)
@@ -588,6 +610,9 @@ Compton scattering: high-frequency photon hitting electron transfers part of its
 
 Cymatics: patterns in coating of vibrated surface showing displacement
 
+Fine structure: splitting of spectral lines due to relativistic and spin effects
+Fine-structure constant / Sommerfeld constant: dimensionless, quantifies electromagnetic force, e^2 / 2*h*c*ε0 (ε0 = vacuum permittivity)
+- if too big no nuclear fusion, if too small no proteins (weak chemical bonds)
 Zeeman effect: spectral line splits in magnetic field
 Stark effect: spectral line splits in electric field
 
