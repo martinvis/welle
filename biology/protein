@@ -151,6 +151,7 @@ Carbonic anhydrase: reversible hydration of carbon dioxide, contain zinc, regula
 =Kinase
 Tyrosine kinase: functional on/off switch in cell
 Serine/threonine kinases: cell differentiation, apoptosis
+- Cyclin-dependent kinases (CDKs): regulation of cell cycle, activation by cyclins
 
 Protein serine/threonine phosphatase
 - Calcineurin: activates T cells
@@ -242,6 +243,9 @@ Serine protease
 
 #Regulatory
 Serpins: serine protease inhibitors
+Cyclins: control of cell cycle by activating CDKs
+- Cyclin D: drives G1/S transition in presence of growth factors and mitogens
+Retinoblastoma protein (RB): cell cycle inhibitor, tumor suppressor
 
 #Hormones
 Human chorionic gonadotropin (hCG): maternal recognition of pregnancy, made by syncytiotrophoblast in placenta

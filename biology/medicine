@@ -67,6 +67,7 @@ Hypergraphia: intense desire to draw or write
 Lumbago: low back pain
 - Sciatica/Ischias: pain in legs, caused by spinal disc hernia pressing nerve
 Fistula: abnormal connection of epithels (e.g. urinary and intestinal tracts)
+Mydriasis: dilation of pupil
 #Neurological
 Paresthesia: abnormal sensation of skin
 #Psychological
@@ -299,7 +300,7 @@ Alzheimer's disease: loss of neuronal connections, causes dementia
 Parkinson's disease
 - symptoms: tremor, slowness of movement, dementia
 - cause: misfolded proteins
-- mechanism: cell death in basal ganglia
+- mechanism: cell death in basal ganglia, overactive indirect and underactive direct pathway
 Multiple sclerosis: damage of myelin sheaths
 Kuru: laughing sickness, rare prion disease, tremors
 Creutzfeldt–Jakob disease: rare prion disease, dementia
@@ -309,6 +310,9 @@ Epilepsy: recurrent seizures due to excessive electrical discharges in brain
 - can be observed by EEG
 - temporal lobe epilepsy: causes changes in personality
 Congenital insensitivity to pain with anhidrosis (CIPA): rare recessive genetic (NTRK1 gene), no feeling of pain, no sweating
+Serotonin syndrome: serotonin excess caused by drug interactions,
+- symptoms: hyperthermia, tachycardia, sweating, agitation
+Charles Bonnet syndrome (CBS): visual hallucinations after vision loss
 
 #other
 Lactose intolerance: common in east asia
@@ -445,7 +449,7 @@ Liposarcoma: fat cells
 Nephroblastoma / Wilms' tumor: kidneys, highly curable
 - treatment: nephrectomy + radiotherapy
 Neuroblastoma
-Retinoblastoma
+Retinoblastoma: rare, in children, often hereditary, rapid development in retina
 Hepatoblastoma
 Medulloblastoma: cerebellum
 

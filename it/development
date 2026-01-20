@@ -1,3 +1,12 @@
+Systems development life cycle (SDLC): describes typical progression between phases
+- Initiation: identifying opportunity
+- Planning: allocating resources
+- Requirements: understanding needs
+- Design: planning solution
+- Implementation: creating solution
+- Testing: accepting solution
+- Deployment: delivering solution
+- Maintenance: supporting solution
 
 Agile software development
 DevOps: development and operations workflow automation

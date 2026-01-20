@@ -140,3 +140,12 @@ Beta cell: in pancreas, secrete insulin
 Parafollicular cell (C cell): in thyroid, secrete calcitonin
 Delta cell (D cell): in stomach + intestines + pancreas, secrete somatostatin
 G cell: in stomach, secrete gastrin
+
+#Cell cycle: sequence of events in cell division
+G0 phase: resting phase, outside of replication cycle (most neurons)
+Interphase: between two successive M phases, G1 + S + G2
+G1 phase: longest, cell growth, mRNA + protein synthesis
+G1/S transition: cyclin D + CDK4/6 inactivate retinoblastoma protein
+S phase: DNA replication
+G2 phase: cell growth, chromatin condensation into chromosomes
+M phase / Mitosis: cell division

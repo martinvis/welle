@@ -34,7 +34,7 @@ Gods:
 - Khnum (ram, Nile) + Neith (hunting) => Ra (sun) + Apep/Apophis (chaos, snake) + Sobek (crocodile)
 - Khnum + Heqet (frog, floods)
 - Khepri (scarab) / Ra / Atum => Hathor (love) + Sekhmet (warrior, lioness) + Bastet (cat) + Maat (balance) + Mut
-- Amun (air) + Mut => Khonsu (moon)
+- Amun (air, blue skin) + Mut => Khonsu (moon)
 - Ra + Hathor => Shu (air) + Tefnut (moisture)
 - Shu + Tefnut => Geb (earth) + Nut (sky)
 - Geb + Nut => Osiris (underworld, green) + Isis + Set (desert) + Nephthys
@@ -49,6 +49,15 @@ Gods:
 Creatures:
 - Bennu (bird, sun, rebirth)
 - Sphinx: human-headed lion
+#Kushite
+gods:
+- Amani = Amun: ram head, king
+- Wusa = Isis: queen
+- Atari = Hathor/Sekhmet
+- Apedemak: war, lion head
+- Amesemi: wife of Apedemak, crescent moon, with falcon
+- Mandulis = Horus: sun, falcon with human head
+- Sabomakal / Sebiumeker + Arensnuphis: guardians
 
 #Arabic
 Almiraj (horned rabbit)
@@ -173,8 +182,9 @@ Human:
 - Telamon and Periboea => Ajax
 - nereid Thetis + Peleus => Achilles
 - Atreus + Aerope => Agamemnon + Menelaus
-- Zeus (swan) + Leda => Helen + Clytemnestra + Castor + Pollux
-- Clytemnestra + Agamemnon => Electra + Orestes + Iphigenia
+- Tyndareus + Leda => Clytemnestra + Castor + Philonoe + Phoebe + Timandra
+- Zeus (swan) + Leda => Helen  + Pollux/Polydeuces
+- Clytemnestra + Agamemnon => Electra + Orestes + Iphigenia + Chrysothemis
 - Clytemnestra + Aegisthus
 - Menelaus + Helen => Hermione
 - Achilles + Deidamia => Neoptolemus (Pyrrhus)
@@ -187,7 +197,9 @@ Human:
 - Zeus + Alcmene => Heracles
 - Heracles + Megara
 - Heracles + Deianira
+- Helen of Troy: most beautiful woman, abducted by Theseus when young, caused Trojan War
 Heroes:
+- Dioscuri (Castor + Pollux): abducted Messenian princesses (Leucippides) betrothed to their cousins
 - Bellerophon (killed Chimera)
 - Heracles
 - Perseus (killed Cetus, Medusa)
@@ -195,12 +207,35 @@ Heroes:
 Items:
 - Caduceus: staff of Hermer, wings and two entwined snakes
 - Cornucopia: horn of plenty
-Trojan War:
+Trojan War: 10 years
 - Troy: Paris, Hector, Aeneas
 - Sparta: Menelaus + Agamemnon, Achilles + Patroclus, Ajax, Diomedes, Odysseus
+- Oath of Tyndareus: proposed by Odysseus, every suitor of Helen will defend chosen winner, Odysseus got Penelope as reward
+- Agamemnon married Clytemnestra after killing her husband Tantalos and their infant son
+- Helen ran away with or was abducted by Paris
+- Odysseus tried to avoid war by acting insane, but Palamedes outsmarted him
+- Achilles tried to avoid war disguised as girl between daughters of Lycomedes on Skyros, but Odysseus outsmarted him
+- Agamemnon offended goddess Artemis and had to sacrifice his eldest daughter Iphigenia
+- Odysseus framed Palamedes for treason leading to his death
+-- final year
+- Achilles forced to give his war prize Briseis to Agamemnon
+- Achilles refuses to fight, Greeks driven back to ships
 - Hector kills Patroclus
 - Achilles kills Hectos
 - Paris kills Achilles
+Curse of House of Atreus:
+- Tantalus (son of Zeus) dined with gods and served meat of his son Pelops whom he killed, punished by food and water forever out of reach
+- Pelops resurrected by gods, his shoulder eaten by Demeter replaced with ivory made by Hephaestus
+- Pelops had to defeat King Oenomaus in chariot race to marry his daughter Hippodamia (by prophecy his son-in-law will kill him)
+- Pelops bribed king's charioteer Myrtilus (son of Hermes) to sabotage him, king died and then Pelops killed Myrtilus
+- Atreus and Thyestes killed their brother Chrysippus, Pelops exiled them and they fought for throne in Mycenae after king Eurystheus
+- Atreus and Thyestes agreed golden lamb will determine king, Aerope stole it from her husband Atreus and gave it to her lover Thyestes
+- Atreus made sun run backwards to become king, killed Thyestes' sons and served their meat to Thyestes
+- Thyestes raped his own daughter Pelopia, she abandoned incestuous son Aegisthus
+- Aegisthus was raised by Atreus, Thyestes revealed truth to him and Aegisthus killed Atreus
+- Agamemnon and Menelaus fled to Sparta, returned with army and exiled Thyestes
+- Aegisthus seduces Agamemnon's wife Clytemnestra, they killed Agamemnon when he returned from Troy
+- Orestes, with help of his sister Electra, killed his mother Clytemnestra and Aegisthus
 Ten Labours of Heracles:
 - Slay the Nemean Lion
 - Slay the Lernaean Hydra (not accepted, Iolaus helped)
@@ -262,7 +297,6 @@ Myths:
 - Phaethon and the Sun Chariot
 - Actaeon Transformed into Stag: saw Artemis naked
 - Sisyphus Rolling the Boulder Uphill: killed visitors
-- The Punishment of Tantalus: tried to trick gods
 - The Danaides: 49/50 killed husbands
 - Alcyone and Ceyx: hubris
 - Atalanta and Hippomenes Transformed into Lions: pull chariot, desecrated Cybele's temple
@@ -290,7 +324,6 @@ Myths:
 
 - The Judgement of Paris (Apple of Discord)
 - Agamemnon Sacrificed Iphigenia: offended Artemis by killing sacred stag
-- Achilles on Skyros: disguised as girl
 - Achilles' heel
 - The Trojan War
 - The Trojan Horse
@@ -304,6 +337,25 @@ The Journey of Odysseus:
 - Cattle of Helios
 - Calypso: 7 years
 - Ithaca: bow, suitors
+
+Cephalus and Procris
+- Cephalos was kidnapped by Eos, she tried to secude him, he remained faithful, she returned him
+- Cephalos tried Procris's loyalty by seducing her, she gave in, Cephalos revealed himself and she fled
+- Procris hunted with Artemis, received dog Laelops and javelin that always hits target and returns
+- Cephalos and Procris reconciled, she gave him dog and javelin 
+- Procris suspected Cephalos, spied on him by hunt, he mistook her for animal and killed her by javelin
+Teumessian Fox and Laelaps
+- Teumessian Fox never gets caught and dog Laelops catches everything
+- when dog hunted fox it created paradox
+- Zeus turned them into constellations Canis Major (dog) + Canis Minor (fox)
+Amphitryon and Alcmene
+- Amphitryon accidentally killed Alcmene's father and they fled to Thebes
+- Alcmene refused to marry him until he avenges her brothers killed by Taphians
+- king Crean helped him in exchange for getting rid of Teumessian fox released by Dionysus
+- king of Taphians Pterelaus was immortal thanks to golden hair from Poseidon
+- Pterelaus's daughter Comaetho fell in love with Amphitryon and plucked out father's golden hair
+- Amphitryon killed him and married Alcmene
+- Zeus visited Alcmene disguised as Amphitryon before him and fathered Heracles
 
 Places
 - Mount Olympus: home of gods
@@ -333,12 +385,14 @@ Greek:
   Vulcan=Hephaestus
   Aurora=Eos
   Cupid=Eros
+  Moirai=Parcae (Nona + Decima + Morta)
 Gods:
 - Janus (gates, 2 faces)
 - Orcus (underworld)
 Myths:
 - Aeneas Fleeing from Troy
 - Romulus and Remus
+- Dido/Elissa: founded Carthage, fell in love with Aeneas
 Creatures:
 - Fauns (goat tail + horns + ears, ~Satyrs)
 

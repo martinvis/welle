@@ -2,7 +2,80 @@ Rote learning: memorization by repetition
 Spaced repetition: flashcards, difficult more frequent
 Meaningful learning: pattern recognition
 Associative learning: association between stimuli
-- Pavlovian conditioning: food with sound, dogs
 Episodic learning: result of event (fear)
 Active learning: doing things
 
+Trial and error: repeated varied attempts (brute force)
+Behaviorism: behaviour is either reflex or learnt through experience (conditioning)
+Learning curve: relationship between proficiency and amount of experience (skill/time)
+
+Extinction: gradual decrease of learnt behaviour in absence of reinforcement
+Spontaneous recovery: behaviour reappearance after extinction due to reinforcement
+Classical / Pavlovian conditioning: neutral stimulus paired with unconditioned becomes conditioned (dogs salivated when hearing bell expecting food)
+Operant / Instrumental conditioning: behaviour modified by reinforcement/punishment (animals in puzzle boxes)
+- Law of effect: actions with positive results are repeated more and with negative results less
+- Punishment: unpleasant outcome
+- Reinforcement: pleasant outcome
+=Reinforcement learning (RL):
+Temporal difference learning: bootstrapping from current estimate of value function
+- Reward prediction error (RPE): difference between estimated and actual reward
+- dopamine mimics error function (increased firing on cue associated with reward, decreased firing when expected reward missing)
+- relief is expected punishment not happening
+- disappointment is expected reward not happening
+Habit loop: cue -> action -> reward, dopamine surge shifts from reward to cue
+Curiosity: adds intrinsic reward for surprising outcome or unknown state, solution to exploration/exploitation dilemma
+- surprise releases dopamine even without reward (e.g. clickbait)
+- risk of getting stuck in noise (solution: be curious only about things you can influence)
+- Noisy TV problem: attraction to unpredictable but useless data (gambling/doomscrolling)
+
+=Pattern recognition (PR): task of assigning class to observation
+- neural networks process visual/auditory stimuli and recognize patterns
+Generalization: group similar things together
+Discrimination: separate different things apart
+Object recognition: object identification based on visual input
+Recognition-by-components theory: recognition by separating objects into geons
+- Geon: basic geometric shapes used by brain to represent complex objects
+
+Reward system: responsible for incentive salience and positive-valenced reinforcement
+Aversive system: responsible for aversive salience and negative-valenced reinforcement
+Motivational salience: attention based on importance of stimuli
+- Incentive salience: positive (wanting), approach behaviour
+- Aversive Salience: negative (warning), avoid behaviour
+- Phobia: aversive salience to neutral stimuli, started by classical conditioning
+
+Inverse problem: working backwards from observed effect to hidden cause
+- recognition of 3D object from 2D projection despite brightness/distance/rotation/translation differences
+- recognition of words from sound waves despite noise/speed/accent/pitch differences
+Hebbian theory: synaptic connections strengthen between neurons active at same time (learning and memory)
+Autoassociative memory: data retrieved based on partial or noisy version of itself
+
+Short-term memory: information held for short time (seconds)
+Working memory: information held temporarily (reasoning/decision)
+Long-term memory (LTM): knowledge held indefinitely
+Implicit memory: LTM used unconsciously
+- Procedural memory: performance of task without conscious awareness
+Explicit memory: LTM used intentionally
+- Episodic memory: everyday events
+- Semantic memory: general knowledge
+Memory consolidation: stabilization after initial acquisition
+
+Cognitive map: internal representation of environment in mind, allows navigation (in vertebrates + octopuses)
+Episodic simulation: learning by imagination (in birds + mammals)
+Constructive perception: unconscious inference from incomplete data, find most likely interpretation based on experience (causes optical illusions)
+- prioritization of speed and usefulness over accuracy
+- Amodal completion: pattern completion from missing input (object behind another object)
+- Bistable perception: unique interpretation of ambiguous pattern (spinning dancer)
+- Pareidolia: meaningful interpretation of noisy pattern (face on mars)
+
+Action potential: in axons, long distance, constant amplitude
+Graded potential: in dendrites, short distance, variable amplitude, higher information rate
+=Neural coding: translation of stimuli into action potentials by brain
+Rate code: stimulus intensity increases with firing rate of spikes
+Temporal coding: information carried by spike timing or firing rate fluctuations
+Population coding: information represented by group of neurons
+Predictive coding: neocortex, brain generates and updates mental model of environment (inference)
+- brain is in recognition mode when awake and in generative mode when asleep (dream, imagination)
+
+Optical illusion: visual perception differing from reality
+- Necker cube: 2D wireframe, ambiguous orientation
+- Spinning dancer: rotating silhouette, ambiguous direction

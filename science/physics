@@ -510,10 +510,17 @@ n-type doping: P, As, Sb
 p-type doping: B, Al, Ga
 compounds: GaAs, GaN, SiC
 
+Feynman diagram: graphical representation of particles interaction in time, antiparticles represented as moving back in time
+Virtual particles: describe interactions between ordinary particles, spontaneously emerge from vacuum at short spacetime intervals
+Lamb shift: anomalous difference in orbital energy of hydrogen electrons, caused by quantum fluctuation
 Quantum fluctuation: random changes in amount of energy in space
 - virtual particles created in particle-antiparticle pairs
 Quantum tunnelling: object passing barrier due to wave nature of matter
 - probability decreases with object's mass and barrier size
+Double-slit experiment: behavior of both particles and waves
+- wave split in two separate and later combined, create interference pattern, probabilistic results
+Quantum vacuum state: state with lowest possible energy
+- Zero-point energy: lowest possible energy of system
 
 #Quantum dot
 few nanometer sized semiconductor particle
@@ -585,7 +592,7 @@ Matter wave / de Broglie wave: matter behaves like wave, λ = h/p
 Dirac equation: relativistic wave equation, describes spin 1/2 particles, predicted antimatter
 Dirac sea: vacuum is filled with electrons occupying all available negative energy states (Pauli exclusion principle), holes are positrons
 Dirac delta function: zero everywhere except zero, integral equal to 1 (continuous Kronecker delta)
-Quantum field theory (QFT): 
+Quantum field theory (QFT): combines quantum mechanics and relativity, fields instead of particles, virtual particles as temporary ripples
 Free particle: particle in region of uniform potential, not bound by external force, continuous energy levels
 Bound state: particle trapped in region of potential well, discrete energy levels
 --

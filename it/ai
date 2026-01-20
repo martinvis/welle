@@ -17,6 +17,8 @@ Transformer: multi-head attention mechanism
 
 #Machine learning
 Feature learning: automatically discover representation for classification of data
+Supervised learning: training with labeled data (input-output pairs), dataset construction is more expensive
+Unsupervised learning: training with unlabeled data, less predictable
 
 K-means clustering
 Neural network: layers from input to output, weighted edges between layers
@@ -57,6 +59,8 @@ Attention
 - Value: content data
 - Attention weights: sum up to 1
 - Multi-head attention: captures different aspects
+Catastrophic interference / forgetting: overwriting previously learnt information when learning new information
+- avoided by learning all at once and stopping, but system becomes obsolete and relearning from scratch is expensive
 
 Stochastic gradient descent (SGD): optimization method
 Feedforward neural network (FNN): unidirectional neural network, usually fully connected (classification)
@@ -68,3 +72,6 @@ Transformer: self-attention, parallel processing
 Neural Turing machine: recurrent neural network with external memory
 
 Model Context Protocol (MCP): integration standard between AI assistants and external data systems
+
+#Generative AI
+Hallucination: response containing false information presented as fact

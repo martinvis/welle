@@ -263,7 +263,6 @@ Atactic: random configuration along chain
 
 
 #Compounds
-Hydrates: contain specific ratios of loosely bound water molecules
 Acids: contains hydrogen cation, can donate proton
 Bases: contain hydroxide anion and metal cation, can accept proton
 Hydrocarbons: contain only carbon and hydrogen
@@ -273,6 +272,8 @@ Soap: salt of fatty acid
 - decrease surface tension and increase viscosity of water
 - emulsifies oils, kills microorganisms by disrupting lipid bilayer
 - use: cleaning
+Clathrate: lattice trapping other molecules (e.g. methane ice)
+- Hydrates: contain specific ratios of loosely bound water molecules
 
 #Hydrocarbons
 Alkanes: contain only carbon single bonds
