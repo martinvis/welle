@@ -12,11 +12,18 @@ Learning curve: relationship between proficiency and amount of experience (skill
 Extinction: gradual decrease of learnt behaviour in absence of reinforcement
 Spontaneous recovery: behaviour reappearance after extinction due to reinforcement
 Classical / Pavlovian conditioning: neutral stimulus paired with unconditioned becomes conditioned (dogs salivated when hearing bell expecting food)
+- Latent inhibition: less familiar stimulus is learnt (avoid irrelevant)
+- Overshadowing: more intense stimulus is learnt (avoid noise)
+- Blocking: new stimulus is ignored if another is already learnt (avoid redundant)
 Operant / Instrumental conditioning: behaviour modified by reinforcement/punishment (animals in puzzle boxes)
 - Law of effect: actions with positive results are repeated more and with negative results less
 - Punishment: unpleasant outcome
 - Reinforcement: pleasant outcome
-=Reinforcement learning (RL):
+=Reinforcement learning (RL): selection of action in order to maximize reward
+Credit assignment: which action was responsible for outcome
+Inverse reinforcement learning (IRL): reward function inferred from observed behaviour of expert
+Counterfactual reasoning: compare taken and not taken action, regret minimalization (what if simulation)
+- limit too many options by choosing next best action or action with maximal regret
 Temporal difference learning: bootstrapping from current estimate of value function
 - Reward prediction error (RPE): difference between estimated and actual reward
 - dopamine mimics error function (increased firing on cue associated with reward, decreased firing when expected reward missing)
@@ -59,6 +66,7 @@ Explicit memory: LTM used intentionally
 - Semantic memory: general knowledge
 Memory consolidation: stabilization after initial acquisition
 
+Inhibitory control: self-control, suppressing impulses
 Cognitive map: internal representation of environment in mind, allows navigation (in vertebrates + octopuses)
 Episodic simulation: learning by imagination (in birds + mammals)
 Constructive perception: unconscious inference from incomplete data, find most likely interpretation based on experience (causes optical illusions)

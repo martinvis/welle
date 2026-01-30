@@ -340,6 +340,30 @@ symptoms: vomiting, edema, jaundice, tremors, psychosis
 cause: recessive inherited, mutation in WND gene
 Kayser–Fleischer ring: dark ring around cornea
 
+Li–Fraumeni syndrome: cancer predisposition
+- cause: dominant inherited, TP53 gene mutation
+Cowden syndrome: cancer predisposition, hamartomas
+- cause: dominant inherited, PTEN gene mutation
+Von Hippel–Lindau disease (VHL): benign angiogenic tumors
+Peutz–Jeghers syndrome (PJS): benign harmatomous polyps in gastrointestinal tract, hyperpigmented macules on lips and in mouth
+- cause: dominant inherited, STK11 gene mutation
+Bloom syndrome: cancer predisposition, small stature
+- cause: recessive inherited, BLM gene mutation
+Xeroderma pigmentosum (XP): decreased ability to repair DNA damage, high risk of skin cancer
+- symptoms: sunburn after few minutes, freckling
+- cause: recessive inherited
+Fanconi anemia (FA): DNA repair genes, cancer predisposition
+- symptoms: aplastic anemia, birth defects
+- cause: recessive inherited
+
+#Aneuploidy: abnormal number of chromosomes, usually results in miscarriage
+Down syndrome: common, trisomy of chromosome 21, moderate intellectual disability
+- symptoms: flat nose and face, slanted eyes, short neck, single palmar crease, short fingers, separated first and second toe
+Edwards syndrome: trisomy of chromosome 18, usually die within first year
+- symptoms: small head, small jaw
+Patau syndrome: trisomy of chromosome 13, usually die within first year
+- symptoms: small head, cleft palate, eye defects, polydactyly
+
 ##Amino acids
 R-CH-NH2-COOH
 
@@ -413,12 +437,19 @@ Nitrogenous bases:
 - Amidoadenine (Z): in some bacteria, A equivalent
 
 #DNA repairs
+DNA adduct: DNA segment bound to carcinogens, can cause carcinogenesis
 Ligation: joining of two DNA fragments
 Non-homologous end joining (NHEJ): broken ends directly ligated
 Homology directed repair (HDR): uses homologous DNA piece
-Microhomology-mediated end joining (MMEJ)
-Homologous recombination (HR)
+Microhomology-mediated end joining (MMEJ): 
+Homologous recombination (HR): repairs DNA breaks on both strands using similar DNA as template, used in horizontal gene transfer
+- in mitosis uses sister chromatid, in meiosis uses homologous chromosome (crossover)
+Base excision repair (BER): removes small lesions
+Nucleotide excision repair (NER): removes DNA damage induced by UV light, XP* proteins
+DNA mismatch repair (MMR): repairs errors during DNA replication, newly synthesized DNA strand identified by nicks
 
+D-loop / Displacement loop: double-stranded DNA separated by third DNA strand
+Nick: discontinuity in double-stranded DNA, missing phosphodiester bond between adjacent nucleotides
 Primer: short single-stranded DNA (100-10k bases)
 Polymerase chain reaction (PCR): produces high amount of DNA copies
 - DNA strands are separated at high temperature (denaturation)

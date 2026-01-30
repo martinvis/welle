@@ -1,5 +1,8 @@
 #Symptom: observable indication of disease
 Inflammation (-itis): response to pathogens and irritants
+Ptosis/Blepharoptosis: falling upper eyelid
+Clubfoot: feet rotated inward and downward
+Hypertelorism: increased distance between eyes
 Hepatomegaly: liver enlargement
 Halitosis / Foetor ex ore: bad breath
 Hyperalgesia: increased pain sensitivity
@@ -345,6 +348,7 @@ Melanonychia
 - dark pigmentation of nail
 Beau's lines
 - deep horizontal ridges on nail
+Onycholysis: painless detachment of nail from nail bed
 
 #respiratory disease
 Asthma: very common, long term, bronchioles constriction caused by allergens (pollen, dust)
@@ -404,6 +408,9 @@ Aortic dissection: sudden onset, severe chest pain, high mortality
 Luxation: joint dislocation
 - Subluxation: partial dislocation
 
+#bening tumor
+Neurofibromatosis (NF): tumors in nervous system, often inherited, usually mild symptoms
+
 #cancer
 Oncogene: gain-of-function mutation, cell division
 Anti-oncogene: tumor suppressor, regulate cell division
@@ -442,6 +449,8 @@ Large-cell carcinoma: lung
 Squamous cell carcinoma (SCC): common, skin (UV light), mouth + lung (smoking), genitals (HPV)
 Basal-cell carcinoma (BCC): skin, very common, low danger, caused by UV light
 Melanoma: skin, high danger, metastases, caused by UV light
+Familial adenomatous polyposis (FAP): large intestine, starts as benign polyps
+- cause: inherited, APC gene mutation
 =Sarcoma: connective tissue
 Osteosarcoma: bones, young adults
 Liposarcoma: fat cells

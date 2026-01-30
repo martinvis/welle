@@ -72,13 +72,31 @@ Peroxisome proliferator-activated receptor (PPAR): cellular differentiation and 
 #Transcription factors: ~10% of proteins
 Autoimmune regulator (AIRE): eliminates self-reactive T cells
 T-box transcription factor T (TBXT): defines anterior-posterior axis, spine development
-#Regulatory protein
-Ubiquitin (UB*): attached to substrate proteins, marks for proteolysis, alters cellular location, affects activity
+Hypoxia-inducible factors (HIF): responds to hypoxia, labeled by ubiquitin for degradation if oxygen present
 
-Proteasomes: protein complex, degrage proteins tagged by ubiquitin using proteases
+#Ubiquitin Proteasome System (UPS):
+Ubiquitin (UB*): attached to substrate proteins, marks for proteolysis, alters cellular location, affects activity
+Ubiquitin-activating enzymes (E1): activate ubiquitin and pass it to E2
+Ubiquitin-conjugating enzymes (E2): carry ubiquitin and bind with E3
+Ubiquitin ligases (E3): recognize target protein, transfer ubiquitin from E2
+Proteasomes: protein complex, degrage proteins tagged by ubiquitin using proteases, at least 4 ubiquitin monomers needed
 
 #Receptors
 Trk receptors: tyrosine kinases, regulate synaptic strength and plasticity
+
+#homologous recombination
+MRN complex: find double-strand break, create two 3' single-strand overhangs
+- MRE11: chews away 5' ends
+- RAD50: binds to broken end and pairs together through zinc hook
+- NBS1 / NBN / Nibrin: recruits ATM kinase
+ATM phosphorylates NBS1 to create binding sites for BRCT domain
+ATM phosphorylates CHK2 + P53 to inhibit mitosis
+RPA binds single-strand to keep it straight
+MDC1: BRCT domain, recruits BRCA1
+BRCA1: promotes homologous recombination instead of non-homologous end joining, recruits BRCA2
+BRCA2: replaces RPA with RAD51
+RAD51: enzyme, search for homology, create D-loop
+ATM signal stops, P53 level drops
 
 #Signaling - Transmitter
 #Neurotransmitter: neuron synapse
