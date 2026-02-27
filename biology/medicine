@@ -1,5 +1,6 @@
 #Symptom: observable indication of disease
 Inflammation (-itis): response to pathogens and irritants
+Dactylitis: inflammation of entire digit
 Ptosis/Blepharoptosis: falling upper eyelid
 Clubfoot: feet rotated inward and downward
 Hypertelorism: increased distance between eyes
@@ -300,7 +301,11 @@ Dermatitis: common, skin inflammation
 #neurodegenerative
 Alzheimer's disease: loss of neuronal connections, causes dementia
 - symptoms: memory loss
-Parkinson's disease
+Lewy body: abnormal aggregation of SNCA protein in neurons
+Lewy body dementia (LBD): Lewy bodies
+- Dementia with Lewy bodies (DLB): cerebral cortex
+- Parkinson's disease dementia (PDD): brainstem, Parkinson's disease
+Parkinson's disease:
 - symptoms: tremor, slowness of movement, dementia
 - cause: misfolded proteins
 - mechanism: cell death in basal ganglia, overactive indirect and underactive direct pathway
@@ -409,9 +414,15 @@ Luxation: joint dislocation
 - Subluxation: partial dislocation
 
 #bening tumor
-Neurofibromatosis (NF): tumors in nervous system, often inherited, usually mild symptoms
+Neurofibromatosis (NF): tumors in nervous system, often inherited, usually mild symptoms, Schwann cells
+- Type I: brown skin spots, Lisch nodules (brown spots on iris), neurofibromin gene, peripheral/optic nerves
+- Type II: loss of hearing/balance, merlin gene, cranial nerve
+- Schwannomatosis: chronic pain, peripheral nerves
+Hamartoma: bening, normal tissue, slow abnormal growth, resemble neoplasm
 
 #cancer
+Grading: cell appearance, 1 = well differentiated, 4 = undifferentiated
+Staging: location and spread, 1 = localized, 4 = metastatic
 Oncogene: gain-of-function mutation, cell division
 Anti-oncogene: tumor suppressor, regulate cell division
 =Malignant progression: multistep accumulation of mutations

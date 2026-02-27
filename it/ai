@@ -48,6 +48,7 @@ Training: learning, minimize errors on training data
 Inference: doing, use trained model to generate outputs
 
 #Neural network
+Perceptron: simplest, single layer, adjustable weights
 Activation function: introduces non-linearity, transforms weighted sum of inputs to output
 - Softmax function: normalize input, probability distribution (sum to 1)
 Bias: constant added to weighted sum of inputs, increases flexibility

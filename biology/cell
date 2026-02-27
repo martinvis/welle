@@ -119,7 +119,10 @@ Erythropoiesis: red blood cell production in bone marrow, stimulated by low O2 i
 Keratinocyte: epidermis barrier
 Melanocyte: UV radiation protection
 Langerhans cell: resident macrophage
-Merkel cell: touch sensation
+Merkel cell: mechanoreceptor, touch sensation, detailed info, slowly adaptive
+Tactile / Meissner's corpuscles: mechanoreceptor, pressure sensitivity, rapidly adaptive, myelinated dendritic ending
+Bulbous / Ruffini corpuscle: mechanoreceptor, pressure sensitivity, slowly adaptive, collagen encapsulated dendritic ending
+Pacinian corpuscle: mechanoreceptor, vibration sensitivity, rapidly adaptive, myelinated axon in large onion-like capsule
 =Epidermis layers
 1- Stratum basale: Basal cells
 2- Stratum spinosum: Spinous cells
@@ -149,3 +152,33 @@ G1/S transition: cyclin D + CDK4/6 inactivate retinoblastoma protein
 S phase: DNA replication
 G2 phase: cell growth, chromatin condensation into chromosomes
 M phase / Mitosis: cell division
+
+Cardiomyocyte proliferation: new muscle tissue creation
+- in fish + newts + lizards, not in adult mammals + birds (endothermy, high pressure heart)
+Induced pluripotent stem cell (iPSC): generated from somatic cell by introduction of specific transcription factors
+
+Zygote: formed by fusion of gametes
+- Karyogamy: fusion of gamete nuclei
+Morula: ~16 cells, 3rd day, solid ball
+Blastula: ~100 cells, 4th day, hollow sphere
+Blastocyst: ~200 cells, 5th day, 2 layers
+- Blastocoel: cavity filled with fluid
+- Trophoblast: outer cells of blastocyst, develop into placenta
+- Embryonic stem cell (ESC): pluripotent, from inner cell mass of blastocyst
+Gastrula: 3 layers, call differentiation and axes formation
+- Ectoderm: produces epidermis and nervous system
+- Endoderm: produces digestive system + lungs + liver
+- Mesoderm: produces muscles + bones + heart + blood vessels
+Embryo
+- Hypoblast: inner cell mass layer, forms yolk sac
+- Epiblast: inner cell mass layer, forms embryo
+- Amnion: inner membrane protecting embryo, filled with fluid
+- Chorion: outer membrane protecting embryo, filled with fluid
+- Cytotrophoblast:
+- Syncytiotrophoblast: multinucleate, invades uterine wall
+
+=Embryonic development
+Cleavage: division of cells in embryo, ending with blastocyst
+Cavitation: formation of blastocoel
+Implantation / Nidation: blastocyst invades into endometrium of uterus
+Organogenesis: tissue and organ formation

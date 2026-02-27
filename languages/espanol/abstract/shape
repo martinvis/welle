@@ -1,6 +1,9 @@
 tvar, forma
 veľkosť, tamaño
 
+oblúk, arco
+- ohnúť do oblúka, enarcar
+
 strmý, acantilado
 rovný, llano
 plochý, plano
@@ -34,11 +37,13 @@ plochý, llano
 strmý, escarpado
 ostrý, agudo
 tupý, obtuso
+špicatý, aguzado
 
 skrátiť, acortar
 predĺžiť, alargar
 zväčšiť, agrandar
 zmenšiť, disminuir
+ubúdať, menguar
 rozšíriť, ampliar
 zúžiť, estrechar
 zvýšiť, aumentar
@@ -56,6 +61,7 @@ plocha, área
 okraj, borde
 roh, punta
 hrot, ápice
+osteň, púa
 hrana, arista
 diera, agujero
 trhlina, hendidura
@@ -64,7 +70,9 @@ prasklina, grieta
 zárez, muesca + mella
 hrboľ, bulto
 škvrna, mancha
+- zašpiniť, manchar
 koniec, cabo
+jadro, cogollo
 
 kruh, círculo
 štvorec, cuadro
@@ -90,4 +98,5 @@ krivka, curva
 bod, punto
 
 sieť, red
+mriežka, malla
 hák, garfio

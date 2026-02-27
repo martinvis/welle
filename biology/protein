@@ -73,6 +73,19 @@ Peroxisome proliferator-activated receptor (PPAR): cellular differentiation and 
 Autoimmune regulator (AIRE): eliminates self-reactive T cells
 T-box transcription factor T (TBXT): defines anterior-posterior axis, spine development
 Hypoxia-inducible factors (HIF): responds to hypoxia, labeled by ubiquitin for degradation if oxygen present
+Activator protein 1 (AP-1): FOS+JUN, cell proliferation/differentiation/apoptosis
+- FOSB: joins with JUN, activated by intense stimuli, neuroplasticity
+- ΔFOSB: splice variant, more stable, accumulates, triggers addiction through reward system (dendritic growth in nucleus accumbens)
+- JUN: joins with FOS*
+MYC: induces stem-like state, blocks differentiation, stimulates cell proliferation
+KLF4: induces stem-like state, slows cell cycle
+SOX2: maintains stem-like state
+OCT4: maintains stem-like state
+
+CREB: cellular transcription factor, recruits CBP, neuroplasticity and memory, regulates BDNF+FOS+TH genes
+- magnesium ion and leucine zipper motif facilitate DNA binding
+CREB-binding protein (CBP): transcription enzyme, acetyltransferase, neutralize histone charge to open up DNA
+- two TAZ zinc finger domains
 
 #Ubiquitin Proteasome System (UPS):
 Ubiquitin (UB*): attached to substrate proteins, marks for proteolysis, alters cellular location, affects activity
@@ -97,6 +110,27 @@ BRCA1: promotes homologous recombination instead of non-homologous end joining, 
 BRCA2: replaces RPA with RAD51
 RAD51: enzyme, search for homology, create D-loop
 ATM signal stops, P53 level drops
+
+#meiosis
+=Prophase I: longest, homologous chromosomes pair and form crossovers
+Leptotene: duplicated chromosomes condense into long thin strands
+- SPO11: enzyme, creates double-strand breaks
+- Recombination hotspot: significantly higher frequency of crossover
+- PRDM9: determines recombination hotspots, recruits SPO11, fast evolving, can cause speciation
+Zygotene: homologous chromosomes pair
+- Synapsis: pairing of chromosomes
+- Synaptonemal complex (SC): structure between homologous chromosomes
+- Tetrad: paired up homologous chromosomes
+Pachytene: crossovers completed, typically 1-3 crossovers per chromosome
+- Chiasma: link between chromatids of homologous chromosomes, absence results in aneuploidy
+- ZMM proteins: space out crossovers evenly
+- Obligate crossover: each chromosome pair with at least one crossover
+Diplotene: synaptonemal complex disassembles, homologous chromosomes remain bound at chiasmata
+Diakinesis: chromosomes further condense, tetrads become visible
+=Metaphase I:
+=Anaphase I: homologous chromosomes split but sister chromatids remain together
+Shugoshin (SGO1): protects cohesin at centromere
+=Telophase I:
 
 #Signaling - Transmitter
 #Neurotransmitter: neuron synapse
@@ -159,8 +193,10 @@ Troponin + Tropomyosin: regulate muscle contraction
 #Enzyme: -ase suffix, biological catalyst
 Substrate presentation: activation of enzyme by exposure to substrate
 
+Alcohol dehydrogenases (ADH*): break down toxic alcohols into aldehydes/ketones, two zinc sites, in liver and stomach
 Thyroid peroxidase: oxidizes I- ion into I atom
 Aromatase: aromatization of androgens into estrogens by elimination of methyl group
+GULO: produces vitamin C, nonfunctional in primates + guinea pigs
 
 Hephaestin (HEPH): oxidizes iron exported by ferraportin
 Cyclooxygenase (COX): synthesis of thromboxane and prostaglandins from arachidonic acid
@@ -182,9 +218,11 @@ Transferase (EC2): transfering functional group
 - Phosphorylase: addition of inorganic phosphate group (-PO4)
 - Transaminase: exchange between amino and keto acids (=O and -NH2 groups)
 - Methyltransferase: methylation of substrate (-CH3 group)
+- Acetyltransferase: acetylation of substrate (-CO-CH3 group)
 Hydrolase (EC3): hydrolysis
 - Protease / Peptidase: breaking down proteins
 - Lipase: breaking down fats
+- Phosphatase: removing phosphate group (-PO4)
 - Nuclease: cleave phosphodiester bond (C-O-PO2-O-C)
 - GTPase: GTP -> GDP + inorganic phosphate
 - Helicase: move along and separate two strands
@@ -195,6 +233,12 @@ Isomerase (EC5): isomerization within molecule
 - Topoisomerase: break and rejoin DNA strands to change topology
 Ligase (EC6): joining with covalent bond
 Translocase (EC7): movement across membrane
+
+=Transcription
+RNA polymerase:
+DSIF: pauses RNA polymerase after short distance before phosphorylation, assists afterwards
+NELF: pauses RNA polymerase after short distance before phosphorylation, leaves afterwards
+P-TEFb: CDK9 + Cyclin T, phosphorylates DSIF and NELF, promotes mRNA synthesis
 
 #Signal transduction
 WNT pathway: regulates gene expression
@@ -218,6 +262,12 @@ PI3K/AKT/mTOR pathway: regulates cell cycle
 - AKT activates mTOR
 - mTOR: kinase, protein synthesis, autophagy inhibition
 - PTEN: phosphatase, inhibits AKT activation
+Hippo signaling pathway: controls organ size, regulates cell proliferation and apoptosis
+- Merlin (NF2): nervous tissue cytoskeleton, links actin to cell membrane, contact-mediated growth inhibitor
+- Serine/threonine-protein kinase (STK/MST): activates LATS
+- Large tumor suppressor kinase (LATS): inactivates YAP and TAZ by phosphorylation
+- YAP: transcription coregulator, promotes cell proliferation, suppresses apoptosis
+- TAZ/WWTR: transcription coregulator, promotes cell growth, suppresses apoptosis
 =Extrinsic apoptosis pathway
 Death-inducing signaling complex (DISC): trimerization of FASL binding FAS receptor, recruitment of FADD and CASPACE
 =Intrinsic apoptosis pathway
@@ -264,6 +314,15 @@ Serpins: serine protease inhibitors
 Cyclins: control of cell cycle by activating CDKs
 - Cyclin D: drives G1/S transition in presence of growth factors and mitogens
 Retinoblastoma protein (RB): cell cycle inhibitor, tumor suppressor
+TP53: tumor suppressor, most frequently mutated in cancer
+- low stress: activated P21 to stops cell cycle, initiates DNA repair
+- high stress: initiates apoptosis
+CDK inhibitor (CKI) : tumor suppressor, stops cell cycle
+- P21: response to DNA damage
+- P27: response to growth factors
+Maturation promoting factor (MPD): CDK1 + cyclin, promotes M phase, activated at G2 phase end
+- CDC25: phosphatase, dephosphorylates CDK1 to activate it
+- WEE1: kinase, phosphorylates CDK1 to inhibit it
 
 #Hormones
 Human chorionic gonadotropin (hCG): maternal recognition of pregnancy, made by syncytiotrophoblast in placenta
@@ -308,12 +367,17 @@ Fibrillin (FBN1): scaffold for elastin
 Biglycan (BGN)
 Decorin (DCN)
 
+
+=Contact inhibition
+Contact inhibition of locomotion (CIL): fibroblasts, embryogenesis and wound healing
+Contact inhibition of proliferation (CIP): epithelium, single layer of cells, maintain organ size
+
 #Structural - Cytoskeleton
 
 =Microfilament, double helix structure
 - Actin
 
-=Intermediate filament
+=Intermediate filament: eight bundled tetramers (pair of coiled coils), tough, flexible, durable
 Type I + II
 - Keratin (KRT*): in hair, nail, beak, claw, horn, hoof, feather
 Type III
@@ -326,7 +390,7 @@ Type IV
 - Synemin (SYNM): in muscle
 - Neurofilaments (NF): in neurons
 Type V
-- Lamin (LMN): in cell nucleus
+- Lamin (LMN*): in cell nucleus, structural support
 
 =Microtubule
 Tubulin (TUB*): structural support, DNA segregation
@@ -352,7 +416,7 @@ Na-Cl cotransporter (NCC): membrane transport, reabsorption in kidney
 Sodium-glucose cotransporter (SGLT): glucose reabsorption in kidney
 
 #Storage
-Ferritin (FTL/FTH) - intracellular, stores iron as Fe3+ (takes and releases as Fe2+)
+Ferritin (FTL/FTH): intracellular, stores iron as Fe3+ (takes and releases as Fe2+)
 Hemosiderin: intracellular, stores excess iron
 Myoglobin (MB), in muscle tissue, binds iron and oxygen, stores oxygen
 
@@ -407,6 +471,39 @@ Integrin: crosses cell membrane, binding to extracellular matrix
 - Talin: binds Integrin and Actin directly or with Vinculin
 Vinculin: binds Talin/α-catenin and actin cytoskeleton, reinforcement
 
+#Cell migration: movement to specific location
+Amoeboid movement: fast, free from extracellular matrix
+- Bleb-driven: protrusion created by increased hydrostatic pressure
+- Actin-driven: protrusion created by actin polymerization, formation of pseudopodia
+- Pseudopodia: temporary arm-like projections, actin filaments
+Mesenchymal movement: slow, bound to extracellular matrix
+- Crawling: leading edge adhesion -> translocation (contraction) -> end detachment (de-adhesion)
+- Actin-driven: protrusion created by actin polymerization, formation of lamellipodia
+- Lamellipodium: thin sheet-like projection, actin mesh
+- Filopodia: microspikes (actin ribs) beyond lamellipodium, adhesium with substratum
+Gliding: push/pull to slide, little deformation
+Swimming: flagella or cilia, no deformation
+
+Prenylation: addition of hydrophobic molecule to protein
+
+=Epigenetics: changes in gene expression persisting through cell division (eg cell differentiation, neuroplasticity)
+Fetal origins hypothesis (FOH): conditions during gestation cause long-term changes (non-communicable diseases)
+Epigenetic code: specific epigenetic modifications in each cell
+Genomic imprinting: gene expression from one parent only, other is silenced
+X-inactivation / Lyonization: one copy of X chromosome inactivated in females
+- X-inactive specific transcript (XIST): non-coding RNA, coats inactive X chromosome
+Heterochromatin: tightly packed DNA
+- Constitutive heterochromatin: repetitive, in centromeres and telomeres
+- Facultative heterochromatin: genes silenced by deacetylation or methylation
+DNA methyltransferases (DNMT): transfer of methyl group to cytosine base, decreases gene expression
+- CpG site: C followed by G, complement also methylated, preserved during cell division
+- CpG island: region with high CpG frequency, in gene promoters
+Histone acetyltransferases (HAT): acetylate lysine on histones, increases gene expression
+Histone deacetylases (HDAC): remove acetyl group from lysine on histones, decreases gene expression
+
+Bromodomain-containing protein (BRD): remain attached to DNA during mitosis, recruit P-TEFb
+Bromodomain: binds acetylated lysine on histones
+
 #viruses
 =enzyme
 Reverse transcriptase: convert RNA to DNA, retroviruses
@@ -417,6 +514,7 @@ RuBisCO: enzyme in photosynthesis, most abundant leaf protein, contains magnesiu
 Lutein: green vegetables, egg yolk, protects macula
 =terpenes
 Betulin: birch bark, white, hydrophobic, antimicrobial
+Geosmin: after-rain scent (petrichor), extreme sensitivity in humans
 
 #bacteria
 =enzyme
