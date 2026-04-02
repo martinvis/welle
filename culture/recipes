@@ -83,7 +83,7 @@ Pho: rice noodles + sliced meat + herbs in light broth
 Bun thit nuong: rice vermicelli + grilled meat + salad + roasted peanuts + dipping sauce
 
 #Meatball
-ground meat in ball
+ground meat + egg in ball
 
 #Balkan
 Ajvar: roasted pepper
@@ -257,7 +257,7 @@ Bryndzové halušky
 Parené buchty
 Bryndzové pirohy
 Bratislavské rožky
-Lokše
+Lokše: flatbread, 3 potato + 1 flour, brushed with butter
 Čiernohorský rezeň: breading of grated potato + egg + garlic, sprinkle with grated cheese
 Pečená krkovička: roasted pork neck, onion + carrot + potato
 - pan sear
@@ -278,9 +278,16 @@ Pizza
 Focaccia:
 Pasta with peas and bacon
 - garlic + bacon + peas + parmesan
-Spaghetti ala carbonara
-- pasta + bacon
-- raw egg + parmesan + pepper
+Carbonara sauce: spaghetti/rigatoni, guanciale + raw egg + pecorino + pepper
+Amatriciana sauce: spaghetti/rigatoni, guanciale + tomato + pecorino + pepper/chili
+Arrabbiata sauce: penne, tomato + chili + garlic + olive oil + parsley/basil
+Gricia sauce: rigatoni/spaghetti, guanciale + pecorino + pepper
+Cacio e pepe: spaghetti, pecorino + pepper
+Aglio e olio: spaghetti, garlic + olive oil + chili
+Pancetta: cured pork belly
+Guanciale: cured pork meat
+Pecorino: sheep milk cheese
+Parmigiano: cow milk cheese
 Risotto
 - oil + onion + rice (Arborio/Carnaroli)
 - add stock and boil, 20 min
@@ -367,6 +374,7 @@ Kladdkaka
 Köttbullar: meatballs
 
 #UK
+Jaffa cake: circular, sponge cake + orange jam + chocolate
 Scotch egg
 - boiled egg
 - meat wrap, breadcrumbs coat

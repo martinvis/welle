@@ -1,15 +1,24 @@
 Phylogenetics: evolutionary history of life
 Hologenome theory of evolution: holobiont instead of individual as evolutionary unit
+Metagenomics: study of all genetic material in particular environment
+
+=Sequencing
+Shotgun sequencing: small overlapping pieces, assembled together
+Massively parallel sequencing (MPS): second generation, short reads, problem with repetitive regions (Illumina)
+Long-read sequencing: third generation, 10kb-1Mb long reads
 
 DNA damage
 - DNA damage theory of aging: accumulated unrepaired DNA damage, particularly slow-replicating cells (brain, cardiac muscle)
 - Cancer: uncontrolled cell division, particularly fast-replicating cells
 
-Mendelian inheritance
+Mendelian inheritance:
 - Law of dominance and uniformity: dominant allele takes effect over recessive allele (sometimes intermediate effect)
 - Law of segregation: gametes carry only one allele (reoccurence of grandparent characteristics)
 - Law of independent assortment: alleles in gametes are passed independently (not when close to each other on chromosome)
+Lamarckian inheritance: passing characteristics acquired during lifetime (epigenetics)
 Punnett square: square diagram, visualizes genotype probabilities
+
+Uniparental disomy (UPD): two copies of chromosome from one parent, causes imprinting disorders
 
 #Human dominant traits
 Hair
@@ -352,6 +361,14 @@ Rett syndrome: as new MECP2 gene mutation, only in females (lethal in males), la
 Kabuki syndrome: as new mutation, distinctive facial features, skeletal abnormalities, heart defects, growth deficiency
 Achondroplasia: dominant inherited, dwarfism, short arms + legs
 
+=imprinting disorders
+Prader–Willi syndrome (PWS): defective paternal chromosome 15
+- symptoms: constant hunger, obesity, learning disability, infertility
+Angelman syndrome (AS): defective maternal chromosome 15
+- symptoms: unusually happy, intellectual disability, speech impairment, movement issues, hyperactivity, small head, wide mouth
+Beckwith–Wiedemann syndrome (BWS): defective maternal, overgrowth, large tongue
+Silver–Russell syndrome (SRS): defective paternal, primordial dwarfism
+
 Li–Fraumeni syndrome: cancer predisposition
 - cause: dominant inherited, TP53 gene mutation
 Cowden syndrome: cancer predisposition, hamartomas
@@ -369,9 +386,15 @@ Fanconi anemia (FA): DNA repair genes, cancer predisposition
 - cause: recessive inherited
 Progeria: faster aging, short lifespan (10-20y), very rare
 - cause: dominant inherited, LMNA gene
+Werner syndrome (WS): adult progeria
+- cause: recessive inherited, WRN gene
 Sickle cell anaemia: abnormal erythrocyte shape, carriers protected against malaria
 - cause: recessive inherited, HBB gene
 Adermatoglyphia: dominant, missing fingerprints
+Rubinstein–Taybi syndrome (RTS): broad thumbs, intellectual disability, short stature
+- cause: dominant inherited, CREBBP gene mutation
+DiGeorge syndrome: congenital heart problems, cleft palate
+- cause: microdeletion/microduplication on chromosome 22
 
 #Aneuploidy: abnormal number of chromosomes, usually results in miscarriage
 Down syndrome: common, trisomy of chromosome 21, moderate intellectual disability
@@ -385,27 +408,28 @@ Patau syndrome: trisomy of chromosome 13, usually die within first year
 R-CH-NH2-COOH
 
 #non-essential
-Asparagine [-CH2-C=O-NH2]
-Glutamine [-CH2-CH2-C=O-NH2]
-Serine [-CH2-OH]
-Glycine [-H], can be synthetized from Serine or Threonine
-Alanine [-CH3]
-Proline [COOH-(C4N)]
-Tyrosine [-CH2-{C6}-OH], can be synthetized from Phenylalanine
-Cysteine [-CH2-SH], can be synthetized from Methionine
-Arginine [-CH2-CH2-CH2-NH-C-NH2-NH2], can be synthetized from Glutamine
+Asparagine [-CH2-C=O-NH2]:
+Glutamine [-CH2-CH2-C=O-NH2]:
+Serine [-CH2-OH]:
+Glycine [-H]: can be synthetized from Serine or Threonine
+Alanine [-CH3]:
+Proline [COOH-(C4N)]:
+Tyrosine [-CH2-{C6}-OH]: can be synthetized from Phenylalanine
+Cysteine [-CH2-SH]: can be synthetized from Methionine
+Arginine [-CH2-CH2-CH2-NH-C-NH2-NH2]: can be synthetized from Glutamine
 Glutamic acid / Glutamate (Glu/E): excitatory neurotransmitter, neuroplasticity, protein synthesis, NMDA + AMPA receptors
+Citrulline: [-CH2-CH2-CH2-NH-C=O-NH2]: intermediate in urea cycle, byproduct of NO production
 
 #essential
-Tryptophan [-CH2-{C4N}|{C6}]
-Phenylalanine [-CH2-{C6}]
-Methionine [-CH2-CH2-S-CH3]
-Threonine [-CH-OH-CH3]
-Valine [-CH-CH3-CH3]
-Leucine [-CH2-CH-CH3-CH3]
-Isoleucine [-CH-CH3-CH2-CH3]
-Histidine [-CH2-{CCNCN}]
-Lysine [-CH2-CH2-CH2-CH2-NH3]
+Tryptophan [-CH2-{C4N}|{C6}]:
+Phenylalanine [-CH2-{C6}]:
+Methionine [-CH2-CH2-S-CH3]:
+Threonine [-CH-OH-CH3]:
+Valine [-CH-CH3-CH3]:
+Leucine [-CH2-CH-CH3-CH3]:
+Isoleucine [-CH-CH3-CH2-CH3]:
+Histidine [-CH2-{CCNCN}]:
+Lysine [-CH2-CH2-CH2-CH2-NH3]:
 
 #synthetic
 N-methyl-D-aspartic acid (NMDA): NMDA receptor agonist
@@ -426,23 +450,24 @@ Vitamin D: secosteroid (broken ring)
 #Human DNA
 ~10% of genome is remnants of viral DNA
 
+Histone code: hypothesis, transcription of genes is regulated by histone modification
+
 Genome: full genetic information of organism, split into chromosomes
 Chromosome: single DNA molecule
 Telomere: end of linear chromosome, repetitive TTAGGG sequence ending with G sequence
 Nucleosome: DNA segment wound around 8 histones, ~146 base pairs
-Shelterin: protein protecting telomeres from DNA repairs
 Nucleic acid: carries genetic information
 - DNA (Deoxyribonucleic acid): two polynucleotide chains in double helix, more stable, longer
 - RNA (Ribonucleic acid): single polynucleotide chain, less stable, shorter
 - mRNA (Messenger RNA): transcription
 - tRNA (Transfer RNA): translation
-- ncRNA (Non-coding RNA)
+- ncRNA (Non-coding RNA):
 - rRNA (Ribosomal RNA): non-coding, ribozyme (catalyze peptide bond)
 - snRNA (Small nuclear RNA): non-coding, splicing
 - snoRNA (Small nucleolar RNA): non-coding, rRNA modification
 - scaRNA (Small Cajal body RNA): non-coding, snRNA modification
 - piRNA (Piwi-interacting RNA): non-coding, transposon silencing
-- miRNA (Micro RNA): non-coding, mRNA silencing
+- miRNA (Micro RNA): non-coding, ~20 nucleotides, mRNA silencing, post-transcriptional gene expression regulation
 - siRNA (Small Interfering RNA): non-coding, mRNA silencing, double-stranded
 - XIST (X-inactive specific transcript): non-coding, inactivate one X chromozome in females
 Nucleotide: monomer of nucleic acid, nitrogenous base + pentose + phosphate
@@ -453,6 +478,14 @@ Nitrogenous bases:
 - Thymine (T): only in DNA, pairs with A, pyrimidine
 - Uracil (U): only in RNA, T equivalent
 - Amidoadenine (Z): in some bacteria, A equivalent
+- Inosine (I): converted from Adenine, pairs with A/C/U, common in tRNA
+Watson–Crick base pair: G with C, A with T/U
+Wobble base pair: pairing in RNA not following Watson–Crick base pairs
+
+=RNA interference (RNAi): sequence-specific suppression of gene expression by RNA
+RNA-Induced Silencing Complex (RISC): post-transcription silencing
+- Argonaute proteins: bind small ncRNA, inhibit translation by targeting complementary mRNA
+PIWI proteins: RNA-binding, in germline cells, use piRNA to silence transposons, trigger DNA+histone methylation
 
 #DNA repairs
 DNA adduct: DNA segment bound to carcinogens, can cause carcinogenesis

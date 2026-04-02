@@ -215,18 +215,64 @@ Calomel = Hg2Cl2: tetragonal, soft, toxic
 #Hydrate (H2O)
 Opal - SiO2: iridescent
 
-Obsidian: volcanic glass, conchoidal fracture, sharp edges, black color
-Scoria: pyroclastic vesicular dark volcanic rock, basaltic/andesitic composition
-
 =rock texture
 Vesicular: many cavities, common in igneous rocks
 - Amygdule: vesicles infilled with secondary material
+Porphyritic: different crystal sizes, in igneous rocks
+- Phenocryst: large crystal
 Aphanite: fine-grained igneous rock, components not visible to naked eye (basalt)
 Phanerite: coarse-grained igneous rock, components visible to naked eye (granite)
 
-=Sandstone: sedimentary, quartz + feldspar + lithic grains
 Dott scheme: classification by quartz/feldspar/lithic abundance
-Arkose: 25%+ feldspar
 
 Alabaster: gypsum or calcite, soft light translucent, indoor carvings (water soluble)
 Jade: jadeite or nephrite, hard green, jewelry, figurines
+
+#Sedimentary rocks: cementation of accumulated sediments
+Mudrock: most common, clastic
+- Claystone: clay-sized material
+- Mudstone: silt-sized and clay-sized material
+- Siltstone / Aleurolite: silt-sized material
+- Shale: fissile clay, porose but non-permeable, traps fluids
+Sandstone: common, quartz + feldspar + lithic grains, deserts + beaches, Uluru
+- Dolomite: from dolomite, Dolomites
+- Arkose: 25%+ feldspar
+Limestone: from calcite, Karst
+- Chalk: soft, white, from calcite, Dover Cliffs
+- Tufa: porous, Plitvice Lakes
+- Travertine: hot springs, caves, Pamukkale
+Chert: hard, quartz
+- Flint: with limestone/chalk
+Coal: combustible organic carbon, from peat, low density
+- Lignite: low carbon content
+- Anthracite: high carbon content
+Oil shale: contains organic kerogen, Green River (USA)
+
+#Metamorphic rocks: recrystallized under high temperature and pressure, orogenic belts
+Slate: low grade, foliated
+Schist: medium grade, foliated
+Gneiss: hard grade, foliated
+Marble: non-foliated, from sedimentary calcite/dolomite
+Quartzite: non-foliated, hard and stable, from sedimentary sandstone, ridges
+
+#Igneous rocks: cooled solidified magma
+=Volcanic glass: amorphous uncrystallized, rapid cooling
+Obsidian: felsic, conchoidal fracture, sharp edges, black color
+Pumice: felsic, very vesicular, high porosity, low density, floats on water
+Scoria: mafic, pyroclastic vesicular dark volcanic rock, basaltic/andesitic composition
+=Extrusive rocks: aphanitic, volcanic, magma solidified on surface, rapid cooling
+Basalt: mafic, most common, mid-ocean ridges (ocean floor), pyroxene + plagioclase
+Andesite: intermediate, subduction zones (south Cordillera), plagioclase + pyroxene/amphibole
+- formed when mafic oceanic crust melts and mixes with felsic continental crust
+Rhyolite: felsic, convergent plate boundaries (north Cordillera), quartz + sanidine + plagioclase
+Dacite: between Andesite and Rhyolite, plagioclase + quartz + pyroxene/amphibole
+Basanite: alkaline mafic, rifts (East Africa)
+Trachyte: alkaline felsic, Mount Kenya + Kilimanjaro
+Phonolite: alkaline intermediate, Mount Kenya + Kilimanjaro
+=Intrusive / Plutonic rock: phaneritic, magma solidified underground, slow cooling
+Granite: ~Rhyolite, most common, felsic, continental crust (central Alps, Sierra Nevada), quartz + feldspar + mica
+Diorite: ~Andesite, intermediate, orogens (Andes, Scotland)
+Gabbro: ~Basalt, mafic, mid-ocean ridges
+Syenite: ~Trachyte, alkaline felsic
+Peridotite: ultramafic, mantle, olivine + pyroxene
+

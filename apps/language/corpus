@@ -10380,6 +10380,7 @@ english|difficult-words|accretive [ə'kti:tiv]|narastajúci||False|False|other|
 english|difficult-words|acme ['ækmi]|vrchol||False|False|other|
 english|difficult-words|acrimony ['ækriməni]|trpkosť||False|False|other|
 english|difficult-words|antebellum [,ænti'beləm]|pred americkou občianskou vojnou||False|False|other|
+english|difficult-words|asseverations|ubezpečenia||False|False|other|
 english|difficult-words|assiduous [ə'sidʒuəs]|pracovitý||False|False|other|
 english|difficult-words|assuage [ə'sweidʒ]|upokojiť||False|False|other|
 english|difficult-words|austerity|šetrnosť||False|False|other|
@@ -10390,6 +10391,7 @@ english|difficult-words|bellicose ['belikous]|bojovný||False|False|other|
 english|difficult-words|belligerent [bə'lidʒərənt]|bojovný||False|False|other|
 english|difficult-words|bellwether ['bel,weðə]|vodca||False|False|other|
 english|difficult-words|bereft [bi'reft]|zbavený||False|False|other|
+english|difficult-words|blench|zblednúť||False|False|other|
 english|difficult-words|cajolery|sladké reči||False|False|other|
 english|difficult-words|cantankerous|hašterivý||False|False|other|
 english|difficult-words|caul|plodová blana||False|False|other|
@@ -10403,6 +10405,7 @@ english|difficult-words|concupiscence|žiadostivosť||False|False|other|
 english|difficult-words|conniption|záchvat hnevu||False|False|other|
 english|difficult-words|conspicuous|nápadný||False|False|other|
 english|difficult-words|contingent|závislý (na budúcnosti)||False|False|other|
+english|difficult-words|contumely|urážka||False|False|other|
 english|difficult-words|corroborate|dosvedčiť||False|False|other|
 english|difficult-words|cosset|rozmaznávať||False|False|other|
 english|difficult-words|cynosure|centrum pozornosti||False|False|other|
@@ -10432,12 +10435,14 @@ english|difficult-words|farrago|splátanina||False|False|other|
 english|difficult-words|finagle|fígľovať||False|False|other|
 english|difficult-words|finicky|vyberavý||False|False|other|
 english|difficult-words|foible|chyba charakteru||False|False|other|
+english|difficult-words|forceps|chirurgické kliešte||False|False|other|
 english|difficult-words|foyer|vstupná hala||False|False|other|
 english|difficult-words|furtive|kradmý||False|False|other|
 english|difficult-words|fusty ['fasti]|zatuchnutý||False|False|other|
 english|difficult-words|gaol|väzenie||False|False|other|
 english|difficult-words|gay|svetlý||False|False|other|
 english|difficult-words|gay|veselý||False|False|other|
+english|difficult-words|geld|vykastrovať||False|False|other|
 english|difficult-words|genuflect|pokľaknúť||False|False|other|
 english|difficult-words|germane|relevantný||False|False|other|
 english|difficult-words|glib ['glib]|povrchný||False|False|other|
@@ -10445,9 +10450,11 @@ english|difficult-words|goad|popohnať||False|False|other|
 english|difficult-words|gossamer|pavučinka||False|False|other|
 english|difficult-words|gumption|dôvtip||False|False|other|
 english|difficult-words|hammock|hojdacia sieť||False|False|other|
+english|difficult-words|haunch|bedro||False|False|other|
 english|difficult-words|hirsute|chlpatý||False|False|other|
 english|difficult-words|hovel ['hovəl]|chatrč||False|False|other|
 english|difficult-words|hoyden ['hoidən]|divoška||False|False|other|
+english|difficult-words|huddle|chúliť sa||False|False|other|
 english|difficult-words|ignominious|potupný||False|False|other|
 english|difficult-words|imbricate|prekrývať sa||False|False|other|
 english|difficult-words|immure [i'mju:r]|zamurovať||False|False|other|
@@ -10457,6 +10464,7 @@ english|difficult-words|in lieu|namiesto||False|False|other|
 english|difficult-words|inanity|nezmysel||False|False|other|
 english|difficult-words|inchoate|nevyzrelý||False|False|other|
 english|difficult-words|inculcate|vštepovať||False|False|other|
+english|difficult-words|ineluctable|nevyhnutný||False|False|other|
 english|difficult-words|ingress|vniknúť||False|False|other|
 english|difficult-words|inimical|nepriaznivý||False|False|other|
 english|difficult-words|insipid|nevýrazný||False|False|other|
@@ -10476,6 +10484,7 @@ english|difficult-words|legerdemain|podvod||False|False|other|
 english|difficult-words|loquacious|výrečný||False|False|other|
 english|difficult-words|lugubrious|smutný||False|False|other|
 english|difficult-words|meed|zásluha||False|False|other|
+english|difficult-words|moil|makať||False|False|other|
 english|difficult-words|moribund|umierajúci||False|False|other|
 english|difficult-words|motility|pohyblivosť||False|False|other|
 english|difficult-words|myopic|krátkozraký||False|False|other|
@@ -10524,6 +10533,7 @@ english|difficult-words|repudiate|poprieť||False|False|other|
 english|difficult-words|rescind|anulovať||False|False|other|
 english|difficult-words|ribald|neslušný||False|False|other|
 english|difficult-words|riparian|pozdĺž rieky||False|False|other|
+english|difficult-words|risible|smiešny||False|False|other|
 english|difficult-words|scion|potomok||False|False|other|
 english|difficult-words|scrump [skramp]|kradnúť ovocie||False|False|other|
 english|difficult-words|scupper|poslať ku dnu||False|False|other|
@@ -10534,6 +10544,8 @@ english|difficult-words|sibilant|sykavý||False|False|other|
 english|difficult-words|sinecure|teplé miesto||False|False|other|
 english|difficult-words|sinus|dutina||False|False|other|
 english|difficult-words|slatternly|nedbalo||False|False|other|
+english|difficult-words|slattern|bordelár||False|False|other|
+english|difficult-words|slovenly|neupravený||False|False|other|
 english|difficult-words|smart|pálivo bolieť||False|False|other|
 english|difficult-words|smorgasbord|švédsky stôl||False|False|other|
 english|difficult-words|snicker|rehotať sa||False|False|other|
@@ -10554,10 +10566,12 @@ english|difficult-words|swale|priekopa||False|False|other|
 english|difficult-words|sward|trávny porast||False|False|other|
 english|difficult-words|sybartic|pôžitkársky||False|False|other|
 english|difficult-words|syncope|mdloba||False|False|other|
+english|difficult-words|tatterdemalion|bedár||False|False|other|
 english|difficult-words|temerity|trúfalosť||False|False|other|
 english|difficult-words|travail|náročná práca||False|False|other|
 english|difficult-words|trestle|podstavec (koza)||False|False|other|
 english|difficult-words|trollop ['troləp]|ľahká žena||False|False|other|
+english|difficult-words|truant|záškolák||False|False|other|
 english|difficult-words|tryst|tajná schôdzka||False|False|other|
 english|difficult-words|tumescence|stoporenie||False|False|other|
 english|difficult-words|tyro|začiatočník||False|False|other|
@@ -10646,6 +10660,7 @@ espanol|abstract/material|ortuť|mercurio||False|False|other|
 espanol|abstract/material|papier|papel||False|False|other|
 espanol|abstract/material|pevný|sólido||False|False|other|
 espanol|abstract/material|piesok|arena||False|False|other|
+espanol|abstract/material|plech|hojalata||False|False|other|
 espanol|abstract/material|plynný|gaseoso||False|False|other|
 espanol|abstract/material|plyn|gas||False|False|other|
 espanol|abstract/material|popol|ceniza||False|False|other|
@@ -10664,6 +10679,7 @@ espanol|abstract/material|striebro|plata||False|False|other|
 espanol|abstract/material|síra|azufre||False|False|other|
 espanol|abstract/material|sľuda|mica||False|False|other|
 espanol|abstract/material|tesný|prieto||False|False|other|
+espanol|abstract/material|tuhý|tieso||False|False|other|
 espanol|abstract/material|uhlie|carbón||False|False|other|
 espanol|abstract/material|uhlík|carbono||False|False|other|
 espanol|abstract/material|vlna|lana||False|False|other|
@@ -10720,6 +10736,7 @@ espanol|abstract/pohyb|triasť sa|tiritar||False|False|other|
 espanol|abstract/pohyb|triasť|agitar||False|False|other|
 espanol|abstract/pohyb|trieť|estregar||False|False|other|
 espanol|abstract/pohyb|trieť|restregar||False|False|other|
+espanol|abstract/pohyb|uskladniť|almacenar||False|False|other|
 espanol|abstract/pohyb|uvoľnený|suelto||False|False|other|
 espanol|abstract/pohyb|uvoľniť|aflojar||False|False|other|
 espanol|abstract/pohyb|uvoľniť|relajar||False|False|other|
@@ -10729,6 +10746,7 @@ espanol|abstract/pohyb|vložiť|meter||False|False|other|
 espanol|abstract/pohyb|voľný|flojo||False|True|other|
 espanol|abstract/pohyb|vsunúť|insertar||False|False|other|
 espanol|abstract/pohyb|vybuchnúť|estallar||False|False|other|
+espanol|abstract/pohyb|vyliať|verter||False|False|other|
 espanol|abstract/pohyb|vyprázdniť|vaciar||False|True|other|
 espanol|abstract/pohyb|vystrčiť|asomar||False|False|other|
 espanol|abstract/pohyb|vytiahnuť|sacar||False|False|other|
@@ -10744,8 +10762,10 @@ espanol|abstract/pohyb|zviazaný|atado||False|True|other|
 espanol|abstract/pohyb|zviazať|atar||False|False|other|
 espanol|abstract/pohyb|zviazať|enlazar||False|False|other|
 espanol|abstract/pohyb|ďaleký|distante||False|False|other|
+espanol|abstract/pohyb|šnúra|sarta||False|False|other|
 espanol|abstract/pohyb|šúchať|frotar||False|False|other|
 espanol|abstract/pohyb|ťahať|tirar||False|False|other|
+espanol|abstract/pohyb|žmýkať|estrujar||False|False|other|
 espanol|abstract/priebeh|chaos|caos||False|False|other|
 espanol|abstract/priebeh|chaos|lío||False|False|other|
 espanol|abstract/priebeh|dočasný|temporal||False|False|other|
@@ -10773,6 +10793,7 @@ espanol|abstract/shape|bod|punto||False|False|other|
 espanol|abstract/shape|bublina|burbuja||False|False|other|
 espanol|abstract/shape|diera|agujero||False|False|other|
 espanol|abstract/shape|dlhý|largo||False|False|other|
+espanol|abstract/shape|dutina|hueco||False|False|other|
 espanol|abstract/shape|guľa|esfera||False|False|other|
 espanol|abstract/shape|guľa|globo||False|False|other|
 espanol|abstract/shape|hladký|liso||False|False|other|
@@ -10821,6 +10842,7 @@ espanol|abstract/shape|priamka|recta||False|False|other|
 espanol|abstract/shape|priamy|directo||False|False|other|
 espanol|abstract/shape|priemer|diámetro||False|False|other|
 espanol|abstract/shape|priliehavý|ceñido||False|False|other|
+espanol|abstract/shape|pás|franja||False|False|other|
 espanol|abstract/shape|roh|punta||False|False|other|
 espanol|abstract/shape|rovný|directo||False|False|other|
 espanol|abstract/shape|rovný|llano||False|False|other|
@@ -10828,7 +10850,7 @@ espanol|abstract/shape|rozloha|cabida||False|False|other|
 espanol|abstract/shape|rozšíriť|ampliar||False|False|other|
 espanol|abstract/shape|sieť|red||False|False|other|
 espanol|abstract/shape|skrátiť|acortar||False|False|other|
-espanol|abstract/shape|strmý|acantilado||False|False|other|
+espanol|abstract/shape|strmý|empinado||False|False|other|
 espanol|abstract/shape|strmý|escarpado||False|False|other|
 espanol|abstract/shape|trhlina|hendidura||False|False|other|
 espanol|abstract/shape|trojuholník|triángulo||False|False|other|
@@ -10911,6 +10933,7 @@ espanol|abstract/size|zväčšiť|engrandecer||False|False|other|
 espanol|abstract/size|šíriť sa|cundir||False|False|other|
 espanol|abstract/space|blízko|cerca (de)||False|False|other|
 espanol|abstract/space|blízky|vecino||False|False|other|
+espanol|abstract/space|bok|costado||False|False|other|
 espanol|abstract/space|cez|a través de||False|False|other|
 espanol|abstract/space|dnes|hoy||False|False|other|
 espanol|abstract/space|dole|abajo||False|False|other|
@@ -10937,6 +10960,7 @@ espanol|abstract/space|práve|ahora mismo||False|False|other|
 espanol|abstract/space|rovno|derecho||False|False|other|
 espanol|abstract/space|sem|acá||False|False|other|
 espanol|abstract/space|sem|aquí||False|False|other|
+espanol|abstract/space|susedný|aledaño||False|False|other|
 espanol|abstract/space|tam|ahí||False|False|other|
 espanol|abstract/space|tam|allí||False|False|other|
 espanol|abstract/space|teraz|ahora||False|False|other|
@@ -10949,13 +10973,16 @@ espanol|abstract/space|vľavo|a la izquierda||False|False|other|
 espanol|abstract/space|vždy|siempre||False|False|other|
 espanol|abstract/space|zajtra|mañana||False|False|other|
 espanol|abstract/space|z|de||False|False|other|
+espanol|abstract/time|chvíľa|rato||False|False|other|
 espanol|abstract/time|letný|estival||False|False|other|
 espanol|abstract/time|meškanie|demora||False|False|other|
 espanol|abstract/time|noc|noche||False|False|other|
+espanol|abstract/time|po chvíli|al cabo de un rato||False|True|other|
 espanol|abstract/time|poludnie|mediodía||False|False|other|
 espanol|abstract/time|pozdržať|demorar||False|True|other|
 espanol|abstract/time|ráno|mañana||False|False|other|
 espanol|abstract/time|skoré ráno|madrugada||False|False|other|
+espanol|abstract/time|svitať|amanecer||False|False|other|
 espanol|abstract/time|večer|tarde||False|False|other|
 espanol|basic|ani náhodou|ni por asomo||False|False|other|
 espanol|basic|hoci|a pesar de||False|False|other|
@@ -10969,6 +10996,7 @@ espanol|biology/botany|kvet|flor||False|False|other|
 espanol|biology/botany|kvitnúť|florecer||False|False|other|
 espanol|biology/botany|list|hoja||False|False|other|
 espanol|biology/botany|peľ|polen||False|False|other|
+espanol|biology/botany|peň|tocón||False|False|other|
 espanol|biology/botany|plod|fruto||False|False|other|
 espanol|biology/botany|puk|capullo||False|False|other|
 espanol|biology/botany|rásť|crecer||False|False|other|
@@ -11003,6 +11031,8 @@ espanol|biology/ethology|prenasledovať|perseguir||False|False|other|
 espanol|biology/ethology|prísť|acudir||False|False|other|
 espanol|biology/ethology|pásť|apacentar||False|False|other|
 espanol|biology/ethology|roj|enjambre||False|False|other|
+espanol|biology/ethology|samec|macho||False|False|other|
+espanol|biology/ethology|samica|hembra||False|False|other|
 espanol|biology/ethology|skákať|saltar||False|False|other|
 espanol|biology/ethology|stádo|rebaño||False|False|other|
 espanol|biology/ethology|svorka|manada||False|False|other|
@@ -11119,6 +11149,7 @@ espanol|culture/family|synovec|sobrino||False|False|other|
 espanol|culture/family|vnuk|nieto||False|False|other|
 espanol|culture/family|švagor|cuñado||False|False|other|
 espanol|culture/family|ženích|novio||False|False|other|
+espanol|culture/history|Krištof Kolumbus|Cristóbal Colón||False|False|other|
 espanol|culture/history|cisárovná|emperatriz||False|False|other|
 espanol|culture/history|cisár|emperador||False|False|other|
 espanol|culture/history|dejiny|historia||False|False|other|
@@ -11144,6 +11175,7 @@ espanol|culture/history|šľachtic|hidalgo||False|False|other|
 espanol|culture/history|šľachtic|noble||False|False|other|
 espanol|culture/history|žezlo|cetro||False|False|other|
 espanol|culture/jazyk|gramatika|gramática||False|False|other|
+espanol|culture/jazyk|hranatá zátvorka|corchete||False|False|other|
 espanol|culture/jazyk|interpunkcia|puntuación||False|False|other|
 espanol|culture/jazyk|jazyk|lengua||False|False|other|
 espanol|culture/jazyk|nárečie|dialecto||False|False|other|
@@ -11202,6 +11234,7 @@ espanol|culture/jedlo|vývar|caldo||False|False|other|
 espanol|culture/jedlo|zvyšky jedla|piltrafa||False|False|other|
 espanol|culture/jedlo|zázvor|jengibre||False|False|other|
 espanol|culture/jedlo|čerešňa|cereza||False|False|other|
+espanol|culture/jedlo|černica|zarzamora||False|False|other|
 espanol|culture/jedlo|červený kapusta|lombarda||False|False|other|
 espanol|culture/jedlo|čučoriedka|arándano||False|False|other|
 espanol|culture/jedlo|šľahačka|nata||False|False|other|
@@ -11214,6 +11247,7 @@ espanol|culture/náboženstvo|cintorín|cementerio||False|False|other|
 espanol|culture/náboženstvo|duch|espíritu||False|False|other|
 espanol|culture/náboženstvo|duša|alma||False|False|other|
 espanol|culture/náboženstvo|farnosť|parroquia||False|False|other|
+espanol|culture/náboženstvo|hriech|pecado||False|False|other|
 espanol|culture/náboženstvo|hrob|fosa||False|False|other|
 espanol|culture/náboženstvo|hrob|tumba||False|False|other|
 espanol|culture/náboženstvo|kaplnka|capilla||False|False|other|
@@ -11239,6 +11273,7 @@ espanol|culture/náboženstvo|pochovať|enterrar||False|False|other|
 espanol|culture/náboženstvo|pohreb|entierro||False|False|other|
 espanol|culture/náboženstvo|posadnutý|poseído||False|False|other|
 espanol|culture/náboženstvo|pápež|papa||False|False|other|
+espanol|culture/náboženstvo|rakva|ataúd||False|False|other|
 espanol|culture/náboženstvo|rozvedený|divorciado||False|False|other|
 espanol|culture/náboženstvo|smútočný obrad|funeral||False|False|other|
 espanol|culture/náboženstvo|svadba|boda||False|False|other|
@@ -11254,6 +11289,7 @@ espanol|culture/oblecenie|deka|manta||False|False|other|
 espanol|culture/oblecenie|dekolt|escote||False|False|other|
 espanol|culture/oblecenie|golier|cuello||False|False|other|
 espanol|culture/oblecenie|gombík|botón||False|False|other|
+espanol|culture/oblecenie|klobúk|sombrero||False|False|other|
 espanol|culture/oblecenie|maska/kostým|disfraz||False|False|other|
 espanol|culture/oblecenie|nohavice|pantalones||False|False|other|
 espanol|culture/oblecenie|nohavičky|bragas||False|False|other|
@@ -11273,6 +11309,8 @@ espanol|culture/oblecenie|rukáv|manga||False|False|other|
 espanol|culture/oblecenie|smoking|esmoquin||False|False|other|
 espanol|culture/oblecenie|sukňa|falda||False|False|other|
 espanol|culture/oblecenie|topánka|zapato||False|False|other|
+espanol|culture/oblecenie|vesta|chaleco||False|False|other|
+espanol|culture/oblecenie|vojenský klobúk|chambergo||False|False|other|
 espanol|culture/oblecenie|vyobliekať sa|ataviarse||False|False|other|
 espanol|culture/oblecenie|zips|cremallera||False|False|other|
 espanol|culture/oblecenie|čiapka|gorro||False|False|other|
@@ -11306,6 +11344,7 @@ espanol|culture/právo|obviniť|acusar (a)||False|False|other|
 espanol|culture/právo|odsúdený|condenado||False|True|other|
 espanol|culture/právo|odsúdiť|condenar (a)||False|False|other|
 espanol|culture/právo|podozrivý|sospechoso||False|False|other|
+espanol|culture/právo|popravisko|cadalso||False|False|other|
 espanol|culture/právo|porota|jurado||False|False|other|
 espanol|culture/právo|právnik|jurista||False|False|other|
 espanol|culture/právo|páchateľ|perpetrador||False|False|other|
@@ -11315,6 +11354,7 @@ espanol|culture/právo|spravodlivý|justo||False|False|other|
 espanol|culture/právo|sudca|juez||False|False|other|
 espanol|culture/právo|svedok|testigo||False|False|other|
 espanol|culture/právo|súdiť|juzgar (a)||False|False|other|
+espanol|culture/právo|súdny spor|pleito||False|False|other|
 espanol|culture/právo|súd|juzgado||False|False|other|
 espanol|culture/právo|trest smrti|pena capital||False|False|other|
 espanol|culture/právo|trestný čin|delito||False|False|other|
@@ -11331,6 +11371,7 @@ espanol|culture/právo|väzeň|prisionero||False|False|other|
 espanol|culture/právo|zlodej|ladrón||False|False|other|
 espanol|culture/právo|zločinec|criminal||False|False|other|
 espanol|culture/právo|zmluva|contrato||False|False|other|
+espanol|culture/právo|zmluva|trato||False|False|other|
 espanol|culture/právo|zákon|ley||False|False|other|
 espanol|culture/právo|únos|rapto||False|False|other|
 espanol|culture/právo|únos|secuestro||False|False|other|
@@ -11430,6 +11471,7 @@ espanol|economy/agriculture|hnojivo|abono||False|False|other|
 espanol|economy/agriculture|hnojiť|abonar||False|False|other|
 espanol|economy/agriculture|hnoj|estiércol||False|False|other|
 espanol|economy/agriculture|háveď|bicho||False|False|other|
+espanol|economy/agriculture|háčik|anzuelo||False|False|other|
 espanol|economy/agriculture|jahňa|cordero||False|False|other|
 espanol|economy/agriculture|kobyla|yegua||False|False|other|
 espanol|economy/agriculture|kombajn|cosechadora||False|False|other|
@@ -11447,12 +11489,14 @@ espanol|economy/agriculture|lopata|pala||False|False|other|
 espanol|economy/agriculture|loviť ryby|faenar||False|False|other|
 espanol|economy/agriculture|mačka|gato||False|False|other|
 espanol|economy/agriculture|motyka|azada||False|False|other|
+espanol|economy/agriculture|navijak|carrete||False|False|other|
 espanol|economy/agriculture|osev|siembra||False|False|other|
 espanol|economy/agriculture|ovca|oveja||False|False|other|
 espanol|economy/agriculture|pastier|pastor||False|False|other|
 espanol|economy/agriculture|pes|perro||False|False|other|
 espanol|economy/agriculture|podkova|herradura||False|False|other|
 espanol|economy/agriculture|prasa|cerdo||False|False|other|
+espanol|economy/agriculture|rúbať|talar||False|False|other|
 espanol|economy/agriculture|rýľ|laya||False|False|other|
 espanol|economy/agriculture|sadiť|plantar||False|False|other|
 espanol|economy/agriculture|seno|heno||False|False|other|
@@ -11463,8 +11507,11 @@ espanol|economy/agriculture|stajňa|establo||False|False|other|
 espanol|economy/agriculture|stodola|pajar||False|False|other|
 espanol|economy/agriculture|studňa|pozo||False|False|other|
 espanol|economy/agriculture|teľa|ternero||False|False|other|
+espanol|economy/agriculture|tráva|hierba||False|False|other|
 espanol|economy/agriculture|trávnik|césped||False|False|other|
 espanol|economy/agriculture|udica|caña de pescar||False|False|other|
+espanol|economy/agriculture|vatra|hoguera||False|False|other|
+espanol|economy/agriculture|vidly|horca||False|False|other|
 espanol|economy/agriculture|vôl|buey||False|False|other|
 espanol|economy/agriculture|vŕbové prútie|mimbre||False|False|other|
 espanol|economy/agriculture|záhon|macizo||False|False|other|
@@ -11476,6 +11523,7 @@ espanol|economy/agriculture|žatva|siega||False|False|other|
 espanol|economy/agriculture|žať|segar||False|False|other|
 espanol|economy/agriculture|žriebä|potro||False|False|other|
 espanol|economy/buildings|budova|edificio||False|False|other|
+espanol|economy/buildings|chodba|pasillo||False|False|other|
 espanol|economy/buildings|dlažobná kocka|adoquín||False|False|other|
 espanol|economy/buildings|dvere|puerta||False|False|other|
 espanol|economy/buildings|izba|cuarto||False|False|other|
@@ -11483,6 +11531,7 @@ espanol|economy/buildings|jama|hoyo||False|False|other|
 espanol|economy/buildings|kanalizácia|alcantarilla||False|False|other|
 espanol|economy/buildings|lešenie|andamio||False|False|other|
 espanol|economy/buildings|okno|ventana||False|False|other|
+espanol|economy/buildings|podlaha|piso||False|False|other|
 espanol|economy/buildings|pozemok|terreno||False|False|other|
 espanol|economy/buildings|stavať|construir||False|False|other|
 espanol|economy/buildings|stena|pared||False|False|other|
@@ -11491,9 +11540,11 @@ espanol|economy/buildings|strecha|techo||False|False|other|
 espanol|economy/buildings|strešné okno|tragaluz||False|False|other|
 espanol|economy/buildings|tehla|ladrillo||False|False|other|
 espanol|economy/buildings|trosky|escombro||False|False|other|
+espanol|economy/cloths|deka|colcha||False|False|other|
 espanol|economy/cloths|ihla|aguja||False|False|other|
 espanol|economy/cloths|látka|tela||False|False|other|
 espanol|economy/cloths|niť|hilo||False|False|other|
+espanol|economy/cloths|obal|forro||False|False|other|
 espanol|economy/cloths|plachta|toldo||False|False|other|
 espanol|economy/cloths|priasť|hilar||False|False|other|
 espanol|economy/cloths|snovať|urdir||False|False|other|
@@ -11504,6 +11555,7 @@ espanol|economy/cloths|vešiak/háčik|percha||False|False|other|
 espanol|economy/cloths|vlákno|hebra||False|False|other|
 espanol|economy/cloths|vreckovka|pañuelo||False|False|other|
 espanol|economy/cloths|záplata|parche||False|False|other|
+espanol|economy/cloths|špagát|cordel||False|False|other|
 espanol|economy/finance|banka|banco||False|False|other|
 espanol|economy/finance|bankovka|billete||False|False|other|
 espanol|economy/finance|cenný|valioso||False|False|other|
@@ -11520,6 +11572,7 @@ espanol|economy/finance|majiteľ|dueño||False|False|other|
 espanol|economy/finance|mena|moneda||False|False|other|
 espanol|economy/finance|minca|moneda||False|False|other|
 espanol|economy/finance|nájom|alquiler||False|False|other|
+espanol|economy/finance|patriť|pertenecer||False|False|other|
 espanol|economy/finance|peniaze|dinero||False|False|other|
 espanol|economy/finance|platba|pago||False|False|other|
 espanol|economy/finance|platiť|pagar||False|False|other|
@@ -11540,6 +11593,7 @@ espanol|economy/finance|strata|perdición||False|True|other|
 espanol|economy/finance|stratiť|perder||False|False|other|
 espanol|economy/finance|vybrať/získať|recaudar||False|False|other|
 espanol|economy/finance|výživné|manutención||False|False|other|
+espanol|economy/finance|zjednávať|regatear||False|False|other|
 espanol|economy/finance|úrok|interés||False|False|other|
 espanol|economy/finance|účet|cuenta||False|False|other|
 espanol|economy/finance|účtovať|cobrar||False|False|other|
@@ -11558,6 +11612,7 @@ espanol|economy/gastro|cedidlo|colador||False|False|other|
 espanol|economy/gastro|cediť|colar||False|False|other|
 espanol|economy/gastro|dochutiť (nakoniec)|aderezar||False|False|other|
 espanol|economy/gastro|dressing|aliño||False|False|other|
+espanol|economy/gastro|dusiť|estofar||False|False|other|
 espanol|economy/gastro|dusiť|guisar||False|False|other|
 espanol|economy/gastro|hrniec|olla||False|False|other|
 espanol|economy/gastro|kastról|cazuela||False|False|other|
@@ -11622,6 +11677,7 @@ espanol|economy/health|nádcha|constipado||False|False|other|
 espanol|economy/health|nádcha|resfriado||False|False|other|
 espanol|economy/health|obväz|vendaje||False|False|other|
 espanol|economy/health|opitý|ebrio||False|False|other|
+espanol|economy/health|opuch|hinchazón||False|False|other|
 espanol|economy/health|osýpky|sarampión||False|False|other|
 espanol|economy/health|otvorená rana|llaga||False|False|other|
 espanol|economy/health|pomliaždenina|contusión||False|False|other|
@@ -11660,6 +11716,7 @@ espanol|economy/industry|kováč|herrero||False|False|other|
 espanol|economy/industry|ložisko|cojinete||False|False|other|
 espanol|economy/industry|maľovať|pintar||False|False|other|
 espanol|economy/industry|nástroj|instrumento||False|False|other|
+espanol|economy/industry|palica|palo||False|False|other|
 espanol|economy/industry|palica|vara||False|False|other|
 espanol|economy/industry|plechovka|lata||False|False|other|
 espanol|economy/industry|prederaviť|perforar||False|False|other|
@@ -11689,6 +11746,7 @@ espanol|economy/industry|vŕtačka|taladro||False|False|other|
 espanol|economy/industry|vŕtať|taladrar||False|False|other|
 espanol|economy/industry|zložiť|componer||False|False|other|
 espanol|economy/industry|zvárať|soldar||False|False|other|
+espanol|economy/industry|zátka|tapón||False|False|other|
 espanol|economy/industry|ďalekohľad|catalejo||False|False|other|
 espanol|economy/industry|ťažiť|extraer||False|False|other|
 espanol|economy/industry|žeravé uhlie|brasa||False|False|other|
@@ -11698,6 +11756,7 @@ espanol|economy/services|hotel|hotel||False|False|other|
 espanol|economy/services|kaderník|peluquero||False|False|other|
 espanol|economy/services|leňošiť|holgar||False|False|other|
 espanol|economy/services|objednávka|pedido||False|False|other|
+espanol|economy/services|pekáreň|tahona||False|False|other|
 espanol|economy/services|pripiť|brindar||False|False|other|
 espanol|economy/services|reštaurácia|restaurante||False|False|other|
 espanol|economy/services|sprievodca|guía||False|False|other|
@@ -11719,6 +11778,7 @@ espanol|economy/tovar|kniha|libro||False|False|other|
 espanol|economy/tovar|krhla|regadera||False|False|other|
 espanol|economy/tovar|krieda|tiza||False|False|other|
 espanol|economy/tovar|lampa|lámpara||False|False|other|
+espanol|economy/tovar|lampáš|farol||False|False|other|
 espanol|economy/tovar|lano|soga||False|False|other|
 espanol|economy/tovar|nožnice|tijeras||False|False|other|
 espanol|economy/tovar|obal|envase||False|False|other|
@@ -11736,6 +11796,7 @@ espanol|economy/tovar|rúra|horno||False|False|other|
 espanol|economy/tovar|sud|barril||False|False|other|
 espanol|economy/tovar|sviečka|vela||False|False|other|
 espanol|economy/tovar|taška|bolsa||False|False|other|
+espanol|economy/tovar|truhlica|baúl||False|False|other|
 espanol|economy/tovar|vrece|saco||False|False|other|
 espanol|economy/tovar|vysávač|aspirador(a)||False|False|other|
 espanol|economy/tovar|známka|sello||False|False|other|
@@ -11751,6 +11812,7 @@ espanol|economy/transportation|chodník|acera||False|False|other|
 espanol|economy/transportation|diaľnica|autopista||False|False|other|
 espanol|economy/transportation|dodávka|furgoneta||False|False|other|
 espanol|economy/transportation|doprava|transporte||False|False|other|
+espanol|economy/transportation|dráha|pista||False|False|other|
 espanol|economy/transportation|jazdec|jinete||False|False|other|
 espanol|economy/transportation|jazdiť na koni|jinetear||False|True|other|
 espanol|economy/transportation|jazdiť|montar||False|False|other|
@@ -11770,6 +11832,7 @@ espanol|economy/transportation|lietadlo|avión||False|False|other|
 espanol|economy/transportation|loď|navío||False|False|other|
 espanol|economy/transportation|lyže|esquís||False|False|other|
 espanol|economy/transportation|most|puente||False|False|other|
+espanol|economy/transportation|naklonená (loď)|escorado||False|False|other|
 espanol|economy/transportation|obrubník|bordillo||False|False|other|
 espanol|economy/transportation|odbočka|ramal||False|False|other|
 espanol|economy/transportation|padák|paracaídas||False|False|other|
@@ -11782,6 +11845,7 @@ espanol|economy/transportation|posádka|tripulación||False|False|other|
 espanol|economy/transportation|potrubie|cañería||False|False|other|
 espanol|economy/transportation|potrubie|tubería||False|False|other|
 espanol|economy/transportation|pravobok|estribor||False|False|other|
+espanol|economy/transportation|predná časť lode|proa||False|False|other|
 espanol|economy/transportation|prístav|puerto||False|False|other|
 espanol|economy/transportation|sane|trineo||False|False|other|
 espanol|economy/transportation|skateboard|monopatín||False|False|other|
@@ -11795,6 +11859,7 @@ espanol|economy/transportation|vozovka|calzada||False|False|other|
 espanol|economy/transportation|voz|carro||False|False|other|
 espanol|economy/transportation|vrtuľník|helicóptero||False|False|other|
 espanol|economy/transportation|zabrzdiť|sofrenar||False|False|other|
+espanol|economy/transportation|zadná časť lode|popa||False|False|other|
 espanol|economy/transportation|zvodidlo|guardarraíl||False|False|other|
 espanol|economy/transportation|ísť dopravným prostriedkom|coger||False|False|other|
 espanol|economy/transportation|čierny pasažier|polizón||False|False|other|
@@ -11947,6 +12012,7 @@ espanol|life/life|útek|huida||False|False|other|
 espanol|life/life|číhať|atisbar||False|False|other|
 espanol|life/movement|bežať|correr||False|False|other|
 espanol|life/movement|chodiť|andar||False|False|other|
+espanol|life/movement|chromý|cojo||False|True|other|
 espanol|life/movement|dotýkať sa|rozar||False|False|other|
 espanol|life/movement|dupať|patalear||False|False|other|
 espanol|life/movement|hodiť|echar||False|False|other|
@@ -11969,7 +12035,7 @@ espanol|life/movement|priniesť|traer||False|False|other|
 espanol|life/movement|prísť|llegar||False|False|other|
 espanol|life/movement|skočiť|saltar||False|False|other|
 espanol|life/movement|skákať|brincar||False|False|other|
-espanol|life/movement|stopa|pista||False|False|other|
+espanol|life/movement|stopa|huella||False|False|other|
 espanol|life/movement|triasť|zarandear||False|False|other|
 espanol|life/movement|uchopiť|asir||False|False|other|
 espanol|life/movement|udrieť|pegar (a)||False|False|other|
@@ -12078,6 +12144,7 @@ espanol|life/správanie|ľutovať|lamentar||False|False|other|
 espanol|life/správanie|šťastný|feliz||False|False|other|
 espanol|life/správanie|žiarlivosť|celos||False|False|other|
 espanol|life/správanie|žiarlivý|celoso||False|False|other|
+espanol|life/tajomstvo|prezradiť|delatar||False|False|other|
 espanol|life/tajomstvo|skrytý|encubierto||False|False|other|
 espanol|life/tajomstvo|skrytý|escondido||False|False|other|
 espanol|life/tajomstvo|skrytý|oculto||False|False|other|
@@ -12085,6 +12152,7 @@ espanol|life/tajomstvo|skryť|esconder||False|False|other|
 espanol|life/tajomstvo|skrývať|celar||False|False|other|
 espanol|life/tajomstvo|tajiť|ocultar||False|False|other|
 espanol|life/tajomstvo|tajný|secreto||False|False|other|
+espanol|life/tajomstvo|vyzradiť|chivar||False|False|other|
 espanol|life/tajomstvo|zakryť|encubrir||False|False|other|
 espanol|life/tajomstvo|zamaskovať|disfrazar (a)||False|False|other|
 espanol|life/terrain|brod|vado||False|False|other|
@@ -12142,6 +12210,7 @@ espanol|nature/light|zelený|verde||False|False|other|
 espanol|nature/light|červený|rojo||False|False|other|
 espanol|nature/light|čierny|negro||False|False|other|
 espanol|nature/light|žltý|amarillo||False|False|other|
+espanol|nature/liquid|postriekať|salpicar||False|False|other|
 espanol|nature/liquid|striekať|rociar||False|False|other|
 espanol|nature/movement|drviť|triturar||False|False|other|
 espanol|nature/movement|naraziť|topar||False|False|other|
@@ -12177,6 +12246,9 @@ espanol|nature/terrain|lúka|prado||False|False|other|
 espanol|nature/terrain|močiar|cenagal||False|False|other|
 espanol|nature/terrain|močiar|ciénaga||False|False|other|
 espanol|nature/terrain|močiar|pantano||False|False|other|
+espanol|nature/terrain|pahorok|cerro||False|False|other|
+espanol|nature/terrain|potok|riachuelo||False|False|other|
+espanol|nature/terrain|priepasť|sima||False|False|other|
 espanol|nature/terrain|rieka|río||False|False|other|
 espanol|nature/terrain|vrchol|cumbre||False|False|other|
 espanol|nature/terrain|úbočie|ladera||False|False|other|
@@ -12189,6 +12261,7 @@ espanol|nature/weather|fujavica|ventisca||False|False|other|
 espanol|nature/weather|fúkať|soplar||False|False|other|
 espanol|nature/weather|hmla|bruma||False|False|other|
 espanol|nature/weather|hmla|niebla||False|False|other|
+espanol|nature/weather|hrmieť|tronar||False|True|other|
 espanol|nature/weather|hrom|trueno||False|False|other|
 espanol|nature/weather|hurikán|huracán||False|False|other|
 espanol|nature/weather|námraza|escarcha||False|False|other|
@@ -12399,6 +12472,7 @@ espanol|pronoun|hajzel|cabrón||False|False|other|
 espanol|pronoun|hlupák|necio||False|False|other|
 espanol|pronoun|hulvát|patán||False|False|other|
 espanol|pronoun|krstné meno|nombre de pila||False|False|other|
+espanol|pronoun|kumpán|compinche||False|False|other|
 espanol|pronoun|paráda|fetén||False|False|other|
 espanol|pronoun|pätolízač|zalamero||False|False|other|
 espanol|pronoun|sympaťák|majo||False|False|other|
@@ -12415,6 +12489,7 @@ espanol|psychology/behaviour|hnev|enojo||False|False|other|
 espanol|psychology/behaviour|hnus|asco||False|False|other|
 espanol|psychology/behaviour|klamať|mentir||False|False|other|
 espanol|psychology/behaviour|klamstvo|mentira||False|False|other|
+espanol|psychology/behaviour|krotký|manso||False|False|other|
 espanol|psychology/behaviour|lichôtka|halago||False|False|other|
 espanol|psychology/behaviour|nadšený|entusiasta (de)||False|False|other|
 espanol|psychology/behaviour|nahnevaný|enojado||False|False|other|
@@ -12510,9 +12585,12 @@ espanol|psychology/cognitive|učiť|enseñar||False|False|other|
 espanol|psychology/cognitive|vedieť|saber||False|False|other|
 espanol|psychology/cognitive|vybrať si|escoger||False|False|other|
 espanol|psychology/cognitive|vymyslieť|inventar||False|False|other|
+espanol|psychology/cognitive|vyriešený|resuelto||False|True|other|
+espanol|psychology/cognitive|vyriešiť|resolver||False|False|other|
 espanol|psychology/cognitive|vôľa|albedrío||False|False|other|
 espanol|psychology/cognitive|všimnúť si|percatarse||False|False|other|
 espanol|psychology/cognitive|zistiť|averiguar||False|False|other|
+espanol|psychology/cognitive|zručnosť|destreza||False|False|other|
 espanol|psychology/creativity|bábika|muñeca||False|False|other|
 espanol|psychology/creativity|bábka (na niti)|marioneta||False|False|other|
 espanol|psychology/creativity|bábka (na ruke)|fantoche||False|False|other|
@@ -12525,6 +12603,7 @@ espanol|psychology/creativity|hra|juego||False|False|other|
 espanol|psychology/creativity|hračka|juguete||False|False|other|
 espanol|psychology/creativity|hračkárstvo|juguetería||False|False|other|
 espanol|psychology/creativity|hrať sa|jugar||False|False|other|
+espanol|psychology/creativity|hrkálka|cascabel||False|False|other|
 espanol|psychology/creativity|hydra|hidra||False|False|other|
 espanol|psychology/creativity|jednorožec|unicornio||False|False|other|
 espanol|psychology/creativity|karta|naipe||False|False|other|
@@ -12616,6 +12695,7 @@ espanol|psychology/opinion|skromnosť|orgullo||False|False|other|
 espanol|psychology/opinion|skromný|modesto||False|False|other|
 espanol|psychology/opinion|súhlasiť|consentir (en)||False|False|other|
 espanol|psychology/opinion|urážlivý|quisquilloso||False|False|other|
+espanol|psychology/opinion|vychvaľovať sa|jactarse||False|False|other|
 espanol|psychology/opinion|zahanbený|avergonzado||False|False|other|
 espanol|psychology/opinion|zahanbiť|avergonzar||False|False|other|
 espanol|psychology/plán|dokázať|lograr||False|False|other|
@@ -12644,6 +12724,7 @@ espanol|psychology/relationships|nenávisť|odio||False|False|other|
 espanol|psychology/relationships|nevlastná matka|madrastra||False|False|other|
 espanol|psychology/relationships|nevlastný brat|hermanastro||False|False|other|
 espanol|psychology/relationships|otec|padre||False|False|other|
+espanol|psychology/relationships|priateľský|amistoso||False|True|other|
 espanol|psychology/relationships|priateľstvo|amistad||False|False|other|
 espanol|psychology/relationships|priateľ|amigo||False|False|other|
 espanol|psychology/relationships|rodina|familia||False|False|other|

@@ -74,5 +74,7 @@ Neural Turing machine: recurrent neural network with external memory
 
 Model Context Protocol (MCP): integration standard between AI assistants and external data systems
 
-#Generative AI
+#Generative AI: generating new data from training data by identifying patterns
+Generative adversarial network (GAN):
+Variational autoencoder (VAE): 
 Hallucination: response containing false information presented as fact

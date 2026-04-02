@@ -201,6 +201,13 @@ Mine: concealed, detonated by pressure
 - Anti-personnel
 - Anti-tank
 - Naval
+Loitering munition (LM): self-destructive UAV
+- Sting (drone): drone interceptor, Ukraine
+-- Suicide drone
+- Shahed: new models jet-powered, Iran + Russia (Geran)
+- Switchblade: USA
+- ZALA Lancet: Russia
+
 
 #Tank: 
 - offensive armoured ground vehicle
@@ -332,11 +339,6 @@ Black Hornet Nano: Norway, reconnaissance, ~10cm
 #USV: unmanned surface vehicle / drone boat
 MAGURA: Ukraine
 
-#Suicide drone
-Shahed 131/136: Iran
-Switchblade: USA
-ZALA Lancet: Russia
-
 #SPAAG: self-propelled anti-aircraft gun
 Gepard: Germany
 Stryker (modified): Canada
@@ -402,6 +404,16 @@ Fifth generation:
 - Lockheed Martin F-22: USA, stealth, twin-engine
 - Lockheed Martin F-35: USA, stealth, single-engine
 - Chengdu J-20: China, stealth, twin-engine
+
+#aerial refuelling
+Boeing KC-97: USA, piston-powered tanker, production 1951-1956, retired
+Boeing KC-135: USA, jet-powered tanker, production 1955-1965
+Beoing KC-46: USA, jet-powered tanker, production since 2013
+Ilyushin Il-78: USSR, jet-powered tanker, production since 1984
+
+=AWACS: Airborne Warning and Control System, radar
+Boeing E-3: USA, 4 jet engines, rotating radar dome, production 1977-1992
+Beriev A-50: USSR, 4 jet engines, rotating radar dome, production 1978-1992
 
 #Electronic warfare: EM spectrum
 Krasukha: Russia

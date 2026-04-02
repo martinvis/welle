@@ -25,6 +25,9 @@ Alternating α/β
 - Flavodoxin fold: 5 parallel beta sheets between two alpha helix layers
 - TIM barrel: 8 parallel beta sheets and 8 alpha helices
 
+OCA1 / Tyrosinase: contains copper, converts tyrosine into melanin
+OCA2 / P protein: chloride channel, increases pH to activate tyrosinase in melanosome
+
 #Signaling - Receptor: change cell behaviour when activated
 LDL receptor (LDLR): endocytosis of LDL
 Aquaporins (AQP*): water channel, 6 transmembrane + 2 short helices, form tetramers
@@ -81,6 +84,9 @@ MYC: induces stem-like state, blocks differentiation, stimulates cell proliferat
 KLF4: induces stem-like state, slows cell cycle
 SOX2: maintains stem-like state
 OCT4: maintains stem-like state
+PRDM1 / BLIMP1: repressor, immune cells differentiation, demethylation in embryo (by DNMT repression + TET promotion)
+
+LIN28: RNA-binding, binds and destroys miRNA precursor let7, delays aging, oncogene
 
 CREB: cellular transcription factor, recruits CBP, neuroplasticity and memory, regulates BDNF+FOS+TH genes
 - magnesium ion and leucine zipper motif facilitate DNA binding
@@ -97,19 +103,45 @@ Proteasomes: protein complex, degrage proteins tagged by ubiquitin using proteas
 #Receptors
 Trk receptors: tyrosine kinases, regulate synaptic strength and plasticity
 
+=constitutive heterochromatin
+KAP1 / TRIM28: binds HP1, recruits SUV39, creates heterochromatin
+HP1: transient binding to methylated H3, recruits DNMT, dimerizes to collapse chromatin
+=facultative heterochromatin:
+Polycomb-group proteins (PcG): persistent gene silencing (differentiation)
+PRC1:
+PRC2: 
+- SUZ12:
+- EED:
+- RBBP4:
+- EZH1:
+- EZH2: enzyme, histone 3 methylation, overexpressed in cancers
+
 #homologous recombination
 MRN complex: find double-strand break, create two 3' single-strand overhangs
 - MRE11: chews away 5' ends
 - RAD50: binds to broken end and pairs together through zinc hook
 - NBS1 / NBN / Nibrin: recruits ATM kinase
+KAT5 / TIP60: acetylates histones to open DNA for MRN complex, activates ATM and P53 by acetylation
+ATM phosphorylates KAP1 to open chromatin
 ATM phosphorylates NBS1 to create binding sites for BRCT domain
 ATM phosphorylates CHK2 + P53 to inhibit mitosis
 RPA binds single-strand to keep it straight
-MDC1: BRCT domain, recruits BRCA1
+MDC1: BRCT domain, binds phosphorylated histone, recruits BRCA1
 BRCA1: promotes homologous recombination instead of non-homologous end joining, recruits BRCA2
 BRCA2: replaces RPA with RAD51
 RAD51: enzyme, search for homology, create D-loop
 ATM signal stops, P53 level drops
+
+#mitosis
+=prophase
+Haspin: histone H3 threonine phosphorylation
+Chromosomal passenger complex (CPC): 
+- Survivin: binds phosphorylated histone H3 threonine
+- Aurora B: histone H3 serine phosphorylation
+- INCENP: scaffold, activates Aurora B, binds microtubule
+- Borealin: transfer from chromosome to microtubule
+CDK1: activates Condensin by phosphorylation
+Condensin: chromosome condensation, forms DNA loops, clusters to form scaffold
 
 #meiosis
 =Prophase I: longest, homologous chromosomes pair and form crossovers
@@ -210,6 +242,10 @@ Serine/threonine kinases: cell differentiation, apoptosis
 Protein serine/threonine phosphatase
 - Calcineurin: activates T cells
 
+=tyrosine kinase
+SRC: proto-oncogen, survival + proliferation + motility + angiogenesis
+ABL1: 
+
 =Enzyme activity
 Oxidoreductase (EC1): oxidation/reduction
 Transferase (EC2): transfering functional group
@@ -222,6 +258,7 @@ Transferase (EC2): transfering functional group
 Hydrolase (EC3): hydrolysis
 - Protease / Peptidase: breaking down proteins
 - Lipase: breaking down fats
+- Amylase: breaking down starch into sugars
 - Phosphatase: removing phosphate group (-PO4)
 - Nuclease: cleave phosphodiester bond (C-O-PO2-O-C)
 - GTPase: GTP -> GDP + inorganic phosphate
@@ -233,6 +270,23 @@ Isomerase (EC5): isomerization within molecule
 - Topoisomerase: break and rejoin DNA strands to change topology
 Ligase (EC6): joining with covalent bond
 Translocase (EC7): movement across membrane
+
+=isomerase
+PIN1: flips proline preceded by phosphorylated serine/threonine
+
+=methyltransferase: transfer of methyl group from SAM
+PRMTs: arginine methylation, histone H3 or H4
+NSD1: lysine methylation, histone H3
+ASH1: lysine dimethylation, histone H3, targets HOX genes
+SETD2: lysine trimethylation, histone H3, during transcription
+SUV39: lysine methylation, histone H3, creates heterochromatin
+
+=metabolism
+Sirtuins (SIRT): deacetylase from lysine using NAD, triggered by exercise/fasting, promote DNA repair + autophagy + anti-inflammation + fat burning
+
+Telomerase: reverse transcriptase, adds repeat sequences to telomere end, in gametes
+- inactive in somatic cells, active in cancer cells
+Shelterin: protein complex protecting telomeres from DNA repairs
 
 =Transcription
 RNA polymerase:
@@ -272,6 +326,11 @@ Hippo signaling pathway: controls organ size, regulates cell proliferation and a
 Death-inducing signaling complex (DISC): trimerization of FASL binding FAS receptor, recruitment of FADD and CASPACE
 =Intrinsic apoptosis pathway
 Mitochondrial Outer Membrane Permeabilization (MOMP): BCL2 proteins insert into membrane to form pores
+Cytochrome c (CYCS): released by MOMP, binds APAF1
+Apoptosome: CYCS + APAF1, heptameric wheel structure, activates caspases
+=Parthanatos: cell death triggered by excessive PARP activation in response to massive DNA damage
+Apoptosis inducing factor (AIF): chromatin condensation + DNA fragmentation, travels from mitochondria to nucleus, triggered by PAR chains
+Endonuclease G (ENDOG): DNA fragmentation, travels from mitochondria to nucleus, triggered by AIF or MOMP
 
 β-catenin destruction complex: keeps β-catenin levels low
 - Axin: oligomerizes through DIX domain, adjacently binds GSK3 enzyme and β-catenin, recruits APC through RGS domain
@@ -320,7 +379,7 @@ TP53: tumor suppressor, most frequently mutated in cancer
 CDK inhibitor (CKI) : tumor suppressor, stops cell cycle
 - P21: response to DNA damage
 - P27: response to growth factors
-Maturation promoting factor (MPD): CDK1 + cyclin, promotes M phase, activated at G2 phase end
+Maturation promoting factor (MPF): CDK1 + cyclin, promotes M phase, activated at G2 phase end
 - CDC25: phosphatase, dephosphorylates CDK1 to activate it
 - WEE1: kinase, phosphorylates CDK1 to inhibit it
 
@@ -489,20 +548,76 @@ Prenylation: addition of hydrophobic molecule to protein
 =Epigenetics: changes in gene expression persisting through cell division (eg cell differentiation, neuroplasticity)
 Fetal origins hypothesis (FOH): conditions during gestation cause long-term changes (non-communicable diseases)
 Epigenetic code: specific epigenetic modifications in each cell
-Genomic imprinting: gene expression from one parent only, other is silenced
+Differentially methylated regions (DMR): different DNA methylation across cells/tissues
+Genomic imprinting: parent-of-origin effect, gene expression from one parent only, other is silenced
+- Imprinting control regions (ICR): DMRs regulating imprinting, methylation established during gametogenesis and preserved in embryo, sequence motif TGCCGC
 X-inactivation / Lyonization: one copy of X chromosome inactivated in females
 - X-inactive specific transcript (XIST): non-coding RNA, coats inactive X chromosome
-Heterochromatin: tightly packed DNA
-- Constitutive heterochromatin: repetitive, in centromeres and telomeres
-- Facultative heterochromatin: genes silenced by deacetylation or methylation
-DNA methyltransferases (DNMT): transfer of methyl group to cytosine base, decreases gene expression
+Heterochromatin: tightly packed DNA, only in eukaryotes
+- Constitutive heterochromatin: same in every cell, repetitive, in centromeres and telomeres
+- Facultative heterochromatin: different between cells (differentiation), genes silenced by deacetylation or methylation
+Euchromatin: unpacked DNA, accessible for transcription
+DNA methylation: transfer of methyl group to nucleobase, represses gene transcription
+- gene silencing when in promoter, transcription regulation when in gene body
+- repetitive sequences, transposons, centromeres and telomeres are heavily methylated
+- De novo methylation: mainly in early development
+- Maintenance methylation: preserves methylation after DNA replication
 - CpG site: C followed by G, complement also methylated, preserved during cell division
 - CpG island: region with high CpG frequency, in gene promoters
+- DNA methyltransferases (DNMT): transfer of methyl group from SAM to cytosine base, decreases gene expression, overexpressed in cancers
+- DNMT1: maintenance methylation, CpG only
+- DNMT3: de novo methylation, CpG / CHG / CHH
+- UHRF1: maintenance methylation, recruits DNMT1
+histone modifications
+- Proline isomerization: histone H3 shape change
+- Citrullination: replacing imine group in arginine by carbonyl, opens chromatin
+- PAD: enzyme, catalyzes citrullination
+- Ubiquitination: histone H2, both silencing and activating, precondition for H3 methylation
+- Sumoylation: transcription repression, HDAC recruitment
+- MARylation: mono-ADP-ribosylation, triggered by viruses, closes chromatin
+- PARylation: poly-ADP-ribosylation, triggered by DNA damage, opens chromatin
+- PARP: enzymes, PARylation with NAD substrate, DNA single-strand break repair
+- Phosphorylation: on serine/threonine/tyrosine, fast-acting, opens chromatin, promotes acetylation
+- Methylation: silencing or activating transcription (depends on position)
+- Acetylation: transcription regulation
+Histone methyltransferases (HMT): methylate lysine or arginine on histones
+Histone demethylases (HDM): remove methyl group from histones
 Histone acetyltransferases (HAT): acetylate lysine on histones, increases gene expression
 Histone deacetylases (HDAC): remove acetyl group from lysine on histones, decreases gene expression
+LSD1 / KDM1A: oxidase, remove methyl group from lysine on histone 3, overexpressed in cancers
+DNA demethylation: methylation removal, after fertilization (excluding ICR), during gamete production (including ICR)
+- after fertilization demethylation is paternally active and maternally passive
+- Active demethylation: methylated cytosine modified to become damaged and be replaced via base excision repair, neuroplasticity
+- Passive demethylation: gradually throughout divisions, ommission of maintenance methylation
+- TET enzymes: methylcytosine dioxygenases, active demethylation
+- ZFP57: binds methylated ICR, recruits KAP1
+- KAP1 / TRIM28: preserves imprinting by blocking TET enzymes
+MECP2: binds methylated DNA, recruits HDAC, blocks transcription
+
+GDNF: promotes neuron survival
+
+=Signal transducing adaptor protein (STAP): 
+GRB10: adaptor protein, imprinted, paternal in brain (social dominance), maternal in body (growth suppression, insulin receptor inhibition)
+GRB2: 
+MYD88:
+SHC1:
 
 Bromodomain-containing protein (BRD): remain attached to DNA during mitosis, recruit P-TEFb
 Bromodomain: binds acetylated lysine on histones
+
+First messengers: extracellular signaling (hormones, neurotransmitters)
+Second messengers: intracellular signaling, released in response to first messengers (cAMP, cGMP, IP3, Ca2+, NO)
+
+Nitric oxide synthase (NOS): enzyme, converts arginine to citrulline and NO by oxidation
+Guanylate cyclase (GC): lyase enzyme, converts GTP to cGMP, activated by NO
+cGMP: cyclic nucleotide, second messenger, activates PKG
+PKG: protein kinase, promotes opening calcium-activated potassium channels (smooth muscle relaxation)
+PDE5: phosphodiesterase enzyme, catalyzes cGMP hydrolysis
+Adenylyl cyclase (AC): lyase enzyme, converts ATP to cAMP
+cAMP: cyclic nucleotide, second messenger
+
+Opiorphin: QRFSR polypeptid, painkiller in saliva
+Ptyalin: amylase in saliva
 
 #viruses
 =enzyme

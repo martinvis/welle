@@ -53,28 +53,6 @@ NOTAR: uses Coandă effect (instead of tail rotor)
 =jet
 Trijet: central engine within tail, 1980s
 
-#pipeline
-Petroleum
-- Druzhba: Russia -> Poland/Slovakia -> Germany
-- Eastern Siberia–Pacific Ocean: Russia
-- Keystone: Canada (Alberta) -> USA
-- Colonial: USA, Texas -> New York
-- Eastern Siberia–Pacific Ocean: Russia -> China
-Natural Gas
-- Bratstvo: Russia -> Ukraine
-- Yamal: Russia -> Poland -> Germany
-- Nord Stream: Russia -> Germany
-- Blue Stream: Russia -> Turkey
-- Rockies Express: USA, Colorado -> Ohio
-- Power of Siberia: Russia -> China
-- Central Asia–China: Turkmenistan -> Uzbekistan -> Kazakhstan -> Xinjiang
-- West-East: China, Xinjiang -> Shanghai | Guangzhou
-- Trans-Mediterranean: Algeria -> Italy
-- Maghreb–Europe: Algeria -> Morocco -> Andalusia
-- Medgaz: Algeria -> Spain
-- Greenstream: Libya -> Sicily
-- GASBOL: Bolivia -> Brazil
-
 #road
 truck
 - max 7.5t per axle

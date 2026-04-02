@@ -18,6 +18,7 @@ Blinded trial: prevent biases
 Attrition: dropout of trial participants
 Intention-to-treat (ITT) analysis: results analysis based on initial assignment (include dropouts)
 Eroom's law: drug discovery is slower and more expensive despite new technology (opposite of Moore's law)
+Orphan drug: rare medical conditions, government assistance
 
 True positive rate (TPR) / Sensitivity: true positive versus false negative
 True negative rate (TNR) / Specificity: true negative versus false positive
@@ -418,12 +419,13 @@ Mitoxantrone: intercalation, intravenous
 Pixantrone: intercalation, intravenous
 Teniposide: intravenous
 Etoposide: oral + intravenous
-=nucleoside analogue
+=nucleoside analogues
 Cytarabine: pyrimidine, injection
 Gemcitabine: pyrimidine, intravenous
 Capecitabine: pyrimidine, oral
 Cladribine: purine, injection
 Fludarabine: purine, oral + intravenous
+-- cytidine: DNA methylation inhibition by trapping DNMT (reactivates methylated tumor suppressor genes), C replaced by N in ring
 Decitabine: cytidine, intravenous
 Azacitidine: cytidine, oral + injection
 =monoclonal antibody
@@ -452,6 +454,14 @@ CEPP: non-Hodgkin lymphoma, Cyclophosphamide + Etoposide + Procarbazine + Predni
 RICE: recurrent lymphoma, Rituximab + Ifosfamide + Carboplatin + Etoposide
 =supportive
 Palifermin: recombinant protein, epithelial growth
+
+Histone deacetylase inhibitor (HDI): epigenetic (affects gene expression), cancer treatment
+- Romidepsin: from Chromobacterium, intravenous, T-cell lymphomas
+- Trichostatin A (TSA): from Streptomyces, antifungal
+- Vorinostat (SAHA): oral, T-cell lymphomas
+- Belinostat: intravenous, T-cell lymphomas
+- Givinostat: oral, Duchenne dystrophy
+- Valproic acid (VPA): oral/intravenous, epilepsy treatment + mood stabilizer
 
 #Antithrombotic
 =Anticoagulant: reduce blood clotting
@@ -622,11 +632,16 @@ Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 - Formoterol: long-term, inhalation
 - Clenbuterol: banned due to side effects
 
-NSAID (Nonsteroidal anti-inflammatory drug): also analgesic, COX inhibitors
-- Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
-- Ibuprofen (Nurofen): common
-- Naproxen (Aleve):
-- Diclofenac (Voltaren):
+#NSAID (Nonsteroidal anti-inflammatory drug): COX inhibitors, also analgesic
+Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
+Ibuprofen (Nurofen): common, oral
+- side effects: gastrointestinal issues (ulcers)
+Naproxen (Aleve): 
+Diclofenac (Voltaren): 
+
+Dimethyl sulfoxide (DMSO): anti-inflammatory, interstitial cystitis (via catheter)
+Pentosan polysulfate (Elmiron): interstitial cystitis, oral
+Colchicine: oral, treat gout, overdose very toxic, alkaloid
 
 #Analgesic: pain relievers
 Non-opioid
@@ -640,6 +655,7 @@ Opioid: μ-opioid agonist, strong, hypoventilation + constipation
 - Carfentanil: very strong, large animals tranquilizer
 - Etorphine: very strong, large animals tranquilizer
 - Methadone: relieves opioid withdrawal
+- Laudanum: 10% opium tincture, bitter, addictive, antipropulsive antidiarrheal
 Tramadol (Tramal): opioid + SNRI, moderate pain, oral
 Ziconotide: from cone snail, calcium channel blocker, chronic pain, intrathecal
 
@@ -856,7 +872,6 @@ Epoetin
 =Mineral supplements
 Calcium gluconate: protect heart from hyperkalemia
 
-Colchicine: oral, treat gout, overdose very toxic
 Hydroxycarbamide
 
 =Vitamins
@@ -884,8 +899,22 @@ Cyanide poisoning: smoke from fire
 Thalium poisoning: historically by rat poison
 - Prussian blue
 
+=antioxidants
+Resveratrol: polyphenol, in skin of grapes/peanuts/berries
+Curcumin: polyphenol, in turmeric
+Sulforaphane: contains sulfur, in cruciferous vegetables
+Quercetin: flavonol (polyphenol), in fruits/vegetables
+
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system
+
+#G
+=PDE5 inhibitors: erectile dysfunction
+Sildenafil / Viagra: oral
+- side effects: headache, nasal congestion, impaired vision
+Vardenafil: oral
+Tadalafil: oral
+Avanafil: oral, fast-acting
 
 #A / Alimentary tract and metabolism
 A02 / Antiacids

@@ -1,4 +1,5 @@
 #Symptom: observable indication of disease
+Angor animi: conviction of dying
 Inflammation (-itis): response to pathogens and irritants
 Dactylitis: inflammation of entire digit
 Ptosis/Blepharoptosis: falling upper eyelid
@@ -137,7 +138,7 @@ Electrocardiography (ECG)
 - hypocalcemia: longer ST interval
 - hyperkalemia: large T wave
 - hypokalemia: flat or inverted T wave, prominent U wave
-Valsalva maneuver: equalize presssure, forced exhalation against closed airways
+Valsalva maneuver: equalize pressure, forced exhalation against closed airways
 Lumbar puncture (LP): needle inserted into spinal cord to collect cerebrospinal fluid, diagnosis of CNS diseases (exclude meningitis)
 
 #specialization
@@ -172,6 +173,9 @@ Otorhinolaryngology: ear + nose + throat
 Ophthalmology: eye
 Hematology: blood
 
+Petri dish: shallow transparent plate with lid, used to cultivate microorganisms
+- Agar: growth medium, polysaccharides jelly from cell walls of red algae
+
 #Therapy
 Intravenous therapy: fluids administered into vein (water, electrolytes, nutritients etc)
 - Canulla: tube for repeated usage
@@ -193,9 +197,22 @@ Extracorporeal membrane oxygenation (ECMO): artificial heart and lung, life supp
 Cardiopulmonary bypass (CPB): during surgery, replaces heart and lung function
 Stoma: artificial opening
 - Colostomy: large intestine, feces removal
-Coronary stent: expandable mesh tube, keeps coronary artery open, prevents angina and heart attack
+Angioplasty: percutaneous, widening of narrowed vessels, treats atherosclerosis
+- process: catheter inserted, balloon inflated, stent expanded by balloon, balloon deflated
+- Coronary stent: expandable mesh tube, keeps coronary artery open, prevents angina and heart attack
 Auscultation: listening to internal body sounds (heart, lungs)
 - Stethoscope: resonator device
+Radiation therapy: treatment using ionizing radiation delivered by linear particle accelerator, cancer therapy
+- Intensity-modulated radiation therapy (IMRT): precise radiation doses
+- Parotid sparing: limit radiation dose to parotid glands, avoid xerostomia
+=Mechanical ventilation: oxygenation and/or ventilation
+Tracheal intubation: invasive, plastic tube in trachea, maintain open airway
+Positive airway pressure (PAP): non-invasive, sleep apnoe, respiratory failure, hose connects flow generator and face mask
+- Continuous positive airway pressure (CPAP): single pressure, only oxygenation
+- Bi-level positive airway pressure (BPAP): different inspiratory/expiratory pressures, oxygenation + ventilation
+--
+Heimlich maneuver: abdominal thrusts, first aid to airway obstruction (choking) after back slaps, exert pressure by compressing lungs
+Antisense therapy: oligonucleotides target complementary mRNA to block gene translation
 
 #Surgery
 Nephrectomy: kidney removal
@@ -275,10 +292,9 @@ Coeliac disease: intolerance to gluten, 1% of population
 Hashimoto's thyroiditis: affects thyroid
 - symptoms: weight gain, hair loss, depression
 
-Addison's disease: affects adrenal gland
-- inadequate production of cortisol and aldosterone
+Addison's disease: adrenal gland insufficiency, inadequate production of cortisol and aldosterone, lifelong treatment
 - symptoms: abdominal pain, darkening of skin, weakness
-- diagnosis: low sodium, high potassium
+- diagnosis: low sodium, high potassium, low blood sugar
 
 #Integumentary system - autoimmune
 Lichen planus
@@ -321,6 +337,13 @@ Congenital insensitivity to pain with anhidrosis (CIPA): rare recessive genetic 
 Serotonin syndrome: serotonin excess caused by drug interactions,
 - symptoms: hyperthermia, tachycardia, sweating, agitation
 Charles Bonnet syndrome (CBS): visual hallucinations after vision loss
+Anton–Babinski syndrome: damage in occipital lobe, blind but not realizing blindness
+Riddoch syndrome: damage in occipital lobe, bllind except fast moving objects
+Klüver–Bucy syndrome: lesions in temporal lobe, compulsive eating and hypersexuality
+Narcolepsy: lifelong, Orexin deficiency, excessive daytime sleepiness, cataplexy, poor sleep quality
+
+Capgras delusion: conviction familiar person was replaced by impostor
+Cotard delusion: conviction of being dead
 
 #other
 Lactose intolerance: common in east asia
@@ -331,6 +354,7 @@ Urolithiasis (kidney stone): mineral crystal formed in kidney, can block ureter
 - types: calcium oxalate (60%), calcium phosphate, uric acid
 
 Urinary incontinence: uncontrolled urine leakage
+Interstitial cystitis (IC): chronic bladder pain, unknown cause
 
 #congitive disorder
 Agnosia: inability to process sensory information
@@ -388,6 +412,8 @@ Cardiomyopathy: thickened/stiffened/weakened heart muscle, can be genetic
 - symptoms: dispnea, edema
 Myocardial infarction (Heart attack): infarction of heart muscle
 - symptoms: chest pain, dizziness
+Cardiac arrest: heart suddenly stops beating, often due to arrhytmia
+- symptoms: loss of consciousness, may result in coma
 Pericarditis: pericardium inflammation
 - symptoms: chest pain, fever
 Eosinophilic myocarditis: eosinophils in heart, inflammation
@@ -409,6 +435,12 @@ Haemophilia: X-linked recessive, prolonged bleeding
 - Haemophilia B: deficient Factor IX
 - Haemophilia C: autosomal recessive, deficient Factor XI
 Aortic dissection: sudden onset, severe chest pain, high mortality
+Variant angina / Prinzmetal angina: caused by vasospasm (sudden contraction of smooth muscle tightening coronary arteries)
+Ebstein's anomaly: congenital, malformed tricuspid valve
+- symptoms: larger right atrium and smaller right ventricle, regurgitation
+Eisenmenger syndrome: pulmonary hypertension, right-to-left shunt
+- symptoms: cyanosis, polycythemia
+Takotsubo cardiomyopathy: broken heart syndrome, sudden temporary cardiac muscle weakening caused by massive surge of catecholamines (stress)
 
 Luxation: joint dislocation
 - Subluxation: partial dislocation
@@ -439,9 +471,10 @@ hormones: estrogen
 - symptoms: bleeding, fatigue
 - lymphocytic: white blood cells
 - myelogenous: red blood cells
-Acute promyelocytic leukemia (APL): chromosomal translocation (RARA gene), resposive to all-trans retinoic acid
-Acute myeloid leukemia (AML): 
-Acute lymphoblastic leukemia (ALL): most prevalent cancer in children
+Myelodysplastic syndrome (MDS): slower growth, may develop into AML
+Acute promyelocytic leukemia (APL): chromosomal translocation (RARA gene), responsive to all-trans retinoic acid
+Acute myeloid leukemia (AML): rapid growth, in adults
+Acute lymphoblastic leukemia (ALL): rapid growth, most prevalent cancer in children
 - treatment: chemotherapy
 Philadelphia chromosome
 - translocation between chromosomes 9 and 22

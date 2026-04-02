@@ -37,54 +37,62 @@ credit risk: likelihood of debtor defaulting
 bankruptcy: process enabling debtor in default to seek relief on part of debt
 Synthetic lease: taxed as loan, accounted as lease (off balance sheet), SPE holds asset
 
+#financing
+Capital structure: mix of funds used to finance business
+- Absolute priority rule: more senior creditors must be paid in full before more junior at bankruptcy
+Cost of capital: cost of funds, expected return on capital has to exceed it
+Opportunity cost: value of next best alternative
+Senior debt: low risk, usually banks, usually secured, highest priority, lowest interest rate
+- Covenant: condition borrower needs to fulfull (e.g. LTV ratio, debt coverage ratio)
+Junior debt / Subordinated debt: priority below senior, higher risk, higher interest rate
+Mezzanine debt: often can be conditionally converted to equity, priority below junior
+
 #investment
-stock based compensation (SBC): equity compensation to employee
-advisory shares: equity compensation to non-employee
-venture debt: loan to fund capital combined with warrants
-venture capital: funds in exchange for ownership stake
+Stock based compensation (SBC): equity compensation to employee
+Advisory shares: equity compensation to non-employee
+Venture debt: loan to fund capital combined with warrants
+Venture capital: funds in exchange for ownership stake
 
 #security: tradable financial asset
 Tranche: slice of securities within financing agreement
-bond: issuer owes holder debt and pays interest
-commodity: raw materials, agricultural products
-currency: 
-derivatives: contract with value depending on underlying asset
+Bond: issuer owes holder debt and pays interest
+Commodity: raw materials, agricultural products
+Currency: 
+Derivatives: contract with value depending on underlying asset
 - used for hedging or speculation
 ETF (exchange traded fund): traded on stock exchange, most are index funds
-futures: contract to buy or sell at predetermined price and date
-stock: 
-publicly traded company:
+Futures: contract to buy or sell at predetermined price and date
+Stock: 
+Publicly traded company:
 IPO (initial public offering): company transformed from privat to public, shares sold to investors
 
 #stock
-common: vote rights, dividend
-preferred: priority over common
-non-voting: no vote rights
+Common stock: vote rights, dividend
+Preferred stock: priority over common
+Non-voting stock: no vote rights
 
 #stocks
-share: fractional ownership of company, voting power
-dividend: distribution of profits to shareholders
+Share: fractional ownership of company, voting power
+Dividend: distribution of profits to shareholders
 - monthly
 - quarterly (usa)
 - semi-annually (japan)
 - annually (germany)
-option: derivative, right to buy or sell shares at predetermined price until some date
+Option: derivative, right to buy or sell shares at predetermined price until some date
 - call: right to buy shares
 - put: right to sell shares
-buyback: re-acquisition of shares by company, increases existing ownership percentage
-dilution: issuance of new shares, decreases existing ownership percentage
+Buyback: re-acquisition of shares by company, increases existing ownership percentage
+Dilution: issuance of new shares, decreases existing ownership percentage
+Blue chip: profitable with good reputation
 
 #fund
-hedge fund: use leverage, short selling, derivatives, not for retail investors
-mutual fund: professionally managed investment fund
+Hedge fund: use leverage, short selling, derivatives, not for retail investors
+Mutual fund: professionally managed investment fund
 
 #bonds
 corporate / government
-coupon: interest payment on bond
-maturity date: due date of payment of principal 
-
-#stock
-blue chip: profitable with good reputation
+Coupon: interest payment on bond
+Maturity date: due date of payment of principal 
 
 #stock market indices
 - tracked by index funds
@@ -293,8 +301,8 @@ Current ratio: assets / liabilities
 Quick ratio: liquid assets / liabilities
 
 #banking
-ASF (Available Stable Funding)
-RSF (Required Stable Funding)
+ASF (Available Stable Funding): liabilities with expected maturity over 1 year (retail savings at 90%)
+RSF (Required Stable Funding): required liquidity based on assets maturity
 NSFR (Net stable funding ratio): ASF/RSF
 HQLA (High quality liquid assets): cash + bonds
 LCR (Liquidity coverage ratio): HQLA to 30 day cashflow

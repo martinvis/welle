@@ -2,6 +2,7 @@ budova, edificio
 pozemok, terreno
 lešenie, andamio
 izba, cuarto
+chodba, pasillo
 
 stena, pared
 strecha, techo
@@ -9,6 +10,7 @@ okno, ventana
 strešné okno, tragaluz
 dvere, puerta
 trosky, escombro
+podlaha, piso
 
 tehla, ladrillo
 

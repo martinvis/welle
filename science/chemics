@@ -245,12 +245,7 @@ C14H9Cl5
 colorless odorless solid
 insecticide, restricted, causes eggshell thinning
 
-Hydrogen sulfide
-H2S
-colorless gas, foul odor, flammable, slightly denser than air
-toxic (inhibits cellular respiration)
-produced by microbial breakdown of organic matter in absence of oxygen (swamps)
-in low-temperature volcanic gases
+Dimethyl sulfoxide: (CH3)2S=O, colorless liquid
 
 Vinyl chloride
 H2C=CHCl
@@ -370,6 +365,7 @@ Thiazole: {CCNCS}
 Oxazole: {CCNCO}
 Thiophene: {CCSCC}
 Furan: {CCOCC}
+Pyran: {CCOCCC}
 
 Monomethylhydrazine (MMH)
 H2N-NH-CH3
@@ -387,3 +383,17 @@ Anthracene
 Pyrene
 - four fused benzene rings
 
+Ethanethiol / Ethyl mercaptan: CH3-CH-SH, distinct odor, colorless liquid, attracts turkey vultures
+- added to gas to notice leaks, released into mine ventilation to alert emergency
+Methanethiol / Methyl mercaptan (CH3SH): colorless flammable gas, putrid smell, component of bad breath and flatus
+Dimethyl sulfide (DMS): CH3-S-CH3, distinct odor (cabbage), colorless flammable liquid, low boiling point, component of bad breath and flatus
+- produced by phytoplankton, scent of sea
+Trimethylamine (TMA): N(CH3)3, distinct odor (rotting fish), colorless flammable gas
+
+Hydrogen sulfide (H2S): colorless flammable gas, foul odor (rotten eggs), slightly denser than air, component of bad breath and flatus
+toxic (inhibits cellular respiration)
+produced by microbial breakdown of organic matter in absence of oxygen (swamps)
+in low-temperature volcanic gases
+
+Cadaverine: NH2-(CH2)5-NH2, colorless liquid, foul odor (rotting flesh)
+Putrescine: NH2-(CH2)4-NH2, colorless solid, foul odor (rotting flesh)
