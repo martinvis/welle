@@ -75,3 +75,5 @@ Euler square: two Latin squares, all value pairs are distinct
 #Logic
 Conjunctive normal form (CNF): conjunction of disjunctions, no nested negation, e.g. (P∨Q)∧(¬Q∨R)
 Disjunctive normal form (DNF): disjunction of conjunctions, no nested negation, e.g. (P∧Q)∨(¬Q∧R)
+
+Quaternion: complex number in 4 dimensions, used in 3D rotations (computer graphics)

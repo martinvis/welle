@@ -2,3 +2,14 @@
 discrete, number of events in time interval
 λ = average number of events
 probability of k events is (λ^k * e^-λ) / k!
+
+=Causality: unidirectional cause-effect relationship between variable, cause is responsible for effect
+=Correlation: relationship between random variables
+Correlation coefficient: measure of correlation, 0 = no correlation, 1 = perfect correlation
+Correlation does not imply causation: two variables can occur together due to third variable or coincidence
+- Spurious correlation: correlation without causality
+- e.g. ice cream sales and drownings (independently caused by hot weather)
+
+Regression to mean: if sample of random variable is extreme, next sample will likely be closer to mean
+Outlier: data point significantly different from other observations (e.g. Leonardo da Vinci)
+- can indicate measurement error, fat-tailed distribution or novelty/anomaly

@@ -205,6 +205,8 @@ Weight: force of gravity
 Normal: between solids in contact, perpendicular
 Friction: between solids in contact, resists sliding
 Tension: object pulled from opposite ends
+Compression: object pushed from opposite sides
+Shear force: parallel forces applied in opposite directions (scissors)
 Elasticity: object returning to original shape
 Buoyancy: upward force by fluid on submerged object
 - Archimedes' principle: F = (fluid density) * g * (volume of displaced fluid)
@@ -239,6 +241,18 @@ Calorie (cal): unit of energy, 4.18J
 Atmospheric pressure: ~101kPa = 1atm
 torr: mm of Hg, 1atm = 760mm
 
+Diffusion: gradual mixing of particles due to motion, depends on particle speed
+- fast in gases, slow in solids
+- Vacancy diffusion: in crystals, atoms jump into vacant lattice sites, slow
+- Interstitial diffusion: in crystals, small atoms move between lattice, fast
+- Diffusion flux (J): amount of substance moved through area in time, J = M / (A*t)
+- Diffusion coefficient (D): specific for substance combination, increases with temperature
+- Concentration profile: concentration versus depth
+- Concentration gradient: concentration profile slope at given depth
+- Steady-state diffusion: concentration profile fixed over time, constant diffusion flux
+- Fick's first law: diffusion flux is proportional to concentration gradient, J = D*C
+- Fick's second law: diffusion depth is proportional to square root of time, x = √(Dt)
+
 #Gases
 - at constant temperate all gas particles have same average kinetic energy
 - at constant temperate gas particles speed depends on their weight (lighter=faster)
@@ -247,7 +261,6 @@ Charles's law: at constant pressure volume of gas is proportional to temperature
 Avogadro's law: at constant pressure and temperature volume of gas is proportional to mass
 Dalton's law: pressure of gas mixture equals to sum of gas pressures
 Boltzmann distribution: probability of gas particles kinetic energy 
-Diffusion: gradual mixing of gas particles due to motion, depends on particle speed
 Effusion: escape of gas particles through microscopic holes, depends on particle speed
 Graham's law: effusion rate is inversely proportional to square root of particle mass
 Mean free path: average distance travelled by particle between collisions, depends on density
@@ -259,7 +272,7 @@ Van der Waals equation: considers also gas molecule volume and intermolecular in
 
 #Liquids
 - adjust to shape of container
-- slowed diffusion than in gases
+- slower diffusion than in gases
 - fixed volume, small thermal expansion
 Mpemba effect: hot liquid can freeze faster than cold (due to evaporation etc)
 
@@ -286,12 +299,11 @@ tea leaf paradox
 - Crystal: repetitive ordered pattern, atoms in lattice
 - Polycrystal: microscopic crystals fused together
 - Crystallite/Grain: microscopic crystal
-- Grain boundary: defects between grains, decrease conductivity, disrupt dislocation motion (increase strength)
 Crystal structure: arrangement of atoms in crystal
 - Unit cell: smallest repeating unit of lattice
 - Coordination number: number of neighbours of central atom
 - Atomic packing factor: fraction of volume occupied by atoms
-- Polymorphism: compoung existing in multiple crystal structures
+- Polymorphism: compound existing in multiple crystal structures
 - Bravais lattice: discrete points describing atom arrangement, 14 unique
 - Miller index: integer triplet defining plane within lattice, eg (010)
 
@@ -299,6 +311,41 @@ Crystal structure: arrangement of atoms in crystal
 Slip: large displacement
 - occur on close-packed planes in close-packed direction (linear+planar density)
 Critical resolved shear stress (CRSS): stress required to initiate slip
+
+=Crystallographic defect: lattice irregularity, atomic-level imperfection, impact material properties
+Perfect crystal: no point / line / planar defects
+Point defect: not extended in any dimension
+- Vacancy defect: missing atom, inevitable (entropy)
+- Interstitial defect: extra atom in normally empty space
+Line defect: extended in one dimension
+- Dislocation line: defect boundary
+- Burgers vector: represents direction and magnitude of distortion
+- Edge dislocation: termination of plane of atoms in middle, dislocation line perpendicular to Burgers vector
+- Screw dislocation: distortion causing lattice shift, dislocation line parallel to Burgers vector
+- Mixed dislocation: combination of edge and screw dislocation
+Planar defect: extended in two dimensions, decrease conductivity, disrupt dislocation motion (increase strength)
+- Grain boundary: defects between grains
+- Phase boundary: between different phases in material
+- Twin boundary: grain boundary with mirror symmetry
+Surface defect: contribute to adsorption
+- Terrace: flat surface, least reactive
+- Ledge: horizontal edge of layer
+- Step: vertical edge between layers
+- Kink: corner of step, highly reactive
+- Vacancy: atom missing from terrace, highly reactive
+- Adatom: extra atom on terrace, highly reactive
+Bulk defect: pores, cracks
+- Atomic vibration: high frequency oscillation (thermal energy)
+
+=Solid solution: homogenous mixture of two solid state compounds
+Hume-Rothery rules: conditions of forming solid solution
+- substitutional: small atomic radius difference (<15%), similar crystal structure, similar electronegativity
+- interstitial: smaller solute atoms (<60% of solvent), similar electronegativity
+Substitutional solid solution: solute atoms replace solvent atoms, high maximal concentration (e.g. Co + Ni)
+Interstitial solid solution: solute atoms fill empty space in solvent, low maximal concentration (e.g. C in Fe)
+
+Atomic percentage: number of component moles relative to total
+Weight percentage: weight of component relative to total
 
 #Solid types
 Ionic: ionic bond between atoms
@@ -600,6 +647,7 @@ Supersymmetry: theoretical symmetry between bosons (force) and fermions (matter)
 Neutrino oscillation: neutrinos change flavor as they travel, superposition of 3 states
 Baryon asymmetry: more matter than anti-matter in universe, reason unknown
 Quantum entanglement: multiple particles sharing combined quantum state regardless of distance (spooky action at distance)
+Quantum decoherence: quantum system converting to classical after interaction with environment
 Einstein–Podolsky–Rosen paradox (EPR): quantum mechanics conflicts with local realism
 - locality: information does not propagate faster than light
 - realism: physical properties are definite before measurement
@@ -608,6 +656,7 @@ Einstein–Podolsky–Rosen paradox (EPR): quantum mechanics conflicts with loca
 - CHSH inequality: measurable boundary on correlations in local realism
 - Superdeterminism: everything is predetermined
 - Many-worlds: no wave function collapse, all possible outcomes are realized (parallel non-interacting worlds)
+
 
 #Quantumm electrodynamics
 Compton scattering: high-frequency photon hitting electron transfers part of its energy to electron

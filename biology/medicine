@@ -197,9 +197,6 @@ Extracorporeal membrane oxygenation (ECMO): artificial heart and lung, life supp
 Cardiopulmonary bypass (CPB): during surgery, replaces heart and lung function
 Stoma: artificial opening
 - Colostomy: large intestine, feces removal
-Angioplasty: percutaneous, widening of narrowed vessels, treats atherosclerosis
-- process: catheter inserted, balloon inflated, stent expanded by balloon, balloon deflated
-- Coronary stent: expandable mesh tube, keeps coronary artery open, prevents angina and heart attack
 Auscultation: listening to internal body sounds (heart, lungs)
 - Stethoscope: resonator device
 Radiation therapy: treatment using ionizing radiation delivered by linear particle accelerator, cancer therapy
@@ -217,6 +214,13 @@ Antisense therapy: oligonucleotides target complementary mRNA to block gene tran
 #Surgery
 Nephrectomy: kidney removal
 Amputation: removal of limb
+Keyhole surgery / Minimally invasive surgery: small incision, thin instrument with camera
+- Laparoscopy: in abdomen area
+- Thoracoscopy: in chest area
+- Arthroscopy: on joint
+Angioplasty: percutaneous, widening of narrowed vessels, treats atherosclerosis
+- process: catheter inserted, balloon inflated, stent expanded by balloon, balloon deflated
+- Coronary stent: expandable mesh tube, keeps coronary artery open, prevents angina and heart attack
 
 #Epidemiology: distribution of disease in population
 Communicable disease: caused by infection
@@ -451,6 +455,9 @@ Neurofibromatosis (NF): tumors in nervous system, often inherited, usually mild 
 - Type II: loss of hearing/balance, merlin gene, cranial nerve
 - Schwannomatosis: chronic pain, peripheral nerves
 Hamartoma: bening, normal tissue, slow abnormal growth, resemble neoplasm
+
+Endometriosis: common, tissue similar to uterus lining grows elsewhere in body
+- symptoms: pelvic pain, heavy bleeding, infertility
 
 #cancer
 Grading: cell appearance, 1 = well differentiated, 4 = undifferentiated

@@ -10736,6 +10736,7 @@ espanol|abstract/pohyb|triasť sa|tiritar||False|False|other|
 espanol|abstract/pohyb|triasť|agitar||False|False|other|
 espanol|abstract/pohyb|trieť|estregar||False|False|other|
 espanol|abstract/pohyb|trieť|restregar||False|False|other|
+espanol|abstract/pohyb|unáhlený|arrebatado||False|True|other|
 espanol|abstract/pohyb|uskladniť|almacenar||False|False|other|
 espanol|abstract/pohyb|uvoľnený|suelto||False|False|other|
 espanol|abstract/pohyb|uvoľniť|aflojar||False|False|other|
@@ -11429,8 +11430,10 @@ espanol|culture/vojna|napadnúť|asaltar (a)||False|False|other|
 espanol|culture/vojna|náboj|cartucho||False|False|other|
 espanol|culture/vojna|obkľúčiť|acorralar (a)||False|False|other|
 espanol|culture/vojna|obliehať|asediar||False|False|other|
+espanol|culture/vojna|obrniť|blindar||False|False|other|
 espanol|culture/vojna|oštep/kopija|venablo||False|False|other|
 espanol|culture/vojna|oštep|jabalina||False|False|other|
+espanol|culture/vojna|pasca|emboscada||False|False|other|
 espanol|culture/vojna|plameňomet|lanzallamas||False|False|other|
 espanol|culture/vojna|pochodovať|desfilar||False|False|other|
 espanol|culture/vojna|pochytiť sa|enzarzar||False|False|other|
@@ -11519,6 +11522,7 @@ espanol|economy/agriculture|záhrada|jardín||False|False|other|
 espanol|economy/agriculture|záhradka|huerto||False|False|other|
 espanol|economy/agriculture|úroda|cosecha||False|False|other|
 espanol|economy/agriculture|šteňa|cachorro||False|False|other|
+espanol|economy/agriculture|šľahnutie bičom|latigazo||False|False|other|
 espanol|economy/agriculture|žatva|siega||False|False|other|
 espanol|economy/agriculture|žať|segar||False|False|other|
 espanol|economy/agriculture|žriebä|potro||False|False|other|
@@ -12177,6 +12181,7 @@ espanol|life/terrain|pohorie|cordillera||False|False|other|
 espanol|life/terrain|pohorie|sierra||False|False|other|
 espanol|life/terrain|polostrov|península||False|False|other|
 espanol|life/terrain|potok|arroyo||False|False|other|
+espanol|life/terrain|potôčik|regato||False|False|other|
 espanol|life/terrain|priepasť|abismo||False|False|other|
 espanol|life/terrain|prieplav|canal||False|False|other|
 espanol|life/terrain|rieka|río||False|False|other|
@@ -12551,6 +12556,7 @@ espanol|psychology/behaviour|ľútosť|lástima||False|False|other|
 espanol|psychology/behaviour|žiadostivý|ávido||False|False|other|
 espanol|psychology/behaviour|žiarlivosť|celos||False|False|other|
 espanol|psychology/behaviour|žiarlivý|celoso||False|True|other|
+espanol|psychology/cognitive|bystrý|listo||False|False|other|
 espanol|psychology/cognitive|bystrý|perspicaz||False|False|other|
 espanol|psychology/cognitive|dôvtip|perspicacia||False|False|other|
 espanol|psychology/cognitive|intuícia|intuición||False|True|other|
@@ -12794,6 +12800,7 @@ espanol|psychology/security|nebezpečenstvo|peligro||False|False|other|
 espanol|psychology/security|nebezpečný|peligroso||False|False|other|
 espanol|psychology/security|odhad|tino||False|False|other|
 espanol|psychology/security|odvaha|coraje||False|False|other|
+espanol|psychology/security|odvážiť sa|atreverse (a)||False|False|other|
 espanol|psychology/security|odvážny|valiente||False|False|other|
 espanol|psychology/security|poctivý|honrado||False|False|other|
 espanol|psychology/security|podozrenie|sospecha||False|False|other|

@@ -116,6 +116,10 @@ Poincaré disk model: 2D hyperbolic geometry
 Klein disk model: 2D hyperbolic geometry
 - straight lines are chords within disc
 
+Cartesian coordinate system: uniquely specifies each point in plane as ordered pair of real numbers
+- Origin: fixed reference point, intersection of axes
+- Axes: perpendicular lines, measure signed distance from origin
+
 #curve
 Cusp: point where direction reverses
 =parametric

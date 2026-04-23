@@ -48,7 +48,7 @@ Training: learning, minimize errors on training data
 Inference: doing, use trained model to generate outputs
 
 #Neural network
-Perceptron: simplest, single layer, adjustable weights
+Perceptron: simplest, single layer, adjustable weights, only linear functions
 Activation function: introduces non-linearity, transforms weighted sum of inputs to output
 - Softmax function: normalize input, probability distribution (sum to 1)
 Bias: constant added to weighted sum of inputs, increases flexibility
@@ -78,3 +78,6 @@ Model Context Protocol (MCP): integration standard between AI assistants and ext
 Generative adversarial network (GAN):
 Variational autoencoder (VAE): 
 Hallucination: response containing false information presented as fact
+
+Moravec's paradox: intelligence tasks (task) require much less computation than physical tasks (walking)
+- what is easy for AI is difficult for human and vice versa

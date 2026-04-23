@@ -98,9 +98,12 @@ Secondary battery: rechargeable, chemical energy
 - Nickel-Hydrogen (NiH2): long cycle life, satellites
 - Lithium-Ion: good energy density, risk of ignition
 Lithium-Ion
-- Lithium-Polymer (LiPo)
-- Lithium-Iron-Phospate (LFP): long cycle life, EVs
-- Lithium-Manganese-Oxide (LMO)
+- Lithium-Iron-Phospate (LFP): LiFePO4, long cycle life, low cost, fast recharge, EVs
+- Lithium-Manganese-Oxide (LMO): LiMnO2, low cost, fast recharge
+- Lithium-Nickel-Manganese-Cobalt-Oxide (NMC): high energy density, EVs
+- Lithium-Cobalt-Oxide (LCO): LiCoO2, high energy density, smartphones
+- Lithium-Nickel-Cobalt-Aluminum-Oxide (NCA): high energy density, power tools
+Lithium-Polymer (LiPo):
 
 #Atomic battery: energy from radioactive decay, energy slowly decreases
 - long life, high energy density, efficiency ~5%
@@ -130,9 +133,12 @@ One-way mirror: appears reflective from one side, transparent from other
 - one side brightly lit, other dark
 
 #Microscope: magnified images of small objects
-Optical microscope: uses visible light and system of lenses
-Electron microscope: uses beam of electrons, higher resolution due to small electron wavelength
-Scanning probe microscope: uses sharp probe, slower, high resolution and height information
+Optical microscope: uses visible light and system of lenses, wavelength ~500nm
+Electron microscope: uses beam of electrons, higher resolution due to smaller wavelength, wavelength ~0.01nm
+- electrons need less energy than photons for same wavelength
+- Transmission electron microscope (TEM): electrons transmitted through very thin specimen (<100nm), higher resolution
+- Scanning electron microscope (SEM): electrons scattered off specimen surface, easier preparation
+Scanning probe microscope (SPM): uses sharp probe, slower, high resolution and height information
 Fluorescence microscope: uses fluorophores emitting absorbed light, high specificity, molecular localization
 X-ray microscope: uses X-rays and differences in absorption, higher penetration depth
 
@@ -164,7 +170,8 @@ Four-level laser: L1 (ground state), L2, L3, L4
 - uses ultraviolet light to produce thin patterned film
 - photoresist consists of resin, sensitizer and solvent
 - photoresist breaks down (positive) or hardens (negative) when exposed to light
-Process
+=Process
+FEOL (Front end of line): 
 - Si wafer surface cleaned with H2O2 solution
 - wafer heated, surface SiO2 layer made water repellent
 - wafer covered with photoresist by spin coating
@@ -172,8 +179,23 @@ Process
 - photoresist exposed to pattern of light
 - softer parts of photoresist are removed with solvent
 - wafer baked
-- etching: chemical agent removes unprotected upper layer of substrate
-- remaining photoresist removed
+- Etching: chemical agent removes unprotected upper layer of substrate
+- Stripping: remaining photoresist removed
+- Doping: predeposition and drive-in diffusion
+- Predeposition diffusion: saturate surface with B atoms (p-type) or P/As atoms (n-type), without oxygen, ~1000°C
+- Drive-in diffusion: oxidize surface to seal impurities (SiO2 layer), transport impurities deeper, ~1200°C
+- repeat to create multiple layers
+=BEOL (Back end of line): after FEOL
+Interconnect: metal connecting circuit elements together
+- aluminium: low diffusion
+- copper: more conductive, high diffusion, must be lined with thin TaN/Ta layer (TaN blocks diffusion, Ta adheres to Cu)
+
+#Physical vapor deposition (PVD): produces thin film on substrate, used in electronics and optics
+Evaporation: material evaporated in vacuum and condensed on substrate (low energy), used in packaging
+Sputtering: stronger adhesion compared to evaporation (high energy), used in microelectronics
+- material (target) in vacuum is given negative charge
+- argon ions plasma fills chamber, cations are attracted to target at high speed
+- target atoms bounce off and slam into substrate
 
 #Extreme ultraviolet lithography (EUV)
 photon emission from laser-pulsed tin droplet plasma

@@ -1,3 +1,6 @@
+#E-mail
+Greylisting: spam defense, temporarily rejecting email from unrecognized sender, retry needed
+
 Load balancing: network traffic distribution across servers
 - any server: round robin, least connection
 - same server: IP hash, sticky session

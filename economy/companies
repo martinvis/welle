@@ -120,6 +120,12 @@ germany: BASF, Henkel (Persil, Perwoll, Silan)
 uk: Ineos, Linde, Unilever (Dove)
 usa: Colgate-Palmolive, Dow, DuPont, Procter & Gamble (Ariel, Tide)
 
+#petrochemical
+Saudi Arabia
+- SABIC:
+Iran
+- BIPC:
+
 #cosmetics
 france: L'Oreal
 germany: Nivea
@@ -216,12 +222,15 @@ germany: SAP
 ireland: Accenture
 usa: Adobe (Photoshop), IBM, Microsoft (Azure, Windows, Office, Xbox, LinkedIn), Oracle (Java), Salesforce
 japan: Nintendo
+poland: Asseco
 
 #internet
 china: Alibaba (Taobao, Alipay, AliExpress, Youku, Lazada), Baidu (iQIYI), ByteDance (TikTok), JD, Pinduoduo, Meituan, Tencent, Bilibili
-germany: Otto (Hermes)
 usa: Alphabet (Google, YouTube, Android, Chrome, Gmail, Waymo), Amazon (AWS, Audible), Meta (Facebook, Instagram, WhatsApp, Threads, Oculus)
 sweden: Spotify
+=online retail
+germany: Otto (Hermes)
+poland: Allegro
 
 #pharmaceutics
 france: Sanofi

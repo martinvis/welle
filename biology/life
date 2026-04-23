@@ -319,16 +319,18 @@ Tetrapoda: four legs
 - Mammalia: produce milk to feed young, endothermic, 7 neck vertebrae
 
 #Tetrapoda
-=Amniota
-Synapsida
+=Amniota: fetal membranes to reproduce on land, thicker keratinized skin to live on land, loss of metamorphosis and gills
+Synapsida: mammal-like, single temporal fenestra
 - Edaphosauridae: Carboniferous/Permian, large, herbivores, small head, tall back sail
 - Sphenacodontidae: Permian, carnivores
 -- Dimetrodon: large, tall back sail
 -- Sphenacodon: low back crest
-- Therapsida
-Sauropsida
+- Therapsida:
+Sauropsida: reptile-like
+- Parareptilia/Anapsida: no temporal fenestrae
+- Reptilia/Diapsida: two temporal fenestrae
 
-=Therapsida
+=Therapsida:
 Biarmosuchia: Permian, carnivores, light build
 Dinocephalia: Permian, large body, thick skull
 - Estemmenosuchus: multiple large horns
@@ -355,7 +357,7 @@ Gorgonopsia: Permian, carnivores, long narrow skull, sabre-toothed
 - Rubidgea: large
 - Gorgonops: 
 - Lycaenops:
-Cynodontia: Permian/Triassic, differentiated teeth
+Cynodontia: Permian/Triassic, differentiated teeth, fur, warm-blooded
 - Procynosuchus: semi-aquatic
 - Thrinaxodon: burrowing
 - Cynognathus: predator
@@ -364,7 +366,25 @@ Cynodontia: Permian/Triassic, differentiated teeth
 - Massetognathus: herbivore
 - Chiniquodon: carnivore
 - Tritylodon: burrowing
-Mammalia
+Morganucodonta: Jurassic, permanent teeth, nocturnal, insectivorous
+- Morganucodon:
+- Megazostrodon:
+Docodonta: Jurassic, small
+- Agilodocodon: squirrel-like, arboreal
+- Castorocauda: beaver-like, semi-aquatic
+- Docofossor: mole-like, burrowing
+Haramiyida: Jurassic, small, arboreal, long tail, gliding, upside-down hanging (bat-like)
+- Maiopatagium: 
+- Vilevolodon: 
+- Arboroharamiya: 
+- Shenshou: 
+=Mammalia
+Pantodonta: large, herbivorous, long tail
+- Barylambda: largest, bear-like, thick tail
+- Bemalambda: pig-like
+- Pantolambda: cat-like
+- Coryphodon: semi-aquatic, small brain
+Multituberculata: rodent-like
 
 #Amphibia
 Lepospondyli: extinct

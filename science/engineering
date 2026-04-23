@@ -14,14 +14,22 @@ Compression: pushing
 Torsion: twisting
 Bending: curving
 
-#Strain: deformation relative to size
-
 Spring: rigid elastic material, usually bent into coil, stores energy when compressed/extended (bow)
 
-Elasticity: return to initial shape when force removed
-- Hooke's law: force is proportional to extension/compression (stress is proportional to strain)
+Load: external force applied to object
+Stress: force distributed over area, σ = F / A
+Strain: material deformation as relative change of length, ε = ΔL​ / L0
+
+Elasticity: material returns to initial shape when force removed
+- Anelasticity: material returns to initial shape with delay
+Elastic deformation: stress and strain are proportional, non-permanent
+- Hooke's law: force is proportional to extension/compression (stress is proportional to strain), σ = ε * E
+- Young's modulus (E): relationship between stress and strain, material specific, decreases with temperature
 Plasticity: permanent deformation when force removed
+Plastic deformation: reforms atomic bonds, higher strain than elastic deformation
 Yield point: between elastic and plastic behaviour
+- Yield strength: stress corresponding to yield point
+Poisson's ratio: ratio of transverse strain to axial strain (material contracts laterally when stretched)
 
 Roving bridge: over canal, allows crossing to horse towing boat
 - split in middle or spiral ramp

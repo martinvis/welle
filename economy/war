@@ -365,6 +365,12 @@ Eurocopter Caracal
 #Airlifter: transport plane
 Antonov An-12: USSR
 Ilyushin Il-76: USSR
+Antonov An-124 (1982-2004): USSR, large, 4 jet engines
+Boeing C-17 (1991-2015): USA, 4 jet engines
+Lockheed C-5 (1968-1989): USA, large, 4 jet engines
+
+#close air support
+Fairchild Republic A-10 (1972-1984): USA, 2 jet engines above fuselage
 
 #Aircraft: air-to-air combat
 interceptor: defensive role (speed)
@@ -433,3 +439,4 @@ Fifth column: group undermining from within
 ISTAR: intelligence, surveillance, target acquisition, reconnaissance
 C4IST: command, control, communications, computers, intelligence, surveillance, reconnaissance
 Deconfliction: communication preventing accidental friendly fire
+CSAR (Combat Search and Rescue): locate and recover personnel (downed pilot)
