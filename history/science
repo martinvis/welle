@@ -124,14 +124,6 @@ Reinforced concrete: steel bars (rebar)
 
 Glass (2000 BC)
 
-Hennig Brand: Phosphorus (1669)
-Henry Cavendish: Hydrogen (1766)
-Carl Wilhelm Scheele: Oxygen (1771)
-Daniel Rutherford: Nitrogen (1772)
-Dmitri Mendeleev: Periodic table (1869)
-Van Helmont: Gas, Carbon dioxide
-- Willow tree experiment: tree growth from water not soil
-
 Air Liquefaction: Carl von Linde (1895)
 
 Plastics
@@ -180,8 +172,12 @@ Age of Discovery (15th-17th century)
 
 David Livingstone: missionary and explorer, discovered Zambezi river, Victoria falls and Lake Malawi
 
-Ernest Rutherford
-Hendrik Lorentz
+Ernest Rutherford:
+- Radiometric dating (1905): radioactive half-life, uranium-helium, age of earth (500My)
+- Atomic nucleus (1911): some alpha particles bounced off gold foil
+- Nuclear reaction / Proton (1919): nitrogen bombarded by alpha particles from radiation
+- Neutron (1920): prediction
+Hendrik Lorentz:
 - Length contraction
 =Theoretical physics, german
 Max Planck (1858-1947): quantum theory (1900)
@@ -209,7 +205,8 @@ Wilhelm Röntgen (1845-1923):
 - X-rays (1895):
 Henri Becquerel:
 - Radioactivity (1896): X-rays
-
+Clair Patterson:
+- Age of Earth (1956): uranium-lead dating
 Alan Turing
 
 William Gilbert: Magnetism (1600)
@@ -238,17 +235,34 @@ William Brockedon: Pill (1843)
 
 Scientific Revolution
 
-Chemical revolution
-- Antoine Lavoisier [Combustion, Acid–base reaction]
-- Humphry Davy: Electrolysis, Potassium, Sodium, Calcium, Magnesium, Silicon, Aluminium
-- John Dalton [Atomic theory]
-- Robert Boyle [Boyle's law]
+=Chemical revolution
+Hennig Brand:
+- Phosphorus (1669): from human urine, philosopher's stone search
+Antoine Lavoisier: [Acid–base reaction], Conservation of mass (1789), Oxygen theory of combustion (1778)
+Carl Wilhelm Scheele: Oxygen (1771) + Nitrogen (1772) + Chlorine (1774) + Glycerol (1779)
+- Mass Production of Phosphorus (1769): from bones
+- Composition of Air (1772): fire air (oxygen) + foul air (nitrogen)
+Humphry Davy: 
+- electrolysis technique (1808): Potassium + Sodium + Calcium + Magnesium, attempted Silicon + Aluminium
+Dmitri Mendeleev: Periodic table (1869)
+John Dalton [Atomic theory]
+Robert Boyle [Boyle's law]
+
+Hennig Brand: Phosphorus (1669)
+Henry Cavendish: Hydrogen (1766)
+Daniel Rutherford: Nitrogen (1772)
+Van Helmont: Gas, Carbon dioxide
+- Willow tree experiment: tree growth from water not soil
 
 Lord Kelvin (1824-1907): thermodynamics
 - Kelvin scale: absolute zero
 James Prescott Joule (1818-1889): thermodynamics
 - Conservation of energy: heat/work
 - Joule heating: electric current produces heat
+
+Thomas Midgley:
+- Leaded gasoline (1921): Tetraethyllead, prevents engine knocking, caused lead poisoning
+- Freon (1928): CFC, stable nontoxic refrigerant, caused ozone depletion
 
 #astronomy
 =Copernican Revolution (16th-17th century)
@@ -272,6 +286,10 @@ Urbain Le Verrier: French
 - Neptune (1846)
 William Lassell: English
 - moons of Uranus (Ariel+Umbriel) and Neptune (Triton)
+
+Edwin Hubble: 
+- Andromeda Galaxy (1923): existence of other galaxies, Cepheids as standard candles (too distant for nebulas)
+- Hubble's law (1929): galaxies are moving away, measured redshift
 
 Robert Koch: Anthrax, Tuberculosis, Cholera
 Joseph Lister: Antiseptic surgery
@@ -304,14 +322,15 @@ Theodor Schwann + Matthias Jakob Schleiden: Cell theory (1839)
 Rudolf Virchow: Cell theory (1855)
 - All cells arise only from pre-existing cells
 
-Age of Enlightenment (17th-18th century)
-- Francis Bacon [Scientific method]
-- René Descartes [Cogito ergo sum]
-- Isaac Newton: [Laws of motion, Universal gravitation], calculus
-- Immanuel Kant
-- John Locke [Tabula rasa, Supply and demand]
-- Jean-Jacques Rousseau [The Social Contract]
-- Voltaire
+=Age of Enlightenment (17th-18th century)
+Francis Bacon [Scientific method]
+René Descartes: [Cogito ergo sum]
+- Aether: gravity and light propagation medium, filling all space
+Isaac Newton: [Laws of motion, Universal gravitation], calculus
+Immanuel Kant:
+John Locke [Tabula rasa, Supply and demand]
+Jean-Jacques Rousseau [The Social Contract]
+Voltaire
 Pierre-Simon Laplace (1749-1827): astronomy, mathematics
 - Nebular hypothesis: solar system evolution
 - Black hole: invisible star
@@ -394,11 +413,12 @@ Evangelos Florakis Naval Base explosion (2011): ammunition and explosives, Cypru
 Notre Dame Fire (2019): destroyed wooden roof
 
 Atomic Age
-- Atomic bomb: Manhattan project, Robert Oppenheimer, Trinity, Los Alamos (1945)
-- Hydrogen bomb: Edward Teller (1952)
-- Nuclear power plant (1954): core meltdown, Red Forest
-- Chernobyl disaster (1986)
-- Fukushima disaster (2011): tsunami
+Atomic bomb: Manhattan project, Robert Oppenheimer, Trinity, Los Alamos (1945)
+- Demon core: subcritical mass plutonium sphere, two criticality accidents
+Hydrogen bomb: Edward Teller (1952)
+Nuclear power plant (1954): core meltdown, Red Forest
+Chernobyl disaster (1986)
+Fukushima disaster (2011): tsunami
 
 =Space exploration
 - Konstantin Tsiolkovsky: rocket scientist, astronautic theory
@@ -519,6 +539,19 @@ Monte Carlo method: neutron diffusion, Ulam + Neumann
 ENIAC (1945): turing-complete computer, hydrogen bomb
 
 Miller–Urey experiment (1952): primordial soup, origin of life
+
+#paleontology
+Georges Cuvier: Megatherium (1796) + Mosasaurus (1808) + Pterodactylus (1809)
+- Catastrophism (1813): extinctions (Mammoth/Mastodon/Elephant)
+Mary Anning: Ichthyosaur (1811) + Plesiosaur (1823)
+Gideon Mantell: Iguanodon (1825) + Hylaeosaurus (1833)
+Richard Owen: Dinosauria (1842)
+Hermann von Meyer: Plateosaurus (1837) + Archaeopteryx (1861)
+Bone Wars (1877-1892): Cope versus Marsh, bribery + theft + destruction
+Othniel Charles Marsh: Allosaurus (1877) + Stegosaurus (1877) + Apatosaurus (1877) + Triceratops (1889)
+Edward Drinker Cope: Camarasaurus (1877) + Dimetrodon (1877) + Edaphosaurus (1882) + Coelophysis (1889)
+Henry Fairfield Osborn: Tyrannosaurus (1905) + Velociraptor (1924)
+Raymond Dart: Australopithecus (1925)
 
 #medicine
 Andreas Vesalius (1514-1564): anatomy

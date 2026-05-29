@@ -1,5 +1,7 @@
 #Evolution
 Extinction debt: dead clade walking, species likely to become extinct in future (panda)
+Extinction event: widespread and rapid decrease in biodiversity
+Snake detection theory: snakes contributed to evolution of visual systems in primates
 
 Pioneer species: first to (re)populate barren environments
 
@@ -116,7 +118,7 @@ Tarantulas and frogs (Microhylidae): spider protects frog and provides shelter, 
 =Commensalism: one species is unaffected and other benefits
 - e.g. spider webs on plants
 =Amensalism: one species is unaffected and other is harmed
-Allelopathy: plants releasing inhibitor chemicals to soil
+Allelopathy: plants releasing inhibitor chemicals to soil (Juglans, Ailanthus)
 =Parasitism: parasite benefits by causing harm to host
 Brood parasitism: raising young of same/another species as own
 - Egg mimicry + Egg tossing: cuckoos
@@ -159,6 +161,11 @@ Beaver: build dams as shelter, restrict water flow
 - made of tree branches, rocks and mud
 Caddisfly: larvae create portable cases for protection
 - made of silk and plant material, rocks or snail shells
+
+#Defense
+Heat ball: Japanese honey bees swarm hornet, vibrate to raise temperature and kill hornet
+Luna moth: long tails as decoy against bat echolocation
+Autotomy: shedding appendage to escape, lizard tail
 
 #Ecology
 Island effect / Foster's rule: different size of animals on islands
@@ -214,10 +221,13 @@ Billing: bills touching during courtship, birds
 Anting: rubbing insects on feathers, birds
 
 #Electroreception
-Electrolocation: passive, sense electric fields around (shark, sturgeon, platypus)
-Electrogenesis: active, generate electric fields and detect distortions (elephantfish)
+Electric organ: create electric field, electrocytes (modified muscle)
+Electrolocation: passive, sense electric fields around (shark, ray, sturgeon, platypus, bees, spiders)
+Electrogenesis: active, generate electric fields and detect distortions (elephantfish, knifefish)
 - strong discharge can stun (electric eel, electric ray)
 Electrocommunication: modulate generated electric waves
+#Magnetoreception: sense magnetic field of Earth, used for navigation (birds, bats, whale, dolphin, salmon, sea turtle)
+Cetacean stranding: due to solar storm interference or geomagnetic anomaly
 
 #Senses
 =chemical
@@ -233,6 +243,29 @@ Taste: chemicals in environment, reflexive, limited
 Vision
 - largest eyes: giant squid (to detect sperm whale)
 - polarized light: arthropods, cephalopods, fish
+- night vision: owl, cat, tarsier, crocodile, shark
+- tetrachromacy (UV): butterfly, bird, fish
+- trichromacy: primates
+- dichromacy: mammals
+- monochromacy: whale, dolphin, shark
+=somatic
+Touch:
+- aquatic/nocturnal/underground animals
+- best remote (vibration): spider, scorpion, fish, snake, crocodile, elephant
+- best close: star-nosed mole, elephant, whiskers (seal, manatee, cat, rat), otter, octopus, human
+- worst: tortoise, armadillo
+Hearing
+- longest distance: baleen whales (1000km+), elephant, wolf, lion
+- best localization: owl, cat, elephant, human
+- echolocation (ultrasound): bat, dolphin, toothed whale
+- infrasound: pigeon, baleen whale, elephant, giraffe, hippo, rhino
+- worst: octopus, spider, beetle, ant, snake, turtle
+Pain
+Temperature
+- hematophages
+- best remote (infrared): python, rattlesnake, fire beetle
+- best close: vampire bat, antennae (bed bug, mosquito, bee), legs (tick)
+- worst: deep-water animals
 
 #Speech production
 Respiration: controlled airflow from lungs
@@ -250,6 +283,22 @@ Parthenogenesis: asexual reproduction
 - Apomixis: clonal reproduction, without recombination, many plants
 - Thelytoky:
 - Arrhenotoky:
+
+=Food web: interconnection of food chains
+Food chain: linear network of links in food web
+- nectar -> moths -> bats -> owls
+- grasses -> ruminants -> big cats + wolf
+- grasses -> hares -> fox + cat -> birds of prey
+- seeds -> rodents -> cat + fox + snakes -> birds of prey
+- fruits -> monkeys + parrots -> big cats + constrictor snakes + eagle
+- leaves -> caterpillars -> wasps -> birds -> birds of prey
+- plants -> insects -> spiders -> birds -> birds of prey
+- plants -> insects -> frogs -> snakes -> birds of prey
+- detritus -> earthworm -> mole -> owls
+- detritus -> fungi -> nematodes -> mites -> insects
+- algae -> plancton -> fish -> seals + tuna -> sharks -> orca
+Apex predator: without natural predator
+- crocodile, orca, bear, wolf, big cats, eagle, pike
 
 Moulting: benefitial loss of parts of body at specific time of year or life cycle
 - fur: winter/summer coat (arctic mammals)

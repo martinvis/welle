@@ -61,22 +61,34 @@ NGDA: german
 6-7: slavic, turkish
 8-9: japanese, korean, hindi
 
-=Part of speech
-Noun: object
+=word order
+Subject: does action
+Object: action is being done to it
+Transitive verb: requires object to complete meaning
+Word order:
+- SVO (Subject–verb–object): germanic, italic, slavic, chinese, arabic, malay, thai, vietnamese
+- SOV (Subject–object–verb): indo-iranian, dravidian, japanese, korean, turkic
+
+#word
+#Part of speech
+=Function word: grammatical meaning
+Auxiliary verb:
 Pronoun: noun substitute
-Adjective: modifies noun
-Verb: action
-Adverb: modifies verb
 Preposition: space/time relation
 Conjunction: connection
 Interjection: feeling
 Determiner: with noun
-- Article
+- Article: the
 - Demonstrative: this/that
 - Possessive: my/your
 - Cardinal: number
 - Quantifier: few/many
 - Distributive: none/every
 - Interrogative: what/who
+=Content word: lexical meaning
+- Noun: object
+- Adjective: modifies noun
+- Lexical verb: action
+- Adverb: modifies verb
 
 Epithet: descriptive term accompanying name (Richard the Lionheart)

@@ -19,6 +19,7 @@ Attrition: dropout of trial participants
 Intention-to-treat (ITT) analysis: results analysis based on initial assignment (include dropouts)
 Eroom's law: drug discovery is slower and more expensive despite new technology (opposite of Moore's law)
 Orphan drug: rare medical conditions, government assistance
+Phytotherapy: herbal medicine
 
 True positive rate (TPR) / Sensitivity: true positive versus false negative
 True negative rate (TNR) / Specificity: true negative versus false positive
@@ -131,11 +132,28 @@ recreational drug, addictive
 
 #Anxiolytics: reduce anxiety
 Barbiturates: depressant, general anesthesia
-Benzodiazepines: depressant, GABAA agonist, treat anxiety + insomnia + alcohol withdrawal + epileptic seizures
+- Primidone: anticonvulsant, oral
+- Phenobarbital: anticonvulsant, in young children, increases GABA activity
+Benzodiazepines: depressant, GABAA agonist, hypnotic, treat anxiety + insomnia + alcohol withdrawal + epileptic seizures, misused as date rape drug
 - Diazepam (Valium): long-acting, oral + intravenous
 - Oxazepam: slow onset, diazepam metabolite, oral
-- Lorazepam
+- Lorazepam: 
 - Alprazolam (Xanax): fast-acting, oral
+- Brotizolam: short half-life
+- Nitrazepam: oral
+
+=Hypnotics: treat insomnia
+Z-drugs, first line
+- Zolpidem: oral
+- Zopiclone: oral
+- Zaleplon: fast short acting, oral
+benzodiazepines, second line
+- Triazolam: benzodiazepine, fast onset, short half-life, oral
+- Lormetazepam: benzodiazepine, oral
+- Temazepam: benzodiazepine, oral
+- Flunitrazepam / Rohypnol: oral
+
+Flumazenil: GABAA antagonist, antidote to benzodiazepines, intravenous
 
 #Muscle relaxant
 Baclofen: GABAB agonist, oral
@@ -513,7 +531,6 @@ Canagliflozin: oral
 Gliclazide (Diamicron): oral
 
 #Generics
-Amlodipine: common, against high blood pressure
 Levothyroxine: common, synthetic thyroid hormone
 
 #Antipsychotics / Neuroleptics: treat schizophrenia
@@ -539,7 +556,12 @@ Cetirizine: oral, hay fever
 Loratadine (Claritin): oral, hay fever
 
 #Antimigraine
-Sumatriptan: serotonin agonist
+Triptan: serotonine agonist
+- Sumatriptan:
+Ergotamine:
+
+#motion sickness
+Scopolamine: transdermal patch
 
 #Antidepressant / Thymoleptics
 Bupropion: common
@@ -568,23 +590,28 @@ Tricyclic: side effects (dry mouth, constipation, dizziness, weight gain)
 #Mood stabilizers
 Lithium: treats mania (bipolar disorder), side effects (kidneys, increased urination, hand tremors, hypothyroidism)
 
-#ACE inhibitor: lower high blood pressure, common side effect coughing
-Benazepril:
-Captopril:
-Enalapril:
-Lisinopril: common
-Ramipril:
+ACE inhibitor: inhibit angiotensin-converting enzyme, antihypertensive (decrease blood pressure), protect kidney, common side effect coughing, oral
+- Lisinopril: common
+- Ramipril: common, prodrug (activated in liver)
+- Captopril: short half-life
+- Benazepril: prodrug (activated in liver)
+- Enalapril: prodrug (activated in liver)
+- Perindopril: prodrug (activated in liver)
+Angiotensine receptor blocker (ARB) / Sartan: angiotensine antagonist, antihypertensive (decrease blood pressure), protect kidney, oral
+- Losartan: common
+- Valsartan: common
+- Telmisartan: long half-life
+- Candesartan: 
+- Fimasartan: 
+- Irbesartan: 
+- Olmesartan: 
 
-#Angiotensine receptor blocker (ARB) / Sartan: high blood pressure, angiotensine antagonist
-Losartan: common
-Irbesartan:
-Valsartan:
-
-#Beta blocker: manage arrhythmia and high blood pressure, block receptors for adrenaline and noradrenaline
+#Beta blocker: after heart attack (prevention), antiarrhythmic, antihypertensive (decrease blood pressure), block receptors for adrenaline and noradrenaline
 Nonselective
 - Labetalol:
 - Pindolol:
 - Propranolol:
+- Timolol: decrease intraocular pressure (eye drop)
 Selective
 - Acebutolol:
 - Atenolol:
@@ -632,7 +659,7 @@ Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 - Formoterol: long-term, inhalation
 - Clenbuterol: banned due to side effects
 
-#NSAID (Nonsteroidal anti-inflammatory drug): COX inhibitors, also analgesic
+#NSAID (Nonsteroidal anti-inflammatory drug): COX inhibitors, also analgesic, migraine relieve
 Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
 Ibuprofen (Nurofen): common, oral
 - side effects: gastrointestinal issues (ulcers)
@@ -645,7 +672,7 @@ Colchicine: oral, treat gout, overdose very toxic, alkaloid
 
 #Analgesic: pain relievers
 Non-opioid
-- Paracetamol (Panadol): common, antipyretic (overdose ~5g: liver failure)
+- Paracetamol (Panadol): common, antipyretic, migraine relieve (overdose ~5g: liver failure)
 - Metamizole/Dipyrone (Novalgin): antipyretic, antispasmodic (colic), rarely causes agranulocytosis
 Opioid: μ-opioid agonist, strong, hypoventilation + constipation
 - Morphine: recreational drug, found in opium, addictive
@@ -772,20 +799,16 @@ Letrozole: oral, visually pleasing symmetrical structure
 Teriparatide: PTH analogue, treats osteoporosis, low dose stimulates osteoblasts to  build bones, subcutaneous
 Cinacalcet: treats hyperparathyroidism, allosteric activation of Ca receptors
 
-#Anticonvulsant
-Gabapentin: common
+#Anticonvulsant: treat epilepsy
+Lamotrigine: common, oral
+Levetiracetam: common, oral or intravenous
+Gabapentin: common, oral
+Vigabatrin: GABA breakdown inhibitor, vision loss risk, oral
+Carbamazepine: antidiuretic, oral or intravenous
+Tiagabine: GABA reuptake inhibitor (GABA transporter blocker), oral
+Phenytoin: oral or intravenous
 
 #N
-
-=Hypnotics: treat insomnia
-Z-drugs, first line
-- Zolpidem: oral
-- Zopiclone: oral
-- Zaleplon: fast short acting, oral
-benzodiazepines, second line
-- Triazolam: benzodiazepine, fast short acting, oral
-- Lormetazepam: benzodiazepine, oral
-- Temazepam: benzodiazepine, oral
 
 #
 
@@ -809,7 +832,11 @@ Cereblon modulators
 #Antiemetic
 Setrons: serotonin antagonist, with chemotherapy
 - Ondansetron: oral + injection
+- Granisetron:
+- Tropisetron:
+- Palonosetron: intravenous + oral
 Metoclopramide: dopamine antagonist, treat migraine, oral + intravenous
+Domperidone: dopamine antagonist, treat migraine, oral + rectal
 Aprepitant: with chemotherapy, oral
 Promethazine: H1 antagonist, sedative, treat allergy, oral
 
@@ -821,18 +848,27 @@ Loperamide: opioid agonist, oral
 Hydroxyethyl starch (HES): intravenous volume expander
 
 #Cardiovascular system
+=Calcium channel blocker (CCB): antihypertensive (decrease blood pressure), antianginal
+- Amlodipine: common, long half-life, oral
+- Clevidipine: fast onset, short half-life, during cardiac surgery, intravenous
+- Lercanidipine: oral
+- Nifedipine: oral
+- Nitrendipine: oral
+- Felodipine: oral
+- Nicardipine: fast onset, oral or intravenous
+- Verapamil: oral or intravenous, antiarrhytmic (decrease heart rate)
+- Diltiazem: oral or intravenous, antiarrhytmic (decrease heart rate)
 =Antianginal
+Ivabradine: pacemaker current inhibitor, oral
 Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual, causes headache
 Isosorbide dinitrate: vasodilator, oral
-Nifedipine: calcium channel blocker, oral
 =Antiarrhythmic
 Amiodarone: potassium channel blocker, contains iodine, oral, accumulates in body, serious side effects (e.g. hypothyroidism)
 Lidocaine: sodium channel blocker, intravenous
-Verapamil: calcium channel blocker, oral, not with beta blockers
 Adenosine: supraventricular tachycardia, few second asystole, intravenous
 =Cardiac glycoside: sodium-potassium pump inhibitor, steroid code, increase output, decrease heart rate
-Digoxin / Digitalis: foxglove plant, excretion by kidney
-Digitoxin: foxglove plant
+Digoxin / Digitalis: foxglove plant, long half-life, excretion by kidney
+Digitoxin: foxglove plant, very long half-life
 =Hypolipidemic: prevent cardiovascular diseases
 Statins: HMGCR inhibitor, increase LDL receptors in liver
 - Simvastatin: common
@@ -841,12 +877,12 @@ Statins: HMGCR inhibitor, increase LDL receptors in liver
 - Fluvastatin
 - Lovastatin
 - Pravastatin
-=Diuretic
-Thiazides: inhibit Na-Cl cotransporter, hypokalemia
+=Diuretic: increase urine production
+Thiazides: inhibit Na-Cl cotransporter, hypokalemia, decrease blood pressure
 - Hydrochlorothiazide: common
 - Indapamide
 - Chlortalidone
-Loop diuretic: inhibit Na-K-Cl cotransporter
+Loop diuretic: inhibit Na-K-Cl cotransporter, decrease blood pressure
 - Furosemide: common
 - Torasemide
 Potassium sparing: with thiazides
@@ -856,6 +892,19 @@ Potassium sparing: with thiazides
 - Eplerenone: aldosterone antagonist
 Acetazolamide: carbonic anhydrase inhibitor, oral, mild acidosis, treat glaucoma and epilepsy
 Mannitol: osmotic (inhibits reabsorption), intravenous, heart failure risk
+
+Prostaglandins (PG): local vasodilators
+- Latanoprost: decrease intraocular pressure (increase fluid outflow)
+- Tafluprost: decrease intraocular pressure (increase fluid outflow)
+- Bimatoprost: decrease intraocular pressure (increase fluid outflow)
+- Alprostadil: treat erectile dysfunction
+- Dinoprostone: labor induction
+
+Pilocarpine: decrease intraocular pressure, eye drop
+Brimonidine: α2 agonist, decrease intraocular pressure, eye drop
+Clonidine: α2 agonist, antihypertensive, treat ADHD (non-stimulant)
+Brinzolamide: carbonic anhydrase inhibitor, decrease intraocular pressure, eye drop
+Dorzolamide: carbonic anhydrase inhibitor, decrease intraocular pressure, eye drop
 
 =vasopressin agonist, antidiuretic, increase blood pressure
 Desmopressin
@@ -904,6 +953,31 @@ Resveratrol: polyphenol, in skin of grapes/peanuts/berries
 Curcumin: polyphenol, in turmeric
 Sulforaphane: contains sulfur, in cruciferous vegetables
 Quercetin: flavonol (polyphenol), in fruits/vegetables
+
+=Parkinson's disease
+Levodopa: amino acid (to cross blood-brain barrier), dopamine precursor (coverted by AADC enzyme), used with AADC and COMT inhibitors
+AADC inhibitors: inhibit dopamine synthesis outside brain, oral
+- Carbidopa:
+- Benserazide:
+Catechol-O-methyltransferase inhibitors: prevents breaking down of Levodopa by COMT, oral
+- Entacapone:
+- Opicapone:
+- Tolcapone: liver toxicity
+Ergoline dopamine agonists: heart valve deformation risk
+- Bromocriptine: 
+- Cabergoline: 
+- Lisuride: oral
+- Pergolide: oral
+Non-ergoline dopamine agonists
+- Pramipexole: oral
+- Ropinirole: oral
+- Rotigotine: transdermal patch
+Amantadine: treats dyskinesia, oral
+
+Monoamine oxidate inhibitors (MAOI): antidepressants, Parkinson's disease
+- Selegiline: Parkinson's disease
+- Rasagiline: Parkinson's disease
+- Safinamide: Parkinson's disease
 
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system

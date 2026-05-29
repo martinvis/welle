@@ -2,6 +2,20 @@ Phylogenetics: evolutionary history of life
 Hologenome theory of evolution: holobiont instead of individual as evolutionary unit
 Metagenomics: study of all genetic material in particular environment
 
+=Evolution: change in heritable characteristics over generation
+Genetic drift: change in gene variants frequency due to random chance
+Natural selection: change in gene variants frequency due to impact on survival and reproduction
+Adaptive radiation: rapid diversification in altered environment
+Sensory exploitation: evolving signal triggering sensory bias (e.g. mimicry)
+- Sensory trap hypothesis: mimicking high-value stimulus in mating behaviour
+Convergent evolution: independent evolution of similar features
+- swimmers: shark / dolphin / ichthyosaur
+- wings: pterosaur / bird / bat
+- saber-toothed: Barbourofelis / Smilodon / Thylacosmilus
+- spines: echidna / hedgehog / porcupine
+- armor: armadillo / pangolin
+- long neck: giraffe / sauropods
+
 =Sequencing
 Shotgun sequencing: small overlapping pieces, assembled together
 Massively parallel sequencing (MPS): second generation, short reads, problem with repetitive regions (Illumina)
@@ -464,11 +478,12 @@ Nucleic acid: carries genetic information
 - ncRNA (Non-coding RNA):
 - rRNA (Ribosomal RNA): non-coding, ribozyme (catalyze peptide bond)
 - snRNA (Small nuclear RNA): non-coding, splicing
-- snoRNA (Small nucleolar RNA): non-coding, rRNA modification
+- snoRNA (Small nucleolar RNA): non-coding, from gene introns, rRNA modification
 - scaRNA (Small Cajal body RNA): non-coding, snRNA modification
 - piRNA (Piwi-interacting RNA): non-coding, transposon silencing
 - miRNA (Micro RNA): non-coding, ~20 nucleotides, mRNA silencing, post-transcriptional gene expression regulation
-- siRNA (Small Interfering RNA): non-coding, mRNA silencing, double-stranded
+- siRNA (Small Interfering RNA): non-coding, ~20 nucleotides, mRNA silencing, double-stranded
+- lncRNA (Long non-coding RNA): imprinting, gene silencing (guide promoter methylation), bind miRNA (deactivate)
 - XIST (X-inactive specific transcript): non-coding, inactivate one X chromozome in females
 Nucleotide: monomer of nucleic acid, nitrogenous base + pentose + phosphate
 Nitrogenous bases:
@@ -485,7 +500,23 @@ Wobble base pair: pairing in RNA not following Watson–Crick base pairs
 =RNA interference (RNAi): sequence-specific suppression of gene expression by RNA
 RNA-Induced Silencing Complex (RISC): post-transcription silencing
 - Argonaute proteins: bind small ncRNA, inhibit translation by targeting complementary mRNA
-PIWI proteins: RNA-binding, in germline cells, use piRNA to silence transposons, trigger DNA+histone methylation
+PIWI proteins: RNA-binding, in germline cells, use piRNA to silence transposons, trigger repressive histone methylation
+
+=snoRNA
+C/D box snoRNA: rRNA methylation, targets ribose
+H/ACA box snoRNA: rRNA pseudouridylation, targets uridine
+
+=miRNA
+often hypermethylated in cancers
+pri-miRNA: long primary transcript, often regulated by DNA methylation (promoter in CpG island)
+Drosha: ribonuclease III, cleave pri-miRNA to pre-miRNA
+pre-miRNA: ~100 nucleotides
+XPO5: exports pre-miRNA from nucleus
+Dicer: in cytoplasm, cleaves pre-miRNA to miRNA, activates RISC
+
+=siRNA
+exogenous source (viral infection), cleaved by Dicer, forms RISC
+highly specific, match perfectly complementary sequence
 
 #DNA repairs
 DNA adduct: DNA segment bound to carcinogens, can cause carcinogenesis

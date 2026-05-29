@@ -53,7 +53,7 @@ construction: 10 T$
 
 #supermarket
 austria: Billa
-france: Carrefour
+france: Carrefour, Auchan
 germany: Aldi, Edeka (Netto), Metro, Penny, Rewe (Penny), Schwarz (Kaufland, Lidl), Norma
 netherlands: Ahold (Albert), SPAR
 swiss: Migros (Tegut)
@@ -65,7 +65,7 @@ germany: Hornbach, Tengelmann (KiK, Obi)
 usa: Home Depot, Lowe's
 
 #automobile
-china: SAIC, Dongfeng, FAW, Chang'an, BAIC, BYD, GAC, Geely
+china: BYD, Geely, Chery, central-state (Dongfeng, FAW, Changan), local-state (SAIC, BAIC), GWM
 france: Renault
 germany: Volkswagen (Audi, Porsche, Cupra, Seat, Škoda), BMW, Daimler (Mercedes-Benz)
 japan: Toyota, Honda, Mazda, Mitsubishi, Nissan, Subaru, Suzuki

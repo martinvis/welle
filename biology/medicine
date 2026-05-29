@@ -56,7 +56,8 @@ Arrhythmia: irregularity in heartbeat
 Anaphylaxis: rapid allergic reaction (to food, insect bite, medicine), caused by histamine release
 Rhinorrhea: discharge of mucus fluid from nose, can be side effect of crying
 Rhinitis: irritation inside nose
-Hypertension: high blood pressure, can cause stroke and heart failure
+Hypertension: high blood pressure (>140/90), can cause stroke and heart failure
+- prevention: salt reduction, weight reduction, no alcohol, no smoking
 Varix: abnormally dilated vessel, usually vein
 - Caput medusae: portal hypertension leads to increased blood volume in anterior abdomen veins
 - Hemorrhoid: swollen inflamed vein around anus, cause itching, very common
@@ -140,6 +141,7 @@ Electrocardiography (ECG)
 - hypokalemia: flat or inverted T wave, prominent U wave
 Valsalva maneuver: equalize pressure, forced exhalation against closed airways
 Lumbar puncture (LP): needle inserted into spinal cord to collect cerebrospinal fluid, diagnosis of CNS diseases (exclude meningitis)
+Apgar score: newborn health evaluation, appearance + pulse + grimace + activity + respiration
 
 #specialization
 Cytology: cell structure and function
@@ -172,6 +174,9 @@ Pulmonology: respiratory system
 Otorhinolaryngology: ear + nose + throat
 Ophthalmology: eye
 Hematology: blood
+
+=psychology
+Taxometrics: statistical approach to differentiate discrete categories from continuous dimensions
 
 Petri dish: shallow transparent plate with lid, used to cultivate microorganisms
 - Agar: growth medium, polysaccharides jelly from cell walls of red algae
@@ -345,6 +350,7 @@ Anton–Babinski syndrome: damage in occipital lobe, blind but not realizing bli
 Riddoch syndrome: damage in occipital lobe, bllind except fast moving objects
 Klüver–Bucy syndrome: lesions in temporal lobe, compulsive eating and hypersexuality
 Narcolepsy: lifelong, Orexin deficiency, excessive daytime sleepiness, cataplexy, poor sleep quality
+Status epilepticus (SE): prolonged seizure activity, emergency (brain damage risk)
 
 Capgras delusion: conviction familiar person was replaced by impostor
 Cotard delusion: conviction of being dead
@@ -449,12 +455,16 @@ Takotsubo cardiomyopathy: broken heart syndrome, sudden temporary cardiac muscle
 Luxation: joint dislocation
 - Subluxation: partial dislocation
 
+#congenital
+Dolichocephaly: head long relative to width
+
 #bening tumor
 Neurofibromatosis (NF): tumors in nervous system, often inherited, usually mild symptoms, Schwann cells
 - Type I: brown skin spots, Lisch nodules (brown spots on iris), neurofibromin gene, peripheral/optic nerves
 - Type II: loss of hearing/balance, merlin gene, cranial nerve
 - Schwannomatosis: chronic pain, peripheral nerves
 Hamartoma: bening, normal tissue, slow abnormal growth, resemble neoplasm
+Dermatofibroma: benign, caused by mild trauma (insect bite), hard brown papule
 
 Endometriosis: common, tissue similar to uterus lining grows elsewhere in body
 - symptoms: pelvic pain, heavy bleeding, infertility
@@ -552,6 +562,7 @@ Gangrene: tissue death due to lack of blood supply, red or black color, usually 
 - risks: diabetes, smoking
 Sepsis: blood poisoning, caused by microorganisms, high risk of death
 - symptoms: fever, increased heart rate
+- Septic shock: emergency, systemic inflammation, low blood pressure, organ failure
 Hemothorax: blood accumulation in pleural cavity
 
 Lesion: damage in tissue

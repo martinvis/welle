@@ -1,7 +1,20 @@
 #Mammalia orders
+Dryolestida: extinct (Jurassic/Cretaceous)
+Vincelestes: extinct (Cretaceous), South America
 Monotremata: lay eggs, nocturnal, electroreception
-- Ornithorhynchidae [Platypus]: semiaquatic, long broad bill and tail, webbed feet, venomous spur on legs, Australia
+- Steropodon: extinct (Cretaceous), platypus-like
+- Ornithorhynchidae [Platypus]: semiaquatic, long broad bill and tail, webbed feet, venomous spur on legs, no stomach, Australia
 - Tachyglossidae: echidnas, spines on back, long snout, long thin tongue to feed on ants, Australia + New Guinea
+Theria: Marsupialia + Placentalia
+- Juramaia: extinct, shrew-like, China
+- Eomaia: extinct, shrew-like, China
+Stagodontidae: extinct (Cretaceous), carnivorous
+- Didelphodon: North America
+=Metatheria:
+Sparassodonta: extinct (Eocene-Pliocene), carnivorous, South America
+- Borhyaena: hyena-like
+- Lycopsis: wolf-like
+- Thylacosmilus: saber-toothed
 =Marsupialia: 2 uteri, baby is called joey
 Didelphimorphia: opossums, long naked prehensile tail, resistant to snake venom, nocturnal, America
 Dasyuromorphia: Australia + New Guinea
@@ -29,11 +42,21 @@ Afrotheria
 --
 - Hyracoidea: hyrax, small land herbivores, Africa
 - Proboscidea: elephants, large land herbivores, long tusks and trunk, large ears to thermoregulate
+-- Amebelodontidae: extinct
+--- Platybelodon:
+--- Amebelodon:
+-- Phiomia: extinct (Oligocene), small trunk and tusks
+-- Phosphatherium: extinct, small, no trunk, no tusks
+-- Palaeomastodon: extinct
+-- Numidotherium: extinct
+-- Moeritherium: extinct
+-- Barytherium: extinct, short trunk and tusks
+-- Anancus: extinct, long straight tusks
 -- Deinotherium: extinct, downward curved tusks on lower jaw, Africa + Asia
--- Mammut/Mastodon: extinct, smaller ears, Northern Hemisphere
+-- Mammut/Mastodon: extinct, smaller ears, forests, Northern Hemisphere
 -- Gomphotherium: extinct, two pairs of tusks
 -- Stegodon: extinct, long straight tusks, Africa + Asia
--- Mammuthus/Mammoth: extinct, large twisted tusks, thick fur, smaller ears
+-- Mammuthus/Mammoth: extinct, large twisted tusks, thick fur, smaller ears, grasslands
 -- Elephas: south Asia
 -- Loxodonta: large ears, Africa
 - Sirenia: see cows, large aquatic herbivores, tropical zones, 6 cervical vertebrae
@@ -41,6 +64,9 @@ Laurasiatheria
 - Eulipotyphla: small insectivores, poor vision
 - Chiroptera: bats, wings to fly, nocturnal, roost in caves, many use echolocation to hunt insects
 --
+- Periptychidae: extinct (Paleocene), North America
+-- Periptychus:
+-- Ectoconus:
 - Artiodactyla: bear weight on 2 toes, digestion in stomach chambers
 - Perissodactyla: bear weight on 1 or 3 toes
 --
@@ -51,6 +77,34 @@ Euarchontoglires
 - Rodentia: 2 upper and 2 lower incisors, incisors grow continuously, 2 uteri
 - Dermoptera: colugos, nocturnal herbivores, membrane between limbs to glide between trees, southeast Asia
 - Primates: forward facing eyes for binocular vision, reduced snout
+
+#Laurasiatheria
+=Astrapotheria:
+=Litopterna:
+Proterotheriidae: antelope-like, long legs, brachydont teeth
+- Diadiaphorus: 3 toes
+- Thoatherium: single toe
+Macraucheniidae: camel-like, 3 toes
+- Macrauchenia: large
+- Xenorhinotherium:
+=Pyrotheria: extinct (Eocene-Oligocene), elephant-like, small trunk, two tusk pairs, 5 toes, South America
+Pyrotheriidae:
+- Pyrotherium: large
+- Baguatherium:
+- Colombitherium:
+=Notoungulata: South America
+Hegetotheriidae: rabbit-like, long hind legs and feet, short tail, hypselodont + hypsodont teeth
+- Hegetotherium:
+- Pachyrukhos:
+- Prosotherium:
+Toxodontidae: extinct (Miocene-Pleistocene), hippo-like, 3 toes, hypselodont + hypsodont teeth
+- Nesodon: 
+- Toxodon: large
+Mesotheriidae: rodent-like, burrowing, hypselodont + hypsodont teeth
+Interatheriidae: rodent-like, small
+- Interatherium: short legs, long body and tail
+Homalodotheriidae: clawed front limbs
+=Xenungulata:
 
 #Lagomorpha
 Ochotonidae: pikas, small, no tail, round ears, mountains
@@ -73,9 +127,13 @@ Sciuridae:
 - Ratufa: cat-sized, tree squirrels
 - Sciurus: long bushy tail, tufted ears in winter, tree squirrels
 =Castorimorpha:
-Castoridae: beaver, large, semiaquatic, webbed feet, long flat scaly tail, construct dam
+Eomyidae: extinct (Eocene-Pleistocene), gliding
+Castoridae: beaver, large, semi-aquatic, webbed feet, long flat scaly tail, construct dam
+- Palaeocastor: extinct (Oligocene), small, North America
+- Castoroides: extinct (Pleistocene), large, North America
+- Castor: 
 Geomyidae: gopher, burrowing
-Heteromyidae: kangaroo mice, pocket mice
+Heteromyidae: kangaroo rats + pocket mice, can hear snakes and owls, America
 =Hystricomorpha:
 Erethizontidae: New World porcupines, large, quills, arboreal, America
 - Coendou: long prehensile tail
@@ -108,8 +166,13 @@ Muridae
 - Acomys: spiny mouse
 
 #Primates
+=Plesiadapiformes: extinct (Paleocene-Eocene), basal primates
+Purgatorius: squirrel-like, small diurnal arboreal insectivorous
+Plesiadapis: nocturnal arboreal herbivorous
 =Tarsiiformes: tarsiers, small insectivores, big eyes, long tail and fingers, long legs to jump, arboreal, nocturnal, SE Asia
 =Lemuriformes: arboreal
+Megaladapidae: extinct (Pleistocene), koala lemur, Madagascar
+Palaeopropithecidae: extinct (Pleistocene), sloth lemurs, large, Madagascar
 Daubentoniidae: aye-aye, long fingers, teeth grow continuously, long bushy tail, bat-like ears, nocturnal, Madagascar
 Indriidae: lemurs, herbivore, long limbs, Madagascar
 - Avahi: woolly lemurs, long tail
@@ -161,13 +224,18 @@ Callitrichidae
 #Eulipotyphla
 Solenodontidae: elongated snout, long scaly tail
 Erinaceidae: hedgehogs, nocturnal, sharp spines for protection, resistant to snake venom, short tail
+- Deinogalerix: extinct (Miocene), Gargano island
 Soricidae: shrews, mouse-like
 Talpidae: moles, subterranean, clawed front limbs to dig, small eyes and ears
-- Condylura: star-nosed mole
+- Condylura: star-nosed mole, North America
 - Talpa: moles, Europe
 - Scalopus: moles, North America
 
 #Carnivora
+Amphicyonidae: extinct (Eocene-Miocene), bear-dogs
+- Amphicyon:
+- Daphoenus:
+- Magericyon:
 =Cynoidea: dogs, long snout, pointed ears, bushy tail
 Canidae
 - Canis: wolf, jackal, coyote
@@ -185,6 +253,9 @@ Ursidae
 - Melursus: sloth bear
 - Helarctos: sun bear
 - Ursus: bear
+- Ursavus: extinct (Miocene), small
+- Arctotherium: extinct (Pleistocene), large, short-faced bear
+- Arctodus: extinct (Pleistocene), short-faced bear
 =Musteloidea: long tail
 Ailuridae: red panda, herbivore, orange with white ears + muzzle + brows + cheeks, Himalayas
 Mephitidae: skunks, black-and-white, bushy tail, anal scent glands to deter predators
@@ -250,16 +321,55 @@ Odobenidae: walrus, large, long tusks, Arctic Ocean
 Otariidae: eared seals
 
 #Perissodactyla
-Equidae: horses, zebras (black-and-white stripes), 1-toed feet with hooves, tufted tail
+Chalicotheriidae: extinct (Miocene), herbivores, claws instead hooves
+- Anisodon: long forelimbs
+- Chalicotherium: large, long forelimbs (gorilla-like)
+- Borissiakia: horse-like
+- Moropus: horse-like
+- Tylocephalonyx: dome-shaped skull
+=Tapiroidea
+Helaletidae: extinct
+- Helaletes: North America
 Tapiridae: tapirs, short trunk, 4-toed front and 3-toed back feet, Latin America + SE Asia
+=Equoidea
+Palaeotheriidae: extinct (Eocene-Oligocene)
+- Plagiolophus:
+- Palaeotherium:
+- Hyracotherium:
+Equidae: horses, zebras (black-and-white stripes), 1-toed feet with hooves, tufted tail
+- Eohippus: extinct (Eocene)
+- Mesohippus: extinct (Oligocene)
+- Miohippus: extinct (Oligocene)
+- Merychippus: extinct (Miocene)
+- Hipparion: extinct (Miocene)
+- Hippotherium: extinct (Miocene), Eurasia
+- Hippidion: extinct (Pleistocene), South America
+- Equus:
+=Rhinocerotoidea:
+Amynodontidae: extinct (Eocene-Oligocene), hippo-like
+- Metamynodon: semi-aquatic
+Hyracodontidae: extinct (Eocene-Oligocene), hornless running
+- Hyracodon:
+Paraceratheriidae: extinct (Eocene-Oligocene), large hornless
+- Paraceratherium/Indricotherium:
+- Dzungariotherium
 Rhinocerotidae: nose horns, thick skin, large, 3-toed feet
+- Elasmotherium: extinct (Neogene), one large horn
+- Coelodonta: extinct (Pleistocene), woolly rhino, two horns, thick hair
+- Stephanorhinus: extinct (Pleistocene), two horns
 - Ceratotherium: white rhino, two horns, Africa
 - Diceros: black rhino, two horns, Africa
 - Rhinoceros: one horn, skin folds and bumps, South Asia
 
 #Artiodactyla
+Andrewsarchus: extinct (Eocene), carnivorous, large
+Cainotheriidae: extinct (Eocene-Miocene), small
+Entelodontidae: extinct (Oligocene), boar-like, omnivorous
+- Archaeotherium: 
+- Daeodon: large
 =Tylopoda: long neck and legs
-Camelidae
+Oromerycidae: extinct (Eocene), North America
+Camelidae:
 - Lama: narrow pointed ears, South America
 - Camelus: curved neck, one or two humps on back, arid regions, Old World
 =Suina: pigs
@@ -273,11 +383,16 @@ Tragulidae: mouse deer, small
 --
 Antilocapridae: pronghorn
 Giraffidae: ossicones
+- Palaeotragus: extinct (Miocene)
+- Samotherium: extinct (Miocene)
+- Honanotherium: extinct (Miocene)
+- Sivatherium: extinct (Pliocene), large, antler-like ossicones
 - Giraffa: long neck, spotted
 - Okapia: partially striped
 --
 Moschidae: musk deer, saber teeth
 Cervidae: deer, antlers on males
+- Eucladoceros: extinct (Pliocene), large branching antlers
 - Alces: moose
 - Rangifer: reindeer, females may have antlers
 - Odocoileus: white-tailed deer
@@ -291,6 +406,7 @@ Cervidae: deer, antlers on males
 - Rucervus: barasingha
 - Cervus: deer
 Bovidae: horns
+--
 - Aepyceros: Impala
 --
 - Alcelaphus: Hartebeest
@@ -320,6 +436,7 @@ Bovidae: horns
 - Pantholops: Tibetan antelope
 - Hemitragus: Tahr
 --
+- Pelorovis: extinct (Pleistocene), long horns
 - Bos: Yak, tufted tail
 - Bubalus: Water buffalo, tufted tail
 - Syncerus: African buffalo, tufted tail
@@ -350,3 +467,17 @@ Delphinidae
 Balaenidae: curved upper jaw with long baleen
 Balaenopteridae: rorquals, very large, skin folds on bottom side
 Eschrichtiidae: gray whales, dorsal bumps instead of fin, North Pacific
+
+Raoellidae: extinct (Eocene), semi-aquatic, small, India
+- Indohyus:
+=Cetaceae
+Pakicetidae: extinct (Eocene), terrestrial, India
+- Ichthyolestes: small, fox-like
+- Pakicetus: wolf-like
+Ambulocetidae: extinct (Eocene), crocodile-like, semi-aquatic, long snout, India
+Basilosauridae: extinct (Eocene), aquatic, long snout and body
+- Basilosaurus: large
+- Chrysocetus:
+- Cynthiacetus:
+- Dorudon: dolphin-like
+- Zygorhiza:

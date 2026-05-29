@@ -1164,6 +1164,7 @@ chinese|culture/politics|ideológia|主义|zhǔyì|False|False|other|
 chinese|culture/politics|kapitalizmus|资本主义|zīběn zhǔyì|False|True|other|
 chinese|culture/politics|kauza|案件|àn jiàn|False|False|other|
 chinese|culture/politics|konfederácia|邦联|bāng lián|False|False|other|
+chinese|culture/politics|korupcia|腐败|fǔ bài|False|False|other|
 chinese|culture/politics|krajina|国|guó|True|False|other|
 chinese|culture/politics|kráľovná|女王|nǚwáng|False|True|other|
 chinese|culture/politics|kráľovstvo|王国|wángguó|False|True|other|
@@ -1178,6 +1179,7 @@ chinese|culture/politics|nacionalizmus|民族主义|mínzú zhǔyì|False|True|o
 chinese|culture/politics|nacizmus|纳粹主义|nàcuì zhǔyì|False|True|other|
 chinese|culture/politics|oblasť|区域|qū yù|False|False|other|
 chinese|culture/politics|okres|县|xiàn|False|False|other|
+chinese|culture/politics|oligarcha|寡头|guǎ tóu|False|False|other|
 chinese|culture/politics|parlament|国会|guóhuì|False|True|other|
 chinese|culture/politics|politický|政|zhèng|False|False|other|
 chinese|culture/politics|politika|政治|zhèng zhì|False|True|other|
@@ -1827,44 +1829,45 @@ chinese|human/communication|čestný|诚实|chéng shí|False|False|other|
 chinese|human/communication|šifra|密码|mì mǎ|False|False|other|
 chinese|human/communication|žiadať|讨|tǎo|False|False|other|
 chinese|human/communication|žiadosť|请求|qǐng qiú|False|False|other|
-chinese|human/family|babka|奶奶|nǎinai|False|False|other|
+chinese|human/family|babka|奶奶|nǎi nai|False|False|other|
 chinese|human/family|bežní ľudia|百姓|bǎi xìng|False|False|other|
 chinese|human/family|brat|兄弟|xiōng dì|False|False|other|
 chinese|human/family|chlapec|男孩|nán hái|False|False|other|
-chinese|human/family|dcéra|女儿|nǚér|False|False|other|
-chinese|human/family|dedo|爷爷|yéye|False|False|other|
+chinese|human/family|dcéra|女儿|nǚ ér|False|False|other|
+chinese|human/family|dedo|爷爷|yé ye|False|False|other|
 chinese|human/family|dievča|姑娘|gū niang|False|False|other|
 chinese|human/family|džentlmen|男士|nánshì|False|False|other|
 chinese|human/family|frajer|男友|nányǒu|False|False|other|
 chinese|human/family|kamarát|伙伴|huǒ bàn|False|True|other|
-chinese|human/family|mama|妈妈|māma|False|False|other|
+chinese|human/family|mama|妈妈|mā ma|False|False|other|
 chinese|human/family|manželia|夫妇|fūfù |True|False|other|
-chinese|human/family|manželia|夫妻|fūqī|True|False|other|
-chinese|human/family|manželka|妻子|qīzi|True|False|other|
-chinese|human/family|manžel|丈夫|zhàngfu|True|False|other|
-chinese|human/family|mladšia sestra|妹妹|mèimei|False|False|other|
-chinese|human/family|mladší brat|弟弟|dìdi|False|False|other|
+chinese|human/family|manželia|夫妻|fū qī|True|False|other|
+chinese|human/family|manželka|妻子|qī zi|True|False|other|
+chinese|human/family|manžel|丈夫|zhàng fu|True|False|other|
+chinese|human/family|mladšia sestra|妹妹|mèi mei|False|False|other|
+chinese|human/family|mladší brat|弟弟|dì di|False|False|other|
 chinese|human/family|mládež|青年|qīngnián|True|False|other|
 chinese|human/family|muž|男人|nánrén|False|False|other|
-chinese|human/family|otec|父亲|fùqīn|False|False|other|
-chinese|human/family|otec|爸爸|bàba |False|False|other|
+chinese|human/family|otec|父亲|fù qīn|False|False|other|
+chinese|human/family|otec|爸爸|bà ba |False|False|other|
 chinese|human/family|priatelia a príbuzní|亲朋好友|qīnpéng hǎoyǒu|False|False|other|
 chinese|human/family|priateľ|朋友|péngyou|False|False|other|
 chinese|human/family|pán|先生|xiān sheng|False|False|other|
 chinese|human/family|rodina|家庭|jiā tíng|False|False|other|
-chinese|human/family|rodičia|父母|fùmǔ|False|False|other|
+chinese|human/family|rodičia|父母|fù mǔ|False|False|other|
 chinese|human/family|sestra|姐妹|jiě mèi|False|False|other|
 chinese|human/family|spoločník|伴”|bàn|False|False|other|
-chinese|human/family|staršia sestra|姐姐|jiějie|False|False|other|
-chinese|human/family|starší brat|哥哥|gēge|False|False|other|
-chinese|human/family|strýko|叔叔|shūshu|False|False|other|
+chinese|human/family|staršia sestra|姐姐|jiě jie|False|False|other|
+chinese|human/family|starší brat|哥哥|gē ge|False|False|other|
+chinese|human/family|strýko|叔叔|shū shu|False|False|other|
 chinese|human/family|sused|隔壁|gébì|False|False|other|
-chinese|human/family|synovec|外甥|wàisheng|False|False|other|
-chinese|human/family|syn|儿子|érzi|False|False|other|
+chinese|human/family|synovec|外甥|wài sheng|False|False|other|
+chinese|human/family|syn|儿子|ér zi|False|False|other|
 chinese|human/family|teenager|青少年|qīngshàonián|False|True|other|
-chinese|human/family|teta|姨妈|yímā|False|False|other|
-chinese|human/family|teta|阿姨|āyí |False|False|other|
-chinese|human/family|vnuk|孙子|sūnzi|False|False|other|
+chinese|human/family|teta|姨妈|yí mā|False|False|other|
+chinese|human/family|teta|阿姨|ā yí |False|False|other|
+chinese|human/family|vdova|寡妇|guǎ fù|False|False|other|
+chinese|human/family|vnuk|孙子|sūn zi|False|False|other|
 chinese|human/family|člen|成员|chéng yuán|False|False|other|
 chinese|human/family|človek|人|rén|True|False|other|
 chinese|human/family|žena|女|nǚ|True|False|other|
@@ -10415,6 +10418,7 @@ english|difficult-words|dearth|nedostatok||False|False|other|
 english|difficult-words|defalcation|sprenevera||False|False|other|
 english|difficult-words|delectable|delikátny||False|False|other|
 english|difficult-words|denigrate|očierniť||False|False|other|
+english|difficult-words|desultory|nesystematický||False|False|other|
 english|difficult-words|distaff|praslica||False|False|other|
 english|difficult-words|distended|nafúknutý||False|False|other|
 english|difficult-words|dodder|potácať sa||False|False|other|
@@ -10975,6 +10979,7 @@ espanol|abstract/space|vždy|siempre||False|False|other|
 espanol|abstract/space|zajtra|mañana||False|False|other|
 espanol|abstract/space|z|de||False|False|other|
 espanol|abstract/time|chvíľa|rato||False|False|other|
+espanol|abstract/time|kedysi|antaño||False|False|other|
 espanol|abstract/time|letný|estival||False|False|other|
 espanol|abstract/time|meškanie|demora||False|False|other|
 espanol|abstract/time|noc|noche||False|False|other|
@@ -11035,7 +11040,8 @@ espanol|biology/ethology|roj|enjambre||False|False|other|
 espanol|biology/ethology|samec|macho||False|False|other|
 espanol|biology/ethology|samica|hembra||False|False|other|
 espanol|biology/ethology|skákať|saltar||False|False|other|
-espanol|biology/ethology|stádo|rebaño||False|False|other|
+espanol|biology/ethology|stádo|hato||False|False|other|
+espanol|biology/ethology|stádo|rebaño||True|False|other|
 espanol|biology/ethology|svorka|manada||False|False|other|
 espanol|biology/ethology|uchopiť|asir||False|False|other|
 espanol|biology/ethology|ujsť|escapar||False|False|other|
@@ -11288,6 +11294,7 @@ espanol|culture/náboženstvo|ženatý|casado||False|False|other|
 espanol|culture/náboženstvo|ženích|novio||False|False|other|
 espanol|culture/oblecenie|deka|manta||False|False|other|
 espanol|culture/oblecenie|dekolt|escote||False|False|other|
+espanol|culture/oblecenie|džínsy|vaqueros||False|False|other|
 espanol|culture/oblecenie|golier|cuello||False|False|other|
 espanol|culture/oblecenie|gombík|botón||False|False|other|
 espanol|culture/oblecenie|klobúk|sombrero||False|False|other|
@@ -11307,6 +11314,7 @@ espanol|culture/oblecenie|ponožka|calcetín||False|False|other|
 espanol|culture/oblecenie|prsteň (lacný)|sortija||False|False|other|
 espanol|culture/oblecenie|prsteň|anillo||False|False|other|
 espanol|culture/oblecenie|rukáv|manga||False|False|other|
+espanol|culture/oblecenie|slamený klobúk|pamela||False|False|other|
 espanol|culture/oblecenie|smoking|esmoquin||False|False|other|
 espanol|culture/oblecenie|sukňa|falda||False|False|other|
 espanol|culture/oblecenie|topánka|zapato||False|False|other|
@@ -11537,6 +11545,7 @@ espanol|economy/buildings|lešenie|andamio||False|False|other|
 espanol|economy/buildings|okno|ventana||False|False|other|
 espanol|economy/buildings|podlaha|piso||False|False|other|
 espanol|economy/buildings|pozemok|terreno||False|False|other|
+espanol|economy/buildings|pódium|tarima||False|False|other|
 espanol|economy/buildings|stavať|construir||False|False|other|
 espanol|economy/buildings|stena|pared||False|False|other|
 espanol|economy/buildings|stoka|cloaca||False|False|other|
@@ -11638,6 +11647,7 @@ espanol|economy/gastro|panvica|sartén||False|False|other|
 espanol|economy/gastro|piecť (cesto)|hornear||False|False|other|
 espanol|economy/gastro|piecť (mäso)|asar||False|False|other|
 espanol|economy/gastro|pohár vínny|copa||False|False|other|
+espanol|economy/gastro|pohár|tarro||False|False|other|
 espanol|economy/gastro|pohár|vaso||False|False|other|
 espanol|economy/gastro|pokrievka|tapa||False|False|other|
 espanol|economy/gastro|pripravovať jedlo|cocinar||False|False|other|
@@ -11769,7 +11779,8 @@ espanol|economy/services|zájazd|viaje||False|False|other|
 espanol|economy/services|čašník|camarero||False|False|other|
 espanol|economy/services|štrajk|huelga||False|False|other|
 espanol|economy/tovar|balík|fardo||False|False|other|
-espanol|economy/tovar|batoh|mochila||False|False|other|
+espanol|economy/tovar|batoh|hato||False|False|other|
+espanol|economy/tovar|batoh|mochila||True|False|other|
 espanol|economy/tovar|bič|azote||False|False|other|
 espanol|economy/tovar|britva|navaja||False|False|other|
 espanol|economy/tovar|ceruza|lápiz||False|False|other|
@@ -11784,6 +11795,7 @@ espanol|economy/tovar|krieda|tiza||False|False|other|
 espanol|economy/tovar|lampa|lámpara||False|False|other|
 espanol|economy/tovar|lampáš|farol||False|False|other|
 espanol|economy/tovar|lano|soga||False|False|other|
+espanol|economy/tovar|leták|octavilla||False|False|other|
 espanol|economy/tovar|nožnice|tijeras||False|False|other|
 espanol|economy/tovar|obal|envase||False|False|other|
 espanol|economy/tovar|obchod|tienda||False|False|other|
@@ -11891,6 +11903,7 @@ espanol|frazy|sin embargo|napriek tomu||False|False|other|
 espanol|frazy|tomar el pelo|uťahovať si z niekoho||False|False|other|
 espanol|frazy|valer la pena|stáť za to||False|False|other|
 espanol|frazy|érase una vez|kde bolo tam bolo||False|False|other|
+espanol|life/action|konať sa|celebrar||False|False|other|
 espanol|life/action|odkryť|descubrir||False|False|other|
 espanol|life/action|opraviť|arreglar||False|False|other|
 espanol|life/action|pokaziť|estropear||False|False|other|
@@ -12028,6 +12041,7 @@ espanol|life/movement|lusknúť (prstami)|chasquear||False|False|other|
 espanol|life/movement|mávať krídlami|aletear||False|False|other|
 espanol|life/movement|niesť|llevar||False|False|other|
 espanol|life/movement|obkročmo|a horcajadas||False|False|other|
+espanol|life/movement|ochrnutý|tullido||False|True|other|
 espanol|life/movement|odniesť|llevar||False|False|other|
 espanol|life/movement|odísť|salir||False|False|other|
 espanol|life/movement|padnúť na kolená|postrarse||False|False|other|
@@ -12045,7 +12059,9 @@ espanol|life/movement|uchopiť|asir||False|False|other|
 espanol|life/movement|udrieť|pegar (a)||False|False|other|
 espanol|life/movement|uhladiť vlasy|atusar||False|False|other|
 espanol|life/movement|vyhnúť sa|esquivar||False|False|other|
+espanol|life/movement|vykopávať nohami|cocear||False|False|other|
 espanol|life/movement|zapchať ústa|amordazar (a)||False|False|other|
+espanol|life/movement|zmrzačiť|tullir||False|False|other|
 espanol|life/movement|ísť|ir||False|False|other|
 espanol|life/movement|šliapať|pisar||False|False|other|
 espanol|life/movement|špliechať|chapotear||False|False|other|
@@ -12195,6 +12211,7 @@ espanol|life/terrain|útes (morský)|acantilado||False|False|other|
 espanol|life/terrain|šija|istmo||False|False|other|
 espanol|life/work|lenivý|perezoso||False|False|other|
 espanol|life/work|náročný|exigente||False|False|other|
+espanol|life/work|opotrebovaný|sobado||False|False|other|
 espanol|life/work|pracovitý|laborioso||False|True|other|
 espanol|life/work|práca|labor||False|False|other|
 espanol|life/work|úmorný|ímprobo||False|False|other|
@@ -12288,6 +12305,7 @@ espanol|nature/weather|vánok|brisa||False|False|other|
 espanol|nature/weather|víchrica|vendaval||False|False|other|
 espanol|nature/weather|víchrica|vendaval||False|False|other|
 espanol|nature/weather|zemetrasenie|terremoto||False|False|other|
+espanol|nature/weather|zmierniť sa|amainar||False|False|other|
 espanol|nature/weather|záplava|diluvio||False|False|other|
 espanol|nature/weather|závan|vaharada||False|False|other|
 espanol|other|brázda|surco||False|False|other|
@@ -12473,6 +12491,8 @@ espanol|other|ľutovať|arrepentirse||False|False|other|
 espanol|other|ľútosť|pesar||False|False|other|
 espanol|other|šplhať sa|trepar||False|False|other|
 espanol|other|šťastná náhoda|chiripa||False|False|other|
+espanol|pronoun|dav|turba||False|False|other|
+espanol|pronoun|doparoma|diantre||False|False|other|
 espanol|pronoun|hajzel|cabrón||False|False|other|
 espanol|pronoun|hlupák|necio||False|False|other|
 espanol|pronoun|hulvát|patán||False|False|other|
@@ -12668,6 +12688,7 @@ espanol|psychology/komunikácia|rečniť|orar||False|False|other|
 espanol|psychology/komunikácia|rozprávať sa|conversar||False|False|other|
 espanol|psychology/komunikácia|rozprávať|narrar||False|False|other|
 espanol|psychology/komunikácia|sťažovať sa|quejarse||False|False|other|
+espanol|psychology/komunikácia|tvrdiť|alegar||False|False|other|
 espanol|psychology/komunikácia|volať|llamar||False|False|other|
 espanol|psychology/komunikácia|vysvetliť|explicar||False|False|other|
 espanol|psychology/komunikácia|vyvolávať na slávu|vitorear||False|False|other|
@@ -12692,6 +12713,7 @@ espanol|psychology/opinion|oponovať|discutir||False|False|other|
 espanol|psychology/opinion|pohŕdavý|despectivo||False|False|other|
 espanol|psychology/opinion|ponížiť|humillar||False|False|other|
 espanol|psychology/opinion|postoj|actitud||False|False|other|
+espanol|psychology/opinion|povýšenecký|altivo||False|False|other|
 espanol|psychology/opinion|prejav úcty|homenaje||False|False|other|
 espanol|psychology/opinion|pyšný|soberbio||False|False|other|
 espanol|psychology/opinion|pyšný|ufano (de)||False|False|other|

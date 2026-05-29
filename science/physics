@@ -7,11 +7,20 @@ Extensive: magnitude additive for subsystems (volume, mass)
 #Atoms
 Element: defined by number of protons
 Isotope: atomic variant (number of neutrons)
-Isobar: atoms of different element with same atomic number
+- odd number of both protons and neutrons is usually unstable (exceptions: H2, Li6, B10, N14)
+Isobar: atoms of different element with same mass number
+- Mattauch isobar rule: one of two isotopes with same mass number in adjacent elements is radioactive
 Ion: electrically charged atom (number of electrons)
 Cation: ion with more protons than electrons
 Anion: ion with more electrons than protons
 Isoelectronic: same number of electron but different element
+
+Semi-empirical mass formula: nucleas mass based on number of protons and neutrons, liquid drop model
+- Volume term: energy increased with mass number, strong nuclear force
+- Surface term: energy decreased with surface volume, volume term correction
+- Coulomb term: energy decreased with atomic number, electrostatic repulsion
+- Asymmetry term: energy decreased with uneven proton/neutron ratio, Pauli exclusion principle
+- Pairing term: energy decreased with odd proton or neutron count, spin coupling
 
 #Particles
 Spin: amount of angular momentum
@@ -498,6 +507,12 @@ Planck relation: photon energy is proportional to frequency (E = h*f = h*c / λ)
 Planc constant: 663 aaJ/Hz
 Mass-energy equivalence: E = m * c^2
 
+Galilean transformation: Newtonian physics, between coordinates differing by constant relative motion
+- x2 = x1 - v*t; t2 = t1
+Lorentz transformation: between coordinates differing by constant relative motion
+- Lorentz factor (γ): 1 / √(1 - v^2/c^2)
+- x2 = γ * (x - v*t); t2 = γ * (t1 - v*x1/c^2)
+
 #Special relativity
 time dilation: time slows down with greater velocity
 relativistic mass: mass increases with greater velocity
@@ -678,4 +693,5 @@ Equilibrium fractionation: slow reversible reactions, gradual exchange of isotop
 Kinetic fractionation: fast irreversible reactions, different reaction rate (lighter = more reactive)
 Mass-independent fractionation: multiple distinct mechanisms
 - asymmetric molecules more stable
-- UV light affects rares isotopes deeper (most abundant absorb higher) 
+- UV light affects rares isotopes deeper (most abundant absorb higher)
+

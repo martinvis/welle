@@ -148,6 +148,9 @@ cash flow statement: changes in balance sheet over period (operations view)
 income statement: profit and loss over period (earnings view)
 statement of equity: changes in equity over period (financial health view)
 
+#balance sheet
+Accounts receivable (AR): enforcable claims for payment (pending invoices)
+
 #cashflow activities
 operating: related to net income (revenues/expenses), interest on debt
 investing: related to property and investments

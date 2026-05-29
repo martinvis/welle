@@ -15,28 +15,28 @@ Pastel de Nata: egg custard tart
 
 #Slavic
 Pierogi / Varenyky: filled pastry, baked or fried
-Pancake / Palacinka
+Pancake / Palacinka:
 - 1 flour + 2 milk + 2 eggs
 
 #Russia
 Borscht: sour soup, vegetables (beetroot, cabbage, carrot, potato)
 Pelmeni: dumplings filled with minced meat
-Chicken Kyiv
+Chicken Kyiv:
 - cutlet around butter + breading (egg, breadcrumbs)
 
 #India
 Garam masala: coriander (bulk) + cumin, fennel + cloves + cinnamon + cardamom
-Tandoori Chicken
+Tandoori Chicken:
 - marinade: yogurt + garam masala + ginger + garlic
-Butter Chicken
+Butter Chicken:
 - sauce: butter + spices + tomato + cashew paste
-Chicken Tikka Masala
+Chicken Tikka Masala:
 - sauce: spices + tomato + cream
-Vindaloo
+Vindaloo:
 - marinade: vinegar + sugar + garlic + ginger
 - sauce: onion + tomato
 - spices: chilli (bulk) + cumin + coriander, cinnamon + cloves
-Kadai Chicken
+Kadai Chicken:
 - spices: coriander (bulk) + chilli + cumin, cardamom + cinnamon + cloves + fennel
 - sauce: onion + tomato + ginger + garlic + turmeric
 Biryani: meat + onion + spices, rice + raisins + cashew
@@ -79,8 +79,12 @@ Green/Red curry: coconut milk + curry paste + fish sauce
 - Curry paste: chilli + shallot + garlic + lemongrass + galangal
 
 #Vietnam
-Pho: rice noodles + sliced meat + herbs in light broth
-Bun thit nuong: rice vermicelli + grilled meat + salad + roasted peanuts + dipping sauce
+Pho Bo: rice noodles + sliced beef + herbs in light broth
+Bun: rice vermicelli
+- Bun Thit Nuong: rice vermicelli + grilled pork + salad + roasted peanuts + dipping sauce
+- Bun Bo Nam Bo / Bun Bo Xao: rice vermicelli + sliced beef + salad + roasted peanuts + fish sauce
+- Bun Nem: rice vermicelli + fried spring rolls + salad + roasted peanuts + dipping sauce
+- Bun Cha: rice vermicelli + pork meatballs + salad + dipping sauce
 
 #Meatball
 ground meat + egg in ball
@@ -91,11 +95,11 @@ Pindjur: roasted pepper + tomato + eggplant + onion
 Pljeskavica: spiced minced meat cutlet
 
 #Brazil
-Feijoada
+Feijoada:
 - stew: meat + beans
 
 #Mexico
-Chili con carne
+Chili con carne:
 - stew: meat + beans + chili + tomato sauce (+ corn)
 - garlic + onion + cumin + sugar
 Guacamole: avocado + onions + lime juice
@@ -110,24 +114,24 @@ Arepa: round corn flour patty
 Bandeja paisa: beans + ground meat + pork belly + chorizo + rice + fried egg + plantain + avocado + arepa
 
 #France
-Coq au vin
+Coq au vin:
 - chicken + wine + onion + garlic + mushroom + bacon + bay leaf + thyme
-Onion soup
+Onion soup:
 - fried onion + stock
 - croutons + cheese
-Ratatouille
+Ratatouille:
 - tomato + pepper + eggplant + zucchini
 Macaron: circular with filling, egg white + sugar + almond
 Croissant: layered buttery pastry
 Baguette: elongated
-Pain au chocolat
+Pain au chocolat:
 Hollandaise sauce: yolk + lemon + butter
 Béarnaise sauce: yolk + vinegar + herbs + butter
 Béchamel sauce: butter + flour + milk
 Espagnole sauce: butter + flour + meat stock
 Mirepoix: onion + carrot + celery, low heat
 --
-Crème brûlée
+Crème brûlée:
 Meringue: whipped egg white + sugar, 90C 90min
 Tarte Tatin: pastry over caramelized apples, turned upside-down
 Palmier/Palmera/Schweineohr: sugar coated puff pastry, roller and cut, can be topped with chocolate
@@ -146,13 +150,13 @@ Shopska salad
 - tomato + cucumber + onion + white cheese
 
 #China
-Kung Pao Chicken
+Kung Pao Chicken:
 - chicken + garlic/ginger + chilli + peanuts
 - sauce: soy sauce + sugar + starch
-Orange Chicken
+Orange Chicken:
 - chicken + egg + flour + cornstarch
 - sauce: orange + soy sauce + sugar/honey
-Chow Mein
+Chow Mein:
 - stir-fried noodles + meat + vegetables
 - sesame oil + soy sauce
 Sweet and sour pork
@@ -264,6 +268,9 @@ Pečená krkovička: roasted pork neck, onion + carrot + potato
 - bake covered 150C 4h, potatoes later
 - baste + bake uncovered 180C 30min
 
+#Czech
+Kulajda: soup, potato + mushroom + sour cream + dill + egg
+
 #Italy
 Pizza
 - yeast + sugar + warm water
@@ -284,6 +291,7 @@ Arrabbiata sauce: penne, tomato + chili + garlic + olive oil + parsley/basil
 Gricia sauce: rigatoni/spaghetti, guanciale + pecorino + pepper
 Cacio e pepe: spaghetti, pecorino + pepper
 Aglio e olio: spaghetti, garlic + olive oil + chili
+Gorgonzola + spinach + walnuts, penne/gnocchi
 Pancetta: cured pork belly
 Guanciale: cured pork meat
 Pecorino: sheep milk cheese
@@ -341,6 +349,11 @@ Mashed: boiled potato + butter + milk
 Speculoos/Spekulatius: cinnamon biscuit
 
 #Germanic
+Schäufele: roasted pork shoulder
+- 160C 4h
+- 240C 20m
+Kloss: boiled potato dumpling ball
+Bratkartoffeln: fried potato + bacon + onion + herbs
 Schnitzel / Rezeň
 - meat cutlet + breading (flour, egg, breadcrumbs)
 - pan fried
@@ -349,9 +362,9 @@ Cordon Bleu
 Jägerschnitzel
 - unbreaded cutlet + mushroom sauce
 Käsespätzle: spätzle (egg dumplings) + cheese + fried onion
-Rösti
+Rösti:
 - raw grated, squeeze water, pan fry 10-15min / side
-Latke
+Latke:
 - raw grated, squeeze water, add egg + flour, pan fry
 Pretzel: knot-shaped salty pastry
 Strudel: rolled pastry, apple/nut/poppy seed
@@ -415,6 +428,12 @@ Revani: 0.5 sugar + 4 egg + 0.5 yoghurt/milk + 0.25 butter/oil + flour + baking 
 Tahini: sesame seeds paste
 Halva: sweet thick paste
 Qurabiya/Kourabies: biscuit, ground almond + sugar + egg white
+
+=Levant
+Kibbeh: deep-fried stuffed pointed oval
+- dough: ground bulgur + meat
+- filling: groung meat + onion + nuts
+Muhammara: dip, walnut + pepper + breadcrumb + pomegranate molasses
 
 #Ethiopia
 Injera: porous flat bread

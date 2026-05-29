@@ -27,6 +27,7 @@ Coppicing: cutting down tree to stump, new shoots grow from it
 
 Rice (800 MT)
 - yield: 2-8 T/ha
+- water: 10-20k m3/ha
 - production: China (200 MT), India (200 MT), Bangladesh, Indonesia, Vietnam, Thailand, Myanmar, Philippines
 - export: India (Basmati), Thailand (Jasmine), Vietnam
 
@@ -52,6 +53,7 @@ Tomatoes (200 MT)
 
 Sugarcane (2 GT)
 - yield: 50-100 T/ha
+- water: 10-20k m3/ha
 - production: Brazil (700 MT), India (400 MT), China (south), Thailand, Pakistan, Mexico
 
 Grapes (70 MT)
@@ -86,6 +88,7 @@ Apples (100 MT)
 
 Bananas (130 MT)
 - yield: 20-80 T/ha
+- water: 10-20k m3/ha
 - production: India (35 MT), China, Indonesia, Philippines, Nigeria, Brazil, Ecuador, Guatemala
 - Cavendish: main cultivar, vulnerable to fungi
 - Gros Michel: former main cultivar, devastated by fungi
@@ -135,6 +138,7 @@ Pineapple (30 MT)
 
 Avocado (10 MT)
 - yield: 10-30 T/ha
+- water: 10k m3/ha
 - productions: Mexico (3 MT), Colombia, Peru, Dominican Republic, Kenya, Indonesia
 
 Peas (30 MT)
@@ -156,16 +160,24 @@ Sesame seeds (6 MT)
 
 Cashew nuts (4 MT)
 - yield: 1 T/ha, kernel yield 25%
+- water: 10-15k m3/ha
 - production: Ivory Coast (1 MT), India, Cambodia, Vietnam, Benin, Tanzania
 - processing: Vietnam, India
 
 Almonds (4 MT)
 - yield: 2-4 T/ha, kernel yield 50%
+- water: 10-15k m3/ha
 - production: USA (2 MT, California), Australia, Spain, Turkey, Iran, Morocco, China (Xinjiang)
 
 Pistachios (1 MT): biennial bearing
 - yield: 1-3 T/ha
+- water: 10k m3/ha
 - production: USA (400 kT, California), Turkey, Iran, China (Xinjiang), Syria
+
+Walnut (3 MT):
+- yield: 5 T/ha
+- water: 10k m3/ha
+- production: China (1.5 MT, Xinjiang + Yunnan), USA (California), Turkey, Iran
 
 Natural rubber (15 MT)
 - production: Thailand (5 MT), Indonesia, Vietnam, Ivory Coast, India

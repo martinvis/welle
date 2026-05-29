@@ -35,6 +35,16 @@ VII: white dwarf
 
 Cosmic microwave background: uniform thermal energy from all parts of sky
 
+=Cosmic distance ladder: methods to determine distance of celestial objects
+Parallax: difference in apparent position from two different lines of sight, measure distance up to 10 kly
+Standard candle: object with known luminosity, used to measure distance
+Cepheid variable: radially pulsating star, luminosity changes with stable period and amplitude, strong luminosity-period relationship, measure distance up to 100 Mly
+- doubly ionized helium is more opaque, singly ionized helium is more transparent
+- helium expands fast, cools, becomes singly ionized -> more transparent -> helium contracts slow, heats, becomes doubly-ionized -> more opaque, heats faster
+- larger star = higher luminosity, greater radius = lower surface density and weaker surface gravity = longer period
+Tully–Fisher relation (TFR): strong relationship between luminosity and rotation speed of spiral galaxies, measure distance up to 200 Mly
+- larger galaxy = higher luminosity and faster rotation
+
 #Cosmic ray
 high energy particles from star
 moving close to speed of light
@@ -96,6 +106,7 @@ Cosmic censorship hypothesis: naked singularities can not exist
 Brown dwarf: fuse deuterium, mass 20x of Jupiter
 
 Comet: small icy body releasing gases when passing close to star, highly elliptic orbit
+- Shoemaker–Levy 9: collided with Jupiter in 1994, large explosions creating scars
 Asteroid: minor planet without atmosphere
 Meteor: falling star, light streak created by heated object passing through atmosphere
 - Meteor shower: higher number of meteors from one point

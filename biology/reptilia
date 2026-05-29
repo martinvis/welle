@@ -1,8 +1,8 @@
 #Reptilia
-=Hylonomus: extinct, small lizard-like
+=Hylonomus: extinct (Carboniferous), small lizard-like
 =Captorhinidae: extinct, lizard-like, triangular skull without fenestrae
 =Parareptilia: skull without fenestrae
-Millerosauria: extinct, small, lizard-like
+Millerosauria: extinct (Permian), small, lizard-like
 Mesosauria: extinct, small aquatic, long skull and tail
 Bolosauria: extinct, small bipedal, long tail
 Procolophonia: extinct
@@ -31,12 +31,33 @@ Squamata
 - Anguimorpha
 - Iguania
 - Serpentes: snakes, no eyelids, no limbs
+Tanysauria: extinct (Triassic), long-necked
+- Macrocnemus:
+- Trachelosaurus:
+- Tanystropheus:
+- Tanytrachelos:
+- Dinocephalosaurus:
+- Ozimek:
+- Pectodens:
+- Langobardisaurus:
+Rhynchosauria: extinct (Triassic), herbivore, thick limbs, wide triangular skull with beak
+- Mesosuchus: small
+- Teyumbaita: large
+- Hyperodapedon: large
+- Stenaulorhynchus:
+- Bentonyx:
 Phytosauria/Parasuchia: extinct, crocodile-like, long snout and tail
 Archosauria
 - Ornithosuchidae: extinct, facultatively bipedal, long tail
 - Pterosauria: extinct
+- Marasuchus/Lagosuchus: extinct, small bipedal, long tail
 - Dinosauria: extinct, long tail
 - Suchia: long tail
+
+#Iguania
+Agamidae:
+Chamaeleonidae: chameleons, color-shifting camouflage, prehensile tail, zygodactylous, Old World
+Dactyloidae: anoles, colored throat flap, America
 
 #Testudines
 Pleurodira: side-necked
@@ -94,6 +115,7 @@ Ceratopsia: Laurasia, quadrupedal, large head with horns and frill
 - Pachyrhinosaurus: flattened nose horn, frill with 2 sideward hornlets
 - Achelousaurus: flattened nose horn, frill with 2 long spikes
 - Einiosaurus: forward-curved nose horn, frill with 2 long spikes
+- Machairoceratops: long eye horns, frill with 2 long forward spikes
 - Diabloceratops: long eye horns, frill with 2 long spikes
 - Medusaceratops: long eye horns, frill with sideward hornlets
 - Albertaceratops: long eye horns, frill with 2 sideward hornlets
