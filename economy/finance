@@ -20,8 +20,6 @@ Loan: private, amortization
 - Payday loan: short-tem, unsecured, high interest rate
 Non-performing loan (NPL): loan with late repayments (90d+), unlikely to be repaid in full
 Repayment plan: installment schedule of loan
-- Amortization: fixed amount, variable principal + interest (initially more interest less principal)
-- Balloon payment: most of principal paid at end
 
 Earnest payment: deposit to seller of high value property (real estate)
 
@@ -312,7 +310,6 @@ LCR (Liquidity coverage ratio): HQLA to 30 day cashflow
 
 Schmuck insurance: if buyer resells company within given period over agreed price, original seller gets part of profit
 Goodwill: intangible asset, premium paid on assets
-Impairment: downward revaluation of assets
 Subsidiary: daughter company owned by parent company
 Holding company: owns other companies, forms corporate group
 Takeover: purchase of public company by another
@@ -357,3 +354,41 @@ Disposition effect: tendency to sell assets that increased in value and keep ass
 House money effect: taking bigger risks with easily won money
 
 Financial Planning and Analysis (FP&A): support financial decisioning
+
+#
+Business day convention: date rolling rules
+- Date rolling: payment date moved when falling on holiday
+- Following:  next business day
+- Modified following: next business day, only same calendar month
+Day count convention: how interest accrues (30/360, ACT/360, ACT/365)
+Interest rate:
+- Fixed: constant
+- Floating: based on reference rate
+- Spread / Margin: added to floating rate
+- Default margin: in case of arrears
+- Floor: minimum rate
+- Cap: maximum rate
+Amortization: principal allocation across repayments
+- Bullet: all principal on maturity
+- Balloon: equal principal except on maturity
+- Linear: equal principal
+- Annuity: equal payment (principal+interest), initially more interest less principal
+Bitemporal modeling: allows handling retroactive changes
+- Value date: effective date
+- Posting date: technical date
+Allocation: repayment distribution
+- Waterfall: fee -> interest -> principal
+Allocation method:
+- Pro rata: proportionally
+Accrual: interest calculation
+EOD batch: arrears -> accrual -> financial entries
+Reversal: opposite financial entry
+GL account: aggregate financial bucket
+- Posting rules: assign transactions to GL accounts
+Impairment: downward revaluation of asset
+- Provision: amount set aside to cover expected loss
+Arrears: overdue repayment (behind schedule)
+- DPD (Days past due): actual date - scheduled date
+- Grace period: penalties only start afterwards (may be retroactive)
+Capitalization: transfer of accrued interest to principal
+- PIK (Payment in kind): pay interest using more debt

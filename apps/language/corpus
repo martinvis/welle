@@ -405,6 +405,7 @@ chinese|abstract/beauty|velebnosť|荣耀|róng yào|False|False|other|
 chinese|abstract/beauty|veľkolepý|辉煌|huī huáng|False|False|other|
 chinese|abstract/beauty|vynikajúci|杰出|jié chū|False|False|other|
 chinese|abstract/beauty|vzhľad|长相|zhǎng xiàng|False|False|other|
+chinese|abstract/beauty|výdatný|丰盛|fēng shèng|False|False|other|
 chinese|abstract/beauty|zákerný|阴险|yīn xiǎn|False|False|other|
 chinese|abstract/beauty|úžasný|棒|bàng|False|False|other|
 chinese|abstract/beauty|úžasný|美妙|měi miào|False|True|other|
@@ -414,8 +415,7 @@ chinese|abstract/beauty|škaredý|丑陋|chǒu lòu|False|False|other|
 chinese|abstract/importance|bežný|一般|yībān|True|False|other|
 chinese|abstract/importance|bežný|俗|sú|False|False|other|
 chinese|abstract/importance|ceniť si|珍惜|zhēn xī|False|False|other|
-chinese|abstract/importance|chcieť|想|xiǎng|True|False|other|
-chinese|abstract/importance|chcieť|想要|xiǎng yào|False|True|other|
+chinese|abstract/importance|chcieť|想要|xiǎng yào|False|False|other|
 chinese|abstract/importance|cieľ|目标|mù biāo|False|False|other|
 chinese|abstract/importance|cudzí|陌生|mò shēng|False|False|other|
 chinese|abstract/importance|dať sa|可|kě|False|False|other|
@@ -427,12 +427,8 @@ chinese|abstract/importance|dôsledok|后果|hòu guǒ|False|False|other|
 chinese|abstract/importance|dôvod|理由|lǐ yóu|False|False|other|
 chinese|abstract/importance|exkluzívny|专属|zhuān shǔ|False|False|other|
 chinese|abstract/importance|katastrofa|浩劫|hào jié|False|False|other|
-chinese|abstract/importance|mal by|应该|yīng gāi|True|False|other|
-chinese|abstract/importance|mal by|该|gāi |True|False|other|
 chinese|abstract/importance|mať za následok|导致|dǎo zhì|False|False|other|
 chinese|abstract/importance|motivácia|动机|dòng jī|False|False|other|
-chinese|abstract/importance|musieť|必须|bì xū|True|False|other|
-chinese|abstract/importance|môcť|能|néng|True|False|other|
 chinese|abstract/importance|nevyhnutný|紧要|jǐn yào|False|False|other|
 chinese|abstract/importance|normálny|正常|zhèng cháng|False|False|other|
 chinese|abstract/importance|nudný|无聊|wú liáo|False|False|other|
@@ -450,12 +446,12 @@ chinese|abstract/importance|prirodzený|天然|tiān rán|False|False|other|
 chinese|abstract/importance|príkaz|命令|mìng lìng|False|False|other|
 chinese|abstract/importance|príčina|原因|yuán yīn|False|False|other|
 chinese|abstract/importance|relatívny|相对|xiāng duì|False|False|other|
-chinese|abstract/importance|smieť|可以|kě yǐ|True|False|other|
 chinese|abstract/importance|spôsobiť|使|shǐ|False|False|other|
 chinese|abstract/importance|urgentný|急|jí|False|False|other|
 chinese|abstract/importance|urgentný|紧迫|jǐn pò|False|False|other|
 chinese|abstract/importance|užitočný|有用|yǒu yòng|False|False|other|
 chinese|abstract/importance|vyhnúť sa|免|miǎn|False|False|other|
+chinese|abstract/importance|využiť|趁|chèn|False|False|other|
 chinese|abstract/importance|vzácny|稀罕|xī han|False|False|other|
 chinese|abstract/importance|vzácny|罕见|hǎn jiàn|False|True|other|
 chinese|abstract/importance|vážny|严重|yán zhòng|False|False|other|
@@ -487,7 +483,6 @@ chinese|abstract/information|meno|名字|míng zi |False|False|other|
 chinese|abstract/information|metóda|方法|fāng fǎ|True|False|other|
 chinese|abstract/information|nazývať|称|chēng|False|False|other|
 chinese|abstract/information|nejaké|一些|yī xiē|True|False|other|
-chinese|abstract/information|nezvyčajný|异常|yìc háng|False|True|other|
 chinese|abstract/information|náhodný|偶然|ǒu rán|False|False|other|
 chinese|abstract/information|objekt|对象|duì xiàng|False|False|other|
 chinese|abstract/information|odlišný|异|yì|False|False|other|
@@ -524,6 +519,7 @@ chinese|abstract/information|vyriešiť|解决|jiě jué|True|False|other|
 chinese|abstract/information|zvyčajný|通常|tōng cháng|False|False|other|
 chinese|abstract/information|základ|基础|jīchǔ|True|False|other|
 chinese|abstract/information|úplný|完全|wán quán|True|False|other|
+chinese|abstract/information|ďalší|另|lìng|True|False|other|
 chinese|abstract/information|štruktúra|结构|jié gòu|False|False|other|
 chinese|abstract/number|10 tisíc|万|wàn|True|False|other|
 chinese|abstract/number|100 miliónov|亿|yì|True|False|other|
@@ -541,7 +537,6 @@ chinese|abstract/number|mega-|兆|zhào|False|False|other|
 chinese|abstract/number|miera|率|lǜ|False|False|other|
 chinese|abstract/number|mikro-|微|wēi|False|False|other|
 chinese|abstract/number|mili-|毫|háo|False|False|other|
-chinese|abstract/number|naj_|最|zuì|True|False|other|
 chinese|abstract/number|nano-|纳|nà|False|False|other|
 chinese|abstract/number|nula|零|líng|True|False|other|
 chinese|abstract/number|osem|八|bā|True|False|other|
@@ -551,6 +546,7 @@ chinese|abstract/number|poradové číslo|第_|dì|True|False|other|
 chinese|abstract/number|počítať|数|shǔ|False|False|other|
 chinese|abstract/number|pravdepodobnosť|概率|gài lǜ|False|True|other|
 chinese|abstract/number|päť|五|wǔ|True|False|other|
+chinese|abstract/number|rovnať sa|等于|děng yú|False|False|other|
 chinese|abstract/number|sedem|七|qī|True|False|other|
 chinese|abstract/number|sto|百|bǎi|True|False|other|
 chinese|abstract/number|tisíc|千|qiān|True|False|other|
@@ -596,6 +592,8 @@ chinese|abstract/risk|garantovať|保证|bǎo zhèng|True|False|other|
 chinese|abstract/risk|katastrofa|大难|dà nàn|False|False|other|
 chinese|abstract/risk|nebezpečenstvo|危险|wēi xiǎn|False|True|other|
 chinese|abstract/risk|nebezpečný|险|xiǎn|True|False|other|
+chinese|abstract/risk|neopatrný|粗心|cū xīn|False|False|other|
+chinese|abstract/risk|opatrný|谨慎|jǐn shèn|False|False|other|
 chinese|abstract/risk|poistenie|保险|bǎo xiǎn|True|False|other|
 chinese|abstract/risk|postihnúť|遭到|zāo dào|False|False|other|
 chinese|abstract/risk|riskovať|冒险|mào xiǎn|False|True|other|
@@ -626,6 +624,7 @@ chinese|abstract/size|ani trochu|毫不|háo bù|False|False|other|
 chinese|abstract/size|celkom|颇为|pō wéi|False|False|other|
 chinese|abstract/size|celý|全|quán|True|False|other|
 chinese|abstract/size|dlhý|长|cháng|False|False|other|
+chinese|abstract/size|do sýtosti|开怀|kāi huái|False|False|other|
 chinese|abstract/size|doplniť|填补|tián bǔ|False|True|other|
 chinese|abstract/size|dostatočný|足够|zú gòu|False|True|other|
 chinese|abstract/size|dosť|够|gòu|True|False|other|
@@ -652,21 +651,16 @@ chinese|abstract/size|pridať|加|jiā |False|False|other|
 chinese|abstract/size|pridať|添|tiān|False|False|other|
 chinese|abstract/size|priemer|直径|zhí jìng|False|False|other|
 chinese|abstract/size|prázdny|空|kōng|False|False|other|
-chinese|abstract/size|príliš|太|tài|True|False|other|
 chinese|abstract/size|rozloha|面积|miàn jī|False|False|other|
 chinese|abstract/size|rozmer|大小|dà xiǎo|False|False|other|
 chinese|abstract/size|rozsiahly|广阔|guǎng kuò|False|True|other|
 chinese|abstract/size|rozsiahly|辽阔|liáo kuò|False|True|other|
 chinese|abstract/size|rozšíriť|广|guǎng|False|False|other|
 chinese|abstract/size|trochu|一点|yī diǎn|True|False|other|
-chinese|abstract/size|trochu|稍微|shāo wēi|False|False|other|
 chinese|abstract/size|veľa|多|duō |True|False|other|
 chinese|abstract/size|veľa|许多|xǔ duō|True|False|other|
 chinese|abstract/size|veľký|大|dà|False|False|other|
-chinese|abstract/size|veľmi|很|hěn|True|False|other|
-chinese|abstract/size|veľmi|非常|fēi cháng |True|False|other|
-chinese|abstract/size|viac|更|gèng|True|False|other|
-chinese|abstract/size|viac|更多|gèng duō|False|True|other|
+chinese|abstract/size|viac|更多|gèng duō|False|False|other|
 chinese|abstract/size|vyplniť|填|tián|False|False|other|
 chinese|abstract/size|vysoký|高|gāo|False|False|other|
 chinese|abstract/size|zhromaždiť sa|聚集|jù jí|False|True|other|
@@ -676,7 +670,6 @@ chinese|abstract/size|znížiť|减|jiǎn|False|False|other|
 chinese|abstract/size|znížiť|减少|jiǎn shǎo|False|True|other|
 chinese|abstract/size|zvolať|召集|zhào jí|False|True|other|
 chinese|abstract/size|zväčšiť|增加|zēng jiā|True|False|other|
-chinese|abstract/size|úplne|十分|shí fēn|False|False|other|
 chinese|abstract/size|úplný|整|zhěng|True|False|other|
 chinese|abstract/size|úzky|窄|zhǎi|False|False|other|
 chinese|abstract/size|časť|部分|bù fen|True|False|other|
@@ -769,6 +762,7 @@ chinese|abstract/time|potom|以后|yǐ hòu|False|False|other|
 chinese|abstract/time|predtým|以前|yǐ qián|False|False|other|
 chinese|abstract/time|práve|刚刚|gāng gang|True|False|other|
 chinese|abstract/time|práve|刚才|gāng cái |True|False|other|
+chinese|abstract/time|práve|在|zài|False|False|other|
 chinese|abstract/time|rok (vek)|岁|suì|True|False|other|
 chinese|abstract/time|rok|年|nián|True|False|other|
 chinese|abstract/time|ročné obdobie|季|jì|True|False|other|
@@ -790,91 +784,159 @@ chinese|abstract/time|zase|又|yòu|True|False|other|
 chinese|abstract/time|začiatok|初|chū|False|False|other|
 chinese|abstract/time|zima|冬|dōng|True|False|other|
 chinese|abstract/time|zvyčajne|平时|píng shí|False|False|other|
+chinese|abstract/time|čakať|等|děng|False|False|other|
 chinese|abstract/time|často|常常|cháng cháng|True|False|other|
 chinese|abstract/time|často|经常|jīng cháng |True|False|other|
 chinese|abstract/time|čas|时间|shí jiān|True|False|other|
-chinese|basic|a/s|与|yǔ|False|False|other|
+chinese|basic|(dative)|给|gěi|False|False|other|
+chinese|basic|(object before verb)|把|bǎ|False|False|other|
+chinese|basic|(passive)|被|bèi|False|False|other|
+chinese|basic|a (knižne)|与|yǔ|False|False|other|
+chinese|basic|a ešte|还有|hái yǒu|False|False|other|
+chinese|basic|a navyše|再说|zài shuō|False|False|other|
+chinese|basic|a okrem toho|另外|lìng wài|False|False|other|
+chinese|basic|a tak ďalej|等等 pděng děng]||False|False|other|
+chinese|basic|abnormálne|异常|yì cháng|False|False|other|
+chinese|basic|absolútne|adjective||False|False|other|
 chinese|basic|absolútne|绝对|jué duì|False|False|other|
-chinese|basic|aj ... aj|既 ... 又|jì ... yòu|False|False|other|
+chinese|basic|absolútne|透了||False|False|other|
+chinese|basic|aj ... aj|既|jì ... 又 yòu|False|False|other|
 chinese|basic|aj keby|纵然 (zòng rán)||False|False|other|
 chinese|basic|aj keď|纵使|zòng shǐ|False|False|other|
+chinese|basic|aj|以及|yǐ jí|False|False|other|
+chinese|basic|aj|及|jí |False|False|other|
+chinese|basic|ak ... tak|如果|rú guǒ ... 就 jiù|False|False|other|
 chinese|basic|ako (porovnanie)|比|bǐ|True|False|other|
 chinese|basic|ako?|如何|rú hé|False|False|other|
 chinese|basic|akoby|仿佛|fǎng fú|False|False|other|
 chinese|basic|akoby|似乎|sì hū|False|False|other|
-chinese|basic|ak|如果|rú guǒ|False|False|other|
 chinese|basic|aký?|怎么样|zěn me yàng|True|False|other|
 chinese|basic|alebo (otázka)|还是|hái shi|False|False|other|
-chinese|basic|alebo (veta)|或者|huò zhě|False|False|other|
+chinese|basic|alebo|或|huò|False|False|other|
+chinese|basic|alebo|或者|huò zhě|False|False|other|
 chinese|basic|ale|但|dàn |False|False|other|
 chinese|basic|ale|但是|dàn shì|False|False|other|
 chinese|basic|ale|可是|kě shì|False|False|other|
-chinese|basic|ani ... ani|既不 ... 也不||False|False|other|
-chinese|basic|ani|也不|yě bù|False|False|other|
+chinese|basic|ani ... ani|既不|jì bù ... 也不 yě bù|False|False|other|
+chinese|basic|avšak|然而|rán ér|False|False|other|
 chinese|basic|a|和|hé|False|False|other|
+chinese|basic|až keď ... tak|等到|děng dào ... 再 zài|False|False|other|
+chinese|basic|bez (predpona)|无|wú|False|False|other|
 chinese|basic|bez ohľadu|不管|bù guǎn|False|False|other|
-chinese|basic|bez|无|wú|False|False|other|
 chinese|basic|budúca akcia|将|jiāng|True|False|other|
+chinese|basic|chcieť|想|xiǎng|False|False|other|
 chinese|basic|dokončená akcia|了|le|True|False|other|
+chinese|basic|dosť|挺|tǐng|False|False|other|
+chinese|basic|extrémne|极其|jí qí|False|False|other|
+chinese|basic|ešte|还|hái|False|False|other|
 chinese|basic|genitív|的|de|True|False|other|
-chinese|basic|hoci|虽然|suī rán|False|False|other|
-chinese|basic|iba ak by|除非|chú fēi|False|True|other|
+chinese|basic|hoci ... ale|虽然|suī rán ... 但是 dàn shì|False|False|other|
+chinese|basic|iba ak ... tak|只有|zhǐ yǒu ... 才 cái|False|False|other|
+chinese|basic|iba ak by|除非|chú fēi|False|False|other|
+chinese|basic|je / nie je ?|verb 不 verb||False|False|other|
 chinese|basic|jediný|唯一|wéi yī|False|False|other|
+chinese|basic|k/voči|对|duì|False|False|other|
 chinese|basic|každý (rovnaký)|每|měi|True|False|other|
 chinese|basic|každý (rôzny)|各|gè|True|False|other|
-chinese|basic|kdeže|并不|bìng bù|False|True|other|
-chinese|basic|keďže|既然 (jì rán)||False|False|other|
-chinese|basic|kto?|谁|shéi|True|False|other|
+chinese|basic|kdeže|并不|bìng bù|False|False|other|
+chinese|basic|keďže ... tak|因为|yīn wèi ... 所以 suǒ yǐ|False|False|other|
+chinese|basic|keďže ... tak|既然|jì rán ... 就 jiù|False|False|other|
+chinese|basic|koniec koncov|究竟|jiū jìng|False|False|other|
+chinese|basic|kto?|谁|shéi|False|False|other|
 chinese|basic|ktorý?|哪|nǎ|True|False|other|
 chinese|basic|lebo|由于|yóu yú|False|False|other|
+chinese|basic|mal by|应该|yīng gāi|False|False|other|
+chinese|basic|mal by|该|gāi |False|False|other|
 chinese|basic|mať|有|yǒu|True|False|other|
+chinese|basic|minulá akcia|过|guo|True|False|other|
 chinese|basic|možno|也许|yě xǔ |False|False|other|
 chinese|basic|možno|或许|huò xǔ|False|False|other|
-chinese|basic|naozaj|其实|qí shí |False|False|other|
+chinese|basic|musieť|得|děi|False|False|other|
+chinese|basic|musieť|必须|bì xū|False|False|other|
+chinese|basic|môcť|能|néng|False|False|other|
+chinese|basic|naj_|最|zuì|False|False|other|
+chinese|basic|naopak|却|què|False|False|other|
 chinese|basic|naozaj|实在|shí zài|False|False|other|
-chinese|basic|naozaj|果然|guǒ rán|False|False|other|
 chinese|basic|naozaj|真|zhēn|False|False|other|
+chinese|basic|napriek tomu že|尽管|jǐn guǎn|False|False|other|
 chinese|basic|napríklad|例如|lì rú|True|False|other|
 chinese|basic|navyše|并且|bìng qiě|False|False|other|
+chinese|basic|nebyť/nemať|没有|méi yǒu|False|False|other|
 chinese|basic|nejaký|某|mǒu|False|False|other|
 chinese|basic|nečakane|居然|jū rán|False|False|other|
-chinese|basic|nie len ... ale aj|不仅 ... 而且|bù jǐn ... ér qiě|False|False|other|
+chinese|basic|nie len ... ale aj|不但 / 不仅 / 不只 ... 而且 / 还 / 也||False|False|other|
 chinese|basic|nie|不|bù|False|False|other|
+chinese|basic|obzvlášť|格外|gé wài|False|False|other|
 chinese|basic|okrem|除了|chú le|False|False|other|
 chinese|basic|osobne|亲自|qīn zì|False|False|other|
+chinese|basic|očakávane|果然|guǒ rán|False|False|other|
+chinese|basic|očividne|显然|xiǎn rán|False|False|other|
 chinese|basic|podľa|按照|àn zhào|False|False|other|
+chinese|basic|pokiaľ ... tak|只要|zhǐ yào ... 就 jiù|False|False|other|
+chinese|basic|pokračujúca akcia|着|zhe|True|False|other|
 chinese|basic|potom|于是|yú shì|False|False|other|
+chinese|basic|potrebovať|要|yào|False|False|other|
 chinese|basic|pre istotu|万一|wàn yī|False|False|other|
 chinese|basic|predsa len|毕竟|bì jìng|False|False|other|
 chinese|basic|prekvapivo|竟然|jìng rán|False|False|other|
-chinese|basic|pretože|因为|yīn wèi|False|False|other|
-chinese|basic|prečo?|为什么|wèi shén me|False|True|other|
+chinese|basic|preto|因此|yīncǐ|False|False|other|
+chinese|basic|prečo?|为什么|wèi shén me|False|False|other|
 chinese|basic|približne|大约|dà yuē|False|False|other|
-chinese|basic|priebeh|着|zhe|True|False|other|
 chinese|basic|prirovnanie|比喻|bǐ yù|False|True|other|
+chinese|basic|príliš|太|tài|False|False|other|
+chinese|basic|príliš|过于|guò yú|False|False|other|
+chinese|basic|relatívne|比较|bǐ jiào|False|False|other|
 chinese|basic|samozrejme|当然|dāng rán|False|False|other|
+chinese|basic|skutočne|其实|qí shí|False|False|other|
+chinese|basic|smerom ku|来|lái|True|False|other|
+chinese|basic|smerom od|去|qù|True|False|other|
+chinese|basic|smieť|可以|kě yǐ|False|False|other|
+chinese|basic|strašne/veľmi nejaký|adjective||False|False|other|
+chinese|basic|strašne/veľmi nejaký|adjective||False|False|other|
+chinese|basic|strašne/veľmi nejaký|得很||False|False|other|
+chinese|basic|strašne/veľmi nejaký|死了||False|False|other|
+chinese|basic|strašne|adjective||False|False|other|
+chinese|basic|strašne|坏了||False|False|other|
 chinese|basic|striktne vzato|严格来说||False|False|other|
 chinese|basic|s|跟|gēn|False|False|other|
+chinese|basic|takmer|几乎|jī hū|False|False|other|
 chinese|basic|takmer|差不多|chà bu duō|True|False|other|
-chinese|basic|takže|所以|suǒ yǐ|False|False|other|
 chinese|basic|tamten|那|nà|False|False|other|
 chinese|basic|tento|此|cǐ|False|False|other|
 chinese|basic|tento|这|zhè|False|False|other|
+chinese|basic|tiež nie|也不|yě bù|False|True|other|
+chinese|basic|trochu moc|未免|wèi miǎn|False|False|other|
+chinese|basic|trochu|稍微|shāo wēi|False|False|other|
 chinese|basic|určite|一定|yī dìng|False|False|other|
 chinese|basic|v porovnaní s|相对来说||False|False|other|
+chinese|basic|vedieť|会|huì|False|False|other|
+chinese|basic|veľmi nejako|adverb||False|False|other|
+chinese|basic|veľmi nejako|verb||False|False|other|
+chinese|basic|veľmi nejako|得|de |False|False|other|
 chinese|basic|veľmi|好不|hǎo bù|False|False|other|
+chinese|basic|veľmi|很|hěn|False|False|other|
+chinese|basic|veľmi|非常|fēi cháng|False|False|other|
+chinese|basic|viac|更|gèng|False|False|other|
 chinese|basic|vlastniť|所有|suǒ yǒu|False|True|other|
 chinese|basic|vo všeobecnosti|一般来说||False|False|other|
 chinese|basic|vo všeobecnosti|总的来说||False|False|other|
-chinese|basic|zrejme|显然|xiǎn rán|False|False|other|
-chinese|basic|zápor (minulý/budúci)|没|méi|True|False|other|
-chinese|basic|zápor (prítomný)|不|bù|True|False|other|
+chinese|basic|za každú cenu|千万|qiān wàn|False|False|other|
+chinese|basic|značne|相当|xiāng dāng|False|False|other|
+chinese|basic|zápor (minulý/budúci)|没|méi|False|False|other|
+chinese|basic|zápor (prestaň)|verb||False|False|other|
+chinese|basic|zápor (prestaň)|了||False|False|other|
+chinese|basic|zápor (prestaň)|别||False|False|other|
+chinese|basic|zápor (prítomný)|不|bù|False|False|other|
+chinese|basic|zápor (zákaz)|verb||False|False|other|
+chinese|basic|zápor (zákaz)|别||False|False|other|
 chinese|basic|zápor|弗|fú|False|False|other|
+chinese|basic|áno / nie ?|... 吗||False|False|other|
 chinese|basic|áno|是|shì|False|False|other|
+chinese|basic|úplne|十分|shí fēn|False|False|other|
 chinese|basic|či|是否|shì fǒu|False|False|other|
 chinese|basic|čiže|即|jí|False|False|other|
 chinese|basic|čo vlastne?|到底|dào dǐ|False|False|other|
-chinese|basic|čo?|什么|shén me|True|False|other|
+chinese|basic|čo?|什么|shén me|False|False|other|
 chinese|culture/_people|Abraham Lincoln|亚伯拉罕.林肯||False|False|other|
 chinese|culture/_people|Adolf Hitler|阿道夫.希特勒||False|False|other|
 chinese|culture/_people|Albert Einstein|阿尔伯特.爱因斯坦||False|False|other|
@@ -989,6 +1051,7 @@ chinese|culture/ethics|dobrý|好|hǎo|True|False|other|
 chinese|culture/ethics|výborný|优异|yōu yì|False|False|other|
 chinese|culture/ethics|zlý|坏|huài|True|False|other|
 chinese|culture/fantasy|duch|幽灵|yōu líng|False|False|other|
+chinese|culture/fantasy|jednorožec|独角兽|dú jiǎo shòu|False|False|other|
 chinese|culture/fantasy|kúzlo|魔法|mó fǎ|False|False|other|
 chinese|culture/fantasy|upír|吸血鬼|xī xuè guǐ|False|False|other|
 chinese|culture/fantasy|zázrak|奇迹|qí jì|False|False|other|
@@ -1064,6 +1127,7 @@ chinese|culture/food/fruit|černica|黑莓|hēi méi|False|False|other|
 chinese|culture/food/fruit|čučoriedka|蓝莓|lán méi|False|False|other|
 chinese|culture/food/meal|lízatko|棒棒糖|bàng bàng táng|False|False|other|
 chinese|culture/food/meal|polievka|汤|tāng|True|False|other|
+chinese|culture/food/meal|čokoláda|巧克力|qiǎo kè lì|False|False|other|
 chinese|culture/food/vegetable|artičok|洋蓟|yángjì|False|False|other|
 chinese|culture/food/vegetable|baklažán|茄子|qiézi|False|False|other|
 chinese|culture/food/vegetable|batata|地瓜|dìguā|False|False|other|
@@ -1124,14 +1188,17 @@ chinese|culture/law|advokát|律师|lǜ shī|False|False|other|
 chinese|culture/law|cudzoložstvo|奸情|jiān qíng|False|True|other|
 chinese|culture/law|kradnúť|偷|tōu|False|False|other|
 chinese|culture/law|kriminálny|犯罪|fàn zuì|False|False|other|
+chinese|culture/law|krivdiť|冤枉|yuān wang|False|False|other|
 chinese|culture/law|lupič|强盗|qiáng dào|False|False|other|
 chinese|culture/law|lúpež|抢劫|qiǎng jié|False|False|other|
 chinese|culture/law|nemorálny|奸|jiān|False|False|other|
 chinese|culture/law|obviniť|控告|kòng gào|False|False|other|
 chinese|culture/law|odsúdiť|判刑|pàn xíng|False|False|other|
+chinese|culture/law|odsúdiť|判处|pàn chǔ|False|False|other|
 chinese|culture/law|pirát|海盗|hǎi dào|False|False|other|
 chinese|culture/law|podplatiť|贿赂|huì lù|False|False|other|
 chinese|culture/law|polícia|警察|jǐng chá|False|False|other|
+chinese|culture/law|poprava|死刑|sǐ xíng|False|False|other|
 chinese|culture/law|poriadok|秩序|zhì xù|False|False|other|
 chinese|culture/law|potrestať|惩治|chéng zhì|False|True|other|
 chinese|culture/law|potrestať|罚|fá|False|False|other|
@@ -1251,6 +1318,7 @@ chinese|economy/cloth|spodné prádlo|内衣|nèi yī|False|False|other|
 chinese|economy/cloth|spona|扣|kòu|False|False|other|
 chinese|economy/cloth|sukňa|裙子|qún zi|True|False|other|
 chinese|economy/cloth|sveter|毛衣|máo yī|True|False|other|
+chinese|economy/cloth|taška|袋|dài|False|False|other|
 chinese|economy/cloth|tkať|织|zhī|False|False|other|
 chinese|economy/cloth|topánka|鞋|xié|True|False|other|
 chinese|economy/cloth|vrecko|衣袋|yī dài|False|False|other|
@@ -1270,6 +1338,7 @@ chinese|economy/construction|hlavné mesto|首都|shǒu dū|False|False|other|
 chinese|economy/construction|hrad|城堡|chéng bǎo|False|False|other|
 chinese|economy/construction|izba|房间|fáng jiān|True|False|other|
 chinese|economy/construction|komín|烟囱|yān cōng|False|False|other|
+chinese|economy/construction|križovatka|十字路口|shízì lùkǒu|False|False|other|
 chinese|economy/construction|kuchyňa|厨房|chú fáng|False|False|other|
 chinese|economy/construction|malé mesto|城镇|chéng zhèn|False|False|other|
 chinese|economy/construction|mesto|城市|chéng shì|False|False|other|
@@ -1310,14 +1379,17 @@ chinese|economy/education|lekcia (škola)|课|kè|False|False|other|
 chinese|economy/education|lekcia (život)|教训|jiào xun|False|False|other|
 chinese|economy/education|logika|逻辑|luó ji|False|False|other|
 chinese|economy/education|majster|师傅|shī fu|False|True|other|
+chinese|economy/education|múdrosť|智慧|zhì huì|False|False|other|
 chinese|economy/education|objaviť|发现|fā xiàn|False|False|other|
 chinese|economy/education|overiť|检验|jiǎn yàn|False|True|other|
 chinese|economy/education|overiť|验|yàn|False|False|other|
 chinese|economy/education|patent|专利|zhuān lì|False|False|other|
 chinese|economy/education|pokrok|进步|jìn bù|False|False|other|
 chinese|economy/education|pokus|试验|shì yàn|False|True|other|
+chinese|economy/education|preskúmať|细看|xì kàn|False|False|other|
 chinese|economy/education|profesor|教授|jiào shòu|False|True|other|
 chinese|economy/education|rozpor|矛盾|máo dùn|False|False|other|
+chinese|economy/education|rozvíjať|养成|yǎng chéng|False|False|other|
 chinese|economy/education|skontrolovať|查|chá |False|False|other|
 chinese|economy/education|skontrolovať|查看|chá kàn|False|True|other|
 chinese|economy/education|skontrolovať|检|jiǎn|False|False|other|
@@ -1394,6 +1466,7 @@ chinese|economy/finance|získať|获取|huò qǔ|False|False|other|
 chinese|economy/finance|získať|获得|huò dé|False|False|other|
 chinese|economy/finance|úrok|利息|lì xī|False|False|other|
 chinese|economy/finance|úver|贷款|dài kuǎn|False|False|other|
+chinese|economy/finance|účtenka|收据|shōu jù|False|False|other|
 chinese|economy/gastro|doska|案板|àn bǎn|False|False|other|
 chinese|economy/gastro|dusiť|炖|dùn|False|False|other|
 chinese|economy/gastro|hrniec|锅|guō|False|False|other|
@@ -1419,6 +1492,7 @@ chinese|economy/gastro|čerstvý|新鲜|xīn xiān|False|True|other|
 chinese|economy/gastro|čerstvý|鲜|xiān|False|False|other|
 chinese|economy/health|alergia|过敏|guò mǐn|False|False|other|
 chinese|economy/health|astma|哮喘|xiào chuǎn|False|False|other|
+chinese|economy/health|bezvedomie|昏迷|hūn mí|False|False|other|
 chinese|economy/health|bolesť|痛|tòng|False|False|other|
 chinese|economy/health|bolieť|疼痛|téng tòng|False|False|other|
 chinese|economy/health|bradavica|疣|yóu|False|False|other|
@@ -1444,6 +1518,7 @@ chinese|economy/health|mor|瘟疫|wēn yì|False|False|other|
 chinese|economy/health|nemocnica|医院|yī yuàn|False|False|other|
 chinese|economy/health|nádor|肿瘤|zhǒng liú|False|False|other|
 chinese|economy/health|obväz|绷带|bēng dài|False|False|other|
+chinese|economy/health|omdlieť|昏倒|hūn dǎo|False|False|other|
 chinese|economy/health|operácia|手术|shǒu shù|False|False|other|
 chinese|economy/health|opitý|醉|zuì|False|False|other|
 chinese|economy/health|opuch|水肿|shuǐ zhǒng|False|False|other|
@@ -1474,6 +1549,7 @@ chinese|economy/industry|kliešte|钳子|qián zǐ|False|False|other|
 chinese|economy/industry|košík|筐|kuāng|False|False|other|
 chinese|economy/industry|lopata|铲子|chǎn zi|False|False|other|
 chinese|economy/industry|metla|扫帚|sào zhou|False|True|other|
+chinese|economy/industry|palica|棍子|gùn zǐ|False|False|other|
 chinese|economy/industry|systém|系统|xì tǒng|False|False|other|
 chinese|economy/industry|vedro|桶|tǒng|False|False|other|
 chinese|economy/industry|zametať|扫|sǎo|False|False|other|
@@ -1502,6 +1578,7 @@ chinese|economy/manufacture|obálka|信封|xìn fēng|False|False|other|
 chinese|economy/manufacture|perina|被子|bèi zi|False|False|other|
 chinese|economy/manufacture|perla|珍珠|zhēn zhū|False|False|other|
 chinese|economy/manufacture|pero|笔|bǐ|False|False|other|
+chinese|economy/manufacture|pinzeta|镊子|niè zi|False|False|other|
 chinese|economy/manufacture|posteľ|床|chuáng|True|False|other|
 chinese|economy/manufacture|počítač|电脑|diàn nǎo|True|False|other|
 chinese|economy/manufacture|počítač|计算机|jì suàn jī |True|False|other|
@@ -1571,9 +1648,11 @@ chinese|economy/retail|kúpiť|买|mǎi|False|False|other|
 chinese|economy/retail|nákupné stredisko|商场|shāngchǎng|True|False|other|
 chinese|economy/retail|obchod|商店|shāngdiàn|True|False|other|
 chinese|economy/retail|obchod|贸易|màoyì|False|False|other|
+chinese|economy/retail|obchodík|铺子|pù zi|False|False|other|
 chinese|economy/retail|predať|卖|mài|False|False|other|
 chinese|economy/retail|predať|售|shòu|False|False|other|
 chinese|economy/retail|reklama|广告|guǎng gào|False|False|other|
+chinese|economy/retail|strihať vlasy|理发|lǐ fà|False|False|other|
 chinese|economy/retail|supermarket|超市|chāoshì|True|False|other|
 chinese|economy/retail|trh|市场|shìchǎng|True|False|other|
 chinese|economy/technology|download|下载|xià zài|False|False|other|
@@ -1624,6 +1703,7 @@ chinese|economy/war|dobyť|征服|zhēngfú|False|False|other|
 chinese|economy/war|generál|将军|jiāngjūn|False|False|other|
 chinese|economy/war|granát|手雷|shǒuléi|False|False|other|
 chinese|economy/war|granát|榴弹|liúdàn |False|False|other|
+chinese|economy/war|hliadkovať|巡逻|xún luó|False|False|other|
 chinese|economy/war|letectvo|空军|kōngjūn|False|False|other|
 chinese|economy/war|luk|弓|gōng|False|False|other|
 chinese|economy/war|meč|剑|jiàn|False|False|other|
@@ -1670,6 +1750,7 @@ chinese|economy/work|firma|公司|gōng sī|False|False|other|
 chinese|economy/work|konať|作|zuò|False|False|other|
 chinese|economy/work|mzda|工资|gōng zī|False|False|other|
 chinese|economy/work|odpočinúť si|歇|xiē|False|False|other|
+chinese|economy/work|otrok|奴|nú|False|False|other|
 chinese|economy/work|plat (mesačný)|薪水|xīn shuǐ|False|False|other|
 chinese|economy/work|plný úvӓzok|专职|zhuān zhí|False|False|other|
 chinese|economy/work|podnik|企业|qǐ yè|False|False|other|
@@ -1689,6 +1770,7 @@ chinese|economy/work|produkovať|生产|shēng chǎn|False|True|other|
 chinese|economy/work|práca|劳动|láo dòng|False|True|other|
 chinese|economy/work|práca|工作|gōng zuò|False|False|other|
 chinese|economy/work|robiť|做|zuò|False|False|other|
+chinese|economy/work|sluha|奴仆|nú pú|False|True|other|
 chinese|economy/work|slúžiť|服务|fú wù|True|False|other|
 chinese|economy/work|snažiť sa|奋斗|fèn dòu|False|False|other|
 chinese|economy/work|termín|期限|qī xiàn|True|False|other|
@@ -1702,9 +1784,12 @@ chinese|economy/work|zamestnanec|员工|yuán gōng|False|False|other|
 chinese|economy/work|zamestnanec|雇员|gù yuán|False|False|other|
 chinese|economy/work|zamestnať|雇佣|gù yōng|False|False|other|
 chinese|economy/work|zamestnávateľ|雇主|gù zhǔ|False|False|other|
+chinese|economy/work|zanedbať|疏忽|shū hu|False|False|other|
 chinese|economy/work|zaneprázdnený|忙|máng|True|False|other|
 chinese|economy/work|zaneprázdnený|忙碌|máng lù|False|True|other|
 chinese|economy/work|zaoberať sa|处理|chǔ lǐ|False|False|other|
+chinese|economy/work|zapliesť do problémov|连累|lián lèi|False|False|other|
+chinese|economy/work|zarobiť|挣|zhèng|False|False|other|
 chinese|economy/work|zbrzdiť|压制|yā zhì|False|False|other|
 chinese|economy/work|záchrana|救助|jiù zhù|False|True|other|
 chinese|economy/work|zákazník|顾客|gù kè|False|False|other|
@@ -1718,6 +1803,7 @@ chinese|human/communication|dokázať|证明|zhèng míng|False|False|other|
 chinese|human/communication|dovoliť|让|ràng|False|False|other|
 chinese|human/communication|hovoriť o|议论|yì lùn|False|True|other|
 chinese|human/communication|hovoriť|谈|tán|False|False|other|
+chinese|human/communication|hypnóza|催眠|cuī mián|False|True|other|
 chinese|human/communication|informovať sa|查询|chá xún|False|False|other|
 chinese|human/communication|informácia|资讯|zīxùn|False|False|other|
 chinese|human/communication|interview|采访|cǎifǎng|False|False|other|
@@ -1737,7 +1823,11 @@ chinese|human/communication|kritizovať|批|pī|False|False|other|
 chinese|human/communication|kritizovať|批判|pī pàn|False|True|other|
 chinese|human/communication|kritizovať|批评|pī píng|False|True|other|
 chinese|human/communication|legenda|传说|chuán shuō|False|True|other|
+chinese|human/communication|listovať|翻看|fān kàn|False|False|other|
 chinese|human/communication|mlčanlivý|沉默|chén mò|False|False|other|
+chinese|human/communication|nadávať|骂|mà|False|False|other|
+chinese|human/communication|naliehať|催|cuī|False|False|other|
+chinese|human/communication|nariadiť|吩咐|fēn fù|False|False|other|
 chinese|human/communication|navrhnúť|建议|jiàn yì|False|False|other|
 chinese|human/communication|navrhnúť|议|yì|False|False|other|
 chinese|human/communication|návrh|倡议|chàng yì|False|True|other|
@@ -1768,6 +1858,7 @@ chinese|human/communication|podozrivý|嫌疑|xián yí|False|False|other|
 chinese|human/communication|podvodník|骗子|piàn zi|False|False|other|
 chinese|human/communication|podvádzať|作弊|zuò bì|False|False|other|
 chinese|human/communication|potajomky|偷偷|tōu tōu|False|False|other|
+chinese|human/communication|potichu|悄悄|qiāo qiāo|False|False|other|
 chinese|human/communication|povedať|说|shuō|False|False|other|
 chinese|human/communication|povoliť|允许|yǔn xǔ|False|False|other|
 chinese|human/communication|pozdraviť|问好"|wèn hǎo|False|False|other|
@@ -2076,6 +2167,8 @@ chinese|life/feeling|hanblivý|害羞|hài xiū|False|True|other|
 chinese|life/feeling|hnev|怒气|nù qì|False|False|other|
 chinese|life/feeling|hnev|愤怒|fèn nù|False|False|other|
 chinese|life/feeling|hrôza|恐怖|kǒng bù|False|False|other|
+chinese|life/feeling|humor|幽默|yōu mò|False|False|other|
+chinese|life/feeling|komický|滑稽|huá jī|False|False|other|
 chinese|life/feeling|láska|爱情|ài qíng|False|False|other|
 chinese|life/feeling|mať obavy|担心|dān xīn|False|False|other|
 chinese|life/feeling|melanchólia|忧郁|yōu yù|False|False|other|
@@ -2086,6 +2179,7 @@ chinese|life/feeling|nalákať|诱惑|yòu huò|False|False|other|
 chinese|life/feeling|nenávidieť|恨|hèn|True|False|other|
 chinese|life/feeling|nenávisť|仇恨|chóu hèn|True|False|other|
 chinese|life/feeling|nepríjemnosť|麻烦|má fan|False|False|other|
+chinese|life/feeling|nervózny|紧张|jǐn zhāng|False|False|other|
 chinese|life/feeling|nevraživosť|怨恨|yuàn hèn|False|True|other|
 chinese|life/feeling|nezbedný|淘气|táo qì|False|False|other|
 chinese|life/feeling|nezbedný|顽皮|wán pí|False|False|other|
@@ -2100,6 +2194,7 @@ chinese|life/feeling|ohromiť|吃惊|chī jīng|False|False|other|
 chinese|life/feeling|osmeliť sa|鼓起|gǔ qǐ|False|False|other|
 chinese|life/feeling|očakávať|望|wàng|False|False|other|
 chinese|life/feeling|panikáriť|恐慌|kǒng huāng|False|False|other|
+chinese|life/feeling|panikáriť|惊慌|jīng huāng|False|False|other|
 chinese|life/feeling|panovačný|专横|zhuān hèng|False|False|other|
 chinese|life/feeling|pocit|情|qíng|False|False|other|
 chinese|life/feeling|pokorný|谦卑|qiān bēi|False|False|other|
@@ -2118,6 +2213,7 @@ chinese|life/feeling|radosť|愉悦|yú yuè|False|False|other|
 chinese|life/feeling|romantický|浪漫|làng màn|False|False|other|
 chinese|life/feeling|skromný|谦虚|qiān xū|False|False|other|
 chinese|life/feeling|smutný|悲伤|bēi shāng|False|False|other|
+chinese|life/feeling|srandovať|逗|dòu|False|False|other|
 chinese|life/feeling|srdečný|热烈|rè liè|False|False|other|
 chinese|life/feeling|strach|恐怕|kǒng pà|False|False|other|
 chinese|life/feeling|strpieť|忍受|rěn shòu|False|True|other|
@@ -2144,6 +2240,7 @@ chinese|life/feeling|zahanbený|惭愧|cán kuì|False|True|other|
 chinese|life/feeling|zahanbený|羞愧|xiū kuì|False|False|other|
 chinese|life/feeling|zdesiť|惊恐|jīng kǒng|False|False|other|
 chinese|life/feeling|zdvorilý|客气|kè qì|False|False|other|
+chinese|life/feeling|závidieť|眼红|yǎn hóng|False|False|other|
 chinese|life/feeling|zúrivý|凶|xiōng|False|False|other|
 chinese|life/feeling|zľutovanie|慈悲|cí bēi|False|False|other|
 chinese|life/feeling|úctivý|恭|gōng|False|False|other|
@@ -2173,7 +2270,6 @@ chinese|life/pohyby|hladkať|抚摸|fǔ mō|False|False|other|
 chinese|life/pohyby|hodiť|抛|pāo|False|False|other|
 chinese|life/pohyby|hrýzť|咬|yǎo|False|False|other|
 chinese|life/pohyby|hádzať|投|tóu|False|False|other|
-chinese|life/pohyby|kopnúť|踢|tī|False|False|other|
 chinese|life/pohyby|kopnúť|踢|tī|False|False|other|
 chinese|life/pohyby|kráčať|步行|bù xíng|False|True|other|
 chinese|life/pohyby|kľačať|跪|guì|False|False|other|
@@ -2211,7 +2307,8 @@ chinese|life/pohyby|pustiť|掉|diào|False|False|other|
 chinese|life/pohyby|roztrhnúť|撕裂|sī liè|False|True|other|
 chinese|life/pohyby|sedieť|坐|zuò|False|False|other|
 chinese|life/pohyby|skákať|跳跃|tiào yuè|False|False|other|
-chinese|life/pohyby|spadať|跌落|diē luò|False|False|other|
+chinese|life/pohyby|spadnúť (z výšky)|跌落|diē luò|False|False|other|
+chinese|life/pohyby|spadnúť|跌倒|diē dǎo|False|False|other|
 chinese|life/pohyby|stlačiť|按|àn|False|False|other|
 chinese|life/pohyby|stopa|踪迹|zōng jì|False|False|other|
 chinese|life/pohyby|stopovať|追踪|zhuī zōng|False|False|other|
@@ -2246,6 +2343,7 @@ chinese|life/pohyby|vystopovať|跟踪|gēn zōng|False|False|other|
 chinese|life/pohyby|vytiahnuť (z vrecka)|掏出|tāo chū|False|False|other|
 chinese|life/pohyby|vyšmariť|甩掉|shuǎi diào|False|True|other|
 chinese|life/pohyby|vzdialenosť|距离|jù lí|False|False|other|
+chinese|life/pohyby|zdvihnúť sa|起来|qǐ lai|False|True|other|
 chinese|life/pohyby|zhromaždiť sa|凑|còu|False|False|other|
 chinese|life/pohyby|zostať|留|liú|True|False|other|
 chinese|life/pohyby|zrútiť sa|坠落|zhuì luò|False|False|other|
@@ -2260,10 +2358,13 @@ chinese|life/pohyby|šplhať sa|爬|pá|False|False|other|
 chinese|life/pohyby|štipnúť|捏|niē|False|False|other|
 chinese|life/pohyby|šúchať|搓|cuō|False|False|other|
 chinese|life/pohyby|ťahať|拉|lā|False|False|other|
+chinese|life/senses|chrápať (formal)|打鼾|dǎ hān|False|False|other|
+chinese|life/senses|chrápať|打呼噜|dǎ hū lu|False|False|other|
 chinese|life/senses|chuť|味|wèi|False|False|other|
 chinese|life/senses|cítiť|觉得|juéde|True|False|other|
-chinese|life/senses|dusiť sa|呛|qiāng|False|False|other|
-chinese|life/senses|dychčať|喘|chuǎn|False|False|other|
+chinese|life/senses|dusiť sa|窒息|zhì xī|False|False|other|
+chinese|life/senses|dychčať|喘|chuǎn |False|False|other|
+chinese|life/senses|dychčať|喘气|chuǎn qì|False|False|other|
 chinese|life/senses|dýchať|呼吸|hū xī|False|False|other|
 chinese|life/senses|grcať|呕吐|ǒu tù|False|False|other|
 chinese|life/senses|hlučný|闹|nào|False|False|other|
@@ -2294,18 +2395,23 @@ chinese|life/senses|spať|睡|shuì|False|False|other|
 chinese|life/senses|spánok|睡眠|shuì mián|False|True|other|
 chinese|life/senses|stonať|呻吟|shēn yín|False|False|other|
 chinese|life/senses|volať|叫|jiào|False|False|other|
+chinese|life/senses|vydesiť|吓坏|xià huài|False|True|other|
 chinese|life/senses|vydýchnuť|呼|hū|False|True|other|
 chinese|life/senses|vystrašiť|吓|xià|False|False|other|
 chinese|life/senses|vzlykať|唏嘘|xī xū|False|False|other|
+chinese|life/senses|zabehnúť (pitie)|呛|qiāng|False|False|other|
 chinese|life/senses|zavolať si|召唤|zhàohuàn|False|False|other|
 chinese|life/senses|zavýjať|呼啸|hū xiào|False|False|other|
+chinese|life/senses|zazvoniť|敲响|qiāo xiǎng|False|False|other|
 chinese|life/senses|znieť|响|xiǎng|False|False|other|
 chinese|life/senses|zobudiť sa|醒|xǐng|False|False|other|
 chinese|life/senses|zvuk|声音|shēng yīn|False|False|other|
-chinese|life/senses|zívať|哈欠|hā qian|False|False|other|
+chinese|life/senses|zívať (formal)|打呵欠|dǎ hē qiàn|False|False|other|
+chinese|life/senses|zívať|打哈欠|dǎ hā qian|False|False|other|
 chinese|life/senses|čkať sa|呃逆|ènì|False|False|other|
 chinese|life/senses|štekať|吠|fèi|False|False|other|
 chinese|life/senses|žuť|嚼|jiáo|False|False|other|
+chinese|life/spravanie|bedákať|痛哭|tòng kū|False|True|other|
 chinese|life/spravanie|bábätko|婴儿|yīng ér|False|False|other|
 chinese|life/spravanie|bývať|住|zhù|True|False|other|
 chinese|life/spravanie|dedičný|遗传|yí chuán|False|True|other|
@@ -2339,6 +2445,7 @@ chinese|life/spravanie|vyčerpaný|惫|bèi|False|False|other|
 chinese|life/spravanie|vyčerpaný|疲惫|pí bèi|False|True|other|
 chinese|life/spravanie|za celý život|辈子|bèi zi|False|True|other|
 chinese|life/spravanie|zmrzačiť|残害|cán hài|False|False|other|
+chinese|life/spravanie|zmätený|迷糊|mí hu|False|False|other|
 chinese|life/spravanie|zomrieť|死|sǐ|True|False|other|
 chinese|life/spravanie|život|生活|shēng huó|True|False|other|
 chinese|life/spravanie|žiť|活|huó|True|False|other|
@@ -2404,6 +2511,7 @@ chinese|life/thinking|pamätať si|记|jì|True|False|other|
 chinese|life/thinking|pamätať si|记得|jìde|False|True|other|
 chinese|life/thinking|pamäť|记忆|jì yì|False|True|other|
 chinese|life/thinking|plánovať|谋|móu|False|False|other|
+chinese|life/thinking|pomyslieť si|心想|xīn xiǎng|False|False|other|
 chinese|life/thinking|postihnúť|遭|zāo|False|False|other|
 chinese|life/thinking|pravda|实话|shíhuà|False|False|other|
 chinese|life/thinking|pravda|真话|zhēnhuà |False|False|other|
@@ -2605,6 +2713,7 @@ chinese|nature/_animals/dinosaury|oviraptor|偷蛋龙|tōudàn lóng|False|False
 chinese|nature/_animals/dinosaury|pachycephalosaurus|厚头龙|hòutóu lóng|False|False|other|
 chinese|nature/_animals/dinosaury|parasaurolophus|副栉龙|fùzhì lóng|False|False|other|
 chinese|nature/_animals/dinosaury|spinosaurus|棘龙|jí lóng|False|False|other|
+chinese|nature/_animals/dinosaury|spinosaurus|脊背龙|jǐbèi lóng|False|False|other|
 chinese|nature/_animals/dinosaury|stegosaurus|剑龙|jiàn lóng|False|False|other|
 chinese|nature/_animals/dinosaury|styracosaurus|戟龙|jǐ lóng|False|False|other|
 chinese|nature/_animals/dinosaury|therizinosaurus|镰刀龙|liándāo lóng|False|False|other|
@@ -2669,6 +2778,7 @@ chinese|nature/chemia|zvlhčiť|滋润|zī rùn|False|False|other|
 chinese|nature/fyzika|elektrina|电|diàn|False|False|other|
 chinese|nature/fyzika|frekvencia|频率|pín lǜ|False|False|other|
 chinese|nature/fyzika|gravitácia|引力|yǐn lì|False|False|other|
+chinese|nature/fyzika|gúľať|滚|gǔn|False|False|other|
 chinese|nature/fyzika|hmotnosť|重量|zhòng liàng|False|False|other|
 chinese|nature/fyzika|hojdať sa|摆动|bǎi dòng|False|False|other|
 chinese|nature/fyzika|horieť|烧|shāo|False|False|other|
@@ -2717,6 +2827,7 @@ chinese|nature/fyzika|trieť|磨|mó|False|False|other|
 chinese|nature/fyzika|visieť|挂|guà|False|False|other|
 chinese|nature/fyzika|zapáliť|点燃|diǎn rán|False|True|other|
 chinese|nature/fyzika|zapáliť|燃|rán|False|False|other|
+chinese|nature/fyzika|zaseknúť sa|卡住|kǎ zhù|False|False|other|
 chinese|nature/fyzika|zavesiť|悬挂|xuán guà|False|True|other|
 chinese|nature/fyzika|zlomiť|断|duàn|False|False|other|
 chinese|nature/fyzika|čas|时间|shí jiān|False|False|other|
@@ -2936,6 +3047,7 @@ chinese|nature/vesmir|Kenozoik|新生代||False|False|other|
 chinese|nature/vesmir|Krieda|白垩纪||False|True|other|
 chinese|nature/vesmir|Mesiac|月亮|yuè liang|True|False|other|
 chinese|nature/vesmir|Mezozoik|中生代||False|False|other|
+chinese|nature/vesmir|Mliečna dráha|银河|yín hé|False|False|other|
 chinese|nature/vesmir|Ordovik|奥陶纪||False|True|other|
 chinese|nature/vesmir|Paleozoik|古生代||False|False|other|
 chinese|nature/vesmir|Perm|二叠纪||False|True|other|
@@ -2988,6 +3100,7 @@ chinese|nature/weather|rosa|露水|lù shuǐ|False|False|other|
 chinese|nature/weather|sneh|雪|xuě|True|False|other|
 chinese|nature/weather|snežiť|下雪|xià xuě|True|False|other|
 chinese|nature/weather|studený|寒冷|hán lěng|False|True|other|
+chinese|nature/weather|suchý|干|gān|False|False|other|
 chinese|nature/weather|teplota|温度|wēn dù|True|False|other|
 chinese|nature/weather|teplý|温暖|wēn nuǎn|True|False|other|
 chinese|nature/weather|vietor|风|fēng|True|False|other|
@@ -2995,6 +3108,7 @@ chinese|nature/weather|vlhkosť|湿气|shī qì|False|True|other|
 chinese|nature/weather|vlhký|湿润|shī rùn|False|True|other|
 chinese|nature/weather|vlna|波浪|bō làng|True|False|other|
 chinese|nature/weather|voda|水|shuǐ|True|False|other|
+chinese|nature/weather|vyschnúť|干涸|gān hé|False|True|other|
 chinese|nature/weather|vzduch|空气|kōng qì|True|False|other|
 chinese|nature/weather|vánok|微风|wēi fēng|False|False|other|
 chinese|nature/weather|víchrica|狂风|kuáng fēng|True|False|other|
@@ -3024,6 +3138,7 @@ chinese|particles|zdar|喂|wèi|False|False|other|
 chinese|particles|ách|唉|āi|False|False|other|
 chinese|particles|áno/nie otázka|吗|ma|False|False|other|
 chinese|particles|čo?|啥|shá|False|False|other|
+chinese|phrases|ani neceknúť|一声不吭||False|False|other|
 chinese|phrases|ani trošku|一丝一毫||False|False|other|
 chinese|phrases|bezchybný|无懈可击||False|False|other|
 chinese|phrases|bezprecedentný|前所未有||False|False|other|
@@ -10382,6 +10497,7 @@ english|difficult-words|accoutrements [ə'ku:trəmənts]|výstroj||False|False|o
 english|difficult-words|accretive [ə'kti:tiv]|narastajúci||False|False|other|
 english|difficult-words|acme ['ækmi]|vrchol||False|False|other|
 english|difficult-words|acrimony ['ækriməni]|trpkosť||False|False|other|
+english|difficult-words|anatocism [ə'natə,sizəm]|úrok z úroku||False|False|other|
 english|difficult-words|antebellum [,ænti'beləm]|pred americkou občianskou vojnou||False|False|other|
 english|difficult-words|asseverations|ubezpečenia||False|False|other|
 english|difficult-words|assiduous [ə'sidʒuəs]|pracovitý||False|False|other|
@@ -10986,11 +11102,15 @@ espanol|abstract/time|noc|noche||False|False|other|
 espanol|abstract/time|po chvíli|al cabo de un rato||False|True|other|
 espanol|abstract/time|poludnie|mediodía||False|False|other|
 espanol|abstract/time|pozdržať|demorar||False|True|other|
+espanol|abstract/time|po|tras||False|False|other|
+espanol|abstract/time|pred|hace||False|False|other|
 espanol|abstract/time|ráno|mañana||False|False|other|
 espanol|abstract/time|skoré ráno|madrugada||False|False|other|
 espanol|abstract/time|svitať|amanecer||False|False|other|
 espanol|abstract/time|večer|tarde||False|False|other|
+espanol|basic|ale|pero||False|False|other|
 espanol|basic|ani náhodou|ni por asomo||False|False|other|
+espanol|basic|avšak|mas||False|False|other|
 espanol|basic|hoci|a pesar de||False|False|other|
 espanol|basic|iba ak|a menos que||False|False|other|
 espanol|basic|napriek tomu|no obstante||False|False|other|
@@ -11055,6 +11175,7 @@ espanol|biology/physiology|chrápať|roncar||False|False|other|
 espanol|biology/physiology|chuť|gusto||False|False|other|
 espanol|biology/physiology|dusiť sa|ahogarse||False|False|other|
 espanol|biology/physiology|dych|aliento||False|False|other|
+espanol|biology/physiology|dychčať|jadear||False|False|other|
 espanol|biology/physiology|dívať sa|mirar||False|False|other|
 espanol|biology/physiology|dýchanie|respiración||False|False|other|
 espanol|biology/physiology|dýchať|respirar||False|False|other|
@@ -11074,6 +11195,7 @@ espanol|biology/physiology|kýchnuť|estornudar||False|False|other|
 espanol|biology/physiology|lízať|lamer||False|False|other|
 espanol|biology/physiology|mrkať|parpadear||False|False|other|
 espanol|biology/physiology|mrknúť sa|ojear||False|False|other|
+espanol|biology/physiology|nevidiaci|invidente||False|True|other|
 espanol|biology/physiology|nádych|inspiración||False|False|other|
 espanol|biology/physiology|nárek|sollozo||False|False|other|
 espanol|biology/physiology|oblizovať|chupar||False|False|other|
@@ -11208,6 +11330,7 @@ espanol|culture/jedlo|cibuľa|cebolla||False|False|other|
 espanol|culture/jedlo|citrón|citrón||False|False|other|
 espanol|culture/jedlo|cukor|azúcar||False|False|other|
 espanol|culture/jedlo|haluška|ñoqui||False|False|other|
+espanol|culture/jedlo|hruška|pera||False|False|other|
 espanol|culture/jedlo|jablko|manzana||False|False|other|
 espanol|culture/jedlo|jahoda|fresa||False|False|other|
 espanol|culture/jedlo|kapusta|repollo||False|False|other|
@@ -11543,6 +11666,7 @@ espanol|economy/buildings|jama|hoyo||False|False|other|
 espanol|economy/buildings|kanalizácia|alcantarilla||False|False|other|
 espanol|economy/buildings|lešenie|andamio||False|False|other|
 espanol|economy/buildings|okno|ventana||False|False|other|
+espanol|economy/buildings|podkrovie|buhardilla||False|False|other|
 espanol|economy/buildings|podlaha|piso||False|False|other|
 espanol|economy/buildings|pozemok|terreno||False|False|other|
 espanol|economy/buildings|pódium|tarima||False|False|other|
@@ -11607,6 +11731,7 @@ espanol|economy/finance|stratiť|perder||False|False|other|
 espanol|economy/finance|vybrať/získať|recaudar||False|False|other|
 espanol|economy/finance|výživné|manutención||False|False|other|
 espanol|economy/finance|zjednávať|regatear||False|False|other|
+espanol|economy/finance|získať|conseguir||False|False|other|
 espanol|economy/finance|úrok|interés||False|False|other|
 espanol|economy/finance|účet|cuenta||False|False|other|
 espanol|economy/finance|účtovať|cobrar||False|False|other|
@@ -11803,6 +11928,7 @@ espanol|economy/tovar|papier|papel||False|False|other|
 espanol|economy/tovar|pero|pluma||False|False|other|
 espanol|economy/tovar|povraz|cuerda||False|False|other|
 espanol|economy/tovar|počítač|ordenador||False|False|other|
+espanol|economy/tovar|priečka|peldaño||False|False|other|
 espanol|economy/tovar|práčka|lavadora||False|False|other|
 espanol|economy/tovar|puzdro|estuche||False|False|other|
 espanol|economy/tovar|rebrík|escalera||False|False|other|
@@ -12126,6 +12252,7 @@ espanol|life/správanie|pomsta|venganza||False|False|other|
 espanol|life/správanie|pomstiť sa|vengarse||False|False|other|
 espanol|life/správanie|ponížiť|humillar||False|False|other|
 espanol|life/správanie|povzbudiť|animar||False|False|other|
+espanol|life/správanie|pretvárka|tapujo||False|False|other|
 espanol|life/správanie|prisahať|jurar||False|False|other|
 espanol|life/správanie|provokovať|provocar||False|False|other|
 espanol|life/správanie|rozhnevať|irritar||False|False|other|
@@ -12209,12 +12336,17 @@ espanol|life/terrain|údolie|valle||False|False|other|
 espanol|life/terrain|útes (koralový)|arrecife||False|False|other|
 espanol|life/terrain|útes (morský)|acantilado||False|False|other|
 espanol|life/terrain|šija|istmo||False|False|other|
+espanol|life/work|kariéra|carrera||False|False|other|
 espanol|life/work|lenivý|perezoso||False|False|other|
 espanol|life/work|náročný|exigente||False|False|other|
 espanol|life/work|opotrebovaný|sobado||False|False|other|
 espanol|life/work|pracovitý|laborioso||False|True|other|
 espanol|life/work|práca|labor||False|False|other|
+espanol|life/work|rozvinúť|desarrollar||False|False|other|
+espanol|life/work|splniť|cumplir||False|False|other|
+espanol|life/work|tím|equipo||False|False|other|
 espanol|life/work|úmorný|ímprobo||False|False|other|
+espanol|life/work|šikovný|mañoso||False|False|other|
 espanol|nature/change|zhnitý|podrido||False|False|other|
 espanol|nature/change|čerstvý|fresco||False|False|other|
 espanol|nature/energy|plameň|lumbre||False|False|other|
@@ -12367,6 +12499,7 @@ espanol|other|natiahnutý|estirado||False|False|other|
 espanol|other|necelý|escaso||False|False|other|
 espanol|other|nedbalo|al desgaire||False|False|other|
 espanol|other|nedostatok|falta||False|False|other|
+espanol|other|nedostatok|penuria||False|False|other|
 espanol|other|nemať/chýbať|carecer||False|False|other|
 espanol|other|nepodarok|pacotilla||False|False|other|
 espanol|other|nepokoj|ansiedad||False|False|other|
@@ -12432,6 +12565,7 @@ espanol|other|schopný|capaz||False|False|other|
 espanol|other|sklad|almacén||False|False|other|
 espanol|other|skrútiť|torcer||False|False|other|
 espanol|other|sprievod|séquito||False|False|other|
+espanol|other|stať sa|suceder||False|False|other|
 espanol|other|stopa|señal||False|False|other|
 espanol|other|stopa|vestigio||False|False|other|
 espanol|other|strmeň|estribo||False|False|other|
@@ -12503,6 +12637,7 @@ espanol|pronoun|pätolízač|zalamero||False|False|other|
 espanol|pronoun|sympaťák|majo||False|False|other|
 espanol|pronoun|truľo|zoquete||False|False|other|
 espanol|pronoun|zberba|chusma||False|False|other|
+espanol|pronoun|zástup|fila india||False|False|other|
 espanol|psychology/behaviour|chamtivosť|codicia||False|False|other|
 espanol|psychology/behaviour|chamtivý|codicioso||False|True|other|
 espanol|psychology/behaviour|chvála|alabanza||False|False|other|
@@ -12528,6 +12663,7 @@ espanol|psychology/behaviour|ohľaduplný|respetuoso||False|False|other|
 espanol|psychology/behaviour|oklamať|engañar||False|False|other|
 espanol|psychology/behaviour|pobúrený|indignado||False|False|other|
 espanol|psychology/behaviour|pochvala|elogio||False|False|other|
+espanol|psychology/behaviour|podfuk|estafa||False|False|other|
 espanol|psychology/behaviour|pokarhať|increpar||False|False|other|
 espanol|psychology/behaviour|pomsta|venganza||False|False|other|
 espanol|psychology/behaviour|pomstiť sa|vengarse||False|False|other|
@@ -12697,6 +12833,7 @@ espanol|psychology/komunikácia|šepot|susurro||False|False|other|
 espanol|psychology/komunikácia|šomrať|mascullar||False|False|other|
 espanol|psychology/komunikácia|šuškanie|cuchicheo||False|False|other|
 espanol|psychology/komunikácia|šuškať|cuchichear||False|False|other|
+espanol|psychology/komunikácia|žiadať|pedir||False|False|other|
 espanol|psychology/opinion|byť namyslený|presumir||False|False|other|
 espanol|psychology/opinion|byť sebavedomý|confiar||False|False|other|
 espanol|psychology/opinion|hanba|vergüenza||False|False|other|
@@ -12828,6 +12965,7 @@ espanol|psychology/security|poctivý|honrado||False|False|other|
 espanol|psychology/security|podozrenie|sospecha||False|False|other|
 espanol|psychology/security|podozrievať|sospechar (de)||False|False|other|
 espanol|psychology/security|podviesť|engañar||False|False|other|
+espanol|psychology/security|podvodník|estafador||False|False|other|
 espanol|psychology/security|podvod|engaño||False|False|other|
 espanol|psychology/security|pomoc|ayuda||False|False|other|
 espanol|psychology/security|pomôcť|ayudar (a)||False|False|other|
@@ -13110,6 +13248,7 @@ espanol|taxonomy/tetrapoda|užovka|culebra||False|False|other|
 espanol|taxonomy/tetrapoda|vretenica|víbora||False|False|other|
 espanol|taxonomy/tetrapoda|štrkáč|crótalo||False|False|other|
 espanol|taxonomy/tetrapoda|žaba|rana||False|False|other|
+espanol|taxonomy/tetrapoda|žubrienka|renacuajo||False|True|other|
 espanol|taxonomy/trees|borovica|pino||False|False|other|
 espanol|taxonomy/trees|brest|olmo||False|False|other|
 espanol|taxonomy/trees|breza|abedul||False|False|other|
@@ -13125,124 +13264,329 @@ espanol|taxonomy/trees|smrek|pícea||False|False|other|
 espanol|taxonomy/trees|tis|tejo||False|False|other|
 espanol|taxonomy/trees|topoľ|álamo||False|False|other|
 espanol|taxonomy/trees|vŕba|sauce||False|False|other|
-francais|animal|bažant|faisan||False|False|other|
-francais|animal|blcha|puce||False|False|other|
-francais|animal|bobor|castor||False|False|other|
-francais|animal|chobotnica|poulpe||False|False|other|
-francais|animal|delfín|dauphin||False|False|other|
-francais|animal|diviak|sanglier||False|False|other|
-francais|animal|drozd|grive||False|False|other|
-francais|animal|had|serpent||False|False|other|
-francais|animal|havran|corbeau||False|False|other|
-francais|animal|jazvec|blaireau||False|False|other|
-francais|animal|jeleň|cerf||False|False|other|
-francais|animal|jež|hérisson||False|False|other|
-francais|animal|komár|moustique||False|False|other|
-francais|animal|korytnačka|tortue||False|False|other|
-francais|animal|kôň|cheval||False|False|other|
-francais|animal|lastovička|hirondelle||False|False|other|
-francais|animal|los|élan||False|False|other|
-francais|animal|líška|renard||False|False|other|
-francais|animal|mačka|chat||False|False|other|
-francais|animal|medveď|ours||False|False|other|
-francais|animal|motýľ|papillon||False|False|other|
-francais|animal|mravec|fourmi||False|False|other|
-francais|animal|mrož|morse||False|False|other|
-francais|animal|mucha|mouche||False|False|other|
-francais|animal|myš|souris||False|False|other|
-francais|animal|netopier|chauve-souris||False|True|other|
-francais|animal|opica|singe||False|False|other|
-francais|animal|orol|aigle||False|False|other|
-francais|animal|osa|guêpe||False|False|other|
-francais|animal|papagáj|perroquet||False|False|other|
-francais|animal|pavúk|araignée||False|False|other|
-francais|animal|pes|chien||False|False|other|
-francais|animal|ploštica|punaise||False|False|other|
-francais|animal|páv|paon||False|False|other|
-francais|animal|pštros|autruche||False|False|other|
-francais|animal|ropucha|crapaud||False|False|other|
-francais|animal|slimák|escargot||False|False|other|
-francais|animal|slávik|rossignol||False|False|other|
-francais|animal|sob|renne||False|False|other|
-francais|animal|sojka|geai||False|False|other|
-francais|animal|sokol|faucon||False|False|other|
-francais|animal|sova|chouette||False|False|other|
-francais|animal|sršeň|frelon||False|False|other|
-francais|animal|stehlík|chardonneret||False|False|other|
-francais|animal|straka|pie||False|False|other|
-francais|animal|sup|vautour||False|False|other|
-francais|animal|sýkorka|mésange||False|False|other|
-francais|animal|tuleň|phoque||False|False|other|
-francais|animal|veľryba|baleine||False|False|other|
-francais|animal|vlk|loup||False|False|other|
-francais|animal|vrabec|moineau||False|False|other|
-francais|animal|vrana|corneille||False|False|other|
-francais|animal|včela|abeille||False|False|other|
-francais|animal|zajac|lièvre||False|False|other|
-francais|animal|ďateľ|pic||False|False|other|
-francais|animal|šváb|blatte||False|False|other|
-francais|animal|ťava|chameau||False|False|other|
-francais|animal|žaba|grenouille||False|False|other|
-francais|body|brada|menton||False|False|other|
-francais|body|brucho|ventre||False|False|other|
-francais|body|chlp|poil||False|False|other|
-francais|body|chodidlo|pied||False|False|other|
-francais|body|chrbát|dos||False|False|other|
-francais|body|dlaň|paume||False|False|other|
-francais|body|hlava|tête||False|False|other|
-francais|body|hruď|poitrine||False|False|other|
-francais|body|jazyk|langue||False|False|other|
-francais|body|koleno|genou||False|False|other|
-francais|body|kostra|squelette||False|False|other|
-francais|body|kosť|os||False|False|other|
-francais|body|koža|peau||False|False|other|
-francais|body|krk|cou||False|False|other|
-francais|body|krv|sang||False|False|other|
-francais|body|kĺb|articulation||False|False|other|
-francais|body|lakeť|coude||False|False|other|
-francais|body|lebka|crâne||False|False|other|
-francais|body|lopatka|omoplate||False|False|other|
-francais|body|líce|joue||False|False|other|
-francais|body|lýtko|mollet||False|False|other|
-francais|body|miecha|moelle épinière||False|False|other|
-francais|body|mihalnica|cil||False|False|other|
-francais|body|mozog|cerveau||False|False|other|
-francais|body|necht|ongle||False|False|other|
-francais|body|noha|jambe||False|False|other|
-francais|body|nos|nez||False|False|other|
-francais|body|oblička|rein||False|False|other|
-francais|body|obočie|sourcil||False|False|other|
-francais|body|oko|œil||False|False|other|
-francais|body|palec|pouce||False|False|other|
-francais|body|panva|bassin||False|False|other|
-francais|body|pera|lèvre||False|False|other|
-francais|body|pečeň|foie||False|False|other|
-francais|body|prsia|seins||False|False|other|
-francais|body|prst (noha)|orteil||False|False|other|
-francais|body|prst (ruka)|doigt||False|False|other|
-francais|body|pľúca|poumon||False|False|other|
-francais|body|rameno|bras||False|False|other|
-francais|body|rebro|côte||False|False|other|
-francais|body|ruka|main||False|False|other|
-francais|body|slezina|rate||False|False|other|
-francais|body|slina|salive||False|False|other|
-francais|body|srdce|cœur||False|False|other|
-francais|body|stavec|vertèbre||False|False|other|
-francais|body|stehno|cuisse||False|False|other|
-francais|body|sval|muscle||False|False|other|
-francais|body|ucho|oreille||False|False|other|
-francais|body|viečko|paupière||False|False|other|
-francais|body|vlas|cheveu||False|False|other|
-francais|body|zadok|derrière||False|False|other|
-francais|body|zrenička|pupille||False|False|other|
-francais|body|zub|dent||False|False|other|
-francais|body|zápästie|poignet||False|False|other|
-francais|body|ústa|bouche||False|False|other|
-francais|body|čelo|front||False|False|other|
-francais|body|členok|cheville||False|False|other|
-francais|body|ďasno|gencive||False|False|other|
-francais|body|šľacha|tendon||False|False|other|
-francais|body|žalúdok|estomac||False|False|other|
+francais|abstract-grammar|ja|je|ʒə |False|False|other|
+francais|abstract-grammar|ja|moi|mwa|False|False|other|
+francais|abstract-grammar|každý|chacun||False|False|other|
+francais|abstract-grammar|kto|qui|ki|False|False|other|
+francais|abstract-grammar|my|nous|nu|False|False|other|
+francais|abstract-grammar|môj X|ma|ma|False|True|other|
+francais|abstract-grammar|môj X|mon|mõ |False|True|other|
+francais|abstract-grammar|môj|mien|mjẽ|False|True|other|
+francais|abstract-grammar|niekto|quelqu'un||False|False|other|
+francais|abstract-grammar|nikto|personne||False|False|other|
+francais|abstract-grammar|ona|elle|el|False|False|other|
+francais|abstract-grammar|oni|eux|o|False|False|other|
+francais|abstract-grammar|on|il|il |False|False|other|
+francais|abstract-grammar|on|lui|lui|False|False|other|
+francais|abstract-grammar|tamten|ce ... -là||False|False|other|
+francais|abstract-grammar|tento|ce ... -ci||False|False|other|
+francais|abstract-grammar|tvoj X|ta|ta|False|True|other|
+francais|abstract-grammar|tvoj X|ton|tõ |False|True|other|
+francais|abstract-grammar|tvoj|tien|tjẽ|False|True|other|
+francais|abstract-grammar|ty|toi|twa|False|False|other|
+francais|abstract-grammar|ty|tu|ty |False|False|other|
+francais|abstract-grammar|vy|vous|vu|False|False|other|
+francais|abstract-grammar|čo|que|kə|False|False|other|
+francais|abstract-logic|alebo|ou|u|False|False|other|
+francais|abstract-logic|a|et|e|False|False|other|
+francais|abstract-logic|byť|exister|egziste|False|False|other|
+francais|abstract-logic|dokázať|prouver|pruve|False|True|other|
+francais|abstract-logic|dôkaz|preuve|prœv|False|False|other|
+francais|abstract-logic|klamstvo|mensonge|mãsõʒ|False|False|other|
+francais|abstract-logic|nie|ne pas||False|False|other|
+francais|abstract-logic|nie|non|nõ |False|False|other|
+francais|abstract-logic|následok|conséquence|kõsekãs|False|False|other|
+francais|abstract-logic|objaviť sa|apparaître|aparetr|False|False|other|
+francais|abstract-logic|okolnosť|circonstance|sirkõstãs|False|False|other|
+francais|abstract-logic|podmienka|condition|kõdisjõ|False|False|other|
+francais|abstract-logic|pravda|vérité|verite|False|False|other|
+francais|abstract-logic|predmet|objet|obʒe|False|False|other|
+francais|abstract-logic|prestať|cesser|sese|False|False|other|
+francais|abstract-logic|prípad|cas|ka|False|False|other|
+francais|abstract-logic|príčina|cause|koz|False|False|other|
+francais|abstract-logic|pôvod|origine|oriʒin|False|False|other|
+francais|abstract-logic|skutočný|réel|reel|False|False|other|
+francais|abstract-logic|spojiť|joindre|ʒwẽdr|False|False|other|
+francais|abstract-logic|spôsobiť|causer|koze|False|True|other|
+francais|abstract-logic|stať sa|devenir|dəvənir|False|False|other|
+francais|abstract-logic|súvislosť|contexte|kõtekst|False|False|other|
+francais|abstract-logic|vec|chose|ʃoz|False|False|other|
+francais|abstract-logic|vlastnosť|qualité|kalite|False|False|other|
+francais|abstract-logic|vyplývať|découler de|dekule|False|False|other|
+francais|abstract-logic|vyvrátiť|réfuter|refyte|False|False|other|
+francais|abstract-logic|vzťah|relation|rəlasjõ|False|False|other|
+francais|abstract-logic|zdroj|source|surs|False|False|other|
+francais|abstract-logic|zmena|changement|ʃãzmã|False|True|other|
+francais|abstract-logic|zmeniť|changer|ʃãze|False|False|other|
+francais|abstract-logic|zmiznúť|disparaître|disparetr|False|True|other|
+francais|abstract-logic|účinok|effet|efe|False|False|other|
+francais|abstract-logic|časť|partie|parti|False|False|other|
+francais|abstract-number|desať|dix|dis|False|False|other|
+francais|abstract-number|devätnásť|dix-neuf||False|False|other|
+francais|abstract-number|deväťdesiat|quatre-vingt-dix||False|False|other|
+francais|abstract-number|deväť|neuf|nœf|False|False|other|
+francais|abstract-number|dosť|assez|ase|False|False|other|
+francais|abstract-number|dvadsať|vingt|vẽ|False|False|other|
+francais|abstract-number|dvanásť|douze|duz|False|False|other|
+francais|abstract-number|dva|deux|do|False|False|other|
+francais|abstract-number|jeden|un|œ̃|False|False|other|
+francais|abstract-number|jedenásť|onze|õz|False|False|other|
+francais|abstract-number|málo|peu|po|False|False|other|
+francais|abstract-number|nič|rien|rjẽ|False|False|other|
+francais|abstract-number|nula|zéro|zero|False|False|other|
+francais|abstract-number|odmocnina|racine|rasin|False|False|other|
+francais|abstract-number|osemdesiat|quatre-vingts||False|False|other|
+francais|abstract-number|osemnásť|dix-huit||False|False|other|
+francais|abstract-number|osem|huit|ui|False|False|other|
+francais|abstract-number|podiel|quotient|kosjã|False|False|other|
+francais|abstract-number|polovica|moitié|mwatje|False|False|other|
+francais|abstract-number|príliš|trop|tro|False|False|other|
+francais|abstract-number|pätnásť|quinze|kẽz|False|False|other|
+francais|abstract-number|päťdesiat|cinquante|sẽkãt|False|False|other|
+francais|abstract-number|päť|cinq|sẽk|False|False|other|
+francais|abstract-number|rozdiel|différence|diferãs|False|False|other|
+francais|abstract-number|sedemdesiat|soixante-dix||False|False|other|
+francais|abstract-number|sedemnásť|dix-sept||False|False|other|
+francais|abstract-number|sedem|sept|set|False|False|other|
+francais|abstract-number|sto|cent|sã|False|False|other|
+francais|abstract-number|súčet|somme|som|False|False|other|
+francais|abstract-number|súčin|produit|produi|False|False|other|
+francais|abstract-number|tisíc|mille|mil|False|False|other|
+francais|abstract-number|tretina|tiers|tjer|False|False|other|
+francais|abstract-number|tridsať|trente|trãt|False|False|other|
+francais|abstract-number|trinásť|treize|trez|False|False|other|
+francais|abstract-number|tri|trois|trwa|False|False|other|
+francais|abstract-number|veľa|beaucoup|boku|False|False|other|
+francais|abstract-number|vzorec|formule|formyl|False|False|other|
+francais|abstract-number|výsledok|résultat|rezylta|False|False|other|
+francais|abstract-number|všetko|tout|tu|False|False|other|
+francais|abstract-number|zlomok|fraction|fraksjõ|False|False|other|
+francais|abstract-number|číslica|chiffre|ʃifr|False|False|other|
+francais|abstract-number|číslo|nombre|nõbr|False|False|other|
+francais|abstract-number|šestnásť|seize|sez|False|False|other|
+francais|abstract-number|šesťdesiat|soixante|swasãt|False|False|other|
+francais|abstract-number|šesť|six|sis|False|False|other|
+francais|abstract-number|štrnásť|quatorze|katorz|False|False|other|
+francais|abstract-number|štvrtina|quart|kar|False|False|other|
+francais|abstract-number|štyridsať|quarante|karãt|False|False|other|
+francais|abstract-number|štyri|quatre|katr|False|False|other|
+francais|abstract-place|blízkosť|proximité|proksimite|False|False|other|
+francais|abstract-place|blízko|près|pre|False|False|other|
+francais|abstract-place|blízko|à proximité||False|False|other|
+francais|abstract-place|blízky|proche|proʃ|False|True|other|
+francais|abstract-place|dlhý|long|lõ|False|False|other|
+francais|abstract-place|dnu|dedans||False|False|other|
+francais|abstract-place|dolu|dessous|dəsu|False|False|other|
+francais|abstract-place|dolu|en bas||False|False|other|
+francais|abstract-place|do|à||False|False|other|
+francais|abstract-place|dĺžka|longueur|lõgœr|False|True|other|
+francais|abstract-place|hlboký|profond|profõ|False|False|other|
+francais|abstract-place|hore|dessus|dəsy|False|False|other|
+francais|abstract-place|hore|en haut||False|False|other|
+francais|abstract-place|hĺbka|profondeur|profõdœr|False|True|other|
+francais|abstract-place|inde|ailleurs|ajœr|False|False|other|
+francais|abstract-place|juh|sud|syd|False|False|other|
+francais|abstract-place|kde|où|u|False|False|other|
+francais|abstract-place|krátky|court|kur|False|False|other|
+francais|abstract-place|malý|petit|pəti|False|False|other|
+francais|abstract-place|medzi|entre|ãtr|False|False|other|
+francais|abstract-place|miesto|endroit|ãdrwa|False|False|other|
+francais|abstract-place|miesto|lieu|ljo|False|False|other|
+francais|abstract-place|miesto|place|plas|False|False|other|
+francais|abstract-place|mimo|hors||False|False|other|
+francais|abstract-place|na|sur|syr|False|False|other|
+francais|abstract-place|nízky|bas|ba|False|False|other|
+francais|abstract-place|oddelený|séparé|separe|False|False|other|
+francais|abstract-place|od|de||False|False|other|
+francais|abstract-place|poloha|position|pozisjõ|False|False|other|
+francais|abstract-place|pravý|droit|drwa|False|False|other|
+francais|abstract-place|pred/vpredu|devant|dəvã|False|False|other|
+francais|abstract-place|priľahlý|attenant|atənã|False|False|other|
+francais|abstract-place|samostatný|isolé|izole|False|False|other|
+francais|abstract-place|sever|nord|nor|False|False|other|
+francais|abstract-place|smer|direction|direksjõ|False|False|other|
+francais|abstract-place|stred|centre|sãtr|False|False|other|
+francais|abstract-place|stred|milieu|miljo|False|False|other|
+francais|abstract-place|susedný|voisin|vwazẽ|False|False|other|
+francais|abstract-place|tam|là|la|False|False|other|
+francais|abstract-place|tu|ici|isi|False|False|other|
+francais|abstract-place|vedľa|à côté||False|False|other|
+francais|abstract-place|veľkosť|grandeur|grãdœr|False|True|other|
+francais|abstract-place|veľký|grand|grã|False|False|other|
+francais|abstract-place|von|dehors||False|False|other|
+francais|abstract-place|vysoký|haut|o|False|False|other|
+francais|abstract-place|vzdialenosť|distance|distãs|False|False|other|
+francais|abstract-place|vzdialený|distant|distã|False|True|other|
+francais|abstract-place|v|dans|dã|False|False|other|
+francais|abstract-place|v|en|ã |False|False|other|
+francais|abstract-place|východ|est|est|False|False|other|
+francais|abstract-place|výška|hauteur|otœr|False|True|other|
+francais|abstract-place|všade|partout|partu|False|False|other|
+francais|abstract-place|za/vzadu|derrière|derjer|False|False|other|
+francais|abstract-place|západ|ouest|west|False|False|other|
+francais|abstract-place|úzky|étroit|etrwa|False|False|other|
+francais|abstract-place|ďaleko|loin|lwẽ|False|False|other|
+francais|abstract-place|ďaleký|lointain|lwẽtẽ|False|True|other|
+francais|abstract-place|ľavý|gauche|goʃ|False|False|other|
+francais|abstract-place|široký|large|larʒ|False|False|other|
+francais|abstract-place|šírka|largeur|larʒœr|False|True|other|
+francais|abstract-shape|bod|point|pwẽ|False|False|other|
+francais|abstract-shape|guľa|sphère|sfer|False|False|other|
+francais|abstract-shape|ihlan|pyramide|piramid|False|False|other|
+francais|abstract-shape|kocka|cube|kyb|False|False|other|
+francais|abstract-shape|krivka|courbe|kurb|False|False|other|
+francais|abstract-shape|kruh|cercle|serkl|False|False|other|
+francais|abstract-shape|kríž|croix|krwa|False|False|other|
+francais|abstract-shape|kužeľ|cône|kon|False|False|other|
+francais|abstract-shape|obdĺžnik|rectangle|rektãgl|False|False|other|
+francais|abstract-shape|objem|volume|volym|False|False|other|
+francais|abstract-shape|polomer|rayon|rejõ|False|False|other|
+francais|abstract-shape|povrch|surface|syrfas|False|False|other|
+francais|abstract-shape|priamka|droite|drwat|False|False|other|
+francais|abstract-shape|trojuholník|triangle|trijãgl|False|False|other|
+francais|abstract-shape|tvar|forme|form|False|False|other|
+francais|abstract-shape|uhol|angle|ãgl|False|False|other|
+francais|abstract-shape|valec|cylindre|silẽdr|False|False|other|
+francais|abstract-shape|čiara|ligne|liɲ|False|False|other|
+francais|abstract-shape|štvorec|carré|kare|False|False|other|
+francais|abstract-time|apríl|avril|avril|False|False|other|
+francais|abstract-time|august|août|ut|False|False|other|
+francais|abstract-time|budúci|futur|fytyr|False|False|other|
+francais|abstract-time|chvíľa|moment|momã|False|False|other|
+francais|abstract-time|december|décembre|desãbr|False|False|other|
+francais|abstract-time|deň|jour|ʒur|False|False|other|
+francais|abstract-time|dlho|longtemps|lõtã|False|True|other|
+francais|abstract-time|dnes|aujourd'hui|aʒurdui|False|False|other|
+francais|abstract-time|dočasný|temporaire|tãporer|False|False|other|
+francais|abstract-time|dávno|jadis|ʒadis|False|False|other|
+francais|abstract-time|február|février|fevrje|False|False|other|
+francais|abstract-time|hodina|heure|œr|False|False|other|
+francais|abstract-time|január|janvier|ʒãvje|False|False|other|
+francais|abstract-time|júl|juillet|ʒuije|False|False|other|
+francais|abstract-time|jún|juin|ʒuẽ|False|False|other|
+francais|abstract-time|kalendár|calendrier|kalãdrije|False|False|other|
+francais|abstract-time|kedysi|autrefois|otrəfwa|False|False|other|
+francais|abstract-time|koniec|fin|fẽ|False|False|other|
+francais|abstract-time|marec|mars|mars|False|False|other|
+francais|abstract-time|mesiac|mois|mwa|False|False|other|
+francais|abstract-time|minulý|passé|pase|False|False|other|
+francais|abstract-time|minúta|minute|minyt|False|False|other|
+francais|abstract-time|máj|mai|me|False|False|other|
+francais|abstract-time|nasledujúci|prochain|proʃẽ|False|False|other|
+francais|abstract-time|nedeľa|dimanche|dimãʃ|False|False|other|
+francais|abstract-time|nedávno|naguère|nager|False|False|other|
+francais|abstract-time|nedávno|récemment|resamõ |False|False|other|
+francais|abstract-time|neskoro|tard|tar|False|False|other|
+francais|abstract-time|nikdy|jamais|ʒame|False|False|other|
+francais|abstract-time|november|novembre|novãbr|False|False|other|
+francais|abstract-time|obdobie|période|perjod|False|False|other|
+francais|abstract-time|občas|parfois|parfwa|False|False|other|
+francais|abstract-time|od|depuis|dəpui|False|False|other|
+francais|abstract-time|okamih|instant|ẽstã|False|False|other|
+francais|abstract-time|október|octobre|oktobr|False|False|other|
+francais|abstract-time|piatok|vendredi|vãdrədi|False|False|other|
+francais|abstract-time|pokračovať|continuer|kõtinue|False|False|other|
+francais|abstract-time|pomaly|lentement|lãtmã|False|True|other|
+francais|abstract-time|pomalý|lent|lã|False|False|other|
+francais|abstract-time|pondelok|lundi|lœ̃di|False|False|other|
+francais|abstract-time|potom|puis|pui|False|False|other|
+francais|abstract-time|po|après|apre|False|False|other|
+francais|abstract-time|počas|pendant|pãdã|False|False|other|
+francais|abstract-time|pravidelne|régulièrement|regyljermã|False|False|other|
+francais|abstract-time|prechodný|provisoire|provizwar|False|True|other|
+francais|abstract-time|predchádzajúci|précédent|presedã|False|False|other|
+francais|abstract-time|predtým|auparavant|oparavã|False|True|other|
+francais|abstract-time|pred|avant|avã|False|False|other|
+francais|abstract-time|prerušiť|suspendre|syspãdr|False|False|other|
+francais|abstract-time|prestať|cesser|sese|False|False|other|
+francais|abstract-time|rok|année|ane|False|False|other|
+francais|abstract-time|rýchlo|rapidement|rapidmã|False|True|other|
+francais|abstract-time|rýchlo|vite|vit|False|True|other|
+francais|abstract-time|rýchly|rapide|rapid|False|False|other|
+francais|abstract-time|sekunda|seconde|səgõd|False|False|other|
+francais|abstract-time|september|septembre|septãbr|False|False|other|
+francais|abstract-time|skončiť|terminer|termine|False|False|other|
+francais|abstract-time|skoro|tôt|to|False|False|other|
+francais|abstract-time|sobota|samedi|samdi|False|False|other|
+francais|abstract-time|storočie|siècle|sjekl|False|False|other|
+francais|abstract-time|streda|mercredi|merkrədi|False|False|other|
+francais|abstract-time|súčasný|présent|prezã|False|False|other|
+francais|abstract-time|teraz|maintenant|mẽtənã|False|False|other|
+francais|abstract-time|trvalý|permanent|permanã|False|False|other|
+francais|abstract-time|trvanie|durée|dyre|False|False|other|
+francais|abstract-time|týždeň|semaine|səmen|False|False|other|
+francais|abstract-time|udržať|maintenir|mẽtənir|False|False|other|
+francais|abstract-time|utorok|mardi|mardi|False|False|other|
+francais|abstract-time|večnosť|éternité|eternite|False|False|other|
+francais|abstract-time|včera|hier|jer|False|False|other|
+francais|abstract-time|vždy|toujours|tuʒur|False|False|other|
+francais|abstract-time|zajtra|demain|dəmẽ|False|False|other|
+francais|abstract-time|zastaviť|arrêter|arete|False|False|other|
+francais|abstract-time|začať|commencer|komãse|False|False|other|
+francais|abstract-time|začiatok|début|deby|False|False|other|
+francais|abstract-time|čakanie|attente|atãt|False|True|other|
+francais|abstract-time|čakať|attendre|atãdr|False|False|other|
+francais|abstract-time|často|souvent|suvã|False|False|other|
+francais|abstract-time|čas|temps|tã|False|False|other|
+francais|abstract-time|čoskoro|bientôt|bjẽto|False|False|other|
+francais|abstract-time|štvrtok|jeudi|ʒodi|False|False|other|
+francais|abstract-value|bezpečnosť|sécurité|sekyrite|False|False|other|
+francais|abstract-value|bezpečný|sûr|syr|False|False|other|
+francais|abstract-value|bežný|courant|kurã|False|False|other|
+francais|abstract-value|chýbať|manquer|mãke|False|True|other|
+francais|abstract-value|dobre|bien|bjẽ|False|False|other|
+francais|abstract-value|dobrý|bon|bõ|False|False|other|
+francais|abstract-value|dokonalý|parfait|parfe|False|False|other|
+francais|abstract-value|dôležitý|important|ẽportã|False|False|other|
+francais|abstract-value|hlavný|principal|prẽsipal|False|False|other|
+francais|abstract-value|hodnota|valeur|valœr|False|False|other|
+francais|abstract-value|istota|certitude|sertityd|False|False|other|
+francais|abstract-value|istý|certain|sertẽ|False|True|other|
+francais|abstract-value|krásny|beau|bo |False|False|other|
+francais|abstract-value|krásny|belle|bel|False|False|other|
+francais|abstract-value|kvalita|qualité|kalite|False|False|other|
+francais|abstract-value|nebezpečenstvo|danger|dãʒe|False|False|other|
+francais|abstract-value|nebezpečenstvo|péril|peril|False|False|other|
+francais|abstract-value|nebezpečný|dangereux|dãʒro|False|True|other|
+francais|abstract-value|nedostatok/chyba|défaut|defo|False|False|other|
+francais|abstract-value|nedostatok|manque|mãk|False|False|other|
+francais|abstract-value|obyčajný|ordinaire|ordiner|False|False|other|
+francais|abstract-value|odlišný|différent|diferã|False|False|other|
+francais|abstract-value|ohavný|hideux|ido|False|False|other|
+francais|abstract-value|pekný|joli|ʒoli|False|False|other|
+francais|abstract-value|plytvanie|gaspillage|gaspijaʒ|False|False|other|
+francais|abstract-value|plytvať|gaspiller|gaspije|False|True|other|
+francais|abstract-value|podobný|similaire|similer|False|False|other|
+francais|abstract-value|podstatný|essentiel|esãsjel|False|False|other|
+francais|abstract-value|potrebný|nécessaire|neseser|False|False|other|
+francais|abstract-value|poškodiť|endommager|ãdomaʒe|False|True|other|
+francais|abstract-value|príležitostný|occasionnel|okazjonel|False|False|other|
+francais|abstract-value|riskantný|risqué|riske|False|True|other|
+francais|abstract-value|riziko|risque|risk|False|False|other|
+francais|abstract-value|rovnaký|même|mem|False|False|other|
+francais|abstract-value|spoľahlivosť|fiabilité|fjabilite|False|False|other|
+francais|abstract-value|spoľahlivý|fiable|fjabl|False|True|other|
+francais|abstract-value|strata|perte|pert|False|False|other|
+francais|abstract-value|stratiť|perdre|perdr|False|True|other|
+francais|abstract-value|užitočný|utile|ytil|False|False|other|
+francais|abstract-value|vedľajší|accessoire|akseswar|False|False|other|
+francais|abstract-value|výborný|excellent|ekselã|False|False|other|
+francais|abstract-value|zanedbateľný|négligeable|negliʒabl|False|False|other|
+francais|abstract-value|zbytočný|superflu|syperfly|False|False|other|
+francais|abstract-value|zisk|gain|gẽ|False|False|other|
+francais|abstract-value|zle|mal|mal|False|False|other|
+francais|abstract-value|zlý|mauvais|move|False|False|other|
+francais|abstract-value|zraniteľnosť|vulnérabilité|vylnerabilite|False|False|other|
+francais|abstract-value|zraniteľný|vulnérable|vylnerabl|False|True|other|
+francais|abstract-value|zriedkavý|rare|rar|False|False|other|
+francais|abstract-value|zvyčajný|habituel|abituel|False|False|other|
+francais|abstract-value|základný|fondamental|fõdamãtal|False|False|other|
+francais|abstract-value|účinný|efficace|efikas|False|False|other|
+francais|abstract-value|častý|fréquent|frekã|False|False|other|
+francais|abstract-value|škaredý|laid|le|False|False|other|
+francais|abstract-value|škaredý|moche|moʃ|False|False|other|
+francais|abstract-value|škoda|dommage|domaʒ|False|False|other|
+francais|abstract-value|škodlivý|nuisible|nuizibl|False|False|other|
 francais|character|bežný|courant||False|False|other|
 francais|character|bohatý|riche||False|False|other|
 francais|character|chudobný|pauvre||False|False|other|
@@ -13295,171 +13639,647 @@ francais|character|škodoradostný|malicieux||False|False|other|
 francais|character|štedrosť|générosité||False|True|other|
 francais|character|štedrý|généreux||False|False|other|
 francais|education|myseľ|esprit||False|False|other|
-francais|education|myslieť|penser||False|False|other|
-francais|education|myšlienka|pensée||False|True|other|
-francais|education|nápad|idée||False|False|other|
 francais|education|objaviť|découvrir||False|False|other|
 francais|education|objav|découverte||False|True|other|
-francais|education|pamätať si|souvenir||False|False|other|
-francais|education|pamäť|mémoire||False|False|other|
-francais|education|pochopiť|comprendre||False|False|other|
-francais|education|poznať|connaître||False|False|other|
-francais|education|rozum|raison||False|False|other|
-francais|education|spomienka|souvenir||False|True|other|
-francais|education|uvažovať|réfléchir||False|False|other|
 francais|education|učiteľ|enseignant||False|True|other|
 francais|education|učiť sa|apprendre||False|False|other|
-francais|education|vedieť|savoir||False|False|other|
 francais|education|vynájsť|inventer||False|False|other|
 francais|education|vynález|invention||False|True|other|
 francais|education|vyučovať|enseigner||False|False|other|
-francais|education|znalosť|connaissance||False|True|other|
 francais|education|škola|école||False|False|other|
 francais|education|školák|écolier||False|True|other|
 francais|education|žiak|élève||False|False|other|
-francais|emotion|bojazlivý|craintif||False|True|other|
-francais|emotion|báť sa|craindre||False|True|other|
-francais|emotion|desivý|effrayant||False|False|other|
-francais|emotion|hanba|honte||False|False|other|
-francais|emotion|hnev|colère||False|False|other|
-francais|emotion|hrozný|terrifiant||False|True|other|
-francais|emotion|hrôza|terreur||False|False|other|
-francais|emotion|nadchnúť|enthousiasmer||False|True|other|
-francais|emotion|nadšený|enthousiaste||False|False|other|
-francais|emotion|nahnevaný|fâché||False|False|other|
-francais|emotion|nahnevať|fâcher||False|True|other|
-francais|emotion|obava|crainte||False|False|other|
-francais|emotion|prekvapený|surpris||False|False|other|
-francais|emotion|prekvapiť|surprendre||False|True|other|
-francais|emotion|pyšný|orgueilleux||False|True|other|
-francais|emotion|pýcha|orgueil||False|False|other|
-francais|emotion|radostný|joyeux||False|True|other|
-francais|emotion|radosť|joie||False|False|other|
-francais|emotion|rozhorčený|indigné||False|False|other|
-francais|emotion|rozhorčiť|indigner||False|True|other|
-francais|emotion|smutný|triste||False|True|other|
-francais|emotion|smútok|tristesse||False|False|other|
-francais|emotion|strach|peur||False|False|other|
-francais|emotion|trápiť|désoler||False|True|other|
-francais|emotion|udivený|étonné||False|False|other|
-francais|emotion|udiviť|étonner||False|True|other|
-francais|emotion|utrápený|désolé||False|False|other|
-francais|emotion|vydesiť|effrayer||False|True|other|
-francais|emotion|zahanbený|humilié||False|False|other|
-francais|emotion|zahanbiť|humilier||False|True|other|
-francais|emotion|zhnusiť|dégoûter||False|True|other|
-francais|emotion|zlostný|coléreux||False|True|other|
-francais|emotion|zmätený|confus||False|True|other|
-francais|emotion|zmätený|perplexe||False|False|other|
-francais|emotion|zmätok|confusion||False|False|other|
-francais|emotion|znechutený|dégoûté||False|False|other|
-francais|emotion|znepokojenie|inquiétude||False|True|other|
-francais|emotion|znepokojený|inquiet||False|False|other|
-francais|emotion|znepokojiť|inquiéter||False|True|other|
-francais|emotion|zúrivosť|rage||False|False|other|
-francais|emotion|zúrivý|enragé||False|True|other|
-francais|emotion|zúrivý|furieux||False|False|other|
-francais|emotion|zúriť|enrager||False|True|other|
-francais|energy|biely|blanc||False|False|other|
-francais|energy|energia|énergie||False|False|other|
-francais|energy|farba|couleur||False|False|other|
-francais|energy|hluk|bruit||False|False|other|
-francais|energy|hmotnosť|poids||False|False|other|
-francais|energy|hnedý|brun||False|False|other|
-francais|energy|horenie|ignition||False|False|other|
-francais|energy|horieť|brûler||False|False|other|
-francais|energy|iskra|étincelle||False|False|other|
-francais|energy|jasný|clair||False|False|other|
-francais|energy|lesknúť sa|reluire||False|True|other|
-francais|energy|magnet|aimant||False|False|other|
-francais|energy|modrý|bleu||False|False|other|
-francais|energy|napätie|tension||False|False|other|
-francais|energy|náboj|charge||False|False|other|
-francais|energy|odpor|résistance||False|False|other|
-francais|energy|odpudivý|répulsif||False|False|other|
-francais|energy|oheň|feu||False|False|other|
-francais|energy|plameň|flamme||False|False|other|
-francais|energy|pomalý|lent||False|False|other|
-francais|energy|príťažlivý|attractif||False|False|other|
-francais|energy|prúd|courant||False|False|other|
-francais|energy|rýchlosť|vitesse||False|False|other|
-francais|energy|rýchly|rapide||False|False|other|
-francais|energy|sila|force||False|False|other|
-francais|energy|silný|fort||False|False|other|
-francais|energy|sivý|gris||False|False|other|
-francais|energy|slabý|faible||False|False|other|
-francais|energy|studený|froid||False|False|other|
-francais|energy|svetlo|lumière||False|False|other|
-francais|energy|svietiť|luire||False|False|other|
-francais|energy|teplota|température||False|False|other|
-francais|energy|teplo|chaleur||False|False|other|
-francais|energy|teplý|chaud||False|False|other|
-francais|energy|ticho|silence||False|False|other|
-francais|energy|tieň|ombre||False|False|other|
-francais|energy|tlak|pression||False|False|other|
-francais|energy|tmavý|sombre||False|False|other|
-francais|energy|tma|obscurité||False|False|other|
-francais|energy|vážiť|peser||False|False|other|
-francais|energy|výbuch|explosion||False|False|other|
-francais|energy|zelený|vert||False|False|other|
-francais|energy|zvuk|son||False|False|other|
-francais|energy|červený|rouge||False|False|other|
-francais|energy|čierny|noir||False|False|other|
-francais|energy|ľahký|léger||False|False|other|
-francais|energy|ťažký|pesant||False|False|other|
-francais|energy|žiariť|briller||False|False|other|
-francais|energy|žltý|jaune||False|False|other|
-francais|food|arašid|cacahouète||False|False|other|
-francais|food|broskyňa|pêche||False|False|other|
-francais|food|cesnak|ail||False|False|other|
-francais|food|cestoviny|pâtes||False|False|other|
-francais|food|chlieb|pain||False|False|other|
-francais|food|cibuľa|oignon||False|False|other|
-francais|food|citrón|citron||False|False|other|
-francais|food|cukor|sucre||False|False|other|
-francais|food|fazuľa|haricot||False|False|other|
-francais|food|horčica|moutarde||False|False|other|
-francais|food|hrach|pois||False|False|other|
-francais|food|hruška|poire||False|False|other|
-francais|food|jablko|pomme||False|False|other|
-francais|food|jahoda|fraise||False|False|other|
-francais|food|kapusta|chou||False|False|other|
-francais|food|malina|framboise||False|False|other|
-francais|food|mandľa|amande||False|False|other|
-francais|food|marhuľa|abricot||False|False|other|
-francais|food|maslo|beurre||False|False|other|
-francais|food|med|miel||False|False|other|
-francais|food|mlieko|lait||False|False|other|
-francais|food|mrkva|carotte||False|False|other|
-francais|food|mäso|viande||False|False|other|
-francais|food|múka|farine||False|False|other|
-francais|food|olej|huile||False|False|other|
-francais|food|omáčka|sauce||False|False|other|
-francais|food|orech|noix||False|False|other|
-francais|food|paprika|piment||False|False|other|
-francais|food|paradajka|tomate||False|False|other|
-francais|food|petržlen|persil||False|False|other|
-francais|food|pivo|bière||False|False|other|
-francais|food|polievka|soupe||False|False|other|
-francais|food|pomaranč|orange||False|False|other|
-francais|food|rezeň|escalope||False|False|other|
-francais|food|ryža|riz||False|False|other|
-francais|food|slivka|prune||False|False|other|
-francais|food|smotana|crème||False|False|other|
-francais|food|syr|fromage||False|False|other|
-francais|food|uhorka|concombre||False|False|other|
-francais|food|vajce|œuf||False|False|other|
-francais|food|víno|vin||False|False|other|
-francais|food|zemiak|pomme de terre||False|False|other|
-francais|food|zákusok|gâteau||False|False|other|
-francais|food|čaj|thé||False|False|other|
-francais|food|čerešňa|cerise||False|False|other|
-francais|food|čierne korenie|poivre||False|False|other|
-francais|food|čučoriedka|myrtille||False|False|other|
-francais|food|šalát|laitue||False|False|other|
-francais|food|škorica|cannelle||False|False|other|
-francais|food|šošovica|lentille||False|False|other|
-francais|food|špenát|épinard||False|False|other|
+francais|human-art|atrament|encre|ãkr|False|False|other|
+francais|human-art|bubon|tambour|tãbur|False|False|other|
+francais|human-art|ceruzka|crayon|krejõ|False|False|other|
+francais|human-art|dielo|œuvre|œvr|False|False|other|
+francais|human-art|divadlo|théâtre|teatr|False|False|other|
+francais|human-art|flauta|flûte|flyt|False|False|other|
+francais|human-art|gitara|guitare|gitar|False|False|other|
+francais|human-art|herec|acteur|aktœr|False|False|other|
+francais|human-art|hra|jeu|ʒo|False|False|other|
+francais|human-art|hračka|jouet|ʒwe|False|True|other|
+francais|human-art|hrať|jouer|ʒwe|False|True|other|
+francais|human-art|hráč|joueur|ʒwœr|False|True|other|
+francais|human-art|hudba|musique|myzik|False|False|other|
+francais|human-art|husle|violon|vjolõ|False|False|other|
+francais|human-art|kino|cinéma|sinema|False|False|other|
+francais|human-art|klavír|piano|pjano|False|False|other|
+francais|human-art|kresba|dessin|desẽ|False|True|other|
+francais|human-art|kresliť|dessiner|desine|False|False|other|
+francais|human-art|maliar|peintre|pẽtr|False|True|other|
+francais|human-art|maľba|peinture|pẽtyr|False|True|other|
+francais|human-art|maľovať|peindre|pẽdr|False|False|other|
+francais|human-art|obraz|tableau|tablo|False|False|other|
+francais|human-art|pieseň|chanson|ʃãsõ|False|True|other|
+francais|human-art|plagát|affiche|afiʃ|False|False|other|
+francais|human-art|plátno|toile|twal|False|False|other|
+francais|human-art|socha|sculpture|skyltyr|False|True|other|
+francais|human-art|sochár|sculpteur|skyltœr|False|True|other|
+francais|human-art|spev|chant|ʃã|False|False|other|
+francais|human-art|spevák|chanteur|ʃãtœr|False|True|other|
+francais|human-art|spievať|chanter|ʃãte|False|True|other|
+francais|human-art|tancovať|danser|dãse|False|True|other|
+francais|human-art|tanec|danse|dãs|False|False|other|
+francais|human-art|tanečník|danseur|dãsœr|False|True|other|
+francais|human-art|tesať|sculpter|skylte|False|False|other|
+francais|human-art|umelec|artiste|artist|False|True|other|
+francais|human-art|umenie|art|ar|False|False|other|
+francais|human-art|štetec|pinceau|pẽso|False|False|other|
+francais|human-art|žart|blague|blag|False|False|other|
+francais|human-cloth|brada|barbe|barb|False|False|other|
+francais|human-cloth|bunda|blouson|bluzõ|False|False|other|
+francais|human-cloth|bunda|veste|vest |False|False|other|
+francais|human-cloth|drdol|chignon|ʃiɲõ|False|False|other|
+francais|human-cloth|dres|maillot|majo|False|False|other|
+francais|human-cloth|fúzy|moustache|mustaʃ|False|False|other|
+francais|human-cloth|golier|col|kol|False|False|other|
+francais|human-cloth|gombík|bouton|butõ|False|False|other|
+francais|human-cloth|hodinky|montre|mõtr|False|False|other|
+francais|human-cloth|hrebeň|peigne|peɲ|False|False|other|
+francais|human-cloth|ihla|aiguille|eguij|False|False|other|
+francais|human-cloth|kabelka|sac à main||False|True|other|
+francais|human-cloth|kabát|manteau|mãto|False|False|other|
+francais|human-cloth|kaderník|coiffeur|kwafœr|False|True|other|
+francais|human-cloth|kefa|brosse|bros|False|False|other|
+francais|human-cloth|kefovať|brosser|brose|False|True|other|
+francais|human-cloth|klobúk|chapeau|ʃapo|False|False|other|
+francais|human-cloth|kombinéza|salopette|salopet|False|False|other|
+francais|human-cloth|koruna|couronne|kuron|False|False|other|
+francais|human-cloth|košeľa|chemise|ʃəmiz|False|False|other|
+francais|human-cloth|lodička|escarpin|eskarpẽ|False|False|other|
+francais|human-cloth|líčenie|maquillage|makijaʒ|False|False|other|
+francais|human-cloth|mydliť|savonner|savone|False|True|other|
+francais|human-cloth|mydlo|savon|savõ|False|False|other|
+francais|human-cloth|niť|fil|fil|False|False|other|
+francais|human-cloth|nohavice|pantalon|pãtalõ|False|False|other|
+francais|human-cloth|nohavičky|culotte|kylot|False|False|other|
+francais|human-cloth|nohavičky|slip|slip |False|False|other|
+francais|human-cloth|nožnice|ciseaux|sizo|False|False|other|
+francais|human-cloth|náhrdelník|collier|kolje|False|False|other|
+francais|human-cloth|náramok|bracelet|brasle|False|False|other|
+francais|human-cloth|náušnica|boucle d'oreille||False|False|other|
+francais|human-cloth|oblečenie|vêtement|vetmã|False|False|other|
+francais|human-cloth|ofina|frange|frãʒ|False|False|other|
+francais|human-cloth|okuliare|lunettes|lynet|False|False|other|
+francais|human-cloth|opasok|ceinture|sẽtyr|False|False|other|
+francais|human-cloth|opláchnuť|rincer|rẽse|False|False|other|
+francais|human-cloth|papuča|chausson|ʃosõ |False|False|other|
+francais|human-cloth|papuča|pantoufle|pãtufl|False|False|other|
+francais|human-cloth|peňaženka|porte-monnaie||False|False|other|
+francais|human-cloth|peňaženka|portefeuille|portəfœj |False|False|other|
+francais|human-cloth|plavky|maillot de bain||False|True|other|
+francais|human-cloth|pliesť|tricoter|trikote|False|False|other|
+francais|human-cloth|podprsenka|soutien-gorge|sutjẽgorʒ|False|False|other|
+francais|human-cloth|podpätok|talon|talõ|False|False|other|
+francais|human-cloth|podrážka|semelle|səmel|False|False|other|
+francais|human-cloth|ponožka|chaussette|ʃoset|False|False|other|
+francais|human-cloth|prsteň|bague|bag|False|False|other|
+francais|human-cloth|prívesok|pendentif|pãdãtif|False|False|other|
+francais|human-cloth|rukavica|gant|gã|False|False|other|
+francais|human-cloth|rukáv|manche|mãʃ|False|False|other|
+francais|human-cloth|sako|veston|vestõ|False|True|other|
+francais|human-cloth|silonky|collant|kolã|False|False|other|
+francais|human-cloth|spodky|caleçon|kalsõ|False|False|other|
+francais|human-cloth|sukňa|jupe|ʒyp|False|False|other|
+francais|human-cloth|sveter|pull|pyl|False|False|other|
+francais|human-cloth|taška|sac|sak|False|False|other|
+francais|human-cloth|tielko|débardeur|debardœr|False|False|other|
+francais|human-cloth|tkať|tisser|tise|False|False|other|
+francais|human-cloth|topánka|chaussure|ʃosyr|False|False|other|
+francais|human-cloth|umývať/prať|laver|lave|False|False|other|
+francais|human-cloth|vesta|gilet|ʒile|False|False|other|
+francais|human-cloth|vreckovka|mouchoir|muʃwar|False|False|other|
+francais|human-cloth|vrecko|poche|poʃ|False|False|other|
+francais|human-cloth|vrkoč|natte|nat |False|False|other|
+francais|human-cloth|vrkoč|tresse|tres|False|False|other|
+francais|human-cloth|vyšívať|broder|brode|False|False|other|
+francais|human-cloth|zrkadlo|miroir|mirwar|False|False|other|
+francais|human-cloth|zubná pasta|dentifrice|dãtifris|False|False|other|
+francais|human-cloth|účes|coiffure|kwafyr|False|False|other|
+francais|human-cloth|čelenka|diadème|djadem|False|False|other|
+francais|human-cloth|česať|peigner|peɲe|False|True|other|
+francais|human-cloth|čiapka|bonnet|bone|False|False|other|
+francais|human-cloth|čistiť|nettoyer|netwaje|False|False|other|
+francais|human-cloth|čižma|botte|bot|False|False|other|
+francais|human-cloth|šatka|foulard|fular|False|False|other|
+francais|human-cloth|šaty|robe|rob|False|False|other|
+francais|human-cloth|šiltovka|casquette|kasket|False|False|other|
+francais|human-cloth|šiť|coudre|kudr|False|False|other|
+francais|human-cloth|šnúrka|lacet|lase|False|False|other|
+francais|human-cloth|šperk|bijou|biʒu|False|False|other|
+francais|human-cloth|šál|écharpe|eʃarp|False|False|other|
+francais|human-cloth|žabky|tong|tõg|False|False|other|
+francais|human-cloth|žehliť|repasser|rəpase|False|False|other|
+francais|human-cloth|žmýkať|essorer|esore|False|False|other|
+francais|human-faith|birmovanie|confirmation|kõfirmasjõ|False|False|other|
+francais|human-faith|biskup|évêque|evek|False|False|other|
+francais|human-faith|bohyňa|déesse|dees|False|True|other|
+francais|human-faith|boh|dieu|djo|False|False|other|
+francais|human-faith|božstvo|divinité|divinite|False|False|other|
+francais|human-faith|chrám|temple|tāpl|False|False|other|
+francais|human-faith|duša|âme|am|False|False|other|
+francais|human-faith|fara|paroisse|parwas|False|False|other|
+francais|human-faith|kláštor|couvent|kuvã|False|False|other|
+francais|human-faith|kostol|église|egliz|False|False|other|
+francais|human-faith|krst|baptême|batem|False|False|other|
+francais|human-faith|kázať|prêcher|preʃe|False|False|other|
+francais|human-faith|kázeň|sermon|sermõ|False|False|other|
+francais|human-faith|kňaz|prêtre|pretr|False|False|other|
+francais|human-faith|mních|moine|mwan|False|False|other|
+francais|human-faith|modlitba|prière|prijer|False|True|other|
+francais|human-faith|modliť sa|prier|prije|False|False|other|
+francais|human-faith|náboženský|religieux|rəliʒjo|False|True|other|
+francais|human-faith|náboženstvo|religion|rəliʒjõ|False|False|other|
+francais|human-faith|obeta|offrande|ofrãd |False|True|other|
+francais|human-faith|obeta|sacrifice|sakrifis|False|True|other|
+francais|human-faith|obetovať|sacrifier|sakrifje|False|False|other|
+francais|human-faith|požehnanie|bénédiction|benediksjõ|False|False|other|
+francais|human-faith|pôst|jeûne|ʒon|False|False|other|
+francais|human-faith|púť|pèlerinage|pelrinaʒ|False|False|other|
+francais|human-faith|rozhrešenie|absolution|apsolysjõ|False|False|other|
+francais|human-faith|spoveď|confession|kõfesjõ|False|False|other|
+francais|human-faith|sväté prijímanie|communion|komynjõ|False|False|other|
+francais|human-faith|uctievať|vénérer|venere|False|False|other|
+francais|human-faith|veriaci|croyant|krwajã|False|False|other|
+francais|human-faith|viera|foi|fwa|False|False|other|
+francais|human-food|arašid|cacahouète||False|False|other|
+francais|human-food|bravčové|porc|por|False|True|other|
+francais|human-food|broskyňa|pêche||False|False|other|
+francais|human-food|cedidlo|passoire|paswar|False|False|other|
+francais|human-food|cesnak|ail||False|False|other|
+francais|human-food|cestoviny|pâtes||False|True|other|
+francais|human-food|cesto|pâte|pat|False|False|other|
+francais|human-food|chlieb|pain|ẽ|False|False|other|
+francais|human-food|chovať|élever|eləve|False|False|other|
+francais|human-food|cibuľa|oignon||False|False|other|
+francais|human-food|citrón|citron||False|False|other|
+francais|human-food|cukor|sucre|sykr|False|False|other|
+francais|human-food|divina|gibier|ʒibje|False|True|other|
+francais|human-food|dojiť|traire|trer|False|False|other|
+francais|human-food|dusiť|mijoter|miʒote|False|False|other|
+francais|human-food|farma|ferme|ferm|False|False|other|
+francais|human-food|farmár|fermier|fermje|False|True|other|
+francais|human-food|fazuľa|haricot||False|False|other|
+francais|human-food|horčica|moutarde|mutard|False|False|other|
+francais|human-food|hovädzie|bœuf|bœf|False|True|other|
+francais|human-food|hrach|pois||False|False|other|
+francais|human-food|hrniec|faitout|fetu|False|False|other|
+francais|human-food|hruška|poire||False|False|other|
+francais|human-food|jablko|pomme||False|False|other|
+francais|human-food|jahoda|fraise||False|False|other|
+francais|human-food|jedlo|repas|rəpa|False|False|other|
+francais|human-food|kapusta|chou||False|False|other|
+francais|human-food|kastról|casserole|kasrol|False|False|other|
+francais|human-food|klobása|saucisse|sosis|False|False|other|
+francais|human-food|koláč|gâteau|gato|False|False|other|
+francais|human-food|korenie|épice|epis|False|False|other|
+francais|human-food|krájať|couper|kupe|False|False|other|
+francais|human-food|kuchyňa|cuisine|kuizin|False|True|other|
+francais|human-food|kuracie|poulet|pule|False|True|other|
+francais|human-food|lyžica|cuillère|kuijer|False|False|other|
+francais|human-food|malina|framboise||False|False|other|
+francais|human-food|mandľa|amande||False|False|other|
+francais|human-food|marhuľa|abricot||False|False|other|
+francais|human-food|maslo|beurre|bœr|False|False|other|
+francais|human-food|maštaľ|étable|etabl|False|False|other|
+francais|human-food|med|miel|mjel|False|False|other|
+francais|human-food|miesiť|pétrir|petrir|False|False|other|
+francais|human-food|miska|bol|bol|False|False|other|
+francais|human-food|mlieko|lait|le|False|False|other|
+francais|human-food|mrkva|carotte||False|False|other|
+francais|human-food|mäso|viande|vjãd|False|False|other|
+francais|human-food|múka|farine|farin|False|False|other|
+francais|human-food|naberačka|louche|luʃ|False|False|other|
+francais|human-food|nôž|couteau|kuto|False|False|other|
+francais|human-food|obed|déjeuner|deʒœne|False|False|other|
+francais|human-food|ochutnať|goûter|gute|False|False|other|
+francais|human-food|ocot|vinaigre|vinegr|False|False|other|
+francais|human-food|okoreniť|poivrer|pwavre|False|True|other|
+francais|human-food|olej|huile|uil|False|False|other|
+francais|human-food|omáčka|sauce|sos|False|False|other|
+francais|human-food|orať|labourer|labure|False|False|other|
+francais|human-food|orba|labour|labur|False|True|other|
+francais|human-food|orech|noix||False|False|other|
+francais|human-food|osoliť|saler|sale|False|True|other|
+francais|human-food|panvica|poêle|pwal|False|False|other|
+francais|human-food|paprika|piment||False|False|other|
+francais|human-food|paradajka|tomate||False|False|other|
+francais|human-food|pec|four|fur|False|False|other|
+francais|human-food|petržlen|persil||False|False|other|
+francais|human-food|piecť|rôtir|rotir|False|False|other|
+francais|human-food|pivo|bière|bjer|False|False|other|
+francais|human-food|pohár|verre|ver|False|False|other|
+francais|human-food|pole|champ|ʃã|False|False|other|
+francais|human-food|polievka|soupe|sup|False|False|other|
+francais|human-food|pomaranč|orange||False|False|other|
+francais|human-food|raňajky|petit déjeuner||False|True|other|
+francais|human-food|rezance|nouille|nuj|False|False|other|
+francais|human-food|rezeň|escalope|eskalop|False|False|other|
+francais|human-food|rozotrieť/rozvaľkať|étaler|etale|False|False|other|
+francais|human-food|ryža|riz||False|False|other|
+francais|human-food|rýľovať|bêcher|beʃe|False|True|other|
+francais|human-food|rýľ|bêche|beʃ|False|False|other|
+francais|human-food|sadiť|planter|plãte|False|False|other|
+francais|human-food|siať|semer|səme|False|False|other|
+francais|human-food|sitko|tamis|tami|False|False|other|
+francais|human-food|slanina|lard|lar|False|False|other|
+francais|human-food|slivka|prune||False|False|other|
+francais|human-food|smažiť|frire|frir|False|False|other|
+francais|human-food|smotana|crème|krem|False|False|other|
+francais|human-food|soľ|sel|sel|False|False|other|
+francais|human-food|stajňa|écurie|ekyri|False|False|other|
+francais|human-food|strúhadlo|râpe|rap|False|True|other|
+francais|human-food|strúhať|râper|rape|False|False|other|
+francais|human-food|sušienka|biscuit|biskui|False|False|other|
+francais|human-food|syr|fromage|fromaʒ|False|False|other|
+francais|human-food|tanier|assiette|asjet|False|False|other|
+francais|human-food|uhorka|concombre||False|False|other|
+francais|human-food|vajce|œuf|œf|False|False|other|
+francais|human-food|varecha|cuillère en bois||False|True|other|
+francais|human-food|variť/piecť|cuire|kuir|False|False|other|
+francais|human-food|variť|cuisiner|kuizine|False|False|other|
+francais|human-food|večera|dîner|dine|False|False|other|
+francais|human-food|vidlička|fourchette|furʃet|False|False|other|
+francais|human-food|víno|vin|vẽ|False|False|other|
+francais|human-food|zalievať|arroser|aroze|False|False|other|
+francais|human-food|zberať|récolter|rekolte|False|False|other|
+francais|human-food|zemiak|pomme de terre||False|False|other|
+francais|human-food|údeniny|charcuterie|ʃarkytri|False|False|other|
+francais|human-food|čaj|thé|te|False|False|other|
+francais|human-food|čerešňa|cerise||False|False|other|
+francais|human-food|čierne korenie|poivre|pwavr|False|False|other|
+francais|human-food|čučoriedka|myrtille||False|False|other|
+francais|human-food|šalát|laitue||False|False|other|
+francais|human-food|škorica|cannelle|kanel|False|False|other|
+francais|human-food|šošovica|lentille||False|False|other|
+francais|human-food|špachtľa|spatule|spatyl|False|False|other|
+francais|human-food|špenát|épinard||False|False|other|
+francais|human-food|šunka|jambon|ʒãbõ|False|False|other|
+francais|human-food|šálka|tasse|tas|False|False|other|
+francais|human-food|šúpať|éplucher|eplyʃe|False|False|other|
+francais|human-food|žať|faucher|foʃe |False|False|other|
+francais|human-food|žať|moissonner|mwasone|False|False|other|
+francais|human-govern|bitka|bataille|bataj|False|False|other|
+francais|human-govern|bojovať|combattre|kõbatr|False|True|other|
+francais|human-govern|boj|combat|kõba|False|False|other|
+francais|human-govern|bomba|bombe|bõb|False|False|other|
+francais|human-govern|brániť sa|défendre|defãdr|False|True|other|
+francais|human-govern|delo|canon|kanõ|False|False|other|
+francais|human-govern|hlasovanie|suffrage|syfraʒ|False|False|other|
+francais|human-govern|kasáreň|caserne|kazern|False|False|other|
+francais|human-govern|krajina|pays|pei|False|False|other|
+francais|human-govern|krádež|vol|vol|False|False|other|
+francais|human-govern|mier|paix|pe|False|False|other|
+francais|human-govern|napadnúť|assaillir|asajir|False|False|other|
+francais|human-govern|nevinný|innocent|inosã|False|False|other|
+francais|human-govern|národ|nation|nasjõ|False|False|other|
+francais|human-govern|obeť|victime|viktim|False|False|other|
+francais|human-govern|obrana|défense|defãs|False|False|other|
+francais|human-govern|obyvateľstvo|population|papylasjõ|False|False|other|
+francais|human-govern|parlament|parlement|parləmã|False|False|other|
+francais|human-govern|pokuta|amende|amãd|False|False|other|
+francais|human-govern|porota|jury|ʒyri|False|True|other|
+francais|human-govern|priestupok|infraction|ẽfraksjõ|False|False|other|
+francais|human-govern|právo|droit|drwa|False|False|other|
+francais|human-govern|prímerie|armistice|armistis|False|False|other|
+francais|human-govern|puška|fusil|fyzi|False|False|other|
+francais|human-govern|radnica|mairie|meri|False|False|other|
+francais|human-govern|rozsudok|jugement|ʒyʒmã|False|True|other|
+francais|human-govern|ríša|empire|ãpir|False|False|other|
+francais|human-govern|samopal|mitraillette|mitrajet|False|True|other|
+francais|human-govern|sloboda|liberté|liberte|False|False|other|
+francais|human-govern|strana|parti|parti|False|False|other|
+francais|human-govern|streľba|tir|tir|False|False|other|
+francais|human-govern|sudca|juge|ʒyʒ|False|False|other|
+francais|human-govern|svedok|témoin|temwẽ|False|False|other|
+francais|human-govern|súd|cour|kur|False|False|other|
+francais|human-govern|trestný čin|délit|deli|False|False|other|
+francais|human-govern|ukradnúť|voler|vole|False|True|other|
+francais|human-govern|vinný|coupable|kupabl|False|False|other|
+francais|human-govern|vláda|gouvernement|guvernəmã|False|False|other|
+francais|human-govern|vojak|soldat|solda|False|False|other|
+francais|human-govern|vojenský|militaire|militer|False|False|other|
+francais|human-govern|vojna|guerre|ger|False|False|other|
+francais|human-govern|vojsko|armée|arme|False|False|other|
+francais|human-govern|volebný hlas|vote|vot|False|False|other|
+francais|human-govern|voľby|élection|eleksjõ|False|False|other|
+francais|human-govern|vrah|meurtrier|mœrtrje|False|True|other|
+francais|human-govern|vražda|meurtre|mœrtr|False|False|other|
+francais|human-govern|väznica|prison|prisõ|False|False|other|
+francais|human-govern|zbraň|arme|arm|False|False|other|
+francais|human-govern|zlodej|voleur|volœr|False|True|other|
+francais|human-govern|zločin|crime|krim|False|False|other|
+francais|human-govern|zmluva|contrat|kõtra|False|False|other|
+francais|human-govern|znásilnenie|viol|vjol|False|False|other|
+francais|human-govern|znásilniť|violer|vjole|False|True|other|
+francais|human-govern|zákon|loi|lwa|False|False|other|
+francais|human-govern|úrad|bureau|byro|False|False|other|
+francais|human-govern|ústava|constitution|kõstitysjõ|False|True|other|
+francais|human-govern|útok|attaque|atak|False|False|other|
+francais|human-govern|útočiť|attaquer|atake|False|True|other|
+francais|human-govern|ľud|peuple|pœpl|False|False|other|
+francais|human-govern|štát|état|eta|False|False|other|
+francais|human-govern|žaloba|plainte|plẽt|False|False|other|
+francais|human-industry|baliť|emballer|ãbale|False|False|other|
+francais|human-industry|baník|mineur|minœr|False|True|other|
+francais|human-industry|baňa|mine|min|False|False|other|
+francais|human-industry|budova|bâtiment|batimã|False|False|other|
+francais|human-industry|chladnička|frigidaire|friʒider|False|False|other|
+francais|human-industry|dielňa|atelier|atəlje|False|False|other|
+francais|human-industry|dlaždička|carreau|karo|False|False|other|
+francais|human-industry|dom|maison|mezõ|False|False|other|
+francais|human-industry|dovolenka|congé|kõʒe|False|False|other|
+francais|human-industry|drevorubač|bûcheron|byʃrõ|False|False|other|
+francais|human-industry|dvere|porte|port|False|False|other|
+francais|human-industry|dôchodok|retraite|rətret|False|False|other|
+francais|human-industry|izba|chambre|ʃãbr|False|False|other|
+francais|human-industry|kladivo|marteau|marto|False|False|other|
+francais|human-industry|kladka|poulie|puli|False|False|other|
+francais|human-industry|kliešte|pince|pẽs|False|False|other|
+francais|human-industry|klinec|clou|klu|False|False|other|
+francais|human-industry|klávesnica|clavier|klavje|False|False|other|
+francais|human-industry|koberec|moquette|moket |False|False|other|
+francais|human-industry|koberec|tapis|tapi|False|False|other|
+francais|human-industry|kováč|forgeron|forʒərõ|False|True|other|
+francais|human-industry|kozub|cheminée|ʃəmine|False|False|other|
+francais|human-industry|kreslo|fauteuil|fotœj|False|False|other|
+francais|human-industry|kuť|forger|forʒe|False|False|other|
+francais|human-industry|kľučka|poignée|pwaɲe|False|True|other|
+francais|human-industry|kľúč|clé|kle|False|False|other|
+francais|human-industry|lampa|lampe|lãp|False|False|other|
+francais|human-industry|lepidlo|colle|kol|False|False|other|
+francais|human-industry|lepiť|coller|kole|False|True|other|
+francais|human-industry|lešenie|échafaudage|eʃafodaʒ|False|False|other|
+francais|human-industry|lom|carrière|karjer|False|False|other|
+francais|human-industry|lopata|pelle|pel|False|False|other|
+francais|human-industry|mosadz|laiton|letõ|False|False|other|
+francais|human-industry|motor|moteur|motœr|False|False|other|
+francais|human-industry|murár|maçon|masõ|False|False|other|
+francais|human-industry|nezamestnanosť|chômage|ʃomaʒ|False|False|other|
+francais|human-industry|nezamestnaný|chômeur|ʃomœr|False|True|other|
+francais|human-industry|nábytok|meuble|mœbl|False|False|other|
+francais|human-industry|nástroj|outil|uti|False|False|other|
+francais|human-industry|obrazovka|écran|ekrã|False|False|other|
+francais|human-industry|obrábať|usiner|yzine|False|True|other|
+francais|human-industry|oceľ|acier|asje|False|False|other|
+francais|human-industry|odbory|syndicat|sẽdika|False|False|other|
+francais|human-industry|okno|fenêtre|fənetr|False|False|other|
+francais|human-industry|papier|papier|papje|False|False|other|
+francais|human-industry|paplón|édredon|edrədõ|False|False|other|
+francais|human-industry|piest|piston|pistõ|False|False|other|
+francais|human-industry|podlaha|plancher|plãʃe|False|False|other|
+francais|human-industry|polica|étagère|etaʒer|False|False|other|
+francais|human-industry|posteľ|lit|li|False|False|other|
+francais|human-industry|pracovať|travailler|travaje|False|True|other|
+francais|human-industry|prah|seuil|sœj|False|True|other|
+francais|human-industry|pružina|ressort|rəsor|False|False|other|
+francais|human-industry|práca|travail|travaj|False|False|other|
+francais|human-industry|prístroj|appareil|aparej|False|False|other|
+francais|human-industry|páka|levier|ləvje|False|False|other|
+francais|human-industry|píla|scie|si|False|False|other|
+francais|human-industry|remeselník|artisan|artizã|False|False|other|
+francais|human-industry|remeslo|métier|metje|False|False|other|
+francais|human-industry|riedidlo|diluant|diluã|False|False|other|
+francais|human-industry|robotník|ouvrier|uvrije|False|False|other|
+francais|human-industry|rúra|tuyau|tuijo|False|False|other|
+francais|human-industry|schodisko|escalier|eskalje|False|False|other|
+francais|human-industry|sklo|verre|ver|False|False|other|
+francais|human-industry|skriňa|armoire|armwar|False|False|other|
+francais|human-industry|skrutka|vis|vis|False|False|other|
+francais|human-industry|skrutkovač|tournevis|turnəvis|False|True|other|
+francais|human-industry|stavenisko|chantier|ʃãtje|False|False|other|
+francais|human-industry|stena|mur|myr|False|False|other|
+francais|human-industry|stolička|chaise|ʃez|False|False|other|
+francais|human-industry|strecha|toit|twa|False|False|other|
+francais|human-industry|stroj|machine|maʃin|False|False|other|
+francais|human-industry|stôl|table|tabl|False|False|other|
+francais|human-industry|sviečka|bougie|buʒi |False|False|other|
+francais|human-industry|sviečka|chandelle|ʃãdel|False|False|other|
+francais|human-industry|tehla|brique|brik|False|False|other|
+francais|human-industry|tesár|charpentier|ʃarpãtje|False|False|other|
+francais|human-industry|továreň|usine|yzin|False|False|other|
+francais|human-industry|vankúš|oreiller|oreje|False|False|other|
+francais|human-industry|veža|tour|tur|False|False|other|
+francais|human-industry|vosk|cire|sir|False|False|other|
+francais|human-industry|vyrobiť|fabriquer|fabrike|False|False|other|
+francais|human-industry|vysávač|aspirateur|apriratœr|False|False|other|
+francais|human-industry|výroba|fabrication|fabrikasjõ|False|True|other|
+francais|human-industry|výťah|ascenseur|asãsœr|False|False|other|
+francais|human-industry|vŕtačka|perceuse|persoz|False|False|other|
+francais|human-industry|zostrojiť|construire|kõstruir|False|False|other|
+francais|human-industry|zvariť|souder|sude|False|False|other|
+francais|human-industry|zámka|serrure|seryr|False|False|other|
+francais|human-industry|zásuvka|tiroir|tirwar|False|True|other|
+francais|human-industry|štipnúť|pincer|pẽse|False|True|other|
+francais|human-industry|štrajk|grève|grev|False|False|other|
+francais|human-industry|ťažiť|extraire|ekstrer|False|False|other|
+francais|human-industry|žalúzia|persienne|persjen|False|True|other|
+francais|human-industry|žeriav|grue|gry|False|False|other|
+francais|human-industry|žiarovka|ampoule|ãpul|False|False|other|
+francais|human-social|Veľká noc|Pâques|pak|False|False|other|
+francais|human-social|Vianoce|Noël|noel|False|False|other|
+francais|human-social|bratranec|cousin|kuzẽ|False|False|other|
+francais|human-social|brat|frère|frer|False|False|other|
+francais|human-social|cudzinec|étranger|etrãʒe|False|False|other|
+francais|human-social|dcéra|fille|fij|False|True|other|
+francais|human-social|dieťa|enfant|ãfã|False|False|other|
+francais|human-social|gratulovať|féliciter|felisite|False|False|other|
+francais|human-social|hovoriť|parler|parle|False|False|other|
+francais|human-social|kritizovať|critiquer|kritike|False|False|other|
+francais|human-social|krstná mama|marraine|maren|False|True|other|
+francais|human-social|krstný otec|parrain|parẽ|False|True|other|
+francais|human-social|krstný syn|filleul|fijœl|False|True|other|
+francais|human-social|manžel/ka|époux|epu|False|False|other|
+francais|human-social|manželka|femme|fam|False|False|other|
+francais|human-social|manžel|mari|mari|False|False|other|
+francais|human-social|matka|mère|mer|False|False|other|
+francais|human-social|milenec|amant|amã|False|False|other|
+francais|human-social|milenka|maîtresse|metres|False|False|other|
+francais|human-social|narodeniny|anniversaire|aniverser|False|False|other|
+francais|human-social|nepriateľ|ennemi|enəmi|False|False|other|
+francais|human-social|neter|nièce|njes|False|False|other|
+francais|human-social|odmietnuť|refuser|rəfyze|False|False|other|
+francais|human-social|odporučiť|recommander|rəkomãde|False|False|other|
+francais|human-social|odpovedať|répondre|repõdr|False|True|other|
+francais|human-social|odpoveď|réponse|repõs|False|False|other|
+francais|human-social|opísať|décrire|dekrir|False|False|other|
+francais|human-social|oslava|célébration|selebrasjõ|False|False|other|
+francais|human-social|ospravedlniť sa|s'excuser|ekskyze|False|False|other|
+francais|human-social|otec|père|per|False|False|other|
+francais|human-social|otázka|question|kestjõ|False|False|other|
+francais|human-social|pohreb|funérailles|fyneraj|False|False|other|
+francais|human-social|pomoc|aide|ed|False|True|other|
+francais|human-social|pomôcť|aider|ede|False|False|other|
+francais|human-social|poradiť|conseiller|kõseje|False|False|other|
+francais|human-social|potomok|descendant|desãdã|False|False|other|
+francais|human-social|povedať|dire|dir|False|False|other|
+francais|human-social|povoliť|permettre|permetr|False|False|other|
+francais|human-social|povzbudiť|encourager|ãkuraʒe|False|False|other|
+francais|human-social|pozdraviť|saluer|salue|False|False|other|
+francais|human-social|pozdrav|salut|saly|False|True|other|
+francais|human-social|pozvať|inviter|ẽvite|False|False|other|
+francais|human-social|predok|ancêtre|ãsetr|False|False|other|
+francais|human-social|predstaviť|présenter|prezãte|False|False|other|
+francais|human-social|prehovoriť|persuader|persuade|False|False|other|
+francais|human-social|presvedčiť|convaincre|kõvẽkr|False|False|other|
+francais|human-social|prezradiť|révéler|revele|False|False|other|
+francais|human-social|priateľstvo|amitié|amitje|False|True|other|
+francais|human-social|priateľ|ami|ami|False|False|other|
+francais|human-social|prikázať|ordonner|ordone|False|False|other|
+francais|human-social|príkaz|ordre|ordr|False|True|other|
+francais|human-social|pýtať sa|demander|dəmãde|False|False|other|
+francais|human-social|rival|concurrent|kõkyrã|False|False|other|
+francais|human-social|rodina|famille|famij|False|False|other|
+francais|human-social|rodič|parent|parã|False|False|other|
+francais|human-social|rozchod|rupture|ryptyr|False|False|other|
+francais|human-social|rozprávať|raconter|rakõte|False|False|other|
+francais|human-social|rozvedený|divorcé|divorse|False|True|other|
+francais|human-social|rozvod|divorce|divors|False|False|other|
+francais|human-social|schváliť|accepter|aksepte|False|False|other|
+francais|human-social|sestra|sœur|sœr|False|False|other|
+francais|human-social|slobodný|célibataire|selibater|False|False|other|
+francais|human-social|sláviť|fêter|fete|False|True|other|
+francais|human-social|snúbenec|fiancé|fjãse|False|False|other|
+francais|human-social|strýko|oncle|õkl|False|False|other|
+francais|human-social|sused|voisin|vwazẽ|False|False|other|
+francais|human-social|svadba|mariage|marjaʒ|False|False|other|
+francais|human-social|sviatok|fête|fet|False|False|other|
+francais|human-social|svokor|beau-père|boper|False|True|other|
+francais|human-social|svokra|belle-mère|belmer|False|True|other|
+francais|human-social|synovec|neveu|nəvo|False|False|other|
+francais|human-social|syn|fils|fis|False|False|other|
+francais|human-social|sľub|promesse|promes|False|True|other|
+francais|human-social|sľúbiť|promettre|prometr|False|False|other|
+francais|human-social|teta|tante|tãt|False|False|other|
+francais|human-social|tím|équipe|ekip|False|False|other|
+francais|human-social|utešiť|consoler|kõsole|False|False|other|
+francais|human-social|vdovec|veuf|œ|False|False|other|
+francais|human-social|vyhrážať sa|menacer|mənase|False|False|other|
+francais|human-social|vysvetlenie|explication|eksplikasjõ|False|True|other|
+francais|human-social|vysvetliť|expliquer|eksplike|False|False|other|
+francais|human-social|zakázaný|interdit|ẽterdi|False|True|other|
+francais|human-social|zakázať|interdire|ẽterdir|False|False|other|
+francais|human-social|združenie|association|asosjasjõ|False|False|other|
+francais|human-social|zákaz|interdiction|ẽterdiksjõ|False|True|other|
+francais|human-social|ďakovať|remercier|rəmersje|False|False|other|
+francais|human-social|ženatý|marié|marje|False|True|other|
+francais|human-story|anjel|ange|ãʒ|False|False|other|
+francais|human-story|brnenie|armure|armyr|False|False|other|
+francais|human-story|cisár|empereur|ãprœr|False|True|other|
+francais|human-story|dejiny|histoire|istwar|False|False|other|
+francais|human-story|drak|dragon|dragõ|False|False|other|
+francais|human-story|duch|esprit|espri|False|False|other|
+francais|human-story|hrad|château|ʃato|False|False|other|
+francais|human-story|jednorožec|licorne|likorn|False|False|other|
+francais|human-story|kat|bourreau|buro|False|False|other|
+francais|human-story|kliatba|malédiction|malediksjõ|False|False|other|
+francais|human-story|kráľovná|reine|ren|False|True|other|
+francais|human-story|kráľ|roi|rwa|False|False|other|
+francais|human-story|kuša|arbalète|arbalet|False|False|other|
+francais|human-story|luk|arc|ark|False|False|other|
+francais|human-story|meč|épée|epe|False|False|other|
+francais|human-story|obor|géant|ʒeã|False|False|other|
+francais|human-story|osud|destin|destẽ|False|False|other|
+francais|human-story|palác|palais|pale|False|False|other|
+francais|human-story|panoš|écuyer|ekuije|False|True|other|
+francais|human-story|peklo|enfer|ãfer|False|False|other|
+francais|human-story|pevnosť|forteresse|fortəres|False|False|other|
+francais|human-story|počarenie|maléfice|malefis|False|False|other|
+francais|human-story|predstavivosť|imagination|imaʒinasjõ|False|True|other|
+francais|human-story|prekliaty|maudit|modi|False|True|other|
+francais|human-story|príbeh|récit|resi|False|False|other|
+francais|human-story|príšera|monstre|mõstr|False|False|other|
+francais|human-story|raj|paradis|paradi|False|False|other|
+francais|human-story|rozprávka|conte|kõt|False|False|other|
+francais|human-story|rytiersky súboj|joute|ʒut|False|True|other|
+francais|human-story|rytier|chevalier|ʃəvalje|False|False|other|
+francais|human-story|strašidlo|fantôme|fãtom|False|False|other|
+francais|human-story|strašidlo|revenant|rəvənã|False|False|other|
+francais|human-story|temnota|ténèbres|tenebr|False|False|other|
+francais|human-story|trpaslík|nain|nẽ|False|False|other|
+francais|human-story|trón|trône|tron|False|False|other|
+francais|human-story|upír|vampire|vãpir|False|False|other|
+francais|human-story|vlkolak|loup-garou|lugaru|False|False|other|
+francais|human-story|vymyslený|imaginé|imaʒine|False|True|other|
+francais|human-story|vymyslieť si|imaginer|imaʒine|False|False|other|
+francais|human-story|víla|fée|fe|False|False|other|
+francais|human-story|výmysel|fable|fabl |False|False|other|
+francais|human-story|výmysel|fiction|fiksjõ|False|False|other|
+francais|human-story|začarovať|ensorceler|ãsorsəle|False|True|other|
+francais|human-story|čarodejník|sorcier|sorsje|False|False|other|
+francais|human-story|šašo|bouffon|bufõ|False|False|other|
+francais|human-story|šíp|flèche|fleʃ|False|False|other|
+francais|human-story|žezlo|sceptre|septr|False|False|other|
+francais|human-study|biológia|biologie|bjoloʒi|False|False|other|
+francais|human-study|chémia|chimie|ʃimi|False|False|other|
+francais|human-study|fyzika|physique|fizik|False|False|other|
+francais|human-study|kniha|livre|livr|False|False|other|
+francais|human-study|knihovník|bibliothécaire|biblijoteker|False|True|other|
+francais|human-study|knižnica|bibliothèque|biblijotek|False|False|other|
+francais|human-study|lekáreň|pharmacie|farmasi|False|False|other|
+francais|human-study|lekár|médecin|medəsẽ|False|False|other|
+francais|human-study|liek|médicament|medikamã|False|True|other|
+francais|human-study|matematika|mathématique|matematik|False|False|other|
+francais|human-study|maturita|baccalauréat|bakalorea|False|False|other|
+francais|human-study|nemocnica|hôpital|opital|False|False|other|
+francais|human-study|noviny|journal|ʒurnal|False|False|other|
+francais|human-study|novinár|journaliste|ʒurnalist|False|True|other|
+francais|human-study|učiteľ|maître|metr|False|False|other|
+francais|human-study|škola|école|ekol|False|False|other|
+francais|human-study|školák|écolier|ekolje|False|True|other|
+francais|human-travel|auto|auto|oto|False|False|other|
+francais|human-travel|batožina|bagage|bagaʒ|False|False|other|
+francais|human-travel|bicykel|vélo|velo|False|False|other|
+francais|human-travel|bič|fouet|fwe|False|False|other|
+francais|human-travel|brzda|frein|frẽ|False|False|other|
+francais|human-travel|cesta|chemin|ʃəmẽ|False|False|other|
+francais|human-travel|cesta|route|rut|False|False|other|
+francais|human-travel|cesta|voie|vwa|False|False|other|
+francais|human-travel|cestovanie|voyage|vwajaʒ|False|True|other|
+francais|human-travel|cestovateľ|voyageur|vwajaʒœr|False|True|other|
+francais|human-travel|cestovať|voyager|vwajaʒe|False|True|other|
+francais|human-travel|chodník|trottoir|trotwar|False|False|other|
+francais|human-travel|koleso|roue|ru|False|False|other|
+francais|human-travel|kormidlo|gouvernail|guvernaj|False|False|other|
+francais|human-travel|kotva|ancre|ãkr|False|False|other|
+francais|human-travel|koč|carrosse|karos|False|False|other|
+francais|human-travel|koľaj|rail|raj|False|False|other|
+francais|human-travel|križovatka|carrefour|karfur|False|False|other|
+francais|human-travel|lanovka|funiculaire|fynikyler|False|False|other|
+francais|human-travel|letisko|aéroport|aeropor|False|False|other|
+francais|human-travel|lietadlo|avion|avjõ|False|False|other|
+francais|human-travel|loď|bateau|bato|False|False|other|
+francais|human-travel|maják|phare|far|False|False|other|
+francais|human-travel|medzipristátie|escale|eskal|False|False|other|
+francais|human-travel|most|pont|põ|False|False|other|
+francais|human-travel|nákladná loď|cargo|kargo|False|False|other|
+francais|human-travel|nástupište|quai|ke|False|False|other|
+francais|human-travel|opraty|rêne|ren|False|False|other|
+francais|human-travel|paluba|pont|põ|False|False|other|
+francais|human-travel|parník|paquebot|pakəbo|False|True|other|
+francais|human-travel|plachetnica|voilier|vwalje|False|True|other|
+francais|human-travel|plachta|voile|vwal|False|False|other|
+francais|human-travel|plť|radeau|rado|False|False|other|
+francais|human-travel|podvozok|châssis|ʃasi|False|False|other|
+francais|human-travel|ponorka|sous-marin|sumarẽ|False|False|other|
+francais|human-travel|prístav|port|por|False|False|other|
+francais|human-travel|raketa|fusée|fyze|False|False|other|
+francais|human-travel|sane|traîneau|treno|False|False|other|
+francais|human-travel|sedlo|selle|sel|False|False|other|
+francais|human-travel|strmeň|étrier|etrije|False|False|other|
+francais|human-travel|tanker|pétrolier|petrolje|False|True|other|
+francais|human-travel|túra|randonnée|rãdone|False|False|other|
+francais|human-travel|ulica|rue|ry|False|False|other|
+francais|human-travel|uzda|bride|brid|False|False|other|
+francais|human-travel|vetroň|planeur|planœr|False|True|other|
+francais|human-travel|vlak|train|trẽ|False|False|other|
+francais|human-travel|vozidlo|voiture|vwatyr|False|False|other|
+francais|human-travel|vozovka|chaussée|ʃose|False|False|other|
+francais|human-travel|vozík|chariot|ʃarjo|False|False|other|
+francais|human-travel|vzducholoď|dirigeable|diriʒabl|False|True|other|
+francais|human-travel|výlet|excursion|ekskyrsjõ|False|False|other|
+francais|human-travel|čln|canot|kano|False|False|other|
 francais|language|hovoriť|parler||False|False|other|
 francais|language|kapitola|chapitre||False|False|other|
 francais|language|kniha|livre||False|False|other|
@@ -13480,36 +14300,624 @@ francais|language|zátvorka|parenthèse||False|False|other|
 francais|language|úvodzovky|guillemets||False|False|other|
 francais|language|čiarka|virgule||False|False|other|
 francais|language|čítať|lire||False|False|other|
-francais|location|blízko|à proximité||False|False|other|
-francais|location|blízky|proche||False|True|other|
-francais|location|dnu|dedans||False|False|other|
-francais|location|dolný|bas||False|False|other|
-francais|location|dolu|en bas||False|True|other|
-francais|location|do|à||False|False|other|
-francais|location|hore|en haut||False|True|other|
-francais|location|horný|haut||False|False|other|
-francais|location|kde|où||False|False|other|
-francais|location|medzi|entre||False|False|other|
-francais|location|miesto|place||False|False|other|
-francais|location|mimo|hors||False|False|other|
-francais|location|nad|dessus||False|False|other|
-francais|location|na|sur||False|False|other|
-francais|location|od|de||False|False|other|
-francais|location|pod|sous||False|False|other|
-francais|location|pravý|droit||False|False|other|
-francais|location|pred|devant||False|False|other|
-francais|location|tam|là||False|False|other|
-francais|location|tu|ici||False|False|other|
-francais|location|vedľa|à côté||False|False|other|
-francais|location|von|dehors||False|False|other|
-francais|location|vzdialenosť|distance||False|False|other|
-francais|location|v|dans||False|False|other|
-francais|location|v|en||False|False|other|
-francais|location|všade|partout||False|False|other|
-francais|location|za|derrière||False|False|other|
-francais|location|ďaleko|loin||False|False|other|
-francais|location|ďaleký|lointain||False|True|other|
-francais|location|ľavý|gauche||False|False|other|
+francais|life-animal|bažant|faisan|fəzã|False|False|other|
+francais|life-animal|blcha|puce|pys|False|False|other|
+francais|life-animal|bobor|castor|kastor|False|False|other|
+francais|life-animal|bocian|cigogne|sigoɲ|False|False|other|
+francais|life-animal|býk|taureau|toro|False|True|other|
+francais|life-animal|chobotnica|pieuvre|pjœvr|False|False|other|
+francais|life-animal|chobotnica|poulpe|pulp |False|False|other|
+francais|life-animal|chrobák|coléoptère|koleopter|False|False|other|
+francais|life-animal|delfín|dauphin|dofẽ|False|False|other|
+francais|life-animal|diviak|sanglier|sãglije|False|False|other|
+francais|life-animal|drozd|grive|griv|False|False|other|
+francais|life-animal|drozd|merle|merl |False|False|other|
+francais|life-animal|had|serpent|serpã|False|False|other|
+francais|life-animal|havran|corbeau|korbo|False|False|other|
+francais|life-animal|hmyz|insecte|ẽsekt|False|False|other|
+francais|life-animal|holubica|colombe|kolõb|False|True|other|
+francais|life-animal|holub|pigeon|piʒõ|False|False|other|
+francais|life-animal|hrdlička|tourterelle|turtərel|False|True|other|
+francais|life-animal|hroch|hippopotame|ipopotam|False|False|other|
+francais|life-animal|hus|oie|wa|False|False|other|
+francais|life-animal|húsenica|chenille|ʃənij|False|True|other|
+francais|life-animal|jahňa|agneau|aɲo|False|True|other|
+francais|life-animal|jazvec|blaireau|blero|False|False|other|
+francais|life-animal|jeleň|cerf|ser|False|False|other|
+francais|life-animal|jež|hérisson|erisõ|False|False|other|
+francais|life-animal|kapor|carpe|karp|False|False|other|
+francais|life-animal|kačka|canard|kanar|False|False|other|
+francais|life-animal|kliešť|tique|tik|False|True|other|
+francais|life-animal|klokan|kangourou|kãguru|False|False|other|
+francais|life-animal|kobylka|sauterelle|sotrel|False|False|other|
+francais|life-animal|kohút|coq|kok|False|True|other|
+francais|life-animal|komár|moustique|mustik|False|False|other|
+francais|life-animal|korytnačka|tortue|torty|False|False|other|
+francais|life-animal|kosec|faucheux|foʃo|False|True|other|
+francais|life-animal|koza|chèvre|ʃevr|False|False|other|
+francais|life-animal|krab|crabe|krab|False|False|other|
+francais|life-animal|krava|vache|vaʃ|False|False|other|
+francais|life-animal|krokodíl|crocodile|krokodil|False|False|other|
+francais|life-animal|krt|taupe|top|False|False|other|
+francais|life-animal|králik|lapin|lapẽ|False|False|other|
+francais|life-animal|kôň|cheval|ʃəval|False|False|other|
+francais|life-animal|labuť|cygne|siɲ|False|False|other|
+francais|life-animal|lasica|belette|bəlet|False|False|other|
+francais|life-animal|lastovička|hirondelle|irõdel|False|False|other|
+francais|life-animal|lev|lion|ljõ|False|False|other|
+francais|life-animal|lienka|coccinelle|koksinel|False|True|other|
+francais|life-animal|losos|saumon|somõ|False|False|other|
+francais|life-animal|los|élan|elã|False|True|other|
+francais|life-animal|líška|renard|rənar|False|False|other|
+francais|life-animal|mačka|chat|ʃa|False|False|other|
+francais|life-animal|medveď|ours|urs|False|False|other|
+francais|life-animal|modlivka|mante|mãt|False|False|other|
+francais|life-animal|morka|dinde|dẽd|False|False|other|
+francais|life-animal|motýľ|papillon|papijõ|False|False|other|
+francais|life-animal|mravec|fourmi|furmi|False|False|other|
+francais|life-animal|mrož|morse|mors|False|False|other|
+francais|life-animal|mucha|mouche|muʃ|False|False|other|
+francais|life-animal|myš|souris|suri|False|False|other|
+francais|life-animal|netopier|chauve-souris|ʃovsuri|False|True|other|
+francais|life-animal|nosorožec|rhinocéros|rinoseros|False|False|other|
+francais|life-animal|opica|singe|sẽʒ|False|False|other|
+francais|life-animal|orol|aigle|egl|False|False|other|
+francais|life-animal|osa|guêpe|gep|False|False|other|
+francais|life-animal|ovad|taon|tã|False|True|other|
+francais|life-animal|ovca|mouton|mutõ|False|False|other|
+francais|life-animal|pakobylka|phasme|fasm|False|False|other|
+francais|life-animal|papagáj|perroquet|peroke|False|False|other|
+francais|life-animal|pavúk|araignée|areɲe|False|False|other|
+francais|life-animal|pes|chien|ʃje|False|False|other|
+francais|life-animal|pijavica|sangsue|sãsy|False|True|other|
+francais|life-animal|pinka|pinson|pẽsõ|False|False|other|
+francais|life-animal|plameniak|flamant|flamã|False|False|other|
+francais|life-animal|plamienka|effraie|efre|False|True|other|
+francais|life-animal|plaz|reptile|reptil|False|False|other|
+francais|life-animal|ploštica|punaise|pynez|False|False|other|
+francais|life-animal|prasa|cochon|koʃõ|False|False|other|
+francais|life-animal|pstruh|truite|truit|False|False|other|
+francais|life-animal|páv|paon|pã|False|False|other|
+francais|life-animal|pštros|autruche|otryʃ|False|False|other|
+francais|life-animal|ropucha|crapaud|krapo|False|True|other|
+francais|life-animal|roztoč|acarien|akarjẽ|False|True|other|
+francais|life-animal|ryba|poisson|pwasõ|False|False|other|
+francais|life-animal|sliepka|poule|pul|False|False|other|
+francais|life-animal|slimák|escargot|eskargo|False|False|other|
+francais|life-animal|slon|éléphant|elefã|False|False|other|
+francais|life-animal|slávik|rossignol|roziɲol|False|True|other|
+francais|life-animal|sob|renne|ren|False|True|other|
+francais|life-animal|sojka|geai|ʒe|False|False|other|
+francais|life-animal|sokol|faucon|fokõ|False|False|other|
+francais|life-animal|somár|âne|an|False|False|other|
+francais|life-animal|sova|chouette|ʃwet |False|False|other|
+francais|life-animal|sova|hibou|ibu|False|False|other|
+francais|life-animal|srnec|chevreuil|ʃəvrœj|False|True|other|
+francais|life-animal|sršeň|frelon|frəlõ|False|True|other|
+francais|life-animal|stehlík|chardonneret|ʃardonre|False|True|other|
+francais|life-animal|straka|pie|pi|False|False|other|
+francais|life-animal|sup|vautour|votur|False|False|other|
+francais|life-animal|svrček|grillon|grijõ|False|True|other|
+francais|life-animal|sépia|seiche|seʃ|False|True|other|
+francais|life-animal|sýkorka|mésange|mezãʒ|False|False|other|
+francais|life-animal|teľa|veau|vo|False|True|other|
+francais|life-animal|treska|morue|mory|False|False|other|
+francais|life-animal|tuleň|phoque|fok|False|False|other|
+francais|life-animal|tuniak|thon|tõ|False|False|other|
+francais|life-animal|tučniak|manchot|mãʃo|False|False|other|
+francais|life-animal|tučniak|pingouin|pẽgwẽ |False|False|other|
+francais|life-animal|užovka|couleuvre|kulœvr|False|True|other|
+francais|life-animal|veverica|écureuil|ekyrœj|False|False|other|
+francais|life-animal|veľryba|baleine|balen|False|False|other|
+francais|life-animal|vlk|loup|lu|False|False|other|
+francais|life-animal|volavka|héron|erõ|False|False|other|
+francais|life-animal|voš|pou|pu|False|False|other|
+francais|life-animal|vrabec|moineau|mwano|False|False|other|
+francais|life-animal|vrana|corneille|kornej|False|False|other|
+francais|life-animal|vretenica|vipère|viper|False|True|other|
+francais|life-animal|vták|oiseau|wazo|False|False|other|
+francais|life-animal|vydra|loutre|lutr|False|False|other|
+francais|life-animal|vážka|libellule|libelyl|False|False|other|
+francais|life-animal|včela|abeille|abej|False|False|other|
+francais|life-animal|zajac|lièvre|ljevr|False|False|other|
+francais|life-animal|zviera|animal|animal|False|False|other|
+francais|life-animal|úhor|anguille|ãgij|False|False|other|
+francais|life-animal|ústrica|huître|uitr|False|False|other|
+francais|life-animal|čajka|goéland|goelã|False|False|other|
+francais|life-animal|čajka|mouette|mwet |False|False|other|
+francais|life-animal|červ|ver|ver|False|False|other|
+francais|life-animal|čmeliak|bourdon|burdō|False|True|other|
+francais|life-animal|ďateľ|pic|pik|False|False|other|
+francais|life-animal|škorec|étourneau|eturno|False|False|other|
+francais|life-animal|škorpión|scorpion|skorpjõ|False|False|other|
+francais|life-animal|škovránok|alouette|alwer|False|False|other|
+francais|life-animal|šváb|blatte|blat|False|False|other|
+francais|life-animal|šťuka|brochet|broʃe|False|False|other|
+francais|life-animal|ťava|chameau|ʃamo|False|False|other|
+francais|life-animal|žaba|grenouille|grənuj|False|False|other|
+francais|life-animal|žralok|requin|rəkẽ|False|False|other|
+francais|life-eco|brloh|tanière|tanjer|False|False|other|
+francais|life-eco|dravec|prédateur|predatœr|False|False|other|
+francais|life-eco|druh|espèce|espes|False|False|other|
+francais|life-eco|hniezdo|nid|ni|False|False|other|
+francais|life-eco|hľadať|chercher|ʃerʃe|False|False|other|
+francais|life-eco|korisť|proie|prwa|False|False|other|
+francais|life-eco|kŕdeľ|volée|vole|False|False|other|
+francais|life-eco|les|forêt|fore|False|False|other|
+francais|life-eco|loviť|chasser|ʃase|False|False|other|
+francais|life-eco|lov|chasse|ʃas|False|True|other|
+francais|life-eco|lúka|prairie|preri|False|False|other|
+francais|life-eco|mravenisko|fourmilière|furmiljer|False|False|other|
+francais|life-eco|nora|terrier|terje|False|False|other|
+francais|life-eco|pancier|carapace|karapas|False|False|other|
+francais|life-eco|príroda|nature|natyr|False|False|other|
+francais|life-eco|púšť|désert|dezer|False|False|other|
+francais|life-eco|roj (včiel)|essaim|esẽ|False|False|other|
+francais|life-eco|roj|nuée|nue|False|False|other|
+francais|life-eco|sedieť (vajcia)|couver|kuve|False|False|other|
+francais|life-eco|skryť|cacher|kaʃe|False|False|other|
+francais|life-eco|skrýša|cachette|kaʃet|False|True|other|
+francais|life-eco|svorka|meute|mot|False|False|other|
+francais|life-eco|ulita|coquille|kokij|False|False|other|
+francais|life-eco|utiecť|fuir|fuir|False|False|other|
+francais|life-eco|vrh|portée|porte|False|False|other|
+francais|life-eco|zniesť (vajcia)|pondre|põdr|False|False|other|
+francais|life-eco|znáška|couvée|kuve|False|True|other|
+francais|life-eco|útek|fuite|fuit|False|True|other|
+francais|life-eco|úľ|ruche|ryʃ|False|False|other|
+francais|life-eco|črieda|troupeau|trupo|False|False|other|
+francais|life-eco|škrupina|coque|kok|False|False|other|
+francais|life-feel|blaho|félicité|felisite|False|False|other|
+francais|life-feel|bojazlivý|craintif|krẽtif|False|True|other|
+francais|life-feel|bojazlivý|peureux|poro|False|True|other|
+francais|life-feel|desivý|effrayant|efrejã|False|True|other|
+francais|life-feel|des|effroi|efrwa|False|False|other|
+francais|life-feel|hanba|honte|õt|False|False|other|
+francais|life-feel|hanebný|honteux|õto|False|True|other|
+francais|life-feel|hnev|colère|koler|False|False|other|
+francais|life-feel|hrdosť|fierté|fjerte|False|False|other|
+francais|life-feel|hrozný|terrifiant|terifjã|False|True|other|
+francais|life-feel|hrôza|frayeur|frejœr|False|False|other|
+francais|life-feel|hrôza|terreur|terœr|False|False|other|
+francais|life-feel|jasanie|jubilation|ʒubilasjõ|False|False|other|
+francais|life-feel|krutosť|cruauté|kryote|False|True|other|
+francais|life-feel|krutý|cruel|kryel|False|False|other|
+francais|life-feel|lakomosť|avarice|avaris|False|True|other|
+francais|life-feel|lakomý|avare|avar|False|False|other|
+francais|life-feel|láskavý|gentil|ʒãti|False|False|other|
+francais|life-feel|láska|amour|amur|False|False|other|
+francais|life-feel|milovaný|chéri|ʃeri|False|True|other|
+francais|life-feel|milujúci|aimant|emã|False|True|other|
+francais|life-feel|márnivosť|vanité|vanite|False|False|other|
+francais|life-feel|nadchnúť|enthousiasmer||False|True|other|
+francais|life-feel|nadšenie|ravissement|ravismã|False|False|other|
+francais|life-feel|nadšený|enthousiaste||False|False|other|
+francais|life-feel|nahnevaný|fâché||False|False|other|
+francais|life-feel|nahnevať|fâcher||False|True|other|
+francais|life-feel|namyslený|fier|fjer|False|True|other|
+francais|life-feel|nedôvera|méfiance|mefjãs|False|False|other|
+francais|life-feel|neha|tendresse|tãdres|False|False|other|
+francais|life-feel|nenávisť|haine|en|False|False|other|
+francais|life-feel|nepriateľský|hostile|ostil|False|False|other|
+francais|life-feel|nevraživosť|rancune|rãkyn|False|False|other|
+francais|life-feel|nežný|tendre|tãdr|False|True|other|
+francais|life-feel|nádej|espoir|espwar|False|False|other|
+francais|life-feel|náklonnosť|affection|afeksjõ|False|False|other|
+francais|life-feel|náklonnosť|attachement|ataʃmã|False|False|other|
+francais|life-feel|obava|appréhension|apreãsjõ|False|False|other|
+francais|life-feel|obava|crainte|krẽt|False|False|other|
+francais|life-feel|obdivovať|admirer|admire|False|True|other|
+francais|life-feel|obdiv|admiration|admirasjõ|False|False|other|
+francais|life-feel|obávať sa|craindre|krẽdr|False|True|other|
+francais|life-feel|obávať sa|redouter|rədute|False|False|other|
+francais|life-feel|odpustenie|pardon|pardõ|False|False|other|
+francais|life-feel|odpustiť|pardonner|pardone|False|True|other|
+francais|life-feel|odvaha|courage|kuraʒ|False|True|other|
+francais|life-feel|odvážny|courageux|kuraʒo|False|False|other|
+francais|life-feel|opatrnosť|prudence|prydãs|False|True|other|
+francais|life-feel|opatrný|prudent|prydã|False|False|other|
+francais|life-feel|plakať|pleurer|plœre|False|False|other|
+francais|life-feel|pocit|sentiment|sãtimã|False|False|other|
+francais|life-feel|podozrenie|suspicion|syspisjõ|False|False|other|
+francais|life-feel|podráždený|agacé|agase|False|False|other|
+francais|life-feel|pohŕdanie|mépris|mepri|False|False|other|
+francais|life-feel|pohŕdavý|méprisant|meprizã|False|True|other|
+francais|life-feel|pohŕdať|mépriser|meprize|False|True|other|
+francais|life-feel|pomsta|vengeance|vãʒãs|False|False|other|
+francais|life-feel|pomstychtivý|vindicatif|vẽdikatif|False|False|other|
+francais|life-feel|potešenie|plaisir|plezir|False|False|other|
+francais|life-feel|potešený|enchanté|ãʃãte|False|False|other|
+francais|life-feel|poďakovať|remercier|rəmersje|False|False|other|
+francais|life-feel|prekvapený|surpris||False|False|other|
+francais|life-feel|prekvapiť|surprendre||False|True|other|
+francais|life-feel|pyšný|orgueilleux|orgojo|False|True|other|
+francais|life-feel|pýcha|orgueil|orgœj|False|False|other|
+francais|life-feel|radostný|joyeux||False|True|other|
+francais|life-feel|radosť|joie|ʒwa|False|False|other|
+francais|life-feel|rozhorčenie|indignation|ẽdiɲasjõ|False|False|other|
+francais|life-feel|rozhorčený|indigné||False|False|other|
+francais|life-feel|rozhorčiť|indigner||False|True|other|
+francais|life-feel|skormútený|accablé|akable|False|False|other|
+francais|life-feel|skromnosť|humilité|ymilite|False|False|other|
+francais|life-feel|skromný|humble|œ̃bl|False|True|other|
+francais|life-feel|smiech|rire|rir|False|False|other|
+francais|life-feel|smutný|triste|trist|False|True|other|
+francais|life-feel|smútok|tristesse|tristes|False|False|other|
+francais|life-feel|spokojnosť|contentement|kõtãtmã|False|False|other|
+francais|life-feel|spokojný|content|kõtã|False|True|other|
+francais|life-feel|strach|peur|pœr|False|False|other|
+francais|life-feel|súcitiť|compatir|kõpatir|False|True|other|
+francais|life-feel|súcitný|compatissant|kõpatisã|False|True|other|
+francais|life-feel|súcit|compassion|kõpasjõ|False|False|other|
+francais|life-feel|trpezlivosť|patience|pãsjãs|False|True|other|
+francais|life-feel|trpezlivý|patient|pasjã|False|False|other|
+francais|life-feel|trpieť|souffrir|sufrir|False|True|other|
+francais|life-feel|trápiť|désoler||False|True|other|
+francais|life-feel|túžba|désir|dezir|False|False|other|
+francais|life-feel|túžiť|désirer|dezire|False|True|other|
+francais|life-feel|udivený|étonné||False|False|other|
+francais|life-feel|udiviť|étonner||False|True|other|
+francais|life-feel|uplakaný|éploré|eplore|False|True|other|
+francais|life-feel|uspokojenie|satisfaction|satisfaksjõ|False|False|other|
+francais|life-feel|uspokojiť|satisfaire|satisfer|False|True|other|
+francais|life-feel|utrpenie|souffrance|sufrãs|False|False|other|
+francais|life-feel|utrápený|désolé||False|False|other|
+francais|life-feel|vydesiť|effrayer|efreje|False|True|other|
+francais|life-feel|vyhrážať sa|menacer|mənase|False|False|other|
+francais|life-feel|vyhrážka/hrozba|menace|mənas|False|True|other|
+francais|life-feel|vystrašený|apeuré|apœre|False|True|other|
+francais|life-feel|vystrašený|terrifié|terifje|False|True|other|
+francais|life-feel|vášeň|passion|pasjõ|False|False|other|
+francais|life-feel|vášnivý|passionné|pasjone|False|True|other|
+francais|life-feel|vôľa|volonté|volõte|False|False|other|
+francais|life-feel|vďačnosť|gratitude|gratityd|False|False|other|
+francais|life-feel|zahanbený|humilié||False|False|other|
+francais|life-feel|zahanbiť|humilier||False|True|other|
+francais|life-feel|zarmútený|affligé|afliʒe|False|False|other|
+francais|life-feel|zatrpknutosť|rancœur|rãkœr|False|False|other|
+francais|life-feel|zaľúbený|amoureux|amuro|False|True|other|
+francais|life-feel|zbabelosť|lâcheté|laʃte|False|True|other|
+francais|life-feel|zbabelý|lâche|laʃ|False|False|other|
+francais|life-feel|zbožňovanie|adoration|adorasjõ|False|False|other|
+francais|life-feel|zbožňovať|adorer|adore|False|True|other|
+francais|life-feel|zdesenie|épouvante|epuvãt|False|False|other|
+francais|life-feel|zhnusiť|dégoûter||False|True|other|
+francais|life-feel|zlostný|coléreux||False|True|other|
+francais|life-feel|zlosť|fureur|fyrœr|False|False|other|
+francais|life-feel|zmätený|confus||False|True|other|
+francais|life-feel|zmätený|perplexe||False|False|other|
+francais|life-feel|zmätok|confusion||False|False|other|
+francais|life-feel|znechutený|dégoûté||False|False|other|
+francais|life-feel|znepokojenie|inquiétude||False|True|other|
+francais|life-feel|znepokojený|inquiet||False|False|other|
+francais|life-feel|znepokojiť|inquiéter||False|True|other|
+francais|life-feel|zvedavosť|curiosité|kyrjozite|False|False|other|
+francais|life-feel|zvedavý|curieux|kyrjo|False|True|other|
+francais|life-feel|zvádzanie|séduction|sedyksjõ|False|False|other|
+francais|life-feel|zármutok|deuil|dœj|False|False|other|
+francais|life-feel|závidieť|envier|ãvje|False|True|other|
+francais|life-feel|závisť|envie|ãvi|False|False|other|
+francais|life-feel|zúrivosť|rage|raʒ|False|False|other|
+francais|life-feel|zúrivý|enragé|ãraʒe|False|True|other|
+francais|life-feel|zúrivý|furieux|fyrjo|False|True|other|
+francais|life-feel|zúriť|enrager|ãraʒe|False|True|other|
+francais|life-feel|zľutovanie|pitié|pitje|False|False|other|
+francais|life-feel|úsmev|sourire|surir|False|True|other|
+francais|life-feel|úzkosť|angoisse|ãgwas|False|False|other|
+francais|life-feel|úľava|soulagement|sulaʒmã|False|False|other|
+francais|life-feel|čestnosť|honnêteté|onette|False|True|other|
+francais|life-feel|čestný|honnête|onet|False|False|other|
+francais|life-feel|ľúbiť|aimer|eme|False|True|other|
+francais|life-feel|ľúbiť|chérir|ʃerir|False|False|other|
+francais|life-feel|štedrý|généreux|ʒenero|False|False|other|
+francais|life-feel|šťastie|bonheur|bonœr|False|False|other|
+francais|life-feel|šťastný|heureux|oro|False|True|other|
+francais|life-feel|žiarlivosť|jalousie|ʒaluzi|False|False|other|
+francais|life-feel|žiarlivý|jaloux|ʒalu|False|True|other|
+francais|life-feel|žiaľ|chagrin|ʃagrẽ|False|False|other|
+francais|life-move|bedrá|hanche|ãʃ|False|False|other|
+francais|life-move|bežať|courir|kurir|False|False|other|
+francais|life-move|brada|menton|mãtõ|False|False|other|
+francais|life-move|brucho|ventre|vãtr|False|False|other|
+francais|life-move|chlp|poil||False|False|other|
+francais|life-move|chodidlo|pied|pje|False|False|other|
+francais|life-move|chrbát|dos|do|False|False|other|
+francais|life-move|chrápať|ronfler|rõfle|False|False|other|
+francais|life-move|chvost|queue|ko|False|False|other|
+francais|life-move|dlaň|paume||False|False|other|
+francais|life-move|dotknúť sa|toucher|tuʃe|False|False|other|
+francais|life-move|držať|tenir|tənir|False|False|other|
+francais|life-move|hladiť|caresser|karese|False|False|other|
+francais|life-move|hlava|tête|tet|False|False|other|
+francais|life-move|hodiť|lancer|lãse|False|False|other|
+francais|life-move|hrudná kosť|sternum|sternom|False|True|other|
+francais|life-move|hruď|poitrine|pwatrin|False|False|other|
+francais|life-move|kašlať|tousser|tuse|False|False|other|
+francais|life-move|koleno|genou|ʒənu|False|False|other|
+francais|life-move|kostra|squelette|skəlet|False|False|other|
+francais|life-move|kosť|os|os|False|False|other|
+francais|life-move|krk|cou|ku|False|False|other|
+francais|life-move|krv|sang||False|False|other|
+francais|life-move|kráčať|marcher|marʃe|False|False|other|
+francais|life-move|krídlo|aile|el|False|False|other|
+francais|life-move|kýchať|éternuer|eternue|False|False|other|
+francais|life-move|kývať hlavou|hocher|oʃe|False|False|other|
+francais|life-move|kĺb|articulation|artikylasjõ|False|False|other|
+francais|life-move|kľúčna kosť|clavicule|klavikyl|False|True|other|
+francais|life-move|kŕč|crampe|krãp|False|False|other|
+francais|life-move|lakeť|coude|kud|False|False|other|
+francais|life-move|lebka|crâne|kran|False|False|other|
+francais|life-move|letieť|voler|vole|False|False|other|
+francais|life-move|lopatka|omoplate|omoplat|False|True|other|
+francais|life-move|líce|joue|ʒu|False|False|other|
+francais|life-move|lýtko|mollet||False|False|other|
+francais|life-move|miecha|moelle épinière||False|False|other|
+francais|life-move|mihalnica|cil||False|False|other|
+francais|life-move|necht|ongle||False|False|other|
+francais|life-move|noha|jambe|ʒãb|False|False|other|
+francais|life-move|oblička|rein||False|False|other|
+francais|life-move|obočie|sourcil||False|False|other|
+francais|life-move|odhodiť|jeter|ʒəte|False|False|other|
+francais|life-move|otáčať sa|pivoter|pivote|False|False|other|
+francais|life-move|palec|pouce||False|False|other|
+francais|life-move|panva|bassin||False|False|other|
+francais|life-move|pera|lèvre||False|False|other|
+francais|life-move|pečeň|foie||False|False|other|
+francais|life-move|plaziť sa|ramper|rãpe|False|False|other|
+francais|life-move|plece|épaule|epol|False|False|other|
+francais|life-move|plávať|nager|naʒe|False|False|other|
+francais|life-move|poležiačky|couché|kuʃe|False|False|other|
+francais|life-move|ponoriť sa|plonger|plõʒe|False|False|other|
+francais|life-move|posadiť sa|s'asseoir|aswar|False|False|other|
+francais|life-move|posediačky|assis|asi|False|False|other|
+francais|life-move|postojačky|debout|dəbu|False|False|other|
+francais|life-move|potľapkať|tapoter|tapote|False|False|other|
+francais|life-move|prsia|seins|sẽ|False|False|other|
+francais|life-move|pás|taille|taj|False|False|other|
+francais|life-move|päta|talon|talõ|False|False|other|
+francais|life-move|pľúca|poumon||False|False|other|
+francais|life-move|rameno|bras|bra|False|False|other|
+francais|life-move|rebro|côte|kot|False|False|other|
+francais|life-move|ruka|main|mẽ|False|False|other|
+francais|life-move|skočiť|sauter|sote|False|False|other|
+francais|life-move|slezina|rate||False|False|other|
+francais|life-move|slina|salive||False|False|other|
+francais|life-move|spadnúť|tomber|tõbe|False|False|other|
+francais|life-move|srdce|cœur||False|False|other|
+francais|life-move|stavec|vertèbre|vertebr|False|False|other|
+francais|life-move|stehno|cuisse||False|False|other|
+francais|life-move|stisnúť|serrer|sere|False|False|other|
+francais|life-move|sval|muscle|myskl|False|False|other|
+francais|life-move|točiť sa|tourner|turne|False|False|other|
+francais|life-move|triasť sa|trembler|trãbl|False|False|other|
+francais|life-move|triasť|secouer|səkwe|False|False|other|
+francais|life-move|trieť|frotter|frote|False|False|other|
+francais|life-move|uchopiť|saisir|sezir|False|False|other|
+francais|life-move|udrieť|frapper|frape|False|False|other|
+francais|life-move|viečko|paupière||False|False|other|
+francais|life-move|vlas|cheveu||False|False|other|
+francais|life-move|zadok|derrière|derjer|False|False|other|
+francais|life-move|zadok|fesse|fes|False|False|other|
+francais|life-move|zatlačiť|pousser|puse|False|False|other|
+francais|life-move|zohnúť sa|se baisser|bese|False|False|other|
+francais|life-move|zrenička|pupille||False|False|other|
+francais|life-move|zub|dent||False|False|other|
+francais|life-move|zvraštiť|froncer|frõse|False|False|other|
+francais|life-move|zápästie|poignet|pwaɲe|False|False|other|
+francais|life-move|zívať|bâiller|baje|False|False|other|
+francais|life-move|čelo|front|frõ|False|False|other|
+francais|life-move|čeľusť|mâchoire|maʃwar|False|False|other|
+francais|life-move|členok|cheville|ʃəvij|False|False|other|
+francais|life-move|čupieť|accroupir|akrupir|False|False|other|
+francais|life-move|ďasno|gencive||False|False|other|
+francais|life-move|šija|nuque|nyk|False|False|other|
+francais|life-move|škrabať|gratter|grate|False|False|other|
+francais|life-move|šmyknúť sa|glisser|glise|False|False|other|
+francais|life-move|šplhať sa|grimper|grẽpe|False|False|other|
+francais|life-move|šľacha|tendon|tãdõ|False|False|other|
+francais|life-move|ťahať|tirer|tire|False|False|other|
+francais|life-move|žalúdok|estomac||False|False|other|
+francais|life-plant|arašid|cacahouète|kakawet|False|False|other|
+francais|life-plant|baklažán|aubergine|oberʒin|False|True|other|
+francais|life-plant|baza|sureau|syro|False|False|other|
+francais|life-plant|bobuľa|baie|be|False|True|other|
+francais|life-plant|bodliak|chardon|ʃardõ|False|False|other|
+francais|life-plant|borievka|genévrier|ʒənevrije|False|False|other|
+francais|life-plant|borovica|pin|pẽ|False|False|other|
+francais|life-plant|brest|orme|orm|False|False|other|
+francais|life-plant|breza|bouleau|bulo|False|False|other|
+francais|life-plant|brečtan|lierre|ljer|False|False|other|
+francais|life-plant|broskyňa|pêcher|peʃe|False|True|other|
+francais|life-plant|broskyňa|pêche|peʃ|False|False|other|
+francais|life-plant|brusnica|airelle|erel|False|True|other|
+francais|life-plant|buk|hêtre|etr|False|False|other|
+francais|life-plant|cesnak|ail|aj|False|True|other|
+francais|life-plant|chren|raifort|refor|False|False|other|
+francais|life-plant|cibuľa|oignon|oɲõ|False|False|other|
+francais|life-plant|citrón|citronnier|sitronje|False|True|other|
+francais|life-plant|citrón|citron|sitrõ|False|False|other|
+francais|life-plant|dub|chêne|ʃen|False|False|other|
+francais|life-plant|fazuľa|haricot|ariko|False|False|other|
+francais|life-plant|gaštan|châtaignier|ʃateŋe|False|False|other|
+francais|life-plant|hloh|aubépine|obepin|False|False|other|
+francais|life-plant|hrach|pois|pwa|False|False|other|
+francais|life-plant|hruška|poire|pwar|False|False|other|
+francais|life-plant|hruška|poirier|pwarje|False|True|other|
+francais|life-plant|huba|champignon|ʃãpiɲõ|False|False|other|
+francais|life-plant|ihličnan|conifère|konifer|False|False|other|
+francais|life-plant|jablko|pomme|pom|False|False|other|
+francais|life-plant|jabloň|pommier|pomje|False|True|other|
+francais|life-plant|jahoda|fraise|frez|False|False|other|
+francais|life-plant|jaseň|frêne|fren|False|False|other|
+francais|life-plant|javor|érable|erabl|False|False|other|
+francais|life-plant|jačmeň|orge|orʒ|False|True|other|
+francais|life-plant|jedľa|sapin|sapẽ|False|False|other|
+francais|life-plant|kaleráb|chou-rave|ʃurav|False|True|other|
+francais|life-plant|kapusta|chou|ʃu|False|False|other|
+francais|life-plant|karfiol|chou-fleur|ʃuflœr|False|True|other|
+francais|life-plant|kmeň|tronc|trõ|False|False|other|
+francais|life-plant|konár|branche|brãʃ|False|False|other|
+francais|life-plant|koreň|racine|rasin|False|False|other|
+francais|life-plant|kukurica|maïs|mais|False|False|other|
+francais|life-plant|kvet|fleur|flœr|False|False|other|
+francais|life-plant|kôpor|aneth|anet|False|True|other|
+francais|life-plant|lieska|noisetier|nwazətje|False|False|other|
+francais|life-plant|lipa|tilleul|tijœl|False|False|other|
+francais|life-plant|list|feuille|fœj|False|False|other|
+francais|life-plant|mach|mousse|mus|False|False|other|
+francais|life-plant|mak|coquelicot|kokliko|False|False|other|
+francais|life-plant|malina|framboise|frãbwaz|False|False|other|
+francais|life-plant|mandľa|amande|amãd|False|False|other|
+francais|life-plant|mandľa|amandier|amãdje|False|True|other|
+francais|life-plant|marhuľa|abricotier|abrikotje|False|True|other|
+francais|life-plant|marhuľa|abricot|abriko|False|False|other|
+francais|life-plant|mrkva|carotte|karot|False|False|other|
+francais|life-plant|nezábudka|myosotis|mjozotis|False|False|other|
+francais|life-plant|orech|noyer|nwaje|False|False|other|
+francais|life-plant|ovos|avoine|avwan|False|True|other|
+francais|life-plant|pagaštan|marronnier|maronje|False|False|other|
+francais|life-plant|papraď|fougère|fuʒer|False|False|other|
+francais|life-plant|paprika|piment|pimã|False|False|other|
+francais|life-plant|paradajka|tomate|tomat|False|False|other|
+francais|life-plant|pažítka|ciboulette|sibulet|False|True|other|
+francais|life-plant|petržlen|persil|persi|False|True|other|
+francais|life-plant|peľ|pollen|polen|False|True|other|
+francais|life-plant|plod|fruit|frui|False|False|other|
+francais|life-plant|pomaranč|oranger|orãʒe|False|True|other|
+francais|life-plant|pomaranč|orange|orãʒ|False|False|other|
+francais|life-plant|praslička|prêle|prel|False|False|other|
+francais|life-plant|púpava|pissenlit|pisãli|False|False|other|
+francais|life-plant|pšenica|blé|ble|False|False|other|
+francais|life-plant|rastlina|plante|plãt|False|False|other|
+francais|life-plant|raž|seigle|segl|False|True|other|
+francais|life-plant|ryža|riz|ri|False|False|other|
+francais|life-plant|ríbezľa|groseillier|grozeje|False|False|other|
+francais|life-plant|slivka|prune|pryn|False|False|other|
+francais|life-plant|slivka|prunier|prynje|False|True|other|
+francais|life-plant|slnečnica|tournesol|turnəsol|False|False|other|
+francais|life-plant|smrekovec|mélèze|melez|False|False|other|
+francais|life-plant|smrek|épicéa|episea|False|False|other|
+francais|life-plant|stonka|tige|tiʒ|False|False|other|
+francais|life-plant|strom|arbre|arbr|False|False|other|
+francais|life-plant|struk|gousse|gus|False|True|other|
+francais|life-plant|tekvica|courgette|kurʒet|False|False|other|
+francais|life-plant|tis|if|if|False|False|other|
+francais|life-plant|topoľ|peuplier|poplije|False|False|other|
+francais|life-plant|uhorka|concombre|kõkõbr|False|False|other|
+francais|life-plant|vŕba|saule|sol|False|False|other|
+francais|life-plant|zemiak|pomme de terre||False|True|other|
+francais|life-plant|zrno|grain|grẽ|False|True|other|
+francais|life-plant|zázvor|gingembre|ʒẽʒãbr|False|False|other|
+francais|life-plant|čerešňa|cerise|səriz|False|False|other|
+francais|life-plant|čerešňa|cerisier|sərizje|False|True|other|
+francais|life-plant|čučoriedka|myrtille|mirtij|False|False|other|
+francais|life-plant|šalát|laitue|lety|False|False|other|
+francais|life-plant|šošovica|lentille|lãtij|False|False|other|
+francais|life-plant|špenát|épinard|epinar|False|False|other|
+francais|life-plant|žihľava|ortie|orti|False|False|other|
+francais|life-sense|biely|blanc|blã|False|False|other|
+francais|life-sense|bolesť|douleur|dulœr|False|False|other|
+francais|life-sense|chuť|goût|gu|False|False|other|
+francais|life-sense|chuť|saveur|savœr|False|False|other|
+francais|life-sense|cítiť|sentir|sãtir|False|False|other|
+francais|life-sense|dotknúť sa|toucher|tuʃe|False|False|other|
+francais|life-sense|dotyk|touche|tuʃ|False|True|other|
+francais|life-sense|farba|couleur|kulœr|False|False|other|
+francais|life-sense|fialový|violet|vjole|False|False|other|
+francais|life-sense|hladiť|caresser|karese|False|False|other|
+francais|life-sense|hluchý|sourd|sur|False|False|other|
+francais|life-sense|hluk|bruit|brui|False|False|other|
+francais|life-sense|hnedý|brun|brœ̃|False|False|other|
+francais|life-sense|horký|amer|amer|False|False|other|
+francais|life-sense|jazyk|langue|lãg|False|False|other|
+francais|life-sense|koža|peau|po|False|False|other|
+francais|life-sense|kyslý|acide|asid|False|False|other|
+francais|life-sense|kyslý|aigre|egr|False|False|other|
+francais|life-sense|mihalnica|cil|sil|False|False|other|
+francais|life-sense|modrý|bleu|blo|False|False|other|
+francais|life-sense|nepriehľadný|opaque|opak|False|False|other|
+francais|life-sense|nos|nez|ne|False|False|other|
+francais|life-sense|obočie|sourcil|sursi|False|False|other|
+francais|life-sense|ochutnať|goûter|gute|False|True|other|
+francais|life-sense|oko|œil/yeux|œj|False|False|other|
+francais|life-sense|ovoňať|humer|yme|False|False|other|
+francais|life-sense|ozvena|écho|eko|False|False|other|
+francais|life-sense|pach|odeur|odœr|False|False|other|
+francais|life-sense|pochutnať sa|savourer|savure|False|True|other|
+francais|life-sense|pohľad|regard|rəgar|False|False|other|
+francais|life-sense|pozerať sa|regarder|rəgarde|False|True|other|
+francais|life-sense|počuteľný|audible|odibl|False|False|other|
+francais|life-sense|počuť|entendre|ãtãdr|False|False|other|
+francais|life-sense|počúvať|écouter|ekute|False|False|other|
+francais|life-sense|prižmúriť oči|cligner|kliɲe|False|False|other|
+francais|life-sense|prst (noha)|orteil|ortej|False|False|other|
+francais|life-sense|prst (ruka)|doigt|dwa|False|False|other|
+francais|life-sense|sivý|gris|gri|False|False|other|
+francais|life-sense|sladký|douce|dus|False|False|other|
+francais|life-sense|sladký|doux|du |False|False|other|
+francais|life-sense|sladký|sucré|sykre|False|False|other|
+francais|life-sense|slaný|salé|sale|False|False|other|
+francais|life-sense|slepý|aveugle|avœgl|False|False|other|
+francais|life-sense|sluch|ouïe|wi|False|False|other|
+francais|life-sense|smrad|puanteur|puãtœr|False|False|other|
+francais|life-sense|smradľavý|fétide|fetid|False|False|other|
+francais|life-sense|ticho|silence|silãs|False|False|other|
+francais|life-sense|ucho|oreille|orej|False|False|other|
+francais|life-sense|ušný bubienok|tympan|tẽpã|False|False|other|
+francais|life-sense|vidieť|voir|vwar|False|False|other|
+francais|life-sense|viditeľný|visible|vizibl|False|False|other|
+francais|life-sense|viečko|paupière|popjer|False|False|other|
+francais|life-sense|voňavý|odorant|odorã|False|False|other|
+francais|life-sense|vôňa|arôme|arom|False|False|other|
+francais|life-sense|zbadať|apercevoir|apersəvwar|False|True|other|
+francais|life-sense|zelený|vert|ver|False|False|other|
+francais|life-sense|zrak|vue|vy|False|False|other|
+francais|life-sense|zrenička|pupille|pypij|False|False|other|
+francais|life-sense|zvuk|son|sõ|False|False|other|
+francais|life-sense|ústa|bouche|buʃ|False|False|other|
+francais|life-sense|červený|rouge|ruʒ|False|False|other|
+francais|life-sense|čierny|noir|nwar|False|False|other|
+francais|life-sense|čuchať|flairer|flere|False|False|other|
+francais|life-sense|čuch|odorat|odora|False|False|other|
+francais|life-sense|štipľavý|piquant|pikã|False|False|other|
+francais|life-sense|žltý|jaune|ʒon|False|False|other|
+francais|life-think|bdelý|éveillé|eveje|False|True|other|
+francais|life-think|bdieť|veiller|veje|False|False|other|
+francais|life-think|mozog|cerveau|servo|False|False|other|
+francais|life-think|mozoček|cervelet|servəle|False|True|other|
+francais|life-think|myslieť|penser|pãse|False|False|other|
+francais|life-think|myšlienka|pensée|pãse|False|True|other|
+francais|life-think|nepoznať|ignorer|iɲore|False|False|other|
+francais|life-think|nerv|nerf|ner|False|False|other|
+francais|life-think|neznalý|ignorant|iɲorã|False|True|other|
+francais|life-think|nápad|idée|ide|False|False|other|
+francais|life-think|názor|opinion|opinjõ|False|False|other|
+francais|life-think|ospalý|somnolent|somnolã|False|False|other|
+francais|life-think|pamätať si|souvenir|suvənir|False|False|other|
+francais|life-think|pamäť|mémoire|memwar|False|False|other|
+francais|life-think|pochopiť|comprendre|kõprãdr|False|False|other|
+francais|life-think|pochybovať|douter|dute|False|False|other|
+francais|life-think|poznať|connaître|konetr|False|False|other|
+francais|life-think|pozornosť|attention|atãsjõ|False|False|other|
+francais|life-think|predpokladať|supposer|sypoze|False|False|other|
+francais|life-think|predstaviť si|imaginer|imaʒine|False|False|other|
+francais|life-think|premýšľať|raisonner|rezone|False|False|other|
+francais|life-think|rozptýliť|distraire|distrer|False|False|other|
+francais|life-think|rozumieť|concevoir|kõsəvwar|False|False|other|
+francais|life-think|rozum|raison|rezõ|False|True|other|
+francais|life-think|snívať|rêver|reve|False|False|other|
+francais|life-think|spať|dormir|dormir|False|False|other|
+francais|life-think|spomenúť si|se rappeler|rapəle|False|False|other|
+francais|life-think|spomienka|souvenir|suvənir|False|True|other|
+francais|life-think|spánok|sommeil|somej|False|False|other|
+francais|life-think|uvažovať|réfléchir|refleʃir|False|False|other|
+francais|life-think|vedieť|savoir|savwar|False|False|other|
+francais|life-think|vedomie|conscience|kõsjãs|False|False|other|
+francais|life-think|vedomý|conscient|kõsjã|False|True|other|
+francais|life-think|veriť|croire|krwar|False|False|other|
+francais|life-think|zabudnúť|oublier|ublije|False|False|other|
+francais|life-think|znalosť|connaissance|konesãs|False|True|other|
+francais|life-think|zobudiť|éveiller|eveje|False|False|other|
 francais|material|drevo|bois||False|False|other|
 francais|material|dusík|azote||False|False|other|
 francais|material|guma|gomme||False|False|other|
@@ -13517,32 +14925,18 @@ francais|material|hlina|terre||False|False|other|
 francais|material|kameň|pierre||False|False|other|
 francais|material|kov|métal||False|False|other|
 francais|material|kvapalina|liquide||False|False|other|
-francais|material|lepidlo|colle||False|False|other|
-francais|material|meď|cuivre||False|False|other|
-francais|material|mosadz|laiton||False|False|other|
 francais|material|mydlo|savon||False|False|other|
-francais|material|oceľ|acier||False|False|other|
-francais|material|olej|huile||False|False|other|
-francais|material|olovo|plomb||False|False|other|
-francais|material|papier|papier||False|False|other|
 francais|material|para|vapeur||False|False|other|
 francais|material|plyn|gaz||False|False|other|
 francais|material|popol|cendre||False|False|other|
 francais|material|prach|poudre||False|False|other|
 francais|material|pôda|sol||False|False|other|
-francais|material|riedidlo|diluant||False|False|other|
 francais|material|ropa|pétrole||False|False|other|
-francais|material|sklo|verre||False|False|other|
 francais|material|sneh|neige||False|False|other|
-francais|material|soľ|sel||False|False|other|
-francais|material|striebro|argent||False|False|other|
 francais|material|síra|soufre||False|False|other|
 francais|material|uhlie|charbon||False|False|other|
 francais|material|voda|eau||False|False|other|
-francais|material|vosk|cire||False|False|other|
-francais|material|zlato|or||False|False|other|
 francais|material|ľad|glace||False|False|other|
-francais|material|železo|fer||False|False|other|
 francais|medicine|bolesť|douleur||False|False|other|
 francais|medicine|choroba|maladie||False|False|other|
 francais|medicine|chorý|malade||False|True|other|
@@ -13565,100 +14959,16 @@ francais|medicine|striekačka|seringue||False|False|other|
 francais|medicine|vyliečiť|guérir||False|False|other|
 francais|medicine|zdravie|santé||False|False|other|
 francais|medicine|zdravý|sain||False|True|other|
-francais|movement|bežať|courir||False|False|other|
 francais|movement|bežec|coureur||False|True|other|
-francais|movement|kráčať|marcher||False|False|other|
-francais|movement|lietať|voler||False|False|other|
 francais|movement|niesť|porter||False|False|other|
 francais|movement|odísť|partir||False|False|other|
 francais|movement|plavec|nageur||False|True|other|
-francais|movement|plaziť sa|ramper||False|False|other|
-francais|movement|plávať|nager||False|False|other|
 francais|movement|potknúť sa|trébucher||False|False|other|
-francais|movement|potápať sa|plonger||False|False|other|
 francais|movement|preskočiť|franchir||False|False|other|
 francais|movement|prísť|arriver||False|False|other|
-francais|movement|skočiť|sauter||False|False|other|
 francais|movement|tlačiť|pousser||False|False|other|
 francais|movement|ísť|aller||False|False|other|
 francais|movement|ťahať|tirer||False|False|other|
-francais|nature|brloh|tanière||False|False|other|
-francais|nature|búrka|tempête||False|False|other|
-francais|nature|dážď|pluie||False|False|other|
-francais|nature|dúha|arc-en-ciel||False|False|other|
-francais|nature|hmla|brouillard||False|False|other|
-francais|nature|hniezdo|nid||False|False|other|
-francais|nature|hora|montagne||False|False|other|
-francais|nature|hrom|tonnerre||False|False|other|
-francais|nature|hviezda|étoile||False|False|other|
-francais|nature|jaskyňa|caverne||False|False|other|
-francais|nature|jaskyňa|grotte||False|False|other|
-francais|nature|jazero|lac||False|False|other|
-francais|nature|kmeň|tronc||False|False|other|
-francais|nature|konár|branche||False|False|other|
-francais|nature|koreň|racine||False|False|other|
-francais|nature|kvet|fleur||False|False|other|
-francais|nature|kŕdeľ|volée||False|False|other|
-francais|nature|les|forêt||False|False|other|
-francais|nature|list|feuille||False|False|other|
-francais|nature|lúka|prairie||False|False|other|
-francais|nature|mesiac|lune||False|False|other|
-francais|nature|more|mer||False|False|other|
-francais|nature|námraza|givrage||False|False|other|
-francais|nature|oblak|nuage||False|False|other|
-francais|nature|obloha|ciel||False|False|other|
-francais|nature|pláž|plage||False|False|other|
-francais|nature|potok|ruisseau||False|False|other|
-francais|nature|počasie|temps||False|False|other|
-francais|nature|priepasť|précipice||False|False|other|
-francais|nature|príliv a odliv|marée||False|False|other|
-francais|nature|príroda|nature||False|False|other|
-francais|nature|pršať|pleuvoir||False|True|other|
-francais|nature|púšť|désert||False|False|other|
-francais|nature|rieka|rivière||False|False|other|
-francais|nature|roj|essaim||False|False|other|
-francais|nature|slnko|soleil||False|False|other|
-francais|nature|sopka|volcan||False|False|other|
-francais|nature|stonka|tige||False|False|other|
-francais|nature|strom|arbre||False|False|other|
-francais|nature|svorka|meute||False|False|other|
-francais|nature|ulita|coquille||False|False|other|
-francais|nature|vietor|vent||False|False|other|
-francais|nature|vodopád|chute d'eau||False|False|other|
-francais|nature|útes|falaise||False|False|other|
-francais|nature|úľ|ruche||False|False|other|
-francais|nature|črieda|troupeau||False|False|other|
-francais|nature|škrupina|coque||False|False|other|
-francais|plant|borovica|pin||False|False|other|
-francais|plant|brečtan|lierre||False|False|other|
-francais|plant|buk|hêtre||False|False|other|
-francais|plant|dub|chêne||False|False|other|
-francais|plant|jaseň|frêne||False|False|other|
-francais|plant|javor|érable||False|False|other|
-francais|plant|jedľa|sapin||False|False|other|
-francais|plant|lipa|tilleul||False|False|other|
-francais|plant|orech|noyer||False|False|other|
-francais|plant|púpava|pissenlit||False|False|other|
-francais|plant|smrekovec|mélèze||False|False|other|
-francais|plant|smrek|épicéa||False|False|other|
-francais|plant|topoľ|peuplier||False|False|other|
-francais|plant|vŕba|saule||False|False|other|
-francais|pronoun|ja|je||False|False|other|
-francais|pronoun|ja|moi||False|False|other|
-francais|pronoun|každý|chacun||False|False|other|
-francais|pronoun|kto|qui||False|False|other|
-francais|pronoun|my|nous||False|False|other|
-francais|pronoun|niekto|quelqu'un||False|False|other|
-francais|pronoun|nikto|personne||False|False|other|
-francais|pronoun|ona|elle||False|False|other|
-francais|pronoun|oni|eux||False|False|other|
-francais|pronoun|on|il||False|False|other|
-francais|pronoun|on|lui||False|False|other|
-francais|pronoun|tamten|ce ... -là||False|False|other|
-francais|pronoun|tento|ce ... -ci||False|False|other|
-francais|pronoun|ty|toi||False|False|other|
-francais|pronoun|ty|tu||False|False|other|
-francais|pronoun|vy|vous||False|False|other|
 francais|shape|bod|point||False|False|other|
 francais|shape|diera|trou||False|False|other|
 francais|shape|drážka|rainure||False|False|other|
@@ -13692,40 +15002,197 @@ francais|shape|čiara|ligne||False|False|other|
 francais|shape|šnúra|cordon||False|False|other|
 francais|shape|špirála|spirale||False|False|other|
 francais|shape|štvorec|carré||False|False|other|
-francais|textil|bunda|veste||False|False|other|
-francais|textil|golier|col||False|False|other|
-francais|textil|gombík|bouton||False|False|other|
-francais|textil|kabát|manteau||False|False|other|
-francais|textil|klobúk|chapeau||False|False|other|
-francais|textil|kombinéza|salopette||False|False|other|
-francais|textil|košeľa|chemise||False|False|other|
-francais|textil|lodička|escarpin||False|False|other|
-francais|textil|nohavice|pantalon||False|False|other|
-francais|textil|nohavičky|culotte||False|False|other|
-francais|textil|náhrdelník|collier||False|False|other|
-francais|textil|náušnica|boucle d'oreille||False|False|other|
-francais|textil|oblečenie|vêtement||False|False|other|
-francais|textil|okuliare|lunettes||False|False|other|
-francais|textil|papuča|pantoufle||False|False|other|
-francais|textil|peňaženka|porte-monnaie||False|False|other|
-francais|textil|plavky|maillot de bain||False|False|other|
-francais|textil|podprsenka|soutien-gorge||False|False|other|
-francais|textil|podpätok|talon||False|False|other|
-francais|textil|ponožka|chaussette||False|False|other|
-francais|textil|prsteň|anneau||False|False|other|
-francais|textil|prívesok|pendentif||False|False|other|
-francais|textil|rukáv|manche||False|False|other|
-francais|textil|sako|veston||False|False|other|
-francais|textil|spodky|caleçon||False|False|other|
-francais|textil|sukňa|jupe||False|False|other|
-francais|textil|tielko|débardeur||False|False|other|
-francais|textil|topánka|chaussure||False|False|other|
-francais|textil|vesta|gilet||False|False|other|
-francais|textil|vreckovka|mouchoir||False|False|other|
-francais|textil|vrecko|poche||False|False|other|
-francais|textil|čiapka|bonnet||False|False|other|
-francais|textil|čižma|botte||False|False|other|
-francais|textil|šaty|robe||False|False|other|
+francais|world-atmo|blesk|foudre|fudr|False|False|other|
+francais|world-atmo|blesk|éclair|ekler|False|False|other|
+francais|world-atmo|búrka|orage|oraʒ|False|False|other|
+francais|world-atmo|chládok|fraîcheur|freʃœr|False|False|other|
+francais|world-atmo|dusík|azote|azot|False|False|other|
+francais|world-atmo|dážď|pluie|plui|False|False|other|
+francais|world-atmo|dúha|arc-en-ciel|arkãsjel|False|False|other|
+francais|world-atmo|hmla|brouillard|brujar|False|False|other|
+francais|world-atmo|hmla|brume|brym|False|False|other|
+francais|world-atmo|horúčava|chaleur|ʃalœr|False|False|other|
+francais|world-atmo|hrom|tonnerre|toner|False|False|other|
+francais|world-atmo|inovať|givre|ʒivr|False|False|other|
+francais|world-atmo|jar|printemps|prẽtã|False|False|other|
+francais|world-atmo|jeseň|automne|oton|False|False|other|
+francais|world-atmo|krúpy|grêle|grel|False|False|other|
+francais|world-atmo|kyslík|oxygène|oksiʒen|False|False|other|
+francais|world-atmo|lejak|averse|avers|False|False|other|
+francais|world-atmo|leto|été|ete|False|False|other|
+francais|world-atmo|mrholenie|bruine|bruin|False|False|other|
+francais|world-atmo|mráz|gel|ʒel|False|False|other|
+francais|world-atmo|námraza|gelée|ʒəle|False|True|other|
+francais|world-atmo|námraza|givrage|ʒivraʒ|False|True|other|
+francais|world-atmo|nápor vetra|bourrasque|burask|False|False|other|
+francais|world-atmo|náraz vetra|rafale|rafal|False|False|other|
+francais|world-atmo|oblak|nuage|nuaʒ|False|False|other|
+francais|world-atmo|oblačný|nuageux|nuaʒo|False|True|other|
+francais|world-atmo|obloha|ciel|sjel|False|False|other|
+francais|world-atmo|para|vapeur|vapœr|False|False|other|
+francais|world-atmo|počasie|temps|tã|False|False|other|
+francais|world-atmo|poľadovica|verglas|vergla|False|False|other|
+francais|world-atmo|pršať|pleuvoir|plovwar|False|True|other|
+francais|world-atmo|rosa|rosée|roze|False|False|other|
+francais|world-atmo|ročné obdobie|saison|sezõ|False|False|other|
+francais|world-atmo|sneh|neige|neʒ|False|False|other|
+francais|world-atmo|snežiť|neiger|neʒe|False|True|other|
+francais|world-atmo|súmrak|crépuscule|krepyskyl|False|False|other|
+francais|world-atmo|veterný|venteux|vãto|False|True|other|
+francais|world-atmo|vietor|vent|vã|False|False|other|
+francais|world-atmo|vlna horúčav|canicule|kanikyl|False|False|other|
+francais|world-atmo|vodík|hydrogène|idroʒen|False|False|other|
+francais|world-atmo|vzduch|air|er|False|False|other|
+francais|world-atmo|vánok|brise|briz|False|False|other|
+francais|world-atmo|víchrica|tempête|tãpet|False|False|other|
+francais|world-atmo|zima|hiver|iver|False|False|other|
+francais|world-atmo|úsvit|aube|ob|False|False|other|
+francais|world-cosmos|Mliečna cesta|Voie lactée||False|False|other|
+francais|world-cosmos|galaxia|galaxie|galaksi|False|False|other|
+francais|world-cosmos|hmlovina|nébuleuse|nebyloz|False|False|other|
+francais|world-cosmos|hviezda|étoile|etwal|False|False|other|
+francais|world-cosmos|kométa|comète|komet|False|False|other|
+francais|world-cosmos|mesiac|lune|lyn|False|False|other|
+francais|world-cosmos|planéta|planète|planet|False|False|other|
+francais|world-cosmos|slnko|soleil|solej|False|False|other|
+francais|world-cosmos|vesmír|cosmos|kosmos|False|False|other|
+francais|world-cosmos|vesmír|univers|yniver|False|False|other|
+francais|world-cosmos|zatmenie|éclipse|eklips|False|False|other|
+francais|world-cosmos|čierna diera|trou noir||False|False|other|
+francais|world-energy|energia|énergie|enerʒi|False|False|other|
+francais|world-energy|hluk|bruit|brui|False|False|other|
+francais|world-energy|hmota|matière|matjer|False|False|other|
+francais|world-energy|hmotnosť|masse|mas |False|False|other|
+francais|world-energy|hmotnosť|poids|pwa|False|False|other|
+francais|world-energy|horenie|ignition|iɲisjõ|False|False|other|
+francais|world-energy|horieť|brûler|bryle|False|False|other|
+francais|world-energy|hustota|densité|dãsite|False|False|other|
+francais|world-energy|iskra|étincelle|etẽsel|False|False|other|
+francais|world-energy|jasný|clair|kler|False|False|other|
+francais|world-energy|lesknúť sa|reluire|rəluir|False|True|other|
+francais|world-energy|látka|substance|sypstãs|False|False|other|
+francais|world-energy|lúč|rayon|rejõ|False|False|other|
+francais|world-energy|magnet|aimant|emã|False|False|other|
+francais|world-energy|napätie|tension|tãsjõ|False|False|other|
+francais|world-energy|náboj|charge|ʃarʒ|False|False|other|
+francais|world-energy|objem|volume|volym|False|False|other|
+francais|world-energy|odparovanie|évaporation|evaporasjõ|False|False|other|
+francais|world-energy|odpor|résistance|rezistãs|False|False|other|
+francais|world-energy|odpudivý|répulsif||False|False|other|
+francais|world-energy|oheň|feu|fo|False|False|other|
+francais|world-energy|pevný|solide|solid|False|False|other|
+francais|world-energy|plameň|flamme|flam|False|False|other|
+francais|world-energy|plynný|gazeux|gazo|False|True|other|
+francais|world-energy|plyn|gaz|gaz|False|False|other|
+francais|world-energy|pomalý|lent|lã|False|False|other|
+francais|world-energy|príťažlivý|attractif||False|False|other|
+francais|world-energy|rýchlosť|vitesse|vites|False|False|other|
+francais|world-energy|rýchly|rapide|rapid|False|False|other|
+francais|world-energy|sila|force|fors|False|False|other|
+francais|world-energy|silný|fort|for|False|False|other|
+francais|world-energy|skupenstvo|état|eta|False|False|other|
+francais|world-energy|slabý|faible|febl|False|False|other|
+francais|world-energy|studený|froid|frwa|False|False|other|
+francais|world-energy|svetlo|lumière|lymjer|False|False|other|
+francais|world-energy|svietiť|luire|luir|False|False|other|
+francais|world-energy|tekutina|liquide|likid|False|False|other|
+francais|world-energy|tekutý|liquide|likid|False|True|other|
+francais|world-energy|teplota|température|tãperatyr|False|False|other|
+francais|world-energy|teplo|chaleur|ʃalœr|False|False|other|
+francais|world-energy|teplý|chaud|ʃo|False|False|other|
+francais|world-energy|ticho|silence|silãs|False|False|other|
+francais|world-energy|tieň|ombre|õbr|False|False|other|
+francais|world-energy|tlak|pression|presjõ|False|False|other|
+francais|world-energy|tmavý|sombre|sõbr|False|False|other|
+francais|world-energy|tma|obscurité|opskyrite|False|False|other|
+francais|world-energy|topenie|fusion|fyzjõ|False|False|other|
+francais|world-energy|vážiť|peser||False|False|other|
+francais|world-energy|výbuch|explosion|eksplozjõ|False|False|other|
+francais|world-energy|výkon|puissance|puisãs|False|False|other|
+francais|world-energy|zotrvačnosť|inertie|inersi|False|False|other|
+francais|world-energy|zrýchlenie|accélération|akselerasjõ|False|False|other|
+francais|world-energy|zvuk|son|sõ|False|False|other|
+francais|world-energy|ľahký|léger|leʒe|False|False|other|
+francais|world-energy|ťažký|pesant|pəzã|False|False|other|
+francais|world-energy|žiariť|briller|brije|False|False|other|
+francais|world-geo|alabaster|albâtre|albatr|False|True|other|
+francais|world-geo|cín|étain|etẽ|False|False|other|
+francais|world-geo|drahokam|gemme|ʒem|False|False|other|
+francais|world-geo|hlina|argile|arʒil|False|False|other|
+francais|world-geo|hora|montagne|mõtaɲ|False|False|other|
+francais|world-geo|jaskyňa|caverne||False|False|other|
+francais|world-geo|jaskyňa|grotte||False|False|other|
+francais|world-geo|kameň|pierre|pjer|False|False|other|
+francais|world-geo|kopec|colline|kolin|False|False|other|
+francais|world-geo|krieda|craie|kre|False|True|other|
+francais|world-geo|meď|cuivre|kuivr|False|False|other|
+francais|world-geo|mramor|marbre|marbr|False|True|other|
+francais|world-geo|nížina|plaine|plen|False|False|other|
+francais|world-geo|olovo|plomb|plõ|False|False|other|
+francais|world-geo|ortuť|mercure|merkyr|False|False|other|
+francais|world-geo|pieskovec|grès|gre|False|False|other|
+francais|world-geo|piesok|sable|sabl|False|False|other|
+francais|world-geo|pláž|plage||False|False|other|
+francais|world-geo|priepasť|précipice|presipis|False|False|other|
+francais|world-geo|priesmyk|col|kol|False|False|other|
+francais|world-geo|ropa|pétrole|petrol|False|False|other|
+francais|world-geo|skala|roche|roʃ|False|False|other|
+francais|world-geo|sopka|volcan|volkã|False|False|other|
+francais|world-geo|striebro|argent|arʒã|False|False|other|
+francais|world-geo|svah|versant|versã|False|False|other|
+francais|world-geo|uhlie|charbon|ʃarbõ|False|False|other|
+francais|world-geo|vrchol|sommet|some|False|False|other|
+francais|world-geo|vápenec|calcaire|kalker|False|False|other|
+francais|world-geo|zemetrasenie|tremblement de terre||False|False|other|
+francais|world-geo|zem|terre|ter|False|False|other|
+francais|world-geo|zlato|or|or|False|False|other|
+francais|world-geo|údolie|vallée|vale|False|False|other|
+francais|world-geo|štrk|gravier|gravje|False|False|other|
+francais|world-geo|železo|fer|fer|False|False|other|
+francais|world-hydro|breh rieky|rive|riv|False|False|other|
+francais|world-hydro|bystrina|torrent|torã|False|False|other|
+francais|world-hydro|jazero|lac|lak|False|False|other|
+francais|world-hydro|lagúna|lagune|lagyn|False|False|other|
+francais|world-hydro|mokraď|marécage|marekaʒ|False|False|other|
+francais|world-hydro|mokrý|humide|ymid|False|False|other|
+francais|world-hydro|more|mer|mer|False|False|other|
+francais|world-hydro|morská hlbina|abysse|abis|False|False|other|
+francais|world-hydro|morský útes|falaise|falez|False|False|other|
+francais|world-hydro|močiar|marais|mare|False|False|other|
+francais|world-hydro|mys|cap|kap|False|False|other|
+francais|world-hydro|oceán|océan|oseã|False|False|other|
+francais|world-hydro|odliv|reflux|rəfly|False|False|other|
+francais|world-hydro|odtok|écoulement|ekulmã|False|False|other|
+francais|world-hydro|ostrov|île|il|False|False|other|
+francais|world-hydro|pláž|plage|plaʒ|False|False|other|
+francais|world-hydro|pobrežie|côte|kot|False|False|other|
+francais|world-hydro|pobrežný ľad|banquise|bãkiz|False|False|other|
+francais|world-hydro|polostrov|presqu'île|preskil|False|True|other|
+francais|world-hydro|potok|ruisseau|ruiso|False|False|other|
+francais|world-hydro|prameň|source|surs|False|False|other|
+francais|world-hydro|prieliv|détroit|detrwa|False|False|other|
+francais|world-hydro|príliv a odliv|marée|mare|False|False|other|
+francais|world-hydro|príliv|flux|fly|False|False|other|
+francais|world-hydro|prítok|affluent|aflyã|False|False|other|
+francais|world-hydro|prúd|courant|kurã|False|False|other|
+francais|world-hydro|rieka|rivière|rivjer|False|False|other|
+francais|world-hydro|sucho|sécheresse|seʃres|False|False|other|
+francais|world-hydro|suchý|sec|sek |False|False|other|
+francais|world-hydro|suchý|sèche|seʃ|False|False|other|
+francais|world-hydro|veľtok|fleuve|flœv|False|False|other|
+francais|world-hydro|vlhkosť|humidité|ymidite|False|False|other|
+francais|world-hydro|vlna|vague|vag|False|False|other|
+francais|world-hydro|voda|eau|o|False|False|other|
+francais|world-hydro|vodopád|cascade|kaskad|False|False|other|
+francais|world-hydro|vodopád|chute d'eau||False|False|other|
+francais|world-hydro|vír|tourbillon|turbijõ|False|False|other|
+francais|world-hydro|záliv|golfe|golf|False|False|other|
+francais|world-hydro|záplava|inondation|inõdasjõ|False|False|other|
+francais|world-hydro|zа́toka|baie|be|False|False|other|
+francais|world-hydro|ústie rieky|estuaire|estuer|False|False|other|
+francais|world-hydro|ľadovec (hora)|glacier|glasje|False|False|other|
+francais|world-hydro|ľadovec (more)|iceberg|ajsberg|False|False|other|
+francais|world-hydro|ľad|glace|glas|False|False|other|
 polski|abstract/shape|diera|s Loch/ö-er||True|False|other|
 polski|abstract/shape|doska|доска||True|False|other|
 polski|abstract/shape|guľa|kula||True|False|other|

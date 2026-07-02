@@ -232,6 +232,9 @@ sweden: Spotify
 germany: Otto (Hermes)
 poland: Allegro
 
+#ai
+usa: Anthropic (Claude), OpenAI (ChatGPT)
+
 #pharmaceutics
 france: Sanofi
 germany: Bayer, Merck

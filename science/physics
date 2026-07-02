@@ -136,6 +136,12 @@ Instantaneous velocity: first derivative of position in time
 Instantaneous acceleration: second derivative of position in time
 Free fall: acceleration by gravity
 
+Momentum (p): measure of motion, p = m*v
+Impulse (J): change in momentum
+
+Delta-v: necessary acceleration (change in speed), used for spacecrafts, ~10 km/s for earth orbit
+Escape velocity: minimal velocity to escape from gravitation pull, v = √( 2GM/r )
+
 #Equations of motion (constant acceleration)
 First: v = v0 + a*t
 Second: s = v0*t + (a*t^2)/2 = (v0+v)*t/2
@@ -694,4 +700,8 @@ Kinetic fractionation: fast irreversible reactions, different reaction rate (lig
 Mass-independent fractionation: multiple distinct mechanisms
 - asymmetric molecules more stable
 - UV light affects rares isotopes deeper (most abundant absorb higher)
+
+Fermi gas: packed fermions, degeneracy pressure enforces Pauli exclusion principle (electrons in white dwarf, neutrons in neutron star)
+Bose gas: trapped bosons, any number can share same state, without Pauli exclusion principle
+- Bose–Einstein condensate (BEC): gas of bosons near absolute zero, superfluid, atoms overlap to single wave (paired fermionic atoms act like bosons)
 

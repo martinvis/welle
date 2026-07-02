@@ -79,6 +79,7 @@ Sudoku: 1 to 9 in each row, column and block
 - killer sudoku (extra sums)
 - sandwich sudoku (extra sums of digits between 1 and 9 in row/column)
 nonogram (coloring grid by numbers)
+Murdoku: one object per column/row on map, location hints
 Masyu: square grid, black+white circles, loop through all circles
 - white: straight through, turn before or after
 - black: turn through, straight before and after

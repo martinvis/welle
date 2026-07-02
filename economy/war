@@ -378,7 +378,7 @@ fighter: air superiority (maneuverability, weapons)
 bomber: ground targets
 - Strategic bomber: long-range, strategic targets (factories)
 - Tactical bomber: air support (equipment)
-- Tupolev Tu-95: USSR, strategic bomber, 4 turboprop engines
+- Tupolev Tu-95: USSR, strategic bomber, 4 turboprop engines (contra-rotating propellers)
 - Tupolev Tu-160: USSR, strategic bomber, supersonic, 4 turbofan engines
 - Boeing B-52: USA, strategic bomber, 8 turbojet engines
 - Rockwell B-1: USA, strategic bomber, supersonic, 4 turbofan engines
@@ -420,6 +420,9 @@ Ilyushin Il-78: USSR, jet-powered tanker, production since 1984
 =AWACS: Airborne Warning and Control System, radar
 Boeing E-3: USA, 4 jet engines, rotating radar dome, production 1977-1992
 Beriev A-50: USSR, 4 jet engines, rotating radar dome, production 1978-1992
+
+#Anti-submarine warfare:
+Tupolev Tu-142 (1968-1994): USSR, from Tu-95, 4 turboprop engines
 
 #Electronic warfare: EM spectrum
 Krasukha: Russia
