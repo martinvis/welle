@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bannerfield speech — formant synthesis test</title>
+<style>
+  body { font: 14px system-ui, sans-serif; margin: 20px; background: #f4f1ea; color: #222; }
+  h1 { font-size: 18px; }
+  .row { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
+  button { font: inherit; padding: 4px 10px; border: 1px solid #998; border-radius: 4px; background: #fff; cursor: pointer; }
+  button:hover { background: #eee8dc; }
+  table { border-collapse: collapse; margin-top: 12px; }
+  td, th { border: 1px solid #cbc6b8; padding: 3px 8px; text-align: left; }
+  th { background: #e9e4d8; }
+  td.ipa { font-family: "DejaVu Sans", "Noto Sans", sans-serif; color: #555; }
+  #log { font: 12px monospace; white-space: pre; color: #444; margin-top: 12px; }
+</style>
+</head>
+<body>
+<h1>Bannerfield speech — formant synthesis, 18 words in 5 languages</h1>
+<div class="row">
+  voice: <button data-v="man">man</button><button data-v="woman">woman</button><button data-v="child">child</button><button data-v="giant">giant</button>
+  &nbsp; rate: <input id="rate" type="range" min=".6" max="1.6" step=".05" value="1"> <span id="rateV">1.0</span>
+  &nbsp; <button id="all">say every word in every language</button>
+</div>
+<div class="row">
+  sentence: <input id="sent" size="48" value="hello, beer please!"> in
+  <select id="sentLang"><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="ru">Русский</option></select>
+  <select id="mood"><option value="normal">normal</option><option value="excited">excited</option><option value="angry">angry</option></select>
+  <button id="sayS">say it</button> <span style="color:#666">(lexicon words by key; anything else is read as IPA; , . ? ! shape the melody)</span>
+</div>
+<table id="tbl"></table>
+<div id="log"></div>
+<script type="module">
+import { createSpeaker, LANGS, WORDS } from "./speech.js";
+const VOICES = { man: { pitch: 112, scale: 1, breath: .25, tilt: 7 }, woman: { pitch: 218, scale: 1.2, breath: .6, tilt: 3 }, child: { pitch: 280, scale: 1.3, breath: .3, tilt: 6 }, giant: { pitch: 70, scale: .85, tilt: 10 } };
+let ctx = null, sp = null, voice = "man";
+const rateEl = document.getElementById("rate"), rateV = document.getElementById("rateV");
+const speaker = () => {
+  if (!ctx) ctx = new AudioContext();
+  if (ctx.state === "suspended") ctx.resume();
+  if (!sp || sp.voice !== voice || sp.rate !== +rateEl.value) {
+    sp?.stop();
+    sp = createSpeaker(ctx, { ...VOICES[voice], rate: +rateEl.value });
+    sp.voice = voice; sp.rate = +rateEl.value;
+  }
+  return sp;
+};
+rateEl.oninput = () => rateV.textContent = (+rateEl.value).toFixed(2);
+for (const b of document.querySelectorAll("button[data-v]")) b.onclick = () => { voice = b.dataset.v; speaker(); };
+const tbl = document.getElementById("tbl");
+const langs = Object.keys(LANGS);
+tbl.innerHTML = `<tr><th>word</th>${langs.map((l) => `<th>${LANGS[l].name}</th>`).join("")}</tr>` +
+  WORDS.map((w) => `<tr><td>${w}</td>${langs.map((l) => `<td><button data-w="${w}" data-l="${l}">${LANGS[l].words[w].replace(/[ˈˌ]/g, "")}</button></td>`).join("")}</tr>`).join("");
+tbl.onclick = (e) => { const b = e.target.closest("button"); if (b) speaker().say(b.dataset.w, b.dataset.l); };
+document.getElementById("all").onclick = () => {
+  const s = speaker(); let at = ctx.currentTime + .1;
+  for (const l of langs) for (const w of WORDS) at = s.say(w, l, at) + .25;
+};
+document.getElementById("sayS").onclick = () => speaker().sayText(document.getElementById("sent").value, document.getElementById("sentLang").value, undefined, document.getElementById("mood").value);
+tbl.onclick = (e) => { const b = e.target.closest("button"); if (b) speaker().say(b.dataset.w, b.dataset.l, undefined, document.getElementById("mood").value); };
+window.__speech = { createSpeaker, LANGS, WORDS };
+</script>
+</body>
+</html>

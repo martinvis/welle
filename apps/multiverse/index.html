@@ -1,0 +1,2955 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>3D creature prototype: rig vs banner</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #cfe0e8; overflow: hidden; font: 13px sans-serif; }
+  #label { position: fixed; left: 10px; top: 8px; color: #2b2119; background: #ffffffaa; padding: 4px 8px; border-radius: 4px; white-space: pre; }
+  #hint { position: fixed; left: 50%; bottom: 7%; transform: translateX(-50%); color: #fff; background: #201812cc;
+          padding: 6px 14px; border-radius: 6px; font-size: 15px; display: none; }
+  #net { position: fixed; right: 10px; bottom: 10px; width: 230px; color: #2b2119; background: #ffffffdd;
+         padding: 8px 10px; border-radius: 6px; display: none; }
+  #net textarea { width: 100%; height: 44px; margin: 4px 0; font: 10px monospace; box-sizing: border-box; }
+  #net button { margin: 2px 4px 2px 0; }
+  #netStatus { font-size: 12px; color: #555; margin: 2px 0 4px; }
+  #help { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); color: #efe9dd;
+          background: #201812e6; padding: 18px 26px; border-radius: 10px; white-space: pre;
+          font: 13px/1.55 monospace; display: none; z-index: 5; }
+  #inv { position: fixed; left: 10px; bottom: 10px; color: #2b2119; background: #ffffffcc;
+         padding: 5px 10px; border-radius: 6px; font-size: 13px; display: none; white-space: pre; }
+  #chat { position: fixed; left: 50%; bottom: 15%; transform: translateX(-50%); text-align: center;
+          font-size: 15px; pointer-events: none; max-width: 60%; }
+  #chat div { text-shadow: 0 1px 3px #000c; margin: 2px; }
+  #chatIn { position: fixed; left: 50%; bottom: 11.5%; transform: translateX(-50%); width: 340px;
+            padding: 6px 10px; border-radius: 6px; border: none; background: #ffffffdd; display: none; font: 14px sans-serif; }
+</style>
+<script type="importmap">
+{ "imports": {
+    "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="label">loading&hellip;</div>
+<div id="hint"></div>
+<div id="help"></div>
+<div id="inv"></div>
+<div id="chat"></div>
+<input id="chatIn" maxlength="140" placeholder="say something… (enter sends, shift+C closes)">
+<div id="net">
+  <b>multiplayer</b> <span id="netStatus">offline</span><br>
+  <button id="btnInvite">create invite</button>
+  <textarea id="netOut" readonly placeholder="code to send to the other side"></textarea>
+  <textarea id="netIn" placeholder="paste code from the other side"></textarea>
+  <button id="btnApply">apply pasted code</button>
+</div>
+<script type="module">
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { SPECIES, makeButterfly, makeDragonfly, makeFish, makeShark, makeDolphin } from "./species.js";
+import { buildSpecies as buildRig } from "./rig.js";
+import { buildSpecies as buildBanner } from "./banner.js";
+import { createHerd } from "./instanced.js";
+import { animateSpecies } from "./anim.js";
+import { BUILDINGS, buildBuilding, buildInstanced, waterWheel, woodMaterial, barge as bargeDef, barrel as barrelParts, sack as sackParts, SNOW, medievalHouse } from "./architecture.js";
+import { VILLAGE, stoneBridge, stoneWall, palisade, fisherBoat, oar, fishingRod, fishingLine, caughtFish } from "./village.js";
+// the farm village's buildings join the catalogue: bakery, yards, fields, orchard, and three farmhouses (the town house at farm sizes)
+Object.assign(BUILDINGS, VILLAGE, {
+  farmhouseA: medievalHouse({ name: "Farmhouse", plaster: 0xe3d9c3, roofC: 0x6f4a2c }),
+  farmhouseB: medievalHouse({ name: "Farmhouse", width: 7, depth: 9, plaster: 0xd8cdb4, timber: 0x4e3a22, roofC: 0x8a5a35 }),
+  farmhouseC: medievalHouse({ name: "Farmhouse", width: 6, depth: 8, plaster: 0xdcd2bd, roofC: 0x7a5030 }),
+  // the village's cottages and houses (seven, so the village counts twenty roofs with its crafts and church)
+  cottageA: medievalHouse({ name: "Cottage", width: 6, depth: 7.5, storeys: 1, floorH: 3.0, plaster: 0xe6dcc6, roofC: 0x6b4a30 }),
+  cottageB: medievalHouse({ name: "House", width: 6.5, depth: 8.5, plaster: 0xd4c9ae, timber: 0x4a3620, roofC: 0x7d5433 }),
+  cottageC: medievalHouse({ name: "Cottage", width: 5.5, depth: 7, storeys: 1, floorH: 2.9, plaster: 0xdfd3bc, roofC: 0x8a5a35 }),
+  cottageD: medievalHouse({ name: "House", width: 7, depth: 9, plaster: 0xe0d6c0, timber: 0x5b4326, roofC: 0x6f4a2c }),
+  cottageE: medievalHouse({ name: "Cottage", width: 6, depth: 8, storeys: 1, floorH: 3.0, plaster: 0xd9cfba, roofC: 0x75502e }),
+  cottageF: medievalHouse({ name: "House", width: 6.5, depth: 8.5, plaster: 0xe3d9c3, timber: 0x4e3a22, roofC: 0x8a5a35 }),
+  cottageG: medievalHouse({ name: "Cottage", width: 6.5, depth: 7.5, storeys: 1, floorH: 2.9, plaster: 0xd8cdb4, roofC: 0x6b4a30 }),
+});
+import { makeCart, wheelDef, FLEET, LOAD_VARIANTS, CART_SIZES } from "./carts.js";
+import { makeTree, TREE_SPECIES, makeMushroom, MUSHROOMS, makeBush, makeCloud, makeFlower, FLOWERS, rng } from "./flora.js";
+import { makePerson } from "./people.js";
+import { HostSession, GuestSession } from "./rtc.js";
+import { createSpeaker, LANGS, WORDS, MOODS } from "./speech.js";
+import { animalCall, CALLS, makeSpace } from "./calls.js";
+
+const qp = new URLSearchParams(location.search);
+const num = (k, d) => qp.has(k) ? Number(qp.get(k)) : d;
+const mode = ["rig", "banner"].includes(qp.get("mode")) ? qp.get("mode") : "instanced";   // one draw call for the whole herd by default
+const pixelDepth = qp.get("depth") !== "flat";               // ?depth=flat for the early-z A/B
+const bParam = qp.get("building");                           // ?building=none | parthenon | hephaestus,parthenon
+const SITES = [
+  { key: "dendera", x: -530 },
+  { key: "didyma", x: -430 },
+  { key: "milan", x: -320 },
+  { key: "notredame", x: -215 },
+  { key: "house", x: -180 },
+  { key: "cologne", x: -125 },
+  { key: "bighouse", x: -65 },
+  { key: "hephaestus", x: -45 },
+  { key: "parthenon", x: 0 },
+  { key: "colosseum", x: 130 },
+  { key: "windmill", x: 268 },
+  { key: "versailles", x: 480 },
+  { key: "caerphilly", x: 760 },
+];
+let town = bParam === "none" ? [] : bParam ? SITES.filter((s) => bParam.split(",").includes(s.key)) : SITES;
+if (town.length === 1) town = [{ ...town[0], x: 0 }];
+const CAST = qp.has("species")                               // ?species=giraffe,cow shows just those (?species=none: buildings only)
+  ? SPECIES.filter((s) => qp.get("species").split(",").includes(s.name))
+  : SPECIES;
+const n = CAST.length ? Math.max(1, num("n", CAST.length)) : 0;   // ?n=1000 for the herd stress test
+const build = mode === "rig" ? buildRig : (d) => buildBanner(d, { pixelDepth });
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setSize(innerWidth, innerHeight);
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+const shadows = mode === "rig" && n <= 16;   // banners are flat-shaded cutouts; no shadow pass
+renderer.shadowMap.enabled = shadows;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+document.body.appendChild(renderer.domElement);
+
+const gap = 5.5;   // elephants are ~4.3m long; keep neighbors clear
+const cols = Math.max(1, Math.ceil(Math.sqrt(n)));
+const rows = Math.max(1, Math.ceil(n / Math.max(1, cols)));
+const extent = Math.max(13, cols * gap * .75);               // herd footprint; camera spawns off its edge
+const frontZ = -(rows * gap + 22);                           // building facades line up here, facing the herd
+const townDepth = Math.max(0, ...town.map((s) => BUILDINGS[s.key].footprint[1]));
+const townReach = Math.max(0, ...town.map((s) => Math.abs(s.x) + BUILDINGS[s.key].footprint[0] / 2));
+const baseR = town.length ? Math.max(extent, -frontZ + townDepth + 12, townReach + 30) : extent;   // +30: the highway's turning loops sit past the last building
+const nTreesReq = qp.has("trees") ? Math.max(0, num("trees", 0)) : null;   // ?trees=0 disables
+const groundR = Math.max(baseR, nTreesReq !== 0 ? extent + 285 : 0);       // room for the woods, the (large) lake, and the farm village on the river's south bank
+const nTrees = nTreesReq ?? Math.min(240, Math.max(40, Math.round(groundR * groundR / 2200)));
+
+// a building site's center z: facade-row sites line up on frontZ; the odd
+// one out (the water mill on the river bank) carries its own z
+const siteZ = (s) => s.z ?? frontZ - BUILDINGS[s.key].footprint[1] / 2;
+// the ground a site actually occupies, grown by a margin: its footprint, or
+// for a hollow site (the town wall, the palisade) only the bands it lists
+const siteRects = (s, m) => {
+  const d = BUILDINGS[s.key];
+  if (d.blocks) return d.blocks.map((b) => ({ x0: s.x + b.x0 - m, x1: s.x + b.x1 + m, z0: s.z + b.z0 - m, z1: s.z + b.z1 + m }));
+  const f = d.footprint, z = siteZ(s);
+  return [{ x0: s.x - f[0] / 2 - m, x1: s.x + f[0] / 2 + m, z0: z - f[1] / 2 - m, z1: z + f[1] / 2 + m }];
+};
+const inSites = (x, z, m) => sites.some((s) => siteRects(s, m).some((r) => x > r.x0 && x < r.x1 && z > r.z0 && z < r.z1));
+// rolling terrain: layered sines, blended flat under every building and the meadow
+const flatZones = town.map((s) => ({ x: s.x, z: siteZ(s),
+  hx: BUILDINGS[s.key].footprint[0] / 2 + 3, hz: BUILDINGS[s.key].footprint[1] / 2 + 3 }));
+flatZones.push({ x: 0, z: -(rows - 1) * gap / 2, hx: extent + 6, hz: (rows - 1) * gap / 2 + 12 });   // the herd's meadow
+// the lake: a deep bowl carved south of the meadow, filled to WLEVEL
+// the lake is a big C: a water tube of half-width `w` wrapped around a
+// circular arc of radius `rc`, its opening (`gap` radians wide) facing
+// north toward the meadow -- the path walks through the gap into the
+// lagoon's grassy heart
+const LAKE = { x: 18, z: extent + 120, rc: 70, w: 40, gap: 1.7 };
+LAKE.g0 = -Math.PI / 2 + LAKE.gap / 2;
+LAKE.g1 = -Math.PI / 2 - LAKE.gap / 2 + Math.PI * 2;
+LAKE.e0 = [LAKE.x + Math.cos(LAKE.g0) * LAKE.rc, LAKE.z + Math.sin(LAKE.g0) * LAKE.rc];
+LAKE.e1 = [LAKE.x + Math.cos(LAKE.g1) * LAKE.rc, LAKE.z + Math.sin(LAKE.g1) * LAKE.rc];
+const WLEVEL = -2.2;
+// signed distance to the shoreline: negative = in the water zone
+const lakeSD = (x, z) => {
+  const dx = x - LAKE.x, dz = z - LAKE.z;
+  let t2 = Math.atan2(dz, dx);
+  while (t2 < LAKE.g0) t2 += Math.PI * 2;
+  const dArc = t2 <= LAKE.g1
+    ? Math.abs(Math.hypot(dx, dz) - LAKE.rc)
+    : Math.min(Math.hypot(x - LAKE.e0[0], z - LAKE.e0[1]), Math.hypot(x - LAKE.e1[0], z - LAKE.e1[1]));
+  return dArc - LAKE.w;
+};
+const hasLake = groundR >= LAKE.z + LAKE.rc + LAKE.w + 2;
+// flatten the surroundings to 0 first, so the carved bowl reliably dips
+// below water level no matter what hill the sines put there
+if (hasLake) flatZones.push({ x: LAKE.x, z: LAKE.z, hx: LAKE.rc + LAKE.w + 5, hz: LAKE.rc + LAKE.w + 5 });
+// the river: a meandering groove from the west edge into the lake's west
+// arm, 16m bank to bank, carved 4.4m below the plain so the shared water
+// level leaves ~2m of water; it flows east (+x). The mill stands on the
+// north bank ~40m before the lake, its wheel out in the stream.
+const hasRiver = hasLake;
+const RIVER = { z: LAKE.z, amp: 12, k: .03, ph: 1.0, hw: 8, bank: 3.5, depth: 4.4, xEnd: LAKE.x - LAKE.rc - LAKE.w + 12, flow: 1.6 };
+const riverZ = (x) => RIVER.z + RIVER.amp * Math.sin(x * RIVER.k + RIVER.ph);
+// the basin: the river widens smoothly to ~36m around the landing, 60m
+// west of the mill (well clear of the lake)
+const BASIN = { x: -185, len: 40, add: 10 };
+const riverHW = (x) => RIVER.hw + BASIN.add * Math.exp(-(((x - BASIN.x) / BASIN.len) ** 2));
+const riverSD = (x, z) => !hasRiver || x > RIVER.xEnd ? 1e9 : Math.abs(z - riverZ(x)) - riverHW(x);   // signed distance to the bank line
+// the riverside street: a 1.5m track 4m up the north bank, buildings set
+// back 2m behind it with their doors on the street. The mill stands at the
+// street's west end right on the bank (its wheel needs the water); every
+// later riverside building is one more entry here, placed by x alone.
+const QUAY = 4;   // track center, meters north of the bank line
+const quayZ = (x) => riverZ(x) - riverHW(x) - QUAY;
+const MILL = hasRiver ? { key: "watermill", x: -125 } : null;
+let VILLAGE_X = null, vStreet = null, wallX = null;   // the bridge's x, the village street line and the town wall's x-extent, once the river is laid out
+const RIVERSIDE = [];
+if (MILL) {
+  const fp = BUILDINGS.watermill.footprint;
+  MILL.z = riverZ(MILL.x) - riverHW(MILL.x) - 1 - fp[1] / 2;   // south footprint edge 1m short of the bank line
+  RIVERSIDE.push(MILL);
+  const lfp = BUILDINGS.landing.footprint;   // the landing at the basin: its deck reaches out over the bank
+  RIVERSIDE.push({ key: "landing", x: BASIN.x, z: riverZ(BASIN.x) - riverHW(BASIN.x) - 1 - lfp[1] / 2 });
+  for (const [key, x] of [["tavern", MILL.x + 30], ["smithy", BASIN.x - 18], ["pottery", BASIN.x + 20]]) {   // door facing +z onto the street; the crafts flank the landing
+    const fpb = BUILDINGS[key].footprint;
+    RIVERSIDE.push({ key, x, z: quayZ(x) - 2.5 - fpb[1] / 2 });
+  }
+  // ---- the farm village on the SOUTH bank, west of the basin (village.js) ----
+  // Houses back onto the river (1m off the bank line) with their doors on a
+  // street 14m behind the bank; the yards and fields lie beyond the street
+  // in two rows, the orchard at the east end. The bridge lands among the
+  // houses, 35m west of the basin, so the barge passes under it coming and going.
+  VILLAGE_X = BASIN.x - 35;
+  BUILDINGS.bridge = stoneBridge({ hw: riverHW(VILLAGE_X), water: WLEVEL - .01 });
+  const bankS = (x) => riverZ(x) + riverHW(x);   // the south bank line
+  vStreet = (x) => bankS(x) + 15;                // the village street's center line (its north edge meets the ramp foot)
+  // the riverside row: farms and crafts west of the market, then the cottages of the east end beyond it
+  for (const [key, x] of [["cottageA", VILLAGE_X - 25.5], ["farmhouseA", VILLAGE_X - 14], ["bakery", VILLAGE_X + 12], ["farmhouseB", VILLAGE_X + 26], ["farmhouseC", VILLAGE_X + 40], ["fisherHut", VILLAGE_X + 53], ["cottageB", VILLAGE_X + 66], ["market", VILLAGE_X + 84],
+                          ["cottageC", VILLAGE_X + 98], ["cottageD", VILLAGE_X + 110], ["cottageE", VILLAGE_X + 122], ["cottageF", VILLAGE_X + 134], ["cottageG", VILLAGE_X + 146]]) {
+    const fp = BUILDINGS[key].footprint;
+    RIVERSIDE.push({ key, x, z: bankS(x) + 1 + fp[1] / 2, bank: "south" });
+  }
+  RIVERSIDE.push({ key: "bridge", x: VILLAGE_X, z: riverZ(VILLAGE_X), bank: "river" });
+  // a plot sits 2.5m behind the street's FURTHEST point over its own span (the
+  // street follows the bank's curve), and the two yards flank the bridge road
+  const footS = riverZ(VILLAGE_X) + BUILDINGS.bridge.halfL + BUILDINGS.bridge.ramp;   // where the south ramp meets the ground
+  const plotZ = (x, fp, back = 0) => Math.max(vStreet(x - fp[0] / 2), vStreet(x), vStreet(x + fp[0] / 2), footS + .5) + 2.5 + back + fp[1] / 2;
+  for (const [key, x] of [["pigYard", VILLAGE_X - 14], ["henYard", VILLAGE_X + 12.5], ["ryeField", VILLAGE_X + 27.5], ["barleyField", VILLAGE_X + 43], ["orchard", VILLAGE_X + 60], ["church", VILLAGE_X + 84],
+                          ["weaver", VILLAGE_X + 100], ["tailor", VILLAGE_X + 111], ["fountain", VILLAGE_X + 123]]) {   // the church faces the market across the street; the crafts and the fountain square face the east-end cottages
+    const fp = BUILDINGS[key].footprint;
+    RIVERSIDE.push({ key, x, z: plotZ(x, fp), bank: "south", farm: true });
+  }
+  for (const [key, x] of [["cabbageField", VILLAGE_X - 12], ["beanField", VILLAGE_X + 2], ["garlicField", VILLAGE_X + 14], ["berries", VILLAGE_X + 27], ["stableYard", VILLAGE_X + 46]]) {
+    const fp = BUILDINGS[key].footprint;
+    RIVERSIDE.push({ key, x, z: plotZ(x, fp, 17 + 2.5), bank: "south", farm: true });   // the back row, behind the 17m-deep yards
+  }
+  // ---- the two enclosures (village.js), open to the river: a stone wall with a walkway round the south
+  // village, a timber palisade round the north hamlet; the streets pass through their gatehouses ----
+  {
+    const south = RIVERSIDE.filter((s) => s.bank === "south"), north = RIVERSIDE.filter((s) => !s.bank);
+    const WX0 = VILLAGE_X - 32, WX1 = VILLAGE_X + 158;
+    const WZS = Math.max(...south.map((s) => s.z + BUILDINGS[s.key].footprint[1] / 2)) + 6;
+    BUILDINGS.townWall = stoneWall({ x0: WX0, x1: WX1, zS: WZS, zN0: bankS(WX0) + 1, zN1: bankS(WX1) + 1,
+                                     gates: [{ side: "w", at: vStreet(WX0) }, { side: "e", at: vStreet(WX1) }] });
+    RIVERSIDE.push({ key: "townWall", x: 0, z: 0, bank: "wall" });   // world coordinates: the site is the origin
+    wallX = [WX0, WX1];
+    const PX0 = VILLAGE_X - 12, PX1 = Math.max(...north.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 3;
+    const PZN = Math.min(...north.map((s) => s.z - BUILDINGS[s.key].footprint[1] / 2)) - 5;
+    BUILDINGS.palisade = palisade({ x0: PX0, x1: PX1, zN: PZN, zS0: riverZ(PX0) - riverHW(PX0) - .5, zS1: riverZ(PX1) - riverHW(PX1) - .5,
+                                    gates: [{ side: "n", at: BASIN.x }, { side: "e", at: quayZ(PX1) }] });   // the freight road and the quay street
+    RIVERSIDE.push({ key: "palisade", x: 0, z: 0, bank: "wall" });
+  }
+  for (const s of RIVERSIDE) {
+    const blocks = BUILDINGS[s.key].blocks;
+    if (blocks) {   // the enclosures: level ground along the wall bands only, the village inside keeps its own zones
+      for (const b of blocks) flatZones.push({ x: s.x + (b.x0 + b.x1) / 2, z: s.z + (b.z0 + b.z1) / 2, hx: (b.x1 - b.x0) / 2, hz: (b.z1 - b.z0) / 2 });
+      continue;
+    }
+    const f = BUILDINGS[s.key].footprint;
+    // `level`: the carve (river bank) is suppressed under the building too, so no corner hangs over a
+    // falling bank -- except for what is deliberately built out over the water (jetty, landing, mill wheel)
+    flatZones.push({ x: s.x, z: s.z, hx: f[0] / 2 + 3, hz: f[1] / 2 + 3, level: !["landing", "watermill", "fisherHut", "bridge"].includes(s.key) });
+  }
+}
+const sites = [...town, ...RIVERSIDE];   // every building: the facade row plus the riverside
+// castle moats: rectangular water rings carved around their islands
+const moats = town.filter((s) => BUILDINGS[s.key].moat).map((s) => ({
+  cx: s.x, cz: siteZ(s), ...BUILDINGS[s.key].moat }));
+const groundH = (x, z) => {
+  const base = Math.sin(x * .021 + 1.7) * Math.cos(z * .017 - .8) * 2.1
+             + Math.sin(x * .043 - 2.1) * Math.sin(z * .038 + 1.3) * 1.0
+             + Math.sin(x * .009 + z * .011) * 1.7;
+  let k = 1, kc = 1;
+  for (const zn of flatZones) {
+    const dx = Math.max(0, Math.abs(x - zn.x) - zn.hx), dz = Math.max(0, Math.abs(z - zn.z) - zn.hz);
+    const t = Math.min(1, Math.hypot(dx, dz) / 20);
+    k = Math.min(k, t * t * (3 - 2 * t));
+    if (zn.level) {   // a building's plot: level right out to 1m past the footprint, the bank carve fading back in over 2.5m
+      const ex = Math.max(0, Math.abs(x - zn.x) - (zn.hx - 2)), ez = Math.max(0, Math.abs(z - zn.z) - (zn.hz - 2));
+      const u = Math.min(1, Math.hypot(ex, ez) / 2.5);
+      kc = Math.min(kc, u * u * (3 - 2 * u));
+    }
+  }
+  let y = base * k;
+  // ONE shared water level for the whole world: the plain is kept softly
+  // above it (a smooth floor at -1.4m, .8m clear of the water), so only
+  // what is deliberately carved -- lake, river, moats -- fills with water
+  y = -1.4 + Math.log1p(Math.exp(4 * (y + 1.4))) / 4;
+  let carve = 0;
+  if (hasLake) {
+    const sd = lakeSD(x, z);
+    if (sd < 0) { const s = Math.min(1, -sd / LAKE.w); carve = 5.5 * s * s * (3 - 2 * s); }
+  }
+  if (hasRiver) {
+    const sd = riverSD(x, z);
+    if (sd < 0) {
+      const s = Math.min(1, -sd / RIVER.bank), e = Math.min(1, (RIVER.xEnd - x) / 25);   // banks; fades into the lake bowl
+      carve = Math.max(carve, RIVER.depth * s * s * (3 - 2 * s) * e * e * (3 - 2 * e));
+    }
+  }
+  y -= carve * kc;
+  for (const m of moats) {
+    const dr = Math.max(Math.abs(x - m.cx) - m.hw, Math.abs(z - m.cz) - m.hd);
+    if (dr > 0 && dr < m.w) y -= m.depth * Math.min(1, dr / 2.5, (m.w - dr) / 2.5);
+  }
+  return y;
+};
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xcfe0e8);
+scene.fog = new THREE.Fog(0xcfe0e8, groundR * 1.05, groundR * 2.4);   // past everything on the lawn
+
+// near .3 (not .1) buys 3x depth-buffer precision at distance -- big facades
+// like the Colosseum shimmer when mm-scale offsets drop below depth resolution
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, .3, groundR * 6);
+
+const camMode = qp.get("cam") === "orbit" ? "orbit" : "fps";   // default: a person's point of view
+const defTz = n > 4 ? -(rows - 1) * gap / 2 : (n ? 0 : frontZ - 12);
+const EYE = num("cy", 1.5);          // person's eye height above the terrain
+// buildings provide floorY(x,z) height fields in their local frames; a spot
+// can carry SEVERAL walkable floors (storeys, a ramp bridging a hall)
+const heightFields = sites
+  .map((s) => ({ f: BUILDINGS[s.key].floorY, x: s.x, z: siteZ(s) }))
+  .filter((s) => s.f);
+const floorsAt = (x, z) => {
+  const out = [groundH(x, z)];
+  for (const s of heightFields) {
+    const f = s.f(x - s.x, z - s.z);
+    if (Array.isArray(f)) out.push(...f);
+    else if (f) out.push(f);
+  }
+  return out;
+};
+let cartFloorsAt = () => [];   // the carts' beds, once the fleet exists (moving floors)
+const supportAt = (x, z, maxY) => {   // highest floor you could stand on at or below maxY
+  let best = -1e9;
+  for (const h of floorsAt(x, z)) if (h <= maxY && h > best) best = h;
+  for (const h of cartFloorsAt(x, z)) if (h <= maxY && h > best) best = h;
+  return best === -1e9 ? groundH(x, z) : best;
+};
+const terrainY = (x, z) => supportAt(x, z, 1e9);
+// footprint-aware support: the walker is a ~0.25m circle, so a gap narrower
+// than that (hairline seams at stair edges, slab joints) must never swallow
+// them -- stand on the highest floor under any point of the footprint
+const FOOT = .12;
+const supportNear = (x, z, maxY) => Math.max(
+  supportAt(x, z, maxY),
+  supportAt(x + FOOT, z, maxY), supportAt(x - FOOT, z, maxY),
+  supportAt(x, z + FOOT, maxY), supportAt(x, z - FOOT, maxY));
+
+// collision: a 0.25m circle around the camera against every wall-like part.
+// Colliders come straight from the building data: boxes and closed cylinders
+// that are tall and not pitched (ramps, roofs and slabs never block).
+const CR = .25;
+const colliderSites = sites.map((s) => {
+  const def = BUILDINGS[s.key];
+  const cols = [];
+  for (const p of def.parts) {
+    if (p.collide === false) continue;   // walkable platforms (e.g. the Colosseum plinth discs)
+    if (p.shape === "cyl" && !p.size.open && p.size.h > 1.2)
+      cols.push({ cyl: true, x: p.pos[0], z: p.pos[2], yLo: p.pos[1] - p.size.h / 2, yHi: p.pos[1] + p.size.h / 2,
+                  r: Math.max(p.size.r1, p.size.r2), sz: p.scale ? p.scale[2] : 1 });
+    else if (p.shape === "box" && !(p.rot && (p.rot[0] || p.rot[2])))
+      // EVERY unpitched box is solid; the step-over band in collides()
+      // decides per position whether it actually obstructs
+      cols.push({ x: p.pos[0], z: p.pos[2], yLo: p.pos[1] - p.size[1] / 2, yHi: p.pos[1] + p.size[1] / 2,
+                  hx: p.size[0] / 2, hz: p.size[2] / 2, yaw: (p.rot?.[1] ?? 0) * Math.PI / 180 });
+    else if (p.shape === "hwall") {
+      // wall with openings: solid segments between the door-height holes,
+      // plus a lintel band over each door (window holes sit above the body)
+      const { w, h, t } = p.size;
+      const yaw = (p.rot?.[1] ?? 0) * Math.PI / 180;
+      const tx = Math.cos(yaw), tz = -Math.sin(yaw);   // the wall's local +x in world
+      const seg = (a, c, yLo2, yHi2, win) => c - a > .08 && cols.push({
+        x: p.pos[0] + tx * (a + c) / 2, z: p.pos[2] + tz * (a + c) / 2,
+        yLo: p.pos[1] + yLo2, yHi: p.pos[1] + yHi2, hx0: true, win,
+        hx: (c - a) / 2, hz: t / 2, yaw });
+      // every hole is an opening: a door from the floor up, a window between
+      // its sill and its lintel -- jump onto the sill (step-up + jump reach
+      // ~1.3m) and you are through an open window; the lintel is lenient
+      // (a ducking head) since windows are shorter than the walking band
+      const holes = (p.size.holes ?? []).slice().sort((a, c) => a[0] - c[0]);
+      let ua = -w / 2;
+      for (const [u, y, hw, hh] of holes) {
+        seg(ua, u - hw / 2, 0, h);
+        if (y >= .3) seg(u - hw / 2, u + hw / 2, 0, y);     // the sill wall under a window
+        seg(u - hw / 2, u + hw / 2, y + hh, h, y >= .3);    // lintel over the opening
+        ua = u + hw / 2;
+      }
+      seg(ua, w / 2, 0, h);
+    }
+  }
+  return { x: s.x, z: siteZ(s), rx: def.footprint[0] / 2 + 2, rz: def.footprint[1] / 2 + 2, cols };
+});
+const doors = [];      // clickable house doors, populated with the town below
+const treeCols = [];   // tree trunks, populated by buildFlora
+const pickables = [];  // flowers and mushrooms you can pick, from buildFlora
+let pickedCount = 0;
+const pickedKinds = new Map();   // your basket: kind -> count, shown bottom-left
+function showBasket() {   // a little shopping list, one kind per row
+  const el = document.getElementById("inv");
+  el.style.display = pickedKinds.size ? "block" : "none";
+  el.textContent = "basket\n" + [...pickedKinds].map(([k, c]) => `  ${k} ×${c}`).join("\n");
+}
+function collides(x, z, feetY) {
+  // blocks whatever you can neither step over (the .5m climb limit) nor
+  // pass under -- one rule for every component, walls to furniture
+  const lo = feetY + .5, hi = feetY + 1.7;
+  for (const k of movers) {   // moving bodies (cart beds, the barge): solid below the deck, and their sides above it
+    const dx = x - k.body.position.x, dz = z - k.body.position.z, c = Math.cos(k.yaw), s = Math.sin(k.yaw);
+    const lx = Math.abs(dx * c - dz * s), lz = Math.abs(dx * s + dz * c);
+    if (lx > k.halfL + CR || lz > k.halfW + CR) continue;
+    const top = k.body.position.y + k.top;
+    if (lo < top - .02) return true;                                                          // the body itself
+    if ((k.side ?? 0) > 0 && (lx > k.halfL - .2 || lz > k.halfW - .2) && lo < top + k.side) return true;   // the rim: boards you step over if low, jump if high
+  }
+  for (const s of solids) {   // big animals are bodies, not ghosts: a circle round the trunk you cannot walk INTO (walking out of one is always allowed, so one that steps onto you never traps you)
+    if (s.a.hidden || mounted?.w === s.w) continue;
+    const dx = x - s.p.x, dz = z - s.p.z, d2 = dx * dx + dz * dz, rr = s.r + CR;
+    if (d2 >= rr * rr || lo > s.p.y + s.h) continue;
+    const cx = camera.position.x - s.p.x, cz = camera.position.z - s.p.z;
+    if (d2 < cx * cx + cz * cz - 1e-6) return true;
+  }
+  for (const dr of doors) {   // a closed door is a wall; an open one lies against the inner wall
+    if (dr.open) continue;
+    if (dr.win ? (feetY + 1.7 < dr.wy || feetY + .5 > dr.wy + dr.h) : feetY >= 2.5) continue;   // a pane blocks only at its own height
+    const px = x - dr.wx, pz = z - dr.wz;
+    const along = px * dr.ax + pz * dr.az, across = px * dr.az - pz * dr.ax;
+    if (Math.abs(along) < dr.w / 2 + CR && Math.abs(across) < .1 + CR) return true;
+  }
+  for (const tc of treeCols) {
+    if (feetY > 8) break;   // above the trunks (crowns are soft banners)
+    const dx = x - tc.x, dz = z - tc.z;
+    if (dx * dx + dz * dz < (tc.r + CR) * (tc.r + CR)) return true;
+  }
+  for (const s of colliderSites) {
+    if (Math.abs(x - s.x) > s.rx || Math.abs(z - s.z) > s.rz) continue;
+    const lx = x - s.x, lz = z - s.z;
+    for (const c of s.cols) {
+      if (c.yLo >= (c.win ? feetY + 1.2 : hi) || c.yHi <= lo) continue;   // through a window you duck
+      if (c.cyl) {
+        const dx = lx - c.x, dz = (lz - c.z) / c.sz;
+        if (dx * dx + dz * dz < (c.r + CR) * (c.r + CR)) return true;
+      } else {
+        const dx = lx - c.x, dz = lz - c.z;
+        const co = Math.cos(c.yaw), si = Math.sin(c.yaw);
+        const bx = dx * co - dz * si, bz = dx * si + dz * co;
+        const qx = Math.max(0, Math.abs(bx) - c.hx), qz = Math.max(0, Math.abs(bz) - c.hz);
+        if (qx * qx + qz * qz < CR * CR) return true;
+      }
+    }
+  }
+  return false;
+}
+let yaw = 0, pitch = 0, controls = null;
+let standY = 0, vy = 0, airborne = false, jumpHeld = false;   // the walker's feet
+if (camMode === "orbit") {
+  camera.position.set(num("cx", 0), num("cy", 4.2 + extent * .12), num("cz", extent + 1));
+  controls = new OrbitControls(camera, renderer.domElement);
+  controls.target.set(num("tx", 0), num("ty", .7), num("tz", defTz));
+  controls.enableDamping = true;
+} else {
+  camera.rotation.order = "YXZ";     // yaw around world-up, then pitch -- head movement, no roll
+  const cx = num("cx", 0), cz = num("cz", extent + 1);
+  standY = supportAt(cx, cz, groundH(cx, cz) + 2);   // spawn on the lowest sensible floor, not a rooftop
+  camera.position.set(cx, standY + EYE, cz);
+  const look = new THREE.Vector3(num("tx", 0), num("ty", EYE), num("tz", defTz)).sub(camera.position);
+  yaw = Math.atan2(-look.x, -look.z);
+  pitch = Math.atan2(look.y, Math.hypot(look.x, look.z));
+  camera.rotation.set(pitch, yaw, 0);
+  renderer.domElement.addEventListener("click", () => {
+    if (document.pointerLockElement === renderer.domElement) interact();   // ride horses, open doors
+    else renderer.domElement.requestPointerLock();
+  });
+  addEventListener("mousemove", (e) => {
+    if (document.pointerLockElement !== renderer.domElement) return;
+    yaw -= e.movementX * .0022;
+    pitch = THREE.MathUtils.clamp(pitch - e.movementY * .0022, -1.45, 1.45);
+  });
+}
+
+const hemi = new THREE.HemisphereLight(0xffffff, 0x6b5a42, .9);
+scene.add(hemi);
+const key = new THREE.DirectionalLight(0xfff4de, 1.6);
+key.position.set(4, 7, 5);
+key.castShadow = shadows;
+key.shadow.mapSize.set(1024, 1024);
+key.shadow.camera.left = -9; key.shadow.camera.right = 9;
+key.shadow.camera.top = 6; key.shadow.camera.bottom = -6;
+scene.add(key);
+
+// enough segments that local features (the lake bowl) survive vertex
+// sampling -- at 120 the ~10m cells bridged right over the carved sink
+const gg = new THREE.PlaneGeometry(groundR * 2, groundR * 2, 400, 400);   // 400: the 16m river groove needs ~4m cells
+gg.rotateX(-Math.PI / 2);
+const gp = gg.attributes.position;
+for (let i = 0; i < gp.count; i++) gp.setY(i, groundH(gp.getX(i), gp.getZ(i)));
+gg.computeVertexNormals();
+// grade the grass by elevation (lush valleys -> dry crests) with faint
+// contour bands, so the relief reads even under flat toon lighting
+const cLo = new THREE.Color(0x527e43), cMid = new THREE.Color(0x7fa864), cHi = new THREE.Color(0xa6b264);
+const gcol = new Float32Array(gp.count * 3);
+const cc = new THREE.Color();
+for (let i = 0; i < gp.count; i++) {
+  const h = gp.getY(i);
+  const t = Math.min(1, Math.max(0, h / 9.6 + .5));
+  cc.copy(t < .5 ? cLo : cMid).lerp(t < .5 ? cMid : cHi, t < .5 ? t * 2 : (t - .5) * 2);
+  cc.multiplyScalar(Math.floor(h / 1.1) % 2 ? 1.05 : .96);
+  cc.toArray(gcol, i * 3);
+}
+gg.setAttribute("color", new THREE.BufferAttribute(gcol, 3));
+const groundMat = new THREE.MeshToonMaterial({ color: 0xffffff, vertexColors: true });
+groundMat.onBeforeCompile = (sh) => {   // grass texture + snow cover, both per-pixel
+  sh.uniforms.uSnow = SNOW;
+  sh.vertexShader = sh.vertexShader
+    .replace("#include <common>", "varying vec3 vWp;\n#include <common>")
+    .replace("#include <worldpos_vertex>",
+             "#include <worldpos_vertex>\nvWp = (modelMatrix * vec4(transformed, 1.)).xyz;");
+  sh.fragmentShader = sh.fragmentShader
+    .replace("void main() {",
+             "uniform float uSnow;\nvarying vec3 vWp;\n" +
+             "float ghash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }\n" +
+             "void main() {")
+    .replace("#include <dithering_fragment>",
+             // grass as a shader overlay, not geometry: blade-scale flecks and
+             // broad tone patches over the elevation-graded green
+             "float gFleck = ghash(floor(vWp.xz * 7.));\n" +
+             "float gPatch = ghash(floor(vWp.xz * 1.4) + 9.);\n" +
+             "gl_FragColor.rgb *= .94 + .09 * gPatch;\n" +
+             "gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * vec3(.78, .92, .66), step(.8, gFleck) * .7);\n" +
+             "gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * vec3(1.12, 1.1, .9), step(.93, ghash(floor(vWp.xz * 7.) + 4.)) * .8);\n" +
+             // snow: white scaled by the shaded luminance so elevation shading,
+             // contour bands and slope lighting stay readable
+             "float snowLum = dot(gl_FragColor.rgb, vec3(.333));\n" +
+             "gl_FragColor.rgb = mix(gl_FragColor.rgb, min(vec3(1.), vec3(.92, .93, .97) * (.5 + .95 * snowLum)), uSnow);\n" +
+             "#include <dithering_fragment>");
+};
+const ground = new THREE.Mesh(gg, groundMat);
+ground.receiveShadow = shadows;
+scene.add(ground);
+
+const windmillHubs = [], waterWheels = [], fires = [], paneRecs = [];
+const doorMat = woodMaterial(0x5a3c22);
+const _pm = new THREE.Matrix4();
+let paneMesh = null;
+const placePane = (dr) => {   // hinge transform x pane box -> instance matrix
+  dr.grp.updateMatrix();
+  _pm.multiplyMatrices(dr.grp.matrix, dr.local);
+  paneMesh.setMatrixAt(dr.idx, _pm);
+  paneMesh.instanceMatrix.needsUpdate = true;
+};
+// a live fire: a few cones that sway, stretch and flicker in the vertex
+// shader on their own clock (much faster than the water), yellow core to
+// orange tips, no outline
+const fireMat = new THREE.ShaderMaterial({
+  uniforms: { uT: { value: 0 } },
+  vertexShader: /* glsl */ `
+    uniform float uT;
+    attribute float aPh;
+    varying float vY;
+    void main() {
+      vec3 p = position;
+      vY = p.y;
+      float ph = aPh;
+      p.y *= 1.0 + .28 * sin(uT * 9.0 + ph) + .12 * sin(uT * 23.0 + ph * 2.0);
+      p.x += (sin(uT * 6.0 + ph + p.y * 5.0) * .14 + sin(uT * 17.0 + ph) * .05) * p.y;
+      p.z += (cos(uT * 4.7 + ph * 1.3 + p.y * 4.0) * .12) * p.y;
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
+    }`,
+  fragmentShader: /* glsl */ `
+    uniform float uT;
+    varying float vY;
+    void main() {
+      vec3 col = mix(vec3(1.0, .9, .45), vec3(.93, .38, .06), smoothstep(.05, .85, vY));
+      col = mix(col, vec3(.6, .1, .02), smoothstep(.8, 1.0, vY));
+      gl_FragColor = vec4(col, 1.0);
+      #include <colorspace_fragment>
+    }`,
+  side: THREE.DoubleSide,
+});
+const jetMat = new THREE.ShaderMaterial({   // a falling jet: pale water with bright streaks running DOWN it
+  transparent: true, depthWrite: false, side: THREE.DoubleSide,
+  uniforms: { uT: { value: 0 } },
+  vertexShader: /* glsl */ `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: /* glsl */ `
+    precision highp float; uniform float uT; varying vec2 vUv;
+    void main() {
+      float s = sin((vUv.y * 7.0 + uT * 2.6 + sin(vUv.x * 12.57) * .3) * 6.2832);   // streaks scrolling downward (v grows upward on the cylinder)
+      float s2 = sin((vUv.y * 13.0 + uT * 4.1) * 6.2832 + vUv.x * 6.0);
+      vec3 col = vec3(.78, .9, .95) + .12 * s;
+      gl_FragColor = vec4(col, .55 + .2 * smoothstep(.3, 1.0, s) + .1 * s2);
+      #include <colorspace_fragment>
+    }`,
+});
+const poolMat = new THREE.ShaderMaterial({   // a fountain pool: rings spreading from where the jets land, over a translucent blue
+  transparent: true, depthWrite: false, side: THREE.DoubleSide,
+  uniforms: { uT: { value: 0 } },
+  vertexShader: /* glsl */ `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: /* glsl */ `
+    precision highp float; uniform float uT; varying vec2 vUv;
+    void main() {
+      vec2 q = (vUv - .5) * 2.0; float r = length(q);
+      float w = sin(r * 34.0 - uT * 5.0) * (1.0 - .5 * r) + .4 * sin(q.x * 9.0 + uT * 1.7) * sin(q.y * 8.0 - uT * 1.3);
+      vec3 col = vec3(.16, .36, .46) + .07 * w;
+      col += vec3(.25) * smoothstep(.75, 1.0, w);
+      gl_FragColor = vec4(col, .72 + .06 * w);
+      #include <colorspace_fragment>
+    }`,
+});
+const makeFire = ({ r, h }) => {
+  const g = new THREE.Group();
+  [[0, 0, 1.0, 1.0, 0], [-.6, .2, .6, .7, 2.1], [.55, -.3, .55, .65, 4.0], [.1, .6, .45, .5, 1.1], [0, 0, .45, .55, 3.3]].forEach(([dx, dz, rs, hs, ph]) => {
+    const cg = new THREE.CylinderGeometry(0, r * rs, 1, 7, 1, false);
+    cg.translate(0, .5, 0);   // base on the hearth; y in 0..1 drives the flicker
+    const phs = new Float32Array(cg.attributes.position.count).fill(ph);
+    cg.setAttribute("aPh", new THREE.BufferAttribute(phs, 1));
+    const m = new THREE.Mesh(cg, fireMat);
+    m.position.set(dx * r, 0, dz * r);
+    m.scale.set(1, h * hs, 1);
+    g.add(m);
+  });
+  return g;
+};
+for (const site of sites) {
+  const def = BUILDINGS[site.key];
+  const b = buildBuilding(def);
+  b.position.set(site.x, .01, siteZ(site));   // 1cm above the terrain: no coplanar bottoms
+  if (def.sailAt) {   // the windmill's live sail cross, spun by the world clock
+    const hub = new THREE.Group();
+    hub.position.set(site.x + def.sailAt[0], .01 + def.sailAt[1], siteZ(site) + def.sailAt[2]);
+    const woodM = new THREE.MeshToonMaterial({ color: 0x6a5236 });
+    const clothM = new THREE.MeshToonMaterial({ color: 0xe8e0cc });
+    for (let i = 0; i < 4; i++) {
+      const arm = new THREE.Group();
+      arm.rotation.z = i * Math.PI / 2;
+      const spar = new THREE.Mesh(new THREE.BoxGeometry(.28, def.sailR, .16), woodM);
+      spar.position.y = def.sailR / 2;
+      const sail = new THREE.Mesh(new THREE.BoxGeometry(1.5, def.sailR * .78, .07), clothM);
+      sail.position.set(.85, def.sailR * .56, 0);
+      arm.add(spar, sail);
+      hub.add(arm);
+    }
+    const axle = new THREE.Mesh(new THREE.CylinderGeometry(.24, .24, 1.8, 8), woodM);
+    axle.rotation.x = Math.PI / 2;
+    axle.position.z = -.7;
+    hub.add(axle);
+    scene.add(hub);
+    windmillHubs.push(hub);
+  }
+  for (const f of def.fires ?? []) {   // hearth fires
+    const fg = makeFire(f);
+    fg.position.set(site.x + f.x, .01 + f.y, siteZ(site) + f.z);
+    scene.add(fg);
+    fires.push(fg);
+  }
+  for (const f of def.flows ?? []) {   // running water: falling jets (a scrolling-streak shader) and rippling pools (their own ring shader)
+    let m;
+    if (f.kind === "jet") { m = new THREE.Mesh(new THREE.CylinderGeometry(f.r * .7, f.r, f.h, 8, 1, true), jetMat); m.position.set(site.x + f.x, .01 + f.y + f.h / 2, siteZ(site) + f.z); }
+    else { m = new THREE.Mesh(new THREE.CircleGeometry(f.r, f.seg ?? 24), poolMat); m.rotation.x = -Math.PI / 2; m.rotation.z = Math.PI / 8; m.position.set(site.x + f.x, .01 + f.y, siteZ(site) + f.z); }
+    scene.add(m);
+  }
+  if (def.wheelAt) {   // the water mill's wheel, turned by the current
+    const wg = buildBuilding(waterWheel(def.wheel));
+    wg.position.set(site.x + def.wheelAt[0], .01 + def.wheelAt[1], siteZ(site) + def.wheelAt[2]);
+    scene.add(wg);
+    waterWheels.push({ grp: wg, omega: RIVER.flow / def.wheel.r });
+  }
+  for (const d of def.doors ?? []) {   // hinged clickable door panel in the exported doorway
+    const wx = site.x + d.x, wz = siteZ(site) + d.z;
+    const base = -(d.yaw ?? 0) * Math.PI / 180;         // door axis: +x rotated by yaw
+    const ax = Math.cos(base), az = -Math.sin(base);
+    const grp = new THREE.Group();
+    const wy = (d.y ?? .15) + .01;   // the floor the door stands on (upper storeys export y)
+    grp.position.set(wx - ax * d.w / 2, wy, wz - az * d.w / 2);   // hinge at the jamb
+    grp.rotation.y = base;
+    const panel = new THREE.Mesh(new THREE.BoxGeometry(d.w - .06, d.h - .12, .1), doorMat);   // grained in the door's own space
+    panel.position.set((d.w - .06) / 2 + .03, (d.h - .12) / 2, 0);
+    grp.add(panel);
+    scene.add(grp);
+    doors.push({ grp, wx, wz, wy, w: d.w, base, ax, az, open: false, ang: 0 });
+  }
+  for (const wn of def.windows ?? []) {   // openable window pane, hinged like a small door
+    // hundreds of them (every palace window): all panes are ONE InstancedMesh;
+    // the hinge is a bare Object3D whose matrix feeds the instance when it swings
+    const wx = site.x + wn.x, wz = siteZ(site) + wn.z;
+    const base = -(wn.yaw ?? 0) * Math.PI / 180;
+    const ax = Math.cos(base), az = -Math.sin(base);
+    const grp = new THREE.Object3D();
+    grp.position.set(wx - ax * wn.w / 2, wn.y - wn.h / 2, wz - az * wn.w / 2);
+    grp.rotation.y = base;
+    const local = new THREE.Matrix4().compose(new THREE.Vector3((wn.w - .04) / 2 + .02, (wn.h - .04) / 2, 0),
+      new THREE.Quaternion(), new THREE.Vector3(wn.w - .04, wn.h - .04, .06));
+    doors.push({ grp, local, idx: paneRecs.length, wx, wz, wy: wn.y - wn.h / 2, h: wn.h, w: wn.w, base, ax, az, open: false, ang: 0, win: true });
+    paneRecs.push(doors[doors.length - 1]);
+  }
+  if (shadows) b.traverse((o) => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
+  scene.add(b);
+}
+{ // cobwebs: inclined triangles spanning ceiling corners -- vertices a
+  // little way along each of the three edges meeting there -- all in one
+  // mesh, with spokes and rings drawn in the shader around each web's center
+  const pos = [], web = [];
+  for (const site of sites) for (const c of BUILDINGS[site.key].cobwebs ?? []) {
+    const C = new THREE.Vector3(site.x + c.x, .01 + c.y, siteZ(site) + c.z);
+    const A = C.clone().add(new THREE.Vector3(c.sx * c.d, 0, 0)), B = C.clone().add(new THREE.Vector3(0, 0, c.sz * c.d)), D = C.clone().add(new THREE.Vector3(0, -c.d * 1.25, 0));
+    const G = A.clone().add(B).add(D).multiplyScalar(1 / 3);
+    const e1 = B.clone().sub(A).normalize(), n = e1.clone().cross(D.clone().sub(A)).normalize(), e2 = n.clone().cross(e1);
+    const rmax = Math.max(A.distanceTo(G), B.distanceTo(G), D.distanceTo(G));
+    for (const v of [A, B, D]) { pos.push(v.x, v.y, v.z); const q = v.clone().sub(G); web.push(q.dot(e1), q.dot(e2), rmax); }
+  }
+  if (pos.length) {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+    g.setAttribute("web", new THREE.Float32BufferAttribute(web, 3));
+    scene.add(new THREE.Mesh(g, new THREE.ShaderMaterial({
+      transparent: true, depthWrite: false, side: THREE.DoubleSide,
+      vertexShader: /* glsl */ `
+        attribute vec3 web; varying vec3 vWeb;
+        void main() { vWeb = web; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+      fragmentShader: /* glsl */ `
+        precision highp float;
+        varying vec3 vWeb;
+        void main() {
+          float r = length(vWeb.xy), a = atan(vWeb.y, vWeb.x);
+          float spokes = smoothstep(.014, .0, abs(sin(a * 6.0)) * r);                 // twelve radial threads
+          float rings = smoothstep(.007, .0, abs(fract(r / .075 + .5) - .5) * .075);  // a ring every 7.5cm
+          float edge = 1.0 - smoothstep(.55, 1.0, r / vWeb.z);                        // thins out toward the corners
+          float al = (max(spokes * .85, rings * .7) + .07) * edge;
+          gl_FragColor = vec4(vec3(.92, .92, .9), al * .8);
+          #include <colorspace_fragment>
+        }`,
+    })));
+  }
+}
+if (paneRecs.length) {   // every window pane in the world: one draw call
+  paneMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1),
+    new THREE.MeshBasicMaterial({ color: 0xaacfe2, transparent: true, opacity: .45 }), paneRecs.length);
+  paneMesh.frustumCulled = false;
+  for (const dr of paneRecs) placePane(dr);
+  scene.add(paneMesh);
+}
+
+// wandering: three sections -- buildings to the north; the fenced NATURE
+// range (animals + people, spread across the whole lawn); and a smaller
+// fenced monster pen to the east. Each wanderer respects its own fence.
+const wanderers = [];
+const wrand = rng(97);
+const gLim = Math.max(groundR - 8, 6);   // fences never reach past the ground plane (stripped test scenes shrink it)
+const FENCE = { x0: Math.max(-(extent + 22), -gLim), x1: Math.min(extent + 22, gLim),
+                z0: Math.max(frontZ + 10, -gLim),
+                z1: Math.min(extent + 20, gLim, hasLake ? LAKE.z - LAKE.rc - LAKE.w - 2 : 1e9) };   // walkers stay out of the lake
+const MFENCE0 = { x0: extent + 30, x1: Math.min(extent + 95, groundR - 8), z0: frontZ + 10, z1: extent + 10 };
+const MFENCE = MFENCE0.x1 - MFENCE0.x0 >= 12 ? MFENCE0 : FENCE;   // stripped-down scenes (?building=none) have no room east: share the main range
+// the lake's own ranges. A range is a rectangle, or -- for the lake -- a
+// shape test (`inside`) with a `home` point to steer back toward and a
+// `spawn`: the whole C of deep water, so fish, swans and ducks spread over
+// all of it instead of one belly. Shore animals (crocodile, frog, turtle)
+// keep the grassy lagoon heart inside the C. Without a lake: the meadow.
+const LAKEF = !hasLake ? FENCE : {
+  x0: LAKE.x - LAKE.rc - LAKE.w, x1: LAKE.x + LAKE.rc + LAKE.w, z0: LAKE.z - LAKE.rc - LAKE.w, z1: LAKE.z + LAKE.rc + LAKE.w,
+  inside: (x, z) => lakeSD(x, z) < -LAKE.w * .55,   // where the carved bottom is under water
+  home: (x, z) => { let a = Math.atan2(z - LAKE.z, x - LAKE.x); while (a < LAKE.g0) a += Math.PI * 2; a = Math.min(LAKE.g1 - .1, Math.max(LAKE.g0 + .1, a));
+                    return [LAKE.x + Math.cos(a) * LAKE.rc, LAKE.z + Math.sin(a) * LAKE.rc]; },
+  spawn: () => { const a = LAKE.g0 + .15 + wrand() * (LAKE.g1 - LAKE.g0 - .3), r = LAKE.rc + (wrand() - .5) * LAKE.w * .5;
+                 return [LAKE.x + Math.cos(a) * r, LAKE.z + Math.sin(a) * r]; },
+};
+const SHORE = hasLake ? { x0: LAKE.x - 22, x1: LAKE.x + 22, z0: LAKE.z - 22, z1: LAKE.z + 22 } : FENCE;
+// the sky: fliers (birds, butterflies) range over the whole ground disc,
+// spawned uniformly across it like the people
+const SKY = {
+  x0: -groundR * .9, x1: groundR * .9, z0: -groundR * .9, z1: groundR * .9,
+  inside: (x, z) => x * x + z * z < groundR * groundR * .8, home: () => [0, extent],
+  spawn: () => { for (let k = 0; k < 50; k++) { const x = (wrand() * 2 - 1) * groundR * .9, z = (wrand() * 2 - 1) * groundR * .9; if (x * x + z * z < groundR * groundR * .78) return [x, z]; } return [0, extent]; },
+};
+// bats roost in the roofs: they swarm low around the buildings (town row
+// and riverside) instead of thinning out over the whole sky, where a 30cm
+// dark animal at night is simply never seen
+const roosts = sites.map((s) => [s.x, siteZ(s)]);
+const BATS = !roosts.length ? SKY : {
+  ...SKY,
+  inside: (x, z) => roosts.some(([rx, rz]) => (x - rx) ** 2 + (z - rz) ** 2 < 45 * 45),
+  home: (x, z) => { let b = roosts[0], bd = 1e9; for (const r of roosts) { const d = (x - r[0]) ** 2 + (z - r[1]) ** 2; if (d < bd) { bd = d; b = r; } } return b; },
+  spawn: () => { const r = roosts[Math.floor(wrand() * roosts.length)], a = wrand() * Math.PI * 2, d = 3 + wrand() * 22; return [r[0] + Math.cos(a) * d, r[1] + Math.sin(a) * d]; },
+};
+const fenceFor = (def) => def.monster ? MFENCE : def.swim ? LAKEF : def.shore ? SHORE : def.name === "bat" ? BATS : def.fly ? SKY : FENCE;
+const spawnIn = (f) => f.spawn ? f.spawn() : [f.x0 + 5 + wrand() * (f.x1 - f.x0 - 10), f.z0 + 5 + wrand() * (f.z1 - f.z0 - 10)];
+const gaitBase = (def) => {   // natural travel speed for this body's leg length
+  const lg = def.parts.find((q) => q.id.startsWith("leg"));
+  return lg ? Math.max(.15, 1.3 * (lg.size.len + lg.size.r)) : 1;
+};
+const addWanderer = (p, apply, setT, speed, heading, base, alt = 0, hz = .8, f = FENCE, probe = .4) => {
+  // each wanderer owns its own seeded RNG: its whole life is a pure
+  // function of the world clock, identical on every multiplayer client,
+  // and one frozen (ridden) animal cannot desync anybody else
+  const w = { p, apply, setT, speed, heading, target: heading, next: 0, base, alt, hz, f, probe,
+              rng: rng(4242 + wanderers.length * 7919),
+              moving: wrand() > .3, until: wrand() * 6, animT: wrand() * 10 };
+  wanderers.push(w);
+  return w;
+};
+const wanderParams = (def) => {   // fliers cruise at altitude; walkers gait by leg length
+  const fl = def.fly;
+  const sp = fl ? fl.speed[0] + wrand() * (fl.speed[1] - fl.speed[0]) : .4 + wrand() * .7;
+  return [sp, fl ? sp : gaitBase(def), fl ? fl.alt[0] + wrand() * (fl.alt[1] - fl.alt[0]) : 0, fl ? fl.hz : .8];
+};
+const bodyProbe = (def) => {   // half the body length: where the nose and tail meet the ground
+  const b = def.parts.find((q) => q.id === "body" || q.id === "torso");
+  return b ? ((b.size.len ?? 0) / 2 + (b.size.r ?? 0)) : .4;
+};
+// The simulation runs on a FIXED 50ms tick indexed from world time 0, and
+// every random draw comes from a per-wanderer seeded stream -- so ambient
+// life is fully deterministic: two clients that share the URL and the world
+// clock compute byte-identical herds with zero network traffic. A guest
+// fast-forwards ticks to the host's clock on join.
+const TICK = .05;
+let simTick = 0;
+function simTo(T) {
+  const target = Math.max(0, Math.floor(T / TICK));
+  while (simTick < target) { simTick++; wanderStep(simTick * TICK); }
+}
+function wanderStep(t) {
+  const dt = TICK;
+  for (const w of wanderers) {
+    if (w.frozen) continue;   // e.g. a horse a player is riding (synced by ops)
+    if (w.active) {   // owls and bats fly by night, the other birds by day; the rest of the time they roost, hidden
+      const out = w.active === "night" ? night : !night;
+      w.hide(!out);
+      if (!out) continue;
+    }
+    if (t > w.until) {   // each individual alternates walking and standing, randomly timed
+      // a hopper only stops on the ground: mid-hop, the stop waits for the landing
+      const midHop = w.hop && w.moving && ((w.hopT ?? 0) % w.hop.period) / w.hop.period < .6;
+      if (midHop) w.until = t + .05;
+      else {
+        w.moving = !w.moving;
+        w.until = t + (w.moving ? 3 + w.rng() * 9 : 1.5 + w.rng() * 5);
+        if (w.hop) { w.hopT = 0; w.lift = 0; }
+      }
+    }
+    const p = w.p;
+    if (w.moving || w.alt > 0) {   // fliers never hover in place: "standing" means gliding on
+      const f = w.f;
+      if (t > w.next) { w.target = w.heading + (w.rng() - .5) * 2.6; w.next = t + 2 + w.rng() * 6; }
+      if (f.inside) {   // shaped range: turn home when the water ends 3m ahead
+        if (!f.inside(p.x + Math.cos(w.heading) * 3, p.z - Math.sin(w.heading) * 3)) {
+          const [hx, hz] = f.home(p.x, p.z);
+          w.target = Math.atan2(-(hz - p.z), hx - p.x);
+        }
+      } else if (p.x < f.x0 + 3 || p.x > f.x1 - 3 || p.z < f.z0 + 3 || p.z > f.z1 - 3)
+        w.target = Math.atan2(-((f.z0 + f.z1) / 2 - p.z), (f.x0 + f.x1) / 2 - p.x);   // steer home
+      if (f.members) for (const o of f.members) {   // penned stock keep their distance: a body's width apart, else they pile up at the pen's heart
+        if (o === w) continue;
+        const dx = p.x - o.p.x, dz = p.z - o.p.z, d = Math.hypot(dx, dz);
+        if (d > .01 && d < w.sep + o.sep) { w.target = Math.atan2(-dz, dx); if (!w.moving) { w.moving = true; w.until = t + 1.5; } break; }
+      }
+      let dh =((w.target - w.heading + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+      w.heading += Math.max(-1.1 * dt, Math.min(1.1 * dt, dh));
+      // hoppers travel in bursts: airborne on a little parabola for the first
+      // 55% of each hop period, sitting still for the rest
+      let step = w.speed * dt;
+      w.lift = 0;
+      if (w.hop) {
+        w.hopT = (w.hopT ?? 0) + dt;
+        const u = (w.hopT % w.hop.period) / w.hop.period, air = u < .6, v = u / .6;
+        step = air ? w.speed * dt / .6 : 0;
+        w.lift = air ? 4 * w.hop.h * v * (1 - v) : 0;
+      }
+      const nx = p.x + Math.cos(w.heading) * step;
+      const nz = p.z - Math.sin(w.heading) * step;
+      if (f.inside ? f.inside(nx, nz) : (nx > f.x0 && nx < f.x1 && nz > f.z0 && nz < f.z1)) { p.x = nx; p.z = nz; }
+      w.apply(w.heading);
+    }
+    if (w.moving) w.animT += dt * w.speed / w.base;   // gait/wingbeat follows actual travel speed
+    else w.animT += (Math.round(w.animT * 2 * w.hz) / (2 * w.hz) - w.animT) * Math.min(1, dt * 10);
+    // standing walkers settle legs straight; "standing" fliers level their wings and glide.
+    // Terrain is sampled under nose, center, and tail -- the body rides the
+    // HIGHEST, so walking into rising ground never buries the front half
+    const cs = Math.cos(w.heading), sn = -Math.sin(w.heading);
+    p.y = w.surface !== undefined ? WLEVEL - w.surface   // surface swimmers float on the water, whatever the bottom does
+        : Math.max(groundH(p.x, p.z),
+                   groundH(p.x + cs * w.probe, p.z + sn * w.probe),
+                   groundH(p.x - cs * w.probe, p.z - sn * w.probe),
+                   w.alt > 0 ? WLEVEL : -1e9) + w.alt + (w.lift ?? 0)   // a flier over the lake or river rides above the WATER, not the bed
+          + .04;   // the rendered ground interpolates between mesh vertices and can sit a hair above the analytic height
+    w.setT(w.animT);
+  }
+  moveRiders(dt);   // riders, carts and clouds tick on the same deterministic clock
+  moveCarts(dt);
+  freightStep(dt);
+  boatStep(dt);
+  for (const c of cloudHerd.animals) {
+    c.position.x += c.drift * dt;
+    if (c.position.x > groundR * 1.15) c.position.x = -groundR * 1.15;
+  }
+}
+
+// every seat and bed in every building, for the sit/lie interaction,
+// plus stair-shortcut spots (tower spirals) for go-upstairs/downstairs
+const seats = [], lifts = [];
+for (const s of sites) {
+  const def = BUILDINGS[s.key], bz = siteZ(s);
+  for (const p of def.parts)
+    if (p.sit || p.lie) seats.push({ x: s.x + p.pos[0], z: bz + p.pos[2],
+      hx: p.size[0] / 2, hz: p.size[2] / 2, top: p.pos[1] + p.size[1] / 2 + .01, lie: !!p.lie });
+  for (const lf of def.lifts ?? [])
+    lifts.push({ bx: s.x + lf.bx, bz: bz + lf.bz, by: lf.by, tx: s.x + lf.tx, tz: bz + lf.tz, ty: lf.ty });
+}
+
+const roots = [];
+const mountables = [];   // every wandering animal whose species carries a `mount` rating
+const callers = [];      // every creature whose species has a call (calls.js); filled as herds are built
+const solids = [];       // the big animals (mounts, anything with a trunk over .35m): bodies you cannot walk through
+const bodyRadius = (def) => {   // one circle around the trunk stands in for the whole body -- cheaper and steadier than testing every part
+  const b = def.parts.find((q) => q.id === "body") ?? def.parts[0], sx = b.scale?.[0] ?? 1;
+  return Math.max(b.size.r * 1.1, ((b.size.len ?? 0) / 2 + b.size.r * .35) * sx);
+};
+const faceCam = THREE.MathUtils.degToRad(-30);   // angle each animal 3/4 toward the camera so the face reads
+const placeX = (i) => (i % cols - (cols - 1) / 2) * gap;   // grid, small species in front rows
+const placeZ = (i) => -Math.floor(i / cols) * gap;
+let herd = null;
+if (mode === "instanced" && n) {
+  // the cast: one of each species (or ?n= of them), and -- when the lake is
+  // there -- two more swans and ducks, so three of each float on it
+  const castList = [];   // [species, own range?]: a creature with no range of its own takes its species' default
+  for (let i = 0; i < n; i++) castList.push([CAST[i % CAST.length]]);
+  if (hasLake && !qp.has("n")) for (const nm of ["swan", "swan", "duck", "duck"]) { const d = CAST.find((s) => s.name === nm); if (d) castList.push([d]); }
+  if (!qp.has("n")) for (const [nm, cnt] of [["parrot", 20], ["owl", 50], ["eagle", 20], ["bat", 100]]) {   // flocks over the whole sky (one of each is in the cast already)
+    const d = CAST.find((s) => s.name === nm); if (d) for (let k = 1; k < cnt; k++) castList.push([d]); }
+  // the farmyards' stock: pigs in the pig yard, hens in the hen yard, each kept by its own fence
+  // (the yard inside the rails, minus the shed they would otherwise walk through)
+  if (!qp.has("n")) for (const s of RIVERSIDE) {
+    const d = BUILDINGS[s.key], pen = d.pen; if (!pen) continue;
+    const [nm, cnt] = { pigs: ["pig", 5], hens: ["chicken", 8], horses: ["horse", 4] }[d.kind], sp = CAST.find((q) => q.name === nm); if (!sp) continue;
+    const inside = (x, z) => x > s.x + pen.x0 && x < s.x + pen.x1 && z > s.z + pen.z0 && z < s.z + pen.z1
+      && !pen.blocks.some((b) => x > s.x + b.x0 && x < s.x + b.x1 && z > s.z + b.z0 && z < s.z + b.z1);
+    const f = { x0: s.x + pen.x0, x1: s.x + pen.x1, z0: s.z + pen.z0, z1: s.z + pen.z1, inside, home: () => [s.x + (pen.x0 + pen.x1) / 2, s.z + (pen.z0 + pen.z1) / 2],
+                spawn: () => { for (let k = 0; k < 50; k++) { const x = s.x + pen.x0 + .5 + wrand() * (pen.x1 - pen.x0 - 1), z = s.z + pen.z0 + .5 + wrand() * (pen.z1 - pen.z0 - 1); if (inside(x, z)) return [x, z]; } return f.home(); } };
+    for (let k = 0; k < cnt; k++) castList.push([sp, f]);
+  }
+  let cap = 0;   // exact banner count of the cast about to be added
+  for (const [d] of castList) cap += d.parts.length;
+  herd = createHerd(cap, { pixelDepth });
+  scene.add(herd.mesh);
+  for (const [def, own] of castList) {
+    const a = herd.add(def); a.name = def.name;
+    const fence = own ?? fenceFor(def);
+    const [sx2, sz2] = spawnIn(fence);
+    a.position.set(sx2, 0, sz2);
+    a.rotY = faceCam;
+    const w = addWanderer(a.position, (h) => a.rotY = h, (v, wt, mt) => { a.animT = v; if (wt !== undefined) a.wingT = wt; a.moveT = mt; },
+      ...(([sp, b, alt, hz]) => [sp, faceCam, b, alt, hz, fence, bodyProbe(def)])(wanderParams(def)));
+    if (def.swim && hasLake) w.surface = def.swim.depth;   // rides the water level, this deep in
+    if (def.hop) { w.hop = def.hop; w.base = w.speed * def.hop.period; }   // hoppers: one leg cycle per hop
+    if (def.active) { w.active = def.active; w.hide = (on) => { a.hidden = on; }; }   // day birds / night fliers: roost out of sight the rest of the time
+    if (CALLS[def.name]) callers.push({ name: def.name, p: a.position, pitch: .9 + wrand() * .2 });
+    if (def.mount) mountables.push({ w, def });
+    if (own) { (own.members ??= []).push(w); w.sep = bodyRadius(def); }   // pen mates: kept apart in wanderStep
+    if (def.mount || (def.parts[0].size.r ?? 0) > .35) solids.push({ p: a.position, w, a, r: bodyRadius(def), h: def.parts[0].pos[1] + def.parts[0].size.r * (def.parts[0].scale?.[1] ?? 1) });
+  }
+} else for (let i = 0; i < n; i++) {
+  const def = CAST[i % CAST.length];
+  const root = build(def);
+  const fence = fenceFor(def);
+  const [sx2, sz2] = spawnIn(fence);
+  root.position.set(sx2, 0, sz2);
+  root.rotation.y = faceCam;
+  if (shadows) root.traverse((o) => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
+  scene.add(root);
+  roots.push(root);
+  const w = addWanderer(root.position, (h) => root.rotation.y = h, (v) => root.userData.animT = v,
+    ...(([sp, b, alt, hz]) => [sp, faceCam, b, alt, hz, fence, bodyProbe(def)])(wanderParams(def)));
+  if (def.mount) mountables.push({ w, def });
+}
+
+// trees: scattered on the lawn, clear of the herd and every building.
+// A static instanced herd draws the whole forest in one call in any mode.
+const autumn = num("autumn", 0);                             // 0 = summer .. 1 = full autumn (deciduous only)
+const nBush = Math.round(nTrees * 1.3), nFlower = Math.min(420, nTrees * 3);
+// the whole flora herd is rebuilt on demand ("I" cycles summer/half/full
+// autumn): same seed, same layout, only the colors change
+let treeHerd = null;
+let autumnLvl = Math.round(Math.min(1, autumn) * 2);
+const buildFlora = (autumnNow) => {
+  if (treeHerd) scene.remove(treeHerd.mesh);
+  treeHerd = null;
+  treeCols.length = 0;
+  pickables.length = 0;   // the season rebuild regrows what was picked
+  if (!nTrees) return;
+  treeHerd = createHerd(nTrees * 60 + nBush * 8 + nFlower * 13, { pixelDepth });   // oaks ~40 parts, plus mushrooms, bushes, flowers
+  scene.add(treeHerd.mesh);
+  const rand = rng(7);
+  const spots = [];
+  for (let placed = 0, guard = 0; placed < nTrees && guard < nTrees * 40; guard++) {
+    const x = (rand() * 2 - 1) * groundR * .92, z = (rand() * 2 - 1) * groundR * .92;
+    if (x * x + z * z > groundR * groundR * .85) continue;
+    if (spots.some((s) => (s[0] - x) ** 2 + (s[1] - z) ** 2 < 64)) continue;   // 8m apart: crowns may touch, branches won't
+    if (Math.abs(x) < extent + 4 && z < 4 && z > -(rows * gap + 6)) continue;   // the herd's meadow
+    if (hasLake && lakeSD(x, z) < 4) continue;   // no trees in the lake
+    if (riverSD(x, z) < 4) continue;              // nor in the river
+    if (inSites(x, z, 5)) continue;
+    const td = makeTree(TREE_SPECIES[Math.floor(rand() * TREE_SPECIES.length)], { seed: placed + 11, autumn: autumnNow });
+    const t = treeHerd.add(td);
+    t.position.set(x, groundH(x, z) - .1, z);
+    t.rotY = rand() * Math.PI * 2;
+    spots.push([x, z]);
+    treeCols.push({ x, z, r: td.parts[0].size.r });   // the trunk blocks walking
+    if (rand() < .5)                                           // mushrooms in the tree's shade
+      for (let m = 0, mn = 1 + Math.floor(rand() * 3); m < mn; m++) {
+        const mx = x + (rand() * 2 - 1) * 5, mz = z + (rand() * 2 - 1) * 5;
+        const mKind = MUSHROOMS[Math.floor(rand() * MUSHROOMS.length)];
+        const mm = treeHerd.add(makeMushroom(mKind, { seed: placed * 31 + m }));
+        mm.position.set(mx, groundH(mx, mz), mz);
+        mm.rotY = rand() * Math.PI * 2;
+        pickables.push({ an: mm, x: mx, z: mz, kind: mKind });
+      }
+    placed++;
+  }
+
+  // bushes: same exclusions as trees but packed tighter, tucked anywhere
+  const bspots = [];
+  for (let placed = 0, guard = 0; placed < nBush && guard < nBush * 30; guard++) {
+    const x = (rand() * 2 - 1) * groundR * .92, z = (rand() * 2 - 1) * groundR * .92;
+    if (x * x + z * z > groundR * groundR * .85) continue;
+    if (bspots.some((s) => (s[0] - x) ** 2 + (s[1] - z) ** 2 < 9)) continue;
+    if (Math.abs(x) < extent + 4 && z < 4 && z > -(rows * gap + 6)) continue;
+    if (hasLake && lakeSD(x, z) < 2) continue;
+    if (riverSD(x, z) < 2) continue;
+    if (inSites(x, z, 3)) continue;
+    const b = treeHerd.add(makeBush({ seed: placed + 17, autumn: autumnNow }));
+    b.position.set(x, groundH(x, z), z);
+    b.rotY = rand() * Math.PI * 2;
+    bspots.push([x, z]);
+    placed++;
+  }
+
+  // flowers: bright patches everywhere (the meadow included), each spot a
+  // small clump of one kind -- the way wildflowers actually grow
+  for (let placed = 0, guard = 0; placed < nFlower && guard < nFlower * 8; guard++) {
+    const x = (rand() * 2 - 1) * groundR * .9, z = (rand() * 2 - 1) * groundR * .9;
+    if (x * x + z * z > groundR * groundR * .8) continue;
+    if (hasLake && lakeSD(x, z) < 1) continue;
+    if (riverSD(x, z) < 1) continue;
+    if (inSites(x, z, 1)) continue;
+    const kind = FLOWERS[Math.floor(rand() * FLOWERS.length)];
+    const clump = 1 + Math.floor(rand() * 3);
+    for (let c = 0; c < clump && placed < nFlower; c++, placed++) {
+      const fx = x + (rand() * 2 - 1) * 1.4, fz = z + (rand() * 2 - 1) * 1.4;
+      const f = treeHerd.add(makeFlower({ seed: placed + 23, kind }));
+      f.position.set(fx, groundH(fx, fz), fz);
+      f.rotY = rand() * Math.PI * 2;
+      pickables.push({ an: f, x: fx, z: fz, kind });
+    }
+  }
+  treeHerd.update(0);   // trees stand still: one buffer write per rebuild
+};
+buildFlora(Math.min(1, autumn));
+
+// clouds: puffy banner clusters drifting slowly across the sky
+// 28 clouds; how many are out follows the weather: rain and snow bring
+// them all, a clear day shows few, half or many by the intensity key (O)
+const cloudHerd = createHerd(28 * 9, { pixelDepth });
+scene.add(cloudHerd.mesh);
+function applyClouds() {
+  const n = weather ? 28 : [6, 14, 28][wxInt] ?? 14;
+  cloudHerd.animals.forEach((c, i) => { c.hidden = i >= n; });
+}
+{
+  const cr = rng(19);
+  for (let i = 0; i < 28; i++) {
+    const c = cloudHerd.add(makeCloud({ seed: i + 2 }));
+    const a = cr() * Math.PI * 2, d = cr() * groundR * .85;
+    c.position.set(Math.cos(a) * d, 68 + cr() * 55, Math.sin(a) * d);
+    c.rotY = cr() * Math.PI * 2;
+    c.drift = .8 + cr() * 1.4;
+  }
+  cloudHerd.update(0);
+}
+
+// people: a small idle crowd near the meadow (?people=N)
+let folk = null;
+const nFolk = Math.max(0, num("people", 66));
+// ---- speech: every person has a language and a voice (from their seed) and
+// says a word from the shared lexicon every ~30s when you are within earshot
+// (speech.js does the talking; here only who, when, where). L cycles a
+// language override, Shift+L a voice override; "random" = each their own.
+const talkers = [];
+// the people's range: the whole open country -- every patch of grass on
+// the ground disc that is not water, moat or a building's footprint;
+// spawned uniformly over it, steered back toward the meadow when they
+// walk into an edge
+const COUNTRY = {
+  x0: -groundR * .9, x1: groundR * .9, z0: -groundR * .9, z1: groundR * .9,
+  inside: (x, z) => x * x + z * z < groundR * groundR * .8
+    && (!hasLake || lakeSD(x, z) > 4) && riverSD(x, z) > 4
+    && !moats.some((m) => Math.max(Math.abs(x - m.cx) - m.hw, Math.abs(z - m.cz) - m.hd) < m.w + 2)
+    && !inSites(x, z, 2),
+  home: () => [0, extent],
+  spawn: () => { for (let k = 0; k < 200; k++) { const x = (wrand() * 2 - 1) * groundR * .9, z = (wrand() * 2 - 1) * groundR * .9; if (COUNTRY.inside(x, z)) return [x, z]; } return [0, extent]; },
+};
+const LANG_MODES = ["random", "en", "de", "fr", "es", "ru"], TONE_MODES = ["random", "man", "woman", "child"];
+let langMode = "random", toneMode = "random", wordMode = "random", moodMode = "random", spoken = 0;   // J: pin one word; H: pin a mood
+const WORD_MODES = ["random", ...WORDS], MOOD_MODES = ["random", ...Object.keys(MOODS)];
+const TONES = { man: { pitch: 118, scale: 1, breath: .25, tilt: 7 }, woman: { pitch: 218, scale: 1.2, breath: .6, tilt: 3 },
+                child10: { pitch: 285, scale: 1.3, breath: .3, tilt: 6 }, child5: { pitch: 330, scale: 1.38, breath: .35, tilt: 6 }, child: { pitch: 300, scale: 1.32, breath: .3, tilt: 6 } };
+const talkerVoice = (t) => {   // seeded: who they are never changes; the voice follows the body (man, woman, child)
+  if (!t.voice) {
+    const r = rng(t.seed * 97 + 5);
+    t.lang = LANG_MODES[1 + Math.floor(r() * 5)];
+    t.tone = t.kind ?? TONE_MODES[1 + Math.floor(r() * 3)];
+    t.jitter = .88 + r() * .24;
+    t.next = 6 + r() * 28;
+    t.voice = true;
+  }
+};
+// animal calls: every creature whose species has a call (calls.js) gives
+// it now and then when you are within earshot, from where it stands
+const CALL_EAR = 55;
+let animalSpace = null;   // the outdoor reverb every animal call sounds in
+function playCall(c) {   // the creature's call from where it stands, if within earshot
+  if (!AC) return;
+  if (!animalSpace) animalSpace = makeSpace(AC, { wet: .35, size: 1.4 });
+  const dx = c.p.x - camera.position.x, dz = c.p.z - camera.position.z, d = Math.hypot(dx, dz);
+  const rec = CALLS[c.name], reach = CALL_EAR * Math.min(2, rec.loud);
+  if (d > reach) return;
+  // animals sit ~8 dB under the people and birds; a loud species carries further but is not louder up close (a mount is right under the ear)
+  const g = AC.createGain(); g.gain.value = Math.pow(3 / Math.max(d, 3), .7) * Math.min(1, (reach - d) / 10) * Math.min(1, rec.loud) * .4;
+  const pan = AC.createStereoPanner();
+  const rx = Math.cos(yaw), rz = -Math.sin(yaw);
+  pan.pan.value = Math.max(-1, Math.min(1, (dx * rx + dz * rz) / Math.max(d, 1)));
+  g.connect(pan); pan.connect(animalSpace.input);
+  const end = animalCall(AC, c.name, { dest: g, pitch: c.pitch });
+  setTimeout(() => pan.disconnect(), (end - AC.currentTime + .5) * 1000);
+}
+const rouse = (p) => { const c = callers.find((c) => c.p === p); if (c) { playCall(c); c.next = (lastT + clockOff) + 30 + Math.random() * 70; } };
+function callTick(T) {
+  for (const c of callers) {
+    if (c.next === undefined) c.next = 8 + Math.random() * 60;
+    if (T < c.next) continue;
+    c.next = T + 30 + Math.random() * 70;
+    playCall(c);
+  }
+}
+function speechTick(T) {
+  const EAR = 40;
+  for (const t of talkers) {
+    talkerVoice(t);
+    if (T < t.next) continue;
+    t.next = T + 22 + Math.random() * 16;
+    const dx = t.p.position.x - camera.position.x, dz = t.p.position.z - camera.position.z, d = Math.hypot(dx, dz);
+    if (d > EAR) continue;
+    const tone = TONES[toneMode === "random" ? t.tone : toneMode], lang = langMode === "random" ? t.lang : langMode;
+    const mood = moodMode !== "random" ? moodMode : Math.random() < .6 ? "normal" : Math.random() < .5 ? "excited" : "angry";
+    // a gentle distance law: full within 3m, then about 4 dB per doubling (a
+    // voice carries), fading out toward the edge of earshot
+    const g = AC.createGain(); g.gain.value = Math.pow(3 / Math.max(d, 3), .7) * Math.min(1, (EAR - d) / 8);
+    const pan = AC.createStereoPanner();                     // where they stand, relative to the way you face
+    const rx = Math.cos(yaw), rz = -Math.sin(yaw);           // the camera's right vector on the ground
+    pan.pan.value = Math.max(-1, Math.min(1, (dx * rx + dz * rz) / Math.max(d, 1)));
+    g.connect(pan); pan.connect(AC.destination);
+    const sp = createSpeaker(AC, { ...tone, pitch: tone.pitch * t.jitter, scale: tone.scale * (2 - t.jitter) ** .5, dest: g });
+    // what they say: a pinned word (J), or -- a greeting answered with "hello, <word>!", a two-word
+    // phrase now and then, a single word otherwise -- as sentences, so the melody carries across
+    const pick = () => WORDS[Math.floor(Math.random() * WORDS.length)];
+    const text = wordMode !== "random" ? wordMode
+      : t.greeted ? `hello, ${pick()}!`
+      : Math.random() < .3 ? `${pick()}, ${pick()}.` : `${pick()}${Math.random() < .2 ? "?" : "."}`;
+    t.greeted = false;
+    const end = sp.sayText(text, lang, undefined, mood);
+    spoken++;
+    setTimeout(() => { sp.stop(); pan.disconnect(); }, (end - AC.currentTime + .4) * 1000);
+  }
+}
+if (nFolk) {
+  // wanderers outside plus a static congregation inside every building
+  // that exports folkSpots (the cathedrals: pews + clergy at the altar)
+  const spotSites = sites.flatMap((s) =>
+    (BUILDINGS[s.key].folkSpots ?? []).map((sp) => ({ sp, s })));
+  folk = createHerd((nFolk + spotSites.length) * 14, { pixelDepth });
+  scene.add(folk.mesh);
+  const pr = rng(31);
+  for (let i = 0; i < nFolk; i++) {
+    const pd = makePerson({ seed: i + 3 });
+    const p = folk.add(pd);
+    p.kind = pd.kind;
+    const [x, z] = spawnIn(COUNTRY);   // spread over the whole open country
+    p.position.set(x, groundH(x, z), z);
+    p.rotY = pr() * Math.PI * 2;
+    const w = addWanderer(p.position, (h) => p.rotY = h, (v) => p.animT = v, 1.05 + pr() * .4, p.rotY, gaitBase(pd), 0, .8, COUNTRY, .3);
+    talkers.push({ p, seed: i + 3, w, kind: pd.kind });
+  }
+  spotSites.forEach(({ sp, s }, i) => {
+    const pd = makePerson({ seed: i * 5 + 101, pose: sp.pose === "sit" ? "sit" : undefined, still: true, adult: sp.pose === "stand" });
+    const p = folk.add(pd);
+    const bz = siteZ(s);
+    // sit: sp.y is the seat top; the hips ride one thigh radius above it
+    p.position.set(s.x + sp.x, sp.pose === "sit" ? sp.y + .08 - pd.hipY : sp.y + .01, bz + sp.z);
+    p.rotY = sp.h;
+    p.animT = 0;   // no wanderer: they hold their pose
+    talkers.push({ p, seed: i * 5 + 101, kind: pd.kind });
+  });
+}
+
+// butterflies: bright fliers fluttering low over the whole range
+let bflies = null;
+const nBfly = Math.max(0, num("butterflies", 140));
+if (nBfly) {
+  bflies = createHerd(nBfly * 8, { pixelDepth });
+  scene.add(bflies.mesh);
+  const br = rng(53);
+  for (let i = 0; i < nBfly; i++) {
+    const bd = makeButterfly({ seed: i + 7 });
+    const b = bflies.add(bd);
+    const [x, z] = spawnIn(SKY);   // everywhere, like the people
+    b.position.set(x, groundH(x, z) + 1, z);
+    b.rotY = br() * Math.PI * 2;
+    addWanderer(b.position, (h) => b.rotY = h, (v) => b.animT = v,
+      ...(([sp, base, alt, hz]) => [sp, b.rotY, base, alt, hz, SKY, .1])(wanderParams(bd)));
+  }
+}
+
+// dragonflies: darting low over the water only -- the lake's shores, the river, the basin
+let dflies = null;
+const nDfly = Math.max(0, num("dragonflies", hasLake ? 70 : 0));
+if (nDfly) {
+  const nearWater = (x, z) => (hasLake && lakeSD(x, z) < 5) || riverSD(x, z) < 5;
+  const WATER = {
+    ...SKY,
+    inside: (x, z) => x * x + z * z < groundR * groundR * .9 && nearWater(x, z),
+    home: (x, z) => (hasLake && lakeSD(x, z) < riverSD(x, z)) ? LAKEF.home(x, z) : [x, riverZ(x)],
+    spawn: () => { for (let k = 0; k < 400; k++) { const x = (wrand() * 2 - 1) * groundR * .9, z = (wrand() * 2 - 1) * groundR * .9; if (WATER.inside(x, z)) return [x, z]; } return [LAKE.x, LAKE.z - LAKE.rc]; },
+  };
+  dflies = createHerd(nDfly * 12, { pixelDepth });
+  scene.add(dflies.mesh);
+  const dr = rng(59);
+  for (let i = 0; i < nDfly; i++) {
+    const dd = makeDragonfly({ seed: i + 3 });
+    const b = dflies.add(dd);
+    const [x, z] = spawnIn(WATER);
+    b.position.set(x, Math.max(groundH(x, z), WLEVEL) + 1, z);
+    b.rotY = dr() * Math.PI * 2;
+    addWanderer(b.position, (h) => b.rotY = h, (v, wt) => { b.animT = v; if (wt !== undefined) b.wingT = wt; },
+      ...(([sp, base, alt, hz]) => [sp, b.rotY, base, alt, hz, WATER, .05])(wanderParams(dd)));
+  }
+}
+
+// water: ONE translucent, wave-lit sheet at the shared water level over the
+// whole ground -- it shows wherever the terrain was carved below it (lake,
+// river, moats) and hides under the plain everywhere else. In the river
+// band the whole pattern slides downstream and fine streaks stretch along
+// the current. Fish cruise the lake between floor and surface.
+let fishHerd = null;
+const waterMat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false,
+    uniforms: { uT: { value: 0 },
+                uRiver: { value: new THREE.Vector4(RIVER.z, RIVER.amp, RIVER.k, RIVER.ph) },
+                uRiverW: { value: new THREE.Vector3(RIVER.hw, hasRiver ? RIVER.xEnd : -1e9, RIVER.flow) } },
+    vertexShader: /* glsl */ `
+      varying vec3 vW;
+      void main() { vW = (modelMatrix * vec4(position, 1.0)).xyz;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: /* glsl */ `
+      precision highp float;
+      uniform float uT;
+      uniform vec4 uRiver;    // centerline z = x + y * sin(X * z + w)
+      uniform vec3 uRiverW;   // half width, end x (where it joins the lake), flow speed
+      varying vec3 vW;
+      void main() {
+        float zc = uRiver.x + uRiver.y * sin(vW.x * uRiver.z + uRiver.w);
+        float inR = (1.0 - smoothstep(uRiverW.x - 3.0, uRiverW.x + 1.0, abs(vW.z - zc)))
+                  * (1.0 - smoothstep(uRiverW.y - 30.0, uRiverW.y, vW.x));
+        float fx = vW.x - uT * uRiverW.z * inR;   // the current carries the pattern downstream
+        // long sinuous crest lines drifting across the surface, not dots:
+        // bands of sin(z) whose phase snakes with x, two scales overlaid
+        float w = sin(vW.z * 1.1 + sin(fx * .5 + uT * .6) * 1.9 + uT * .9);
+        float w2 = sin(vW.z * 2.3 + sin(fx * .9 - uT * .5) * 1.4 - uT * 1.3);
+        vec3 col = vec3(.12, .29, .4) + .04 * (w + .5 * w2);
+        col += vec3(.2) * smoothstep(.82, .97, w) + vec3(.12) * smoothstep(.86, .98, w2);
+        float st = sin(vW.z * 5.0 + sin(fx * .35) * 2.2 + fx * .2);   // flow streaks, stretched along the current
+        col += vec3(.07, .08, .08) * smoothstep(.55, 1.0, st) * inR;
+        gl_FragColor = vec4(col, .55 + .04 * w);
+        #include <colorspace_fragment>
+      }`,
+    side: THREE.DoubleSide,
+});
+{
+  const wg = new THREE.PlaneGeometry(groundR * 2.2, groundR * 2.2);
+  wg.rotateX(-Math.PI / 2);
+  const water = new THREE.Mesh(wg, waterMat);
+  water.position.y = WLEVEL;
+  scene.add(water);
+}
+if (hasLake) {
+  const nFish = 12;
+  fishHerd = createHerd(nFish * 6 + 30, { pixelDepth });
+  scene.add(fishHerd.mesh);
+  // the swimmers roam the whole C of deep water (LAKEF: a shaped range)
+  const addSwimmer = (fd, probe = .1) => {
+    const f = fishHerd.add(fd);
+    const [x, z] = spawnIn(LAKEF);
+    f.position.set(x, groundH(x, z) + .6, z);
+    f.rotY = wrand() * Math.PI * 2;
+    addWanderer(f.position, (h) => f.rotY = h, (v) => f.animT = v,
+      ...(([sp, base, alt, hz]) => [sp, f.rotY, base, alt, hz, LAKEF, probe])(wanderParams(fd)));
+  };
+  for (let i = 0; i < nFish; i++) addSwimmer(makeFish({ seed: i + 5 }));
+  addSwimmer(makeShark(), 1.3);
+  addSwimmer(makeDolphin(), 1);
+}
+
+// a closed lane: arc-length sampler over a polyline (wrapping), plus the
+// arc length of each vertex (`cum`) so stops can be placed by vertex
+let hwGeom = null;
+function laneFrom(lane) {
+  const cum = [0];
+  for (let i = 1; i < lane.length; i++) cum.push(cum[i - 1] + Math.hypot(lane[i][0] - lane[i - 1][0], lane[i][1] - lane[i - 1][1]));
+  const total = cum[cum.length - 1];
+  return { total, cum, at(s) {   // arc length (wrapping) -> [x, z]
+    s = ((s % total) + total) % total;
+    let lo = 0, hi = cum.length - 2;
+    while (lo < hi) { const m = (lo + hi) >> 1; if (cum[m + 1] < s) lo = m + 1; else hi = m; }
+    const t = (s - cum[lo]) / Math.max(1e-6, cum[lo + 1] - cum[lo]);
+    return [lane[lo][0] + (lane[lo + 1][0] - lane[lo][0]) * t, lane[lo][1] + (lane[lo + 1][1] - lane[lo][1]) * t];
+  } };
+}
+// medieval tracks: packed-earth ribbons draped over the terrain, with wheel
+// ruts, stone specks and ragged grassy edges -- one merged mesh, one call.
+// The town's spine is a 6m HIGHWAY (a Roman via: two 3.5m-spaced lanes,
+// right-hand traffic) running the whole facade line, ending in a 9m-radius
+// turning loop past the last building at each end so wagons never have to
+// reverse -- `highway` is the closed lane loop the carts drive.
+const pathRoutes = [];
+let highway = null;
+if (town.length) {
+  const routes = pathRoutes;
+  const roadZ = frontZ + 7;
+  const xW = Math.min(...town.map((s) => s.x - BUILDINGS[s.key].footprint[0] / 2)) - 16;
+  const xE = Math.max(...town.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 16;
+  const LR = 9, LANE = 1.75;
+  routes.push({ w: 6, pts: [[xW + LR - 3, roadZ], [xE - LR + 3, roadZ]] });
+  for (const s of town) routes.push({ w: 1.5, pts: [[s.x, roadZ], [s.x, frontZ + .6]] });
+  routes.push({ w: 1.9, pts: [[0, roadZ], [3, roadZ + 12], [-2, roadZ + 24], [1, 6]] });
+  if (hasLake) routes.push({ w: 1.5, pts: [[1, 6], [8, extent + 12], [LAKE.x, LAKE.z]] });   // through the C's opening to the lagoon heart
+  const arc = (cx, t0, t1, n) => Array.from({ length: n + 1 }, (_, i) =>
+    [cx + Math.cos(t0 + (t1 - t0) * i / n) * LR, roadZ + Math.sin(t0 + (t1 - t0) * i / n) * LR]);
+  const LAND = RIVERSIDE.find((s) => s.key === "landing");
+  if (LAND) routes.push({ w: 4, pts: [[BASIN.x, roadZ], [BASIN.x, LAND.z - 8]] });   // the freight road: highway to the landing yard
+  hwGeom = { roadZ, xW, xE, LR, LANE, arc };
+  routes.push({ w: 6, pts: arc(xE, 0, Math.PI * 2, 40) }, { w: 6, pts: arc(xW, 0, Math.PI * 2, 40) });   // the turning loops
+  if (MILL) {   // the riverside street: from the lake path west along the shore, then along the bank to the mill door
+    const xE = Math.max(...RIVERSIDE.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 12;
+    const xM = MILL.x + BUILDINGS.watermill.footprint[0] / 2 + 1.5;
+    const quay = [];
+    for (let x = xE; x > xM; x -= 6) quay.push([x, quayZ(x)]);
+    routes.push({ w: 1.5, pts: [[8, extent + 12], [-40, extent + 26], [xE + 20, quayZ(xE) - 22], ...quay, [xM, MILL.z]] });
+    for (const s of RIVERSIDE) if (s !== MILL && !s.bank)   // each building's own spur from the street to its door
+      routes.push({ w: 1.2, pts: [[s.x, quayZ(s.x)], [s.x, s.z + BUILDINGS[s.key].footprint[1] / 2 - .4]] });
+    if (VILLAGE_X !== null) {   // the bridge road: quay -> round the landing yard -> north ramp; south ramp -> the village street, with spurs to doors and gates
+      const xb = VILLAGE_X, BR = BUILDINGS.bridge, LAND = RIVERSIDE.find((s) => s.key === "landing"), lfp = BUILDINGS.landing.footprint;
+      const xe = LAND.x + lfp[0] / 2 + 2, xw = LAND.x - lfp[0] / 2 - 2, zN = LAND.z - lfp[1] / 2 - 2;
+      const footN = riverZ(xb) - BR.halfL - BR.ramp;   // the north ramp's foot: the road must arrive there from beyond it, not run in under the ramp
+      routes.push({ w: 2.2, pts: [[xM, quayZ(xM)], [xe, quayZ(xe)], [xe, zN], [xw, zN], [xw, Math.min(quayZ(xw), footN - 4)], [xb + 6, footN - 3], [xb, footN - 2], [xb, footN + .5]] });
+      const street = []; for (let x = wallX[0] - 10; x <= wallX[1] + 10; x += 6) street.push([x, vStreet(x)]);   // gate to gate and a little beyond
+      routes.push({ w: 2.2, pts: [[xb, riverZ(xb) + BR.halfL + BR.ramp], [xb, vStreet(xb)]] }, { w: 2.2, pts: street });
+      for (const s of RIVERSIDE) if (s.bank === "south") {
+        const d = BUILDINGS[s.key], fp = d.footprint;
+        if (d.pen) { const gx = s.x - (fp[0] - 1.6) / 2 + 3.5; routes.push({ w: 1.2, pts: [[gx, vStreet(gx)], [gx, s.z - fp[1] / 2 + 1.6]] }); }   // to the gate
+        else if (d.doors?.length) { const dx = s.x + (d.doors[0].x ?? 0), fr = d.front ?? 1; routes.push({ w: 1.2, pts: [[dx, vStreet(dx)], [dx, s.z + fr * (fp[1] / 2 - .4)]] }); }   // to the door (front: -1 faces the street from the south)
+        else if (d.square) routes.push({ w: 2.0, pts: [[s.x, vStreet(s.x)], [s.x, s.z - d.square + .3]] });   // to the fountain square's paving
+      }
+    }
+  }
+  {   // the lane loop: eastbound on the south lane, round the east loop, back west, round the west loop
+    const a0 = Math.asin(LANE / LR), xc = Math.sqrt(LR * LR - LANE * LANE);
+    const lane = [[xW + xc, roadZ + LANE], [xE - xc, roadZ + LANE],
+                  ...arc(xE, Math.PI - a0, -(Math.PI - a0), 48).slice(1, -1),
+                  [xE - xc, roadZ - LANE], [xW + xc, roadZ - LANE],
+                  ...arc(xW, -a0, -(2 * Math.PI - a0), 48).slice(1, -1)];
+    lane.push(lane[0]);
+    highway = laneFrom(lane);
+    hwGeom.xc = xc; hwGeom.a0 = a0;
+  }
+  const pos = [], uvs = [], idx = [];
+  for (const rt of routes) {
+    // resample every ~1.5m, then one continuous strip whose cross-bars follow
+    // the local tangent -- bends (the turning loops) stay clean instead of
+    // wedging open at every polyline vertex
+    const smp = [];
+    let dist = 0;
+    for (let s2 = 0; s2 + 1 < rt.pts.length; s2++) {
+      const [ax, az] = rt.pts[s2], [bx, bz] = rt.pts[s2 + 1];
+      const len2 = Math.hypot(bx - ax, bz - az), steps2 = Math.max(1, Math.ceil(len2 / 1.5));
+      for (let i = s2 ? 1 : 0; i <= steps2; i++) {
+        const t = i / steps2;
+        smp.push([ax + (bx - ax) * t, az + (bz - az) * t, dist + t * len2]);
+      }
+      dist += len2;
+    }
+    for (let i = 0; i < smp.length; i++) {
+      const [x, z, d] = smp[i], q = smp[Math.max(0, i - 1)], nq = smp[Math.min(smp.length - 1, i + 1)];
+      const tl = Math.hypot(nq[0] - q[0], nq[1] - q[1]) || 1;
+      const px = -(nq[1] - q[1]) / tl, pz = (nq[0] - q[0]) / tl;   // unit perpendicular to the local tangent
+      const y = groundH(x, z) + .12, hw = rt.w / 2;   // above the ground mesh's interpolation error
+      const vi = pos.length / 3;
+      pos.push(x - px * hw, y, z - pz * hw, x + px * hw, y, z + pz * hw);
+      uvs.push(-1, d, 1, d);
+      if (i) idx.push(vi - 2, vi - 1, vi, vi - 1, vi + 1, vi);
+    }
+  }
+  const pgeo = new THREE.BufferGeometry();
+  pgeo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
+  pgeo.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
+  pgeo.setIndex(idx);
+  scene.add(new THREE.Mesh(pgeo, new THREE.ShaderMaterial({
+    vertexShader: /* glsl */ `
+      varying vec2 vUv; varying vec3 vW;
+      void main() { vUv = uv; vW = (modelMatrix * vec4(position, 1.0)).xyz;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+    fragmentShader: /* glsl */ `
+      precision highp float;
+      varying vec2 vUv; varying vec3 vW;
+      float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+      void main() {
+        // ragged edges: the track width breathes along its length
+        float edge = .78 + .2 * (hash(floor(vec2(vUv.y * .7, 3.))) - .5);
+        if (abs(vUv.x) > edge) discard;
+        float n = hash(floor(vW.xz * 2.1));
+        vec3 col = mix(vec3(.54, .44, .31), vec3(.42, .34, .24), smoothstep(.25, .75, n));
+        col *= 1. - .16 * smoothstep(.14, .03, abs(abs(vUv.x) - .5));   // wheel ruts
+        float st = hash(floor(vW.xz * 4.7) + 7.);
+        col = mix(col, vec3(.62, .6, .55), step(.94, st) * .8);         // stone specks
+        col *= .92 + .12 * hash(floor(vW.xz * .9) + 3.);                // large-scale tone patches
+        gl_FragColor = vec4(col, 1.0);
+        #include <colorspace_fragment>
+      }`,
+  })));
+}
+
+// mounted riders trotting the paths (person in riding pose fused onto a
+// horse skeleton), plus a few loose horses roaming the range
+let riderHerd = null;
+const riders = [], looseHorses = [];
+if (pathRoutes.length && nFolk) {
+  const horseDef = SPECIES.find((s) => s.name === "horse");
+  const makeRider = (seed) => {
+    const pd = makePerson({ seed, pose: "ride", still: true, adult: true });
+    const dy = .44 - pd.hipY;   // hips onto the horse's back (body-local)
+    return { name: "rider", parts: [
+      ...horseDef.parts,
+      ...pd.parts.map((p) => ({ ...p, id: "r_" + p.id, parent: p.parent ? "r_" + p.parent : "body",
+        pos: p.parent ? p.pos : [p.pos[0] + .08, p.pos[1] + dy, p.pos[2]] })),
+    ] };
+  };
+  riderHerd = createHerd(3 * 34 + 4 * 18, { pixelDepth });
+  scene.add(riderHerd.mesh);
+  const hBase = gaitBase(horseDef);
+  // one grand tour over the WHOLE network: along the main road, down every
+  // building spur and back, then the meadow track and out to the lake
+  const spurs = pathRoutes.slice(1, 1 + town.length).sort((a, b) => a.pts[0][0] - b.pts[0][0]);
+  const tour = [pathRoutes[0].pts[0]];
+  for (const sp of spurs) tour.push(sp.pts[0], sp.pts[1], sp.pts[0]);
+  tour.push(pathRoutes[0].pts[1]);
+  const meadowRt = pathRoutes[1 + town.length], lakeRt = pathRoutes[2 + town.length];
+  if (meadowRt) tour.push(...meadowRt.pts);
+  if (lakeRt) tour.push(...lakeRt.pts.slice(1));
+  for (let i = 0; i < 3; i++) {
+    const an = riderHerd.add(makeRider(i * 7 + 31));
+    talkers.push({ p: an, seed: i * 7 + 31, kind: "man" });   // riders talk too (from the saddle)
+    const seg = Math.floor(wrand() * (tour.length - 1));
+    const r = { an, pts: tour, seg, t: wrand(), dir: wrand() > .5 ? 1 : -1, speed: 1.7 + wrand() * .9, base: hBase };
+    riders.push(r);
+    an.position.set(tour[seg][0], 0, tour[seg][1]);
+    an.animT = wrand() * 5;
+  }
+  for (let i = 0; i < 4; i++) {   // loose horses: wanderers, and mountable by clicking
+    const an = riderHerd.add(horseDef);
+    const [x, z] = spawnIn(FENCE);
+    an.position.set(x, 0, z);
+    an.rotY = wrand() * Math.PI * 2;
+    const w = addWanderer(an.position, (h) => an.rotY = h, (v) => an.animT = v,
+      ...(([sp, b, alt, hz]) => [sp, an.rotY, b, alt, hz, FENCE, bodyProbe(horseDef)])(wanderParams(horseDef)));
+    mountables.push({ w, def: horseDef });
+    callers.push({ name: "horse", p: an.position, pitch: .9 + wrand() * .2 });
+  }
+}
+
+// ---- carts and wagons on the highway (carts.js, docs/world.md) ----------
+// Each cart: a rigid polygon body group, shared instanced wheels (one set
+// per wheel radius for the whole fleet), and its team + driver as banner
+// skeletons in one herd. They circle the lane loop on the sim tick, spaced
+// evenly, slowing behind a slower cart rather than driving through it.
+let cartHerd = null;
+const carts = [], wheelSets = new Map();
+const nCarts = highway ? Math.max(0, num("carts", Math.min(12, Math.max(2, Math.round(highway.total / 200))))) : 0;
+// the freight loop: landing yard -> up the freight road -> the highway's
+// south lane east -> into the palace yard and the castle yard (whichever
+// stand) -> round the east loop -> the north lane back west -> across and
+// down the freight road -> the yard. Three freight carts live on it.
+const LANDING = RIVERSIDE.find((s) => s.key === "landing");
+const yards = LANDING && hwGeom ? town.filter((s) => s.key === "versailles" || s.key === "caerphilly").sort((a, b) => a.x - b.x)
+  .map((s) => ({ name: s.key === "versailles" ? "palace" : "castle", x: s.x + (s.key === "versailles" ? 10 : 14), z: hwGeom.roadZ - 2.5, slots: [] })) : [];
+let freightLane = null;
+const freightStops = [];
+if (LANDING && yards.length) {
+  const g = hwGeom, bx = BASIN.x, LZ = LANDING.z;
+  const pts = [[bx - 1.5, LZ - 6], [bx + 1.5, LZ - 6], [bx + 1.5, g.roadZ + 8], [bx + 7, g.roadZ + g.LANE]];
+  const stopIdx = [{ i: 0, kind: "load" }];
+  for (const y of yards) { pts.push([y.x - 8, g.roadZ + g.LANE], [y.x, y.z], [y.x + 8, g.roadZ + g.LANE]); stopIdx.push({ i: pts.length - 2, kind: "unload", yard: y }); }
+  pts.push([g.xE - g.xc, g.roadZ + g.LANE], ...g.arc(g.xE, Math.PI - g.a0, -(Math.PI - g.a0), 48).slice(1, -1),
+           [g.xE - g.xc, g.roadZ - g.LANE], [bx - 7, g.roadZ - g.LANE], [bx - 1.5, g.roadZ + 8], [bx - 1.5, LZ - 10], [bx - 1.5, LZ - 6]);
+  freightLane = laneFrom(pts);
+  for (const st of stopIdx) freightStops.push({ s: freightLane.cum[st.i], kind: st.kind, yard: st.yard });
+  for (const y of yards) for (let r = 0; r < 2; r++) for (let i = 0; i < 6; i++) y.slots.push([y.x - 5 + i * 2, .02, y.z - 3 - r * 2.2]);
+}
+const FREIGHT_FLEET = [{ size: "large", kind: "ox", animals: 4 }, { size: "medium", kind: "horse", animals: 2 }, { size: "small", kind: "horse", animals: 1 },
+                       { size: "large", kind: "horse", animals: 4 }, { size: "medium", kind: "ox", animals: 2 }];   // five on a 2km loop
+const movers = [];      // everything with a deck you can stand on that moves: carts, the barge
+const handHerds = [];   // the dock hands' herd(s)
+if (nCarts || freightLane) {
+  const defs = [];
+  for (let i = 0; i < nCarts; i++) defs.push(makeCart({ ...FLEET[i % FLEET.length], seed: i + 1, variant: i % LOAD_VARIANTS }));
+  const nFreight = freightLane ? FREIGHT_FLEET.length : 0;
+  for (let i = 0; i < nFreight; i++) defs.push(makeCart({ ...FREIGHT_FLEET[i], seed: 100 + i, variant: -1 }));
+  cartHerd = createHerd(defs.reduce((a, c) => a + c.driver.parts.length + c.team.reduce((b, t) => b + t.def.parts.length, 0), 0), { pixelDepth });
+  scene.add(cartHerd.mesh);
+  const counts = new Map();
+  for (const c of defs) for (const w of c.wheels) counts.set(w.r, (counts.get(w.r) ?? 0) + 1);
+  for (const [r, k] of counts) { const ws = buildInstanced(wheelDef(r), k); ws.used = 0; wheelSets.set(r, ws); scene.add(ws.root); }
+  defs.forEach((c, i) => {
+    const body = buildBuilding(c.body);
+    scene.add(body);
+    const team = c.team.map((t) => ({ an: cartHerd.add(t.def), off: t.off, gait: t.def.gait }));
+    const driver = cartHerd.add(c.driver);
+    talkers.push({ p: driver, seed: i * 17 + 5, kind: c.driver.kind });   // and cart drivers, from the box
+    driver.animT = 0;
+    const wheels = c.wheels.map((w) => ({ ...w, set: wheelSets.get(w.r), idx: wheelSets.get(w.r).used++ }));
+    const freight = i >= nCarts, lane = freight ? freightLane : highway;
+    const k = { c, body, team, driver, wheels, lane, v: c.speed * (freight ? 1.6 : 1), vEff: c.speed, carry: { dx: 0, dz: 0, dyaw: 0 }, yaw: 0,   // freight teams hurry
+                halfL: c.bedL / 2, halfW: c.bedW / 2, top: c.floor + .02, side: CART_SIZES[c.size].side, items: [] };
+    k.s = freight ? (i - nCarts) * lane.total / nFreight : i * lane.total / nCarts;
+    if (freight) k.stops = freightStops;
+    carts.push(k); movers.push(k);
+  });
+}
+// moving floors (cart beds, the barge deck): stand on one and it carries you (see fpsMove)
+cartFloorsAt = (x, z) => {
+  const out = [];
+  for (const k of movers) {
+    const dx = x - k.body.position.x, dz = z - k.body.position.z, c = Math.cos(k.yaw), s = Math.sin(k.yaw);
+    const lx = dx * c - dz * s, lz = dx * s + dz * c;   // into the mover's frame (forward = +x)
+    if (Math.abs(lx) <= k.halfL + .25 && Math.abs(lz) <= k.halfW + .25) out.push(k.body.position.y + k.top);
+  }
+  return out;
+};
+const cartUnder = (x, z, feetY) => movers.find((k) => {
+  const dx = x - k.body.position.x, dz = z - k.body.position.z, c = Math.cos(k.yaw), s = Math.sin(k.yaw);
+  const lx = dx * c - dz * s, lz = dx * s + dz * c;
+  return Math.abs(lx) <= k.halfL + .25 && Math.abs(lz) <= k.halfW + .25 && Math.abs(feetY - (k.body.position.y + k.top)) < .12;
+});
+const _cm = new THREE.Matrix4(), _cq = new THREE.Quaternion(), _ce = new THREE.Euler(), _cp = new THREE.Vector3(), _cs = new THREE.Vector3(1, 1, 1);
+const _wm = new THREE.Matrix4();
+const laneHeading = (lane, s) => {   // travel direction at arc length s, as a world yaw
+  const a = lane.at(s - .5), b = lane.at(s + .5);
+  return Math.atan2(-(b[1] - a[1]), b[0] - a[0]);
+};
+function moveCarts(dt) {
+  if (!carts.length) return;
+  for (const k of carts) {   // convoy rule: close behind a slower cart on the same lane, match its pace
+    const L = k.lane.total;
+    let ahead = null, gap = 1e9;
+    for (const o of carts) {
+      if (o === k || o.lane !== k.lane) continue;
+      const g = (((o.s - o.c.rearLen) - (k.s + k.c.frontLen)) % L + L) % L;
+      if (g < gap) { gap = g; ahead = o; }
+    }
+    k.vEff = ahead && gap < 6 ? Math.min(k.v, ahead.vEff) : k.v;
+    if (k.halt) k.vEff = 0;
+  }
+  for (const k of carts) {
+    if (k.stops) freightStopStep(k, dt);
+    if (!k.halt) k.s = (k.s + k.vEff * dt) % k.lane.total;
+    for (const t of k.team) t.an.animT = (t.an.animT ?? 0) + dt * k.vEff / t.gait;
+  }
+}
+// Placement happens every FRAME at the fractional position the cart has
+// reached since the last sim tick (frac = seconds since that tick), so
+// carts glide instead of stepping 20 times a second -- and a rider on a
+// bed, whose camera follows the bed, does not judder against the world.
+function placeCarts(frac) {
+  for (const k of carts) {
+    const sv = k.s + (k.halt ? 0 : k.vEff * frac);
+    const [x, z] = k.lane.at(sv);
+    const yaw = laneHeading(k.lane, sv);
+    const [pf, pr] = k.c.probes;   // pitch the body over the terrain between its ground probes
+    const f = k.lane.at(sv + pf), b = k.lane.at(sv + pr);
+    const hf = groundH(f[0], f[1]), hb = groundH(b[0], b[1]);
+    const pitch = Math.atan2(hf - hb, pf - pr);
+    const y = hb + (hf - hb) * (0 - pr) / (pf - pr) + .05;
+    _cm.compose(_cp.set(x, y, z), _cq.setFromEuler(_ce.set(0, yaw, pitch, "YZX")), _cs);
+    k.carry.dx += x - k.body.position.x; k.carry.dz += z - k.body.position.z;   // what a rider on the bed must follow
+    k.carry.dyaw += ((yaw - k.yaw + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+    k.yaw = yaw;
+    k.body.position.copy(_cp);
+    k.body.quaternion.copy(_cq);
+    for (const w of k.wheels) {   // wheels roll by distance / radius, forward = negative z spin
+      _wm.makeRotationZ(-sv / w.r).setPosition(w.x, w.r, w.z);
+      _wm.premultiply(_cm);
+      w.set.set(w.idx, _wm);
+    }
+    k.driver.position.set(...k.c.seat).applyMatrix4(_cm);
+    k.driver.rotY = yaw;
+    for (const t of k.team) {
+      const [tx, tz] = k.lane.at(sv + t.off);
+      t.an.position.set(tx, groundH(tx, tz) + .06, tz);
+      t.an.rotY = laneHeading(k.lane, sv + t.off);
+    }
+    k.items.forEach((it, m) => {   // live goods ride the bed
+      const n = k.c.capacity;
+      _wm.makeRotationY(it.kind === "sack" ? Math.PI / 2 : 0).setPosition((m - (n - 1) / 2) * .9, k.c.floor + .02, 0);
+      _wm.premultiply(_cm); placeItemM(it, _wm);
+    });
+  }
+  for (const ws of wheelSets.values()) ws.commit();
+}
+
+// ---- freight: goods, the barge, the landing's hands, the carts' stops, the yards --------
+// Goods are a pool of barrels and sacks, two instanced meshes; each item
+// is somewhere: in the barge's hold, in a hand's arms, on the quay, on a
+// cart's bed, in a yard (where it is consumed after a while and returns
+// to the pool), on the ground where you dropped it, or in your arms.
+const goods = [], goodsSets = {};
+const placeItemM = (it, m) => goodsSets[it.kind].set(it.idx, m);
+const _im = new THREE.Matrix4();
+const placeItem = (it, x, y, z, rotY = 0) => { _im.makeRotationY(rotY).setPosition(x, y, z); placeItemM(it, _im); it.x = x; it.y = y; it.z = z; };
+// in someone's arms: a barrel as it is, a sack turned upright (long side vertical), both with their bottom at y
+const _iq = new THREE.Quaternion(), _ie = new THREE.Euler(), _it = new THREE.Vector3(), _iu = new THREE.Vector3(1, 1, 1);
+const placeCarried = (it, x, y, z, rotY) => {
+  if (it.kind !== "sack") return placeItem(it, x, y, z, rotY);
+  _im.compose(_it.set(x, y + .5, z), _iq.setFromEuler(_ie.set(0, rotY, Math.PI / 2, "YZX")), _iu);
+  _im.multiply(new THREE.Matrix4().makeTranslation(0, -.24, 0));   // the ellipsoid's center to the pivot, then stood on end
+  placeItemM(it, _im); it.x = x; it.y = y; it.z = z;
+};
+const hideItem = (it) => placeItem(it, 0, -100, 0);
+let bargeSt = null, bargeGrp = null, LANDER = null;   // the barge's state and mesh; the landing's world helpers
+const hands = [];
+let carrying = null;   // what you carry
+if (LANDING && freightLane) {
+  const N = 14;
+  goodsSets.barrel = buildInstanced({ name: "barrels", parts: barrelParts("big", [0, .475, 0], "up") }, N);
+  goodsSets.sack = buildInstanced({ name: "sacks", parts: sackParts([0, .24, 0], "x") }, N);
+  scene.add(goodsSets.barrel.root); scene.add(goodsSets.sack.root);
+  for (let i = 0; i < N; i++) { goods.push({ kind: "barrel", idx: i, state: "gone" }); goods.push({ kind: "sack", idx: i, state: "gone" }); }
+  for (const it of goods) hideItem(it);
+  const def = BUILDINGS.landing, L = LANDING;
+  LANDER = { x: L.x, z: L.z, slots: def.quaySlots.map(([x, y, z]) => [L.x + x, y, L.z + z]),
+             way: def.way.map(([x, y, z]) => [L.x + x, y, L.z + z]), bargeZ: L.z + def.bargeZ };
+  // the barge: sails in from 120m downriver, moors at the landing, is unloaded, sails out, waits, comes back laden
+  const bd = bargeDef();
+  bargeGrp = buildBuilding(bd); scene.add(bargeGrp);
+  bargeSt = { x: BASIN.x - 40, moorX: BASIN.x, outX: BASIN.x - 120, speed: 1.6, phase: "in", t: 0, def: bd, hold: [],
+              body: bargeGrp, yaw: 0, carry: { dx: 0, dz: 0, dyaw: 0 }, halfL: bd.halfL, halfW: bd.halfW, top: bd.deckY, side: .35, moving: true };
+  movers.push(bargeSt);
+  const refill = () => { const pool = goods.filter((g) => g.state === "gone"); for (let i = 0; i < bd.holdSlots.length && pool.length; i++) { const it = pool[i % 2 ? 0 : pool.length - 1]; pool.splice(pool.indexOf(it), 1); it.state = "hold"; it.slot = i; bargeSt.hold.push(it); } };
+  refill();
+  // two dock hands, banner people in the folk herd's way: their own little herd
+  const handHerd = createHerd(5 * 14, { pixelDepth }); scene.add(handHerd.mesh);   // two hands x two rigs, and the boatman
+  for (let i = 0; i < 2; i++) {   // each hand is two rigs: walking free, and walking with a load held out in front
+    const pd = makePerson({ seed: 900 + i * 3, adult: true }), pc = makePerson({ seed: 900 + i * 3, pose: "carry", adult: true });
+    const an = handHerd.add(pd), anC = handHerd.add(pc);
+    const start = LANDER.way[3];
+    const post = [start[0] + 1.5 + i * 1.6, .05, start[2] - 2.2];   // each hand's own waiting post on the quay
+    const h = { an, anC, base: gaitBase(pd), state: "idle", item: null, wp: [], wi: 0, speed: 1.4, seed: 900 + i * 3, post };
+    an.position.set(post[0], post[1] + .04, post[2]); an.animT = 0;
+    anC.position.set(0, -100, 0); anC.animT = 0;
+    hands.push(h); talkers.push({ p: an, seed: h.seed, kind: pd.kind });
+  }
+  {   // the boatman: stands at the tiller behind the cabin, rides with the barge, talks
+    const pb = makePerson({ seed: 907, still: true, adult: true }), an = handHerd.add(pb);
+    an.animT = 0; bargeSt.boatman = an; talkers.push({ p: an, seed: 907, kind: pb.kind });
+  }
+  // the gangplank: hinged at the barge's north gunwale; a moving floor of its own when lowered
+  {
+    const pg = buildBuilding({ name: "plank", parts: [{ shape: "box", size: [1.2, .06, 2.6], pos: [0, 0, -1.3], color: 0x7a5a36, pat: "wood", collide: false }] });
+    pg.position.set(-.5, bd.deckY, -1.72); pg.rotation.x = -1.35;   // raised, folded up along the gunwale
+    bargeGrp.add(pg);
+    bargeSt.plank = pg;
+    bargeSt.plankMover = { body: { position: new THREE.Vector3() }, yaw: 0, carry: bargeSt.carry, halfL: .6, halfW: 1.35, top: bd.deckY + .03, active: false };
+  }
+  handHerds.push(handHerd);
+}
+// the barge's pose along the north side of the river, 8.5m out from the bank line
+const bargePose = (x) => {
+  // the lane runs 8.5m off the north bank, but for 30m either side of the bridge it eases onto the river's
+  // center line and straightens: the barge passes through the middle arch square, clear of both piers
+  const zc = (xx) => {
+    const zl = riverZ(xx) - riverHW(xx) + 8.5;
+    if (VILLAGE_X === null) return zl;
+    const d = Math.abs(xx - VILLAGE_X); if (d >= 30) return zl;
+    const t = d / 30, w = t * t * (3 - 2 * t);
+    return riverZ(VILLAGE_X) * (1 - w) + zl * w;
+  };
+  return { x, z: zc(x), yaw: Math.atan2(-(zc(x + .5) - zc(x - .5)), 1) };
+};
+const bargeLocal = ([lx, ly, lz]) => {   // a barge-local point in world space, from the SIM pose (the mesh lags a frame)
+  const p = bargePose(bargeSt.x), c = Math.cos(p.yaw), sn = Math.sin(p.yaw);
+  return [p.x + lx * c + lz * sn, WLEVEL + ly, p.z - lx * sn + lz * c];
+};
+const bargeHoldWorld = (it) => bargeLocal(bargeSt.def.holdSlots[it.slot]);
+function placeBarge(frac) {
+  if (!bargeSt) return;
+  const xv = bargeSt.x + (bargeSt.phase === "in" ? bargeSt.speed * frac : bargeSt.phase === "out" ? -bargeSt.speed * frac : 0);
+  const p = bargePose(xv);
+  bargeSt.carry.dx += p.x - bargeGrp.position.x; bargeSt.carry.dz += p.z - bargeGrp.position.z;
+  bargeSt.carry.dyaw += ((p.yaw - bargeSt.yaw + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+  bargeSt.yaw = p.yaw;
+  bargeGrp.position.set(p.x, WLEVEL, p.z); bargeGrp.rotation.y = p.yaw;
+  if (bargeSt.boatman) { const w = bargeLocal([-5.3, bargeSt.def.deckY + .04, 0]); bargeSt.boatman.position.set(w[0], w[1], w[2]); bargeSt.boatman.rotY = p.yaw; }
+  if (bargeSt.plank) {   // lower the plank when moored, raise it under way; as a floor it exists only when down
+    const want = bargeSt.phase === "moored" ? 0 : -1.35;
+    bargeSt.plank.rotation.x += (want - bargeSt.plank.rotation.x) * Math.min(1, frac * 0 + .08);
+    const pm = bargeSt.plankMover, down = bargeSt.plank.rotation.x > -.08;
+    if (down && !pm.active) { movers.push(pm); pm.active = true; }
+    if (!down && pm.active) { movers.splice(movers.indexOf(pm), 1); pm.active = false; }
+    const w = bargeLocal([-.5, 0, -3.05]); pm.body.position.set(w[0], WLEVEL, w[2]); pm.yaw = p.yaw;
+  }
+  const c = Math.cos(p.yaw), sn = Math.sin(p.yaw);
+  for (const it of bargeSt.hold) { const s = bargeSt.def.holdSlots[it.slot]; placeItem(it, p.x + s[0] * c + s[2] * sn, WLEVEL + s[1], p.z - s[0] * sn + s[2] * c, p.yaw + (it.kind === "sack" ? Math.PI / 2 : 0)); }
+}
+// the hands' way: the barge's plank end (moored), then the landing's waypoints, then a quay slot
+const bargePlankWorld = () => bargeLocal(bargeSt.def.plankEnd);
+const freeQuaySlot = () => LANDER.slots.findIndex((_, i) => !goods.some((g) => (g.state === "quay" || g.state === "carried") && g.slot === i));   // carried pieces hold their slot
+function freightStep(dt) {
+  if (!bargeSt) return;
+  const B = bargeSt;
+  B.t += dt;
+  if (B.phase === "in") { B.x += B.speed * dt; if (B.x >= B.moorX) { B.x = B.moorX; B.phase = "moored"; B.t = 0; } }
+  else if (B.phase === "moored") { if (!B.hold.length && !hands.some((h) => h.item) && B.t > 12) { B.phase = "out"; B.t = 0; } }
+  else if (B.phase === "out") { B.x -= B.speed * dt; if (B.x <= B.outX) { B.phase = "away"; B.t = 0; } }
+  else if (B.phase === "away" && B.t > 25) { const pool = goods.filter((g) => g.state === "gone"); for (let i = 0; i < B.def.holdSlots.length && pool.length; i++) { const it = pool.shift(); it.state = "hold"; it.slot = i; B.hold.push(it); } B.phase = "in"; B.t = 0; }
+  B.moving = B.phase === "in" || B.phase === "out";
+  // the hands
+  for (const h of hands) {
+    const p = h.an.position;
+    if (h.state === "idle") {
+      h.an.animT += (Math.round(h.an.animT * 1.6) / 1.6 - h.an.animT) * Math.min(1, dt * 10);
+      if (B.phase === "moored" && B.hold.some((it) => !it.claimed)) {
+        const it = B.hold.find((it) => !it.claimed); it.claimed = true; h.target = it;
+        h.wp = [...LANDER.way.slice().reverse(), bargePlankWorld(), bargeHoldWorld(it)]; h.wi = 0; h.state = "toHold";
+      }
+      continue;
+    }
+    const wp = h.wp[h.wi], dx = wp[0] - p.x, dz = wp[2] - p.z, d = Math.hypot(dx, dz);
+    const step = h.speed * dt;
+    if (d <= step) {
+      p.set(wp[0], wp[1] + .04, wp[2]);
+      if (++h.wi >= h.wp.length) {
+        if (h.state === "toHold") {   // pick the item up, carry it to a free quay slot
+          const it = h.target; B.hold.splice(B.hold.indexOf(it), 1); it.state = "carried"; h.item = it; h.target = null;
+          const si = freeQuaySlot(); h.slotI = si < 0 ? 0 : si; it.slot = h.slotI;   // reserved now
+          h.wp = [bargePlankWorld(), ...LANDER.way, LANDER.slots[h.slotI]]; h.wi = 0; h.state = "toQuay"; h.speed = 1.1;
+        } else if (h.state === "toQuay") {   // set it down, then step back to the waiting post
+          const it = h.item, sl = LANDER.slots[h.slotI]; it.state = "quay"; it.slot = h.slotI; delete it.claimed;
+          placeItem(it, sl[0], sl[1], sl[2], it.kind === "sack" ? Math.PI / 2 : 0); h.item = null; h.speed = 1.5;
+          h.state = "toPost"; h.wp = [h.post]; h.wi = 0;
+        } else { h.state = "idle"; h.wp = []; }   // at the post
+      }
+    } else {
+      p.x += dx / d * step; p.z += dz / d * step;
+      const t = step / d; p.y += (wp[1] + .04 - p.y) * Math.min(1, t * 1.0 + .02);
+      h.an.rotY = Math.atan2(-dz, dx);
+      h.an.animT += dt * h.speed / h.base;
+    }
+  }
+  // yards consume: a delivered item is gone after 90s (and the barge will bring it back)
+  for (const it of goods) if (it.state === "store") { it.age = (it.age ?? 0) + dt; if (it.age > 90) { it.state = "gone"; it.age = 0; hideItem(it); } }
+}
+function freightStopStep(k, dt) {   // a freight cart at its stops: load at the quay, unload at a yard
+  if (k.halt) {
+    k.halt.t += dt;
+    const st = k.halt.stop;
+    if (k.halt.t >= 3) {
+      k.halt.t = 0;
+      if (st.kind === "load") {
+        const it = goods.find((g) => g.state === "quay");
+        if (it && k.items.length < k.c.capacity) { it.state = "cart"; k.items.push(it); k.halt.idle = 0; }
+        else k.halt.idle = (k.halt.idle ?? 0) + 1;
+        if (k.items.length >= k.c.capacity || k.halt.idle >= 2) { k.halt = null; k.passed = st; }
+      } else {
+        const it = k.items.shift();
+        if (it) { const y = st.yard, si = y.slots.findIndex((_, i) => !goods.some((g) => g.state === "store" && g.yard === y && g.slot === i));
+          if (si >= 0) { const sl = y.slots[si]; it.state = "store"; it.yard = y; it.slot = si; it.age = 0; placeItem(it, sl[0], sl[1], sl[2], it.kind === "sack" ? Math.PI / 2 : 0); }
+          else { it.state = "gone"; hideItem(it); } }
+        if (!k.items.length) { k.halt = null; k.passed = st; }
+      }
+    }
+    return;
+  }
+  for (const st of k.stops) {
+    const d = Math.abs(k.s - st.s);
+    if (d > 6 && k.passed === st) k.passed = null;
+    if (d < .6 && k.passed !== st) { k.halt = { stop: st, t: 0 }; k.s = st.s; break; }
+  }
+}
+placeCarts(0);   // placed before the first frame
+placeBarge(0);
+
+// ---- the fisherman's boat: moored at the jetty, then rowed 22m downstream to the
+// river's middle, where he fishes with a rod (a fish comes up on the line now and
+// then, into the creel), then rowed back. Rowers face the stern; the oars sweep
+// under way and lie shipped otherwise. Phases run on the sim tick; the frame
+// glides between ticks like the barge.
+let boatSt = null;
+{
+  const FH = RIVERSIDE.find((s) => s.key === "fisherHut");
+  if (FH && n) {
+    const dk = BUILDINGS.fisherHut.boatDock, dock = [FH.x + dk[0], FH.z + dk[2]];
+    const fxp = dock[0] + 22, spot = [fxp, riverZ(fxp)];
+    const grp = buildBuilding(fisherBoat()); scene.add(grp);
+    const oars = [-1, 1].map((sd) => { const g = buildBuilding(oar(sd)); g.position.set(-1.0, .3, sd * .74); grp.add(g); return g; });   // oarlocks aft of the thwart: the rower faces the stern and pulls the handles to his chest
+    // the rod: butt in the hands (seat x -.7, hands held forward at local y .45, out over the +z gunwale
+    // he faces while fishing), tilted +z by ROD_TILT (positive x rotation swings +y toward +z); the line
+    // hangs from the tip down to the waterline (local y -.28), the fish comes up along it
+    const ROD_TILT = .95, ROD = [-.7, .45, .45], TIP = [ROD[0], ROD[1] + 2.4 * Math.cos(ROD_TILT), ROD[2] + 2.4 * Math.sin(ROD_TILT)];
+    const rod = buildBuilding(fishingRod()); rod.position.set(...ROD); rod.rotation.x = ROD_TILT; rod.visible = false; grp.add(rod);
+    const line = buildBuilding(fishingLine()); line.position.set(...TIP); line.scale.y = (TIP[1] + .28) / 1.8; line.visible = false; grp.add(line);
+    const fish = buildBuilding(caughtFish()); fish.visible = false; grp.add(fish);
+    const fh = createHerd(14, { pixelDepth }); scene.add(fh.mesh);
+    const pd = makePerson({ seed: 905, pose: "sit", still: true, adult: true });
+    for (const p of pd.parts) if (p.id.startsWith("arm")) p.rot = [(p.id.endsWith("L") ? 1 : -1) * 10, 0, 60];   // hands held forward: on the oar handles, on the rod
+    const fm = fh.add(pd);
+    talkers.push({ p: fm, seed: 905, kind: pd.kind });
+    boatSt = { phase: "moored", t: 0, s: 0, yaw: 0, dock, spot, len: Math.hypot(spot[0] - dock[0], spot[1] - dock[1]), speed: 1.1,
+               grp, oars, rod, line, fish, tip: TIP, herd: fh, fm, hipY: pd.hipY };
+    boatSt.yaw = Math.atan2(-(spot[1] - dock[1]), spot[0] - dock[0]);
+  }
+}
+function boatStep(dt) {
+  const B = boatSt; if (!B) return;
+  B.t += dt;
+  if (B.phase === "moored") { if (B.t > 30) { B.phase = "out"; B.t = 0; } }
+  else if (B.phase === "out") { B.s = Math.min(1, B.s + B.speed * dt / B.len); if (B.s >= 1) { B.phase = "fishing"; B.t = 0; } }
+  else if (B.phase === "fishing") { if (B.t > 50) { B.phase = "back"; B.t = 0; } }
+  else if (B.phase === "back") { B.s = Math.max(0, B.s - B.speed * dt / B.len); if (B.s <= 0) { B.phase = "moored"; B.t = 0; } }
+}
+function placeBoat(frac) {
+  const B = boatSt; if (!B) return;
+  const ds = B.speed * frac / B.len;
+  const s = B.phase === "out" ? Math.min(1, B.s + ds) : B.phase === "back" ? Math.max(0, B.s - ds) : B.s;
+  const x = B.dock[0] + (B.spot[0] - B.dock[0]) * s, z = B.dock[1] + (B.spot[1] - B.dock[1]) * s, T = B.t + frac;
+  const rowing = B.phase === "out" || B.phase === "back";
+  const along = Math.atan2(-(B.spot[1] - B.dock[1]), B.spot[0] - B.dock[0]);
+  const tgt = B.phase === "back" ? along + Math.PI : along;   // the bow points the way it travels; turned round while fishing
+  const dy = ((tgt - B.yaw + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+  B.yaw += dy * Math.min(1, .05 + frac * .5);
+  const y = WLEVEL + .28 + .03 * Math.sin(T * 1.3) + (rowing ? .02 * Math.sin(T * Math.PI * 2) : 0);
+  B.grp.position.set(x, y, z); B.grp.rotation.set(.02 * Math.sin(T * .9), B.yaw, 0);
+  for (const [i, g] of B.oars.entries()) {   // the stroke: sweep about the gunwale pin, blade dipping on the pull; shipped when idle
+    const sd = i ? 1 : -1, ph = T * Math.PI * 1.1;
+    if (rowing) { g.rotation.y = .55 * Math.sin(ph); g.rotation.x = sd * (.12 - .16 * Math.cos(ph)); }
+    else { g.rotation.y = sd * 1.35; g.rotation.x = 0; }
+  }
+  const fishing = B.phase === "fishing";
+  B.rod.visible = B.line.visible = fishing;
+  const bite = fishing && (T % 11) > 8.6;   // every 11s a fish is on for a couple of seconds, hauled up the line
+  B.fish.visible = bite;
+  if (bite) { const u = ((T % 11) - 8.6) / 2.4; B.fish.position.set(B.tip[0], -.25 + (B.tip[1] - .55) * u, B.tip[2] - .35 * u); B.fish.rotation.set(0, .3 * Math.sin(T * 9), .25 * Math.sin(T * 7)); }   // hauled up the line toward the rod tip
+  // the fisherman on the aft thwart: facing the stern while he rows, the bow when moored, the rod side while fishing
+  const seat = -.7, c = Math.cos(B.yaw), sn = Math.sin(B.yaw);
+  B.fm.position.set(x + c * seat, y + .33 - B.hipY, z - sn * seat);
+  B.fm.rotY = B.yaw + (rowing ? Math.PI : fishing ? -Math.PI / 2 : 0);
+}
+placeBoat(0);
+
+// the Colosseum's show: a lion, a tiger and two gladiators wandering the
+// arena sand (alt .3 = the sand ring's height over the terrain)
+const arenaHerds = [];
+if (n) for (const s of town) {
+  const def = BUILDINGS[s.key];
+  if (!def.arena) continue;
+  const cxA = s.x, czA = siteZ(s);
+  const hA = def.arena.r * .5;
+  const AF = { x0: cxA - hA, x1: cxA + hA, z0: czA - hA, z1: czA + hA };
+  const ah = createHerd(12 * 22, { pixelDepth });
+  scene.add(ah.mesh);
+  const lion = SPECIES.find((d) => d.name === "lion"), tiger = SPECIES.find((d) => d.name === "tiger");
+  const cast = [lion, lion, lion, lion, tiger, tiger, tiger, tiger,
+                makePerson({ seed: 71, adult: true }), makePerson({ seed: 72, adult: true }), makePerson({ seed: 73, adult: true }), makePerson({ seed: 74, adult: true })];
+  for (const cd of cast) {
+    const an = ah.add(cd);
+    if (cd.name === "person") talkers.push({ p: an, seed: 70 + arenaHerds.length * 4 + cast.indexOf(cd), kind: cd.kind });   // the gladiators too
+    const [x, z] = spawnIn(AF);
+    an.position.set(x, def.arena.y, z);
+    an.rotY = wrand() * Math.PI * 2;
+    // the show RUNS: sprint speeds instead of the wanderers' amble, with
+    // the gait cadence automatically following (legs at full charge)
+    addWanderer(an.position, (hh) => an.rotY = hh, (v) => an.animT = v,
+      ...(([, b]) => [3.5 + wrand() * 2, an.rotY, b, def.arena.y, .8, AF, bodyProbe(cd)])(wanderParams(cd)));
+    if (CALLS[cd.name]) callers.push({ name: cd.name, p: an.position, pitch: .9 + wrand() * .2 });   // the arena roars
+  }
+  arenaHerds.push(ah);
+}
+
+// riding: click a nearby horse to mount -- the camera sits at the rider's
+// head, movement drives the horse at double speed; click again to dismount
+let mounted = null, resting = null;   // resting = { x, z, y, lie } while seated or lying
+let eyeH = EYE;
+// what a click would do right now (at most ONE action): drives both the
+// click itself and the bottom-center hint text
+function findInteraction() {
+  if (mounted?.flying) return { label: "hold Q to land first", act: () => {} };
+  if (mounted) return { label: "click to dismount",
+    act: () => { mounted.w.frozen = false; mounted = null; eyeH = EYE; } };
+  if (resting) return { label: resting.lie ? "click to get up" : "click to stand up",
+    act: () => {   // step off to the first free spot beside the furniture
+      for (let a = 0; a < 8; a++) {
+        const x2 = camera.position.x + Math.cos(a * Math.PI / 4) * .8;
+        const z2 = camera.position.z + Math.sin(a * Math.PI / 4) * .8;
+        const f2 = supportNear(x2, z2, resting.y + .3);
+        if (!collides(x2, z2, f2)) { camera.position.x = x2; camera.position.z = z2; standY = f2; break; }
+      }
+      resting = null; eyeH = EYE;
+    } };
+  const fx = -Math.sin(yaw), fz = -Math.cos(yaw);
+  if (carrying) return { label: `click to put down the ${carrying.kind}`, act: () => {
+    const x = camera.position.x + fx * 1.0, z = camera.position.z + fz * 1.0;
+    const y = supportNear(x, z, camera.position.y);
+    carrying.state = "ground"; placeItem(carrying, x, y + .01, z, yaw); carrying = null;
+  } };
+  for (const it of goods) {   // a barrel or sack lying about: pick it up
+    if (!(it.state === "quay" || it.state === "store" || it.state === "ground" || it.state === "hold" || it.state === "cart") || it.claimed) continue;   // (a hand already heading for it keeps its claim)
+    const dx = it.x - camera.position.x, dz = it.z - camera.position.z, d = Math.hypot(dx, dz);
+    if (d > 2.2 || d < .01 || (dx * fx + dz * fz) / d < .4 || Math.abs(it.y - standY) > 1.6) continue;
+    return { label: `click to pick up the ${it.kind}`, act: () => {
+      if (it.state === "hold") bargeSt.hold.splice(bargeSt.hold.indexOf(it), 1);   // off the barge's manifest / the cart's load
+      if (it.state === "cart") for (const k of carts) { const i = k.items.indexOf(it); if (i >= 0) k.items.splice(i, 1); }
+      it.state = "player"; carrying = it; } };
+  }
+  for (const m of mountables) {
+    const dx = m.w.p.x - camera.position.x, dz = m.w.p.z - camera.position.z;
+    const d = Math.hypot(dx, dz);
+    if (d > 1.2 + bodyProbe(m.def)) continue;                   // ~1m from the animal's flank
+    if ((dx * fx + dz * fz) / Math.max(d, .01) < .4) continue;  // must be looking at it
+    return { label: `click to ride the ${m.def.name}`,
+      act: () => { mounted = { ...m, animT: m.w.animT, wingT: 0, flying: false, idx: mountables.indexOf(m) }; m.w.frozen = true; eyeH = m.def.mount.h; rouse(m.w.p); } };
+  }
+  for (const c of callers) {   // any creature with a voice that you cannot ride: stand close, look at it, click -- it calls (mounts call when mounted)
+    if (mountables.some((m) => m.w.p === c.p)) continue;
+    const dx = c.p.x - camera.position.x, dz = c.p.z - camera.position.z, d = Math.hypot(dx, dz);
+    if (d > 2.4 + CALLS[c.name].loud * .8 || d < .01 || (dx * fx + dz * fz) / d < .5) continue;
+    return { label: `click to rouse the ${c.name}`, act: () => rouse(c.p) };
+  }
+  for (const t of talkers) {   // a word with whoever stands within reach and in view
+    const dx = t.p.position.x - camera.position.x, dz = t.p.position.z - camera.position.z;
+    const d = Math.hypot(dx, dz);
+    if (d > 2.2 || d < .01 || (dx * fx + dz * fz) / d < .5) continue;
+    return { label: "click to greet them", act: () => {
+      talkerVoice(t); t.next = 0; t.greeted = true;
+      if (t.w) {   // a greeted walker stops for half a minute and turns to you
+        t.w.moving = false; t.w.until = simTick * TICK + 30;
+        t.w.heading = t.w.target = Math.atan2(-(camera.position.z - t.p.position.z), camera.position.x - t.p.position.x);
+        t.w.apply(t.w.heading);
+      } } };
+  }
+  for (const lf of [...lifts, ...(BUILDINGS.palisade?.lifts ?? [])]) {   // stair shortcuts: skip the long spiral either way; the palisade towers' ladders (world coords)
+    for (const [px, pz, py, qx, qz, qy, lbl, rad] of [
+      [lf.bx, lf.bz, lf.by, lf.tx, lf.tz, lf.ty, lf.up ?? "go upstairs", 2.4],
+      [lf.tx, lf.tz, lf.ty, lf.bx, lf.bz, lf.by, lf.down ?? "go downstairs", lf.rad ?? 6.5]]) {   // the whole deck offers the way down
+      if (Math.hypot(px - camera.position.x, pz - camera.position.z) > rad || Math.abs(standY - py) > 1.2) continue;
+      return { label: `click to ${lbl}`,
+        act: () => {
+          camera.position.x = qx; camera.position.z = qz;
+          standY = qy; camera.position.y = qy + eyeH;
+          airborne = false; vy = 0;
+        } };
+    }
+  }
+  for (const st of seats) {   // sit on the nearest reachable seat / lie on a bed
+    const nx = Math.max(st.x - st.hx, Math.min(st.x + st.hx, camera.position.x));
+    const nz = Math.max(st.z - st.hz, Math.min(st.z + st.hz, camera.position.z));
+    const d = Math.hypot(nx - camera.position.x, nz - camera.position.z);
+    if (d > 1.3 || Math.abs(st.top - standY) > 1.4) continue;   // near, and on the same storey
+    return { label: st.lie ? "click to lie down" : "click to sit down",
+      act: () => {
+        resting = { lie: st.lie, y: st.top,
+                    x: Math.max(st.x - st.hx + .15, Math.min(st.x + st.hx - .15, nx)),
+                    z: Math.max(st.z - st.hz + .15, Math.min(st.z + st.hz - .15, nz)) };
+        eyeH = st.lie ? .35 : .8;
+      } };
+  }
+  for (let i = 0; i < pickables.length; i++) {   // pick a flower or a mushroom
+    const pk = pickables[i];
+    if (pk.an.position.y < -50) continue;   // already picked
+    const d = Math.hypot(pk.x - camera.position.x, pk.z - camera.position.z);
+    if (d > 1.5 || Math.abs(standY - groundH(pk.x, pk.z)) > 1.5) continue;
+    return { label: `click to pick the ${pk.kind}`,
+      act: () => {
+        doPick(i); pickedCount++;
+        pickedKinds.set(pk.kind, (pickedKinds.get(pk.kind) ?? 0) + 1);
+        showBasket();
+        session?.send({ k: "pick", i });
+      } };
+  }
+  for (const dr of doors) {
+    const dx = dr.wx - camera.position.x, dz = dr.wz - camera.position.z;
+    const d = Math.hypot(dx, dz);
+    if (d > 2.5) continue;
+    if (Math.abs(dr.wy - standY) > 1.8) continue;   // same storey only -- not the window on the floor below
+    if ((dx * fx + dz * fz) / Math.max(d, .01) < .3) continue;
+    return { label: dr.open ? (dr.win ? "click to close the window" : "click to close")
+                            : (dr.win ? "click to open the window" : "click to open"),
+      act: () => { dr.open = !dr.open; netDoor(dr); } };
+  }
+  return null;
+}
+function interact() { findInteraction()?.act(); }
+function doPick(i) {   // hide the picked plant's instance (shared with peers via the pick op)
+  const pk = pickables[i];
+  if (!pk || pk.an.position.y < -50) return;
+  pk.an.position.y = -100;
+  if (treeHerd) treeHerd.update(0);
+}
+const hintEl = document.getElementById("hint");
+function moveRiders(dt) {
+  for (const r of riders) {
+    const a = r.pts[r.seg], b = r.pts[r.seg + 1];
+    const dx = b[0] - a[0], dz = b[1] - a[1], len = Math.max(.1, Math.hypot(dx, dz));
+    r.t += dt * r.speed * r.dir / len;
+    if (r.t > 1) { if (r.seg + 2 < r.pts.length) { r.seg++; r.t = 0; } else { r.dir = -1; r.t = 1; } }
+    else if (r.t < 0) { if (r.seg > 0) { r.seg--; r.t = 1; } else { r.dir = 1; r.t = 0; } }
+    const x = a[0] + dx * r.t, z = a[1] + dz * r.t;
+    r.an.position.set(x, groundH(x, z) + .06, z);
+    r.an.rotY = Math.atan2(-dz * r.dir, dx * r.dir);
+    r.an.animT += dt * r.speed / r.base;
+  }
+}
+
+// ---- multiplayer: serverless WebRTC presence (see docs/networking.md) ------
+// Peers walk the same deterministically-built world; the session carries only
+// poses, door toggles and environment switches. "M" opens the panel.
+let session = null, pendingInvite = null, clockOff = 0, lastT = 0;
+// peerId -> { herd, an, kind, hipY, mi, tx.. }: each peer gets its own tiny
+// one-person herd, REBUILT when their pose kind changes (walk / sit / ride)
+const avatars = new Map();
+const netEls = Object.fromEntries(["net", "netStatus", "netOut", "netIn", "btnInvite", "btnApply"]
+  .map((id) => [id, document.getElementById(id)]));
+const hashSeed = (s) => Math.abs([...s].reduce((a, c) => (a * 33 + c.charCodeAt(0)) | 0, 7)) % 997 + 3;
+const netStatus = (t) => netEls.netStatus.textContent = t;
+function ensureAvatar(id, kind) {
+  let av = avatars.get(id);
+  if (av && av.kind === kind) return av;
+  if (av) scene.remove(av.herd.mesh);
+  const pd = makePerson({ seed: hashSeed(id),
+                          pose: kind === "sit" ? "sit" : kind === "ride" ? "ride" : kind === "lie" ? "lie" : undefined,
+                          still: kind !== "walk" });
+  const herd = createHerd(14, { pixelDepth });
+  scene.add(herd.mesh);
+  av = { ...(av ?? {}), herd, an: herd.add(pd), kind, hipY: pd.hipY };
+  av.an.animT = 0;
+  avatars.set(id, av);
+  return av;
+}
+function setPeerMount(av, mi) {
+  if (av.mi === mi) return;
+  if (av.mi >= 0 && mountables[av.mi]) mountables[av.mi].w.frozen = false;   // their old mount roams again
+  av.mi = mi;
+  if (mi >= 0 && mountables[mi]) mountables[mi].w.frozen = true;
+}
+function applyNetOp(op) {
+  if (op.k === "pose") {
+    if (op.id === (session.isHost ? "host" : session.myId)) return;
+    const kind = op.mi >= 0 ? "ride" : op.r === 2 ? "lie" : op.r ? "sit" : "walk";
+    const av = ensureAvatar(op.id, kind);
+    Object.assign(av, { tx: op.x, ty: op.y, tz: op.z, yaw: op.w, moving: op.m, r: op.r });
+    setPeerMount(av, op.mi ?? -1);
+    if (av.mi >= 0 && mountables[av.mi]) {   // their mount follows them, trotting in step
+      const mw = mountables[av.mi].w;
+      mw.p.x = op.x; mw.p.z = op.z; mw.p.y = op.y + .04;
+      mw.apply(op.w + Math.PI / 2);
+      const aloft = mountables[av.mi].def.mount.fly && op.y > groundH(op.x, op.z) + .4;
+      if (aloft) {   // in flight: wings beat (8Hz ops), legs hang, head/tail keep moving
+        mw.wingT = (mw.wingT ?? 0) + .28;
+        mw.moveT = (mw.moveT ?? mw.animT) + .5;
+      } else { if (op.m) mw.animT += .5; mw.moveT = undefined; }
+      mw.setT(mw.animT, mw.wingT ?? 0, mw.moveT);
+    }
+  } else if (op.k === "door") {
+    if (doors[op.i]) doors[op.i].open = !!op.open;
+  } else if (op.k === "chat") {
+    addChat(op.id, op.txt);
+  } else if (op.k === "dup") {
+    spawnDupe(op.id, op.x, op.y, op.z, op.w, op.r, op.mi);
+  } else if (op.k === "pick") {
+    doPick(op.i);
+  } else if (op.k === "env") {
+    weather = op.weather; wxInt = op.int; applyClouds();
+    SNOW.value = weather === 2 ? 1 : 0;
+    if (night !== !!op.night) { night = !!op.night; applyNight(); }
+    if (op.autumn !== autumnLvl) { autumnLvl = op.autumn; buildFlora(autumnLvl / 2); }
+  }
+}
+function attachSession(sess) {
+  session = sess;
+  sess.events.on("op", applyNetOp);
+  sess.events.on("peers", () => netStatus(`${sess.isHost ? "hosting" : "joined"} · ${sess.online()} online`));
+  sess.events.on("ready", (msg) => {
+    netStatus("joined");
+    // adopt the host's world clock: the deterministic sim fast-forwards to
+    // the same instant, and from then on both worlds tick in lockstep
+    if (msg.time) clockOff = msg.time - lastT;
+    if (msg.params !== location.search)
+      netStatus(`joined · WARNING: host URL params differ (${msg.params || "none"}) — worlds may not match`);
+  });
+  sess.events.on("gone", (id) => {
+    const av = avatars.get(id);
+    if (av) { setPeerMount(av, -1); scene.remove(av.herd.mesh); }
+    avatars.delete(id);
+  });
+  sess.events.on("lost", () => netStatus("connection lost"));
+}
+const netEnv = () => session?.send({ k: "env", weather, int: wxInt, night: night ? 1 : 0, autumn: autumnLvl });
+const netDoor = (dr) => session?.send({ k: "door", i: doors.indexOf(dr), open: dr.open });
+netEls.btnInvite.onclick = async () => {
+  if (session && !session.isHost) return;
+  if (!session) attachSession(HostSession({ time: () => lastT + clockOff }));
+  netStatus("creating invite…");
+  pendingInvite = await session.invite();
+  netEls.netOut.value = pendingInvite.code;
+  netStatus("hosting · send the code, then paste the reply");
+};
+netEls.btnApply.onclick = async () => {
+  const code = netEls.netIn.value.trim();
+  if (!code) return;
+  try {
+    if (session?.isHost && pendingInvite) { await pendingInvite.accept(code); netStatus("hosting · connecting…"); }
+    else if (!session) {
+      attachSession(GuestSession("guest-" + Math.random().toString(36).slice(2, 6)));
+      netStatus("answering…");
+      netEls.netOut.value = await session.answer(code);
+      netStatus("send the reply code to the host");
+    }
+    // if nothing opens within 20s, say why it usually happens
+    setTimeout(() => {
+      if (session && session.online() === 0)
+        netStatus("still connecting… if it never does: make sure BOTH codes were copied completely, " +
+                  "and note some routers' wifi isolation ('AP/client isolation') blocks device-to-device " +
+                  "traffic — try a hotspot or another network");
+    }, 20000);
+  } catch (e) { netStatus("bad code — copy it completely and try again"); }
+  netEls.netIn.value = "";
+};
+// ---- in-game chat: shift+C toggles typing mode; while it is active every
+// key just types (the game ignores input). Messages sit bottom-center for
+// 30s, max 5, one color per player.
+const chatEl = document.getElementById("chat"), chatIn = document.getElementById("chatIn");
+let chatActive = false;
+const chatColor = (id) => `hsl(${(hashSeed(String(id)) * 137) % 360} 75% 72%)`;
+function addChat(id, txt) {
+  const d = document.createElement("div");
+  d.textContent = txt;
+  d.style.color = chatColor(id);
+  chatEl.appendChild(d);
+  while (chatEl.children.length > 5) chatEl.firstChild.remove();
+  setTimeout(() => d.remove(), 30000);
+}
+function toggleChat(on) {
+  chatActive = on;
+  chatIn.style.display = on ? "block" : "none";
+  if (on) { if (document.pointerLockElement) document.exitPointerLock(); chatIn.focus(); }
+  else chatIn.blur();
+}
+chatIn.addEventListener("keydown", (e) => {
+  e.stopPropagation();
+  if (e.key === "Enter") {
+    const txt = chatIn.value.trim();
+    chatIn.value = "";
+    if (txt) {
+      addChat(session ? (session.isHost ? "host" : session.myId) : "me", txt);
+      session?.send({ k: "chat", txt });
+    }
+  } else if ((e.key === "C" && e.shiftKey) || e.key === "Escape") { e.preventDefault(); toggleChat(false); }
+});
+
+// shift+D: duplicate yourself -- a frozen copy stays exactly as you are now
+// (standing or seated), you walk on; peers see the copy too (dup op)
+const dupes = [];
+function spawnDupe(id, x, y, z, w, kind, mi) {
+  const pd = makePerson({ seed: hashSeed(String(id)), pose: kind === 2 ? "ride" : kind === 1 ? "sit" : kind === 3 ? "lie" : undefined, still: true });
+  let def = pd, yOff = kind === 1 ? .18 - pd.hipY : kind === 3 ? .04 : 0;
+  if (kind === 2 && mountables[mi]) {   // mounted clone: person fused onto a copy of the mount
+    const md = mountables[mi].def;
+    const body = md.parts.find((q) => q.id === "body");
+    const dy = (body?.size.r ?? .4) + .02 - pd.hipY;
+    def = { name: "dupRider", parts: [
+      ...md.parts,
+      ...pd.parts.map((p) => ({ ...p, id: "r_" + p.id, parent: p.parent ? "r_" + p.parent : "body",
+        pos: p.parent ? p.pos : [p.pos[0] + .08, p.pos[1] + dy, p.pos[2]] })),
+    ] };
+    yOff = .04;
+  }
+  const herd = createHerd(38, { pixelDepth });
+  scene.add(herd.mesh);
+  const an = herd.add(def);
+  an.position.set(x, y + yOff, z);
+  an.rotY = w + Math.PI / 2;
+  an.animT = 0;
+  herd.update(0);   // written once: the copy never moves again
+  dupes.push(herd);
+  if (dupes.length > 10) scene.remove(dupes.shift().mesh);   // keep the last 10
+}
+function dupSelf() {
+  if (camMode !== "fps") return;
+  const kind = mounted ? 2 : resting ? (resting.lie ? 3 : 1) : 0;   // 3: lying on a bed
+  const mi = mounted ? mounted.idx : -1;
+  spawnDupe(session ? (session.isHost ? "host" : session.myId ?? "me") : "me",
+            camera.position.x, standY, camera.position.z, yaw, kind, mi);
+  session?.send({ k: "dup", x: camera.position.x, y: standY, z: camera.position.z, w: yaw, r: kind, mi });
+}
+
+let lastPose = 0, walking = false;
+function netTick(tNow) {
+  if (!session) return;
+  if (tNow - lastPose > .12) {
+    lastPose = tNow;
+    session.send({ k: "pose", x: camera.position.x, y: standY, z: camera.position.z, w: yaw,
+                   m: walking ? 1 : 0,
+                   r: resting ? (resting.lie ? 2 : 1) : 0,
+                   mi: mounted ? mounted.idx : -1 });
+  }
+  for (const av of avatars.values()) {
+    if (av.tx === undefined) continue;
+    // the avatar's origin depends on its pose: seated drops by hip height
+    // onto the bench, riding lifts the hips onto the mount's back
+    const ty = av.kind === "sit" ? av.ty + .18 - av.hipY
+             : av.kind === "ride" ? av.ty + 1.63 - av.hipY
+             : av.kind === "lie" ? av.ty + .04   // flat on the bed (the figure's own thickness is in its parts)
+             : av.ty;
+    const p = av.an.position, k = .18;
+    p.x += (av.tx - p.x) * k; p.y += (ty - p.y) * k; p.z += (av.tz - p.z) * k;
+    av.an.rotY = av.yaw + Math.PI / 2;       // camera yaw -> the walker's heading convention
+    av.an.animT = (av.an.animT ?? 0) + (av.moving && av.kind === "walk" ? 1 / 45 : 0);
+    av.herd.update(0);
+  }
+}
+
+// ---- ambient sound: everything synthesized live, no audio files ------------
+// rain = looped filtered noise, crowd murmur = wobbling bandpass noise near
+// the Colosseum, birdsong = little oscillator chirps outdoors by day, and a
+// church bell every 5 minutes of WORLD time -- so peers hear it together.
+let AC = null, rainLow = null, rainHi = null, windGain = null, windFilter = null,
+    waveGain = null, murmurBus = null, murmurVoices = [];
+function initAudio() {
+  if (AC) return;
+  AC = new (window.AudioContext || window.webkitAudioContext)();
+  const noiseBuf = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate);
+  const nd = noiseBuf.getChannelData(0);
+  for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
+  const mkNoise = (type, freq, q) => {
+    const src = AC.createBufferSource(); src.buffer = noiseBuf; src.loop = true;
+    src.playbackRate.value = .85 + Math.random() * .3;   // decorrelate the loops
+    const f = AC.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q ?? 1;
+    const g = AC.createGain(); g.gain.value = 0;
+    src.connect(f); f.connect(g); g.connect(AC.destination);
+    src.start();
+    return { g, f };
+  };
+  // rain: a low wash plus a bright patter layer whose level flutters
+  rainLow = mkNoise("lowpass", 380).g;
+  rainHi = mkNoise("bandpass", 2600, .6).g;
+  // snow: not precipitation noise but a soft wind whose color slowly drifts
+  const wnd = mkNoise("lowpass", 280);
+  windGain = wnd.g; windFilter = wnd.f;
+  // lake: low water noise swelling in wave rhythm
+  waveGain = mkNoise("lowpass", 460).g;
+  // crowd murmur: a handful of low "voices" (detuned triangles through
+  // formant-ish bandpass filters), each with its own drifting level --
+  // reads as distant talk, not static
+  murmurBus = AC.createGain();
+  murmurBus.gain.value = 0;
+  murmurBus.connect(AC.destination);
+  for (let i = 0; i < 5; i++) {
+    const o = AC.createOscillator(); o.type = "triangle";
+    o.frequency.value = 105 + Math.random() * 110;
+    const f = AC.createBiquadFilter(); f.type = "bandpass";
+    f.frequency.value = 500 + Math.random() * 900; f.Q.value = 2.2;
+    const g = AC.createGain(); g.gain.value = .5;
+    o.connect(f); f.connect(g); g.connect(murmurBus);
+    o.start();
+    murmurVoices.push({ o, g, amp: .3 + Math.random() * .5 });
+  }
+}
+function chirp() {
+  const t0 = AC.currentTime + Math.random() * .2;
+  for (let i = 0, nN = 2 + (Math.random() * 3 | 0); i < nN; i++) {
+    const o = AC.createOscillator(), g = AC.createGain(), ts = t0 + i * .12;
+    const f0 = 2200 + Math.random() * 1600;
+    o.frequency.setValueAtTime(f0, ts);
+    o.frequency.exponentialRampToValueAtTime(f0 * (.7 + Math.random() * .5), ts + .09);
+    g.gain.setValueAtTime(0, ts);
+    g.gain.linearRampToValueAtTime(.045, ts + .015);
+    g.gain.exponentialRampToValueAtTime(.0001, ts + .1);
+    o.connect(g); g.connect(AC.destination);
+    o.start(ts); o.stop(ts + .12);
+  }
+}
+function bellStrike(vol) {
+  for (const [f, a, dur] of [[261.6, .22, 3], [523.3, .4, 2.6], [659, .14, 1.8], [1046.5, .1, 1.2]]) {
+    const o = AC.createOscillator(), g = AC.createGain();
+    o.frequency.value = f * (1 + (Math.random() - .5) * .004);
+    g.gain.setValueAtTime(a * vol, AC.currentTime);
+    g.gain.exponentialRampToValueAtTime(.0001, AC.currentTime + dur);
+    o.connect(g); g.connect(AC.destination);
+    o.start(); o.stop(AC.currentTime + dur);
+  }
+}
+const peal = (n = 6) => {   // audible across the whole map, gently fading with distance
+  let dmin = 300;
+  for (const s of town) if (["cologne", "notredame", "milan"].includes(s.key)) {
+    const bz = siteZ(s);
+    dmin = Math.min(dmin, Math.hypot(camera.position.x - s.x, camera.position.z - bz));
+  }
+  const vol = Math.max(.15, 1 - dmin / 900);
+  for (let k = 0; k < n; k++) setTimeout(() => bellStrike(vol), k * 1650);
+};
+let lastBell = -1, audioT0 = 0, nextChirp = 0, nextPlink = 0, lastSwell = 0;
+const WAVE_SCALE = [220, 261.63, 293.66, 329.63, 392, 440];   // A-minor pentatonic-ish: always consonant
+function audioTick(T) {
+  if (!AC) return;
+  speechTick(T);
+  callTick(T);
+  const inside = roofedAt(camera.position.x, camera.position.z, camera.position.y);
+  const duck = inside ? .3 : 1;   // weather sounds muffle indoors
+  // rain: wash + fluttering patter + sparse droplet plinks
+  const rainAmt = weather === 1 ? (wxInt + 1) / 2 * duck : 0;
+  rainLow.gain.value = rainAmt * .05;
+  rainHi.gain.value = rainAmt * .06 * (.55 + .75 * Math.random());
+  if (rainAmt > 0 && T > nextPlink) {
+    nextPlink = T + .18 + Math.random() * .8 / (wxInt + 1);
+    const o = AC.createOscillator(), g = AC.createGain(), ts = AC.currentTime;
+    o.frequency.setValueAtTime(1400 + Math.random() * 1800, ts);
+    o.frequency.exponentialRampToValueAtTime(900, ts + .05);
+    g.gain.setValueAtTime(.02 * rainAmt, ts);
+    g.gain.exponentialRampToValueAtTime(.0001, ts + .06);
+    o.connect(g); g.connect(AC.destination);
+    o.start(ts); o.stop(ts + .07);
+  }
+  // snow: a soft wind, its color and level slowly breathing
+  const snowAmt = weather === 2 ? (wxInt + 1) / 2 * duck : 0;
+  windGain.gain.value = snowAmt * .055 * (.7 + .3 * Math.sin(T * .37));
+  windFilter.frequency.value = 240 + 170 * Math.sin(T * .5) + 80 * Math.sin(T * 1.31);
+  // lake: a soft water wash swelling in wave rhythm, and on each crest a
+  // gentle glassy tone from a pentatonic scale -- melodic, never dissonant
+  if (hasLake) {
+    const dShore = lakeSD(camera.position.x, camera.position.z);
+    const near = Math.max(0, 1 - Math.max(0, dShore) / 55);
+    const swell = Math.pow(.5 + .5 * Math.sin(T * 1.6 + Math.sin(T * .61) * 2.2), 2);
+    waveGain.gain.value = .06 * near * (.3 + .7 * swell) * duck;
+    if (near > .05 && swell > .82 && lastSwell <= .82) {
+      const f = WAVE_SCALE[(Math.random() * WAVE_SCALE.length) | 0];
+      for (const [fm, am] of [[f, 1], [f * 2, .3]]) {   // fundamental + a whisper of octave
+        const o = AC.createOscillator(), g = AC.createGain(), ts = AC.currentTime;
+        o.frequency.value = fm;
+        g.gain.setValueAtTime(0, ts);
+        g.gain.linearRampToValueAtTime(.018 * am * near * duck, ts + .6);
+        g.gain.exponentialRampToValueAtTime(.0001, ts + 3);
+        o.connect(g); g.connect(AC.destination);
+        o.start(ts); o.stop(ts + 3.1);
+      }
+    }
+    lastSwell = swell;
+  }
+  // crowd murmur near the Colosseum: voices drift independently
+  let mv = 0;
+  for (const s of town) if (s.key === "colosseum") {
+    const bz = siteZ(s);
+    mv = Math.max(mv, .05 * Math.max(0, 1 - Math.hypot(camera.position.x - s.x, camera.position.z - bz) / 170));
+  }
+  murmurBus.gain.value = mv;
+  if (mv > 0) for (const v of murmurVoices) {
+    v.amp = Math.min(1, Math.max(.15, v.amp + (Math.random() - .5) * .12));
+    v.g.gain.value = v.amp;
+    v.o.frequency.value += (Math.random() - .5) * 1.5;   // lazy pitch wander
+    if (v.o.frequency.value < 95 || v.o.frequency.value > 240)
+      v.o.frequency.value = 110 + Math.random() * 100;
+  }
+  // the bell strikes the hours by the REAL clock: on the hour, as many
+  // strikes as the hour shows (1..12), 1.65s apart -- the same moment on
+  // every peer's wall clock, so it needs no syncing
+  { const now = new Date();
+    if (now.getMinutes() === 0 && now.getSeconds() < 10 && lastBell !== now.getHours()) {
+      lastBell = now.getHours();
+      peal(now.getHours() % 12 || 12);
+    } }
+  if (!night && !inside && T > nextChirp) {
+    nextChirp = T + 2 + Math.random() * 7;
+    chirp();
+  }
+}
+const audioHello = () => {   // browsers unlock audio on a gesture; greet with a peal soon after
+  if (AC) return;
+  initAudio();
+};
+addEventListener("pointerdown", audioHello);
+addEventListener("keydown", audioHello);
+
+const label = document.getElementById("label");
+let frames = 0, lastStat = performance.now(), stats = "";
+function updateLabel() {
+  const depthTag = mode === "rig" ? "" : ` (${pixelDepth ? "pixel" : "flat"} depth)`;
+  label.textContent = `${mode} engine${depthTag} · ${n} animals ${stats}` +
+    `${pickedCount ? ` · picked ${pickedCount}` : ""} · speech ${langMode}/${toneMode}/${wordMode}/${moodMode} · shift+Q controls`;
+}
+updateLabel();
+const helpEl = document.getElementById("help");
+helpEl.textContent = (camMode === "fps" ? `CONTROLS
+click            grab the mouse & look around
+WASD             walk        (Shift: run · Ctrl: crouch)
+Space            jump        (Shift+Space: 10m dash)
+Q / E            on a dragon or manticore: descend / climb -- it flies
+click on thing   the one action shown bottom-center:
+                 ride/dismount animals · open/close doors & windows
+                 sit on pews/chairs · lie on beds · pick flowers/mushrooms
+                 go upstairs/downstairs at tower stairs
+P / O            weather rain/snow/clear / its intensity
+I / N            season summer-autumn / night
+M                multiplayer panel (invite codes)
+shift+C          chat (enter sends, shift+C closes)
+shift+N          duplicate yourself (a frozen copy stays behind)
+L / K / J / H    people's language (random en de fr es ru) / voice (random man woman child)
+                 / the word everyone says (random, then each of the 18) / mood (random normal excited angry)
+shift+Q          this list` : `CONTROLS (orbit camera)
+drag / right-drag / scroll    orbit / pan / zoom
+WASD + Q/E       fly (Shift: fast)
+P / O / I / N    weather / intensity / season / night
+M / shift+C      multiplayer / chat
+shift+Q          this list`) +
+`
+
+URL: ?mode=rig|banner|instanced · ?n=1000 · ?species= · ?building= · ?cam=orbit
+     ?weather=1|2 · ?night=1 · ?autumn=1 · ?freeze=t · ?depth=flat`;
+
+// weather: P cycles none -> rain -> snow. Falling drops are a screen-space
+// shader overlay (no geometry per drop), hidden while the camera stands
+// under a roof; snow additionally whitens roofs via the shared SNOW uniform.
+let weather = Math.min(2, Math.max(0, num("weather", 0)));   // 0 none, 1 rain, 2 snow (?weather= presets it)
+SNOW.value = weather === 2 ? 1 : 0;
+const OPEN_AIR = new Set(["colosseum", "didyma"]);   // roofless overall (floors overhead still count)
+const roofedAt = (x, z, y) => {
+  if (floorsAt(x, z).some((h) => h > y + .3)) return true;   // a storey or stand overhead
+  return sites.some((s) => {
+    if (OPEN_AIR.has(s.key)) return false;
+    const d = BUILDINGS[s.key], bz = siteZ(s);
+    return Math.abs(x - s.x) < d.footprint[0] / 2 && Math.abs(z - bz) < d.footprint[1] / 2;
+  });
+};
+// three transparent "curtains" billboarded 4/10/22m ahead of the camera,
+// DEPTH-TESTED against the scene: walls naturally occlude the rain, so from
+// indoors you still see it falling outside a window, and each curtain also
+// hides itself when its own anchor point is under a roof (large interiors)
+const mkWeatherLayer = (d, i) => {
+  const h = 2 * d * Math.tan(THREE.MathUtils.degToRad(22.5)) * 1.8;
+  const mat = new THREE.ShaderMaterial({
+    transparent: true, depthWrite: false,
+    uniforms: { uT: { value: 0 }, uMode: { value: 0 }, uI: { value: i }, uInt: { value: 1 } },
+    vertexShader: /* glsl */ `
+      varying vec2 vUv;
+      void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+    fragmentShader: /* glsl */ `
+      precision highp float;
+      uniform float uT, uMode, uI, uInt;
+      varying vec2 vUv;
+      float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
+      void main() {
+        // the original overlay animation, drawn per curtain: multiple
+        // parallax sublayers of flakes/streaks; uInt = 0/1/2 intensity
+        vec2 uv = vec2(vUv.x * 2.6, vUv.y);
+        float den = uInt < .5 ? .55 : uInt < 1.5 ? 1. : 1.6;
+        float a = 0.; vec3 tint;
+        if (uMode > 1.5) {
+          for (int j = 0; j < 3; j++) {
+            float s = 1. + float(j) * .8;
+            vec2 q = uv * 11. * s + vec2(sin(uT * .4 + float(j) * 2.1) * 1.1, uT * (.5 + .22 * float(j)) * s);
+            vec2 id = floor(q);
+            float h = hash(id + uI * 13.);
+            vec2 c = fract(q) - .5 + .3 * vec2(sin(h * 6.28 + uT * 1.3), cos(h * 5. + uT * .6));
+            a += smoothstep(.10, .04, length(c)) * step(h, .55 * den) * (.85 - .2 * float(j));
+          }
+          tint = vec3(1.);
+        } else {
+          for (int j = 0; j < 2; j++) {
+            float s = 1. + float(j) * .9;
+            vec2 q = vec2((uv.x + uv.y * .16) * 26. * s, uv.y * 3.4 * s + uT * (5.5 + 2.5 * float(j)));
+            vec2 id = floor(q);
+            float h = hash(id + uI * 7.);
+            vec2 c = fract(q) - .5;
+            a += (1. - smoothstep(.02, .07, abs(c.x))) * smoothstep(.42, .2, abs(c.y)) * step(h, .4 * den) * .45;
+          }
+          tint = vec3(.72, .8, .88);
+        }
+        a *= uInt < .5 ? .75 : uInt < 1.5 ? 1. : 1.25;
+        gl_FragColor = vec4(tint, min(a, .95) * (.95 - .22 * uI));
+      }`,
+  });
+  const m = new THREE.Mesh(new THREE.PlaneGeometry(h * 2.6, h), mat);
+  m.position.z = -d;
+  m.frustumCulled = false;
+  m.renderOrder = 5;
+  return m;
+};
+const wxGroup = new THREE.Group();
+const wxLayers = [4, 10, 22].map((d, i) => { const m = mkWeatherLayer(d, i); wxGroup.add(m); return { d, m }; });
+wxGroup.visible = false;
+scene.add(wxGroup);
+const _wxDir = new THREE.Vector3();
+let wxInt = Math.min(2, Math.max(0, num("intensity", 1)));   // weather intensity: 0 low, 1 mid, 2 high ("O" cycles)
+applyClouds();   // cloud cover for the starting weather
+
+// night mode ("N"): a multiply pass dims the whole frame -- every material,
+// custom shaders included, with zero per-material work -- while the sky and
+// fog turn deep blue and stars + a crescent moon fade in
+let night = num("night", 0) > 0;
+const daySky = new THREE.Color(0xcfe0e8), nightSky = new THREE.Color(0x101728);
+const nightScene = new THREE.Scene();
+const nightCam = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+nightScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2),
+  new THREE.MeshBasicMaterial({ color: 0x4d5880, blending: THREE.MultiplyBlending, premultipliedAlpha: true,
+                                transparent: true, depthTest: false, depthWrite: false })));
+const stars = (() => {
+  // four brightness classes, real-sky style: many faint, few brilliant
+  const sr = rng(83);
+  const group = new THREE.Group();
+  for (const [count, size, color] of [[260, 1.2, 0x8992ac], [130, 1.9, 0xb8c0d6], [55, 2.8, 0xe8edff], [18, 4, 0xffffff]]) {
+    const sp = [];
+    for (let i = 0; i < count; i++) {
+      const a = sr() * Math.PI * 2, e = Math.asin(.08 + sr() * .92);   // upper hemisphere
+      const R = groundR * 2.2;
+      sp.push(R * Math.cos(e) * Math.cos(a), R * Math.sin(e), R * Math.cos(e) * Math.sin(a));
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(sp, 3));
+    const p = new THREE.Points(g, new THREE.PointsMaterial({ color, size, sizeAttenuation: false, fog: false }));
+    p.frustumCulled = false;
+    group.add(p);
+  }
+  return group;
+})();
+const moon = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false,
+  vertexShader: /* glsl */ `
+    varying vec2 vUv;
+    void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+  fragmentShader: /* glsl */ `
+    precision highp float;
+    varying vec2 vUv;
+    void main() {
+      vec2 p = vUv - .5;
+      float d = length(p) - .40;                       // the moon disc...
+      float bite = length(p - vec2(.15, .06)) - .38;   // ...minus the earthshine bite = a sickle
+      if (d > 0. || bite < 0.) discard;
+      gl_FragColor = vec4(.93, .93, .87, 1.);
+    }`,
+}));
+moon.scale.setScalar(groundR * .16);
+moon.position.set(groundR * .9, groundR * .8, -groundR * 1.1);
+moon.lookAt(0, 0, 0);
+moon.frustumCulled = false;
+const applyNight = () => {
+  scene.background = night ? nightSky : daySky;
+  scene.fog.color.copy(night ? nightSky : daySky);
+  stars.visible = moon.visible = night;
+};
+scene.add(stars); scene.add(moon);
+applyNight();
+
+// occasional shooting star: one streak quad that wakes every few seconds,
+// flies across the dome and fades out
+const shootMesh = new THREE.Mesh(new THREE.PlaneGeometry(1, 1), new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false,
+  uniforms: { uF: { value: 0 } },
+  vertexShader: /* glsl */ `
+    varying vec2 vUv;
+    void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+  fragmentShader: /* glsl */ `
+    precision highp float;
+    uniform float uF;
+    varying vec2 vUv;
+    void main() {
+      float head = smoothstep(.0, .25, vUv.x);              // bright head, long tail
+      float core = 1. - abs(vUv.y - .5) * 2.;
+      float a = pow(vUv.x, 2.2) * core * core * uF;
+      gl_FragColor = vec4(vec3(.95, .96, 1.) * (0.6 + .4 * head), a);
+    }`,
+}));
+shootMesh.scale.set(groundR * .3, groundR * .012, 1);
+shootMesh.visible = false;
+shootMesh.frustumCulled = false;
+scene.add(shootMesh);
+const shoot = { on: false, age: 0, life: 1.0, next: 4, pos: new THREE.Vector3(), vel: new THREE.Vector3() };
+const _sq = new THREE.Quaternion(), _sv = new THREE.Vector3();
+function updateShooting(dt) {
+  shoot.next -= dt;
+  if (!shoot.on && shoot.next <= 0) {
+    const a = Math.random() * Math.PI * 2, e = .5 + Math.random() * .7;
+    shoot.pos.set(Math.cos(a) * Math.cos(e), Math.sin(e), Math.sin(a) * Math.cos(e)).multiplyScalar(groundR * 1.9);
+    shoot.vel.set(-Math.sin(a), -.35 - Math.random() * .3, Math.cos(a)).normalize().multiplyScalar(groundR * .9);
+    shoot.on = true; shoot.age = 0;
+    shoot.next = 5 + Math.random() * 9;
+  }
+  if (shoot.on) {
+    shoot.age += dt;
+    shoot.pos.addScaledVector(shoot.vel, dt);
+    shootMesh.position.copy(shoot.pos);
+    // billboard, rolled so the streak lies along the on-screen velocity
+    shootMesh.quaternion.copy(camera.quaternion);
+    _sv.copy(shoot.vel).applyQuaternion(_sq.copy(camera.quaternion).invert());
+    shootMesh.rotateZ(Math.atan2(_sv.y, _sv.x));
+    shootMesh.material.uniforms.uF.value = Math.sin(Math.PI * Math.min(1, shoot.age / shoot.life));
+    if (shoot.age >= shoot.life) shoot.on = false;
+  }
+  shootMesh.visible = night && shoot.on;
+}
+
+// rainbow: a soft seven-band arc standing over the far ground, shown only
+// in LIGHT rain (the sun still gets through)
+const rainbow = new THREE.Mesh(new THREE.PlaneGeometry(1, .5), new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false,
+  vertexShader: /* glsl */ `
+    varying vec2 vUv;
+    void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
+  fragmentShader: /* glsl */ `
+    precision highp float;
+    varying vec2 vUv;
+    void main() {
+      vec2 p = vec2(vUv.x - .5, vUv.y * .5);
+      float t = (length(p) - .31) / .09;
+      if (t < 0. || t > 1.) discard;
+      vec3 col = t > .857 ? vec3(.78, .12, .16) : t > .714 ? vec3(.9, .45, .12)
+               : t > .571 ? vec3(.93, .84, .22) : t > .428 ? vec3(.3, .72, .3)
+               : t > .285 ? vec3(.2, .55, .8) : t > .142 ? vec3(.25, .3, .75) : vec3(.5, .3, .7);
+      float soft = smoothstep(0., .15, t) * smoothstep(1., .85, t);
+      gl_FragColor = vec4(col, .3 * soft);
+    }`,
+  side: THREE.DoubleSide,
+}));
+rainbow.scale.set(groundR * 1.7, groundR * 1.7, 1);
+rainbow.position.set(groundR * .55, groundR * .12, -groundR * .85);
+rainbow.lookAt(0, groundR * .12, 0);
+rainbow.visible = false;
+scene.add(rainbow);
+
+// underwater overlay: when the camera dips below the lake's surface the
+// whole view goes blue-green with slow drifting light bands
+const uwScene = new THREE.Scene();
+const uwMat = new THREE.ShaderMaterial({
+  transparent: true, depthTest: false, depthWrite: false,
+  uniforms: { uT: { value: 0 } },
+  vertexShader: /* glsl */ `
+    varying vec2 vUv;
+    void main() { vUv = uv; gl_Position = vec4(position.xy, 0., 1.); }`,
+  fragmentShader: /* glsl */ `
+    precision highp float;
+    uniform float uT;
+    varying vec2 vUv;
+    void main() {
+      float w = sin(vUv.y * 9. + sin(vUv.x * 5. + uT * .8) * 1.6 + uT * .6)
+              + sin(vUv.y * 17. - sin(vUv.x * 8. - uT * .5) * 1.2 - uT);
+      vec3 col = vec3(.07, .26, .34) + .05 * w;
+      gl_FragColor = vec4(col, .42 + .05 * w);
+    }`,
+});
+uwScene.add(new THREE.Mesh(new THREE.PlaneGeometry(2, 2), uwMat));
+
+// guard against Ctrl+W while playing: the browser will not let a page
+// swallow it outright, but this forces a leave-confirmation instead of an
+// instant close; in fullscreen (F11) Chrome additionally lets us capture
+// W/A/S/D system shortcuts entirely via the Keyboard Lock API
+addEventListener("beforeunload", (e) => {
+  if (document.pointerLockElement || session || mounted) { e.preventDefault(); e.returnValue = ""; }
+});
+navigator.keyboard?.lock?.(["KeyW", "KeyA", "KeyS", "KeyD"]).catch(() => {});
+
+const keys = new Set();
+addEventListener("keydown", (e) => {
+  if (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT") return;   // typing, not playing
+  if (e.code === "KeyC" && e.shiftKey) { e.preventDefault(); toggleChat(true); return; }
+  if (chatActive) return;   // chat mode swallows every game key
+  if (e.code === "KeyQ" && e.shiftKey) {
+    const el = document.getElementById("help");
+    el.style.display = el.style.display === "block" ? "none" : "block";
+  }
+  if (e.code === "Space") e.preventDefault();
+  if (e.code === "KeyP") { weather = (weather + 1) % 3; SNOW.value = weather === 2 ? 1 : 0; applyClouds(); netEnv(); }
+  if (e.code === "KeyO") { wxInt = (wxInt + 1) % 3; applyClouds(); netEnv(); }   // weather intensity low/mid/high -- and cloud cover on a clear day
+  if (e.code === "KeyI") { autumnLvl = (autumnLvl + 1) % 3; buildFlora(autumnLvl / 2); netEnv(); }   // summer/half/full autumn
+  if (e.code === "KeyN" && !e.shiftKey) { night = !night; applyNight(); netEnv(); }
+  if (e.code === "KeyN" && e.shiftKey && !e.repeat) dupSelf();   // duplicate yourself
+  if (e.code === "KeyM") { const el = document.getElementById("net"); el.style.display = el.style.display === "block" ? "none" : "block"; }
+  if (!e.repeat && !e.ctrlKey && !e.shiftKey) {   // the people's speech: L language, K voice (kid/woman/man), J word
+    if (e.code === "KeyL") langMode = LANG_MODES[(LANG_MODES.indexOf(langMode) + 1) % LANG_MODES.length];
+    if (e.code === "KeyK") toneMode = TONE_MODES[(TONE_MODES.indexOf(toneMode) + 1) % TONE_MODES.length];
+    if (e.code === "KeyJ") wordMode = WORD_MODES[(WORD_MODES.indexOf(wordMode) + 1) % WORD_MODES.length];
+    if (e.code === "KeyH") moodMode = MOOD_MODES[(MOOD_MODES.indexOf(moodMode) + 1) % MOOD_MODES.length];
+    if (e.code === "KeyL" || e.code === "KeyK" || e.code === "KeyJ" || e.code === "KeyH") updateLabel();
+  }
+  keys.add(e.code);
+});
+addEventListener("keyup", (e) => keys.delete(e.code));
+const runKey = () => keys.has("ShiftLeft") || keys.has("ShiftRight");
+
+// first-person: mouse (pointer-locked) or arrow keys turn the head; WASD
+// walks in the yaw direction only (gaze pitch doesn't lift you off the
+// ground), and every step re-plants the eye EYE meters above the terrain
+// the walker's physics runs in steps of at most 20ms whatever the frame
+// rate: a slow frame must not lurch a jump straight past a window sill
+function fpsMove(dt) {
+  const n = Math.max(1, Math.ceil(dt / .02));
+  for (let k = 0; k < n; k++) fpsStep(dt / n);
+}
+function fpsStep(dt) {
+  const lookSpd = 1.6 * dt;
+  if (keys.has("ArrowLeft")) yaw += lookSpd;
+  if (keys.has("ArrowRight")) yaw -= lookSpd;
+  if (keys.has("ArrowUp")) pitch = Math.min(pitch + lookSpd, 1.45);
+  if (keys.has("ArrowDown")) pitch = Math.max(pitch - lookSpd, -1.45);
+  camera.rotation.set(pitch, yaw, 0);
+  if (resting) {   // seated or lying: glide onto the spot, look around freely, no walking
+    standY = resting.y;
+    camera.position.x += (resting.x - camera.position.x) * Math.min(1, dt * 6);
+    camera.position.z += (resting.z - camera.position.z) * Math.min(1, dt * 6);
+    camera.position.y += (standY + eyeH - camera.position.y) * Math.min(1, dt * 6);
+    return;
+  }
+  const fx = -Math.sin(yaw), fz = -Math.cos(yaw);
+  let mx = 0, mz = 0;
+  if (keys.has("KeyW")) { mx += fx; mz += fz; }
+  if (keys.has("KeyS")) { mx -= fx; mz -= fz; }
+  if (keys.has("KeyD")) { mx -= fz; mz += fx; }
+  if (keys.has("KeyA")) { mx += fz; mz -= fx; }
+  const l = Math.hypot(mx, mz);
+  walking = l > 0;
+  const crouch = !mounted && (keys.has("ControlLeft") || keys.has("ControlRight"));
+  if (l) {
+    const sp = (runKey() ? 12 : 4) * (mounted ? mounted.def.mount.speed * (mounted.flying ? 1.5 : 1) : crouch ? .45 : 1) * dt / l;   // m/s; mounts multiply, crouching creeps, wings outrun legs
+    const cx0 = camera.position.x, cz0 = camera.position.z;
+    const nx = cx0 + mx * sp, nz = cz0 + mz * sp;
+    if (!collides(nx, nz, standY)) { camera.position.x = nx; camera.position.z = nz; }
+    else if (!collides(nx, cz0, standY)) camera.position.x = nx;   // slide along the wall
+    else if (!collides(cx0, nz, standY)) camera.position.z = nz;
+  }
+  // a winged mount flies: E climbs, Q descends (Shift: faster). Airborne it
+  // ignores gravity, never sinks below the ground it crosses, and lands
+  // when Q brings it down onto support; walls still block at any height
+  const climb = mounted?.def.mount.fly ? (keys.has("KeyE") ? 1 : 0) - (keys.has("KeyQ") ? 1 : 0) : 0;
+  if (climb > 0 && !mounted.flying) { mounted.flying = true; mounted.moveT = mounted.animT; airborne = false; vy = 0; }
+  if (mounted?.flying) {
+    standY += climb * (runKey() ? 14 : 6) * dt;
+    const sup = supportNear(camera.position.x, camera.position.z, standY + .5);
+    if (standY <= sup) { standY = sup; if (climb < 0) { mounted.flying = false; mounted.animT = mounted.moveT; } }   // landed: legs pick the head's clock up
+  }
+  if (mounted) {   // the mount carries the camera: follow position, face travel, trot in step
+    const mw = mounted.w;
+    mw.p.x = camera.position.x; mw.p.z = camera.position.z; mw.p.y = standY + .04;
+    if (l) mw.apply(Math.atan2(-mz, mx));
+    const settle = (v, hz) => v + (Math.round(v * 2 * hz) / (2 * hz) - v) * Math.min(1, dt * 10);   // ease to a neutral pose
+    const ws = mounted.def.parts.find((q) => q.anim?.wing)?.anim.speed ?? .5;
+    const pace = dt * (runKey() ? 12 : 4) * mounted.def.mount.speed / mw.base;   // the gait clock's rate at this speed (Shift triples it)
+    if (mounted.flying) {   // wings beat, legs hang still, head and tail keep the pace of movement
+      mounted.wingT += dt * (climb > 0 || l ? 2.6 : 1.8);
+      mounted.animT = settle(mounted.animT, .8);
+      mounted.moveT += dt * (l ? 1.1 : .55);   // head and tail at an unhurried pace in the air (the gait clock's rate would whip the tail at wing-speed x5)
+    } else {   // on the ground head/tail share the gait clock (moveT unset)
+      if (l) mounted.animT += pace;
+      else mounted.animT = settle(mounted.animT, .8);
+      mounted.wingT = settle(mounted.wingT, ws);   // folded wings rest at a beat's neutral
+    }
+    mw.setT(mounted.animT, mounted.wingT, mounted.flying ? mounted.moveT : undefined);
+  }
+  // vertical: step up/down within .5m, otherwise fall freely; Space jumps
+  // (~.5m of extra height -- enough to mount what walking alone cannot)
+  // standing on a cart's bed: it carries you -- follow its motion since the last frame, turning with it
+  if (!airborne && !mounted) {
+    const k = cartUnder(camera.position.x, camera.position.z, standY);
+    if (k) {
+      // the body has already moved this tick: take the offset from where it WAS, turn it by the cart's turn, re-hang it on the body
+      const ox = camera.position.x - (k.body.position.x - k.carry.dx), oz = camera.position.z - (k.body.position.z - k.carry.dz);
+      const c = Math.cos(k.carry.dyaw), s = Math.sin(k.carry.dyaw);
+      camera.position.x = k.body.position.x + ox * c + oz * s;
+      camera.position.z = k.body.position.z - ox * s + oz * c;
+      yaw += k.carry.dyaw;
+    }
+  }
+  for (const k of movers) { k.carry.dx = 0; k.carry.dz = 0; k.carry.dyaw = 0; }   // every moving floor: carts, barge, plank
+  if (mounted?.flying) { /* vertical motion is the wings' */ }
+  else if (!airborne) {
+    const sup = supportNear(camera.position.x, camera.position.z, standY + .5);
+    if (standY - sup > .5) { airborne = true; vy = 0; }
+    else standY = sup;
+    if (keys.has("Space") && !jumpHeld) {
+      if (runKey()) {
+        // dash: bound up to 10m in the direction being WALKED (WASD combo),
+        // or straight ahead if no movement key is held; walls stop it,
+        // steps and ramps are ridden, edges hand over to the normal fall
+        const dxn = l ? mx / l : fx, dzn = l ? mz / l : fz;
+        for (let i = 0; i < 20; i++) {
+          const nx = camera.position.x + dxn * .5, nz = camera.position.z + dzn * .5;
+          if (collides(nx, nz, standY)) break;
+          camera.position.x = nx; camera.position.z = nz;
+          const sup = supportNear(nx, nz, standY + .5);
+          if (Math.abs(standY - sup) <= .5) standY = sup;
+          else if (sup < standY - .5) { airborne = true; vy = 0; break; }
+        }
+      } else { airborne = true; vy = 7.7; }   // ~1.2m of rise: with the .5m step-up, over any ground-floor sill and onto the tallest wagon bed
+    }
+  }
+  if (airborne) {
+    const prevY = standY;
+    vy -= 25 * dt;
+    standY += vy * dt;
+    if (vy <= 0) {
+      // land on the highest floor the fall step passed through -- eligibility
+      // is judged from where the step STARTED, so a fast frame can't tunnel
+      const sup = supportNear(camera.position.x, camera.position.z, prevY + .05);
+      if (standY <= sup) { standY = sup; vy = 0; airborne = false; }
+    }
+    if (standY < -10) { standY = terrainY(camera.position.x, camera.position.z); vy = 0; airborne = false; }
+  }
+  jumpHeld = keys.has("Space");
+  // crouching (Ctrl, on foot) drops the eye to 0.85m -- handy for a close
+  // look at flowers, mushrooms and everything small
+  camera.position.y += (standY + (crouch ? Math.min(eyeH, .85) : eyeH) - camera.position.y) * Math.min(1, dt * 10);
+}
+
+// orbit-mode free-fly: WASD relative to the view, Q/E straight down/up;
+// camera and orbit target move together so orbiting keeps working
+const fwd = new THREE.Vector3(), right = new THREE.Vector3(), step = new THREE.Vector3();
+function moveCamera(dt) {
+  if (!keys.size) return;
+  camera.getWorldDirection(fwd);
+  right.crossVectors(fwd, camera.up).normalize();
+  step.set(0, 0, 0);
+  if (keys.has("KeyW")) step.add(fwd);
+  if (keys.has("KeyS")) step.sub(fwd);
+  if (keys.has("KeyD")) step.add(right);
+  if (keys.has("KeyA")) step.sub(right);
+  if (keys.has("KeyE")) step.y += 1;
+  if (keys.has("KeyQ")) step.y -= 1;
+  if (!step.lengthSq()) return;
+  const speed = runKey() ? 30 : 9;   // m/s
+  step.normalize().multiplyScalar(speed * dt);
+  camera.position.add(step);
+  controls.target.add(step);
+}
+
+const freeze = qp.has("freeze") ? Number(qp.get("freeze")) : null;   // ?freeze=0 pins the pose (heads neutral at 0)
+const clock = new THREE.Clock();
+let tPrev = 0;
+function tick() {
+  requestAnimationFrame(tick);
+  const t = clock.getElapsedTime();
+  const dt = Math.min(t - tPrev, .1);
+  tPrev = t;
+  if (camMode === "fps") fpsMove(dt);
+  else { moveCamera(dt); controls.update(); }
+  lastT = t;
+  const ta = freeze ?? t;   // camera stays live even when the pose is pinned
+  if (freeze === null) simTo(t + clockOff);
+  if (herd) herd.update(ta);
+  else for (const root of roots) animateSpecies(root, root.userData.animT ?? ta);
+  if (folk) folk.update(ta);
+  if (bflies) bflies.update(ta);
+  if (dflies) dflies.update(ta);
+  if (fishHerd) fishHerd.update(ta);
+  if (riderHerd) riderHerd.update(ta);   // riders advance in the sim ticks
+  if (freeze === null) { const fr = Math.max(0, t + clockOff - simTick * TICK); placeCarts(fr); placeBarge(fr); placeBoat(fr); }   // carts, barge and boat glide between sim ticks
+  if (boatSt) boatSt.herd.update(ta);
+  if (cartHerd) cartHerd.update(ta);
+  for (const h of hands) {   // the loaded rig stands in for the free one while a piece is in the arms, and the piece rides them
+    const p = h.an.position, c = Math.cos(h.an.rotY), s = Math.sin(h.an.rotY);
+    if (h.item) {
+      h.anC.position.copy(p); h.anC.rotY = h.an.rotY; h.anC.animT = h.an.animT; h.anC.moveT = h.an.moveT;
+      h.an.hidden = true; h.anC.hidden = false;
+      placeCarried(h.item, p.x + c * .42, p.y + .78, p.z - s * .42, h.an.rotY);
+    } else { h.an.hidden = false; h.anC.hidden = true; }
+  }
+  for (const hh of handHerds) hh.update(ta);
+  if (carrying) {   // and in yours
+    const fx = -Math.sin(yaw), fz = -Math.cos(yaw);
+    placeCarried(carrying, camera.position.x + fx * .8, camera.position.y - .75, camera.position.z + fz * .8, yaw);
+  }
+  for (const gs of Object.values(goodsSets)) gs.commit();   // upload the goods' matrices
+  for (const ah of arenaHerds) ah.update(ta);
+  for (const dr of doors) {   // doors swing smoothly toward their state
+    const target = dr.open ? 1.9 : 0;
+    if (Math.abs(target - dr.ang) > .001) {
+      dr.ang += (target - dr.ang) * Math.min(1, dt * 5);
+      dr.grp.rotation.y = dr.base + dr.ang;
+      if (dr.win) placePane(dr);
+    }
+  }
+  if (camMode === "fps") {   // bottom-center hint for the one available action
+    const it = findInteraction();
+    hintEl.style.display = it ? "block" : "none";
+    if (it) hintEl.textContent = it.label;
+  }
+  netTick(t);
+  if (freeze === null) cloudHerd.update(0);   // drift happens in the sim ticks
+  for (const hb of windmillHubs) hb.rotation.z = ta * .45;   // sails turn with the world clock
+  for (const ww of waterWheels) ww.grp.rotation.z = -ta * ww.omega;   // the current turns the mill wheel (undershot: bottom runs with the flow)
+  audioTick(t + clockOff);
+  if (waterMat) waterMat.uniforms.uT.value = t;
+  jetMat.uniforms.uT.value = t; poolMat.uniforms.uT.value = t;
+  fireMat.uniforms.uT.value = t;   // flames flicker on the render clock
+  if (night && freeze === null) updateShooting(dt);
+  else shootMesh.visible = false;
+  rainbow.visible = weather === 1 && wxInt === 0 && !night;   // rain AND sun: only light rain lets it through, and never at night
+  wxGroup.visible = weather > 0;
+  if (weather) {
+    wxGroup.position.copy(camera.position);
+    wxGroup.quaternion.copy(camera.quaternion);
+    camera.getWorldDirection(_wxDir);
+    for (const { d, m } of wxLayers) {
+      m.visible = !roofedAt(camera.position.x + _wxDir.x * d,
+                            camera.position.z + _wxDir.z * d,
+                            camera.position.y + _wxDir.y * d);
+      m.material.uniforms.uT.value = t;
+      m.material.uniforms.uMode.value = weather;
+      m.material.uniforms.uInt.value = wxInt;
+    }
+  }
+  renderer.render(scene, camera);
+  renderer.autoClear = false;
+  if (camera.position.y < WLEVEL - .02 && groundH(camera.position.x, camera.position.z) < WLEVEL - .3) {
+    uwMat.uniforms.uT.value = t;
+    renderer.render(uwScene, nightCam);
+  }
+  if (night) renderer.render(nightScene, nightCam);
+  renderer.autoClear = true;
+  frames++;
+  const now = performance.now();
+  if (now - lastStat > 500) {
+    stats = `· ${(frames * 1000 / (now - lastStat)).toFixed(0)} fps · ` +
+      `${renderer.info.render.calls} draw calls · ${renderer.info.render.triangles.toLocaleString()} tris`;
+    frames = 0; lastStat = now;
+    updateLabel();
+  }
+}
+tick();
+
+addEventListener("resize", () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+
+window.__scene = scene; window.__THREE = THREE; window.__camera = camera;   // debug hooks for the headless harness
+window.__simStep = () => { simTick++; wanderStep(simTick * TICK); };
+window.__dbg = { mountables, keys, findInteraction, herd, talkers, callers, doors, carts, collides, colliderSites, goods, hands, get barge() { return bargeSt; }, get boat() { return boatSt; }, sites, groundH, bargePose, yards, callNow: () => { for (const c of callers) c.next = 0; }, speech: () => ({ spoken, langMode, toneMode, wordMode, moodMode }),
+  talkNow: () => { for (const t of talkers) t.next = 0; },
+  look: (x, z) => { yaw = Math.atan2(-(x - camera.position.x), -(z - camera.position.z)); },
+  place: (x, z) => { camera.position.x = x; camera.position.z = z; standY = terrainY(x, z); airborne = false; },
+  state: () => ({ mounted: mounted?.def.name ?? null, flying: !!mounted?.flying, standY, y: mounted?.w.p.y,
+                  wingT: mounted?.wingT, animT: mounted?.animT }) };
+window.__ready = true;
+</script>
+</body>
+</html>
