@@ -1,131 +1,427 @@
-// Animal calls, synthesized on Web Audio -- the world's other voices.
+// Animal calls, synthesized -- the world's other voices.
 //
 // Standalone like speech.js: give it an AudioContext and a species name.
-// Every call is a recipe of NOTES; a note is one sound event with a
-// source (saw = a buzzing voice, pulse = a rougher one, sine = a pure
-// tone, noise), a pitch glide, a resonance (bandpass) standing in for
-// the animal's mouth, an envelope, and optional vibrato, tremolo or
-// roughness (fast amplitude wobble). Repeats with gaps make barks,
-// clucks, grunts and quacks. `loud` scales how far the call carries.
+// Three engines (from the creatures lab), each rendering a call offline into
+// samples (dsp.js) that play as an AudioBuffer:
+//   mammal -- a rough glottal source (pulse per cycle; jitter, shimmer,
+//             chaos, a subharmonic, a second voice) through a four-formant
+//             mouth that opens and closes, plus pulsed turbulence (roar),
+//             nasality and amplitude modulation. Also frogs, crocodiles and
+//             quacks: anything that is a throat and a mouth. `voice: 0`
+//             leaves only the breath through the mouth (a hiss, a snort).
+//   bird   -- the syrinx: FM sines with a couple of harmonics, a second
+//             independent voice, trills, and noise syllables for caws.
+//   insect -- click trains into a body resonance: chirps, buzzes, drums.
+// Every call is a recipe of contours over normalised time; every render is
+// a little different (pitch, length, timing, the random source itself), and
+// a few renders per species are kept and reused.
 //
-//   animalCall(ctx, "cow", { dest: gainNode })  -> ends at (seconds)
-//   CALLS[species] -> the recipe, or undefined for the silent ones
+//   animalCall(ctx, "cow", { dest: gainNode, pitch })  -> ends at (AC seconds)
+//   CALLS[species] -> the recipe ({ loud, engine, p }), undefined = silent
+//   WILD[name]     -> unseen wildlife (songbirds, crickets...) for the ambience
+//   renderCall(name, over) -> Float32Array at SR (one fresh variant)
 
-// a note: src saw|pulse|sine|noise; f = [start, mid, end] Hz (or [start,
-// end]); res = the mouth: [[Hz, Q, gain], ...] parallel resonances; a/r
-// attack/release; g level; at offset; n repeats with gap; vib [rate,
-// depth]; trem [rate, depth] (bleat) or rough Hz (growl); sat 0..1 soft
-// saturation; breath = noise mixed into the voice before the mouth;
-// res2 = a second mouth shape the resonances glide to (from 30% of the
-// note to its end) -- a vowel change, which is what a "mee-ow" is.
-// What keeps a voice from sounding like a game bleep is CHAOS, so every
-// voiced note gets it by default: jit = random pitch jitter (fraction),
-// chaos = random loudness flicker (fraction), sub = a subharmonic (the
-// voice pulsing at half its pitch, the period-doubling of growls).
-const N = (o) => ({ src: "saw", f: [200, 200], dur: .3, res: [[900, 3, 1]], a: .02, r: .1, g: .5, at: 0, n: 1, gap: .1, sat: 0, breath: 0, jit: .05, chaos: .3, ...o });
-// mouths: resonance sets by size of animal (F1/F2/F3-like)
-const BIG = [[330, 3, 1], [780, 3.5, .55], [1700, 4, .22]], MID = [[600, 3, 1], [1400, 3.5, .5], [2700, 4, .2]], SMALL = [[900, 3, 1], [2100, 4, .5], [3400, 5, .22]];
-// the big cats' roar: a powerful, fairly TONAL blast with a slow waver and a
-// breathy edge (a growl is a different thing -- see the bear)
-const roar = (f, dur, extra = {}) => [
-  N({ src: "saw", f, dur, res: BIG, a: .12, r: .45, g: .9, vib: [6, .03], rough: 11, sat: .75, breath: .2, sub: .5, jit: .08, chaos: .4, ...extra }),
-  N({ src: "noise", dur, res: [[900, .6, 1]], a: .2, r: .35, g: .18, ...extra }),
-];
+import { SR, clamp, lerp, rnd, gauss, contour, resonator, bandpass, concat, loudnorm, toBuffer, play } from "./dsp.js";
+
+// ============================================================================
+// ENGINE A: mammal. Contours over normalised time: f0 [t, Hz], amp [t, 0-1],
+// mouth [t, 0 closed .. 1 open], am [t, depth]. Fc/Fo/Bw: the tract's own
+// closed/open formants and bandwidths (default human-like), scaled by
+// formantScale (tract size: < 1 bigger than a human, > 1 smaller).
+// ============================================================================
+const F_CLOSED = [280, 1000, 2400, 3300], F_OPEN = [800, 1350, 2600, 3400], BW = [80, 110, 170, 220];
+const pulseAt = (ph) => ph < .4 ? .5 * (1 - Math.cos(Math.PI * ph / .4)) : ph < .6 ? Math.cos(Math.PI * (ph - .4) / .4) : 0;   // Rosenberg glottal pulse
+function mammalOne(P) {
+  // every repeat its own: a little shorter or longer, a shade higher or lower
+  const N = Math.round(P.dur * (.93 + rnd() * .14) * SR), out = new Float32Array(N), pk = .96 + rnd() * .08;
+  const casc = [0, 1, 2, 3].map(resonator), nasalPole = resonator(), roarBp = bandpass(50);
+  const Fc = P.Fc || F_CLOSED, Fo = P.Fo || F_OPEN, Bw = P.Bw || BW, fs = P.formantScale, voiceG = P.voice ?? 1;
+  nasalPole.set(250 * fs, 90); roarBp.set((P.roarFreq || 700) * fs, P.roarBw || 900);
+  let phase = 1, period = SR / 200, cycAmp = 1, alt = 0, lastV = 0, phase2 = 0, lastV2 = 0, lp1 = 0, lp2 = 0, lpA = .5, mouth = 0, f0 = 200, gain = 0;
+  for (let i = 0; i < N; i++) {
+    if ((i & 7) === 0) {   // control rate 4 kHz: pitch, level, mouth and the harmonic lowpass (inaudible steps, 8x fewer contour reads)
+      const t = i / N, ts = i / SR;
+      f0 = Math.max(10, contour(P.f0, t) * pk);
+      if (P.vibDepth > 0) f0 *= Math.pow(2, P.vibDepth / 24 * Math.sin(2 * Math.PI * P.vibRate * ts));
+      gain = contour(P.amp, t) * (P.amRate > 0 ? 1 - contour(P.am, t) * (.5 + .5 * Math.cos(2 * Math.PI * P.amRate * ts)) : 1);
+      mouth = contour(P.mouth, t);
+      for (let f = 0; f < 4; f++) casc[f].set(lerp(Fc[f], Fo[f], mouth) * fs, Bw[f] * (1 + P.chaos * .5));
+      // harmonic richness: two-pole lowpass at f0 * harmonics -- the number of strong harmonics (a howl ~3, a roar ~25)
+      lpA = Math.exp(-2 * Math.PI * clamp(f0 * P.harmonics, 60, SR * .45) / SR);
+    }
+    // source: one pulse per cycle; the period is redrawn every cycle (jitter, chaos), the amplitude too
+    // (shimmer), and every other cycle is weaker (the subharmonic: period doubling)
+    phase += 1 / period;
+    if (phase >= 1) {
+      phase -= 1; alt ^= 1;
+      period = Math.max(2, SR / f0 * (1 + P.jitter / 100 * gauss() + P.chaos * .12 * gauss()));
+      cycAmp = (1 + P.shimmer / 100 * gauss()) * (alt ? 1 : 1 - P.subharm * .7) * (1 - P.chaos * .3 * rnd());
+    }
+    const pulse = pulseAt(phase);
+    let voice = (pulse - lastV) * 40 * cycAmp; lastV = pulse;
+    if (P.biphon > 0) {   // a second, independent voice (biphonation: the horse's whinny, a hydra's heads)
+      phase2 += f0 * P.biphonRatio / SR; if (phase2 >= 1) phase2 -= 1;
+      const p2 = pulseAt(phase2); voice += (p2 - lastV2) * 40 * P.biphon; lastV2 = p2;
+    }
+    lp1 = lpA * lp1 + (1 - lpA) * voice; lp2 = lpA * lp2 + (1 - lpA) * lp1; voice = lp2 * (1 + .5 / Math.max(.05, 1 - lpA));
+    const noise = rnd() * 2 - 1;
+    let x = voice * voiceG + noise * P.breath * .15;
+    if (P.roar > 0) x += roarBp.run(noise) * P.roar * 1.4 * (.3 + .7 * pulse);   // roar: turbulence pulsed by the glottis
+    for (let f = 0; f < 4; f++) x = casc[f].run(x);   // the mouth: a cascade of four formants
+    if (P.nasal > 0) x = lerp(x, nasalPole.run(x) * 1.2, P.nasal * (1 - mouth * .6));
+    out[i] = x * gain;
+  }
+  return out;
+}
+function renderMammal(P) {   // repeats: bark-bark, grunt-grunt-grunt, with uneven gaps
+  const parts = [];
+  for (let r = 0; r < P.repeat; r++) {
+    parts.push(mammalOne(P));
+    if (r < P.repeat - 1) parts.push(new Float32Array(Math.round(P.gap * (.85 + rnd() * .3) * SR)));
+  }
+  return concat(parts);
+}
+
+// ============================================================================
+// ENGINE B: bird (FM sines from a syrinx). A song is a list of syllables,
+// repeated `motifs` times. syllable: { type sweep|trill|noise, dur (s), f0
+// [t, Hz], trillRate, trillDepth (octaves), h2, h3, level, gap (s), and for
+// noise: bw, amRate }.
+// ============================================================================
+function renderBird(P) {
+  const parts = [], ps = Math.pow(2, P.pitch / 12);
+  for (let m = 0; m < P.motifs; m++) for (const s of P.syllables) {
+    const dur = s.dur / P.speed, N = Math.round(dur * SR), out = new Float32Array(N), bp = bandpass(50);
+    const h2 = s.h2 ?? P.h2, h3 = s.h3 ?? P.h3, tr = (s.trillRate || 20) * P.speed, td = s.trillDepth || .15;
+    // pitch and envelope at 4 kHz control rate, ramped linearly within each 8-sample block (a stepped FM would buzz)
+    const ctl = (i) => {
+      const t = Math.min(1, i / N), ts = i / SR, tw = Math.sin(2 * Math.PI * tr * ts);
+      let f = contour(s.f0, t) * ps;
+      if (s.type === "trill") f *= Math.pow(2, td * tw);
+      if (P.vib > 0) f *= Math.pow(2, P.vib / 24 * Math.sin(2 * Math.PI * P.vibRate * ts));
+      let e = Math.max(0, Math.min(1, t / .08, (1 - t) / .15)) * (s.type === "trill" ? .6 + .4 * Math.max(0, tw) : 1);
+      if (s.type === "noise") e *= .5 + .5 * Math.sin(2 * Math.PI * (s.amRate || 40) * ts);
+      return [f, e];
+    };
+    let ph = 0, ph2 = 0, [fB, eB] = ctl(0), fA = fB, eA = eB;
+    for (let i = 0; i < N; i++) {
+      if ((i & 7) === 0) { fA = fB; eA = eB; [fB, eB] = ctl(i + 8); }
+      const u = (i & 7) / 8, f = fA + (fB - fA) * u, env = eA + (eB - eA) * u;
+      let y;
+      if (s.type === "noise") {
+        if ((i & 7) === 0) bp.set(f, s.bw || 800);
+        y = bp.run(rnd() * 2 - 1);
+      } else {
+        ph += f / SR; if (ph > 1) ph -= 1; const w = 2 * Math.PI * ph;
+        y = Math.sin(w) + h2 * Math.sin(2 * w) + h3 * Math.sin(3 * w);
+        if (P.voice2 > 0) { ph2 += f * P.voice2Ratio / SR; if (ph2 > 1) ph2 -= 1; y += Math.sin(2 * Math.PI * ph2) * P.voice2; }
+        y += (rnd() * 2 - 1) * P.noise * .3;
+      }
+      out[i] = y * env * (s.level ?? 1);
+    }
+    parts.push(out, new Float32Array(Math.round((s.gap || .05) / P.speed * (.9 + rnd() * .2) * SR)));
+  }
+  return concat(parts);
+}
+
+// ============================================================================
+// ENGINE C: insect (click trains into a body resonance): chirps are pulse
+// trains gated at chirpRate, a buzz is a continuous train (wingbeats), a
+// chorus is several individuals with spread rates; flyby = approach, pass,
+// recede (level and Doppler), wander = the wingbeat drifting.
+// ============================================================================
+function renderInsect(P) {
+  const N = Math.round(P.dur * SR), out = new Float32Array(N);
+  for (let c = 0; c < P.chorus; c++) {
+    const rate = P.clickRate * (1 + (c ? (P.chorusSpread / 100) * gauss() * .5 : 0)), res = resonator(), bp = bandpass(50);
+    res.set(P.resFreq * (1 + (c ? .03 * gauss() : 0)), P.resBw); bp.set(P.resFreq, P.resBw * 3);
+    let nextClick = rnd() * SR / rate;
+    const lvl = .6 + .4 * rnd(), offset = rnd() * SR, w1 = rnd() * 6.28, w2 = rnd() * 6.28, wr = P.wanderRate || 1, wander = (P.wander || 0) / 100;
+    const flyby = P.flyby || 0, passAt = .35 + .3 * rnd();   // where in the clip the insect is nearest
+    const chirpPeriod = SR / P.chirpRate, pulseLen = P.pulseLen / 1000 * SR, pulseGap = P.pulseGap / 1000 * SR;
+    const trainLen = P.pulsesPerChirp * (pulseLen + pulseGap), continuous = trainLen >= chirpPeriod;   // a train that fills the period = continuous sound
+    let rateK = 1, g = 0;
+    for (let i = 0; i < N; i++) {
+      if ((i & 15) === 0) {   // control rate 2 kHz: the wingbeat wanders (flight manoeuvres) and shifts with a fly-by's Doppler; loudness follows distance
+        const tt = i / N, ts = i / SR;
+        const drift = 1 + wander * (.6 * Math.sin(2 * Math.PI * wr * ts + w1) + .4 * Math.sin(2 * Math.PI * wr * 2.3 * ts + w2));
+        const doppler = 1 + flyby * .04 * Math.tanh((passAt - tt) * 8), near = flyby > 0 ? lerp(1, Math.exp(-Math.pow((tt - passAt) / .22, 2)) + .08, flyby) : 1;
+        const am = P.amRate > 0 ? 1 - P.amDepth * (.5 + .5 * Math.cos(2 * Math.PI * P.amRate * ts + c)) : 1;
+        rateK = drift * doppler; g = am * near * lvl / Math.sqrt(P.chorus);
+      }
+      const tc = (i + offset) % chirpPeriod, inTrain = continuous || (tc < trainLen && ((tc % (pulseLen + pulseGap)) < pulseLen));
+      let x = 0;
+      if (inTrain && i >= nextClick) { x = 1; nextClick = i + SR / (rate * rateK) * (1 + P.clickJitter / 100 * gauss()); }
+      out[i] += (res.run(x) * 14 + bp.run(inTrain ? (rnd() * 2 - 1) * P.noise * .4 : 0)) * g;
+    }
+  }
+  return out;
+}
+const ENGINES = { mammal: renderMammal, bird: renderBird, insect: renderInsect };
+
+// the individual's variant: every render a shade higher or lower, faster or slower
+const scaleF0 = (pts, k) => pts.map(([t, v]) => [t, v * k]);
+const VARY = {
+  mammal: (P) => ({ ...P, f0: scaleF0(P.f0, .95 + rnd() * .1) }),
+  bird: (P) => ({ ...P, pitch: P.pitch + (rnd() - .5) * 1.2, speed: P.speed * (.94 + rnd() * .12) }),
+  insect: (P) => ({ ...P, clickRate: P.clickRate * (.96 + rnd() * .08), resFreq: P.resFreq * (.97 + rnd() * .06), chirpRate: P.chirpRate * (.9 + rnd() * .2) }),
+};
+
+// ============================================================================
+// RECIPES. Defaults per engine; a recipe lists what differs. `loud` says how
+// far a call carries (index.html scales its reach by it), `p` is the preset
+// (or a list of presets picked at random per render: a pig mostly oinks and
+// sometimes squeals). Loudness at the source is normalised per render.
+// ============================================================================
+const MAM = { dur: .5, formantScale: 1, harmonics: 10, breath: .15, jitter: 2, shimmer: 5, subharm: 0, chaos: .1, biphon: 0, biphonRatio: 1.5,
+  vibRate: 0, vibDepth: 0, amRate: 0, nasal: 0, roar: 0, roarFreq: 700, roarBw: 900, repeat: 1, gap: .3, voice: 1,
+  f0: [[0, 200], [1, 200]], amp: [[0, 0], [.1, 1], [.8, .8], [1, 0]], mouth: [[0, .5], [1, .5]], am: [[0, 0], [1, 0]] };
+const BIRD = { motifs: 1, speed: 1, pitch: 0, h2: .2, h3: .05, vib: 0, vibRate: 10, noise: .05, voice2: 0, voice2Ratio: 1.5 };
+const BUG = { dur: 4, clickRate: 200, clickJitter: 0, resFreq: 4000, resBw: 500, pulseLen: 200, pulsesPerChirp: 12, pulseGap: 10, chirpRate: .4,
+  amRate: 0, amDepth: 0, chorus: 1, chorusSpread: 0, noise: .1, wander: 0, wanderRate: 1, flyby: 0 };
+const recipe = (engine, D) => (loud, p, extra) => ({ loud, engine, p: Array.isArray(p) ? p.map((q) => ({ ...D, ...q })) : { ...D, ...p }, ...extra });
+const mammal = recipe("mammal", MAM), bird = recipe("bird", BIRD), insect = recipe("insect", BUG);
+
+// ---- the lab's measured presets, shared by several species ----
+// meow: pitch rises then falls while the mouth opens and closes (the ee-a-ow is the F1 track)
+const MEOW = { dur: .75, formantScale: 1.9, harmonics: 9, Fc: [300, 1100, 2500, 3400], Fo: [750, 1500, 2700, 3500], breath: .15, jitter: 1.5, shimmer: 5, subharm: .1, chaos: .05, nasal: .35,
+  f0: [[0, 430], [.3, 760], [.6, 700], [1, 400]], amp: [[0, 0], [.12, 1], [.75, .85], [1, 0]], mouth: [[0, .1], [.35, .95], [.75, .6], [1, .05]] };
+// moo: low pitch rising slowly; a hummy, nasal, mouth-closed start, subharmonic roughness in the open middle
+const MOO = { dur: 2.2, formantScale: .6, harmonics: 5, Fc: [220, 650, 1500, 2500], Fo: [480, 950, 1800, 2600], Bw: [70, 120, 200, 260], roarFreq: 500, roarBw: 600, breath: .1, jitter: 2, shimmer: 6,
+  subharm: .5, chaos: .1, nasal: .75, roar: .15, f0: [[0, 80], [.35, 135], [.7, 125], [1, 85]], amp: [[0, 0], [.15, .8], [.45, 1], [.85, .7], [1, 0]], mouth: [[0, .05], [.4, .85], [.85, .5], [1, .05]] };
+// bleat: the stutter is fast amplitude modulation (~28 Hz), not vibrato
+const BLEAT = { dur: 1, formantScale: 1.05, harmonics: 13, Fc: [420, 1150, 2200, 3200], Fo: [700, 1600, 2500, 3300], breath: .15, jitter: 2, shimmer: 5, subharm: .2, chaos: .1, amRate: 28, nasal: .7,
+  f0: [[0, 210], [.4, 300], [1, 190]], amp: [[0, 0], [.1, 1], [.8, .9], [1, 0]], mouth: [[0, .3], [.3, .7], [1, .4]], am: [[0, .75], [1, .75]] };
+// whinny: very high for a big animal, fast wide vibrato, a second voice and chaos, ending in a pulsed nicker
+const WHINNY = { dur: 1.7, formantScale: .55, harmonics: 10, Fc: [350, 1000, 2100, 3000], Fo: [700, 1300, 2300, 3100], breath: .2, jitter: 1.5, shimmer: 6, subharm: .3, chaos: .25, biphon: .35, biphonRatio: 1.37,
+  vibRate: 14, vibDepth: 5, amRate: 9, nasal: .3, roar: .1, f0: [[0, 650], [.15, 1500], [.5, 1250], [.75, 500], [1, 280]], amp: [[0, 0], [.1, 1], [.7, .8], [1, 0]],
+  mouth: [[0, .5], [.4, .8], [1, .3]], am: [[0, 0], [.68, 0], [.74, .7], [1, .85]] };
+// bark: short, explosive, hoarse -- fast attack, pitch peaking early, chaos and subharmonic
+const BARK = { dur: .22, formantScale: 1.1, harmonics: 18, Fc: [350, 1000, 2300, 3300], Fo: [800, 1400, 2500, 3400], roarFreq: 1200, roarBw: 1500, breath: .25, jitter: 2, shimmer: 8, subharm: .35, chaos: .4,
+  nasal: .1, roar: .25, repeat: 3, gap: .28, f0: [[0, 300], [.2, 620], [.5, 520], [1, 280]], amp: [[0, 0], [.06, 1], [.5, .7], [1, 0]], mouth: [[0, .3], [.2, 1], [1, .4]] };
+// howl: long, smooth, harmonic -- little jitter, slow gentle vibrato, rising to a plateau and sliding down
+const HOWL = { dur: 3.6, formantScale: .85, harmonics: 3, Fc: [380, 900, 2200, 3200], Fo: [600, 1100, 2400, 3300], Bw: [60, 90, 150, 200], breath: .2, jitter: .4, shimmer: 1.5, chaos: .01,
+  vibRate: 4.5, vibDepth: .7, nasal: .15, f0: [[0, 240], [.18, 540], [.65, 500], [1, 290]], amp: [[0, 0], [.15, .9], [.5, 1], [.9, .6], [1, 0]], mouth: [[0, .3], [.2, .55], [.7, .35], [1, .15]] };
+// roar: huge tract, low pitch, chaos, subharmonic and pulsed noise; the 12 Hz AM is the roar's staccato
+const LION_TRACT = { Fc: [220, 550, 1300, 2200], Fo: [520, 950, 1600, 2400], Bw: [90, 140, 220, 280] };
+const ROAR = { dur: 1.9, formantScale: .5, harmonics: 28, ...LION_TRACT, roarFreq: 800, roarBw: 1400, breath: .2, jitter: 5, shimmer: 15, subharm: .7, chaos: .7, biphon: .2, biphonRatio: 1.42, amRate: 12,
+  nasal: .05, roar: .9, f0: [[0, 80], [.3, 140], [.6, 120], [1, 55]], amp: [[0, 0], [.1, 1], [.7, .9], [1, 0]], mouth: [[0, .4], [.3, 1], [.8, .7], [1, .3]], am: [[0, .2], [.4, .35], [1, .3]] };
+// squeak: a tiny tract and a very high thin pitch (3-6 kHz, the audible part of a rat)
+const SQUEAK = { dur: .14, formantScale: 3.2, harmonics: 4, Fc: [400, 1200, 2600, 3500], Fo: [700, 1500, 2800, 3600], breath: .1, jitter: 1, shimmer: 4, chaos: .05, repeat: 3, gap: .12,
+  f0: [[0, 3400], [.4, 5600], [1, 3000]], amp: [[0, 0], [.15, 1], [.7, .8], [1, 0]] };
+// roe deer alarm bark: like a dog's from a slightly smaller tract, repeated at long intervals
+const ROE = { dur: .18, formantScale: .9, harmonics: 16, breath: .25, jitter: 2, shimmer: 8, subharm: .3, chaos: .4, nasal: .1, roar: .3, roarFreq: 1200, roarBw: 1500, repeat: 3, gap: .65,
+  Fc: [350, 1000, 2300, 3300], Fo: [800, 1400, 2500, 3400], f0: [[0, 400], [.15, 700], [.5, 600], [1, 350]], amp: [[0, 0], [.06, 1], [.5, .7], [1, 0]], mouth: [[0, .3], [.2, 1], [1, .4]] };
+// wild boar: a run of short, very rough, nasal grunts; the mouth barely opens
+const GRUNTS = { dur: .28, formantScale: .75, harmonics: 18, breath: .2, jitter: 4, shimmer: 12, subharm: .5, chaos: .45, nasal: .6, roar: .4, roarFreq: 600, roarBw: 900, repeat: 4, gap: .22,
+  Fc: [250, 800, 1800, 2700], Fo: [500, 1100, 2000, 2800], f0: [[0, 110], [.3, 150], [1, 95]], amp: [[0, 0], [.1, 1], [.6, .8], [1, 0]], mouth: [[0, .1], [.3, .5], [1, .1]] };
+// the domestic pig: the grunt rises into a nasal "oink"; the squeal is piercing and unstable
+const OINK = { dur: .35, formantScale: .85, harmonics: 14, breath: .15, jitter: 3, shimmer: 8, subharm: .3, chaos: .3, nasal: .7, roar: .25, roarBw: 1000, repeat: 2, gap: .4,
+  Fc: [280, 850, 1900, 2800], Fo: [550, 1150, 2100, 2900], f0: [[0, 120], [.5, 200], [1, 140]], amp: [[0, 0], [.1, .9], [.5, 1], [1, 0]], mouth: [[0, .1], [.4, .7], [1, .2]] };
+const SQUEAL = { dur: 1.2, formantScale: .85, harmonics: 12, breath: .15, jitter: 3, shimmer: 10, subharm: .35, chaos: .5, biphon: .3, biphonRatio: 1.3, nasal: .2, roar: .3, roarFreq: 2500, roarBw: 1500,
+  Fc: [400, 1100, 2300, 3200], Fo: [800, 1500, 2600, 3400], f0: [[0, 900], [.2, 2200], [.6, 2000], [1, 1200]], amp: [[0, 0], [.08, 1], [.8, .9], [1, 0]], mouth: [[0, .5], [.3, .9], [1, .4]] };
+
 export const CALLS = {
-  // a moo: a closed nasal hum that opens into a rounded "oo" and widens to "aw" as the pitch sags, on a
-  // slightly saturated voice through a broad mouth
-  cow:      { loud: 1.4, level: 1.05, notes: [N({ src: "sine", f: [105, 115, 120], dur: .22, res: [[250, 2, 1]], a: .08, r: .05, g: .5 }),
-                                 N({ f: [118, 142, 85], dur: 1.3, res: [[360, 1.3, 1], [720, 1.5, .5], [1500, 1.8, .2]], res2: [[560, 1.3, 1], [950, 1.5, .6], [1700, 1.8, .25]], a: .1, r: .4, g: .85, at: .16, vib: [5.5, .025], sat: .45, breath: .15 })] },
-  ox:       { loud: 1.5, level: 0.98, notes: [N({ src: "sine", f: [85, 92, 95], dur: .25, res: [[220, 2, 1]], a: .1, r: .05, g: .5 }),
-                                 N({ f: [95, 115, 68], dur: 1.5, res: [[320, 1.3, 1], [650, 1.5, .5], [1400, 1.8, .2]], res2: [[500, 1.3, 1], [880, 1.5, .6], [1600, 1.8, .25]], a: .12, r: .45, g: .9, at: .18, vib: [5, .025], sat: .55, breath: .15 })] },
-  sheep:    { loud: 1, level: 3.5, notes: [N({ f: [300, 280, 240], dur: .8, res: [[950, 4, 1], [1900, 5, .5], [2900, 6, .25]], a: .05, r: .15, g: .75, trem: [26, .8], sat: .2 })] },
-  // a pig: two short snorting grunts (noise through the nose, then a rough low voice in a nasal mouth), then an "oink" that rises and closes nasally
-  pig:      { loud: .9, level: 0.92, notes: [N({ src: "noise", dur: .08, res: [[600, .8, 1]], a: .004, r: .05, g: .5, n: 2, gap: .2 }),
-                                 N({ f: [110, 130, 90], dur: .13, res: [[350, 1.2, 1], [900, 1.4, .6], [1800, 1.6, .3]], a: .01, r: .05, g: .8, rough: 32, sat: .8, breath: .5, n: 2, gap: .15 }),
-                                 N({ f: [260, 520, 430], dur: .22, res: [[500, 1.3, 1], [1500, 1.5, .6], [2600, 1.8, .25]], res2: [[350, 1.3, 1], [900, 1.5, .5], [2200, 1.8, .2]], a: .015, r: .06, g: .6, at: .62, sat: .5, breath: .2 })] },
-  boar:     { loud: 1.1, level: 2.66, notes: [N({ src: "pulse", f: [70, 85, 55], dur: .3, res: [[400, 2.5, 1], [900, 3, .4]], a: .02, r: .08, g: .9, rough: 26, sat: .6, breath: .35, n: 3, gap: .22 })] },
-  // a bark: an abrupt noisy attack, a rough saturated "wo-uf" whose pitch jumps and drops while the mouth closes, three in a row
-  dog:      { loud: 1.2, level: 0.58, notes: [N({ src: "noise", dur: .06, res: [[1800, .6, 1]], a: .003, r: .04, g: .5, n: 3, gap: .32 }),
-                                 N({ f: [380, 640, 280], dur: .16, res: [[620, 1.3, 1], [1350, 1.6, .6], [2600, 2, .3]], res2: [[440, 1.3, 1], [900, 1.6, .5], [2200, 2, .2]], a: .006, r: .07, g: .95, rough: 55, sat: .7, breath: .4, n: 3, gap: .22 })] },
-  // a howl: a quick rising bark, then a strong held tone that wavers and falls away (a slow soft swell is a ghost, not a wolf)
-  // a howl: a quick bark, then a long tone that rises and holds, its mouth opening from "oo" to "aw" and
-  // closing again as it falls -- broad resonances so it is a voice, not a siren; a slow waver on top
-  wolf:     { loud: 1.6, level: 0.49, notes: [N({ f: [380, 520, 480], dur: .18, res: [[700, 1.5, 1], [1500, 2, .5]], a: .01, r: .06, g: .9, sat: .5, breath: .3 }),
-                                 N({ f: [350, 620, 560], dur: .9, res: [[400, 1.6, 1], [850, 2, .5], [2500, 2.5, .15]], res2: [[680, 1.6, 1], [1250, 2, .6], [2600, 2.5, .2]], a: .12, r: .05, g: .85, at: .2, vib: [5, .02], sat: .4, breath: .12 }),
-                                 N({ f: [560, 520, 300], dur: 1.2, res: [[680, 1.6, 1], [1250, 2, .6], [2600, 2.5, .2]], res2: [[380, 1.6, 1], [800, 2, .5], [2400, 2.5, .15]], a: .02, r: .6, g: .85, at: 1.1, vib: [5, .025], sat: .4, breath: .15 })] },
-  // a meow: a closed "m" onset, then "ee" (high second resonance) opening into "ow" (low, rounded) as the pitch rises and falls
-  cat:      { loud: .6, level: 0.72, notes: [N({ src: "sine", f: [520, 540, 560], dur: .09, res: [[300, 2, 1]], a: .03, r: .03, g: .5 }),
-                                 N({ f: [540, 820, 380], dur: .85, res: [[480, 1.4, 1], [2500, 1.6, .65], [3500, 2, .25]], res2: [[760, 1.4, 1], [1100, 1.6, .75], [2600, 2, .2]], a: .04, r: .25, g: .7, at: .07, sat: .35, vib: [7, .03], breath: .1 })] },
-  fox:      { loud: 1.2, level: 0.93, notes: [N({ f: [900, 1400, 1100], dur: .5, res: [[1500, 3, 1], [2800, 4, .3]], a: .04, r: .15, g: .7, rough: 40, sat: .3, breath: .3 })] },
-  // a neigh: a high squeal WARBLED in pitch (~12 Hz, wide), stepping down, then a low pulsed nicker
-  // a whinny: a harsh squeal (saturated saw, BROAD resonances so its harmonics all come through) pulsed
-  // ~11 times a second in both loudness and pitch, tumbling down through two phrases into a low nicker
-  // a whinny: a harsh squeal whose pitch RIPPLES deeply (~9 Hz, a quarter of its height) while it slowly
-  // falls -- frequency modulation, not a loudness flutter -- through a broad mouth, ending in a pulsed nicker
-  horse:    { loud: 1.3, level: 0.45, notes: [N({ f: [1150, 1300, 850], dur: 1.0, res: [[1400, 1.0, 1], [2800, 1.2, .6], [4600, 1.4, .3]], a: .05, r: .05, g: .85, vib: [9, .28], sat: .8, breath: .3 }),
-                                 N({ f: [850, 620, 400], dur: .6, res: [[1000, 1.0, 1], [2100, 1.2, .55], [3600, 1.4, .25]], a: .01, r: .2, g: .8, at: .98, vib: [8, .22], sat: .7, breath: .25 }),
-                                 N({ f: [95, 90, 70], dur: .14, res: [[350, 1.5, 1], [800, 2, .5]], a: .01, r: .05, g: .7, at: 1.62, rough: 30, sat: .8, breath: .4, n: 3, gap: .1 })] },
-  unicorn:  { loud: 1.3, level: 0.45, notes: [N({ f: [1500, 1700, 1100], dur: 1.0, res: [[1700, 1.0, 1], [3400, 1.2, .5], [5400, 1.4, .12]], a: .05, r: .05, g: .75, vib: [9, .28], sat: .4, breath: .25 }),
-                                 N({ f: [1100, 800, 520], dur: .6, res: [[1200, 1.0, 1], [2500, 1.2, .55]], a: .01, r: .22, g: .7, at: .98, vib: [8, .22], sat: .5 })] },
-  // a zebra brays in rough breathy "kwa-ha" pairs, like a barking donkey: a harsh saturated bark, then a higher aspirated "ha", four times
-  zebra:    { loud: 1.3, level: 0.69, notes: [N({ f: [420, 620, 340], dur: .17, res: [[700, 1.2, 1], [1500, 1.4, .6], [2800, 1.8, .3]], res2: [[500, 1.2, 1], [1000, 1.4, .5], [2400, 1.8, .2]], a: .008, r: .06, g: .9, rough: 45, sat: .85, breath: .5, n: 4, gap: .33 }),
-                                 N({ f: [700, 900, 620], dur: .16, res: [[900, 1.2, 1], [2000, 1.5, .5]], a: .02, r: .06, g: .55, at: .2, sat: .5, breath: .9, n: 4, gap: .34 }),
-                                 N({ src: "noise", dur: .14, res: [[1600, .7, 1]], a: .01, r: .06, g: .35, at: .21, n: 4, gap: .36 })] },
-  deer:     { loud: 1.1, level: 0.72, notes: [N({ f: [520, 700, 380], dur: .13, res: MID, a: .006, r: .06, g: .9, rough: 45, sat: .5, breath: .4 })] },
-  // the lion: a long HARSH roar -- a pulsed, saturated, very rough voice with a lot of breath over a broad
-  // chest resonance, rising and holding, then the string of falling grunts
-  lion:     { loud: 2.2, level: 1.7, notes: [N({ src: "pulse", f: [70, 115, 62], dur: 1.9, res: [[300, 2, 1], [750, 2.5, .7], [1500, 3, .4]], a: .18, r: .45, g: .95, rough: 28, sat: .9, breath: .5, sub: .6, jit: .1, chaos: .45 }),
-                                 N({ src: "saw", f: [140, 230, 124], dur: 1.9, res: [[750, 2.5, 1], [1500, 3, .5]], a: .18, r: .45, g: .4, rough: 28, sat: .9 }),
-                                 N({ src: "noise", dur: 1.9, res: [[700, .5, 1]], a: .25, r: .4, g: .35, rough: 28 }),
-                                 N({ src: "pulse", f: [72, 70, 52], dur: .28, res: [[300, 2.5, 1], [700, 3, .5]], a: .02, r: .1, g: .8, rough: 24, sat: .85, breath: .4, at: 2.05, n: 5, gap: .32 })] },
-  tiger:    { loud: 2, level: 2.4, notes: [...roar([105, 130, 75], 1.2), N({ src: "noise", dur: .18, res: [[700, .8, 1]], a: .01, r: .08, g: .45, at: 1.35, n: 2, gap: .15 })] },   // ends in a chuff
-  manticore:{ loud: 2, level: 2.29, notes: roar([85, 105, 60], 1.5) },
-  // a bear: a throaty growl-roar -- low, very rough, chesty and breathy, opening with a huff, closing in a grumble
-  bear:     { loud: 1.7, level: 1.8, notes: [N({ src: "noise", dur: .25, res: [[600, .7, 1]], a: .02, r: .1, g: .5 }),
-                                 N({ f: [90, 120, 68], dur: 1.3, res: [[300, 1.3, 1], [700, 1.5, .6], [1400, 1.8, .3], [2600, 2, .12]], a: .06, r: .4, g: .85, at: .15, rough: 21, sat: .95, breath: .5, sub: .6, jit: .1, chaos: .45 }),
-                                 N({ f: [68, 64, 52], dur: .5, res: [[260, 1.3, 1], [600, 1.5, .4]], a: .05, r: .25, g: .6, at: 1.5, rough: 17, sat: .9, breath: .35 })] },
-  // a trumpet: a BRASSY blast (hard saturation, bright mouth), sweeping up and back down with a slight vibrato, an octave below it a faint rumble
-  // a trumpet: a blaring, rattling brass blast -- hard saturation through a VERY broad mouth so every harmonic
-  // blares, a ~40 Hz rattle, rising fast and sagging back, with air noise
-  elephant: { loud: 2.4, level: 0.62, notes: [N({ f: [450, 900, 560], dur: 1.3, res: [[900, .9, 1], [1800, 1.0, .8], [3200, 1.2, .5], [5000, 1.5, .25]], a: .1, r: .3, g: .6, rough: 42, vib: [6, .04], sat: .95, breath: .3 }),
-                                 N({ src: "noise", dur: 1.3, res: [[2500, .6, 1]], a: .15, r: .3, g: .18, rough: 42 })] },
-  hippo:    { loud: 1.8, level: 3.09, notes: [N({ src: "pulse", f: [65, 70, 50], dur: .28, res: BIG, a: .02, r: .1, g: .9, rough: 24, sat: .6, breath: .2, n: 4, gap: .28 })] },
-  camel:    { loud: 1.4, level: 3.5, notes: [N({ f: [160, 140, 105], dur: 1.0, res: [[550, 3, 1], [1300, 3.5, .5], [2400, 4, .2]], a: .1, r: .3, g: .8, rough: 18, sat: .5, breath: .25 })] },
-  minotaur: { loud: 2, level: 2.43, notes: [N({ src: "pulse", f: [90, 105, 60], dur: 1.3, res: BIG, a: .15, r: .4, g: .9, vib: [5, .03], rough: 20, sat: .7, breath: .15 })] },
-  chicken:  { loud: .7, level: 1.43, notes: [N({ f: [620, 560, 420], dur: .09, res: SMALL, a: .006, r: .04, g: .7, sat: .2, n: 5, gap: .19 }), N({ f: [700, 1100, 600], dur: .2, res: SMALL, a: .02, r: .1, g: .5, at: 1.0, sat: .2 })] },
-  duck:     { loud: .9, level: 3.5, notes: [N({ f: [260, 280, 230], dur: .18, res: [[1500, 3, 1], [2600, 4, .4]], a: .01, r: .06, g: .8, trem: [24, .6], sat: .4, breath: .2, n: 3, gap: .28 })] },
-  swan:     { loud: .8, level: 1.5, notes: [N({ src: "noise", dur: .7, res: [[2600, .8, 1]], a: .05, r: .2, g: .7 }), N({ f: [230, 240, 210], dur: .3, res: [[700, 3, 1], [1500, 4, .4]], a: .05, r: .1, g: .3, at: .8, sat: .3 })] },
-  peacock:  { loud: 1.5, level: 0.74, notes: [N({ f: [1250, 1600, 900], dur: .8, res: [[1800, 3, 1], [3200, 4, .4]], a: .04, r: .2, g: .8, sat: .3, breath: .2 })] },
-  frog:     { loud: .7, level: 3.5, notes: [N({ src: "pulse", f: [130, 140, 110], dur: .32, res: [[700, 2.5, 1], [1400, 3, .4]], a: .02, r: .08, g: .7, rough: 26, sat: .5, n: 3, gap: .38 })] },
-  owl:      { loud: .9, level: 0.77, notes: [N({ src: "sine", f: [420, 400, 350], dur: .32, res: [[500, 1.5, 1]], a: .06, r: .12, g: .9, n: 2, gap: .42, breath: .06 }), N({ src: "sine", f: [400, 380, 330], dur: .55, res: [[500, 1.5, 1]], a: .06, r: .25, g: .9, at: 1.25, breath: .06 })] },   // (a hoot is nearly a pure tone, but a breathed one)
-  eagle:    { loud: 1.3, level: 1.02, notes: [N({ f: [2300, 2000, 1500], dur: .55, res: [[2800, 2.5, 1], [4200, 3, .3]], a: .02, r: .15, g: .7, vib: [9, .04], sat: .2, breath: .25 })] },
-  parrot:   { loud: 1.1, level: 1.43, notes: [N({ f: [900, 1500, 800], dur: .34, res: [[2000, 2.5, 1], [3400, 3, .25]], a: .01, r: .08, g: .8, rough: 50, sat: .4, breath: .3 })] },
-  snake:    { loud: .5, level: 1.17, notes: [N({ src: "noise", dur: .9, res: [[4200, 1, 1]], a: .1, r: .3, g: .8 })] },
-  rat:      { loud: .4, level: 0.8, notes: [N({ src: "sine", f: [3800, 5200, 4500], dur: .09, res: [[4500, 2, 1]], a: .005, r: .04, g: .8, n: 3, gap: .13 })] },
-  crocodile:{ loud: 1.6, level: 2.57, notes: [N({ src: "pulse", f: [60, 65, 45], dur: 1.1, res: [[250, 2.5, 1], [600, 3, .4]], a: .1, r: .4, g: .9, rough: 22, sat: .8, breath: .3, sub: .5, jit: .08 })] },
-  dragon:   { loud: 3, level: 1.93, notes: [...roar([62, 80, 42], 2.2, { rough: 16, sat: .9 }), N({ src: "noise", dur: 2.0, res: [[1800, .5, 1]], a: .3, r: .6, g: .15 })] },
-  hydra:    { loud: 2.2, level: 1.45, notes: [N({ src: "noise", dur: .6, res: [[3800, 1, 1]], a: .05, r: .15, g: .55 }), ...roar([110, 130, 80], 1.2, { at: .5 })] },
+  // ---- farm ----
+  cow:      mammal(1.4, MOO),
+  ox:       mammal(1.5, { ...MOO, dur: 2.5, formantScale: .52, subharm: .6, roar: .25, f0: [[0, 62], [.35, 108], [.7, 98], [1, 66]] }),   // bigger, lower, rougher
+  sheep:    mammal(1, BLEAT),
+  pig:      mammal(.9, [OINK, OINK, OINK, SQUEAL]),
+  horse:    mammal(1.3, WHINNY),
+  dog:      mammal(1.2, BARK),
+  cat:      mammal(.6, MEOW),
+  // a cluck series, then "ba-GAWK": clucks are short buzzy notes with strong harmonics
+  chicken:  bird(.7, { h2: .8, h3: .6, noise: .35, voice2: .25, voice2Ratio: 1.41, vib: .4, vibRate: 30,
+    syllables: [{ type: "sweep", dur: .07, f0: [[0, 520], [1, 420]], gap: .16 }, { type: "sweep", dur: .06, f0: [[0, 500], [1, 410]], gap: .22 }, { type: "sweep", dur: .07, f0: [[0, 540], [1, 430]], gap: .14 },
+      { type: "sweep", dur: .1, f0: [[0, 600], [1, 650]], gap: .03 }, { type: "sweep", dur: .38, f0: [[0, 700], [.25, 1150], [1, 800]], h2: .7, gap: .3 }] }),
+  // a quack: a buzzy, very nasal voice through a small bright mouth that snaps open and shut
+  duck:     mammal(.9, { dur: .18, formantScale: 1.5, harmonics: 30, Fc: [500, 1400, 2500, 3400], Fo: [800, 1700, 2700, 3500], breath: .2, jitter: 3, shimmer: 8, subharm: .2, chaos: .25, nasal: .85, roar: .2, roarFreq: 1500,
+    repeat: 4, gap: .12, f0: [[0, 240], [.3, 300], [1, 220]], amp: [[0, 0], [.06, 1], [.6, .8], [1, 0]], mouth: [[0, .3], [.25, .9], [1, .3]] }),
+  // ---- wild mammals ----
+  wolf:     mammal(1.6, HOWL),
+  // a fox: a hoarse, high "wow-wow-wow" that cracks upward
+  fox:      mammal(1.1, { dur: .22, formantScale: 1.5, harmonics: 16, breath: .3, jitter: 3, shimmer: 10, subharm: .3, chaos: .45, roar: .3, roarFreq: 1800, roarBw: 1500, repeat: 3, gap: .35,
+    f0: [[0, 500], [.25, 1100], [1, 650]], amp: [[0, 0], [.08, 1], [.6, .7], [1, 0]], mouth: [[0, .3], [.3, 1], [1, .3]] }),
+  deer:     mammal(1.1, ROE),
+  boar:     mammal(1.1, GRUNTS),
+  // a bear: a throaty growl-roar, low, chesty, very rough and nasal, no staccato
+  bear:     mammal(1.7, { dur: 1.6, formantScale: .6, harmonics: 24, Fc: [260, 700, 1600, 2500], Fo: [560, 1050, 1800, 2600], breath: .25, jitter: 5, shimmer: 14, subharm: .7, chaos: .65, roar: .6, roarFreq: 600, roarBw: 900,
+    nasal: .15, f0: [[0, 60], [.3, 100], [.7, 85], [1, 55]], amp: [[0, 0], [.12, 1], [.8, .9], [1, 0]], mouth: [[0, .2], [.35, .8], [.8, .5], [1, .15]] }),
+  // a beaver kit's nasal whine (the adults mostly slap their tails)
+  beaver:   mammal(.4, { dur: .45, formantScale: 1.8, harmonics: 8, nasal: .7, breath: .25, jitter: 1.5, repeat: 2, gap: .35, f0: [[0, 650], [.4, 900], [1, 600]], mouth: [[0, .2], [.4, .6], [1, .2]] }),
+  // a hedgehog snuffles: breath only, short puffs through a tiny nose, pulsed turbulence
+  hedgehog: mammal(.3, { voice: 0, breath: 1, formantScale: 2.4, roar: .7, roarFreq: 2500, roarBw: 2000, dur: .09, repeat: 6, gap: .07, f0: [[0, 25], [1, 25]], amp: [[0, 0], [.2, 1], [1, 0]], mouth: [[0, .3], [1, .3]] }),
+  rat:      mammal(.4, SQUEAK),
+  // a bat's audible social squeaks: higher and faster than the rat's, a thin tiny tract
+  bat:      mammal(.3, { dur: .035, formantScale: 3.5, harmonics: 3, breath: .05, jitter: 1, chaos: .05, repeat: 5, gap: .06, f0: [[0, 8000], [.3, 10500], [1, 7000]], amp: [[0, 0], [.2, 1], [1, 0]] }),
+  // ---- savanna ----
+  lion:     mammal(2.2, ROAR),
+  // a tiger: one continuous rough "aaunngh" -- the lion's tract, a touch smaller, no staccato pulsing
+  tiger:    mammal(2, { ...ROAR, dur: 1.5, formantScale: .55, harmonics: 22, Fc: [240, 600, 1350, 2250], Fo: [560, 1000, 1650, 2450], roarFreq: 700, roarBw: 1100, breath: .25, jitter: 4, shimmer: 12, subharm: .6,
+    chaos: .55, biphon: .1, amRate: 0, roar: .7, f0: [[0, 95], [.25, 150], [.6, 130], [1, 70]], amp: [[0, 0], [.08, 1], [.75, .85], [1, 0]], mouth: [[0, .5], [.25, 1], [.8, .6], [1, .2]] }),
+  // a trumpet: a blaring, rattling blast -- a trunk's high bright resonances, a second voice, a ~38 Hz rattle
+  elephant: mammal(2.4, { dur: 1.4, formantScale: 1, Fc: [500, 1300, 2600, 3600], Fo: [900, 1800, 3000, 4000], harmonics: 30, breath: .3, jitter: 3, shimmer: 8, subharm: .2, chaos: .35, biphon: .35,
+    roar: .5, roarFreq: 2500, roarBw: 2000, amRate: 38, am: [[0, .2], [1, .3]], vibRate: 6, vibDepth: .8, f0: [[0, 420], [.2, 780], [.6, 720], [1, 480]], amp: [[0, 0], [.06, 1], [.8, .9], [1, 0]],
+    mouth: [[0, .6], [.3, 1], [1, .7]] }),
+  // a hippo: a run of wheezing honks from a huge chest, nasal and rough
+  hippo:    mammal(1.8, { dur: .32, formantScale: .45, harmonics: 18, breath: .35, jitter: 4, shimmer: 12, subharm: .6, chaos: .55, roar: .5, roarFreq: 600, nasal: .5, repeat: 5, gap: .18,
+    f0: [[0, 80], [.3, 140], [1, 70]], amp: [[0, 0], [.1, 1], [.7, .8], [1, 0]], mouth: [[0, .3], [.3, .9], [1, .3]] }),
+  // a zebra brays in rough breathy "kwa-ha" pairs, a barking donkey
+  zebra:    mammal(1.3, { dur: .2, formantScale: .9, harmonics: 20, breath: .5, jitter: 3, shimmer: 10, subharm: .4, chaos: .5, biphon: .25, biphonRatio: 1.6, roar: .4, roarFreq: 1500, roarBw: 1500, repeat: 5, gap: .14,
+    f0: [[0, 420], [.3, 640], [1, 360]], amp: [[0, 0], [.05, 1], [.6, .7], [1, 0]], mouth: [[0, .3], [.25, 1], [1, .4]] }),
+  // a giraffe mostly keeps quiet; it snorts: breath only, through a long throat, pulsed
+  giraffe:  mammal(.5, { voice: 0, breath: 1, formantScale: .5, roar: .6, roarFreq: 900, roarBw: 1500, dur: .45, repeat: 2, gap: .25, f0: [[0, 40], [1, 30]], amp: [[0, 0], [.05, 1], [.4, .6], [1, 0]], mouth: [[0, .8], [1, .3]] }),
+  // a camel: a gurgling, bellowing groan (the gurgle is a slow ~9 Hz AM)
+  camel:    mammal(1.4, { dur: 1.6, formantScale: .6, harmonics: 16, breath: .3, jitter: 4, shimmer: 12, subharm: .5, chaos: .45, roar: .35, roarFreq: 500, roarBw: 700, nasal: .45, amRate: 9,
+    f0: [[0, 110], [.3, 165], [.7, 140], [1, 90]], mouth: [[0, .2], [.4, .9], [1, .3]], am: [[0, .1], [.3, .45], [1, .3]] }),
+  bactrian: mammal(1.4, { dur: 2, formantScale: .55, harmonics: 16, breath: .3, jitter: 4, shimmer: 12, subharm: .55, chaos: .5, roar: .35, roarFreq: 450, roarBw: 700, nasal: .5, amRate: 7,
+    f0: [[0, 95], [.3, 140], [.7, 120], [1, 75]], mouth: [[0, .2], [.4, .9], [1, .3]], am: [[0, .15], [.3, .5], [1, .35]] }),
+  // ---- water ----
+  // a crocodile bellows: a very low, near-infrasonic rumble, pulsed, with a huge subharmonic
+  crocodile:mammal(1.6, { dur: 1.8, formantScale: .4, harmonics: 12, Fc: [200, 550, 1300, 2200], Fo: [420, 850, 1500, 2400], breath: .2, jitter: 5, shimmer: 14, subharm: .85, chaos: .6, roar: .45, roarFreq: 400, roarBw: 600,
+    amRate: 11, am: [[0, .4], [1, .5]], nasal: .3, f0: [[0, 38], [.3, 52], [1, 34]], amp: [[0, 0], [.15, 1], [.8, .9], [1, 0]], mouth: [[0, .2], [.4, .6], [1, .2]] }),
+  // a tyrannosaur: no roar (archosaurs boom with the mouth shut, like a crocodile or an ostrich) -- a huge
+  // closed-mouth rumble, very low and rough, swelling and dying away
+  tyrannosaur: mammal(2.4, { dur: 2.6, formantScale: .3, harmonics: 30, ...LION_TRACT, Bw: [110, 170, 260, 320], breath: .3, jitter: 6, shimmer: 16, subharm: .9, chaos: .7,
+    roar: .55, roarFreq: 350, roarBw: 700, nasal: .35, amRate: 8, am: [[0, .3], [1, .5]], f0: [[0, 34], [.3, 58], [.7, 50], [1, 28]],
+    amp: [[0, 0], [.12, 1], [.8, .9], [1, 0]], mouth: [[0, .15], [.4, .5], [1, .1]] }),
+  // a triceratops: a deep nasal honking bellow (the moo's tract, far bigger), closed-mouthed like its kin
+  triceratops: mammal(2.2, { ...MOO, dur: 2.2, formantScale: .4, harmonics: 18, subharm: .55, chaos: .35, roar: .25, roarFreq: 420, nasal: .55,
+    f0: [[0, 48], [.35, 82], [.7, 76], [1, 44]] }),
+  // a styracosaurus: the ceratopsian honk, smaller and higher
+  styracosaurus: mammal(1.8, { ...MOO, dur: 1.6, formantScale: .55, harmonics: 16, subharm: .45, chaos: .3, roar: .2, roarFreq: 520, nasal: .6,
+    f0: [[0, 70], [.35, 120], [.7, 110], [1, 64]] }),
+  // a stegosaurus: a low, breathy moan
+  stegosaurus: mammal(2.2, { ...MOO, dur: 2.4, formantScale: .38, harmonics: 14, breath: .35, subharm: .6, chaos: .4, roar: .3, roarFreq: 380, nasal: .4,
+    f0: [[0, 40], [.4, 62], [.8, 55], [1, 36]] }),
+  // an ankylosaurus: a run of deep nasal grunts
+  ankylosaurus: mammal(2, { ...MOO, dur: .5, repeat: 4, gap: .25, formantScale: .42, harmonics: 14, subharm: .7, chaos: .55, roar: .45, roarFreq: 450, nasal: .5,
+    f0: [[0, 55], [.3, 75], [1, 48]], amp: [[0, 0], [.15, 1], [.7, .8], [1, 0]] }),
+  // the new beasts: a smilodon's roar (the tiger's tract, lower), a leopard's rasping 'sawing' (short hoarse grunts in a
+  // run), a ram's deeper bleat, the antelopes' snorts and grunts, a reindeer's grunting series, a rhino's snort-bellow
+  smilodon: mammal(2, { ...ROAR, dur: 1.4, formantScale: .5, f0: [[0, 70], [.3, 120], [.7, 100], [1, 60]] }),
+  leopard:  mammal(1.6, { ...ROAR, dur: .35, repeat: 6, gap: .18, formantScale: .7, roar: .5, f0: [[0, 90], [.3, 130], [1, 80]], amp: [[0, 0], [.1, 1], [.8, .6], [1, 0]] }),
+  ram:      mammal(1.1, { ...BLEAT, formantScale: .8, f0: [[0, 170], [.4, 240], [1, 160]] }),
+  cervicapra: mammal(1, { ...ROE, formantScale: 1.2 }),
+  oryx:     mammal(1.4, { ...MOO, dur: .6, repeat: 2, gap: .3, formantScale: .7, f0: [[0, 90], [.4, 110], [1, 80]] }),
+  reindeer: mammal(1.3, { ...MOO, dur: .3, repeat: 4, gap: .2, formantScale: .75, roar: .4, f0: [[0, 70], [.5, 85], [1, 60]] }),
+  rhinoceros: mammal(2, { ...MOO, dur: 1.2, formantScale: .45, roar: .45, subharm: .6, f0: [[0, 50], [.3, 75], [1, 45]] }),
+  // a flamingo: a honking, goose-like gabble
+  flamingo: bird(1.1, { h2: .8, h3: .5, noise: .25, voice2: .3, voice2Ratio: 1.4, vib: .3, vibRate: 25,
+    syllables: [{ type: "sweep", dur: .12, f0: [[0, 700], [1, 600]], gap: .08 }, { type: "sweep", dur: .14, f0: [[0, 760], [1, 640]], gap: .09 }, { type: "sweep", dur: .12, f0: [[0, 720], [1, 620]], gap: .4 }] }),
+  // a frog: a run of pulsed croaks, a throat sac's low nasal resonance
+  frog:     mammal(.7, { dur: .3, formantScale: 1.2, harmonics: 14, breath: .1, jitter: 2, shimmer: 6, subharm: .3, chaos: .2, nasal: .7, amRate: 45, am: [[0, .8], [1, .8]], repeat: 3, gap: .35,
+    f0: [[0, 130], [.4, 145], [1, 115]], amp: [[0, 0], [.1, 1], [.8, .9], [1, 0]], mouth: [[0, .15], [1, .25]] }),
+  // a dolphin surfacing: a signature whistle (a wide, wavering FM sweep) and a click train
+  dolphin:  bird(.9, { h2: .1, h3: 0, vib: 1.5, vibRate: 8, noise: .03,
+    syllables: [{ type: "sweep", dur: .6, f0: [[0, 6000], [.4, 11000], [1, 8000]], gap: .1 }, { type: "noise", dur: .4, f0: [[0, 4000], [1, 4000]], bw: 5000, amRate: 150, level: .6, gap: .3 }] }),
+  // ---- birds ----
+  // a whooper swan: trumpeting "whoop-whoop", strongly harmonic with a second voice
+  swan:     bird(.9, { motifs: 2, h2: .8, h3: .6, noise: .25, voice2: .3, vib: .3, vibRate: 20,
+    syllables: [{ type: "sweep", dur: .28, f0: [[0, 560], [.3, 720], [1, 640]], gap: .12 }, { type: "sweep", dur: .35, f0: [[0, 700], [.4, 760], [1, 560]], gap: .5 }] }),
+  // a peacock: the loud "may-AWE" scream, twice
+  peacock:  bird(1.5, { motifs: 2, h2: .6, h3: .4, noise: .2, voice2: .3, voice2Ratio: 1.33, vib: .5, vibRate: 18,
+    syllables: [{ type: "sweep", dur: .18, f0: [[0, 650], [1, 900]], gap: .02 }, { type: "sweep", dur: .55, f0: [[0, 1200], [.2, 1350], [1, 950]], gap: .5 }] }),
+  // the tawny owl: "hoo ... hu, hu-hu-hoooo", soft low tones, a long pause, a quavering last note
+  owl:      bird(.9, { h2: .3, h3: .08, vibRate: 7, noise: .08,
+    syllables: [{ type: "sweep", dur: .55, f0: [[0, 420], [.2, 470], [1, 400]], gap: 1 }, { type: "sweep", dur: .16, f0: [[0, 430], [1, 400]], gap: .25 },
+      { type: "trill", dur: 1.1, f0: [[0, 480], [.3, 460], [1, 400]], trillRate: 7, trillDepth: .1, gap: 1 }] }),
+  // an eagle: a shrill wavering scream, then a string of falling chips
+  eagle:    bird(1.3, { h2: .25, h3: .05, noise: .2, vib: .6, vibRate: 28,
+    syllables: [{ type: "sweep", dur: .4, f0: [[0, 2400], [.2, 3000], [1, 2100]], gap: .08 },
+      ...Array.from({ length: 5 }, (_, k) => ({ type: "sweep", dur: .07, f0: [[0, 2800 - k * 120], [1, 2300 - k * 100]], gap: .06 }))] }),
+  // a parrot: a harsh squawk -- noise and a biphonic voice fighting each other
+  parrot:   bird(1.1, { motifs: 2, h2: .7, h3: .5, noise: .6, voice2: .5, voice2Ratio: 1.41, vib: .8, vibRate: 45,
+    syllables: [{ type: "noise", dur: .18, f0: [[0, 1800], [.5, 2400], [1, 1600]], bw: 1400, amRate: 110, gap: .04 }, { type: "sweep", dur: .22, f0: [[0, 1400], [.4, 2300], [1, 1200]], gap: .3 }] }),
+  // ---- insects ----
+  // a dragonfly's wings: a soft clattering rustle (~35 beats a second), passing by
+  dragonfly:insect(.25, { dur: 2.5, clickRate: 35, clickJitter: 5, resFreq: 900, resBw: 1500, noise: .6, wander: 10, wanderRate: 1.5, flyby: .8 }),
+  // ---- beasts ----
+  // a minotaur: a bull's bellow that tears into a roar
+  minotaur: mammal(2, { dur: 1.9, formantScale: .5, Fc: [220, 650, 1500, 2500], Fo: [480, 950, 1800, 2600], Bw: [70, 120, 200, 260], harmonics: 14, breath: .2, jitter: 4, shimmer: 10, subharm: .6, chaos: .5,
+    roar: .5, roarFreq: 600, roarBw: 800, nasal: .4, f0: [[0, 70], [.3, 135], [.7, 120], [1, 60]], amp: [[0, 0], [.12, .9], [.5, 1], [.85, .7], [1, 0]], mouth: [[0, .1], [.35, .95], [.85, .5], [1, .1]] }),
+  // a manticore: the lion's roar with a second, inharmonic voice and a hissing edge, faster pulsing
+  manticore:mammal(2, { ...ROAR, dur: 2, formantScale: .45, biphon: .45, biphonRatio: 1.26, amRate: 16, roarFreq: 1400, f0: [[0, 70], [.3, 125], [.6, 110], [1, 50]] }),
+  unicorn:  mammal(1.3, { ...WHINNY, formantScale: .7, harmonics: 7, jitter: .8, shimmer: 3, chaos: .06, subharm: .1, biphon: .5, biphonRatio: 1.5, roar: 0, breath: .12, vibRate: 11, vibDepth: 3.5,
+    f0: [[0, 850], [.15, 1900], [.5, 1650], [.75, 700], [1, 420]], am: [[0, 0], [.7, 0], [.76, .5], [1, .6]] }),   // a cleaner, glassier whinny
+  centaur:  mammal(1.4, { ...WHINNY, dur: 1.6, formantScale: .8, harmonics: 14, chaos: .3, biphon: .15, biphonRatio: 1.26, vibRate: 10, vibDepth: 3, nasal: .1, amRate: 7,
+    f0: [[0, 300], [.15, 720], [.5, 600], [.75, 260], [1, 160]], am: [[0, 0], [.7, 0], [.76, .6], [1, .7]] }),   // half a man's throat: a lower, shouted whinny
+  // a dragon: an enormous tract, near-infrasonic pitch, all chaos and turbulence, slow pulsing
+  dragon:   mammal(3, { dur: 2.8, formantScale: .32, harmonics: 30, ...LION_TRACT, Bw: [110, 170, 260, 320], roarFreq: 600, roarBw: 1600, breath: .4, jitter: 6, shimmer: 18, subharm: .8, chaos: .8,
+    biphon: .3, biphonRatio: 1.33, amRate: 7, am: [[0, .1], [.4, .3], [1, .2]], roar: 1, f0: [[0, 45], [.25, 95], [.6, 80], [1, 38]], amp: [[0, 0], [.1, 1], [.75, .9], [1, 0]], mouth: [[0, .3], [.25, 1], [.8, .8], [1, .2]] }),
+  // a hydra: many heads at once (a strong second voice), hissing turbulence, fast pulsing, twice
+  hydra:    mammal(2.2, { dur: 1.6, formantScale: .6, harmonics: 20, roarFreq: 3200, roarBw: 2500, roar: .9, breath: .5, jitter: 5, shimmer: 14, subharm: .4, chaos: .6, biphon: .7, biphonRatio: 1.26, amRate: 22,
+    am: [[0, .3], [1, .4]], repeat: 2, gap: .2, f0: [[0, 120], [.3, 190], [.7, 160], [1, 90]], mouth: [[0, .4], [.3, 1], [1, .4]] }),
+  // a snake's hiss: breath only, through a small open mouth
+  snake:    mammal(.5, { voice: 0, breath: 1, formantScale: 2.6, Fc: [400, 1200, 2600, 3500], Fo: [700, 1500, 2800, 3600], dur: 1.3, f0: [[0, 100], [1, 100]], amp: [[0, 0], [.15, 1], [.75, .9], [1, 0]], mouth: [[0, .5], [1, .8]] }),
+};
+// silent (absent from the table on purpose): hare, butterfly, fish, shark, turtle, scorpion, spider, drider
+
+// Unseen wildlife for the ambience (environment.js): `when` it sings (day,
+// night, dusk) and `kind`. Same recipes, same engine, never a game species.
+const wild = (when, kind, r) => ({ ...r, when, kind });
+export const WILD = {
+  // fluty, low for a songbird, slow melodic sweeps and a scratchy high flourish
+  blackbird:   wild("day", "bird", bird(1, { h2: .25, h3: .05, vib: .3, vibRate: 12,
+    syllables: [{ type: "sweep", dur: .22, f0: [[0, 1800], [1, 2400]], gap: .08 }, { type: "sweep", dur: .18, f0: [[0, 2600], [.5, 2100], [1, 2300]], gap: .06 }, { type: "sweep", dur: .3, f0: [[0, 1600], [.4, 2900], [1, 2200]], gap: .1 },
+      { type: "sweep", dur: .16, f0: [[0, 2000], [1, 1700]], gap: .05 }, { type: "trill", dur: .25, f0: [[0, 4500], [1, 5200]], trillRate: 35, trillDepth: .2, level: .5, gap: .6 }] })),
+  // "tee-cher, tee-cher": a high note and a lower one
+  greattit:    wild("day", "bird", bird(.8, { motifs: 4, h2: .1, h3: 0, noise: .03,
+    syllables: [{ type: "sweep", dur: .12, f0: [[0, 4200], [1, 4000]], gap: .05 }, { type: "sweep", dur: .14, f0: [[0, 3200], [1, 2900]], gap: .22 }] })),
+  cuckoo:      wild("day", "bird", bird(1.2, { motifs: 3, h2: .08, h3: 0, noise: .02,
+    syllables: [{ type: "sweep", dur: .25, f0: [[0, 690], [1, 660]], gap: .12 }, { type: "sweep", dur: .3, f0: [[0, 560], [1, 540]], gap: .8 }] })),
+  // a descending series that speeds up, then a flourish sweeping up
+  chaffinch:   wild("day", "bird", bird(.9, { syllables: [...Array.from({ length: 9 }, (_, k) => ({ type: "sweep", dur: .09 - k * .004, f0: [[0, 5000 - k * 220], [1, 4300 - k * 200]], gap: .075 - k * .006 })),
+    { type: "sweep", dur: .18, f0: [[0, 2600], [.5, 4200], [1, 3800]], gap: .6 }] })),
+  robin:       wild("day", "bird", bird(.8, { motifs: 2, h2: .08, h3: 0, vib: .45, vibRate: 22,
+    syllables: [{ type: "sweep", dur: .12, f0: [[0, 6600], [1, 4600]], gap: .05 }, { type: "sweep", dur: .09, f0: [[0, 3900], [1, 5300]], gap: .04 }, { type: "trill", dur: .22, f0: [[0, 4600], [1, 4400]], trillRate: 26, trillDepth: .2, gap: .06 },
+      { type: "sweep", dur: .16, f0: [[0, 7000], [.5, 5400], [1, 6400]], gap: .05 }, { type: "sweep", dur: .2, f0: [[0, 5000], [1, 4200]], level: .7, gap: .5 }] })),
+  // no tone at all: pulsed broadband noise with a rough 40 Hz modulation
+  crow:        wild("day", "bird", bird(1.3, { motifs: 3, h2: 0, h3: 0, noise: 0, syllables: [{ type: "noise", dur: .35, f0: [[0, 1400], [.3, 1700], [1, 1200]], bw: 900, amRate: 42, gap: .35 }] })),
+  // lower and more tonal than a crow: a harsh "kraa" with heavy harmonics and noise riding on it
+  raven:       wild("day", "bird", bird(1.4, { motifs: 3, h2: .9, h3: .7, vib: .15, vibRate: 30, noise: 1, voice2: .25, syllables: [{ type: "sweep", dur: .5, f0: [[0, 300], [.25, 380], [1, 290]], gap: .6 }] })),
+  // a mimic's jumble: whistle, rattle, clicks, warble, chuckle, a burst of noise
+  starling:    wild("day", "bird", bird(.8, { h2: .3, h3: .1, vib: .2, vibRate: 14, noise: .08, voice2: .15,
+    syllables: [{ type: "sweep", dur: .3, f0: [[0, 1900], [1, 3600]], gap: .06 }, { type: "trill", dur: .35, f0: [[0, 6200], [1, 5800]], trillRate: 45, trillDepth: .15, level: .6, gap: .08 },
+      { type: "noise", dur: .04, f0: [[0, 3000], [1, 3000]], bw: 3000, amRate: 200, gap: .05 }, { type: "noise", dur: .04, f0: [[0, 3200], [1, 3200]], bw: 3000, amRate: 200, gap: .05 },
+      { type: "noise", dur: .04, f0: [[0, 2800], [1, 2800]], bw: 3000, amRate: 200, gap: .12 }, { type: "sweep", dur: .32, f0: [[0, 3100], [.5, 2200], [1, 3300]], gap: .06 },
+      { type: "trill", dur: .3, f0: [[0, 1500], [1, 1300]], trillRate: 14, trillDepth: .4, gap: .08 }, { type: "noise", dur: .25, f0: [[0, 5000], [1, 4000]], bw: 4000, amRate: 60, level: .7, gap: .6 }] })),
+  // "coo-COO-coo, coo-coo": soft breathy low notes with a strong second harmonic
+  woodpigeon:  wild("day", "bird", bird(.9, { motifs: 2, h2: .55, h3: .15, noise: .15,
+    syllables: [{ type: "sweep", dur: .3, f0: [[0, 420], [1, 440]], level: .7, gap: .08 }, { type: "sweep", dur: .42, f0: [[0, 470], [1, 440]], gap: .1 }, { type: "sweep", dur: .3, f0: [[0, 420], [1, 400]], level: .8, gap: .16 },
+      { type: "sweep", dur: .28, f0: [[0, 430], [1, 420]], level: .75, gap: .08 }, { type: "sweep", dur: .14, f0: [[0, 420], [1, 380]], level: .5, gap: .9 }] })),
+  // the green woodpecker's "laugh": a dozen ringing notes that drop and quicken
+  yaffle:      wild("day", "bird", bird(1.2, { h2: .4, h3: .15, noise: .1,
+    syllables: Array.from({ length: 12 }, (_, k) => ({ type: "sweep", dur: .11 - k * .003, f0: [[0, 1650 - k * 25], [1, 1250 - k * 20]], gap: .09 - k * .004 })) })),
+  // the great spotted woodpecker drumming: a bill striking wood ~16 times a second, rolls every couple of seconds
+  drumming:    wild("day", "bird", insect(1.2, { dur: 4.5, clickRate: 16, clickJitter: 4, resFreq: 800, resBw: 600, pulseLen: 200, pulsesPerChirp: 4, pulseGap: 0, chirpRate: .55, noise: .35 })),
+  // rich whistles with an inharmonic second syrinx voice, then a fast pulsed run -- sings at night
+  nightingale: wild("night", "bird", bird(1, { h2: .3, h3: .1, vib: .2, vibRate: 15, noise: .05, voice2: .35, voice2Ratio: 1.33,
+    syllables: [{ type: "sweep", dur: .35, f0: [[0, 2200], [1, 2400]], gap: .05 }, { type: "sweep", dur: .3, f0: [[0, 2400], [1, 2450]], gap: .05 }, { type: "sweep", dur: .4, f0: [[0, 2500], [1, 2600]], gap: .15 },
+      { type: "trill", dur: .6, f0: [[0, 3200], [1, 3000]], trillRate: 18, trillDepth: .3, gap: .7 }] })),
+  // no tone: a drawn-out hiss-scream sweeping around 3 kHz
+  barnowl:     wild("night", "bird", bird(1, { h2: 0, h3: 0, noise: 0, syllables: [{ type: "noise", dur: 1.2, f0: [[0, 2200], [.4, 3600], [1, 2400]], bw: 2200, amRate: 65, gap: .8 }] })),
+  tawnyowl:    wild("night", "bird", CALLS.owl),
+  // a near-pure 4.5 kHz wing resonance gated into chirps of four pulses, two or three a second
+  cricket:     wild("night", "insect", insect(.5, { clickRate: 4500, resFreq: 4500, resBw: 60, pulseLen: 22, pulsesPerChirp: 4, pulseGap: 35, chirpRate: 2.2, noise: .05 })),
+  // tymbal clicks exciting a 5-6 kHz abdomen, several individuals beating, slow swelling
+  cicada:      wild("day", "insect", insect(.8, { dur: 5, clickRate: 220, clickJitter: 6, resFreq: 5400, resBw: 700, pulsesPerChirp: 12, amRate: 1.3, amDepth: .5, chorus: 6, chorusSpread: 12, noise: .3 })),
+  // wingbeats ~230/s are the pitch; the pitch wanders and the level passes by
+  honeybee:    wild("day", "insect", insect(.3, { clickRate: 230, clickJitter: 2, resFreq: 900, resBw: 1300, noise: .05, wander: 6, wanderRate: 1.5, flyby: .7 })),
+  bumblebee:   wild("day", "insect", insect(.35, { clickRate: 160, clickJitter: 3, resFreq: 600, resBw: 1000, noise: .1, wander: 8, wanderRate: 1.2, flyby: .6 })),
+  mosquito:    wild("dusk", "insect", insect(.2, { dur: 5, clickRate: 580, clickJitter: .8, resFreq: 1900, resBw: 1600, noise: .04, wander: 12, wanderRate: 2.4, flyby: .9 })),
+  // broadband scraping in short fast bursts, a dozen a second
+  grasshopper: wild("day", "insect", insect(.3, { dur: 3, clickRate: 90, clickJitter: 25, resFreq: 7000, resBw: 2500, pulseLen: 25, pulsesPerChirp: 8, pulseGap: 45, chirpRate: 1.4, noise: .9 })),
 };
 
-const noiseBufs = new WeakMap();
-const noiseBuffer = (ctx) => {
-  if (!noiseBufs.has(ctx)) {
-    const b = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate), d = b.getChannelData(0);
-    for (let i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
-    noiseBufs.set(ctx, b);
-  }
-  return noiseBufs.get(ctx);
-};
-const shapers = new Map();   // soft saturation curves by strength
-const shaper = (ctx, sat) => {
-  const k = Math.round(sat * 10);
-  if (!shapers.has(k)) {
-    const c = new Float32Array(1024), drive = 1 + 7 * k / 10;
-    for (let i = 0; i < 1024; i++) { const x = i / 511.5 - 1; c[i] = Math.tanh(x * drive) / Math.tanh(drive); }
-    shapers.set(k, c);
-  }
-  const w = ctx.createWaveShaper(); w.curve = shapers.get(k); return w;
-};
+// render one fresh variant of a call (loudness-normalised); `over` overrides
+// preset fields (environment.js asks for 8 s of crickets to loop)
+export function renderCall(name, over) {
+  const rec = CALLS[name] ?? WILD[name];
+  if (!rec) return null;
+  const P = Array.isArray(rec.p) ? rec.p[Math.floor(rnd() * rec.p.length)] : rec.p;
+  return loudnorm(ENGINES[rec.engine](VARY[rec.engine]({ ...P, ...over })), .2);
+}
 
 // An outdoor space: a light, dark-tailed reverb (a generated impulse) with
 // a dry path. Feed calls into `input`; it goes to `dest` (default speakers).
@@ -142,97 +438,29 @@ export function makeSpace(ctx, { wet = .3, size = 1.3, dest } = {}) {
   return { input };
 }
 
-// play one species' call; `pitch` scales every frequency (an individual's
-// size), `dest` is where it goes (default the speakers). Every call is a
-// little different (pitch and timing vary a few percent). Returns the end time.
-export function animalCall(ctx, species, { dest, at, pitch = 1, volume = .5 } = {}) {
-  const rec = CALLS[species];
+// play one species' call (or a WILD voice); `pitch` scales the playback rate
+// (an individual's size: pitch and tempo together), `dest` is where it goes
+// (default the speakers). A few renders per name are kept and reused, with a
+// fresh one now and then, so no two calls in a row are quite the same and a
+// herd costs a handful of renders. Returns the end time (AC seconds).
+const pool = new Map(), VARIANTS = 4;
+// the mammals' loudness on top of the renders' common calibration: they were
+// all as soft as a songbird. Two to three times louder, by how loud the real
+// animal is (a lion's roar or a cow's moo carries; a cat or a rat stays small)
+const LOUDER = { smilodon: 3, rhinoceros: 3, leopard: 2.5, oryx: 2.5, reindeer: 2.5, ram: 2, cervicapra: 2, tyrannosaur: 3, triceratops: 3, styracosaurus: 3, stegosaurus: 3, ankylosaurus: 3, cow: 3, ox: 3, lion: 3, tiger: 3, elephant: 3, hippo: 3, minotaur: 3, manticore: 3,
+  bear: 2.5, horse: 2.5, wolf: 2.5, pig: 2.5, camel: 2.5, bactrian: 2.5, unicorn: 2.5, centaur: 2.5,
+  dog: 2, sheep: 2, deer: 2, boar: 2, zebra: 2, giraffe: 2, fox: 2, cat: 2, rat: 2, beaver: 2, hedgehog: 2, bat: 2 };
+for (const [n, l] of Object.entries(LOUDER)) CALLS[n].level = l;
+
+export function animalCall(ctx, name, { dest, at, pitch = 1, volume = .5 } = {}) {
+  const rec = CALLS[name] ?? WILD[name];
   if (!rec) return ctx.currentTime;
-  const t0 = Math.max(at ?? ctx.currentTime + .02, ctx.currentTime + .01);
-  // `level` (per recipe) is the measured make-up gain that brings every species' call to about the same
-  // loudness at the source (-18 dB RMS while it sounds, at volume .5): a sheep's narrow mouth swallowed
-  // 12 dB, a horse's broad one gave 7 dB back. `loud` then says how far each carries.
-  const out = ctx.createGain(); out.gain.value = volume * (rec.level ?? 1); out.connect(dest ?? ctx.destination);
-  const pv = pitch * (.95 + Math.random() * .1), dv = .93 + Math.random() * .14;
-  let end = t0;
-  for (const nt of rec.notes) { let tk = t0 + nt.at * dv; for (let k = 0; k < nt.n; k++) {
-    // every repeat its own: a little shorter or longer, a shade higher or lower, the gap uneven (three barks
-    // stamped from one die are a sound effect; a dog never barks the same bark twice)
-    const pk = pv * (.96 + Math.random() * .08), dur = nt.dur * dv * (.93 + Math.random() * .14), ts = tk, te = ts + dur;
-    tk = te + nt.gap * dv * (.85 + Math.random() * .3);
-    let src;
-    const mix = ctx.createGain();
-    if (nt.src === "noise") { src = ctx.createBufferSource(); src.buffer = noiseBuffer(ctx); src.loop = true; src.connect(mix); }
-    else {
-      // "pulse" = a hard-driven sawtooth: a square wave has only odd harmonics, a hollow clarinet tone no animal makes
-      src = ctx.createOscillator(); src.type = nt.src === "pulse" ? "sawtooth" : nt.src;
-      const f = nt.f.length === 3 ? nt.f : [nt.f[0], (nt.f[0] + nt.f[1]) / 2, nt.f[1]];
-      src.frequency.setValueAtTime(Math.max(20, f[0] * pk), ts);
-      src.frequency.exponentialRampToValueAtTime(Math.max(20, f[1] * pk), ts + dur * .45);
-      src.frequency.exponentialRampToValueAtTime(Math.max(20, f[2] * pk), te);
-      if (nt.vib) { const l = ctx.createOscillator(), lg = ctx.createGain(); l.frequency.value = nt.vib[0] * (.92 + Math.random() * .16); lg.gain.value = f[0] * pk * nt.vib[1]; l.connect(lg); lg.connect(src.frequency); l.start(ts); l.stop(te + .01); }
-      if (nt.jit) {   // pitch jitter: lowpassed noise shakes the frequency (fast) and wanders it (slow)
-        // (white noise through a 22 Hz lowpass keeps ~.026 of its amplitude, through 3 Hz only ~.01: the
-        // scale factors make the fast shake ~.4% and the slow wander ~1% RMS at jit .05 -- measured; the
-        // wander was 10x too small before and every contour was the same smooth slide)
-        for (const [cut, depth, k] of [[22, nt.jit, 3], [3, nt.jit * .6, 30]]) {
-          const nz = ctx.createBufferSource(); nz.buffer = noiseBuffer(ctx); nz.loop = true;
-          const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = cut;
-          const jg = ctx.createGain(); jg.gain.value = f[1] * pk * depth * k;
-          nz.connect(lp); lp.connect(jg); jg.connect(src.frequency); nz.start(ts); nz.stop(te + .02);
-        }
-      }
-      if (nt.sub) {   // subharmonic: the voice pulses at half its own pitch
-        const sg = ctx.createGain(); sg.gain.value = 1 - nt.sub * .5;
-        const l = ctx.createOscillator(), lg = ctx.createGain(); l.frequency.setValueAtTime(f[0] * pk / 2, ts);
-        l.frequency.exponentialRampToValueAtTime(Math.max(10, f[2] * pk / 2), te); lg.gain.value = nt.sub * .5;
-        l.connect(lg); lg.connect(sg.gain); l.start(ts); l.stop(te + .01);
-        src.connect(sg); sg.connect(mix);
-      } else src.connect(mix);
-      if (nt.breath) { const nz = ctx.createBufferSource(); nz.buffer = noiseBuffer(ctx); nz.loop = true; const ng = ctx.createGain(); ng.gain.value = nt.breath; nz.connect(ng); ng.connect(mix); nz.start(ts); nz.stop(te + .02); }
-    }
-    let voice = mix;
-    const sat = nt.src === "pulse" ? Math.min(1, nt.sat + .2) : nt.sat;
-    if (sat) { const w = shaper(ctx, sat); mix.connect(w); voice = w; }
-    if (nt.chaos && nt.src !== "noise") {   // loudness flicker: lowpassed noise wobbles the level
-      const cg = ctx.createGain(); cg.gain.value = 1 - nt.chaos * .5;
-      const nz = ctx.createBufferSource(); nz.buffer = noiseBuffer(ctx); nz.loop = true;
-      const lp = ctx.createBiquadFilter(); lp.type = "lowpass"; lp.frequency.value = 40;
-      const fg = ctx.createGain(); fg.gain.value = nt.chaos * 2.5;
-      nz.connect(lp); lp.connect(fg); fg.connect(cg.gain); nz.start(ts); nz.stop(te + .02);
-      voice.connect(cg); voice = cg;
-    }
-    const env = ctx.createGain(); env.gain.setValueAtTime(0, ts);
-    env.gain.linearRampToValueAtTime(nt.g, ts + nt.a);
-    env.gain.setValueAtTime(nt.g, Math.max(ts + nt.a, te - nt.r));
-    env.gain.linearRampToValueAtTime(0, te);
-    nt.res.forEach(([fr, q, gn], ri) => {   // the mouth: parallel resonances, scaled a little with the individual's size
-      const bp = ctx.createBiquadFilter(); bp.type = "bandpass"; bp.frequency.value = fr * Math.sqrt(pk); bp.Q.value = q;
-      if (nt.res2) {   // vowel change: glide each resonance to its second shape
-        bp.frequency.setValueAtTime(fr * Math.sqrt(pk), ts + dur * .3);
-        bp.frequency.linearRampToValueAtTime(nt.res2[ri][0] * Math.sqrt(pk), te);
-      }
-      const bg = ctx.createGain(); bg.gain.value = gn;
-      voice.connect(bp); bp.connect(bg); bg.connect(env);
-    });
-    let tail = env;
-    const wob = nt.trem ?? (nt.rough ? [nt.rough, .55] : null);   // tremolo (bleat) or roughness (growl): the same wobble, faster
-    if (wob) {
-      const m = ctx.createGain(); m.gain.value = 1 - wob[1] / 2;
-      const l = ctx.createOscillator(), lg = ctx.createGain(); l.type = wob[0] > 20 ? "square" : "sine"; l.frequency.value = wob[0]; lg.gain.value = wob[1] / 2;
-      l.connect(lg); lg.connect(m.gain); l.start(ts); l.stop(te + .01);
-      // the wobble's rate itself wanders ~15% (4 Hz lowpassed noise, RMS ~.011): a fixed-rate chop is a
-      // motor, a growl's rattle and a bleat's flutter speed up and slow down
-      const rn = ctx.createBufferSource(); rn.buffer = noiseBuffer(ctx); rn.loop = true;
-      const rl = ctx.createBiquadFilter(); rl.type = "lowpass"; rl.frequency.value = 4;
-      const rg = ctx.createGain(); rg.gain.value = wob[0] * 14;
-      rn.connect(rl); rl.connect(rg); rg.connect(l.frequency); rn.start(ts); rn.stop(te + .02);
-      env.connect(m); tail = m;
-    }
-    tail.connect(out);
-    src.start(ts); src.stop(te + .02);
-    end = Math.max(end, te);
-  } }
-  setTimeout(() => out.disconnect(), (end - ctx.currentTime + .3) * 1000);
-  return end;
+  let vs = pool.get(name); if (!vs) pool.set(name, vs = []);
+  let buf;
+  if (vs.length < VARIANTS || rnd() < .1) {
+    buf = toBuffer(renderCall(name));
+    if (vs.length < VARIANTS) vs.push(buf); else vs[Math.floor(rnd() * VARIANTS)] = buf;
+  } else buf = vs[Math.floor(rnd() * vs.length)];
+  // (renders sit at -14 dB RMS; volume .5 puts a call at about -18 dB RMS, the old calibration)
+  return play(ctx, buf, { dest, at, rate: pitch * (.97 + rnd() * .06), gain: volume * 1.25 * (rec.level ?? 1) }).end;
 }

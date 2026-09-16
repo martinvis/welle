@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pattern tiles — Bannerfield</title>
+<style>
+  html, body { margin: 0; background: #eef1f4; color: #22303c; font: 13px "Avenir Next", "Segoe UI", sans-serif; }
+  header { padding: 12px 16px; max-width: 60em; line-height: 1.5; }
+  main { display: flex; flex-wrap: wrap; gap: 18px; padding: 0 16px 24px; }
+  figure { margin: 0; background: #fff; border-radius: 6px; padding: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, .12); }
+  figure div { display: flex; gap: 6px; }
+  canvas { width: 180px; height: 180px; image-rendering: pixelated; background: #000; }
+  figcaption { margin-top: 6px; }
+  figcaption small { opacity: .65; }
+</style>
+</head>
+<body>
+<header>
+  <b>Pattern tiles</b>: textures.js calculates these at startup -- one exact repeat of each
+  building pattern, baked with mipmaps and anisotropic filtering. Left: the stored channels
+  (R brightness / 1.5, G accent, B dark figure; grass: blade cover, its tip-place and tone, both premultiplied). Middle: applied
+  to a sample stone and accent colour. Right: the tile repeated 4 x 4, as it tiles on a wall.
+  <code>build/textures.py</code> saves the same images into <code>texture/</code> for inspection;
+  the game never loads them.
+</header>
+<main id="grid"></main>
+<script type="importmap">
+{ "imports": { "three": "https://unpkg.com/three@0.185.1/build/three.module.js" } }
+</script>
+<script type="module">
+import * as THREE from "three";
+import { TILES, bakeTiles, readTile, leafAtlasCanvas, LEAF_STYLES } from "./textures.js";
+
+const renderer = new THREE.WebGLRenderer();
+bakeTiles(renderer);
+
+const BASE = [.74, .7, .64], ACCENT = [.62, .25, .2], DARK = [.05, .045, .04], GREEN = [.45, .6, .3];
+// texels -> canvas, top row first; `apply` turns a texel's channels into a colour
+function canvasFor(name, apply) {
+  const n = TILES[name].size, buf = readTile(renderer, name);
+  const cv = document.createElement("canvas"); cv.width = cv.height = n;
+  const ctx = cv.getContext("2d"), img = ctx.createImageData(n, n);
+  for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
+    const s = ((n - 1 - y) * n + x) * 4, d = (y * n + x) * 4;
+    const c = apply(buf[s] / 255, buf[s + 1] / 255, buf[s + 2] / 255);
+    img.data[d] = c[0] * 255; img.data[d + 1] = c[1] * 255; img.data[d + 2] = c[2] * 255; img.data[d + 3] = 255;
+  }
+  ctx.putImageData(img, 0, 0);
+  return cv;
+}
+const mix = (a, b, t) => a.map((v, i) => v + (b[i] - v) * t);
+const raw = (r, g, b) => [r, g, b];
+// grass: R blade coverage, G and B the blade's tip-place and its own tone, both premultiplied by the coverage
+// (as the ground's own shader reads them -- see index.html's overlay)
+const preview = (name) => name.startsWith("grass")
+  ? (r, g, b) => { const tip = g / Math.max(r, 1e-3), tone = b / Math.max(r, 1e-3);
+      const blade = [.6 + .66 * tip, .74 + .54 * tip, .5 + .52 * tip].map((v, i) => GREEN[i] * v * (.88 + .24 * tone));
+      return mix(GREEN, blade, r * .9); }   // (the same numbers the ground's overlay uses, index.html)
+  : (r, g, b) => mix(mix(BASE, ACCENT, g), DARK, b).map((v) => Math.min(1, v * r * 1.5));
+function repeated(cv) {   // 4 x 4 copies at a quarter scale: the browser's own downscale, like a far wall
+  const out = document.createElement("canvas"); out.width = out.height = cv.width;
+  const ctx = out.getContext("2d"), q = cv.width / 4;
+  for (let i = 0; i < 4; i++) for (let j = 0; j < 4; j++) ctx.drawImage(cv, i * q, j * q, q, q);
+  return out;
+}
+
+const shown = {};
+for (const [name, t] of Object.entries(TILES)) {
+  const a = canvasFor(name, raw), b = canvasFor(name, preview(name)), c = repeated(b);
+  shown[name] = { raw: a, preview: b };
+  const fig = document.createElement("figure"), row = document.createElement("div");
+  row.append(a, b, c);
+  fig.append(row);
+  const cap = document.createElement("figcaption");
+  cap.innerHTML = `<b>${name}</b> <small>${t.size}² texels · one tile = ${t.period[0].toFixed(3)} × ${t.period[1].toFixed(3)} m</small>`;
+  fig.append(cap);
+  document.getElementById("grid").append(fig);
+}
+// the trees' leaf atlas (painted on a canvas): as stored, and tinted leaf green on a light ground
+{
+  const at = leafAtlasCanvas(), tmp = document.createElement("canvas"), pv = document.createElement("canvas");
+  tmp.width = pv.width = at.width; tmp.height = pv.height = at.height;
+  const t = tmp.getContext("2d"); t.drawImage(at, 0, 0); t.globalCompositeOperation = "multiply"; t.fillStyle = "#5f8f3a"; t.fillRect(0, 0, tmp.width, tmp.height);
+  t.globalCompositeOperation = "destination-in"; t.drawImage(at, 0, 0);
+  const p = pv.getContext("2d"); p.fillStyle = "#e4ecdc"; p.fillRect(0, 0, pv.width, pv.height); p.drawImage(tmp, 0, 0);
+  shown.leaves = { raw: at, preview: pv };
+  const fig = document.createElement("figure"), row = document.createElement("div");
+  for (const c of [at, pv]) { c.style.width = "900px"; c.style.height = "180px"; c.style.background = "#fff"; }
+  row.style.flexDirection = "column"; row.append(at, pv); fig.append(row);
+  const cap = document.createElement("figcaption");
+  cap.innerHTML = `<b>leaves</b> <small>the trees' leaf atlas: ${LEAF_STYLES.join(", ")} -- one ${at.height}px cell each, alpha cut-out</small>`;
+  fig.append(cap); document.getElementById("grid").append(fig);
+}
+// for build/textures.py: every tile as PNG data URLs (the stored channels, and the preview)
+window.__textures = () => Object.entries(shown).map(([name, s]) => ({ name, raw: s.raw.toDataURL("image/png"), preview: s.preview.toDataURL("image/png") }));
+window.__ready = true;
+</script>
+</body>
+</html>

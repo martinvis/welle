@@ -63,6 +63,10 @@ Attention
 Catastrophic interference / forgetting: overwriting previously learnt information when learning new information
 - avoided by learning all at once and stopping, but system becomes obsolete and relearning from scratch is expensive
 
+Helmholtz machine: two separate networks, wake-sleep learning
+- recognition network bottom-up
+- generative network top-down
+- Wake-sleep algorithm: unsupervised learning, real data recognition at wake phase, test data generation at sleep phase
 Stochastic gradient descent (SGD): optimization method
 Feedforward neural network (FNN): unidirectional neural network, usually fully connected (classification)
 Convolutional neural network (CNN): feedforward neural network, regularized weights over fewer connections (image)

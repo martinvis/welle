@@ -22,7 +22,7 @@ active. A **part** is one entry in a flat list:
   wingspots), resolved in the shaders
 - **Units are meters.** 1 = 1m everywhere: species, buildings, physics.
 
-Species are pure data (`species.js`); people, butterflies, fish, trees,
+Species are pure data (`species.js`, the rigged mammals via `mammals.js`); people, butterflies, fish, trees,
 bushes, flowers, mushrooms and clouds are tiny generator functions that
 return the same structure with seeded variation. `anim.wing: true` marks
 parts that beat on a second clock (`wingT`) so a flying mount can flap
@@ -33,15 +33,87 @@ cross-frame seam runs along the spar's hinge axis, so it never gaps.
 
 | engine | file | draw calls | what it builds |
 |---|---|---|---|
-| rig | `rig.js` | 2 per part | real polygon meshes + inverted-hull outline (baseline for comparison) |
 | banner | `banner.js` | 1 per part | one 2-triangle quad per part; SDF silhouette in the fragment shader |
 | instanced | `instanced.js` | **1 per herd** | every part everywhere is a row in instanced buffers; the CPU walks skeletons and uploads world-space segments |
+| composite | `composite.js` | **1 per herd** (+1 pre-pass) | one quad per *animal* (split into on-screen cells that each evaluate only nearby parts); all its parts come from a float texture (camera-space endpoints) and are smooth-unioned per pixel into one metaball silhouette, exact ray hits per primitive, and within `?near=` metres a raymarched pre-pass supplies the true 3D fillets; every stage switchable via `PIPE` (engines.md) |
 
-`?mode=` picks the engine; the default demo uses banner for the display herd
-and instanced for everything numerous (forest, crowd, butterflies, fish,
-riders, remote avatars). `anim.js` animates the rig/banner scene-graph form;
-the instanced engine replays the same `anim` data as matrix math per frame.
-See [`engines.md`](engines.md) for the shader details.
+`?mode=` picks the engine; the default demo uses composite for the animals
+and people (the cast, loose horses and riders, cart teams and drivers, the
+arena, mount copies, the crowd, dock hands, the fisherman, remote avatars)
+and instanced for everything numerous that is neither (the forest's wood,
+bushes, flowers, butterflies, dragonflies, fish, clouds); the trees' leaves
+are alpha cut-out cards in one mesh of their own (`foliage.js`). `anim.js` animates the rig/banner
+scene-graph form; `skeleton.js` is the shared CPU pose (compile a def, walk
+its transform chain, two-bone leg IK, gait bob) that both instanced and
+composite replay per frame. See [`engines.md`](engines.md) for the shader
+details.
+
+## The mammal rig
+
+`mammals.js` builds the 22 mid-to-large mammals (cat to elephant, plus the
+unicorn, centaur and manticore) from a compact root-space description --
+metres, feet on y = 0 -- into the same part list: two body lobes (rump and
+chest), a tapered neck pill, a head sphere with a muzzle ellipsoid, ears,
+eyes, nose, four legs of two bones each with a hoof or paw, a tail as an
+arc of chained tapered links, and extras (horns, manes, humps, tusks,
+wings, a rider's torso). The rump stays the root capsule named `body`, so
+riders, collision circles and terrain probes read it as before. Parts of
+the rig carry `k` (blend radius) and `edge: 0` (no outline band of their
+own); torso pieces carry `frame: "body"` so their coat pattern is one
+solid texture in the animal's frame; a capsule may taper (`size.r` at its
++y end, `size.r2` at the other).
+
+Legs: the upper bone carries `ik: { leg, upper, lower, side, foot }`, the
+lower bone `ik: { leg, follow: true }`; every frame the foot is placed by
+the gait (stride forward and back, lift on the swing half of the cycle)
+and two-bone IK puts the knee where the bone lengths meet -- `side` says
+whether it folds forward (a knee) or backward (a hock). `def.gaits` holds
+a walk and a run set (leg phase offsets in the order FL, FR, HL, HR,
+stride, lift, body bob), defaulting from the leg length; the giraffe and
+camel pace. An animal's `amp` fades the stride out when it stands, its
+`run` blends walk into run: wanderers walk, ridden mounts, riders on the
+tour and hurrying cart teams run. `gaitBase(def)` (species.js) is the
+travel distance per gait-clock unit: for rig legs 3.2 x the walk's stride
+(a foot sweeps two strides per stance, half a cycle, at .8 cycles per
+unit), so a walking foot stays planted. A run covers more ground per
+stride: the skeleton stretches the gait clock by the run/walk stride ratio
+(`an._tg`), so the cadence follows the speed instead of pedalling. Whether
+something runs is its Froude number: `runs(speed, base)` is v^2 > 4.8 x base
+(~ v^2/gL > .5), so a cat trots where a horse still walks.
+
+## The human rig and wardrobe
+
+`people.js` builds a person the mammal rig's way, from root-space
+proportions by kind (man, woman, ten- and five-year-old: children have
+bigger heads and shorter legs): a torso of one flattened pill
+from the hips to the shoulders (composite `flat`, on the pelvis -- the
+root, an x-capsule so the "body frame" points forward, an undrawn bone), a neck pill, a head with an optional nose
+(a round cone; config.json people.nose, off by default; no ears), eyes, eyebrows and a mouth drawn as flat face marks (not
+SDF parts: white, iris and pupil in real-life colours; the lips a lens), arms of two bones with a hand, legs of two bones with a
+foot. Knees come from the shared two-bone IK on a biped walk and run (legs
+in antiphase, the hips dropping at double support via the gait's
+`bobPh`); feet are `level` (oriented by the root alone, so they stay flat);
+arms, the shoulders' twist, skirts and plaits swing on the gait clock with
+`anim.amp`, fading with the stride when a person stops.
+
+Clothing follows the clothing lab (garments are shells round the body):
+a garment that covers a whole piece is that piece's colour, slightly
+thicker; anything else is an extra shell part the engine's nearest-surface
+rule puts on top -- short sleeves, boot shafts, skirts (round cones cut
+flat at waist and hem, swinging behind the stride), the surcoat over a
+kirtle (a chest shell cut at the shoulders: arm holes), hair caps cut at
+the hairline, bob and long hair, plaits, buns, ponytails, hoods with a
+capelet, caps, pointed hats, brims and straw hats (a sphere cut to a
+disc), belts, aprons (two flat triangles). Under a skirt the legs it covers
+are cut away entirely, as in the lab, so a knee never pokes through, and
+skirted people take shorter steps. Seated, a short skirt becomes a lap
+ending round at the knees and a long one stays one piece, tilted forward
+from the waist to drape over the knees to the floor; the reported `hipY`
+puts the lowest seated point just on the board, and a shorter thigh sits
+further forward (a child near the front edge). Long hair is five thick
+tapered locks fanned round the back of the head, blending into one mass. The wardrobe is drawn from its own seeded
+stream by kind and can be overridden (`makePerson({ outfit })`);
+`wardrobe.html` shows every garment, hat, hairstyle and pose.
 
 ## Buildings
 
@@ -79,15 +151,44 @@ per material for any number of identical movable objects — cart wheels.
 `carts.js` composes both worlds: polygon cart bodies, barrels and wheels
 via architecture, teams and drivers as banner skeletons.
 
+`outline.js` is the world's one outline switch (Shift+O, off by default):
+banner, instanced and composite quads compare its uniform, the polygon
+rig's and the buildings' hull copies show or hide through its hook. On,
+everything gets a one-pixel line; off, nothing is drawn for outlines at
+all.
+
 ## The orchestrator
 
 `index.html` holds the single demo: town layout, terrain (layered sines,
 flattened under buildings and the lake bowl), the lake and its swimmers,
-paths and the highway loop, wanderer AI, riders, the cart fleet, the FPS
-controller with collision, stairs and mounted flight,
-weather/night/season state, interaction (mount, doors), the multiplayer
-session, and the render loop. It is deliberately one file: the world is
-assembled here, the libraries above stay generic.
+wanderer AI, riders, the cart fleet, the FPS controller with collision,
+stairs and mounted flight, weather/night/season state, interaction (mount,
+doors), the multiplayer session, and the render loop. The world is
+assembled here; self-contained subsystems live in their own modules and
+are handed the world they need as one explicit object, so each has one
+owner and no second copy:
+
+- `paths.js` -- `buildPathNetwork(world)`: route layout, dry routing round
+  the lake and river, the highway lane loop, the track mesh; `laneFrom`
+  (arc-length lanes with `at` / `heading`) is what carts AND riders drive
+- `village-life.js` -- `createVillageLife(world)`: the villagers' day on the world tick -- homes and
+  beds (`beds`/`ways` from the houses), jobs (folkSpots with `role: "work"`, fields, sacks to the
+  mill's `drop`), four composite poses per villager (one shown), routes from `paths.js`
+  `routeGraph(pathRoutes, links)` (Dijkstra over the dry lines; `links` = the bridge deck)
+- sound: `calls.js` (creature calls, `animalCall`), `speech.js` (formant speech, `VOICES`,
+  `voiceFor(kind)`), `environment.js` (`createEnvironment(ctx).update(state)`: the world's
+  ambience from weather, night, indoors and distances to water and fire), `instruments.js`
+  (`playSong`: any song on any instrument), all rendering through the shared `dsp.js`
+- `freight.js` -- `createFreight(world)`: goods with ONE state table
+  (`GOODS`, changed only through `goodsTo`), the barge, the dock hands,
+  the freight carts' stops, goods riding moving floors
+- `weather.js` -- `createWeather(scene)`: the rain and snow curtains
+- `geom.js` -- the vector maths and the aim rotation the generators share
+- people's seating goes through `sitAt` / `rideAt` from `people.js`
+
+Refactors are checked with the deterministic sim: hashes of every herd,
+the freight chain, the paths and the generators' output after a fixed
+number of ticks must stay byte-identical.
 
 ## Speech (`speech.js`, standalone)
 

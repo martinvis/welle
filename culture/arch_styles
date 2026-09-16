@@ -36,6 +36,12 @@ Roof
 - Attic: space below pitched roof
 - Gutter: water discharge
 
+#Arch
+Extrados: outer curve of arch
+Intrados: inner curve of arch
+Blind arch: without opening, decorative purpose
+Semicircular arch: 
+
 Caisson: watertight structure, becomes base of bridge foundation
 Cofferdam: temporary watertight enclosure during dam construction
 

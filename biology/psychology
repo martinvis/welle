@@ -3,6 +3,7 @@ Forgetting curve: decline of memory retention in time, if not reviewed
 Learning curve: relationship between experience and proficiency
 Spaced repetition: flashcards, shows difficult more and easy less frequently
 Eidetic / photographic memory: ability to recall image with high precision after seeing it once
+Hyperthymesia (Highly superior autobiographical memory): ability to remember life experiences in detail
 Mnemonic device: technique aiding information retention or retrieval
 - Method of loci: uses visualization of familiar space
 Ribot's law: recent memories are more likely to be lost (time gradient)
@@ -110,3 +111,21 @@ Killer ape theory: aggression as driving force in human evolution (weapons)
 Drunken monkey hypothesis: evolutionary dependence on fermenting fruit as food source (ethanol)
 Indoctrination: impressing mind with set of beliefs, suppressing critical thinking
 - Brainwashing: systematic indoctrination, changing personality
+
+#decision making
+Expected utility theory: expected utility = sum( probability * utility )
+- rational agents maximize utility
+- ignores current state, uses absolute difference, decision weight equal probability
+- Allais paradox: contradiction, people choose lower expected value to guarantee win
+Prospect theory: s-shaped value function
+- neutral reference point (current state)
+- diminishing sensitivity (relative difference)
+- losses valued more than gains (loss aversion)
+- decision weight differ from probability
+- Certainty effect: undervaluing outcomes of high probability (vaccine safety)
+- Possibility effect: overvaluing outcomes of low probability (shark attacks)
+Fourfold pattern: risk attitude based on prospect theory
+- gain with high probability: risk averse (lawsuit settlement)
+- loss with high probability: risk seeking (bagholding)
+- gain with low probability: risk seeking (lottery ticket)
+- loss with low probability: risk averse (insurance)

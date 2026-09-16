@@ -223,3 +223,8 @@ s-process (slow): decay before another neuron captured
 =Proton capture:
 rp-process (rapid): capture until decay is necessary, accreting neutron star
 =Photodisintegration: atomic nucleus excited by high energy gamma ray decays
+
+Milankovitch cycles: Earth orbit changes influencing climate over long periods
+- orbital eccentricity: 100ky / 400ky cycles, caused by Jupiter+Saturn gravitational pull, affects total annual solar energy
+- axial tilt: 40ky cycle, caused by Sun+Moon torque, lower tilt = milder seasons = ice sheets growth, latitudinal contrast
+- axial precession: 25ky cycle, caused by Sun+Moon tidal forces, hemisphere seasons contrast

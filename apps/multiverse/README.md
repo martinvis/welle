@@ -3,7 +3,7 @@
 A stylized, walkable low-poly 3D world rendered with a custom "banner" engine:
 every rounded body part — animal limbs, tree crowns, butterfly wings — is a
 single camera-facing quad whose mathematically perfect silhouette is drawn by
-a signed-distance-function shader. Flat fills, dark borders, no lighting pass,
+a signed-distance-function shader. Flat fills with formula shading (no lights), an optional 1px outline (Shift+O), no lighting pass,
 no tessellation. A whole forest, herd, or crowd is one instanced draw call.
 
 On top of that engine: a town of real-dimension buildings (Greek temples with
@@ -26,21 +26,42 @@ procedural — no textures, no model files.
 ## Layout
 
 ```
-index.html        dev entry point — the whole demo orchestrator (module script)
-species.js        27+ animal defs + generative butterflies/fish/shark/dolphin
-people.js         generative people (poses: stand, sit, ride)
+index.html        dev entry point — the demo orchestrator (module script): world layout, sim tick, player, UI
+paths.js          the path network: lanes (carts, riders), highway, every track kept out of the water, the track mesh
+freight.js        the freight chain: goods and their states (one table), barge, dock hands, freight stops, goods riding moving floors
+weather.js        the rain and snow curtains (the weather's state stays with the world)
+geom.js           small vector maths and the aim rotation shared by the generators
+species.js        42 animal defs + generative butterflies/fish/shark/dolphin
+mammals.js        the mammal rig: metaball bodies, IK legs, arc tails, walk/run gaits for the 22 mid-to-large mammals
+people.js         the human rig + wardrobe: metaball torso, IK knees, clothes as cut shells (poses: stand, sit, ride, carry, lie)
 carts.js          carts and wagons: bodies, wheels, barrels, yoked teams, the fleet mix
-flora.js          trees, bushes, mushrooms, flowers, grass, clouds
+flora.js          trees grown by recursive branching (6 species), bushes, mushrooms, flowers, grass, clouds
+foliage.js        the trees' leaf cards: one draw for the forest, alpha cut-out with alpha-to-coverage, wind
 architecture.js   building generators + procedural material patterns
 banner.js         per-part SDF quad engine (one draw call per part)
 instanced.js      one-draw-call herd engine (shared silhouette shaders)
-rig.js            classic polygon-mesh engine (comparison baseline)
+composite.js      one-quad-per-animal herd engine: all parts smooth-unioned per pixel into one silhouette
+textures.js       pattern tiles calculated at startup (brick, tiles, checker, grass...), mipmapped + anisotropic
+skeleton.js       shared CPU pose: compiled skeletons, transform walk, two-bone leg IK, gait bob
 anim.js           engine-independent skeletal animation
 rtc.js            WebRTC transport + presence session
-speech.js         formant speech synthesis: rich IPA phoneme table, 5 languages x 18 words, accents (standalone)
-calls.js          synthesized animal calls, one recipe per species (standalone)
+speech.js         formant speech synthesis (IPA phonemes, 8 languages, 23 voice presets incl. old men and women, voiceFor(kind))
+calls.js          synthesized creature calls, a distinct recipe per species (birds included); WILD = sounds for the environment only
+environment.js    the world's ambience: rain on leaves or roof, wind, surf, brook, hearth, birds by day, crickets and owls by night, thunder
+instruments.js    11 instruments x 10 songs, any song on any instrument (the village bard plays them)
+squirrels.js      squirrels: dash between neighbouring trees, climb the trunks head first up and down
+paintings.js      the palace's paintings: views of the world from the towers, taken once at the start
+mirrors.js        planar mirrors (the palace's Hall of Mirrors): reflections on a budget, the nearest three
+tools.js          tools in people's hands (scythe, spade, hoe, hammer, rod, lute) as low-poly instanced meshes
+dsp.js            shared DSP for the four sound engines: filters, loudness, loops, buffer playback
 village.js        the village: stone bridge, bakery, yards with sheds and stables, fields, orchard, fisherman, smithy, pottery, church, market, town wall and palisade
+village-life.js   the villagers' day: homes and beds, jobs, sleep at night, church at the bell, the inn, the market, sacks to the mill
 speech.html       the speech test page: every word in every language, four voices
+wardrobe.html     the people test page: every garment, hat, hairstyle and pose, plus a walking crowd
+textures.html     the pattern tiles as baked, alone and repeated, and the leaf atlas
+menagerie.html    the animal test page: chosen species in a row (default: the ones built from curved tubes)
+grove.html        the tree test page: every species twice, autumn and re-roll keys
+texture/          the tiles saved as PNGs by build/textures.py -- for looking at only, the game calculates them
 docs/             architecture, engines, world, networking
 build/            single-file distribution build
 dist/             generated — bannerfield.html, fully self-contained
@@ -56,17 +77,18 @@ python3 -m http.server 8471
 # open http://localhost:8471/index.html
 ```
 
-Useful URL parameters: `?mode=rig|banner|instanced`, `?species=cow`,
+Useful URL parameters: `?near=10` (3D-marched fillets within that distance, off by default), `?mode=banner|instanced` (instanced = composite for the animals), `?species=cow`,
 `?building=none|parthenon|cologne|...`, `?n=1000` (herd size), `?trees=0`,
-`?people=0`, `?carts=N` (fleet size), `?butterflies=0`, `?autumn=1`, `?weather=1|2`, `?intensity=0-2`,
-`?night=1`, `?freeze=<t>` (pin the animation clock), `?cam=orbit`,
+`?people=0`, `?textures=0` (patterns per pixel instead of baked tiles), `?smooth=0` (raw sim ticks), `?billboard=0` (leaf cards fixed instead of facing the camera), `?carts=N` (fleet size), `?butterflies=0`, `?autumn=1`, `?weather=1|2`, `?intensity=0-2`,
+`?night=1`, `?villagers=N` (the village's people, default 32), `?freeze=<t>` (pin the animation clock), `?cam=orbit`,
 `?cx/cy/cz/tx/ty/tz` (camera), `?depth=flat` (disable per-pixel depth).
 
-Controls: WASD + mouse (click to grab), Shift run, Space jump, Shift+Space
+Controls: WASD + mouse (click to grab), Shift run on/off (like C crouch), Space jump, Shift+Space
 dash. Click a horse to ride it, a door to open it; click a dragon or
 manticore to fly it (E climbs, Q descends). P cycles rain/snow,
 O intensity, I autumn, N night, M multiplayer panel, L / K / J the
-people's language / voice / word (they speak a word now and then when near).
+people's language / voice / word (they speak a word now and then when near),
+C crouch (toggle), Tab the full controls list.
 
 ## Building the distribution file
 
@@ -78,3 +100,25 @@ python3 build/build.py
 Produces `dist/bannerfield.html` — one self-contained minified file with
 three.js and all modules bundled in, no CDN or server needed: open it from
 disk, send it to a friend.
+
+## Configuration
+
+`config.json` holds the settings that decide what rendering costs: the
+renderer (antialiasing, pixel-ratio cap, the camera's near / far clipping
+distances -- near kept below the player's collision radius, and the FRAME
+BUDGET: `targetFps` is what the ms/frame readout is judged against -- 90 fps
+is 11.1 ms, and the HUD says what share of it a frame spends -- while
+`uncapped` drives the loop off a timer instead of the display's refresh, so
+the fps number shows the real ceiling on a screen that refreshes slower than
+the machine can draw; `?fps=90`, `?fps=max`, live `__dbg.setFps(90)`), the SDF figures (the
+half-resolution pass for near figures -- off by default, Shift+M toggles
+it live -- screen cells, pose LOD distances, marched fillets), baked
+textures (and their parallax relief: `parallax`, `parallaxSteps`,
+`parallaxFar`), mirrors (planes reflecting at once, reach), the paintings' size,
+the crowd sizes and the player's own body (`player`: `selfBody` on/off,
+`eyeBehind` -- how far behind the camera its eyes sit, 0.10 m;
+`collisionRadius` -- how close you get to walls, 0.25 m). Each section carries an `_about` line. Served from
+source, edit it and reload; the dist file bundles it, so rebuild with
+`python3 build/build.py`. URL options (`?half=1`, `?cells=2`,
+`?people=10` ...) still override it per visit.
+

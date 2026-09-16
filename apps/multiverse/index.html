@@ -48,10 +48,12 @@
 <script type="module">
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { SPECIES, makeButterfly, makeDragonfly, makeFish, makeShark, makeDolphin } from "./species.js";
-import { buildSpecies as buildRig } from "./rig.js";
+import { SPECIES, makeButterfly, makeDragonfly, makeFish, makeShark, makeDolphin, makeCat, gaitBase, bodyProbe, runs, saddle, partExtent, SQUIRREL } from "./species.js";
 import { buildSpecies as buildBanner } from "./banner.js";
+import { OUTLINE_PX, setOutline, outlineOn } from "./outline.js";
 import { createHerd } from "./instanced.js";
+import { createComposite, renderNearPass, renderOcclusion, occFromQuery, OCC, OCC_LAYER, NEAR, PIPE, setPipe, pipeFromQuery, LOD, beginSecondaryView, endSecondaryView } from "./composite.js";
+import { createGrassFringe, GRASS_WIND_GLSL, GRASS_COLOR_GLSL, GRADE, GRASS_LAYER, FRINGE, markGroundProp } from "./grass.js";
 import { animateSpecies } from "./anim.js";
 import { BUILDINGS, buildBuilding, buildInstanced, waterWheel, woodMaterial, barge as bargeDef, barrel as barrelParts, sack as sackParts, SNOW, medievalHouse } from "./architecture.js";
 import { VILLAGE, stoneBridge, stoneWall, palisade, fisherBoat, oar, fishingRod, fishingLine, caughtFish } from "./village.js";
@@ -71,15 +73,44 @@ Object.assign(BUILDINGS, VILLAGE, {
 });
 import { makeCart, wheelDef, FLEET, LOAD_VARIANTS, CART_SIZES } from "./carts.js";
 import { makeTree, TREE_SPECIES, makeMushroom, MUSHROOMS, makeBush, makeCloud, makeFlower, FLOWERS, rng } from "./flora.js";
-import { makePerson } from "./people.js";
+import { makePerson, PEOPLE, SOLDIER } from "./people.js";
+import { laneFrom, buildPathNetwork, routeGraph, wanderLoop } from "./paths.js";
+import { createVillageLife } from "./village-life.js";
+import { createTools, handIndex } from "./tools.js";
+import { createFaces, VOCAL_FACES } from "./faces.js";
+import { createArchery } from "./archery.js";
+import { createTableware } from "./tableware.js";
+import { createCombat } from "./combat.js";
+import { createSword } from "./sword.js";
+import { createSquirrels } from "./squirrels.js";
+import { Reflector } from "three/addons/objects/Reflector.js";
+import { createMirrors, MIRRORS } from "./mirrors.js";
+import { createPaintings, PAINTINGS } from "./paintings.js";
+import { createWeather } from "./weather.js";
+import { createFreight } from "./freight.js";
+import { TEXTURES, PARALLAX, bakeTiles, tileTexture } from "./textures.js";
+import { buildFoliage, FOLIAGE_T, FOLIAGE_BB } from "./foliage.js";
+FOLIAGE_BB.value = new URLSearchParams(location.search).get("billboard") === "0" ? 0 : 1;   // ?billboard=0: leaf cards fixed in space instead of turned to the camera
 import { HostSession, GuestSession } from "./rtc.js";
-import { createSpeaker, LANGS, WORDS, MOODS } from "./speech.js";
+import { createSpeaker, LANGS, WORDS, MOODS, VOICES, voiceFor } from "./speech.js";
+import { createEnvironment } from "./environment.js";
+import { playSong, INSTRUMENTS } from "./instruments.js";
 import { animalCall, CALLS, makeSpace } from "./calls.js";
+import CONFIG from "./config.json" with { type: "json" };   // the settings file: rendering and its costs (edit it, reload; dist: rebuild)
 
 const qp = new URLSearchParams(location.search);
 const num = (k, d) => qp.has(k) ? Number(qp.get(k)) : d;
-const mode = ["rig", "banner"].includes(qp.get("mode")) ? qp.get("mode") : "instanced";   // one draw call for the whole herd by default
+const mode = qp.get("mode") === "banner" ? "banner" : "instanced";   // one draw call for the whole herd by default
 const pixelDepth = qp.get("depth") !== "flat";               // ?depth=flat for the early-z A/B
+{ const c = CONFIG.composite;   // the settings file first, then the URL's switches on top
+  Object.assign(PIPE, { half: c.halfResolution, halfDist: c.halfDistance, viewSpace: c.viewSpace, cells: c.cells, cellMin: c.cellMin, cellBig: c.cellBig, early: c.earlyExit, solidCells: c.solidCells });
+  LOD.near = c.poseLodNear; LOD.far = c.poseLodFar;
+  OCC.on = c.occlusion ?? false; OCC.scale = c.occlusionScale ?? .25;
+  PEOPLE.nose = CONFIG.people.nose;
+  Object.assign(MIRRORS, { planes: CONFIG.mirrors.planes, reach: CONFIG.mirrors.reach }); Object.assign(PAINTINGS, { width: CONFIG.paintings.width, height: CONFIG.paintings.height }); }
+pipeFromQuery(qp);   // composite pipeline switches: ?viewspace=0|1 ?cells=N (1 = off) ?cellmin= ?pipedebug=1 (live: __dbg.setPipe({ cells: 1 }))
+occFromQuery(qp);    // ?occlude=0|1 ?occscale=: figures wholly behind the world are never drawn (stage 3b)
+NEAR.dist = num("near", CONFIG.composite.marched3dDistance); NEAR.scale = num("scale3d", CONFIG.composite.marched3dScale);   // ?near=10: animals within that many metres get marched 3D fillets (off by default: costs more than it shows)
 const bParam = qp.get("building");                           // ?building=none | parthenon | hephaestus,parthenon
 const SITES = [
   { key: "dendera", x: -530 },
@@ -102,14 +133,44 @@ const CAST = qp.has("species")                               // ?species=giraffe
   ? SPECIES.filter((s) => qp.get("species").split(",").includes(s.name))
   : SPECIES;
 const n = CAST.length ? Math.max(1, num("n", CAST.length)) : 0;   // ?n=1000 for the herd stress test
-const build = mode === "rig" ? buildRig : (d) => buildBanner(d, { pixelDepth });
+const build = (d) => buildBanner(d, { pixelDepth });
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+// ?aa=0|1 overrides the setting for one visit: multisampling is a context flag, so it cannot be toggled live --
+// the A/B is two loads with __dbg.bench(). It costs colour AND depth per SAMPLE (4x the framebuffer traffic at
+// 4x MSAA) but shades once per pixel, so what it saves depends on whether the frame is bandwidth- or ALU-bound.
+const AA = qp.has("aa") ? qp.get("aa") !== "0" : CONFIG.renderer.antialias;
+// ?reflect=0|1: a true planar reflection in the water. reach: it is only drawn with water within this many
+// metres of the eye -- the plane spans the world, so the frustum alone would never cull it.
+const REFLECT = { on: qp.has("reflect") ? qp.get("reflect") !== "0" : (CONFIG.renderer.reflect ?? true),
+                  // ?reflect=uv   the water paints its projective lookup (a smooth gradient = the lookup is right)
+  // ?reflect=raw  the water paints the reflection texture flat
+  // ?reflect=mirror  the reflector draws ITSELF and the water is hidden -- a bare test of whether the pass runs
+  mode: qp.get("reflect") ?? "", scale: .25, reach: 150 };
+let reflector = null;
+// ?figures= what to do with the animals and the people, so their cost can be taken apart:
+//   1     (default) as ever -- and it means EVERYTHING that stirs: the animals and the people, the butterflies,
+//         dragonflies, fish and squirrels, the carts, barge and boat gliding between sim ticks, the dock's
+//         freight, the mill sails and the water wheels. NOTE that the last three stop inside the SIMULATION,
+//         so a stopped world is not the world a peer sees: these switches are for measuring, not for playing.
+//   still drawn, but posed ONCE and never again -- they stand like statues. Takes the skeleton walks off the CPU
+//         (a transform chain per part per figure per frame) while their quads still fill the screen: the GPU half
+//         alone. (Their view-space sync still runs each frame, so a little CPU remains.)
+//   0     neither posed nor drawn: both halves gone at once
+// The world SIMULATES them either way -- the villagers keep their routines, the carts keep rolling -- so this
+// isolates the cost of showing them, not of thinking about them. (?freeze=0 stops the world itself instead.)
+const FIGURES = qp.get("figures") ?? "1";
+let stirred = 0;
+// true while anything alive should still be moved. Everything is placed and posed on the FIRST frame whatever
+// the switch says -- otherwise carts would sit at the origin and figures in their rest pose -- and after that
+// only ?figures=1 keeps stirring.
+const stir = () => FIGURES === "1" || stirred < 2;
+const renderer = new THREE.WebGLRenderer({ antialias: AA });
 renderer.setSize(innerWidth, innerHeight);
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-const shadows = mode === "rig" && n <= 16;   // banners are flat-shaded cutouts; no shadow pass
-renderer.shadowMap.enabled = shadows;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.setPixelRatio(Math.min(devicePixelRatio, num("dpr", CONFIG.renderer.maxPixelRatio)));   // ?dpr=1: the other big framebuffer lever
+TEXTURES.on = qp.has("textures") ? qp.get("textures") !== "0" : CONFIG.textures.bakedTiles;
+Object.assign(PARALLAX, { on: qp.has("parallax") ? qp.get("parallax") !== "0" : CONFIG.textures.parallax ?? true,   // ?parallax=0|1: the architecture's relief
+                          steps: CONFIG.textures.parallaxSteps ?? 8, far: CONFIG.textures.parallaxFar ?? 15, shadowSteps: CONFIG.textures.parallaxShadowSteps ?? 4 });   // ?textures=0: patterns evaluated per pixel instead of read from baked mipmapped tiles
+bakeTiles(renderer);                        // calculate the pattern tiles (textures.js) before any material draws
 document.body.appendChild(renderer.domElement);
 
 const gap = 5.5;   // elephants are ~4.3m long; keep neighbors clear
@@ -177,6 +238,9 @@ const riverZ = (x) => RIVER.z + RIVER.amp * Math.sin(x * RIVER.k + RIVER.ph);
 const BASIN = { x: -185, len: 40, add: 10 };
 const riverHW = (x) => RIVER.hw + BASIN.add * Math.exp(-(((x - BASIN.x) / BASIN.len) ** 2));
 const riverSD = (x, z) => !hasRiver || x > RIVER.xEnd ? 1e9 : Math.abs(z - riverZ(x)) - riverHW(x);   // signed distance to the bank line
+// THE measure of "is it water": signed distance to the nearest shore or bank line, + on land --
+// the paths keep off the water by it, the enclosure walls stand on land by it
+const waterSD = (x, z) => Math.min(hasLake ? lakeSD(x, z) : 1e9, riverSD(x, z));
 // the riverside street: a 1.5m track 4m up the north bank, buildings set
 // back 2m behind it with their doors on the street. The mill stands at the
 // street's west end right on the bank (its wheel needs the water); every
@@ -192,7 +256,8 @@ if (MILL) {
   RIVERSIDE.push(MILL);
   const lfp = BUILDINGS.landing.footprint;   // the landing at the basin: its deck reaches out over the bank
   RIVERSIDE.push({ key: "landing", x: BASIN.x, z: riverZ(BASIN.x) - riverHW(BASIN.x) - 1 - lfp[1] / 2 });
-  for (const [key, x] of [["tavern", MILL.x + 30], ["smithy", BASIN.x - 18], ["pottery", BASIN.x + 20]]) {   // door facing +z onto the street; the crafts flank the landing
+  for (const [key, x] of [["tavern", MILL.x + 30], ["smithy", BASIN.x - 18], ["pottery", BASIN.x + 20],
+                           ["carpenter", BASIN.x + 32], ["cooper", BASIN.x + 45.5], ["butcher", MILL.x + 13.7]]) {   // the trades by the quay: carpenter and cooper between pottery and mill, the butcher by the inn   // door facing +z onto the street; the crafts flank the landing
     const fpb = BUILDINGS[key].footprint;
     RIVERSIDE.push({ key, x, z: quayZ(x) - 2.5 - fpb[1] / 2 });
   }
@@ -221,7 +286,7 @@ if (MILL) {
     const fp = BUILDINGS[key].footprint;
     RIVERSIDE.push({ key, x, z: plotZ(x, fp), bank: "south", farm: true });
   }
-  for (const [key, x] of [["cabbageField", VILLAGE_X - 12], ["beanField", VILLAGE_X + 2], ["garlicField", VILLAGE_X + 14], ["berries", VILLAGE_X + 27], ["stableYard", VILLAGE_X + 46]]) {
+  for (const [key, x] of [["cabbageField", VILLAGE_X - 12], ["beanField", VILLAGE_X + 2], ["garlicField", VILLAGE_X + 14], ["berries", VILLAGE_X + 27], ["stableYard", VILLAGE_X + 46], ["soilField", VILLAGE_X + 64], ["apiary", VILLAGE_X + 80]]) {
     const fp = BUILDINGS[key].footprint;
     RIVERSIDE.push({ key, x, z: plotZ(x, fp, 17 + 2.5), bank: "south", farm: true });   // the back row, behind the 17m-deep yards
   }
@@ -231,13 +296,14 @@ if (MILL) {
     const south = RIVERSIDE.filter((s) => s.bank === "south"), north = RIVERSIDE.filter((s) => !s.bank);
     const WX0 = VILLAGE_X - 32, WX1 = VILLAGE_X + 158;
     const WZS = Math.max(...south.map((s) => s.z + BUILDINGS[s.key].footprint[1] / 2)) + 6;
-    BUILDINGS.townWall = stoneWall({ x0: WX0, x1: WX1, zS: WZS, zN0: bankS(WX0) + 1, zN1: bankS(WX1) + 1,
-                                     gates: [{ side: "w", at: vStreet(WX0) }, { side: "e", at: vStreet(WX1) }] });
+    BUILDINGS.townWall = stoneWall({ land: waterSD, x0: WX0, x1: WX1, zS: WZS, zN0: bankS(WX0) + 1, zN1: bankS(WX1) + 1,
+                                     gates: [{ side: "w", at: vStreet(WX0), guards: ["sword", "spear"] }, { side: "e", at: vStreet(WX1) }] });   // the west gate is watched
     RIVERSIDE.push({ key: "townWall", x: 0, z: 0, bank: "wall" });   // world coordinates: the site is the origin
     wallX = [WX0, WX1];
-    const PX0 = VILLAGE_X - 12, PX1 = Math.max(...north.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 3;
-    const PZN = Math.min(...north.map((s) => s.z - BUILDINGS[s.key].footprint[1] / 2)) - 5;
-    BUILDINGS.palisade = palisade({ x0: PX0, x1: PX1, zN: PZN, zS0: riverZ(PX0) - riverHW(PX0) - .5, zS1: riverZ(PX1) - riverHW(PX1) - .5,
+    // the palisade's towers stand inside it (ladders in the yard): 9m of room between the line and the houses
+    const PX0 = VILLAGE_X - 12, PX1 = Math.max(...north.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 9;
+    const PZN = Math.min(...north.map((s) => s.z - BUILDINGS[s.key].footprint[1] / 2)) - 9;
+    BUILDINGS.palisade = palisade({ land: waterSD, x0: PX0, x1: PX1, zN: PZN, zS0: riverZ(PX0) - riverHW(PX0) - .5, zS1: riverZ(PX1) - riverHW(PX1) - .5,
                                     gates: [{ side: "n", at: BASIN.x }, { side: "e", at: quayZ(PX1) }] });   // the freight road and the quay street
     RIVERSIDE.push({ key: "palisade", x: 0, z: 0, bank: "wall" });
   }
@@ -280,7 +346,7 @@ const groundH = (x, z) => {
   let carve = 0;
   if (hasLake) {
     const sd = lakeSD(x, z);
-    if (sd < 0) { const s = Math.min(1, -sd / LAKE.w); carve = 5.5 * s * s * (3 - 2 * s); }
+    if (sd < 0) { const s = Math.min(1, -sd / LAKE.w); carve = 8.8 * s * s * (3 - 2 * s); }   // 8.8m down: 6.6m of water at the deepest
   }
   if (hasRiver) {
     const sd = riverSD(x, z);
@@ -303,7 +369,7 @@ scene.fog = new THREE.Fog(0xcfe0e8, groundR * 1.05, groundR * 2.4);   // past ev
 
 // near .3 (not .1) buys 3x depth-buffer precision at distance -- big facades
 // like the Colosseum shimmer when mm-scale offsets drop below depth resolution
-const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, .3, groundR * 6);
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, CONFIG.renderer.near ?? .2, CONFIG.renderer.far ?? 2000);   // near below the collision radius: a wall you stand against is never cut open
 
 const camMode = qp.get("cam") === "orbit" ? "orbit" : "fps";   // default: a person's point of view
 const defTz = n > 4 ? -(rows - 1) * gap / 2 : (n ? 0 : frontZ - 12);
@@ -342,10 +408,23 @@ const supportNear = (x, z, maxY) => Math.max(
 // collision: a 0.25m circle around the camera against every wall-like part.
 // Colliders come straight from the building data: boxes and closed cylinders
 // that are tall and not pitched (ramps, roofs and slabs never block).
-const CR = .25;
+const CR = CONFIG.player?.collisionRadius ?? .25;   // the walker's radius against walls, bodies and trunks (config.json)
+// (arrows -- archery.js -- hit every visible part, pitched roofs, arches and all, not just the walking colliders:
+// `solids`, each with the inverse of its placement for an exact inside test in its own frame and a bounding radius)
+const CUTOUT_PATS = new Set(["rye", "barley", "beans", "garlic"]), _solM = new THREE.Matrix4(), _solQ = new THREE.Quaternion(), _solE = new THREE.Euler();
+const solidOf = (p) => {
+  if (p.render === false || p.shape === "panel" || CUTOUT_PATS.has(p.pat)) return null;
+  const z = p.size, sc = p.scale ?? [1, 1, 1], [rx, ry, rz] = (p.rot ?? [0, 0, 0]).map((d) => d * Math.PI / 180);
+  const R = p.shape === "box" ? Math.hypot(z[0], z[1], z[2]) / 2 : p.shape === "cyl" ? Math.hypot(Math.max(z.r1, z.r2), z.h / 2)
+          : p.shape === "sphere" ? z.r : p.shape === "capsule" ? z.r + z.len / 2 : p.shape === "arch" ? Math.hypot(z.r, z.t / 2)
+          : p.shape === "hwall" || p.shape === "spandrel" ? Math.hypot(z.w / 2, z.h, z.t / 2)
+          : p.shape === "wedge" ? Math.hypot(z[0], z[1] / 2, z[2]) : Math.hypot(z[0] / 2, z[1], z[2] / 2);   // (else: a gable prism)
+  _solM.compose(new THREE.Vector3(...p.pos), _solQ.setFromEuler(_solE.set(rx, ry, rz)), new THREE.Vector3(...sc)).invert();
+  return { shape: p.shape, size: z, pos: p.pos, inv: _solM.elements.slice(), R: R * Math.max(...sc) };
+};
 const colliderSites = sites.map((s) => {
   const def = BUILDINGS[s.key];
-  const cols = [];
+  const cols = [], solids = def.parts.map(solidOf).filter(Boolean);
   for (const p of def.parts) {
     if (p.collide === false) continue;   // walkable platforms (e.g. the Colosseum plinth discs)
     if (p.shape === "cyl" && !p.size.open && p.size.h > 1.2)
@@ -381,10 +460,16 @@ const colliderSites = sites.map((s) => {
       seg(ua, w / 2, 0, h);
     }
   }
-  return { x: s.x, z: siteZ(s), rx: def.footprint[0] / 2 + 2, rz: def.footprint[1] / 2 + 2, cols };
+  return { x: s.x, z: siteZ(s), rx: def.footprint[0] / 2 + 2, rz: def.footprint[1] / 2 + 2, cols, solids };
 });
 const doors = [];      // clickable house doors, populated with the town below
+const tableware = createTableware(scene, { buildBuilding });   // mugs and jugs to drink from, food on plates to eat (tableware.js), populated with the town below
 const treeCols = [];   // tree trunks, populated by buildFlora
+// a tree's trunk in the world (makeTree's centreline, turned by the tree's yaw, moved to where it stands): what climbers follow
+const trunkWorld = (td, t) => {
+  const c = Math.cos(t.rotY), s = Math.sin(t.rotY), p = t.position, W = (q) => [p.x + q[0] * c + q[2] * s, p.y + q[1], p.z - q[0] * s + q[2] * c];
+  return (td.trunk ?? []).map((g) => ({ a: W(g.a), b: W(g.b), r0: g.r0, r1: g.r1 }));
+};
 const pickables = [];  // flowers and mushrooms you can pick, from buildFlora
 let pickedCount = 0;
 const pickedKinds = new Map();   // your basket: kind -> count, shown bottom-left
@@ -444,6 +529,19 @@ function collides(x, z, feetY) {
   return false;
 }
 let yaw = 0, pitch = 0, controls = null;
+// LOOKING: left and right only, the head level, unless free pitch is asked for (?pitch=free, or the setting).
+// A fixed horizon keeps the ground plane where the eye expects it -- and the grass fringe, which grows its
+// stalks straight up the screen, is drawn as it was meant to be seen.
+const FREE_PITCH = qp.has("pitch") ? qp.get("pitch") === "free" : (CONFIG.player?.freePitch ?? false);
+// HOW YOU LOOK (?look=hover | drag | lock, or player.look):
+//   hover (default) the pointer turns the view as it moves, no button held, so the other hand keeps the keys.
+//                   A cursor runs out of screen, so the EDGES steer: hold it near one and the view keeps
+//                   turning. L takes pointer lock for anyone who prefers the cursor gone.
+//   drag            hold a button and drag (what a click-and-hold trackpad wants)
+//   lock            the old way only: click to capture the pointer
+const LOOK = qp.get("look") ?? CONFIG.player?.look ?? "hover";
+const EDGE_PX = 70, EDGE_RATE = 1.7;   // how near an edge steers, and radians a second at the very edge
+let ptrX = -1, ptrY = -1;              // the pointer's last place in the canvas (-1: not over it)
 let standY = 0, vy = 0, airborne = false, jumpHeld = false;   // the walker's feet
 if (camMode === "orbit") {
   camera.position.set(num("cx", 0), num("cy", 4.2 + extent * .12), num("cz", extent + 1));
@@ -457,24 +555,60 @@ if (camMode === "orbit") {
   camera.position.set(cx, standY + EYE, cz);
   const look = new THREE.Vector3(num("tx", 0), num("ty", EYE), num("tz", defTz)).sub(camera.position);
   yaw = Math.atan2(-look.x, -look.z);
-  pitch = Math.atan2(look.y, Math.hypot(look.x, look.z));
+  pitch = FREE_PITCH ? Math.atan2(look.y, Math.hypot(look.x, look.z)) : 0;   // level unless free pitch is on
   camera.rotation.set(pitch, yaw, 0);
-  renderer.domElement.addEventListener("click", () => {
-    if (document.pointerLockElement === renderer.domElement) interact();   // ride horses, open doors
-    else renderer.domElement.requestPointerLock();
+  // LOOKING WITHOUT POINTER LOCK: hold a button and drag -- what a touchpad wants, where a locked pointer is
+  // awkward to hold and to leave. A drag that stays under DRAG_SLOP pixels is still a CLICK, so tapping to
+  // interact or to take the lock is unchanged.
+  const DRAG_SLOP = 5;
+  let drag = null, dragged = 0;   // the pointer held down, and how far it has travelled since
+  renderer.domElement.addEventListener("pointerdown", (e) => {
+    if (document.pointerLockElement === renderer.domElement) return;   // locked: the old way, no dragging needed
+    drag = e.pointerId; dragged = 0;
+    renderer.domElement.setPointerCapture(e.pointerId);
   });
+  const dragEnd = (e) => { if (drag === e.pointerId) { renderer.domElement.releasePointerCapture?.(e.pointerId); drag = null; } };
+  renderer.domElement.addEventListener("pointerup", dragEnd);
+  renderer.domElement.addEventListener("pointercancel", dragEnd);
+  renderer.domElement.addEventListener("click", (e) => {
+    if (document.pointerLockElement === renderer.domElement) { if (weapon === "none") interact(); return; }   // ride horses, open doors (a weapon out takes the button)
+    if (dragged > DRAG_SLOP) { dragged = 0; return; }   // that was a look, not a tap
+    renderer.domElement.requestPointerLock();   // a click still CAPTURES the pointer, hover or not: looking without
+                                               // it is for walking about with a hand on the keys, not a replacement
+  });
+  // the weapon in hand: the bow (archery.js) -- hold the button to draw, release to loose, the right button lowers it --
+  // or the sword (sword.js) -- a click swings it; an arrow in reach is taken instead
+  renderer.domElement.addEventListener("mousedown", (e) => {
+    if (document.pointerLockElement !== renderer.domElement || weapon === "none") return;
+    if (e.button === 2) { archery.cancel(); return; }
+    if (e.button !== 0) return;
+    const it = findInteraction();
+    if (it?.arrow) it.act();
+    else if (weapon === "bow") archery.startDraw();
+    else sword.swing();
+  });
+  addEventListener("wheel", (e) => {   // the wheel runs through none / bow / sword
+    if (document.pointerLockElement !== renderer.domElement || !e.deltaY) return;
+    const order = ["none", "bow", "sword"], k = order.indexOf(weapon);
+    setWeapon(order[(k + (e.deltaY > 0 ? 1 : 2)) % 3]);
+  });
+  addEventListener("mouseup", (e) => { if (e.button === 0 && archery.drawing) archery.release(); });
+  renderer.domElement.addEventListener("contextmenu", (e) => e.preventDefault());
   addEventListener("mousemove", (e) => {
-    if (document.pointerLockElement !== renderer.domElement) return;
+    const locked = document.pointerLockElement === renderer.domElement;
+    ptrX = e.clientX; ptrY = e.clientY;
+    if (!locked && !drag && LOOK !== "hover") return;   // hover: no button needed
+    if (!locked) dragged += Math.abs(e.movementX) + Math.abs(e.movementY);
     yaw -= e.movementX * .0022;
-    pitch = THREE.MathUtils.clamp(pitch - e.movementY * .0022, -1.45, 1.45);
+    if (FREE_PITCH) pitch = THREE.MathUtils.clamp(pitch - e.movementY * .0022, -1.45, 1.45);
   });
+  addEventListener("mouseout", () => { ptrX = ptrY = -1; });   // gone from the window: stop steering
 }
 
 const hemi = new THREE.HemisphereLight(0xffffff, 0x6b5a42, .9);
 scene.add(hemi);
 const key = new THREE.DirectionalLight(0xfff4de, 1.6);
 key.position.set(4, 7, 5);
-key.castShadow = shadows;
 key.shadow.mapSize.set(1024, 1024);
 key.shadow.camera.left = -9; key.shadow.camera.right = 9;
 key.shadow.camera.top = 6; key.shadow.camera.bottom = -6;
@@ -489,56 +623,93 @@ for (let i = 0; i < gp.count; i++) gp.setY(i, groundH(gp.getX(i), gp.getZ(i)));
 gg.computeVertexNormals();
 // grade the grass by elevation (lush valleys -> dry crests) with faint
 // contour bands, so the relief reads even under flat toon lighting
-const cLo = new THREE.Color(0x527e43), cMid = new THREE.Color(0x7fa864), cHi = new THREE.Color(0xa6b264);
+const cLo = new THREE.Color(GRADE.lo), cMid = new THREE.Color(GRADE.mid), cHi = new THREE.Color(GRADE.hi);   // (grass.js: the fringe grades its stalks by the same numbers)
 const gcol = new Float32Array(gp.count * 3);
 const cc = new THREE.Color();
 for (let i = 0; i < gp.count; i++) {
   const h = gp.getY(i);
-  const t = Math.min(1, Math.max(0, h / 9.6 + .5));
+  const t = Math.min(1, Math.max(0, h / GRADE.span + .5));
   cc.copy(t < .5 ? cLo : cMid).lerp(t < .5 ? cMid : cHi, t < .5 ? t * 2 : (t - .5) * 2);
-  cc.multiplyScalar(Math.floor(h / 1.1) % 2 ? 1.05 : .96);
+  cc.multiplyScalar(Math.floor(h / GRADE.band) % 2 ? 1.05 : .96);
   cc.toArray(gcol, i * 3);
 }
 gg.setAttribute("color", new THREE.BufferAttribute(gcol, 3));
+// GRASS: blades baked into the tile, not geometry and not a pass. Three tiles hold the same blades leaning
+// three ways (bent left, upright, bent right) and every ground pixel blends the two that bracket the WIND where
+// it stands -- a slow gust travelling over the meadow -- so the lawn bends in waves. One extra mipmapped sample
+// per ground pixel, no overdraw, no CPU per frame, and the mip chain is what keeps blades from shimmering at
+// distance. What it cannot do is break a silhouette: no blade stands against the sky or a wall.
+// ?grass=flecks brings back the old blade-scale flecks, to compare.
+const GRASS = qp.get("grass") ?? "stalks";
+let groundU = null;   // the ground's uniforms, once three.js has compiled it (uT drives the wind)
 const groundMat = new THREE.MeshToonMaterial({ color: 0xffffff, vertexColors: true });
 groundMat.onBeforeCompile = (sh) => {   // grass texture + snow cover, both per-pixel
   sh.uniforms.uSnow = SNOW;
+  sh.uniforms.uT = { value: 0 };
+  groundU = sh.uniforms;
+  if (TEXTURES.on && GRASS === "stalks") { sh.uniforms.uG0 = { value: tileTexture("grassL") }; sh.uniforms.uG1 = { value: tileTexture("grass") }; sh.uniforms.uG2 = { value: tileTexture("grassR") }; }
+  else if (TEXTURES.on) sh.uniforms.uGrass = { value: tileTexture("grass") };
   sh.vertexShader = sh.vertexShader
     .replace("#include <common>", "varying vec3 vWp;\n#include <common>")
     .replace("#include <worldpos_vertex>",
              "#include <worldpos_vertex>\nvWp = (modelMatrix * vec4(transformed, 1.)).xyz;");
   sh.fragmentShader = sh.fragmentShader
     .replace("void main() {",
-             "uniform float uSnow;\nvarying vec3 vWp;\n" +
+             "uniform float uSnow, uT;\nvarying vec3 vWp;\n" + GRASS_WIND_GLSL + GRASS_COLOR_GLSL +
+             (TEXTURES.on ? (GRASS === "stalks" ? "uniform sampler2D uG0, uG1, uG2;\n" : "uniform sampler2D uGrass;\n") : "") +
              "float ghash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }\n" +
              "void main() {")
     .replace("#include <dithering_fragment>",
              // grass as a shader overlay, not geometry: blade-scale flecks and
              // broad tone patches over the elevation-graded green
-             "float gFleck = ghash(floor(vWp.xz * 7.));\n" +
-             "float gPatch = ghash(floor(vWp.xz * 1.4) + 9.);\n" +
-             "gl_FragColor.rgb *= .94 + .09 * gPatch;\n" +
-             "gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * vec3(.78, .92, .66), step(.8, gFleck) * .7);\n" +
-             "gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * vec3(1.12, 1.1, .9), step(.93, ghash(floor(vWp.xz * 7.) + 4.)) * .8);\n" +
+             // (from the baked grass tile -- mipmapped, so the flecks average out
+             // at distance instead of shimmering; ?textures=0 hashes per pixel)
+             (TEXTURES.on && GRASS === "stalks"
+               // the wind: two slow waves crossing the meadow, so gusts travel instead of the whole field pulsing
+               ? "float wv = grassWind(vWp.xz, uT);\n" +
+                 "float wf = clamp(wv * .4 + .5, 0., 1.);\n" +
+                 "vec4 gA = wf < .5 ? texture2D(uG0, vWp.xz) : texture2D(uG1, vWp.xz);\n" +      // (the tiles' period is 1m: metres ARE the uv)
+                 "vec4 gB = wf < .5 ? texture2D(uG1, vWp.xz) : texture2D(uG2, vWp.xz);\n" +
+                 "vec4 gS = mix(gA, gB, wf < .5 ? wf * 2. : wf * 2. - 1.);\n" +
+                 "float gCov = gS.r, gTip = gS.g / max(gCov, 1e-3), gTone = gS.b / max(gCov, 1e-3);\n" +
+                 "float gPatch = ghash(floor(vWp.xz * 1.4) + 9.);\n" +
+                 "gl_FragColor.rgb *= .94 + .09 * gPatch;\n" +
+                 // the blade over the ground it grows from: darker at the root, catching the light at the tip
+                 "gl_FragColor.rgb = mix(gl_FragColor.rgb, grassBlade(gl_FragColor.rgb, gTip, gTone), gCov * .9);\n"
+               : (TEXTURES.on
+                 ? "vec3 gT = texture2D(uGrass, vWp.xz * (7. / 32.)).rgb;\n" +
+                   "float gPatch = texture2D(uGrass, vWp.xz * (1.4 / 32.) + .37).b;\n" +
+                   "float gF1 = gT.r, gF2 = gT.g;\n"
+                 : "float gPatch = ghash(floor(vWp.xz * 1.4) + 9.);\n" +
+                   "float gF1 = step(.8, ghash(floor(vWp.xz * 7.))), gF2 = step(.93, ghash(floor(vWp.xz * 7.) + 4.));\n") +
+                 "gl_FragColor.rgb *= .94 + .09 * gPatch;\n" +
+                 "gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * vec3(.78, .92, .66), gF1 * .7);\n" +
+                 "gl_FragColor.rgb = mix(gl_FragColor.rgb, gl_FragColor.rgb * vec3(1.12, 1.1, .9), gF2 * .8);\n") +
              // snow: white scaled by the shaded luminance so elevation shading,
              // contour bands and slope lighting stay readable
              "float snowLum = dot(gl_FragColor.rgb, vec3(.333));\n" +
              "gl_FragColor.rgb = mix(gl_FragColor.rgb, min(vec3(1.), vec3(.92, .93, .97) * (.5 + .95 * snowLum)), uSnow);\n" +
              "#include <dithering_fragment>");
 };
+// the grass fringe (grass.js): the one pass that lets a stalk stand UP over what it grows in front of
+FRINGE.on = qp.has("fringe") ? qp.get("fringe") !== "0" : (CONFIG.renderer.grassFringe ?? true);
+FRINGE.debug = qp.get("fringe") === "raw" ? 2 : qp.get("fringe") === "mask" ? 1 : 0;   // the mask itself: green where it says grass, red where nothing may be painted
+if (GRASS !== "stalks") FRINGE.on = false;   // (?grass=flecks is the old flat lawn: no stalks at all)
+const grassFringe = createGrassFringe();
 const ground = new THREE.Mesh(gg, groundMat);
-ground.receiveShadow = shadows;
+ground.layers.enable(OCC_LAYER);    // stage 3b: the ground hides what stands behind a rise
+ground.layers.enable(GRASS_LAYER);  // the grass fringe's mask pass draws the ground alone into it
 scene.add(ground);
+scene.add(grassFringe.quad);
 
 const windmillHubs = [], waterWheels = [], fires = [], paneRecs = [];
 const doorMat = woodMaterial(0x5a3c22);
 const _pm = new THREE.Matrix4();
-let paneMesh = null;
-const placePane = (dr) => {   // hinge transform x pane box -> instance matrix
+const placePane = (dr) => {   // hinge transform x pane box -> its instance's matrix
   dr.grp.updateMatrix();
   _pm.multiplyMatrices(dr.grp.matrix, dr.local);
-  paneMesh.setMatrixAt(dr.idx, _pm);
-  paneMesh.instanceMatrix.needsUpdate = true;
+  dr.mesh.setMatrixAt(dr.idx, _pm);
+  dr.mesh.instanceMatrix.needsUpdate = true;
 };
 // a live fire: a few cones that sway, stretch and flicker in the vertex
 // shader on their own clock (much faster than the water), yellow core to
@@ -615,6 +786,7 @@ const makeFire = ({ r, h }) => {
 for (const site of sites) {
   const def = BUILDINGS[site.key];
   const b = buildBuilding(def);
+  markGroundProp(b);   // its depth hides the figures behind it (stage 3b) and the ground under it (the grass mask) -- solid parts only
   b.position.set(site.x, .01, siteZ(site));   // 1cm above the terrain: no coplanar bottoms
   if (def.sailAt) {   // the windmill's live sail cross, spun by the world clock
     const hub = new THREE.Group();
@@ -656,6 +828,7 @@ for (const site of sites) {
     scene.add(wg);
     waterWheels.push({ grp: wg, omega: RIVER.flow / def.wheel.r });
   }
+  tableware.addSite(def, site.x, siteZ(site));   // its mugs, jugs and the food on its plates
   for (const d of def.doors ?? []) {   // hinged clickable door panel in the exported doorway
     const wx = site.x + d.x, wz = siteZ(site) + d.z;
     const base = -(d.yaw ?? 0) * Math.PI / 180;         // door axis: +x rotated by yaw
@@ -671,7 +844,7 @@ for (const site of sites) {
     doors.push({ grp, wx, wz, wy, w: d.w, base, ax, az, open: false, ang: 0 });
   }
   for (const wn of def.windows ?? []) {   // openable window pane, hinged like a small door
-    // hundreds of them (every palace window): all panes are ONE InstancedMesh;
+    // hundreds of them (every palace window): all panes share two InstancedMeshes (glass, shutters);
     // the hinge is a bare Object3D whose matrix feeds the instance when it swings
     const wx = site.x + wn.x, wz = siteZ(site) + wn.z;
     const base = -(wn.yaw ?? 0) * Math.PI / 180;
@@ -681,10 +854,9 @@ for (const site of sites) {
     grp.rotation.y = base;
     const local = new THREE.Matrix4().compose(new THREE.Vector3((wn.w - .04) / 2 + .02, (wn.h - .04) / 2, 0),
       new THREE.Quaternion(), new THREE.Vector3(wn.w - .04, wn.h - .04, .06));
-    doors.push({ grp, local, idx: paneRecs.length, wx, wz, wy: wn.y - wn.h / 2, h: wn.h, w: wn.w, base, ax, az, open: false, ang: 0, win: true });
+    doors.push({ grp, local, glazed: !!def.glazed, wx, wz, wy: wn.y - wn.h / 2, h: wn.h, w: wn.w, base, ax, az, open: false, ang: 0, win: true });
     paneRecs.push(doors[doors.length - 1]);
   }
-  if (shadows) b.traverse((o) => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
   scene.add(b);
 }
 { // cobwebs: inclined triangles spanning ceiling corners -- vertices a
@@ -723,12 +895,17 @@ for (const site of sites) {
     })));
   }
 }
-if (paneRecs.length) {   // every window pane in the world: one draw call
-  paneMesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1),
-    new THREE.MeshBasicMaterial({ color: 0xaacfe2, transparent: true, opacity: .45 }), paneRecs.length);
-  paneMesh.frustumCulled = false;
-  for (const dr of paneRecs) placePane(dr);
-  scene.add(paneMesh);
+// every window in the world in two draw calls: glass panes where a building
+// could pay for glass (def.glazed: the palace, the church), wooden shutters
+// everywhere else -- glass was a luxury in the Middle Ages
+for (const glazed of [true, false]) {
+  const recs = paneRecs.filter((dr) => dr.glazed === glazed);
+  if (!recs.length) continue;
+  const mesh = new THREE.InstancedMesh(new THREE.BoxGeometry(1, 1, 1), glazed
+    ? new THREE.MeshBasicMaterial({ color: 0xaacfe2, transparent: true, opacity: .45 }) : woodMaterial(0x6e4c2e), recs.length);
+  mesh.frustumCulled = false;
+  recs.forEach((dr, i) => { dr.mesh = mesh; dr.idx = i; placePane(dr); });
+  scene.add(mesh);
 }
 
 // wandering: three sections -- buildings to the north; the fenced NATURE
@@ -773,12 +950,47 @@ const BATS = !roosts.length ? SKY : {
   home: (x, z) => { let b = roosts[0], bd = 1e9; for (const r of roosts) { const d = (x - r[0]) ** 2 + (z - r[1]) ** 2; if (d < bd) { bd = d; b = r; } } return b; },
   spawn: () => { const r = roosts[Math.floor(wrand() * roosts.length)], a = wrand() * Math.PI * 2, d = 3 + wrand() * 22; return [r[0] + Math.cos(a) * d, r[1] + Math.sin(a) * d]; },
 };
-const fenceFor = (def) => def.monster ? MFENCE : def.swim ? LAKEF : def.shore ? SHORE : def.name === "bat" ? BATS : def.fly ? SKY : FENCE;
+const fenceFor = (def) => def.monster || def.dinosaur ? MFENCE : def.swim ? LAKEF : def.shore ? SHORE : def.name === "bat" ? BATS : def.fly ? SKY : FENCE;
 const spawnIn = (f) => f.spawn ? f.spawn() : [f.x0 + 5 + wrand() * (f.x1 - f.x0 - 10), f.z0 + 5 + wrand() * (f.z1 - f.z0 - 10)];
-const gaitBase = (def) => {   // natural travel speed for this body's leg length
-  const lg = def.parts.find((q) => q.id.startsWith("leg"));
-  return lg ? Math.max(.15, 1.3 * (lg.size.len + lg.size.r)) : 1;
+// ---- smooth drawing between sim ticks --------------------------------------
+// The sim moves life on a fixed 50ms tick (see simTo). Drawn as the tick
+// left it, everything would hold each pose for ~3 frames and then jump -- a
+// walker 6cm a step, its legs with it: a stutter that shows close up.
+// Instead everything a tick moves registers a TRACK: the state before and
+// after the latest tick is recorded, every frame draws the blend between
+// them (one tick, 50ms, behind), and before the next tick runs the sim's own
+// state is written back -- so the simulation stays tick-exact and
+// deterministic (multiplayer), and only what is DRAWN is smooth.
+//   get(): the sim's state as numbers     set(v): write numbers into what is drawn
+//   angles: indices blended the short way round   jump: metres (indices 0..2)
+//   beyond which a change is drawn at once (0 = no position in the track)
+//   live(): false while something else drives it every frame (a ridden mount)
+// ?smooth=0 draws the raw tick states, to compare.
+const tracks = [];
+const SMOOTH = qp.get("smooth") !== "0";
+const track = (get, set, { angles = [], jump = 6, live = null } = {}) => {
+  const tr = { get, set, angles, jump, live, prev: null, cur: null, v: [] };
+  tracks.push(tr);
+  return tr;
 };
+function tracksBegin() {   // before a run of ticks: the sim's own state back in place of the blended one
+  for (const tr of tracks) {
+    if (tr.live && !tr.live()) { tr.prev = tr.cur = null; continue; }
+    if (tr.cur) tr.set(tr.cur);
+  }
+}
+const tracksSnap = (key) => { for (const tr of tracks) if (!tr.live || tr.live()) tr[key] = tr.get(); };
+function tracksDraw(a) {   // a: 0..1 through the current tick
+  for (const tr of tracks) {
+    const p = tr.prev, c = tr.cur;
+    if (!p || !c || (tr.live && !tr.live())) continue;
+    const u = tr.jump > 0 && Math.hypot(c[0] - p[0], c[1] - p[1], c[2] - p[2]) > tr.jump ? 1 : a;
+    const v = tr.v;
+    for (let i = 0; i < c.length; i++) v[i] = p[i] + (c[i] - p[i]) * u;
+    for (const i of tr.angles) v[i] = p[i] + ((((c[i] - p[i] + Math.PI) % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI) - Math.PI) * u;
+    tr.set(v);
+  }
+}
 const addWanderer = (p, apply, setT, speed, heading, base, alt = 0, hz = .8, f = FENCE, probe = .4) => {
   // each wanderer owns its own seeded RNG: its whole life is a pure
   // function of the world clock, identical on every multiplayer client,
@@ -787,16 +999,14 @@ const addWanderer = (p, apply, setT, speed, heading, base, alt = 0, hz = .8, f =
               rng: rng(4242 + wanderers.length * 7919),
               moving: wrand() > .3, until: wrand() * 6, animT: wrand() * 10 };
   wanderers.push(w);
+  track(() => [p.x, p.y, p.z, w.heading, w.animT], (v) => { p.set(v[0], v[1], v[2]); apply(v[3]); setT(v[4]); },
+        { angles: [3], live: () => !w.frozen });   // (a ridden or remotely ridden mount is moved every frame instead)
   return w;
 };
 const wanderParams = (def) => {   // fliers cruise at altitude; walkers gait by leg length
   const fl = def.fly;
   const sp = fl ? fl.speed[0] + wrand() * (fl.speed[1] - fl.speed[0]) : .4 + wrand() * .7;
   return [sp, fl ? sp : gaitBase(def), fl ? fl.alt[0] + wrand() * (fl.alt[1] - fl.alt[0]) : 0, fl ? fl.hz : .8];
-};
-const bodyProbe = (def) => {   // half the body length: where the nose and tail meet the ground
-  const b = def.parts.find((q) => q.id === "body" || q.id === "torso");
-  return b ? ((b.size.len ?? 0) / 2 + (b.size.r ?? 0)) : .4;
 };
 // The simulation runs on a FIXED 50ms tick indexed from world time 0, and
 // every random draw comes from a per-wanderer seeded stream -- so ambient
@@ -805,12 +1015,20 @@ const bodyProbe = (def) => {   // half the body length: where the nose and tail 
 // fast-forwards ticks to the host's clock on join.
 const TICK = .05;
 let simTick = 0;
-function simTo(T) {
-  const target = Math.max(0, Math.floor(T / TICK));
-  while (simTick < target) { simTick++; wanderStep(simTick * TICK); }
+function simTo(T) { simTicks(Math.max(0, Math.floor(T / TICK))); }
+function simTicks(target) {   // run ticks up to this one; the tracks see the last one's before and after
+  if (simTick >= target) return;
+  tracksBegin();
+  while (simTick < target) {
+    if (simTick === target - 1) tracksSnap("prev");
+    simTick++; wanderStep(simTick * TICK);
+  }
+  tracksSnap("cur");
 }
 function wanderStep(t) {
   const dt = TICK;
+  if (life) life.step(t);   // the villagers' day
+  if (squirrels && stir()) squirrels.step(t);   // up and down the trees (?figures: they stop with the rest)
   for (const w of wanderers) {
     if (w.frozen) continue;   // e.g. a horse a player is riding (synced by ops)
     if (w.active) {   // owls and bats fly by night, the other birds by day; the rest of the time they roost, hidden
@@ -829,23 +1047,16 @@ function wanderStep(t) {
       }
     }
     const p = w.p;
+    // its route: planned once (paths.js wanderLoop), then only followed -- the first time it moves, and
+    // again from where it stands if something else moved it (a ridden horse let go)
+    if (!w.lane || Math.hypot(p.x - w.lx, p.z - w.lz) > 1) {
+      w.lane = laneFrom(wanderLoop(w.f, [p.x, p.z], w.rng)); w.s = 0; w.lx = p.x; w.lz = p.z;
+      w.ys = new Float32Array(Math.ceil(w.lane.total / YSTEP) + 2).fill(NaN);   // heights along it, filled as it first passes
+    }
     if (w.moving || w.alt > 0) {   // fliers never hover in place: "standing" means gliding on
-      const f = w.f;
-      if (t > w.next) { w.target = w.heading + (w.rng() - .5) * 2.6; w.next = t + 2 + w.rng() * 6; }
-      if (f.inside) {   // shaped range: turn home when the water ends 3m ahead
-        if (!f.inside(p.x + Math.cos(w.heading) * 3, p.z - Math.sin(w.heading) * 3)) {
-          const [hx, hz] = f.home(p.x, p.z);
-          w.target = Math.atan2(-(hz - p.z), hx - p.x);
-        }
-      } else if (p.x < f.x0 + 3 || p.x > f.x1 - 3 || p.z < f.z0 + 3 || p.z > f.z1 - 3)
-        w.target = Math.atan2(-((f.z0 + f.z1) / 2 - p.z), (f.x0 + f.x1) / 2 - p.x);   // steer home
-      if (f.members) for (const o of f.members) {   // penned stock keep their distance: a body's width apart, else they pile up at the pen's heart
-        if (o === w) continue;
-        const dx = p.x - o.p.x, dz = p.z - o.p.z, d = Math.hypot(dx, dz);
-        if (d > .01 && d < w.sep + o.sep) { w.target = Math.atan2(-dz, dx); if (!w.moving) { w.moving = true; w.until = t + 1.5; } break; }
-      }
-      let dh =((w.target - w.heading + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
-      w.heading += Math.max(-1.1 * dt, Math.min(1.1 * dt, dh));
+      w.target = w.lane.heading(w.s);   // the body turns toward the way ahead (round a waypoint it swings, as before)
+      let dh = ((w.target - w.heading + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
+      w.heading += Math.max(-2.2 * dt, Math.min(2.2 * dt, dh));
       // hoppers travel in bursts: airborne on a little parabola for the first
       // 55% of each hop period, sitting still for the rest
       let step = w.speed * dt;
@@ -856,9 +1067,9 @@ function wanderStep(t) {
         step = air ? w.speed * dt / .6 : 0;
         w.lift = air ? 4 * w.hop.h * v * (1 - v) : 0;
       }
-      const nx = p.x + Math.cos(w.heading) * step;
-      const nz = p.z - Math.sin(w.heading) * step;
-      if (f.inside ? f.inside(nx, nz) : (nx > f.x0 && nx < f.x1 && nz > f.z0 && nz < f.z1)) { p.x = nx; p.z = nz; }
+      w.s += step;
+      const [nx, nz] = w.lane.at(w.s);
+      p.x = w.lx = nx; p.z = w.lz = nz;
       w.apply(w.heading);
     }
     if (w.moving) w.animT += dt * w.speed / w.base;   // gait/wingbeat follows actual travel speed
@@ -866,23 +1077,46 @@ function wanderStep(t) {
     // standing walkers settle legs straight; "standing" fliers level their wings and glide.
     // Terrain is sampled under nose, center, and tail -- the body rides the
     // HIGHEST, so walking into rising ground never buries the front half
-    const cs = Math.cos(w.heading), sn = -Math.sin(w.heading);
-    p.y = w.surface !== undefined ? WLEVEL - w.surface   // surface swimmers float on the water, whatever the bottom does
-        : Math.max(groundH(p.x, p.z),
-                   groundH(p.x + cs * w.probe, p.z + sn * w.probe),
-                   groundH(p.x - cs * w.probe, p.z - sn * w.probe),
-                   w.alt > 0 ? WLEVEL : -1e9) + w.alt + (w.lift ?? 0)   // a flier over the lake or river rides above the WATER, not the bed
-          + .04;   // the rendered ground interpolates between mesh vertices and can sit a hair above the analytic height
-    w.setT(w.animT);
+    p.y = routeY(w) + (w.lift ?? 0);
+    w.setT(w.animT, undefined, undefined, w.moving, w.moving && runs(w.speed, w.base));   // rig animals fade their stride out when standing, run when fast for their size
   }
   moveRiders(dt);   // riders, carts and clouds tick on the same deterministic clock
   moveCarts(dt);
-  freightStep(dt);
+  if (stir()) freightStep(dt);   // the dock hands' barrels and sacks: freight places their meshes as it steps them,
+                                 // so stopping the herds alone left the goods sliding about (?figures)
   boatStep(dt);
   for (const c of cloudHerd.animals) {
     c.position.x += c.drift * dt;
     if (c.position.x > groundR * 1.15) c.position.x = -groundR * 1.15;
   }
+}
+// A wanderer's height along its route, sampled every YSTEP metres the first time it passes and read
+// back (interpolated) ever after: the ground under nose, middle and tail, the highest -- walking into
+// rising ground never buries the front half -- or the water level for a flier over it; an underwater
+// swimmer between its bed and the surface, a surface swimmer on the water.
+const YSTEP = 2;
+function routeY(w) {
+  if (w.surface !== undefined) return WLEVEL - w.surface;   // surface swimmers float on the water, whatever the bottom does
+  const u = (((w.s % w.lane.total) + w.lane.total) % w.lane.total) / YSTEP, i = Math.floor(u);
+  return ySample(w, i) + (ySample(w, i + 1) - ySample(w, i)) * (u - i);
+}
+function ySample(w, i) {
+  if (!Number.isNaN(w.ys[i])) return w.ys[i];
+  const s = i * YSTEP, [x, z] = w.lane.at(s), h = w.lane.heading(s);
+  const cs = Math.cos(h), sn = -Math.sin(h);
+  if (w.under) {   // an underwater swimmer (fish, shark, dolphin): its depth below the surface, but never
+      // out of the water nor into the bed -- clamped by its own body size between the deepest bed under
+      // nose, middle and tail and the surface (in water too shallow for it, it keeps to the middle)
+    // (an underwater swimmer: its depth below the surface, but never out of the water nor into the bed --
+    // clamped by its own body size between the deepest bed under nose, middle and tail and the surface;
+    // in water too shallow for it, it keeps to the middle)
+    const bed = Math.max(groundH(x, z), groundH(x + cs * w.probe, z + sn * w.probe), groundH(x - cs * w.probe, z - sn * w.probe));
+    const lo = bed + w.under.r, hi = WLEVEL - w.under.r;
+    return (w.ys[i] = lo > hi ? (bed + WLEVEL) / 2 : Math.min(hi, Math.max(lo, WLEVEL - w.under.r - w.alt)));
+  }
+  return (w.ys[i] = Math.max(groundH(x, z), groundH(x + cs * w.probe, z + sn * w.probe), groundH(x - cs * w.probe, z - sn * w.probe),
+                             w.alt > 0 ? WLEVEL : -1e9) + w.alt   // a flier over the lake or river rides above the WATER, not the bed
+          + .04);   // the rendered ground interpolates between mesh vertices and can sit a hair above the analytic height
 }
 
 // every seat and bed in every building, for the sit/lie interaction,
@@ -903,7 +1137,8 @@ const callers = [];      // every creature whose species has a call (calls.js); 
 const solids = [];       // the big animals (mounts, anything with a trunk over .35m): bodies you cannot walk through
 const bodyRadius = (def) => {   // one circle around the trunk stands in for the whole body -- cheaper and steadier than testing every part
   const b = def.parts.find((q) => q.id === "body") ?? def.parts[0], sx = b.scale?.[0] ?? 1;
-  return Math.max(b.size.r * 1.1, ((b.size.len ?? 0) / 2 + b.size.r * .35) * sx);
+  const e = partExtent(b);
+  return Math.max(e.r * 1.1, (e.len / 2 + e.r * .35) * sx);
 };
 const faceCam = THREE.MathUtils.degToRad(-30);   // angle each animal 3/4 toward the camera so the face reads
 const placeX = (i) => (i % cols - (cols - 1) / 2) * gap;   // grid, small species in front rows
@@ -915,8 +1150,9 @@ if (mode === "instanced" && n) {
   const castList = [];   // [species, own range?]: a creature with no range of its own takes its species' default
   for (let i = 0; i < n; i++) castList.push([CAST[i % CAST.length]]);
   if (hasLake && !qp.has("n")) for (const nm of ["swan", "swan", "duck", "duck"]) { const d = CAST.find((s) => s.name === nm); if (d) castList.push([d]); }
-  if (!qp.has("n")) for (const [nm, cnt] of [["parrot", 20], ["owl", 50], ["eagle", 20], ["bat", 100]]) {   // flocks over the whole sky (one of each is in the cast already)
+  if (!qp.has("n")) for (const [nm, cnt] of [["parrot", 20], ["owl", 50], ["eagle", 20], ["bat", 100], ["flamingo", 10]]) {   // flocks over the whole sky (one of each is in the cast already)
     const d = CAST.find((s) => s.name === nm); if (d) for (let k = 1; k < cnt; k++) castList.push([d]); }
+  if (!qp.has("n") && CAST.some((s) => s.name === "cat")) for (let k = 1; k < 10; k++) castList.push([makeCat({ seed: k })]);   // more cats, each its own coat
   // the farmyards' stock: pigs in the pig yard, hens in the hen yard, each kept by its own fence
   // (the yard inside the rails, minus the shed they would otherwise walk through)
   if (!qp.has("n")) for (const s of RIVERSIDE) {
@@ -930,7 +1166,7 @@ if (mode === "instanced" && n) {
   }
   let cap = 0;   // exact banner count of the cast about to be added
   for (const [d] of castList) cap += d.parts.length;
-  herd = createHerd(cap, { pixelDepth });
+  herd = createComposite(cap);   // one quad per animal: metaball silhouettes for the rigged mammals
   scene.add(herd.mesh);
   for (const [def, own] of castList) {
     const a = herd.add(def); a.name = def.name;
@@ -938,15 +1174,15 @@ if (mode === "instanced" && n) {
     const [sx2, sz2] = spawnIn(fence);
     a.position.set(sx2, 0, sz2);
     a.rotY = faceCam;
-    const w = addWanderer(a.position, (h) => a.rotY = h, (v, wt, mt) => { a.animT = v; if (wt !== undefined) a.wingT = wt; a.moveT = mt; },
+    const w = addWanderer(a.position, (h) => a.rotY = h, (v, wt, mt, mv, run) => { a.animT = v; if (wt !== undefined) a.wingT = wt; if (mv !== undefined) { a.ampT = mv ? 1 : 0; a.runT = run ? 1 : 0; } },
       ...(([sp, b, alt, hz]) => [sp, faceCam, b, alt, hz, fence, bodyProbe(def)])(wanderParams(def)));
+    a.w = w;   // (combat.js: a figure struck down freezes its wanderer)
     if (def.swim && hasLake) w.surface = def.swim.depth;   // rides the water level, this deep in
     if (def.hop) { w.hop = def.hop; w.base = w.speed * def.hop.period; }   // hoppers: one leg cycle per hop
     if (def.active) { w.active = def.active; w.hide = (on) => { a.hidden = on; }; }   // day birds / night fliers: roost out of sight the rest of the time
-    if (CALLS[def.name]) callers.push({ name: def.name, p: a.position, pitch: .9 + wrand() * .2 });
-    if (def.mount) mountables.push({ w, def });
-    if (own) { (own.members ??= []).push(w); w.sep = bodyRadius(def); }   // pen mates: kept apart in wanderStep
-    if (def.mount || (def.parts[0].size.r ?? 0) > .35) solids.push({ p: a.position, w, a, r: bodyRadius(def), h: def.parts[0].pos[1] + def.parts[0].size.r * (def.parts[0].scale?.[1] ?? 1) });
+    if (CALLS[def.call ?? def.name]) callers.push({ name: def.call ?? def.name, p: a.position, an: a, pitch: .9 + wrand() * .2 });
+    if (def.mount) mountables.push({ w, def, a });   // (a: its figure -- an arrow passes the one you ride)
+    if (def.mount || partExtent(def.parts[0]).r > .35) solids.push({ p: a.position, w, a, r: bodyRadius(def), h: def.parts[0].pos[1] + partExtent(def.parts[0]).r * (def.parts[0].scale?.[1] ?? 1) });
   }
 } else for (let i = 0; i < n; i++) {
   const def = CAST[i % CAST.length];
@@ -955,7 +1191,6 @@ if (mode === "instanced" && n) {
   const [sx2, sz2] = spawnIn(fence);
   root.position.set(sx2, 0, sz2);
   root.rotation.y = faceCam;
-  if (shadows) root.traverse((o) => { if (o.isMesh) o.castShadow = o.receiveShadow = true; });
   scene.add(root);
   roots.push(root);
   const w = addWanderer(root.position, (h) => root.rotation.y = h, (v) => root.userData.animT = v,
@@ -969,15 +1204,26 @@ const autumn = num("autumn", 0);                             // 0 = summer .. 1 
 const nBush = Math.round(nTrees * 1.3), nFlower = Math.min(420, nTrees * 3);
 // the whole flora herd is rebuilt on demand ("I" cycles summer/half/full
 // autumn): same seed, same layout, only the colors change
-let treeHerd = null;
+let treeHerd = null, foliage = null;   // the trees' wood (banner parts) and their leaf cards (foliage.js)
 let autumnLvl = Math.round(Math.min(1, autumn) * 2);
 const buildFlora = (autumnNow) => {
   if (treeHerd) scene.remove(treeHerd.mesh);
   treeHerd = null;
+  if (foliage) { scene.remove(foliage); foliage.geometry.dispose(); foliage.material.dispose(); foliage = null; }
+  const leafCards = [];
+  const addCards = (def, an) => {   // a plant's leaf (and fruit) cards into the one foliage mesh, turned and placed as the plant
+    const c = Math.cos(an.rotY), sn = Math.sin(an.rotY), rot = (v) => [v[0] * c + v[2] * sn, v[1], -v[0] * sn + v[2] * c];
+    for (const L of def.leaves) {
+      const q = rot(L.c);
+      leafCards.push({ ...L, c: [q[0] + an.position.x, q[1] + an.position.y, q[2] + an.position.z], r: rot(L.r), u: rot(L.u) });
+    }
+  };
   treeCols.length = 0;
   pickables.length = 0;   // the season rebuild regrows what was picked
-  if (!nTrees) return;
-  treeHerd = createHerd(nTrees * 60 + nBush * 8 + nFlower * 13, { pixelDepth });   // oaks ~40 parts, plus mushrooms, bushes, flowers
+  // plants a building site grows (the village's orchard and currant rows): the same trees and bushes as the woods
+  const sitePlants = sites.flatMap((s) => (BUILDINGS[s.key].plants ?? []).map((p) => ({ ...p, x: s.x + p.x, z: siteZ(s) + p.z })));
+  if (!nTrees && !sitePlants.length) return;
+  treeHerd = createHerd((nTrees + 24) * 260 + nBush * 14 + nFlower * 13 + sitePlants.length * 120, { pixelDepth });   // (+24: the riverbank willows)   // grown trees up to ~200 segments (spruce), plus mushrooms, bushes, flowers
   scene.add(treeHerd.mesh);
   const rand = rng(7);
   const spots = [];
@@ -994,7 +1240,8 @@ const buildFlora = (autumnNow) => {
     t.position.set(x, groundH(x, z) - .1, z);
     t.rotY = rand() * Math.PI * 2;
     spots.push([x, z]);
-    treeCols.push({ x, z, r: td.parts[0].size.r });   // the trunk blocks walking
+    treeCols.push({ x, z, r: td.trunkR, h: td.height, trunk: trunkWorld(td, t) });   // the trunk blocks walking
+    addCards(td, t);
     if (rand() < .5)                                           // mushrooms in the tree's shade
       for (let m = 0, mn = 1 + Math.floor(rand() * 3); m < mn; m++) {
         const mx = x + (rand() * 2 - 1) * 5, mz = z + (rand() * 2 - 1) * 5;
@@ -1007,6 +1254,20 @@ const buildFlora = (autumnNow) => {
     placed++;
   }
 
+  // willows on the river banks, where the wild mix never grows (it keeps 4m off the water): every
+  // 22-36m on either bank, on the slope between the water and the quay/plots (own stream: the woods stay put)
+  if (hasRiver) {
+    const wr = rng(913);
+    for (let x = RIVER.xEnd - 8; x > -groundR * .9; x -= 22 + wr() * 14) for (const side of [-1, 1]) {
+      const z = riverZ(x) + side * (riverHW(x) + 1.8 + wr() * .8), keep = wr() < .7;
+      if (!keep || inSites(x, z, 4) || (hasLake && lakeSD(x, z) < 3) || spots.some((s) => (s[0] - x) ** 2 + (s[1] - z) ** 2 < 49)) continue;
+      const td = makeTree("willow", { seed: 7000 + Math.round(x * 3) + side, autumn: autumnNow });
+      const t = treeHerd.add(td);
+      t.position.set(x, groundH(x, z) - .1, z); t.rotY = wr() * Math.PI * 2;
+      spots.push([x, z]); treeCols.push({ x, z, r: td.trunkR, h: td.height, trunk: trunkWorld(td, t) }); addCards(td, t);
+    }
+  }
+
   // bushes: same exclusions as trees but packed tighter, tucked anywhere
   const bspots = [];
   for (let placed = 0, guard = 0; placed < nBush && guard < nBush * 30; guard++) {
@@ -1017,9 +1278,10 @@ const buildFlora = (autumnNow) => {
     if (hasLake && lakeSD(x, z) < 2) continue;
     if (riverSD(x, z) < 2) continue;
     if (inSites(x, z, 3)) continue;
-    const b = treeHerd.add(makeBush({ seed: placed + 17, autumn: autumnNow }));
+    const bd = makeBush({ seed: placed + 17, autumn: autumnNow }), b = treeHerd.add(bd);
     b.position.set(x, groundH(x, z), z);
     b.rotY = rand() * Math.PI * 2;
+    addCards(bd, b);
     bspots.push([x, z]);
     placed++;
   }
@@ -1042,9 +1304,24 @@ const buildFlora = (autumnNow) => {
       pickables.push({ an: f, x: fx, z: fz, kind });
     }
   }
+  for (const P of sitePlants) {   // the site plants: grown like the woods, drawn in the same herd and foliage
+    const def = P.kind === "tree" ? makeTree(P.species, { seed: P.seed, autumn: autumnNow, height: P.height })
+                                  : makeBush({ seed: P.seed, autumn: autumnNow, fruit: P.fruit, height: P.height });
+    const an = treeHerd.add(def);
+    an.position.set(P.x, groundH(P.x, P.z) - .05, P.z);
+    an.rotY = P.rotY ?? 0;
+    addCards(def, an);
+    if (P.kind === "tree") treeCols.push({ x: P.x, z: P.z, r: def.trunkR, h: def.height, trunk: trunkWorld(def, an) });   // the trunk blocks walking
+  }
   treeHerd.update(0);   // trees stand still: one buffer write per rebuild
+  foliage = buildFoliage(leafCards);
+  scene.add(foliage);
 };
 buildFlora(Math.min(1, autumn));
+// squirrels (squirrels.js): they live in the groves -- the trunks with a neighbour close by -- running,
+// climbing up and down; the list is copied (a flora rebuild refills treeCols with the same trees)
+let squirrels = null;
+if (herd && treeCols.length) squirrels = createSquirrels({ def: SQUIRREL, herd, trees: treeCols.slice(), groundH, gaitBase, track, count: Math.max(0, num("squirrels", CONFIG.crowds.squirrels)), TICK });
 
 // clouds: puffy banner clusters drifting slowly across the sky
 // 28 clouds; how many are out follows the weather: rain and snow bring
@@ -1069,12 +1346,13 @@ function applyClouds() {
 
 // people: a small idle crowd near the meadow (?people=N)
 let folk = null;
-const nFolk = Math.max(0, num("people", 66));
+const nFolk = Math.max(0, num("people", CONFIG.crowds.people));   // the countryside crowd (the village has its own people)
 // ---- speech: every person has a language and a voice (from their seed) and
 // says a word from the shared lexicon every ~30s when you are within earshot
 // (speech.js does the talking; here only who, when, where). L cycles a
 // language override, Shift+L a voice override; "random" = each their own.
 const talkers = [];
+const faces = createFaces();   // their faces change now and then as they speak (faces.js)
 // the people's range: the whole open country -- every patch of grass on
 // the ground disc that is not water, moat or a building's footprint;
 // spawned uniformly over it, steered back toward the meadow when they
@@ -1088,17 +1366,15 @@ const COUNTRY = {
   home: () => [0, extent],
   spawn: () => { for (let k = 0; k < 200; k++) { const x = (wrand() * 2 - 1) * groundR * .9, z = (wrand() * 2 - 1) * groundR * .9; if (COUNTRY.inside(x, z)) return [x, z]; } return [0, extent]; },
 };
-const LANG_MODES = ["random", "en", "de", "fr", "es", "ru"], TONE_MODES = ["random", "man", "woman", "child"];
-let langMode = "random", toneMode = "random", wordMode = "random", moodMode = "random", spoken = 0;   // J: pin one word; H: pin a mood
+// languages and voices come from speech.js (one table each); K cycles every voice preset, L every language
+const LANG_MODES = ["random", ...Object.keys(LANGS)], TONE_MODES = ["random", ...Object.keys(VOICES).filter((k) => k !== "soft" && k !== "tense")];
+let langMode = "de", toneMode = "random", wordMode = "random", moodMode = "random", spoken = 0;   // J: pin one word; H: pin a mood
 const WORD_MODES = ["random", ...WORDS], MOOD_MODES = ["random", ...Object.keys(MOODS)];
-const TONES = { man: { pitch: 118, scale: 1, breath: .25, tilt: 7 }, woman: { pitch: 218, scale: 1.2, breath: .6, tilt: 3 },
-                child10: { pitch: 285, scale: 1.3, breath: .3, tilt: 6 }, child5: { pitch: 330, scale: 1.38, breath: .35, tilt: 6 }, child: { pitch: 300, scale: 1.32, breath: .3, tilt: 6 } };
-const talkerVoice = (t) => {   // seeded: who they are never changes; the voice follows the body (man, woman, child)
+const talkerVoice = (t) => {   // seeded: who they are never changes; the voice follows the body (man, woman, child -- and some grown-ups are old)
   if (!t.voice) {
     const r = rng(t.seed * 97 + 5);
-    t.lang = LANG_MODES[1 + Math.floor(r() * 5)];
-    t.tone = t.kind ?? TONE_MODES[1 + Math.floor(r() * 3)];
-    t.jitter = .88 + r() * .24;
+    t.lang = LANG_MODES[1 + Math.floor(r() * (LANG_MODES.length - 1))];
+    t.voiceP = voiceFor(t.kind ?? (r() < .5 ? "man" : "woman"), r);   // a preset of their kind, with a little of their own
     t.next = 6 + r() * 28;
     t.voice = true;
   }
@@ -1125,6 +1401,7 @@ function playCall(c) {   // the creature's call from where it stands, if within 
 const rouse = (p) => { const c = callers.find((c) => c.p === p); if (c) { playCall(c); c.next = (lastT + clockOff) + 30 + Math.random() * 70; } };
 function callTick(T) {
   for (const c of callers) {
+    if (c.an?.down) continue;   // struck down: silent
     if (c.next === undefined) c.next = 8 + Math.random() * 60;
     if (T < c.next) continue;
     c.next = T + 30 + Math.random() * 70;
@@ -1139,7 +1416,13 @@ function speechTick(T) {
     t.next = T + 22 + Math.random() * 16;
     const dx = t.p.position.x - camera.position.x, dz = t.p.position.z - camera.position.z, d = Math.hypot(dx, dz);
     if (d > EAR) continue;
-    const tone = TONES[toneMode === "random" ? t.tone : toneMode], lang = langMode === "random" ? t.lang : langMode;
+    // now and then no words but a laugh, a crying fit, a cough or a sneeze (speech.js VOCALS), the face held exactly as
+    // long as the sound (faces.js); a sleeper keeps quiet but for a cough or a sneeze now and then, and sleeps on
+    const fig = t.figure?.() ?? t.p, asleep = !!t.asleep?.(), x = Math.random();
+    if (fig.down) continue;   // struck down: silent (combat.js)
+    const vocal = asleep ? (x < .3 ? "cough" : x < .45 ? "sneeze" : null) : x < .08 ? "laugh" : x < .13 ? "cry" : x < .19 ? "cough" : x < .22 ? "sneeze" : null;
+    if (asleep && !vocal) continue;
+    const lang = langMode === "random" ? t.lang : langMode;
     const mood = moodMode !== "random" ? moodMode : Math.random() < .6 ? "normal" : Math.random() < .5 ? "excited" : "angry";
     // a gentle distance law: full within 3m, then about 4 dB per doubling (a
     // voice carries), fading out toward the edge of earshot
@@ -1148,15 +1431,13 @@ function speechTick(T) {
     const rx = Math.cos(yaw), rz = -Math.sin(yaw);           // the camera's right vector on the ground
     pan.pan.value = Math.max(-1, Math.min(1, (dx * rx + dz * rz) / Math.max(d, 1)));
     g.connect(pan); pan.connect(AC.destination);
-    const sp = createSpeaker(AC, { ...tone, pitch: tone.pitch * t.jitter, scale: tone.scale * (2 - t.jitter) ** .5, dest: g });
-    // what they say: a pinned word (J), or -- a greeting answered with "hello, <word>!", a two-word
-    // phrase now and then, a single word otherwise -- as sentences, so the melody carries across
-    const pick = () => WORDS[Math.floor(Math.random() * WORDS.length)];
+    const sp = createSpeaker(AC, { voice: toneMode === "random" ? t.voiceP : toneMode, dest: g });
+    // what they say: a pinned word (J), or one to three random words as a sentence, so the melody carries across
+    const pick = () => WORDS[Math.floor(Math.random() * WORDS.length)], nW = 1 + Math.floor(Math.random() * 3);
     const text = wordMode !== "random" ? wordMode
-      : t.greeted ? `hello, ${pick()}!`
-      : Math.random() < .3 ? `${pick()}, ${pick()}.` : `${pick()}${Math.random() < .2 ? "?" : "."}`;
-    t.greeted = false;
-    const end = sp.sayText(text, lang, undefined, mood);
+      : Array.from({ length: nW }, pick).join(nW > 1 && Math.random() < .4 ? ", " : " ") + (Math.random() < .2 ? "?" : Math.random() < .15 ? "!" : ".");
+    const end = vocal ? sp.vocal(vocal) : sp.sayText(text, lang, undefined, mood);
+    if (vocal) faces.show(fig, VOCAL_FACES[vocal], end - AC.currentTime); else faces.speak(fig, end - AC.currentTime, mood);
     spoken++;
     setTimeout(() => { sp.stop(); pan.disconnect(); }, (end - AC.currentTime + .4) * 1000);
   }
@@ -1164,9 +1445,10 @@ function speechTick(T) {
 if (nFolk) {
   // wanderers outside plus a static congregation inside every building
   // that exports folkSpots (the cathedrals: pews + clergy at the altar)
-  const spotSites = sites.flatMap((s) =>
+  // (the village's and hamlet's own buildings are left to their villagers: village-life.js)
+  const spotSites = sites.filter((s) => !RIVERSIDE.includes(s)).flatMap((s) =>
     (BUILDINGS[s.key].folkSpots ?? []).map((sp) => ({ sp, s })));
-  folk = createHerd((nFolk + spotSites.length) * 14, { pixelDepth });
+  folk = createComposite((nFolk + spotSites.length) * 40);   // one quad per person: the human rig, dressed (people.js)
   scene.add(folk.mesh);
   const pr = rng(31);
   for (let i = 0; i < nFolk; i++) {
@@ -1176,7 +1458,10 @@ if (nFolk) {
     const [x, z] = spawnIn(COUNTRY);   // spread over the whole open country
     p.position.set(x, groundH(x, z), z);
     p.rotY = pr() * Math.PI * 2;
-    const w = addWanderer(p.position, (h) => p.rotY = h, (v) => p.animT = v, 1.05 + pr() * .4, p.rotY, gaitBase(pd), 0, .8, COUNTRY, .3);
+    // they walk (never run: a stroll is not a sprint), arms and stride settling when they stop
+    const w = addWanderer(p.position, (h) => p.rotY = h, (v, wt, mt, mv) => { p.animT = v; if (mv !== undefined) p.ampT = mv ? 1 : 0; },
+                          1.05 + pr() * .4, p.rotY, gaitBase(pd), 0, .8, COUNTRY, .3);
+    p.w = w;
     talkers.push({ p, seed: i + 3, w, kind: pd.kind });
   }
   spotSites.forEach(({ sp, s }, i) => {
@@ -1184,7 +1469,7 @@ if (nFolk) {
     const p = folk.add(pd);
     const bz = siteZ(s);
     // sit: sp.y is the seat top; the hips ride one thigh radius above it
-    p.position.set(s.x + sp.x, sp.pose === "sit" ? sp.y + .08 - pd.hipY : sp.y + .01, bz + sp.z);
+    p.position.set(s.x + sp.x, sp.pose === "sit" ? pd.sitAt(sp.y) : sp.y + .01, bz + sp.z);
     p.rotY = sp.h;
     p.animT = 0;   // no wanderer: they hold their pose
     talkers.push({ p, seed: i * 5 + 101, kind: pd.kind });
@@ -1193,7 +1478,7 @@ if (nFolk) {
 
 // butterflies: bright fliers fluttering low over the whole range
 let bflies = null;
-const nBfly = Math.max(0, num("butterflies", 140));
+const nBfly = Math.max(0, num("butterflies", CONFIG.crowds.butterflies));
 if (nBfly) {
   bflies = createHerd(nBfly * 8, { pixelDepth });
   scene.add(bflies.mesh);
@@ -1211,7 +1496,7 @@ if (nBfly) {
 
 // dragonflies: darting low over the water only -- the lake's shores, the river, the basin
 let dflies = null;
-const nDfly = Math.max(0, num("dragonflies", hasLake ? 70 : 0));
+const nDfly = Math.max(0, num("dragonflies", hasLake ? CONFIG.crowds.dragonflies : 0));
 if (nDfly) {
   const nearWater = (x, z) => (hasLake && lakeSD(x, z) < 5) || riverSD(x, z) < 5;
   const WATER = {
@@ -1244,31 +1529,65 @@ const waterMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false,
     uniforms: { uT: { value: 0 },
                 uRiver: { value: new THREE.Vector4(RIVER.z, RIVER.amp, RIVER.k, RIVER.ph) },
-                uRiverW: { value: new THREE.Vector3(RIVER.hw, hasRiver ? RIVER.xEnd : -1e9, RIVER.flow) } },
+                uRiverW: { value: new THREE.Vector3(RIVER.hw, hasRiver ? RIVER.xEnd : -1e9, RIVER.flow) },
+                // the REFLECTION (see below): the world drawn again from the camera mirrored in the surface,
+                // looked up projectively, shoved about by the waves and weighed by Fresnel
+                uRefl: { value: null }, uReflMat: { value: new THREE.Matrix4() }, uReflOn: { value: 0 },
+                uEye: { value: new THREE.Vector3() } },
     vertexShader: /* glsl */ `
       varying vec3 vW;
+      varying vec4 vRefl;
+      uniform mat4 uReflMat;
       void main() { vW = (modelMatrix * vec4(position, 1.0)).xyz;
+                    vRefl = uReflMat * vec4(position, 1.0);   // (object space: the reflector shares this mesh's transform)
                     gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
     fragmentShader: /* glsl */ `
       precision highp float;
       uniform float uT;
       uniform vec4 uRiver;    // centerline z = x + y * sin(X * z + w)
       uniform vec3 uRiverW;   // half width, end x (where it joins the lake), flow speed
+      uniform sampler2D uRefl;
+      uniform float uReflOn;
+      uniform vec3 uEye;
       varying vec3 vW;
-      void main() {
-        float zc = uRiver.x + uRiver.y * sin(vW.x * uRiver.z + uRiver.w);
-        float inR = (1.0 - smoothstep(uRiverW.x - 3.0, uRiverW.x + 1.0, abs(vW.z - zc)))
-                  * (1.0 - smoothstep(uRiverW.y - 30.0, uRiverW.y, vW.x));
-        float fx = vW.x - uT * uRiverW.z * inR;   // the current carries the pattern downstream
-        // long sinuous crest lines drifting across the surface, not dots:
-        // bands of sin(z) whose phase snakes with x, two scales overlaid
+      varying vec4 vRefl;
+      // long sinuous crest lines drifting across the surface, not dots:
+      // bands of sin(z) whose phase snakes with x, two scales overlaid;
+      // streaks (flowing water only) stretched along the current. .w = crest (alpha)
+      vec4 waves(float fx, float streaks) {
         float w = sin(vW.z * 1.1 + sin(fx * .5 + uT * .6) * 1.9 + uT * .9);
         float w2 = sin(vW.z * 2.3 + sin(fx * .9 - uT * .5) * 1.4 - uT * 1.3);
         vec3 col = vec3(.12, .29, .4) + .04 * (w + .5 * w2);
         col += vec3(.2) * smoothstep(.82, .97, w) + vec3(.12) * smoothstep(.86, .98, w2);
-        float st = sin(vW.z * 5.0 + sin(fx * .35) * 2.2 + fx * .2);   // flow streaks, stretched along the current
-        col += vec3(.07, .08, .08) * smoothstep(.55, 1.0, st) * inR;
-        gl_FragColor = vec4(col, .55 + .04 * w);
+        float st = sin(vW.z * 5.0 + sin(fx * .35) * 2.2 + fx * .2);
+        col += vec3(.07, .08, .08) * smoothstep(.55, 1.0, st) * streaks;
+        return vec4(col, w);
+      }
+      void main() {
+        float zc = uRiver.x + uRiver.y * sin(vW.x * uRiver.z + uRiver.w);
+        float inR = (1.0 - smoothstep(uRiverW.x - 3.0, uRiverW.x + 1.0, abs(vW.z - zc)))
+                  * (1.0 - smoothstep(uRiverW.y - 30.0, uRiverW.y, vW.x));
+        // the river's pattern slides downstream, still water's stays put; the
+        // two are BLENDED across the banks -- sliding by time x inR instead
+        // packed the phase into dense stripes wherever inR changes (the edges)
+        vec4 still = waves(vW.x, 0.0);
+        vec4 wv = inR > 0.001 ? mix(still, waves(vW.x - uT * uRiverW.z, 1.0), inR) : still;
+        vec3 col = wv.rgb;
+        float fres = pow(1.0 - clamp(normalize(uEye - vW).y, 0.0, 1.0), 2.2);   // 0 looking straight down .. 1 along the surface
+        // ?reflect=raw: the reflection alone, flat -- no waves, no Fresnel. If this is blank the pass is not
+        // running or the texture matrix is wrong; if it shows the world upside down, only the mixing is at fault.
+        if (uReflOn > 2.5) { gl_FragColor = vec4(texture2D(uRefl, clamp(vRefl.xy / max(vRefl.w, 1e-4), .001, .999)).rgb, 1.0); return; }
+        if (uReflOn > 1.5) { vec2 q = vRefl.xy / max(vRefl.w, 1e-4); gl_FragColor = vec4(fract(q * 4.0), 0.0, 1.0); return; }   // the lookup itself
+        if (uReflOn > .5) {
+          // the crests shove the lookup about, or the reflection would be a mirror rather than water
+          vec2 ruv = vRefl.xy / max(vRefl.w, 1e-4) + vec2(wv.w, still.w) * .011;
+          vec3 refl = texture2D(uRefl, clamp(ruv, .001, .999)).rgb;
+          col = mix(col, refl * .95, mix(.30, .92, fres));
+        }
+        // and the surface itself turns OPAQUE as it goes: water you look along is a mirror, water you look
+        // down into is a window. Without this the reflection was diluted twice -- once by Fresnel, again by the
+        // river bed showing through 45% of it.
+        gl_FragColor = vec4(col, mix(.55, .96, uReflOn > .5 ? fres : 0.0) + .04 * wv.w);
         #include <colorspace_fragment>
       }`,
     side: THREE.DoubleSide,
@@ -1279,170 +1598,147 @@ const waterMat = new THREE.ShaderMaterial({
   const water = new THREE.Mesh(wg, waterMat);
   water.position.y = WLEVEL;
   scene.add(water);
+  // THE REFLECTION (?reflect=0 to compare). One plane, so one extra draw of the world lights every stretch of
+  // water at once -- unlike the palace mirrors, which pay per wall. three's Reflector does the hard parts: the
+  // camera mirrored through the surface, and an OBLIQUE near plane that clips at the waterline, which matters
+  // because our own shaders (figures, banners, architecture) ignore clipping planes but cannot ignore the
+  // projection. It draws nothing itself -- colorWrite off -- it exists to fill its texture, which the water
+  // shader above then distorts and weighs. Quarter resolution: moving water hides it.
+  if (REFLECT.on) {
+    const dbs = renderer.getDrawingBufferSize(new THREE.Vector2());
+    reflector = new Reflector(wg, { clipBias: .004, color: 0xffffff,
+      textureWidth: Math.max(64, Math.round(dbs.x * REFLECT.scale)), textureHeight: Math.max(64, Math.round(dbs.y * REFLECT.scale)) });
+    reflector.position.y = WLEVEL;
+    if (REFLECT.mode === "mirror") { water.visible = false; }   // a bare mirror: does the pass run at all?
+    else { reflector.material.colorWrite = false; reflector.material.depthWrite = false; }
+    reflector.renderOrder = -1;   // before the water that samples it
+    scene.add(reflector);
+    waterMat.uniforms.uRefl.value = reflector.getRenderTarget().texture;
+    waterMat.uniforms.uReflOn.value = 1;
+    // The texture matrix is COPIED, not shared: handing the water a reference to the Reflector's own uniform
+    // object breaks if three has already cached this material's uniform list -- the water would then read the
+    // matrix it was built with (the identity) for ever, every pixel would sample the same corner of the
+    // reflection, and the whole river would take one flat colour: the sky. Copied here, in the water's own
+    // onBeforeRender, which runs AFTER the reflector's (renderOrder -1), so it is this frame's matrix.
+    water.onBeforeRender = () => waterMat.uniforms.uReflMat.value.copy(reflector.material.uniforms.textureMatrix.value);
+  }
 }
 if (hasLake) {
-  const nFish = 12;
-  fishHerd = createHerd(nFish * 6 + 30, { pixelDepth });
+  const nFish = 30;   // (the deeper lake holds more)
+  fishHerd = createComposite(nFish * 6 + 60);   // the composite engine: the swimmers' bodies are tubes (spindles), drawn exactly only there
   scene.add(fishHerd.mesh);
   // the swimmers roam the whole C of deep water (LAKEF: a shaped range)
   const addSwimmer = (fd, probe = .1) => {
     const f = fishHerd.add(fd);
     const [x, z] = spawnIn(LAKEF);
-    f.position.set(x, groundH(x, z) + .6, z);
+    f.position.set(x, WLEVEL - .5, z);
     f.rotY = wrand() * Math.PI * 2;
-    addWanderer(f.position, (h) => f.rotY = h, (v) => f.animT = v,
+    const w = addWanderer(f.position, (h) => f.rotY = h, (v) => f.animT = v,
       ...(([sp, base, alt, hz]) => [sp, f.rotY, base, alt, hz, LAKEF, probe])(wanderParams(fd)));
+    // under water: its `alt` is now its depth below the surface; r = the body's half height, fins included
+    f.w = w;
+    w.under = { r: Math.max(.03, (partExtent(fd.parts[0]).r || .1) * 1.6) };
   };
   for (let i = 0; i < nFish; i++) addSwimmer(makeFish({ seed: i + 5 }));
   addSwimmer(makeShark(), 1.3);
   addSwimmer(makeDolphin(), 1);
 }
 
-// a closed lane: arc-length sampler over a polyline (wrapping), plus the
-// arc length of each vertex (`cum`) so stops can be placed by vertex
-let hwGeom = null;
-function laneFrom(lane) {
-  const cum = [0];
-  for (let i = 1; i < lane.length; i++) cum.push(cum[i - 1] + Math.hypot(lane[i][0] - lane[i - 1][0], lane[i][1] - lane[i - 1][1]));
-  const total = cum[cum.length - 1];
-  return { total, cum, at(s) {   // arc length (wrapping) -> [x, z]
-    s = ((s % total) + total) % total;
-    let lo = 0, hi = cum.length - 2;
-    while (lo < hi) { const m = (lo + hi) >> 1; if (cum[m + 1] < s) lo = m + 1; else hi = m; }
-    const t = (s - cum[lo]) / Math.max(1e-6, cum[lo + 1] - cum[lo]);
-    return [lane[lo][0] + (lane[lo + 1][0] - lane[lo][0]) * t, lane[lo][1] + (lane[lo + 1][1] - lane[lo][1]) * t];
-  } };
+// the path network (paths.js): the town's highway and the carts' lane loop,
+// every track kept out of the water, the track mesh
+const { pathRoutes, highway, hwGeom, dryKeep, links: pathLinks } = buildPathNetwork({ scene, town, BUILDINGS, frontZ, extent, hasLake, LAKE, waterSD, riverZ, BASIN,
+  MILL, RIVERSIDE, quayZ, VILLAGE_X, vStreet, wallX, groundH });
+
+// the bell strikes the hours by the REAL clock (the same moment on every peer's wall clock, so it needs
+// no syncing): the hour during its first ten seconds, else -1 -- the peal and the villagers' church both go by it
+// the palace's paintings (paintings.js): views of the world from the towers of the town wall and the
+// palisade, taken once soon after the start -- ten lookouts spread round the village, each looking at its heart
+const paintingSet = createPaintings(scene, sites.flatMap((s) => (BUILDINGS[s.key].paintings ?? []).map((m) => ({ ...m, x: s.x + m.x, y: m.y + .01, z: siteZ(s) + m.z }))));
+const paintingViews = (() => {
+  const vs = RIVERSIDE.filter((s) => s.bank !== "wall"), look = sites.flatMap((s) => (BUILDINGS[s.key].lookouts ?? []).map(([x, y, z]) => [s.x + x, y, siteZ(s) + z]));
+  if (!vs.length || !look.length) return [];
+  const cx = vs.reduce((a, s) => a + s.x, 0) / vs.length, cz = vs.reduce((a, s) => a + siteZ(s), 0) / vs.length;
+  look.sort((a, b) => Math.atan2(a[2] - cz, a[0] - cx) - Math.atan2(b[2] - cz, b[0] - cx));
+  return Array.from({ length: Math.min(10, look.length) }, (_, i) => {
+    const [x, y, z] = look[Math.floor(i * look.length / Math.min(10, look.length))];
+    return { eye: [x, groundH(x, z) + y, z], at: [cx + (x - cx) * .25, groundH(cx, cz) + 1.5, cz + (z - cz) * .25] };
+  });
+})();
+let paintingsIn = 0;   // frames since the start: the pictures are taken on the third (the world is built, the figures posed)
+// the beehives (the beekeeper's garden): where the environment hums with bees
+const HIVES = sites.filter((s) => s.key === "apiary").map((s) => [s.x, siteZ(s)]);
+// the palace's Hall of Mirrors (mirrors.js): planar reflections, the nearest few only
+const mirrorSet = createMirrors(scene, sites.flatMap((s) => (BUILDINGS[s.key].mirrors ?? []).map((m) => ({ ...m, x: s.x + m.x, y: m.y + .01, z: siteZ(s) + m.z,
+  room: m.room && [s.x + m.room[0], s.x + m.room[1], m.room[2] + .01, m.room[3] + .01, siteZ(s) + m.room[4], siteZ(s) + m.room[5]] }))), renderer);
+const bellHour = () => { const d = new Date(); return d.getMinutes() === 0 && d.getSeconds() < 10 ? d.getHours() : -1; };
+// the villagers' day (village-life.js): homes and beds, jobs, the inn, church at the bell, sacks to the mill
+const tools = createTools(scene);   // tools and arms in people's hands: low-poly meshes, one draw per kind
+let life = null, lifeHerd = null;
+{
+  const nV = Math.max(0, num("villagers", CONFIG.crowds.villagers));
+  LOD.eye = camera.position; LOD.camera = camera;   // composite figures far from the camera are posed less often
+  if (nV && VILLAGE_X !== null && pathRoutes.length) {
+    lifeHerd = createComposite(nV * 4 * 48);   // four poses a villager, one shown
+    scene.add(lifeHerd.mesh);
+    life = createVillageLife({ sites: RIVERSIDE.filter((s) => s.bank !== "wall" && s.key !== "bridge"), BUILDINGS, siteZ, supportAt, router: routeGraph(pathRoutes, pathLinks),
+      makePerson, gaitBase, herd: lifeHerd, track, talkers, isNight: () => night, bellHour, doors, count: nV, TICK });
+  }
 }
-// medieval tracks: packed-earth ribbons draped over the terrain, with wheel
-// ruts, stone specks and ragged grassy edges -- one merged mesh, one call.
-// The town's spine is a 6m HIGHWAY (a Roman via: two 3.5m-spaced lanes,
-// right-hand traffic) running the whole facade line, ending in a 9m-radius
-// turning loop past the last building at each end so wagons never have to
-// reverse -- `highway` is the closed lane loop the carts drive.
-const pathRoutes = [];
-let highway = null;
-if (town.length) {
-  const routes = pathRoutes;
-  const roadZ = frontZ + 7;
-  const xW = Math.min(...town.map((s) => s.x - BUILDINGS[s.key].footprint[0] / 2)) - 16;
-  const xE = Math.max(...town.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 16;
-  const LR = 9, LANE = 1.75;
-  routes.push({ w: 6, pts: [[xW + LR - 3, roadZ], [xE - LR + 3, roadZ]] });
-  for (const s of town) routes.push({ w: 1.5, pts: [[s.x, roadZ], [s.x, frontZ + .6]] });
-  routes.push({ w: 1.9, pts: [[0, roadZ], [3, roadZ + 12], [-2, roadZ + 24], [1, 6]] });
-  if (hasLake) routes.push({ w: 1.5, pts: [[1, 6], [8, extent + 12], [LAKE.x, LAKE.z]] });   // through the C's opening to the lagoon heart
-  const arc = (cx, t0, t1, n) => Array.from({ length: n + 1 }, (_, i) =>
-    [cx + Math.cos(t0 + (t1 - t0) * i / n) * LR, roadZ + Math.sin(t0 + (t1 - t0) * i / n) * LR]);
-  const LAND = RIVERSIDE.find((s) => s.key === "landing");
-  if (LAND) routes.push({ w: 4, pts: [[BASIN.x, roadZ], [BASIN.x, LAND.z - 8]] });   // the freight road: highway to the landing yard
-  hwGeom = { roadZ, xW, xE, LR, LANE, arc };
-  routes.push({ w: 6, pts: arc(xE, 0, Math.PI * 2, 40) }, { w: 6, pts: arc(xW, 0, Math.PI * 2, 40) });   // the turning loops
-  if (MILL) {   // the riverside street: from the lake path west along the shore, then along the bank to the mill door
-    const xE = Math.max(...RIVERSIDE.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 12;
-    const xM = MILL.x + BUILDINGS.watermill.footprint[0] / 2 + 1.5;
-    const quay = [];
-    for (let x = xE; x > xM; x -= 6) quay.push([x, quayZ(x)]);
-    routes.push({ w: 1.5, pts: [[8, extent + 12], [-40, extent + 26], [xE + 20, quayZ(xE) - 22], ...quay, [xM, MILL.z]] });
-    for (const s of RIVERSIDE) if (s !== MILL && !s.bank)   // each building's own spur from the street to its door
-      routes.push({ w: 1.2, pts: [[s.x, quayZ(s.x)], [s.x, s.z + BUILDINGS[s.key].footprint[1] / 2 - .4]] });
-    if (VILLAGE_X !== null) {   // the bridge road: quay -> round the landing yard -> north ramp; south ramp -> the village street, with spurs to doors and gates
-      const xb = VILLAGE_X, BR = BUILDINGS.bridge, LAND = RIVERSIDE.find((s) => s.key === "landing"), lfp = BUILDINGS.landing.footprint;
-      const xe = LAND.x + lfp[0] / 2 + 2, xw = LAND.x - lfp[0] / 2 - 2, zN = LAND.z - lfp[1] / 2 - 2;
-      const footN = riverZ(xb) - BR.halfL - BR.ramp;   // the north ramp's foot: the road must arrive there from beyond it, not run in under the ramp
-      routes.push({ w: 2.2, pts: [[xM, quayZ(xM)], [xe, quayZ(xe)], [xe, zN], [xw, zN], [xw, Math.min(quayZ(xw), footN - 4)], [xb + 6, footN - 3], [xb, footN - 2], [xb, footN + .5]] });
-      const street = []; for (let x = wallX[0] - 10; x <= wallX[1] + 10; x += 6) street.push([x, vStreet(x)]);   // gate to gate and a little beyond
-      routes.push({ w: 2.2, pts: [[xb, riverZ(xb) + BR.halfL + BR.ramp], [xb, vStreet(xb)]] }, { w: 2.2, pts: street });
-      for (const s of RIVERSIDE) if (s.bank === "south") {
-        const d = BUILDINGS[s.key], fp = d.footprint;
-        if (d.pen) { const gx = s.x - (fp[0] - 1.6) / 2 + 3.5; routes.push({ w: 1.2, pts: [[gx, vStreet(gx)], [gx, s.z - fp[1] / 2 + 1.6]] }); }   // to the gate
-        else if (d.doors?.length) { const dx = s.x + (d.doors[0].x ?? 0), fr = d.front ?? 1; routes.push({ w: 1.2, pts: [[dx, vStreet(dx)], [dx, s.z + fr * (fp[1] / 2 - .4)]] }); }   // to the door (front: -1 faces the street from the south)
-        else if (d.square) routes.push({ w: 2.0, pts: [[s.x, vStreet(s.x)], [s.x, s.z - d.square + .3]] });   // to the fountain square's paving
-      }
-    }
-  }
-  {   // the lane loop: eastbound on the south lane, round the east loop, back west, round the west loop
-    const a0 = Math.asin(LANE / LR), xc = Math.sqrt(LR * LR - LANE * LANE);
-    const lane = [[xW + xc, roadZ + LANE], [xE - xc, roadZ + LANE],
-                  ...arc(xE, Math.PI - a0, -(Math.PI - a0), 48).slice(1, -1),
-                  [xE - xc, roadZ - LANE], [xW + xc, roadZ - LANE],
-                  ...arc(xW, -a0, -(2 * Math.PI - a0), 48).slice(1, -1)];
-    lane.push(lane[0]);
-    highway = laneFrom(lane);
-    hwGeom.xc = xc; hwGeom.a0 = a0;
-  }
-  const pos = [], uvs = [], idx = [];
-  for (const rt of routes) {
-    // resample every ~1.5m, then one continuous strip whose cross-bars follow
-    // the local tangent -- bends (the turning loops) stay clean instead of
-    // wedging open at every polyline vertex
-    const smp = [];
-    let dist = 0;
-    for (let s2 = 0; s2 + 1 < rt.pts.length; s2++) {
-      const [ax, az] = rt.pts[s2], [bx, bz] = rt.pts[s2 + 1];
-      const len2 = Math.hypot(bx - ax, bz - az), steps2 = Math.max(1, Math.ceil(len2 / 1.5));
-      for (let i = s2 ? 1 : 0; i <= steps2; i++) {
-        const t = i / steps2;
-        smp.push([ax + (bx - ax) * t, az + (bz - az) * t, dist + t * len2]);
-      }
-      dist += len2;
-    }
-    for (let i = 0; i < smp.length; i++) {
-      const [x, z, d] = smp[i], q = smp[Math.max(0, i - 1)], nq = smp[Math.min(smp.length - 1, i + 1)];
-      const tl = Math.hypot(nq[0] - q[0], nq[1] - q[1]) || 1;
-      const px = -(nq[1] - q[1]) / tl, pz = (nq[0] - q[0]) / tl;   // unit perpendicular to the local tangent
-      const y = groundH(x, z) + .12, hw = rt.w / 2;   // above the ground mesh's interpolation error
-      const vi = pos.length / 3;
-      pos.push(x - px * hw, y, z - pz * hw, x + px * hw, y, z + pz * hw);
-      uvs.push(-1, d, 1, d);
-      if (i) idx.push(vi - 2, vi - 1, vi, vi - 1, vi + 1, vi);
-    }
-  }
-  const pgeo = new THREE.BufferGeometry();
-  pgeo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-  pgeo.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
-  pgeo.setIndex(idx);
-  scene.add(new THREE.Mesh(pgeo, new THREE.ShaderMaterial({
-    vertexShader: /* glsl */ `
-      varying vec2 vUv; varying vec3 vW;
-      void main() { vUv = uv; vW = (modelMatrix * vec4(position, 1.0)).xyz;
-                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
-    fragmentShader: /* glsl */ `
-      precision highp float;
-      varying vec2 vUv; varying vec3 vW;
-      float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
-      void main() {
-        // ragged edges: the track width breathes along its length
-        float edge = .78 + .2 * (hash(floor(vec2(vUv.y * .7, 3.))) - .5);
-        if (abs(vUv.x) > edge) discard;
-        float n = hash(floor(vW.xz * 2.1));
-        vec3 col = mix(vec3(.54, .44, .31), vec3(.42, .34, .24), smoothstep(.25, .75, n));
-        col *= 1. - .16 * smoothstep(.14, .03, abs(abs(vUv.x) - .5));   // wheel ruts
-        float st = hash(floor(vW.xz * 4.7) + 7.);
-        col = mix(col, vec3(.62, .6, .55), step(.94, st) * .8);         // stone specks
-        col *= .92 + .12 * hash(floor(vW.xz * .9) + 3.);                // large-scale tone patches
-        gl_FragColor = vec4(col, 1.0);
-        #include <colorspace_fragment>
-      }`,
-  })));
+
+// the town's watch (village.js stoneWall `guards`): soldiers outside the west gate in mail and steel caps, one with
+// sword and shield, one with spear and shield -- standing still, the arms in their hands (tools.js)
+let guardHerd = null;
+const guards = [];
+if (BUILDINGS.townWall?.guards?.length) {
+  guardHerd = createComposite(BUILDINGS.townWall.guards.length * 48);
+  scene.add(guardHerd.mesh);
+  BUILDINGS.townWall.guards.forEach((g, i) => {
+    const seed = 601 + i * 7, pd = makePerson({ seed, kind: "man", pose: "guard", still: true, outfit: SOLDIER }), p = guardHerd.add(pd);
+    p.position.set(g.x, groundH(g.x, g.z) + .01, g.z); p.rotY = g.h; p.animT = 0;
+    // (the rig's L/R are mirrored: its "L" parts sit at +z, the figure's RIGHT -- the weapon there, the shield on "R", the left arm)
+    guards.push({ an: p, tool: g.arms, hand: handIndex(pd, "L") }, { an: p, tool: "shield", hand: handIndex(pd, "R") });
+    talkers.push({ p, seed, kind: pd.kind });
+  });
 }
 
 // mounted riders trotting the paths (person in riding pose fused onto a
 // horse skeleton), plus a few loose horses roaming the range
-let riderHerd = null;
+let riderHerd = null, spareHerd = null, riderSplit = null;   // spareHerd, riderSplit: riders parted by a blow (combat.js)
 const riders = [], looseHorses = [];
 if (pathRoutes.length && nFolk) {
   const horseDef = SPECIES.find((s) => s.name === "horse");
   const makeRider = (seed) => {
-    const pd = makePerson({ seed, pose: "ride", still: true, adult: true });
-    const dy = .44 - pd.hipY;   // hips onto the horse's back (body-local)
-    return { name: "rider", parts: [
+    const pd = makePerson({ seed, pose: "ride", still: true, adult: true }), sd = saddle(horseDef);
+    const dy = pd.rideAt(sd.bodyY);   // hips onto the horse's back at the saddle (body-local)
+    return { name: "rider", gaits: horseDef.gaits, legLen: horseDef.legLen, probe: horseDef.probe, parts: [
       ...horseDef.parts,
       ...pd.parts.map((p) => ({ ...p, id: "r_" + p.id, parent: p.parent ? "r_" + p.parent : "body",
-        pos: p.parent ? p.pos : [p.pos[0] + .08, p.pos[1] + dy, p.pos[2]] })),
+        pos: p.parent ? p.pos : [p.pos[0] + sd.bodyX, p.pos[1] + dy, p.pos[2]] })),
     ] };
   };
-  riderHerd = createHerd(3 * 34 + 4 * 18, { pixelDepth });
+  riderHerd = createComposite(3 * 60 + 4 * 40);
   scene.add(riderHerd.mesh);
+  spareHerd = createComposite(3 * (60 + 45));   // riders and horses parted by a blow (combat.js): the horse alone, the man on his own
+  scene.add(spareHerd.mesh);
+  // a rider struck: the fused figure parts -- the struck one falls, the other goes on along the tour (the horse riderless,
+  // or the man on foot); side: the fall's side (a peer's, or worked out here)
+  riderSplit = (r, part, dir, side) => {
+    const old = r.an, pd = makePerson({ seed: r.seed, adult: true });
+    old.hidden = true;
+    const horse = spareHerd.add(horseDef), man = spareHerd.add(pd);
+    for (const f of [horse, man]) { f.position.copy(old.position); f.rotY = old.rotY; f.animT = old.animT; }
+    horse.runT = old.runT; horse.ampT = man.ampT = 1;
+    if (part === "rider") {   // thrown from the saddle; the horse goes on
+      man.position.y += 1.25;
+      r.an = horse;
+      const ti = talkers.indexOf(r.talker); if (ti >= 0) talkers.splice(ti, 1);
+      combat.down(spareHerd, man, { dir, remote: true, side });
+    } else {   // the horse felled under him; he walks on
+      r.an = man; r.speed = 1.3; r.base = gaitBase(pd); man.runT = 0;
+      r.talker.p = man;
+      combat.down(spareHerd, horse, { dir, remote: true, side });
+    }
+  };
   const hBase = gaitBase(horseDef);
   // one grand tour over the WHOLE network: along the main road, down every
   // building spur and back, then the meadow track and out to the lake
@@ -1451,26 +1747,34 @@ if (pathRoutes.length && nFolk) {
   for (const sp of spurs) tour.push(sp.pts[0], sp.pts[1], sp.pts[0]);
   tour.push(pathRoutes[0].pts[1]);
   const meadowRt = pathRoutes[1 + town.length], lakeRt = pathRoutes[2 + town.length];
-  if (meadowRt) tour.push(...meadowRt.pts);
-  if (lakeRt) tour.push(...lakeRt.pts.slice(1));
+  if (meadowRt) tour.push(...meadowRt.path);
+  if (lakeRt) tour.push(...lakeRt.path.slice(1));
+  // the tour as one closed lane, out along the network and back the same way
+  // (dead ends double back): the riders drive the same arc-length lane as the
+  // carts -- no path stepping of their own
+  const tourLane = laneFrom([...tour, ...tour.slice(0, -1).reverse()]);
   for (let i = 0; i < 3; i++) {
     const an = riderHerd.add(makeRider(i * 7 + 31));
-    talkers.push({ p: an, seed: i * 7 + 31, kind: "man" });   // riders talk too (from the saddle)
-    const seg = Math.floor(wrand() * (tour.length - 1));
-    const r = { an, pts: tour, seg, t: wrand(), dir: wrand() > .5 ? 1 : -1, speed: 1.7 + wrand() * .9, base: hBase };
+    const talker = { p: an, seed: i * 7 + 31, kind: "man" };
+    talkers.push(talker);   // riders talk too (from the saddle)
+    const u = wrand(); wrand();   // (where on the tour; the second draw keeps the world's random stream as it was)
+    const out = wrand() > .5, s0 = u * tourLane.total / 2;
+    const r = { an, lane: tourLane, s: out ? s0 : tourLane.total - s0, speed: 1.7 + wrand() * .9, base: hBase, seed: i * 7 + 31, talker, nHorse: horseDef.parts.length };
     riders.push(r);
-    an.position.set(tour[seg][0], 0, tour[seg][1]);
+    { const [x, z] = tourLane.at(r.s); an.position.set(x, 0, z); an.rotY = tourLane.heading(r.s); }
     an.animT = wrand() * 5;
+    an.runT = runs(r.speed, r.base) ? 1 : 0;   // the faster riders canter, the rest walk
+    track(() => [r.an.position.x, r.an.position.y, r.an.position.z, r.an.rotY, r.an.animT], (v) => { r.an.position.set(v[0], v[1], v[2]); r.an.rotY = v[3]; r.an.animT = v[4]; }, { angles: [3] });   // (r.an: the horse alone or the man on foot once they part, combat.js)
   }
   for (let i = 0; i < 4; i++) {   // loose horses: wanderers, and mountable by clicking
     const an = riderHerd.add(horseDef);
     const [x, z] = spawnIn(FENCE);
     an.position.set(x, 0, z);
     an.rotY = wrand() * Math.PI * 2;
-    const w = addWanderer(an.position, (h) => an.rotY = h, (v) => an.animT = v,
+    const w = addWanderer(an.position, (h) => an.rotY = h, (v, wt, mt, mv, run) => { an.animT = v; if (mv !== undefined) { an.ampT = mv ? 1 : 0; an.runT = run ? 1 : 0; } },
       ...(([sp, b, alt, hz]) => [sp, an.rotY, b, alt, hz, FENCE, bodyProbe(horseDef)])(wanderParams(horseDef)));
-    mountables.push({ w, def: horseDef });
-    callers.push({ name: "horse", p: an.position, pitch: .9 + wrand() * .2 });
+    an.w = w; mountables.push({ w, def: horseDef, a: an });
+    callers.push({ name: "horse", p: an.position, an, pitch: .9 + wrand() * .2 });
   }
 }
 
@@ -1479,7 +1783,7 @@ if (pathRoutes.length && nFolk) {
 // per wheel radius for the whole fleet), and its team + driver as banner
 // skeletons in one herd. They circle the lane loop on the sim tick, spaced
 // evenly, slowing behind a slower cart rather than driving through it.
-let cartHerd = null;
+let cartHerd = null, cartSpare = null, cartSplit = null;   // (cartSpare, cartSplit: a pair under a yoke parted by a blow, combat.js)
 const carts = [], wheelSets = new Map();
 const nCarts = highway ? Math.max(0, num("carts", Math.min(12, Math.max(2, Math.round(highway.total / 200))))) : 0;
 // the freight loop: landing yard -> up the freight road -> the highway's
@@ -1505,21 +1809,39 @@ if (LANDING && yards.length) {
 const FREIGHT_FLEET = [{ size: "large", kind: "ox", animals: 4 }, { size: "medium", kind: "horse", animals: 2 }, { size: "small", kind: "horse", animals: 1 },
                        { size: "large", kind: "horse", animals: 4 }, { size: "medium", kind: "ox", animals: 2 }];   // five on a 2km loop
 const movers = [];      // everything with a deck you can stand on that moves: carts, the barge
+let fisherHerd = null;  // the fisherman's own one-person herd (for arrows: every composite figure is a target)
 const handHerds = [];   // the dock hands' herd(s)
 if (nCarts || freightLane) {
   const defs = [];
   for (let i = 0; i < nCarts; i++) defs.push(makeCart({ ...FLEET[i % FLEET.length], seed: i + 1, variant: i % LOAD_VARIANTS }));
   const nFreight = freightLane ? FREIGHT_FLEET.length : 0;
   for (let i = 0; i < nFreight; i++) defs.push(makeCart({ ...FREIGHT_FLEET[i], seed: 100 + i, variant: -1 }));
-  cartHerd = createHerd(defs.reduce((a, c) => a + c.driver.parts.length + c.team.reduce((b, t) => b + t.def.parts.length, 0), 0), { pixelDepth });
+  cartHerd = createComposite(defs.reduce((a, c) => a + c.driver.parts.length + c.team.reduce((b, t) => b + t.def.parts.length, 0), 0));
+  cartSpare = createComposite(6 * 70 + 40);   // a pair under a yoke parted by a blow (combat.js): the two beasts, the yoke between them
+  scene.add(cartSpare.mesh);
+  // one beast of a pair struck: the fused pair gives way to the two beasts on their own and the yoke and pole, left where they
+  // were; the struck one falls, the other stands at the stopped cart (which: "L" the +z beast, "R" the -z one)
+  cartSplit = (k, tm, which, s) => {
+    const kind = tm.def.name.slice(5), sp = SPECIES.find((q) => q.name === kind), zs = sp.draft.zSp, an = tm.an;
+    an.hidden = true; k.down = true;
+    const Zx = Math.sin(an.rotY), Zz = Math.cos(an.rotY);   // the pair's own +z in the world
+    const yoke = cartSpare.add({ name: "yoke", parts: tm.def.parts.filter((p) => /^(yoke|pole|trace|bow)/.test(p.id)) });
+    yoke.position.copy(an.position); yoke.rotY = an.rotY;
+    for (const [side, dz] of [["L", zs], ["R", -zs]]) {
+      const f = cartSpare.add(sp);
+      f.position.set(an.position.x + Zx * dz, an.position.y, an.position.z + Zz * dz); f.rotY = an.rotY; f.animT = an.animT ?? 0; f.ampT = 0;
+      if (side === which) combat.down(cartSpare, f, { remote: true, side: s });
+    }
+  };
   scene.add(cartHerd.mesh);
   const counts = new Map();
   for (const c of defs) for (const w of c.wheels) counts.set(w.r, (counts.get(w.r) ?? 0) + 1);
   for (const [r, k] of counts) { const ws = buildInstanced(wheelDef(r), k); ws.used = 0; wheelSets.set(r, ws); scene.add(ws.root); }
   defs.forEach((c, i) => {
-    const body = buildBuilding(c.body);
+    const body = buildBuilding(c.body); markGroundProp(body);   // a cart: grass over its wheels, never up its sides
     scene.add(body);
-    const team = c.team.map((t) => ({ an: cartHerd.add(t.def), off: t.off, gait: t.def.gait }));
+    const team = c.team.map((t) => ({ an: cartHerd.add(t.def), off: t.off, gait: t.def.gait, def: t.def }));
+    for (const tm of team) track(() => [tm.an.animT ?? 0], (v) => { tm.an.animT = v[0]; }, { jump: 0 });   // placed every frame already; the gait clock ticks
     const driver = cartHerd.add(c.driver);
     talkers.push({ p: driver, seed: i * 17 + 5, kind: c.driver.kind });   // and cart drivers, from the box
     driver.animT = 0;
@@ -1540,6 +1862,10 @@ cartFloorsAt = (x, z) => {
     const lx = dx * c - dz * s, lz = dx * s + dz * c;   // into the mover's frame (forward = +x)
     if (Math.abs(lx) <= k.halfL + .25 && Math.abs(lz) <= k.halfW + .25) out.push(k.body.position.y + k.top);
   }
+  if (boatSt) {   // the fisherman's boat: its bottom boards (a fisherman struck down lies there, not in the river)
+    const B = boatSt, dx = x - B.grp.position.x, dz = z - B.grp.position.z, c = Math.cos(B.yaw), s = Math.sin(B.yaw);
+    if (Math.abs(dx * c - dz * s) <= 1.8 && Math.abs(dx * s + dz * c) <= .6) out.push(B.grp.position.y + .05);
+  }
   return out;
 };
 const cartUnder = (x, z, feetY) => movers.find((k) => {
@@ -1549,10 +1875,6 @@ const cartUnder = (x, z, feetY) => movers.find((k) => {
 });
 const _cm = new THREE.Matrix4(), _cq = new THREE.Quaternion(), _ce = new THREE.Euler(), _cp = new THREE.Vector3(), _cs = new THREE.Vector3(1, 1, 1);
 const _wm = new THREE.Matrix4();
-const laneHeading = (lane, s) => {   // travel direction at arc length s, as a world yaw
-  const a = lane.at(s - .5), b = lane.at(s + .5);
-  return Math.atan2(-(b[1] - a[1]), b[0] - a[0]);
-};
 function moveCarts(dt) {
   if (!carts.length) return;
   for (const k of carts) {   // convoy rule: close behind a slower cart on the same lane, match its pace
@@ -1565,11 +1887,12 @@ function moveCarts(dt) {
     }
     k.vEff = ahead && gap < 6 ? Math.min(k.v, ahead.vEff) : k.v;
     if (k.halt) k.vEff = 0;
+    if (k.down) k.vEff = 0;   // (its driver or a beast of its team struck down, combat.js)
   }
   for (const k of carts) {
     if (k.stops) freightStopStep(k, dt);
     if (!k.halt) k.s = (k.s + k.vEff * dt) % k.lane.total;
-    for (const t of k.team) t.an.animT = (t.an.animT ?? 0) + dt * k.vEff / t.gait;
+    for (const t of k.team) { t.an.animT = (t.an.animT ?? 0) + dt * k.vEff / t.gait; t.an.ampT = k.vEff > .05 ? 1 : 0; t.an.runT = runs(k.vEff, t.gait) ? 1 : 0; }   // a halted team stands square; a hurrying one runs
   }
 }
 // Placement happens every FRAME at the fractional position the cart has
@@ -1580,7 +1903,7 @@ function placeCarts(frac) {
   for (const k of carts) {
     const sv = k.s + (k.halt ? 0 : k.vEff * frac);
     const [x, z] = k.lane.at(sv);
-    const yaw = laneHeading(k.lane, sv);
+    const yaw = k.lane.heading(sv);
     const [pf, pr] = k.c.probes;   // pitch the body over the terrain between its ground probes
     const f = k.lane.at(sv + pf), b = k.lane.at(sv + pr);
     const hf = groundH(f[0], f[1]), hb = groundH(b[0], b[1]);
@@ -1597,12 +1920,12 @@ function placeCarts(frac) {
       _wm.premultiply(_cm);
       w.set.set(w.idx, _wm);
     }
-    k.driver.position.set(...k.c.seat).applyMatrix4(_cm);
-    k.driver.rotY = yaw;
+    if (!k.driver.down) { k.driver.position.set(...k.c.seat).applyMatrix4(_cm); k.driver.rotY = yaw; }   // (the struck lie where they fell)
     for (const t of k.team) {
+      if (t.an.down) continue;
       const [tx, tz] = k.lane.at(sv + t.off);
       t.an.position.set(tx, groundH(tx, tz) + .06, tz);
-      t.an.rotY = laneHeading(k.lane, sv + t.off);
+      t.an.rotY = k.lane.heading(sv + t.off);
     }
     k.items.forEach((it, m) => {   // live goods ride the bed
       const n = k.c.capacity;
@@ -1613,184 +1936,11 @@ function placeCarts(frac) {
   for (const ws of wheelSets.values()) ws.commit();
 }
 
-// ---- freight: goods, the barge, the landing's hands, the carts' stops, the yards --------
-// Goods are a pool of barrels and sacks, two instanced meshes; each item
-// is somewhere: in the barge's hold, in a hand's arms, on the quay, on a
-// cart's bed, in a yard (where it is consumed after a while and returns
-// to the pool), on the ground where you dropped it, or in your arms.
-const goods = [], goodsSets = {};
-const placeItemM = (it, m) => goodsSets[it.kind].set(it.idx, m);
-const _im = new THREE.Matrix4();
-const placeItem = (it, x, y, z, rotY = 0) => { _im.makeRotationY(rotY).setPosition(x, y, z); placeItemM(it, _im); it.x = x; it.y = y; it.z = z; };
-// in someone's arms: a barrel as it is, a sack turned upright (long side vertical), both with their bottom at y
-const _iq = new THREE.Quaternion(), _ie = new THREE.Euler(), _it = new THREE.Vector3(), _iu = new THREE.Vector3(1, 1, 1);
-const placeCarried = (it, x, y, z, rotY) => {
-  if (it.kind !== "sack") return placeItem(it, x, y, z, rotY);
-  _im.compose(_it.set(x, y + .5, z), _iq.setFromEuler(_ie.set(0, rotY, Math.PI / 2, "YZX")), _iu);
-  _im.multiply(new THREE.Matrix4().makeTranslation(0, -.24, 0));   // the ellipsoid's center to the pivot, then stood on end
-  placeItemM(it, _im); it.x = x; it.y = y; it.z = z;
-};
-const hideItem = (it) => placeItem(it, 0, -100, 0);
-let bargeSt = null, bargeGrp = null, LANDER = null;   // the barge's state and mesh; the landing's world helpers
-const hands = [];
+// ---- freight (freight.js): goods and their states, the barge, the landing's hands, the freight carts' stops
 let carrying = null;   // what you carry
-if (LANDING && freightLane) {
-  const N = 14;
-  goodsSets.barrel = buildInstanced({ name: "barrels", parts: barrelParts("big", [0, .475, 0], "up") }, N);
-  goodsSets.sack = buildInstanced({ name: "sacks", parts: sackParts([0, .24, 0], "x") }, N);
-  scene.add(goodsSets.barrel.root); scene.add(goodsSets.sack.root);
-  for (let i = 0; i < N; i++) { goods.push({ kind: "barrel", idx: i, state: "gone" }); goods.push({ kind: "sack", idx: i, state: "gone" }); }
-  for (const it of goods) hideItem(it);
-  const def = BUILDINGS.landing, L = LANDING;
-  LANDER = { x: L.x, z: L.z, slots: def.quaySlots.map(([x, y, z]) => [L.x + x, y, L.z + z]),
-             way: def.way.map(([x, y, z]) => [L.x + x, y, L.z + z]), bargeZ: L.z + def.bargeZ };
-  // the barge: sails in from 120m downriver, moors at the landing, is unloaded, sails out, waits, comes back laden
-  const bd = bargeDef();
-  bargeGrp = buildBuilding(bd); scene.add(bargeGrp);
-  bargeSt = { x: BASIN.x - 40, moorX: BASIN.x, outX: BASIN.x - 120, speed: 1.6, phase: "in", t: 0, def: bd, hold: [],
-              body: bargeGrp, yaw: 0, carry: { dx: 0, dz: 0, dyaw: 0 }, halfL: bd.halfL, halfW: bd.halfW, top: bd.deckY, side: .35, moving: true };
-  movers.push(bargeSt);
-  const refill = () => { const pool = goods.filter((g) => g.state === "gone"); for (let i = 0; i < bd.holdSlots.length && pool.length; i++) { const it = pool[i % 2 ? 0 : pool.length - 1]; pool.splice(pool.indexOf(it), 1); it.state = "hold"; it.slot = i; bargeSt.hold.push(it); } };
-  refill();
-  // two dock hands, banner people in the folk herd's way: their own little herd
-  const handHerd = createHerd(5 * 14, { pixelDepth }); scene.add(handHerd.mesh);   // two hands x two rigs, and the boatman
-  for (let i = 0; i < 2; i++) {   // each hand is two rigs: walking free, and walking with a load held out in front
-    const pd = makePerson({ seed: 900 + i * 3, adult: true }), pc = makePerson({ seed: 900 + i * 3, pose: "carry", adult: true });
-    const an = handHerd.add(pd), anC = handHerd.add(pc);
-    const start = LANDER.way[3];
-    const post = [start[0] + 1.5 + i * 1.6, .05, start[2] - 2.2];   // each hand's own waiting post on the quay
-    const h = { an, anC, base: gaitBase(pd), state: "idle", item: null, wp: [], wi: 0, speed: 1.4, seed: 900 + i * 3, post };
-    an.position.set(post[0], post[1] + .04, post[2]); an.animT = 0;
-    anC.position.set(0, -100, 0); anC.animT = 0;
-    hands.push(h); talkers.push({ p: an, seed: h.seed, kind: pd.kind });
-  }
-  {   // the boatman: stands at the tiller behind the cabin, rides with the barge, talks
-    const pb = makePerson({ seed: 907, still: true, adult: true }), an = handHerd.add(pb);
-    an.animT = 0; bargeSt.boatman = an; talkers.push({ p: an, seed: 907, kind: pb.kind });
-  }
-  // the gangplank: hinged at the barge's north gunwale; a moving floor of its own when lowered
-  {
-    const pg = buildBuilding({ name: "plank", parts: [{ shape: "box", size: [1.2, .06, 2.6], pos: [0, 0, -1.3], color: 0x7a5a36, pat: "wood", collide: false }] });
-    pg.position.set(-.5, bd.deckY, -1.72); pg.rotation.x = -1.35;   // raised, folded up along the gunwale
-    bargeGrp.add(pg);
-    bargeSt.plank = pg;
-    bargeSt.plankMover = { body: { position: new THREE.Vector3() }, yaw: 0, carry: bargeSt.carry, halfL: .6, halfW: 1.35, top: bd.deckY + .03, active: false };
-  }
-  handHerds.push(handHerd);
-}
-// the barge's pose along the north side of the river, 8.5m out from the bank line
-const bargePose = (x) => {
-  // the lane runs 8.5m off the north bank, but for 30m either side of the bridge it eases onto the river's
-  // center line and straightens: the barge passes through the middle arch square, clear of both piers
-  const zc = (xx) => {
-    const zl = riverZ(xx) - riverHW(xx) + 8.5;
-    if (VILLAGE_X === null) return zl;
-    const d = Math.abs(xx - VILLAGE_X); if (d >= 30) return zl;
-    const t = d / 30, w = t * t * (3 - 2 * t);
-    return riverZ(VILLAGE_X) * (1 - w) + zl * w;
-  };
-  return { x, z: zc(x), yaw: Math.atan2(-(zc(x + .5) - zc(x - .5)), 1) };
-};
-const bargeLocal = ([lx, ly, lz]) => {   // a barge-local point in world space, from the SIM pose (the mesh lags a frame)
-  const p = bargePose(bargeSt.x), c = Math.cos(p.yaw), sn = Math.sin(p.yaw);
-  return [p.x + lx * c + lz * sn, WLEVEL + ly, p.z - lx * sn + lz * c];
-};
-const bargeHoldWorld = (it) => bargeLocal(bargeSt.def.holdSlots[it.slot]);
-function placeBarge(frac) {
-  if (!bargeSt) return;
-  const xv = bargeSt.x + (bargeSt.phase === "in" ? bargeSt.speed * frac : bargeSt.phase === "out" ? -bargeSt.speed * frac : 0);
-  const p = bargePose(xv);
-  bargeSt.carry.dx += p.x - bargeGrp.position.x; bargeSt.carry.dz += p.z - bargeGrp.position.z;
-  bargeSt.carry.dyaw += ((p.yaw - bargeSt.yaw + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
-  bargeSt.yaw = p.yaw;
-  bargeGrp.position.set(p.x, WLEVEL, p.z); bargeGrp.rotation.y = p.yaw;
-  if (bargeSt.boatman) { const w = bargeLocal([-5.3, bargeSt.def.deckY + .04, 0]); bargeSt.boatman.position.set(w[0], w[1], w[2]); bargeSt.boatman.rotY = p.yaw; }
-  if (bargeSt.plank) {   // lower the plank when moored, raise it under way; as a floor it exists only when down
-    const want = bargeSt.phase === "moored" ? 0 : -1.35;
-    bargeSt.plank.rotation.x += (want - bargeSt.plank.rotation.x) * Math.min(1, frac * 0 + .08);
-    const pm = bargeSt.plankMover, down = bargeSt.plank.rotation.x > -.08;
-    if (down && !pm.active) { movers.push(pm); pm.active = true; }
-    if (!down && pm.active) { movers.splice(movers.indexOf(pm), 1); pm.active = false; }
-    const w = bargeLocal([-.5, 0, -3.05]); pm.body.position.set(w[0], WLEVEL, w[2]); pm.yaw = p.yaw;
-  }
-  const c = Math.cos(p.yaw), sn = Math.sin(p.yaw);
-  for (const it of bargeSt.hold) { const s = bargeSt.def.holdSlots[it.slot]; placeItem(it, p.x + s[0] * c + s[2] * sn, WLEVEL + s[1], p.z - s[0] * sn + s[2] * c, p.yaw + (it.kind === "sack" ? Math.PI / 2 : 0)); }
-}
-// the hands' way: the barge's plank end (moored), then the landing's waypoints, then a quay slot
-const bargePlankWorld = () => bargeLocal(bargeSt.def.plankEnd);
-const freeQuaySlot = () => LANDER.slots.findIndex((_, i) => !goods.some((g) => (g.state === "quay" || g.state === "carried") && g.slot === i));   // carried pieces hold their slot
-function freightStep(dt) {
-  if (!bargeSt) return;
-  const B = bargeSt;
-  B.t += dt;
-  if (B.phase === "in") { B.x += B.speed * dt; if (B.x >= B.moorX) { B.x = B.moorX; B.phase = "moored"; B.t = 0; } }
-  else if (B.phase === "moored") { if (!B.hold.length && !hands.some((h) => h.item) && B.t > 12) { B.phase = "out"; B.t = 0; } }
-  else if (B.phase === "out") { B.x -= B.speed * dt; if (B.x <= B.outX) { B.phase = "away"; B.t = 0; } }
-  else if (B.phase === "away" && B.t > 25) { const pool = goods.filter((g) => g.state === "gone"); for (let i = 0; i < B.def.holdSlots.length && pool.length; i++) { const it = pool.shift(); it.state = "hold"; it.slot = i; B.hold.push(it); } B.phase = "in"; B.t = 0; }
-  B.moving = B.phase === "in" || B.phase === "out";
-  // the hands
-  for (const h of hands) {
-    const p = h.an.position;
-    if (h.state === "idle") {
-      h.an.animT += (Math.round(h.an.animT * 1.6) / 1.6 - h.an.animT) * Math.min(1, dt * 10);
-      if (B.phase === "moored" && B.hold.some((it) => !it.claimed)) {
-        const it = B.hold.find((it) => !it.claimed); it.claimed = true; h.target = it;
-        h.wp = [...LANDER.way.slice().reverse(), bargePlankWorld(), bargeHoldWorld(it)]; h.wi = 0; h.state = "toHold";
-      }
-      continue;
-    }
-    const wp = h.wp[h.wi], dx = wp[0] - p.x, dz = wp[2] - p.z, d = Math.hypot(dx, dz);
-    const step = h.speed * dt;
-    if (d <= step) {
-      p.set(wp[0], wp[1] + .04, wp[2]);
-      if (++h.wi >= h.wp.length) {
-        if (h.state === "toHold") {   // pick the item up, carry it to a free quay slot
-          const it = h.target; B.hold.splice(B.hold.indexOf(it), 1); it.state = "carried"; h.item = it; h.target = null;
-          const si = freeQuaySlot(); h.slotI = si < 0 ? 0 : si; it.slot = h.slotI;   // reserved now
-          h.wp = [bargePlankWorld(), ...LANDER.way, LANDER.slots[h.slotI]]; h.wi = 0; h.state = "toQuay"; h.speed = 1.1;
-        } else if (h.state === "toQuay") {   // set it down, then step back to the waiting post
-          const it = h.item, sl = LANDER.slots[h.slotI]; it.state = "quay"; it.slot = h.slotI; delete it.claimed;
-          placeItem(it, sl[0], sl[1], sl[2], it.kind === "sack" ? Math.PI / 2 : 0); h.item = null; h.speed = 1.5;
-          h.state = "toPost"; h.wp = [h.post]; h.wi = 0;
-        } else { h.state = "idle"; h.wp = []; }   // at the post
-      }
-    } else {
-      p.x += dx / d * step; p.z += dz / d * step;
-      const t = step / d; p.y += (wp[1] + .04 - p.y) * Math.min(1, t * 1.0 + .02);
-      h.an.rotY = Math.atan2(-dz, dx);
-      h.an.animT += dt * h.speed / h.base;
-    }
-  }
-  // yards consume: a delivered item is gone after 90s (and the barge will bring it back)
-  for (const it of goods) if (it.state === "store") { it.age = (it.age ?? 0) + dt; if (it.age > 90) { it.state = "gone"; it.age = 0; hideItem(it); } }
-}
-function freightStopStep(k, dt) {   // a freight cart at its stops: load at the quay, unload at a yard
-  if (k.halt) {
-    k.halt.t += dt;
-    const st = k.halt.stop;
-    if (k.halt.t >= 3) {
-      k.halt.t = 0;
-      if (st.kind === "load") {
-        const it = goods.find((g) => g.state === "quay");
-        if (it && k.items.length < k.c.capacity) { it.state = "cart"; k.items.push(it); k.halt.idle = 0; }
-        else k.halt.idle = (k.halt.idle ?? 0) + 1;
-        if (k.items.length >= k.c.capacity || k.halt.idle >= 2) { k.halt = null; k.passed = st; }
-      } else {
-        const it = k.items.shift();
-        if (it) { const y = st.yard, si = y.slots.findIndex((_, i) => !goods.some((g) => g.state === "store" && g.yard === y && g.slot === i));
-          if (si >= 0) { const sl = y.slots[si]; it.state = "store"; it.yard = y; it.slot = si; it.age = 0; placeItem(it, sl[0], sl[1], sl[2], it.kind === "sack" ? Math.PI / 2 : 0); }
-          else { it.state = "gone"; hideItem(it); } }
-        if (!k.items.length) { k.halt = null; k.passed = st; }
-      }
-    }
-    return;
-  }
-  for (const st of k.stops) {
-    const d = Math.abs(k.s - st.s);
-    if (d > 6 && k.passed === st) k.passed = null;
-    if (d < .6 && k.passed !== st) { k.halt = { stop: st, t: 0 }; k.s = st.s; break; }
-  }
-}
+const { goods, goodsSets, GOODS, goodsTo, placeItemM, placeCarried, putDown, placeRiding, hands, bargeSt, bargePose, placeBarge, freightStep, freightStopStep }
+  = createFreight({ scene, BUILDINGS, LANDING, BASIN, freightLane, buildInstanced, barrelParts, sackParts, bargeDef, buildBuilding, createComposite, makePerson, gaitBase,
+                    talkers, track, movers, cartUnder, carts, riverZ, riverHW, VILLAGE_X, WLEVEL, handHerds });
 placeCarts(0);   // placed before the first frame
 placeBarge(0);
 
@@ -1805,7 +1955,7 @@ let boatSt = null;
   if (FH && n) {
     const dk = BUILDINGS.fisherHut.boatDock, dock = [FH.x + dk[0], FH.z + dk[2]];
     const fxp = dock[0] + 22, spot = [fxp, riverZ(fxp)];
-    const grp = buildBuilding(fisherBoat()); scene.add(grp);
+    const grp = buildBuilding(fisherBoat()); markGroundProp(grp); scene.add(grp);
     const oars = [-1, 1].map((sd) => { const g = buildBuilding(oar(sd)); g.position.set(-1.0, .3, sd * .74); grp.add(g); return g; });   // oarlocks aft of the thwart: the rower faces the stern and pulls the handles to his chest
     // the rod: butt in the hands (seat x -.7, hands held forward at local y .45, out over the +z gunwale
     // he faces while fishing), tilted +z by ROD_TILT (positive x rotation swings +y toward +z); the line
@@ -1814,18 +1964,19 @@ let boatSt = null;
     const rod = buildBuilding(fishingRod()); rod.position.set(...ROD); rod.rotation.x = ROD_TILT; rod.visible = false; grp.add(rod);
     const line = buildBuilding(fishingLine()); line.position.set(...TIP); line.scale.y = (TIP[1] + .28) / 1.8; line.visible = false; grp.add(line);
     const fish = buildBuilding(caughtFish()); fish.visible = false; grp.add(fish);
-    const fh = createHerd(14, { pixelDepth }); scene.add(fh.mesh);
+    const fh = createComposite(40); scene.add(fh.mesh); fisherHerd = fh;
     const pd = makePerson({ seed: 905, pose: "sit", still: true, adult: true });
     for (const p of pd.parts) if (p.id.startsWith("arm")) p.rot = [(p.id.endsWith("L") ? 1 : -1) * 10, 0, 60];   // hands held forward: on the oar handles, on the rod
+    for (const p of pd.parts) if (p.id.startsWith("fore")) p.rot = [0, 0, 25];
     const fm = fh.add(pd);
     talkers.push({ p: fm, seed: 905, kind: pd.kind });
     boatSt = { phase: "moored", t: 0, s: 0, yaw: 0, dock, spot, len: Math.hypot(spot[0] - dock[0], spot[1] - dock[1]), speed: 1.1,
-               grp, oars, rod, line, fish, tip: TIP, herd: fh, fm, hipY: pd.hipY };
+               grp, oars, rod, line, fish, tip: TIP, herd: fh, fm, sitAt: pd.sitAt };
     boatSt.yaw = Math.atan2(-(spot[1] - dock[1]), spot[0] - dock[0]);
   }
 }
 function boatStep(dt) {
-  const B = boatSt; if (!B) return;
+  const B = boatSt; if (!B || B.fm.down) return;   // (the fisherman struck down: the boat stays where it is)
   B.t += dt;
   if (B.phase === "moored") { if (B.t > 30) { B.phase = "out"; B.t = 0; } }
   else if (B.phase === "out") { B.s = Math.min(1, B.s + B.speed * dt / B.len); if (B.s >= 1) { B.phase = "fishing"; B.t = 0; } }
@@ -1834,10 +1985,10 @@ function boatStep(dt) {
 }
 function placeBoat(frac) {
   const B = boatSt; if (!B) return;
-  const ds = B.speed * frac / B.len;
+  const down = !!B.fm.down, ds = down ? 0 : B.speed * frac / B.len;   // (struck down: no more rowing, no fishing, the boat still)
   const s = B.phase === "out" ? Math.min(1, B.s + ds) : B.phase === "back" ? Math.max(0, B.s - ds) : B.s;
   const x = B.dock[0] + (B.spot[0] - B.dock[0]) * s, z = B.dock[1] + (B.spot[1] - B.dock[1]) * s, T = B.t + frac;
-  const rowing = B.phase === "out" || B.phase === "back";
+  const rowing = !down && (B.phase === "out" || B.phase === "back");
   const along = Math.atan2(-(B.spot[1] - B.dock[1]), B.spot[0] - B.dock[0]);
   const tgt = B.phase === "back" ? along + Math.PI : along;   // the bow points the way it travels; turned round while fishing
   const dy = ((tgt - B.yaw + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
@@ -1849,14 +2000,15 @@ function placeBoat(frac) {
     if (rowing) { g.rotation.y = .55 * Math.sin(ph); g.rotation.x = sd * (.12 - .16 * Math.cos(ph)); }
     else { g.rotation.y = sd * 1.35; g.rotation.x = 0; }
   }
-  const fishing = B.phase === "fishing";
+  const fishing = !down && B.phase === "fishing";
   B.rod.visible = B.line.visible = fishing;
   const bite = fishing && (T % 11) > 8.6;   // every 11s a fish is on for a couple of seconds, hauled up the line
   B.fish.visible = bite;
   if (bite) { const u = ((T % 11) - 8.6) / 2.4; B.fish.position.set(B.tip[0], -.25 + (B.tip[1] - .55) * u, B.tip[2] - .35 * u); B.fish.rotation.set(0, .3 * Math.sin(T * 9), .25 * Math.sin(T * 7)); }   // hauled up the line toward the rod tip
   // the fisherman on the aft thwart: facing the stern while he rows, the bow when moored, the rod side while fishing
+  if (down) return;   // (he lies where he fell, in the bottom of the boat -- combat.js)
   const seat = -.7, c = Math.cos(B.yaw), sn = Math.sin(B.yaw);
-  B.fm.position.set(x + c * seat, y + .33 - B.hipY, z - sn * seat);
+  B.fm.position.set(x + c * seat, B.sitAt(y + .25), z - sn * seat);   // on the thwart, .25 above the boat's origin
   B.fm.rotY = B.yaw + (rowing ? Math.PI : fishing ? -Math.PI / 2 : 0);
 }
 placeBoat(0);
@@ -1870,7 +2022,7 @@ if (n) for (const s of town) {
   const cxA = s.x, czA = siteZ(s);
   const hA = def.arena.r * .5;
   const AF = { x0: cxA - hA, x1: cxA + hA, z0: czA - hA, z1: czA + hA };
-  const ah = createHerd(12 * 22, { pixelDepth });
+  const ah = createComposite(12 * 40);
   scene.add(ah.mesh);
   const lion = SPECIES.find((d) => d.name === "lion"), tiger = SPECIES.find((d) => d.name === "tiger");
   const cast = [lion, lion, lion, lion, tiger, tiger, tiger, tiger,
@@ -1883,16 +2035,16 @@ if (n) for (const s of town) {
     an.rotY = wrand() * Math.PI * 2;
     // the show RUNS: sprint speeds instead of the wanderers' amble, with
     // the gait cadence automatically following (legs at full charge)
-    addWanderer(an.position, (hh) => an.rotY = hh, (v) => an.animT = v,
+    an.w = addWanderer(an.position, (hh) => an.rotY = hh, (v, wt, mt, mv, run) => { an.animT = v; if (mv !== undefined) { an.ampT = mv ? 1 : 0; an.runT = run ? 1 : 0; } },
       ...(([, b]) => [3.5 + wrand() * 2, an.rotY, b, def.arena.y, .8, AF, bodyProbe(cd)])(wanderParams(cd)));
-    if (CALLS[cd.name]) callers.push({ name: cd.name, p: an.position, pitch: .9 + wrand() * .2 });   // the arena roars
+    if (CALLS[cd.call ?? cd.name]) callers.push({ name: cd.call ?? cd.name, p: an.position, an, pitch: .9 + wrand() * .2 });   // the arena roars
   }
   arenaHerds.push(ah);
 }
 
 // riding: click a nearby horse to mount -- the camera sits at the rider's
 // head, movement drives the horse at double speed; click again to dismount
-let mounted = null, resting = null;   // resting = { x, z, y, lie } while seated or lying
+let mounted = null, resting = null, swimming = false, swimTop = 0;   // swimming: afloat in water deeper than you stand (E up, Q dive)   // resting = { x, z, y, lie } while seated or lying
 let eyeH = EYE;
 // what a click would do right now (at most ONE action): drives both the
 // click itself and the bottom-center hint text
@@ -1900,6 +2052,8 @@ function findInteraction() {
   if (mounted?.flying) return { label: "hold Q to land first", act: () => {} };
   if (mounted) return { label: "click to dismount",
     act: () => { mounted.w.frozen = false; mounted = null; eyeH = EYE; } };
+  const tw = tableware.nearest(camera.position, -Math.sin(yaw), -Math.cos(yaw), standY, (op) => session?.send(op));   // drink / eat -- seated at the table too (look away to stand up)
+  if (tw) return tw;
   if (resting) return { label: resting.lie ? "click to get up" : "click to stand up",
     act: () => {   // step off to the first free spot beside the furniture
       for (let a = 0; a < 8; a++) {
@@ -1914,18 +2068,19 @@ function findInteraction() {
   if (carrying) return { label: `click to put down the ${carrying.kind}`, act: () => {
     const x = camera.position.x + fx * 1.0, z = camera.position.z + fz * 1.0;
     const y = supportNear(x, z, camera.position.y);
-    carrying.state = "ground"; placeItem(carrying, x, y + .01, z, yaw); carrying = null;
+    putDown(carrying, x, y, z, yaw); carrying = null;
   } };
   for (const it of goods) {   // a barrel or sack lying about: pick it up
-    if (!(it.state === "quay" || it.state === "store" || it.state === "ground" || it.state === "hold" || it.state === "cart") || it.claimed) continue;   // (a hand already heading for it keeps its claim)
+    if (!GOODS[it.state].pick || it.claimed) continue;   // (a hand already heading for it keeps its claim)
     const dx = it.x - camera.position.x, dz = it.z - camera.position.z, d = Math.hypot(dx, dz);
     if (d > 2.2 || d < .01 || (dx * fx + dz * fz) / d < .4 || Math.abs(it.y - standY) > 1.6) continue;
     return { label: `click to pick up the ${it.kind}`, act: () => {
-      if (it.state === "hold") bargeSt.hold.splice(bargeSt.hold.indexOf(it), 1);   // off the barge's manifest / the cart's load
-      if (it.state === "cart") for (const k of carts) { const i = k.items.indexOf(it); if (i >= 0) k.items.splice(i, 1); }
-      it.state = "player"; carrying = it; } };
+      goodsTo(it, "player"); carrying = it; } };   // (off the barge's manifest, the cart's load, the floor it rode)
   }
+  const arw = archery.nearest(camera.position, fx, fz, standY);   // a stuck or fallen arrow in reach: take it back
+  if (arw) return { label: "click to take the arrow", arrow: true, act: () => archery.take(arw) };
   for (const m of mountables) {
+    if (m.a?.down) continue;   // (struck down)
     const dx = m.w.p.x - camera.position.x, dz = m.w.p.z - camera.position.z;
     const d = Math.hypot(dx, dz);
     if (d > 1.2 + bodyProbe(m.def)) continue;                   // ~1m from the animal's flank
@@ -1934,17 +2089,19 @@ function findInteraction() {
       act: () => { mounted = { ...m, animT: m.w.animT, wingT: 0, flying: false, idx: mountables.indexOf(m) }; m.w.frozen = true; eyeH = m.def.mount.h; rouse(m.w.p); } };
   }
   for (const c of callers) {   // any creature with a voice that you cannot ride: stand close, look at it, click -- it calls (mounts call when mounted)
+    if (c.an?.down) continue;   // (struck down: silent)
     if (mountables.some((m) => m.w.p === c.p)) continue;
     const dx = c.p.x - camera.position.x, dz = c.p.z - camera.position.z, d = Math.hypot(dx, dz);
     if (d > 2.4 + CALLS[c.name].loud * .8 || d < .01 || (dx * fx + dz * fz) / d < .5) continue;
     return { label: `click to rouse the ${c.name}`, act: () => rouse(c.p) };
   }
   for (const t of talkers) {   // a word with whoever stands within reach and in view
+    if ((t.figure?.() ?? t.p).down) continue;
     const dx = t.p.position.x - camera.position.x, dz = t.p.position.z - camera.position.z;
     const d = Math.hypot(dx, dz);
     if (d > 2.2 || d < .01 || (dx * fx + dz * fz) / d < .5) continue;
     return { label: "click to greet them", act: () => {
-      talkerVoice(t); t.next = 0; t.greeted = true;
+      talkerVoice(t); t.next = 0;   // greeted: they answer
       if (t.w) {   // a greeted walker stops for half a minute and turns to you
         t.w.moving = false; t.w.until = simTick * TICK + 30;
         t.w.heading = t.w.target = Math.atan2(-(camera.position.z - t.p.position.z), camera.position.x - t.p.position.x);
@@ -2010,16 +2167,13 @@ function doPick(i) {   // hide the picked plant's instance (shared with peers vi
   if (treeHerd) treeHerd.update(0);
 }
 const hintEl = document.getElementById("hint");
-function moveRiders(dt) {
+function moveRiders(dt) {   // on their tour lane, like a cart on its lane
   for (const r of riders) {
-    const a = r.pts[r.seg], b = r.pts[r.seg + 1];
-    const dx = b[0] - a[0], dz = b[1] - a[1], len = Math.max(.1, Math.hypot(dx, dz));
-    r.t += dt * r.speed * r.dir / len;
-    if (r.t > 1) { if (r.seg + 2 < r.pts.length) { r.seg++; r.t = 0; } else { r.dir = -1; r.t = 1; } }
-    else if (r.t < 0) { if (r.seg > 0) { r.seg--; r.t = 1; } else { r.dir = 1; r.t = 0; } }
-    const x = a[0] + dx * r.t, z = a[1] + dz * r.t;
+    if (r.stopped) continue;   // (struck down, combat.js)
+    r.s += dt * r.speed;
+    const [x, z] = r.lane.at(r.s);
     r.an.position.set(x, groundH(x, z) + .06, z);
-    r.an.rotY = Math.atan2(-dz * r.dir, dx * r.dir);
+    r.an.rotY = r.lane.heading(r.s);
     r.an.animT += dt * r.speed / r.base;
   }
 }
@@ -2035,16 +2189,16 @@ const netEls = Object.fromEntries(["net", "netStatus", "netOut", "netIn", "btnIn
   .map((id) => [id, document.getElementById(id)]));
 const hashSeed = (s) => Math.abs([...s].reduce((a, c) => (a * 33 + c.charCodeAt(0)) | 0, 7)) % 997 + 3;
 const netStatus = (t) => netEls.netStatus.textContent = t;
-function ensureAvatar(id, kind) {
+function ensureAvatar(id, kind, person = {}) {   // person: more makePerson options (the player's own body: its height, no hat)
   let av = avatars.get(id);
   if (av && av.kind === kind) return av;
   if (av) scene.remove(av.herd.mesh);
   const pd = makePerson({ seed: hashSeed(id),
-                          pose: kind === "sit" ? "sit" : kind === "ride" ? "ride" : kind === "lie" ? "lie" : undefined,
-                          still: kind !== "walk" });
-  const herd = createHerd(14, { pixelDepth });
+                          pose: kind === "sit" ? "sit" : kind === "ride" ? "ride" : kind === "lie" ? "lie" : kind === "draw" ? "draw" : undefined,
+                          still: kind !== "walk" && kind !== "draw", ...person });   // (draw: the bow drawn, the legs still walking)
+  const herd = createComposite(40);
   scene.add(herd.mesh);
-  av = { ...(av ?? {}), herd, an: herd.add(pd), kind, hipY: pd.hipY };
+  av = { ...(av ?? {}), herd, an: herd.add(pd), kind, sitAt: pd.sitAt, rideAt: pd.rideAt, base: gaitBase(pd), eyeAt: pd.eyeAt, hands: { L: handIndex(pd, "L"), R: handIndex(pd, "R") } };
   av.an.animT = 0;
   avatars.set(id, av);
   return av;
@@ -2064,14 +2218,14 @@ function applyNetOp(op) {
     setPeerMount(av, op.mi ?? -1);
     if (av.mi >= 0 && mountables[av.mi]) {   // their mount follows them, trotting in step
       const mw = mountables[av.mi].w;
-      mw.p.x = op.x; mw.p.z = op.z; mw.p.y = op.y + .04;
-      mw.apply(op.w + Math.PI / 2);
+      const mh = op.w + Math.PI / 2, sx = saddle(mountables[av.mi].def).rootX;   // the saddle under the rider: the body sits back by its offset
+      mw.p.x = op.x - Math.cos(mh) * sx; mw.p.z = op.z + Math.sin(mh) * sx; mw.p.y = op.y + .04;
+      mw.apply(mh);
       const aloft = mountables[av.mi].def.mount.fly && op.y > groundH(op.x, op.z) + .4;
       if (aloft) {   // in flight: wings beat (8Hz ops), legs hang, head/tail keep moving
         mw.wingT = (mw.wingT ?? 0) + .28;
-        mw.moveT = (mw.moveT ?? mw.animT) + .5;
-      } else { if (op.m) mw.animT += .5; mw.moveT = undefined; }
-      mw.setT(mw.animT, mw.wingT ?? 0, mw.moveT);
+      } else if (op.m) mw.animT += .5;
+      mw.setT(mw.animT, mw.wingT ?? 0, undefined, !!op.m && !aloft, !!op.m);
     }
   } else if (op.k === "door") {
     if (doors[op.i]) doors[op.i].open = !!op.open;
@@ -2081,6 +2235,18 @@ function applyNetOp(op) {
     spawnDupe(op.id, op.x, op.y, op.z, op.w, op.r, op.mi);
   } else if (op.k === "pick") {
     doPick(op.i);
+  } else if (op.k === "down") {   // a peer struck one down
+    combat.apply(op);
+  } else if (op.k === "pair") {   // ...or felled one beast of a pair under a yoke
+    const k = carts[op.c], tm = k?.team[op.t];
+    if (tm && cartSplit && !tm.an.hidden) cartSplit(k, tm, op.which, op.s);
+  } else if (op.k === "rider") {   // ...or threw a rider / felled his horse
+    const r = riders[op.r];
+    if (r && riderSplit && !r.an.hidden) riderSplit(r, op.part, null, op.s);
+  } else if (op.k === "drink" || op.k === "eat") {   // a peer drank or ate: the same mug, the same plate here
+    tableware.apply(op);
+  } else if (op.k === "arrow") {   // a peer's shot: it flies and sticks here too
+    archery.spawn(op.p, op.v, true);
   } else if (op.k === "env") {
     weather = op.weather; wxInt = op.int; applyClouds();
     SNOW.value = weather === 2 ? 1 : 0;
@@ -2175,19 +2341,18 @@ chatIn.addEventListener("keydown", (e) => {
 const dupes = [];
 function spawnDupe(id, x, y, z, w, kind, mi) {
   const pd = makePerson({ seed: hashSeed(String(id)), pose: kind === 2 ? "ride" : kind === 1 ? "sit" : kind === 3 ? "lie" : undefined, still: true });
-  let def = pd, yOff = kind === 1 ? .18 - pd.hipY : kind === 3 ? .04 : 0;
+  let def = pd, yOff = kind === 1 ? pd.sitAt(0) : kind === 3 ? .04 : 0;   // (y is the seat top while seated)
   if (kind === 2 && mountables[mi]) {   // mounted clone: person fused onto a copy of the mount
     const md = mountables[mi].def;
-    const body = md.parts.find((q) => q.id === "body");
-    const dy = (body?.size.r ?? .4) + .02 - pd.hipY;
-    def = { name: "dupRider", parts: [
+    const sd = saddle(md), dy = pd.rideAt(sd.bodyY);
+    def = { name: "dupRider", gaits: md.gaits, legLen: md.legLen, probe: md.probe, parts: [
       ...md.parts,
       ...pd.parts.map((p) => ({ ...p, id: "r_" + p.id, parent: p.parent ? "r_" + p.parent : "body",
-        pos: p.parent ? p.pos : [p.pos[0] + .08, p.pos[1] + dy, p.pos[2]] })),
+        pos: p.parent ? p.pos : [p.pos[0] + sd.bodyX, p.pos[1] + dy, p.pos[2]] })),
     ] };
     yOff = .04;
   }
-  const herd = createHerd(38, { pixelDepth });
+  const herd = createComposite(80);
   scene.add(herd.mesh);
   const an = herd.add(def);
   an.position.set(x, y + yOff, z);
@@ -2207,6 +2372,74 @@ function dupSelf() {
 }
 
 let lastPose = 0, walking = false;
+// ---- the player's own body (config.json `player`): a person facing the camera's way with its eyes eyeBehind (10cm)
+// behind the camera, so it stays out of sight but when looking steeply down -- or in a mirror. Its height puts its
+// eyes at eye height (EYE); no hat (a brim would hang before the camera). Hidden where the camera would sit in its
+// head: crouched, swimming, lying down -- and in any camera mode but the player's own
+const SELF = CONFIG.player ?? { selfBody: true, eyeBehind: .1 };
+let selfLast = null;
+function updateSelf() {
+  if (!SELF.selfBody) return;
+  const kind = mounted ? "ride" : resting ? (resting.lie ? "lie" : "sit") : archery.drawing ? "draw" : "walk";
+  const av = ensureAvatar("self", kind, { kind: "man", height: EYE / .942, outfit: { hat: "none" } });   // (eyes at .942 of the height: people.js eyeAt)
+  av.an.hidden = camMode !== "fps" || kind === "lie" || (crouching && !mounted) || swimming;
+  if (av.an.hidden) { selfLast = null; return; }
+  const fx = -Math.sin(yaw), fz = -Math.cos(yaw), back = av.eyeAt[0] + SELF.eyeBehind;   // (the camera's forward on the ground)
+  const x = camera.position.x - fx * back, z = camera.position.z - fz * back;
+  const moved = selfLast ? Math.hypot(x - selfLast[0], z - selfLast[1]) : 0; selfLast = [x, z];
+  const onFoot = kind === "walk" || kind === "draw";
+  av.an.position.set(x, onFoot ? standY : camera.position.y - av.eyeAt[1], z);   // on its feet; seated or riding: the eyes at the camera's height
+  av.an.rotY = yaw + Math.PI / 2;   // camera yaw -> the walker's heading convention
+  if (onFoot) { av.an.animT = (av.an.animT ?? 0) + Math.min(moved, 1) / av.base; av.an.ampT = walking ? 1 : 0; }
+  av.herd.update(lastT);
+}
+// the bow in the player's left hand (tools.js; the rig's "R"); the sword is drawn flat over the view (sword.js)
+function selfHolders() {
+  const av = avatars.get("self");
+  if (weapon !== "bow" || !av || av.an.hidden) return null;   // (the sword is drawn flat over the view instead: sword.js)
+  return [av.herd, [{ an: av.an, tool: "bow", hand: av.hands.R }]];
+}
+// ---- the bow and arrows (archery.js): flight, hits on everything, arrows stuck where they struck -- moving with a
+// deck or with the very part of a figure they hit; people and animals alike, no reactions yet
+// ---- striking down (combat.js): anyone hit by an arrow or the sword falls on their side, red-eyed, and lies there
+// for good. The herds by name (the same on every peer: a strike is sent as herd name + index); other players are not
+// among them. The fisherman falls into the bottom of his boat, and the boat stays where it is (placeBoat)
+const combatNames = () => [["herd", herd], ["folk", folk], ["fish", fishHerd], ["life", lifeHerd], ["guards", guardHerd], ["riders", riderHerd], ["fisher", fisherHerd],
+  // (hands: the dock hands and the boatman)
+  ["spare", spareHerd], ["carts", cartHerd], ["cartSpare", cartSpare], ...handHerds.map((h, j) => ["hands" + j, h]), ...arenaHerds.map((h, j) => ["arena" + j, h]), ...dupes.map((h, j) => ["dupe" + j, h])].filter(([, h]) => h && h.animals);
+const combat = createCombat({
+  groundH, WLEVEL, waterSD, clock: () => lastT,
+  floorAt: (x, z, y) => Math.max(supportNear(x, z, y), ...cartFloorsAt(x, z).filter((f) => f <= y + .1)),   // the floor under them -- or a moving deck (a cart's bed, the barge)
+  names: combatNames, targets: () => combatNames().map(([, h]) => h),
+  ignore: () => [avatars.get("self")?.an, mounted?.a].filter(Boolean),
+  onStrike: (herd, an, i, dir) => {   // a rider on the tour: the one struck falls, the other goes on (the horse, or the man on foot)
+    for (const k of carts) {   // a pair under a yoke is one figure: parted, only the beast struck falls (L_ parts first, then R_, then the yoke)
+      const tm = k.team.find((t) => t.an === an);
+      if (!tm || !tm.def.name.startsWith("pair-") || !cartSplit) continue;
+      const n = SPECIES.find((q) => q.name === tm.def.name.slice(5)).parts.length, side = combat.sideOf(an, dir);
+      const which = i >= 0 && i < n ? "L" : i >= n && i < 2 * n ? "R" : side > 0 ? "L" : "R";
+      cartSplit(k, tm, which, side);
+      session?.send({ k: "pair", c: carts.indexOf(k), t: k.team.indexOf(tm), which, s: side });
+      return true;
+    }
+    const r = riders.find((q) => q.an === an && an.parts.length > q.nHorse);
+    if (!r || !riderSplit) return false;
+    const part = i >= r.nHorse ? "rider" : "horse", side = combat.sideOf(an, dir);
+    riderSplit(r, part, dir, side);
+    session?.send({ k: "rider", r: riders.indexOf(r), part, s: side });
+    return true;
+  },
+  onDown: (herd, an) => {   // whatever drives it stops: a villager's day, a rider's tour, a cart (its driver or any beast of its team)
+    life?.strike(an);
+    for (const r of riders) if (r.an === an) r.stopped = true;
+    for (const k of carts) if (k.driver === an || k.team.some((t) => t.an === an)) k.down = true;
+  },
+  send: (op) => session?.send(op),
+});
+const archery = createArchery(scene, { camera, groundH, waterSD, WLEVEL, colliderSites, treeCols, movers, combat, goods: () => goods, audio: () => AC, send: (op) => session?.send(op) });
+const sword = createSword({ camera, combat, archery });   // (sword.js: V; its wounds and sounds are archery's)
+let weapon = "none";   // in hand: none | bow | sword -- B, V, the mouse wheel
+function setWeapon(w) { weapon = w; archery.setOut(w === "bow"); sword.setOut(w === "sword"); }
 function netTick(tNow) {
   if (!session) return;
   if (tNow - lastPose > .12) {
@@ -2220,47 +2453,33 @@ function netTick(tNow) {
     if (av.tx === undefined) continue;
     // the avatar's origin depends on its pose: seated drops by hip height
     // onto the bench, riding lifts the hips onto the mount's back
-    const ty = av.kind === "sit" ? av.ty + .18 - av.hipY
-             : av.kind === "ride" ? av.ty + 1.63 - av.hipY
+    const ty = av.kind === "sit" ? av.sitAt(av.ty)   // a seated peer's standY is the seat top
+             : av.kind === "ride" ? av.rideAt(av.ty + 1.63)
              : av.kind === "lie" ? av.ty + .04   // flat on the bed (the figure's own thickness is in its parts)
              : av.ty;
     const p = av.an.position, k = .18;
     p.x += (av.tx - p.x) * k; p.y += (ty - p.y) * k; p.z += (av.tz - p.z) * k;
     av.an.rotY = av.yaw + Math.PI / 2;       // camera yaw -> the walker's heading convention
     av.an.animT = (av.an.animT ?? 0) + (av.moving && av.kind === "walk" ? 1 / 45 : 0);
+    av.an.ampT = av.moving && av.kind === "walk" ? 1 : 0;
     av.herd.update(0);
   }
 }
 
 // ---- ambient sound: everything synthesized live, no audio files ------------
-// rain = looped filtered noise, crowd murmur = wobbling bandpass noise near
-// the Colosseum, birdsong = little oscillator chirps outdoors by day, and a
-// church bell every 5 minutes of WORLD time -- so peers hear it together.
-let AC = null, rainLow = null, rainHi = null, windGain = null, windFilter = null,
-    waveGain = null, murmurBus = null, murmurVoices = [];
+// the world's weather, water, fire, birds and insects = environment.js (one
+// engine, fed the state below every frame); crowd murmur = wobbling bandpass
+// voices near the Colosseum; the church bell on the real clock's hours; the
+// village bard's songs (instruments.js) from where they stand.
+let AC = null, env = null, murmurBus = null, murmurVoices = [];
+// ?sound=0 (or renderer.sound: false): silence, and not merely muted -- the context is never created, so
+// nothing is synthesised, no voice is scheduled and audioTick returns at once. The world still SPEAKS: villagers
+// still take their turns to talk and the faces still move with them, since that is the simulation, not the sound.
+const SOUND = qp.has("sound") ? qp.get("sound") !== "0" : (CONFIG.sound ?? true);
 function initAudio() {
-  if (AC) return;
+  if (AC || !SOUND) return;
   AC = new (window.AudioContext || window.webkitAudioContext)();
-  const noiseBuf = AC.createBuffer(1, AC.sampleRate * 2, AC.sampleRate);
-  const nd = noiseBuf.getChannelData(0);
-  for (let i = 0; i < nd.length; i++) nd[i] = Math.random() * 2 - 1;
-  const mkNoise = (type, freq, q) => {
-    const src = AC.createBufferSource(); src.buffer = noiseBuf; src.loop = true;
-    src.playbackRate.value = .85 + Math.random() * .3;   // decorrelate the loops
-    const f = AC.createBiquadFilter(); f.type = type; f.frequency.value = freq; f.Q.value = q ?? 1;
-    const g = AC.createGain(); g.gain.value = 0;
-    src.connect(f); f.connect(g); g.connect(AC.destination);
-    src.start();
-    return { g, f };
-  };
-  // rain: a low wash plus a bright patter layer whose level flutters
-  rainLow = mkNoise("lowpass", 380).g;
-  rainHi = mkNoise("bandpass", 2600, .6).g;
-  // snow: not precipitation noise but a soft wind whose color slowly drifts
-  const wnd = mkNoise("lowpass", 280);
-  windGain = wnd.g; windFilter = wnd.f;
-  // lake: low water noise swelling in wave rhythm
-  waveGain = mkNoise("lowpass", 460).g;
+  env = createEnvironment(AC, { dest: AC.destination });
   // crowd murmur: a handful of low "voices" (detuned triangles through
   // formant-ish bandpass filters), each with its own drifting level --
   // reads as distant talk, not static
@@ -2276,20 +2495,6 @@ function initAudio() {
     o.connect(f); f.connect(g); g.connect(murmurBus);
     o.start();
     murmurVoices.push({ o, g, amp: .3 + Math.random() * .5 });
-  }
-}
-function chirp() {
-  const t0 = AC.currentTime + Math.random() * .2;
-  for (let i = 0, nN = 2 + (Math.random() * 3 | 0); i < nN; i++) {
-    const o = AC.createOscillator(), g = AC.createGain(), ts = t0 + i * .12;
-    const f0 = 2200 + Math.random() * 1600;
-    o.frequency.setValueAtTime(f0, ts);
-    o.frequency.exponentialRampToValueAtTime(f0 * (.7 + Math.random() * .5), ts + .09);
-    g.gain.setValueAtTime(0, ts);
-    g.gain.linearRampToValueAtTime(.045, ts + .015);
-    g.gain.exponentialRampToValueAtTime(.0001, ts + .1);
-    o.connect(g); g.connect(AC.destination);
-    o.start(ts); o.stop(ts + .12);
   }
 }
 function bellStrike(vol) {
@@ -2311,58 +2516,39 @@ const peal = (n = 6) => {   // audible across the whole map, gently fading with 
   const vol = Math.max(.15, 1 - dmin / 900);
   for (let k = 0; k < n; k++) setTimeout(() => bellStrike(vol), k * 1650);
 };
-let lastBell = -1, audioT0 = 0, nextChirp = 0, nextPlink = 0, lastSwell = 0;
-const WAVE_SCALE = [220, 261.63, 293.66, 329.63, 392, 440];   // A-minor pentatonic-ish: always consonant
+let lastBell = -1, audioT0 = 0;
+// the village bard (village-life.js bards()): a random song on a random instrument of the day, then
+// another, while they stand at their pitch -- heard from where they stand, fading with distance
+const BARD_INSTRUMENTS = ["lute", "lyre", "harp", "flute", "recorder", "fiddle"].filter((k) => INSTRUMENTS.includes(k));
+let bard = null;
+function bardTick() {
+  const b = life?.bards()[0];
+  if (!b) { if (bard) { bard.s?.stop(); bard.g.disconnect(); bard = null; } return; }   // off to church, the inn or bed: the music stops
+  if (!bard) { const g = AC.createGain(), pan = AC.createStereoPanner(); g.gain.value = 0; g.connect(pan); pan.connect(AC.destination); bard = { g, pan, s: null }; }
+  if (!bard.s || AC.currentTime > bard.s.end + 2) bard.s = playSong(AC, { dest: bard.g, instrument: BARD_INSTRUMENTS[Math.floor(Math.random() * BARD_INSTRUMENTS.length)] });
+  const dx = b.pos[0] - camera.position.x, dz = b.pos[2] - camera.position.z, d = Math.hypot(dx, dz);
+  bard.g.gain.value = Math.pow(3 / Math.max(d, 3), .8) * Math.min(1, Math.max(0, (80 - d) / 20));
+  const rx = Math.cos(yaw), rz = -Math.sin(yaw);
+  bard.pan.pan.value = Math.max(-1, Math.min(1, (dx * rx + dz * rz) / Math.max(d, 1)));
+}
 function audioTick(T) {
   if (!AC) return;
   speechTick(T);
   callTick(T);
-  const inside = roofedAt(camera.position.x, camera.position.z, camera.position.y);
-  const duck = inside ? .3 : 1;   // weather sounds muffle indoors
-  // rain: wash + fluttering patter + sparse droplet plinks
-  const rainAmt = weather === 1 ? (wxInt + 1) / 2 * duck : 0;
-  rainLow.gain.value = rainAmt * .05;
-  rainHi.gain.value = rainAmt * .06 * (.55 + .75 * Math.random());
-  if (rainAmt > 0 && T > nextPlink) {
-    nextPlink = T + .18 + Math.random() * .8 / (wxInt + 1);
-    const o = AC.createOscillator(), g = AC.createGain(), ts = AC.currentTime;
-    o.frequency.setValueAtTime(1400 + Math.random() * 1800, ts);
-    o.frequency.exponentialRampToValueAtTime(900, ts + .05);
-    g.gain.setValueAtTime(.02 * rainAmt, ts);
-    g.gain.exponentialRampToValueAtTime(.0001, ts + .06);
-    o.connect(g); g.connect(AC.destination);
-    o.start(ts); o.stop(ts + .07);
-  }
-  // snow: a soft wind, its color and level slowly breathing
-  const snowAmt = weather === 2 ? (wxInt + 1) / 2 * duck : 0;
-  windGain.gain.value = snowAmt * .055 * (.7 + .3 * Math.sin(T * .37));
-  windFilter.frequency.value = 240 + 170 * Math.sin(T * .5) + 80 * Math.sin(T * 1.31);
-  // lake: a soft water wash swelling in wave rhythm, and on each crest a
-  // gentle glassy tone from a pentatonic scale -- melodic, never dissonant
-  if (hasLake) {
-    const dShore = lakeSD(camera.position.x, camera.position.z);
-    const near = Math.max(0, 1 - Math.max(0, dShore) / 55);
-    const swell = Math.pow(.5 + .5 * Math.sin(T * 1.6 + Math.sin(T * .61) * 2.2), 2);
-    waveGain.gain.value = .06 * near * (.3 + .7 * swell) * duck;
-    if (near > .05 && swell > .82 && lastSwell <= .82) {
-      const f = WAVE_SCALE[(Math.random() * WAVE_SCALE.length) | 0];
-      for (const [fm, am] of [[f, 1], [f * 2, .3]]) {   // fundamental + a whisper of octave
-        const o = AC.createOscillator(), g = AC.createGain(), ts = AC.currentTime;
-        o.frequency.value = fm;
-        g.gain.setValueAtTime(0, ts);
-        g.gain.linearRampToValueAtTime(.018 * am * near * duck, ts + .6);
-        g.gain.exponentialRampToValueAtTime(.0001, ts + 3);
-        o.connect(g); g.connect(AC.destination);
-        o.start(ts); o.stop(ts + 3.1);
-      }
-    }
-    lastSwell = swell;
-  }
+  bardTick();
+  const cx = camera.position.x, cz = camera.position.z;
+  const inside = roofedAt(cx, cz, camera.position.y);
+  let fire = 1e9;
+  for (const f of fires) fire = Math.min(fire, Math.hypot(f.position.x - cx, f.position.z - cz));
+  let hives = 1e9;
+  for (const [hx, hz] of HIVES) hives = Math.min(hives, Math.hypot(hx - cx, hz - cz));
+  env.update({ hives, weather: ["clear", "rain", "snow"][weather], intensity: (wxInt + 1) / 3, wind: weather === 2 ? .6 : weather === 1 ? .35 + .15 * wxInt : .1,   // (a clear day: the barest breeze)
+               night, inside, water: hasLake ? lakeSD(cx, cz) : 1e9, river: riverSD(cx, cz), fire });
   // crowd murmur near the Colosseum: voices drift independently
   let mv = 0;
   for (const s of town) if (s.key === "colosseum") {
     const bz = siteZ(s);
-    mv = Math.max(mv, .05 * Math.max(0, 1 - Math.hypot(camera.position.x - s.x, camera.position.z - bz) / 170));
+    mv = Math.max(mv, .012 * Math.max(0, 1 - Math.hypot(camera.position.x - s.x, camera.position.z - bz) / 120));   // a distant murmur, only near it
   }
   murmurBus.gain.value = mv;
   if (mv > 0) for (const v of murmurVoices) {
@@ -2375,15 +2561,8 @@ function audioTick(T) {
   // the bell strikes the hours by the REAL clock: on the hour, as many
   // strikes as the hour shows (1..12), 1.65s apart -- the same moment on
   // every peer's wall clock, so it needs no syncing
-  { const now = new Date();
-    if (now.getMinutes() === 0 && now.getSeconds() < 10 && lastBell !== now.getHours()) {
-      lastBell = now.getHours();
-      peal(now.getHours() % 12 || 12);
-    } }
-  if (!night && !inside && T > nextChirp) {
-    nextChirp = T + 2 + Math.random() * 7;
-    chirp();
-  }
+  { const hr = bellHour();
+    if (hr >= 0 && lastBell !== hr) { lastBell = hr; peal(hr % 12 || 12); } }
 }
 const audioHello = () => {   // browsers unlock audio on a gesture; greet with a peal soon after
   if (AC) return;
@@ -2391,41 +2570,57 @@ const audioHello = () => {   // browsers unlock audio on a gesture; greet with a
 };
 addEventListener("pointerdown", audioHello);
 addEventListener("keydown", audioHello);
+// L: take (or give up) the pointer, for anyone who would rather have the cursor gone than steer by the edges
+addEventListener("keydown", (e) => {
+  if (e.code !== "KeyL" || e.target !== document.body) return;
+  if (document.pointerLockElement === renderer.domElement) document.exitPointerLock();
+  else renderer.domElement.requestPointerLock();
+});
 
 const label = document.getElementById("label");
 let frames = 0, lastStat = performance.now(), stats = "";
 function updateLabel() {
-  const depthTag = mode === "rig" ? "" : ` (${pixelDepth ? "pixel" : "flat"} depth)`;
-  label.textContent = `${mode} engine${depthTag} · ${n} animals ${stats}` +
-    `${pickedCount ? ` · picked ${pickedCount}` : ""} · speech ${langMode}/${toneMode}/${wordMode}/${moodMode} · shift+Q controls`;
+  const depthTag = ` (${pixelDepth ? "pixel" : "flat"} depth)`;
+  label.innerHTML = `${mode === "instanced" ? "composite+instanced" : mode} engine${depthTag} · ${n} animals ${stats}` +
+    `${pickedCount ? ` · picked ${pickedCount}` : ""} · speech ${langMode}/${toneMode}/${wordMode}/${moodMode} · Tab controls`;
 }
 updateLabel();
 const helpEl = document.getElementById("help");
 helpEl.textContent = (camMode === "fps" ? `CONTROLS
 click            grab the mouse & look around
-WASD             walk        (Shift: run · Ctrl: crouch)
+WASD             walk        (Shift: run on/off · C: crouch on/off)
 Space            jump        (Shift+Space: 10m dash)
 Q / E            on a dragon or manticore: descend / climb -- it flies
+E / Q            in deep water: swim up / dive to the bottom (running: faster) -- a mount swims too
 click on thing   the one action shown bottom-center:
                  ride/dismount animals · open/close doors & windows
                  sit on pews/chairs · lie on beds · pick flowers/mushrooms
+                 drink from mugs & jugs (a level at a time) · eat what is on the plates
                  go upstairs/downstairs at tower stairs
+B / V / wheel    bow / sword / run through none-bow-sword
+                 bow: hold click to draw (longer = stronger), release to shoot, right-click lowers it
+                 sword: click to swing (reach ~1.5m) · anyone hit falls and lies there
+                 click a stuck or fallen arrow close by to take it back
 P / O            weather rain/snow/clear / its intensity
 I / N            season summer-autumn / night
 M                multiplayer panel (invite codes)
+shift+M          near animals and people at half resolution (a quarter of the pixels; off by default: config.json)
 shift+C          chat (enter sends, shift+C closes)
 shift+N          duplicate yourself (a frozen copy stays behind)
-L / K / J / H    people's language (random en de fr es ru) / voice (random man woman child)
+shift+O          1px outlines on everything (off by default)
+L / K / J / H    people's language (German by default; random, each language in turn) / voice (random man woman child)
                  / the word everyone says (random, then each of the 18) / mood (random normal excited angry)
-shift+Q          this list` : `CONTROLS (orbit camera)
+Tab              this list` : `CONTROLS (orbit camera)
 drag / right-drag / scroll    orbit / pan / zoom
-WASD + Q/E       fly (Shift: fast)
+WASD + Q/E       fly (Shift: fast on/off)
 P / O / I / N    weather / intensity / season / night
+shift+O          1px outlines (off by default)
 M / shift+C      multiplayer / chat
-shift+Q          this list`) +
+shift+M          near figures at half resolution (off by default: config.json)
+Tab              this list`) +
 `
 
-URL: ?mode=rig|banner|instanced · ?n=1000 · ?species= · ?building= · ?cam=orbit
+URL: ?mode=banner|instanced · ?n=1000 · ?species= · ?building= · ?cam=orbit · ?near=10 (marched 3D fillets within; off by default) · ?scale3d=1
      ?weather=1|2 · ?night=1 · ?autumn=1 · ?freeze=t · ?depth=flat`;
 
 // weather: P cycles none -> rain -> snow. Falling drops are a screen-space
@@ -2434,73 +2629,19 @@ URL: ?mode=rig|banner|instanced · ?n=1000 · ?species= · ?building= · ?cam=or
 let weather = Math.min(2, Math.max(0, num("weather", 0)));   // 0 none, 1 rain, 2 snow (?weather= presets it)
 SNOW.value = weather === 2 ? 1 : 0;
 const OPEN_AIR = new Set(["colosseum", "didyma"]);   // roofless overall (floors overhead still count)
+// roofless sites: the open-air stands, and enclosures (town wall, palisade), whose
+// footprint spans the whole town -- counted as roofs they hid the rain and snow
+// everywhere inside the walls and muffled the weather's sound
+const roofless = (s) => OPEN_AIR.has(s.key) || BUILDINGS[s.key].enclosure;
 const roofedAt = (x, z, y) => {
   if (floorsAt(x, z).some((h) => h > y + .3)) return true;   // a storey or stand overhead
   return sites.some((s) => {
-    if (OPEN_AIR.has(s.key)) return false;
+    if (roofless(s)) return false;
     const d = BUILDINGS[s.key], bz = siteZ(s);
     return Math.abs(x - s.x) < d.footprint[0] / 2 && Math.abs(z - bz) < d.footprint[1] / 2;
   });
 };
-// three transparent "curtains" billboarded 4/10/22m ahead of the camera,
-// DEPTH-TESTED against the scene: walls naturally occlude the rain, so from
-// indoors you still see it falling outside a window, and each curtain also
-// hides itself when its own anchor point is under a roof (large interiors)
-const mkWeatherLayer = (d, i) => {
-  const h = 2 * d * Math.tan(THREE.MathUtils.degToRad(22.5)) * 1.8;
-  const mat = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false,
-    uniforms: { uT: { value: 0 }, uMode: { value: 0 }, uI: { value: i }, uInt: { value: 1 } },
-    vertexShader: /* glsl */ `
-      varying vec2 vUv;
-      void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
-    fragmentShader: /* glsl */ `
-      precision highp float;
-      uniform float uT, uMode, uI, uInt;
-      varying vec2 vUv;
-      float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
-      void main() {
-        // the original overlay animation, drawn per curtain: multiple
-        // parallax sublayers of flakes/streaks; uInt = 0/1/2 intensity
-        vec2 uv = vec2(vUv.x * 2.6, vUv.y);
-        float den = uInt < .5 ? .55 : uInt < 1.5 ? 1. : 1.6;
-        float a = 0.; vec3 tint;
-        if (uMode > 1.5) {
-          for (int j = 0; j < 3; j++) {
-            float s = 1. + float(j) * .8;
-            vec2 q = uv * 11. * s + vec2(sin(uT * .4 + float(j) * 2.1) * 1.1, uT * (.5 + .22 * float(j)) * s);
-            vec2 id = floor(q);
-            float h = hash(id + uI * 13.);
-            vec2 c = fract(q) - .5 + .3 * vec2(sin(h * 6.28 + uT * 1.3), cos(h * 5. + uT * .6));
-            a += smoothstep(.10, .04, length(c)) * step(h, .55 * den) * (.85 - .2 * float(j));
-          }
-          tint = vec3(1.);
-        } else {
-          for (int j = 0; j < 2; j++) {
-            float s = 1. + float(j) * .9;
-            vec2 q = vec2((uv.x + uv.y * .16) * 26. * s, uv.y * 3.4 * s + uT * (5.5 + 2.5 * float(j)));
-            vec2 id = floor(q);
-            float h = hash(id + uI * 7.);
-            vec2 c = fract(q) - .5;
-            a += (1. - smoothstep(.02, .07, abs(c.x))) * smoothstep(.42, .2, abs(c.y)) * step(h, .4 * den) * .45;
-          }
-          tint = vec3(.72, .8, .88);
-        }
-        a *= uInt < .5 ? .75 : uInt < 1.5 ? 1. : 1.25;
-        gl_FragColor = vec4(tint, min(a, .95) * (.95 - .22 * uI));
-      }`,
-  });
-  const m = new THREE.Mesh(new THREE.PlaneGeometry(h * 2.6, h), mat);
-  m.position.z = -d;
-  m.frustumCulled = false;
-  m.renderOrder = 5;
-  return m;
-};
-const wxGroup = new THREE.Group();
-const wxLayers = [4, 10, 22].map((d, i) => { const m = mkWeatherLayer(d, i); wxGroup.add(m); return { d, m }; });
-wxGroup.visible = false;
-scene.add(wxGroup);
-const _wxDir = new THREE.Vector3();
+const precip = createWeather(scene);   // the rain and snow curtains (weather.js)
 let wxInt = Math.min(2, Math.max(0, num("intensity", 1)));   // weather intensity: 0 low, 1 mid, 2 high ("O" cycles)
 applyClouds();   // cloud cover for the starting weather
 
@@ -2557,6 +2698,7 @@ const applyNight = () => {
   scene.background = night ? nightSky : daySky;
   scene.fog.color.copy(night ? nightSky : daySky);
   stars.visible = moon.visible = night;
+  for (const dr of doors) if (dr.win && !dr.glazed) dr.open = !night;   // shutters stand open by day, closed for the night (glass stays shut)
 };
 scene.add(stars); scene.add(moon);
 applyNight();
@@ -2669,20 +2811,31 @@ addEventListener("beforeunload", (e) => {
 navigator.keyboard?.lock?.(["KeyW", "KeyA", "KeyS", "KeyD"]).catch(() => {});
 
 const keys = new Set();
+let crouching = false;   // C switches it: down until the next press, no holding
+// Shift switches running the same way -- pressed and let go ALONE (Shift+Space's dash, Shift+C's chat and the other Shift
+// combinations leave it as it was)
+let running = false, shiftAlone = false;
 addEventListener("keydown", (e) => {
   if (e.target.tagName === "TEXTAREA" || e.target.tagName === "INPUT") return;   // typing, not playing
   if (e.code === "KeyC" && e.shiftKey) { e.preventDefault(); toggleChat(true); return; }
   if (chatActive) return;   // chat mode swallows every game key
-  if (e.code === "KeyQ" && e.shiftKey) {
+  shiftAlone = e.key === "Shift" ? shiftAlone || !e.repeat : false;
+  if (e.code === "KeyC" && !e.ctrlKey && !e.repeat) crouching = !crouching;   // crouch on / off
+  if (e.code === "KeyB" && !e.repeat && camMode === "fps") setWeapon(weapon === "bow" ? "none" : "bow");       // the bow out / away
+  if (e.code === "KeyV" && !e.repeat && camMode === "fps") setWeapon(weapon === "sword" ? "none" : "sword");   // the sword
+  if (e.code === "Tab") {   // the controls list (Tab: never a browser focus jump here)
+    e.preventDefault();
     const el = document.getElementById("help");
     el.style.display = el.style.display === "block" ? "none" : "block";
   }
   if (e.code === "Space") e.preventDefault();
   if (e.code === "KeyP") { weather = (weather + 1) % 3; SNOW.value = weather === 2 ? 1 : 0; applyClouds(); netEnv(); }
-  if (e.code === "KeyO") { wxInt = (wxInt + 1) % 3; applyClouds(); netEnv(); }   // weather intensity low/mid/high -- and cloud cover on a clear day
+  if (e.code === "KeyO" && !e.shiftKey) { wxInt = (wxInt + 1) % 3; applyClouds(); netEnv(); }   // weather intensity low/mid/high -- and cloud cover on a clear day
+  if (e.code === "KeyO" && e.shiftKey) setOutline(!outlineOn());   // the world's one outline switch: 1px lines on everything, or nothing (cheapest)
   if (e.code === "KeyI") { autumnLvl = (autumnLvl + 1) % 3; buildFlora(autumnLvl / 2); netEnv(); }   // summer/half/full autumn
   if (e.code === "KeyN" && !e.shiftKey) { night = !night; applyNight(); netEnv(); }
   if (e.code === "KeyN" && e.shiftKey && !e.repeat) dupSelf();   // duplicate yourself
+  if (e.code === "KeyM" && e.shiftKey) { setPipe({ half: !PIPE.half }); return; }   // near figures at half resolution on / off
   if (e.code === "KeyM") { const el = document.getElementById("net"); el.style.display = el.style.display === "block" ? "none" : "block"; }
   if (!e.repeat && !e.ctrlKey && !e.shiftKey) {   // the people's speech: L language, K voice (kid/woman/man), J word
     if (e.code === "KeyL") langMode = LANG_MODES[(LANG_MODES.indexOf(langMode) + 1) % LANG_MODES.length];
@@ -2693,8 +2846,13 @@ addEventListener("keydown", (e) => {
   }
   keys.add(e.code);
 });
-addEventListener("keyup", (e) => keys.delete(e.code));
-const runKey = () => keys.has("ShiftLeft") || keys.has("ShiftRight");
+addEventListener("keyup", (e) => {
+  keys.delete(e.code);
+  if (e.key === "Shift" && shiftAlone && !chatActive) running = !running;   // run on / off
+  if (e.key === "Shift") shiftAlone = false;
+});
+const runKey = () => running;
+const shiftHeld = () => keys.has("ShiftLeft") || keys.has("ShiftRight");
 
 // first-person: mouse (pointer-locked) or arrow keys turn the head; WASD
 // walks in the yaw direction only (gaze pitch doesn't lift you off the
@@ -2702,6 +2860,18 @@ const runKey = () => keys.has("ShiftLeft") || keys.has("ShiftRight");
 // the walker's physics runs in steps of at most 20ms whatever the frame
 // rate: a slow frame must not lurch a jump straight past a window sill
 function fpsMove(dt) {
+  // EDGE STEERING (?look=hover): a pointer that is not captured runs out of screen, so holding it against an
+  // edge keeps the view turning -- the further in, the faster. This is what makes button-free looking usable
+  // on a touchpad; with the pointer locked or a drag in hand there is no edge to reach and none of it applies.
+  if (LOOK === "hover" && ptrX >= 0 && document.pointerLockElement !== renderer.domElement) {
+    const w = renderer.domElement.clientWidth, h = renderer.domElement.clientHeight;
+    const l = Math.max(0, EDGE_PX - ptrX), r = Math.max(0, ptrX - (w - EDGE_PX));
+    yaw += (l - r) / EDGE_PX * EDGE_RATE * dt;
+    if (FREE_PITCH) {
+      const u = Math.max(0, EDGE_PX - ptrY), d = Math.max(0, ptrY - (h - EDGE_PX));
+      pitch = THREE.MathUtils.clamp(pitch + (u - d) / EDGE_PX * EDGE_RATE * dt, -1.45, 1.45);
+    }
+  }
   const n = Math.max(1, Math.ceil(dt / .02));
   for (let k = 0; k < n; k++) fpsStep(dt / n);
 }
@@ -2727,9 +2897,11 @@ function fpsStep(dt) {
   if (keys.has("KeyA")) { mx += fz; mz -= fx; }
   const l = Math.hypot(mx, mz);
   walking = l > 0;
-  const crouch = !mounted && (keys.has("ControlLeft") || keys.has("ControlRight"));
+  const crouch = !mounted && crouching;
+  // m/s: on foot 4 (Shift 12, crouching creeps); a mount at 2.5 x its own speed (Shift 7 x), wings outrun legs
+  const vel = (mounted ? (runKey() ? 7 : 2.5) * mounted.def.mount.speed * (mounted.flying ? 1.5 : 1) : (runKey() ? 12 : 4) * (crouch ? .45 : 1)) * (swimming ? .6 : 1);   // swimming is slower
   if (l) {
-    const sp = (runKey() ? 12 : 4) * (mounted ? mounted.def.mount.speed * (mounted.flying ? 1.5 : 1) : crouch ? .45 : 1) * dt / l;   // m/s; mounts multiply, crouching creeps, wings outrun legs
+    const sp = vel * dt / l;
     const cx0 = camera.position.x, cz0 = camera.position.z;
     const nx = cx0 + mx * sp, nz = cz0 + mz * sp;
     if (!collides(nx, nz, standY)) { camera.position.x = nx; camera.position.z = nz; }
@@ -2740,29 +2912,31 @@ function fpsStep(dt) {
   // ignores gravity, never sinks below the ground it crosses, and lands
   // when Q brings it down onto support; walls still block at any height
   const climb = mounted?.def.mount.fly ? (keys.has("KeyE") ? 1 : 0) - (keys.has("KeyQ") ? 1 : 0) : 0;
-  if (climb > 0 && !mounted.flying) { mounted.flying = true; mounted.moveT = mounted.animT; airborne = false; vy = 0; }
+  if (climb > 0 && !mounted.flying && (!swimming || standY >= swimTop - .05)) { mounted.flying = true; airborne = false; vy = 0; }   // (from the water only off its surface)
   if (mounted?.flying) {
     standY += climb * (runKey() ? 14 : 6) * dt;
     const sup = supportNear(camera.position.x, camera.position.z, standY + .5);
-    if (standY <= sup) { standY = sup; if (climb < 0) { mounted.flying = false; mounted.animT = mounted.moveT; } }   // landed: legs pick the head's clock up
+    if (standY <= sup) { standY = sup; if (climb < 0) mounted.flying = false; }   // landed
+    const wt = WLEVEL + .15 - eyeH;
+    if (climb < 0 && groundH(camera.position.x, camera.position.z) < wt && standY <= wt) mounted.flying = false;   // down onto water: it swims
   }
   if (mounted) {   // the mount carries the camera: follow position, face travel, trot in step
     const mw = mounted.w;
-    mw.p.x = camera.position.x; mw.p.z = camera.position.z; mw.p.y = standY + .04;
-    if (l) mw.apply(Math.atan2(-mz, mx));
+    if (l) mw.apply(mw.heading = Math.atan2(-mz, mx));
+    const sx = saddle(mounted.def).rootX;   // the saddle under the rider: the body sits back by its offset
+    mw.p.x = camera.position.x - Math.cos(mw.heading) * sx; mw.p.z = camera.position.z + Math.sin(mw.heading) * sx; mw.p.y = standY + .04;
     const settle = (v, hz) => v + (Math.round(v * 2 * hz) / (2 * hz) - v) * Math.min(1, dt * 10);   // ease to a neutral pose
     const ws = mounted.def.parts.find((q) => q.anim?.wing)?.anim.speed ?? .5;
-    const pace = dt * (runKey() ? 12 : 4) * mounted.def.mount.speed / mw.base;   // the gait clock's rate at this speed (Shift triples it)
-    if (mounted.flying) {   // wings beat, legs hang still, head and tail keep the pace of movement
+    const pace = dt * vel / mw.base;   // the gait clock's rate at this speed
+    if (mounted.flying) {   // wings beat, legs hang still (head and tail keep the world's calm pace, as always)
       mounted.wingT += dt * (climb > 0 || l ? 2.6 : 1.8);
       mounted.animT = settle(mounted.animT, .8);
-      mounted.moveT += dt * (l ? 1.1 : .55);   // head and tail at an unhurried pace in the air (the gait clock's rate would whip the tail at wing-speed x5)
-    } else {   // on the ground head/tail share the gait clock (moveT unset)
+    } else {   // on the ground the legs walk on the gait clock (head and tail keep the world's, as in the air)
       if (l) mounted.animT += pace;
       else mounted.animT = settle(mounted.animT, .8);
       mounted.wingT = settle(mounted.wingT, ws);   // folded wings rest at a beat's neutral
     }
-    mw.setT(mounted.animT, mounted.wingT, mounted.flying ? mounted.moveT : undefined);
+    mw.setT(mounted.animT, mounted.wingT, undefined, !!l && !mounted.flying, !!l && runs(vel, mw.base));   // walk or run by the one rule every animal follows
   }
   // vertical: step up/down within .5m, otherwise fall freely; Space jumps
   // (~.5m of extra height -- enough to mount what walking alone cannot)
@@ -2779,13 +2953,22 @@ function fpsStep(dt) {
     }
   }
   for (const k of movers) { k.carry.dx = 0; k.carry.dz = 0; k.carry.dyaw = 0; }   // every moving floor: carts, barge, plank
-  if (mounted?.flying) { /* vertical motion is the wings' */ }
+  // swimming: in water deeper than the body stands (the eye would go under) you float -- head just above the
+  // surface; E rises, Q dives down to the bottom (Shift: faster). A mount swims the same way under its rider.
+  const wBed = groundH(camera.position.x, camera.position.z);
+  swimTop = WLEVEL + .15 - eyeH;
+  swimming = !mounted?.flying && wBed < swimTop && standY <= swimTop + .05;
+  if (swimming) {
+    airborne = false; vy = 0;
+    const dive = (keys.has("KeyE") ? 1 : 0) - (keys.has("KeyQ") ? 1 : 0);
+    standY = Math.min(swimTop, Math.max(wBed, standY + dive * (runKey() ? 5 : 2.2) * dt));
+  } else if (mounted?.flying) { /* vertical motion is the wings' */ }
   else if (!airborne) {
     const sup = supportNear(camera.position.x, camera.position.z, standY + .5);
     if (standY - sup > .5) { airborne = true; vy = 0; }
     else standY = sup;
     if (keys.has("Space") && !jumpHeld) {
-      if (runKey()) {
+      if (shiftHeld()) {
         // dash: bound up to 10m in the direction being WALKED (WASD combo),
         // or straight ahead if no movement key is held; walls stop it,
         // steps and ramps are ridden, edges hand over to the normal fall
@@ -2814,7 +2997,7 @@ function fpsStep(dt) {
     if (standY < -10) { standY = terrainY(camera.position.x, camera.position.z); vy = 0; airborne = false; }
   }
   jumpHeld = keys.has("Space");
-  // crouching (Ctrl, on foot) drops the eye to 0.85m -- handy for a close
+  // crouching (C switches it, on foot) drops the eye to 0.85m -- handy for a close
   // look at flowers, mushrooms and everything small
   camera.position.y += (standY + (crouch ? Math.min(eyeH, .85) : eyeH) - camera.position.y) * Math.min(1, dt * 10);
 }
@@ -2843,30 +3026,95 @@ function moveCamera(dt) {
 const freeze = qp.has("freeze") ? Number(qp.get("freeze")) : null;   // ?freeze=0 pins the pose (heads neutral at 0)
 const clock = new THREE.Clock();
 let tPrev = 0;
+// frame cost: the tick's own CPU time (simulation, posing, draw submission) plus, where the browser
+// exposes it (EXT_disjoint_timer_query_webgl2), the GPU's time for the frame's draws -- averaged over a second
+const glc = renderer.getContext(), tq = glc.getExtension("EXT_disjoint_timer_query_webgl2");
+let cpuSum = 0, gpuSum = 0, gpuN = 0, qActive = null;
+const qPending = [];
+const gpuBegin = () => { if (tq && !qActive) { qActive = glc.createQuery(); glc.beginQuery(tq.TIME_ELAPSED_EXT, qActive); } };
+const gpuEnd = () => {
+  if (qActive) { glc.endQuery(tq.TIME_ELAPSED_EXT); qPending.push(qActive); qActive = null; }
+  while (qPending.length && glc.getQueryParameter(qPending[0], glc.QUERY_RESULT_AVAILABLE)) {   // results arrive a few frames late
+    const q = qPending.shift();
+    if (!glc.getParameter(tq.GPU_DISJOINT_EXT)) { gpuSum += glc.getQueryParameter(q, glc.QUERY_RESULT) / 1e6; gpuN++; }
+    glc.deleteQuery(q);
+  }
+};
+// THE FRAME BUDGET. Nothing here targets a frame rate: requestAnimationFrame follows the display's refresh,
+// so on a 60Hz screen the fps number is 60 however much is left over. FRAME.target is what the ms/frame
+// readout is JUDGED against (90 fps = 11.1ms), and FRAME.uncapped drives the loop off a timer instead, drawing
+// as fast as the machine allows -- the only way to see the real ceiling on a screen that refreshes slower.
+const FRAME = { target: +(qp.get("fps") === "max" ? 0 : qp.get("fps") ?? CONFIG.renderer.targetFps ?? 60) || 0,
+                uncapped: qp.get("fps") === "max" || (!qp.has("fps") && !!CONFIG.renderer.uncapped) };
+const setFps = (n) => { if (n === "max" || n === 0) { FRAME.uncapped = true; } else { FRAME.uncapped = false; FRAME.target = +n; } };
+// WHERE THE FRAME'S CPU TIME GOES. __dbg.profile() turns it on and prints a split after a second: the
+// skeleton walks (one transform chain per part per figure), the 50ms simulation tick, the props in hands, the
+// faces, and what three itself spends submitting the draw. Off by default -- a boolean test per block.
+const PROF = { on: false, acc: new Map(), frames: 0, t0: 0 };
+const mark = (name) => {
+  if (!PROF.on) return;
+  const now = performance.now();
+  PROF.acc.set(name, (PROF.acc.get(name) ?? 0) + (now - PROF.t0));
+  PROF.t0 = now;
+};
+function profile(seconds = 1) {
+  PROF.on = true; PROF.acc.clear(); PROF.frames = 0;
+  setTimeout(() => {
+    PROF.on = false;
+    const total = [...PROF.acc.values()].reduce((a, b) => a + b, 0);
+    const rows = [...PROF.acc.entries()].sort((a, b) => b[1] - a[1])
+      .map(([k, v]) => `${k.padEnd(14)} ${(v / PROF.frames).toFixed(2)} ms  ${(100 * v / total).toFixed(0)}%`);
+    console.log(`CPU per frame over ${PROF.frames} frames -- ${(total / PROF.frames).toFixed(2)} ms total\n` + rows.join("\n"));
+  }, seconds * 1000);
+}
 function tick() {
-  requestAnimationFrame(tick);
+  if (FRAME.uncapped) setTimeout(tick, 0); else requestAnimationFrame(tick);
+  const tick0 = performance.now();
+  PROF.t0 = tick0; if (PROF.on) PROF.frames++;
+  stirred++;
+  gpuBegin();
   const t = clock.getElapsedTime();
   const dt = Math.min(t - tPrev, .1);
   tPrev = t;
   if (camMode === "fps") fpsMove(dt);
   else { moveCamera(dt); controls.update(); }
+  mark("camera+collide");
   lastT = t;
   const ta = freeze ?? t;   // camera stays live even when the pose is pinned
-  if (freeze === null) simTo(t + clockOff);
+  if (freeze === null) {
+    simTo(t + clockOff);
+    if (SMOOTH) tracksDraw(Math.min(1, Math.max(0, (t + clockOff - simTick * TICK) / TICK)));   // draw between the last two ticks
+  }
+  mark("sim tick");
+  OUTLINE_PX.value = 2 / (camera.projectionMatrix.elements[5] * renderer.domElement.height);   // metres per pixel at unit depth, for the 1px hulls
+  if (groundU) groundU.uT.value = t;   // the grass's wind
   if (herd) herd.update(ta);
   else for (const root of roots) animateSpecies(root, root.userData.animT ?? ta);
+  mark("animals");
+  faces.update();
+  mark("faces");
   if (folk) folk.update(ta);
-  if (bflies) bflies.update(ta);
-  if (dflies) dflies.update(ta);
+  if (lifeHerd) lifeHerd.update(ta);
+  if (guardHerd) guardHerd.update(ta);
+  mark("people");
+  tools.place([lifeHerd && [lifeHerd, life.holders()], guardHerd && [guardHerd, guards], selfHolders()].filter(Boolean));
+  mark("tools");
+  if (bflies && stir()) bflies.update(ta);
+  if (dflies && stir()) dflies.update(ta);
   if (fishHerd) fishHerd.update(ta);
   if (riderHerd) riderHerd.update(ta);   // riders advance in the sim ticks
-  if (freeze === null) { const fr = Math.max(0, t + clockOff - simTick * TICK); placeCarts(fr); placeBarge(fr); placeBoat(fr); }   // carts, barge and boat glide between sim ticks
+  if (spareHerd) spareHerd.update(ta);   // riders and horses parted by a blow (combat.js)
+  if (cartSpare) cartSpare.update(ta);   // ...and pairs under a yoke
+  if (freeze === null && stir()) { const fr = Math.max(0, t + clockOff - simTick * TICK); placeCarts(fr); placeBarge(fr); placeBoat(fr); }   // carts, barge and boat glide between sim ticks
+  placeRiding();   // goods set down on those moving floors go with them
   if (boatSt) boatSt.herd.update(ta);
   if (cartHerd) cartHerd.update(ta);
   for (const h of hands) {   // the loaded rig stands in for the free one while a piece is in the arms, and the piece rides them
+    if (h.anC.down) { h.an.hidden = true; h.anC.hidden = false; continue; }   // struck down (combat.js): the one that fell stays, where it fell
+    if (h.an.down) { h.an.hidden = false; h.anC.hidden = true; continue; }
     const p = h.an.position, c = Math.cos(h.an.rotY), s = Math.sin(h.an.rotY);
     if (h.item) {
-      h.anC.position.copy(p); h.anC.rotY = h.an.rotY; h.anC.animT = h.an.animT; h.anC.moveT = h.an.moveT;
+      h.anC.position.copy(p); h.anC.rotY = h.an.rotY; h.anC.animT = h.an.animT; h.anC.amp = h.an.amp;
       h.an.hidden = true; h.anC.hidden = false;
       placeCarried(h.item, p.x + c * .42, p.y + .78, p.z - s * .42, h.an.rotY);
     } else { h.an.hidden = false; h.anC.hidden = true; }
@@ -2892,30 +3140,39 @@ function tick() {
     if (it) hintEl.textContent = it.label;
   }
   netTick(t);
+  updateSelf();
+  combat.update(dt);
+  archery.update(dt);
+  sword.update(dt);
   if (freeze === null) cloudHerd.update(0);   // drift happens in the sim ticks
-  for (const hb of windmillHubs) hb.rotation.z = ta * .45;   // sails turn with the world clock
-  for (const ww of waterWheels) ww.grp.rotation.z = -ta * ww.omega;   // the current turns the mill wheel (undershot: bottom runs with the flow)
+  if (stir()) for (const hb of windmillHubs) hb.rotation.z = ta * .45;   // sails turn with the world clock
+  if (stir()) for (const ww of waterWheels) ww.grp.rotation.z = -ta * ww.omega;   // the current turns the mill wheel (undershot: bottom runs with the flow)
   audioTick(t + clockOff);
-  if (waterMat) waterMat.uniforms.uT.value = t;
+  if (waterMat) {
+    waterMat.uniforms.uT.value = t;
+    waterMat.uniforms.uEye.value.copy(camera.position);
+    if (reflector) {
+      // the water plane spans the world, so the frustum never culls it: gate the extra draw on there being
+      // water within reach of the eye. Invisible means no onBeforeRender, which means no reflection pass at all.
+      const near = waterSD(camera.position.x, camera.position.z) < REFLECT.reach;
+      reflector.visible = near;
+      waterMat.uniforms.uReflOn.value = near ? (REFLECT.mode === "raw" ? 3 : REFLECT.mode === "uv" ? 2 : 1) : 0;
+    }
+  }
+  FOLIAGE_T.value = t;   // the leaves' wind
   jetMat.uniforms.uT.value = t; poolMat.uniforms.uT.value = t;
   fireMat.uniforms.uT.value = t;   // flames flicker on the render clock
   if (night && freeze === null) updateShooting(dt);
   else shootMesh.visible = false;
   rainbow.visible = weather === 1 && wxInt === 0 && !night;   // rain AND sun: only light rain lets it through, and never at night
-  wxGroup.visible = weather > 0;
-  if (weather) {
-    wxGroup.position.copy(camera.position);
-    wxGroup.quaternion.copy(camera.quaternion);
-    camera.getWorldDirection(_wxDir);
-    for (const { d, m } of wxLayers) {
-      m.visible = !roofedAt(camera.position.x + _wxDir.x * d,
-                            camera.position.z + _wxDir.z * d,
-                            camera.position.y + _wxDir.y * d);
-      m.material.uniforms.uT.value = t;
-      m.material.uniforms.uMode.value = weather;
-      m.material.uniforms.uInt.value = wxInt;
-    }
-  }
+  precip.update(camera, t, weather, wxInt, roofedAt);   // rain / snow curtains, hidden under roofs
+  if (++paintingsIn === 3) paintingSet.capture(renderer, paintingViews, { before: () => { beginSecondaryView(); mirrorSet.hide(); }, after: endSecondaryView });   // the paintings: taken once
+  mirrorSet.update(camera);   // which mirrors reflect this frame
+  LOD.noCull = mirrorSet.active() > 0 || paintingsIn < 4;   // (composite off-view culling: not while a mirror or the paintings look elsewhere)
+  grassFringe.update(renderer, scene, camera, t, WLEVEL);   // the ground's mask, for the stalks that stand over what is in front of them
+  mark("rest");
+  renderOcclusion(renderer, scene, camera);   // stage 3b: the occluders' depth alone, so hidden figures are never shaded
+  renderNearPass(renderer, camera);   // the 3D LOD pre-pass: near animals raymarched at reduced resolution
   renderer.render(scene, camera);
   renderer.autoClear = false;
   if (camera.position.y < WLEVEL - .02 && groundH(camera.position.x, camera.position.z) < WLEVEL - .3) {
@@ -2924,12 +3181,23 @@ function tick() {
   }
   if (night) renderer.render(nightScene, nightCam);
   renderer.autoClear = true;
+  mark("draw submit");
+  gpuEnd();
   frames++;
   const now = performance.now();
-  if (now - lastStat > 500) {
-    stats = `· ${(frames * 1000 / (now - lastStat)).toFixed(0)} fps · ` +
-      `${renderer.info.render.calls} draw calls · ${renderer.info.render.triangles.toLocaleString()} tris`;
-    frames = 0; lastStat = now;
+  cpuSum += now - tick0;
+  if (now - lastStat > 1000) {   // once a second: fps, and the frame's cost against the budget -- green under .6 of it, yellow under 1.5, red above
+    const cpu = cpuSum / frames, gpu = gpuN ? gpuSum / gpuN : null, cost = cpu + (gpu ?? 0);
+    const budget = FRAME.target > 0 ? 1000 / FRAME.target : 0;                      // ms a frame may take to hold that rate
+    const col = !budget || cost < .6 * budget ? "#1c8a2e" : cost < 1.5 * budget ? "#b08900" : "#c0271d";
+    const spare = budget ? ` · <b style="color:${col}">${(100 * cost / budget).toFixed(0)}% of ${budget.toFixed(1)}ms at ${FRAME.target}fps</b>` : "";
+    stats = `· ${(frames * 1000 / (now - lastStat)).toFixed(0)} fps${FRAME.uncapped ? " (uncapped)" : ""} · <b style="color:${col}">${cost.toFixed(1)} ms/frame</b>` +
+      ` (cpu ${cpu.toFixed(1)}${gpu !== null ? ` + gpu ${gpu.toFixed(1)}` : ", gpu not measurable here"})${spare} · ` +
+      `${renderer.info.render.calls} draw calls · ${renderer.info.render.triangles.toLocaleString()} tris · ` +
+      // what is actually being rendered into: the drawing buffer, the ratio it came from, and whether it is multisampled
+      `${renderer.domElement.width}x${renderer.domElement.height} dpr ${renderer.getPixelRatio()} aa ${AA ? "on" : "off"}` +
+      (FIGURES === "1" ? "" : FIGURES === "0" ? " · <b>no figures</b>" : " · <b>figures still</b>");
+    frames = 0; lastStat = now; cpuSum = gpuSum = gpuN = 0;
     updateLabel();
   }
 }
@@ -2942,13 +3210,47 @@ addEventListener("resize", () => {
 });
 
 window.__scene = scene; window.__THREE = THREE; window.__camera = camera;   // debug hooks for the headless harness
-window.__simStep = () => { simTick++; wanderStep(simTick * TICK); };
-window.__dbg = { mountables, keys, findInteraction, herd, talkers, callers, doors, carts, collides, colliderSites, goods, hands, get barge() { return bargeSt; }, get boat() { return boatSt; }, sites, groundH, bargePose, yards, callNow: () => { for (const c of callers) c.next = 0; }, speech: () => ({ spoken, langMode, toneMode, wordMode, moodMode }),
+window.__simStep = () => simTicks(simTick + 1);
+window.__dbg = { combat, combatNames, sword, setWeapon, archery, tableware, guards, mountables, keys, findInteraction, herd, talkers, callers, doors, carts, collides, colliderSites, goods, hands, get barge() { return bargeSt; }, get boat() { return boatSt; }, sites, groundH, bargePose, yards, callNow: () => { for (const c of callers) c.next = 0; }, speech: () => ({ spoken, langMode, toneMode, wordMode, moodMode }),
   talkNow: () => { for (const t of talkers) t.next = 0; },
   look: (x, z) => { yaw = Math.atan2(-(x - camera.position.x), -(z - camera.position.z)); },
+  pitch: (p) => { if (p !== undefined) pitch = p; return pitch; },
+  PIPE, setPipe, FRAME, setFps, FRINGE, profile,   // profile(): where the frame's CPU time goes, printed after a second   // setFps(90) changes the budget the readout judges against; setFps("max") uncaps the loop
+
+  wanderers, pathRoutes, waterSD, dryKeep, putDown, WLEVEL, riders,   // (checks: swimmers' depth, dry tracks, goods riding the barge)
+  tracks, tracksDraw, renderer,   // the between-ticks drawing (see simTicks)
+  // A GPU bench, from the console: renders the CURRENT view n times back to back and waits for the GPU
+  // (no swap between them, so the answer is GPU work per frame, not the 16.7ms vsync interval), with the
+  // named herds' meshes left out. __dbg.bench() - __dbg.bench(30, ["life"]) is what drawing the villagers
+  // costs from where you stand -- point it at a group behind a house, then at one in the open, and the two
+  // differences are the wasted share and the useful one. Names: __dbg.combatNames().map(([n]) => n)
+  bench: (n = 30, hide = []) => {
+    const gl = renderer.getContext(), off = combatNames().filter(([nm]) => hide.includes(nm)).map(([, h]) => h.mesh).filter(Boolean);
+    for (const m of off) m.visible = false;
+    renderNearPass(renderer, camera); renderer.render(scene, camera); gl.finish();   // warm up: shaders, uploads, the first sync
+    const t0 = performance.now();
+    for (let i = 0; i < n; i++) { renderNearPass(renderer, camera); renderer.render(scene, camera); }
+    gl.finish();
+    const ms = (performance.now() - t0) / n;
+    for (const m of off) m.visible = true;
+    return +ms.toFixed(2);
+  },
+  get squirrels() { return squirrels; }, mirrors: () => mirrorSet, paintings: () => ({ count: paintingSet.count, pictures: paintingSet.pictures.length, views: paintingViews, frames: paintingSet.frames }), get env() { return env; },
+  placeAt: (x, y, z) => { camera.position.x = x; camera.position.z = z; standY = y; camera.position.y = y + eyeH; airborne = false; },   // (checks: stand on a given floor)
+  get life() { return life; }, get lifeHerd() { return lifeHerd; },   // the villagers: census(), bell(hour), places
+  // why is this spot "under a roof"? (the weather curtains hide there): floors overhead, roofed footprints
+  whyRoofed: (x, z, y) => ({ floors: floorsAt(x, z).map((h, i) => [i, +h.toFixed(2)]).filter(([, h]) => h > y + .3),
+    sites: sites.filter((s) => !roofless(s) && Math.abs(x - s.x) < BUILDINGS[s.key].footprint[0] / 2 && Math.abs(z - siteZ(s)) < BUILDINGS[s.key].footprint[1] / 2)
+                .map((s) => [s.key, s.x, siteZ(s), BUILDINGS[s.key].footprint]) }),
   place: (x, z) => { camera.position.x = x; camera.position.z = z; standY = terrainY(x, z); airborne = false; },
   state: () => ({ mounted: mounted?.def.name ?? null, flying: !!mounted?.flying, standY, y: mounted?.w.p.y,
                   wingT: mounted?.wingT, animT: mounted?.animT }) };
+// (after every herd exists: silencing them here catches the lot -- animals, villagers, guards, riders, the
+// fisherman, the pairs under a yoke -- without a switch at each call site)
+if (FIGURES !== "1") for (const [, h] of combatNames()) {
+  if (FIGURES === "0") { h.update = () => {}; if (h.mesh) h.mesh.visible = false; }
+  else { const u = h.update; let posed = false; h.update = (t) => { if (!posed) { posed = true; u.call(h, t); } }; }   // still: one pose, then nothing
+}
 window.__ready = true;
 </script>
 </body>

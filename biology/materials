@@ -37,8 +37,11 @@ Apolipoprotein (APO*): bind lipids into lipoprotein
 Lipoprotein: transports hydrophobic lipids in water
 - phospholipid outer shell with apolipoproteins
 - triglyceride and cholesterol in center
-- Low-density lipoprotein (LDL): 
-- High-density lipoprotein (HDL): 
+- High-density lipoprotein (HDL): good cholesterol, created in liver, transport fat out of artery walls to liver (cleanup)
+- Low-density lipoprotein (LDL): bad cholesterol, risk of atherosclerosis (delivery)
+- Intermediate-density lipoprotein (IDL): VLDL remnant (mostly cholesterol), becomes LDL after further loss of triglycerides
+- Very low-density lipoprotein (VLDL): created in liver, transfromed into IDL in bloodstream, transport lipids from liver through arteries (to muscles + body fat)
+- Chylomicron / Ultra low-density lipoprotein (ULDL): transport dietary lipids, store lipids as body fat
 
 #phospholipids
 Plasmalogens: inner cell membrane

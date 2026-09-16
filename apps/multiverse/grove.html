@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grove — Bannerfield trees</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #c7ddee; font: 13px "Avenir Next", "Segoe UI", sans-serif; color: #22303c; }
+  canvas { display: block; }
+  #bar { position: absolute; left: 10px; top: 10px; max-width: 46em; background: rgba(255, 255, 255, .82); border-radius: 6px; padding: 8px 10px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <b>Grove</b>: the grown trees of flora.js -- wood as banner capsules (instanced), leaves as alpha
+  cut-out cards (foliage.js), two of every species: <span id="species"></span>.
+  In front: bushes, plain and one of every fruit. Drag to orbit · <b>A</b> autumn (summer / half / full) · <b>R</b> re-roll · <b>B</b> leaves face the camera on/off ·
+  <code>?seed=N</code> <code>?t=</code> (freeze) <code>?cam=x,y,z,tx,ty,tz</code> <span id="info"></span>
+</div>
+<script type="importmap">
+{ "imports": {
+    "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
+} }
+</script>
+<script type="module">
+// A test bench for the trees: each species twice in a row, the wood in one
+// instanced herd, the leaves in one foliage mesh -- as the world draws them.
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { createHerd } from "./instanced.js";
+import { makeTree, TREE_SPECIES, FRUIT_TREES, makeBush, BUSH_FRUITS } from "./flora.js";
+import { buildFoliage, FOLIAGE_T, FOLIAGE_BB } from "./foliage.js";
+
+const qp = new URLSearchParams(location.search);
+const num = (k, d) => qp.has(k) ? +qp.get(k) : d;
+const freeze = qp.has("t") ? +qp.get("t") : null;
+let seed = num("seed", 1), autumn = num("autumn", 0);
+FOLIAGE_BB.value = num("billboard", 1) > 0 ? 1 : 0;
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });   // multisampled: the leaves' alpha-to-coverage edges
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xc7ddee);
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), new THREE.MeshBasicMaterial({ color: 0x9aad6a }));
+ground.rotation.x = -Math.PI / 2;
+scene.add(ground);
+const camera = new THREE.PerspectiveCamera(45, innerWidth / innerHeight, .3, 2000);
+const cam = (qp.get("cam") ?? "0,14,95,0,13,0").split(",").map(Number);
+camera.position.set(cam[0], cam[1], cam[2]);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(cam[3], cam[4], cam[5]);
+controls.update();
+document.getElementById("species").textContent = [...TREE_SPECIES, ...FRUIT_TREES].join(", ");
+
+let herd = null, foliage = null;
+function build() {
+  if (herd) scene.remove(herd.mesh);
+  if (foliage) { scene.remove(foliage); foliage.geometry.dispose(); foliage.material.dispose(); }
+  const trees = [];
+  const all = [...TREE_SPECIES, ...FRUIT_TREES];
+  all.forEach((sp, i) => { for (let j = 0; j < 2; j++) trees.push({ def: makeTree(sp, { seed: seed * 100 + i * 2 + j, autumn }), x: (i * 2 + j - (all.length * 2 - 1) / 2) * 14 }); });
+  // a row of bushes in front: plain ones and one of every fruit
+  [null, ...BUSH_FRUITS.map((f) => f.name), null].forEach((fruit, i, all) => trees.push({ def: makeBush({ seed: seed * 50 + i, autumn, fruit }), x: (i - (all.length - 1) / 2) * 5, z: 22 }));
+  herd = createHerd(trees.reduce((a, t) => a + t.def.parts.length, 0));
+  scene.add(herd.mesh);
+  const cards = [];
+  for (const t of trees) {
+    const an = herd.add(t.def);
+    const z = t.z ?? 0;
+    an.position.set(t.x, 0, z);
+    for (const L of t.def.leaves) cards.push({ ...L, c: [L.c[0] + t.x, L.c[1], L.c[2] + z] });
+  }
+  herd.update(0);
+  foliage = buildFoliage(cards);
+  scene.add(foliage);
+  document.getElementById("info").textContent = ` · ${herd.animals.reduce((a, an) => a + an.parts.length, 0)} wood segments, ${cards.length} leaf cards`;
+}
+build();
+
+addEventListener("keydown", (e) => {
+  if (e.key === "a" || e.key === "A") { autumn = autumn >= 1 ? 0 : autumn + .5; build(); }
+  if (e.key === "r" || e.key === "R") { seed++; build(); }
+  if (e.key === "b" || e.key === "B") FOLIAGE_BB.value = FOLIAGE_BB.value > .5 ? 0 : 1;   // leaves as camera-facing banners, or fixed
+});
+addEventListener("resize", () => { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); });
+let t = 0, last = performance.now();
+(function frame(now) {
+  t = freeze ?? t + Math.min(now - last, 50) / 1000; last = now;
+  FOLIAGE_T.value = t;
+  renderer.render(scene, camera);
+  window.__ready = true;
+  requestAnimationFrame(frame);
+})(last);
+window.__dbg = { THREE, scene, camera, controls, get herd() { return herd; }, get foliage() { return foliage; } };
+</script>
+</body>
+</html>

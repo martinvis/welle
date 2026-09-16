@@ -58,13 +58,49 @@ you can always walk out of one that has stepped onto you.
 ## Life
 
 - **Species** (`species.js`): 42 animals with real sizes, mirrored
-  symmetry, surface-snapped eyes with real colors, trot gaits (diagonal leg
-  pairs) whose cadence follows actual travel speed; monsters (hydra, dragon,
-  manticore, unicorn, centaur, minotaur) with jointed bat wings; generative
+  symmetry, surface-snapped eyes with real colors, gaits whose cadence
+  follows actual travel speed. The 22 mid-to-large mammals (cat, fox, dog,
+  wolf, sheep, pig, boar, deer, tiger, lion, cow, ox, zebra, horse, camel,
+  bear, hippo, giraffe, elephant, unicorn, centaur, manticore) use the
+  mammal rig (`mammals.js`, see architecture.md): two-lobe metaball
+  bodies, head and muzzle, two-bone legs with knees and hocks from IK,
+  hooves or paws, curved tails (a cat's curl, a pig's corkscrew), and walk
+  and run gaits -- walk or run by one Froude rule (`runs()`: every
+  wanderer, and a ridden mount at 2.5x its speed, 7x with Shift), head and
+  tail on the same stretched gait clock as the legs, a standing
+  animal fades its stride out onto straight legs. The small and odd ones
+  keep their classic capsule parts (still a trot of diagonal leg pairs);
+  monsters (hydra, dragon, manticore, unicorn, beast-men, tauric beasts) with
+  jointed bat wings -- all on the rig: the dragon (a long raised neck,
+  horns and frill, spines, a sweeping tail with a spade), the hydra (three
+  slender necks splaying apart, each an arc chain with its head), the
+  beast-men (species.js `beastman`: the human rig with an animal's own
+  rig head -- its head sphere and everything hung on it, muzzle, ears,
+  eye marks, horns, tusks, fangs -- scaled to a human-sized head, in the
+  animal's hide with its tail, hooves for the hoofed, dressed by `outfit`
+  -- kilts, tunics, breeches, never headwear; they call as the animal): the minotaur (ox, red-eyed), wolfman, boarman, catman,
+  foxman, bearman, ramman, smilodonman; tauric beasts (species.js
+  `tauric`: an animal's trunk, legs and tail without its head, neck and
+  mane, optionally scaled, with a person's upper body -- makePerson's
+  `upper` -- standing on its chest): the centaur (horse), the drider (the
+  spider at 25x) and the sphinx (lion); two camels, the dromedary and the
+  two-humped bactrian; dinosaurs (`dinosaur: true`, in the monster pen)
+  on the rig's `biped` option -- the tyrannosaur at real size (12.7m,
+  hips at 3.3m, knees folding forward, tiny arms, the tail held out as a
+  counterweight) and the triceratops (9.1m: brow and nose horns, a parrot
+  beak, the frill as three flat triangles fanned into a shield) -- one
+  `ceratopsian()` family: the styracosaurus is its frame at .6 (5.5m) with a
+  long nose horn and a crown of frill spikes; the stegosaurus (9.1m: two
+  rows of plates, the tail's riding its links, the four-spiked
+  thagomizer) and the ankylosaurus (8.2m, twin side lobes for its width,
+  scutes, flank spikes, a tail club); all but the stegosaurus
+  mountable; riders sit at one shared `saddle(def)` point, a third
+  of the way from rump to chest; generative
   butterflies, pond fish, a shark and a dolphin. The small and odd ones:
   a snake whose chained segments carry a travelling wave, rat, wild boar
   with bristle mane and tusks, hedgehog under a coat of spine cones,
-  scorpion with pincers and a tail curled over its back, a peacock whose
+  scorpion with pincers and a tail curled over its back, a tarantula-sized
+  spider stepping its eight legs in two alternating sets, a peacock whose
   seven-plume train is eyespotted in the shader; on the lake three swans
   and three mallards (`swim`: they ride the shared water level
   half-submerged) and on
@@ -85,12 +121,13 @@ you can always walk out of one that has stepped onto you.
   in, town row and riverside); parrots and eagles fly by day, owls and bats
   only at night (N), roosting out of sight otherwise; swimmers do the same between lake floor and surface. Terrain is
   sampled under nose, center and tail so long bodies never bury a nose.
-- **People** (`people.js`): seeded kind -- man, woman, ten-year-old,
-  five-year-old (children with bigger heads and shorter legs, women
-  slighter with long hair or a bun; working people are adults) -- height,
-  build, skin, hair and clothes, walking arm counter-swing, and poses —
-  standing, sitting (cathedral pews), riding, carrying (arms held out
-  level with a load). 66 wanderers by default (`?people=N`), spread uniformly over
+- **People** (`people.js`, see architecture.md): seeded kind -- man, woman, ten-year-old,
+  five-year-old (children with bigger heads and shorter legs; working people are adults) -- height,
+  build, skin, face (nose, ears), hair style and a medieval wardrobe: shirts, tunics, dresses,
+  kirtle + surcoat, hose, trousers, skirts, hoods, caps, brimmed, pointed and straw hats,
+  belts, boots or shoes, aprons, in patterned cloth with trims, pleats and seams. They walk on
+  IK knees with counter-swinging arms and settle when they stop; poses —
+  standing, sitting (cathedral pews, cart boxes), riding, carrying (a load in both arms), lying. 66 wanderers by default (`?people=N`), spread uniformly over
   the whole open country -- every patch of grass on the ground that is not
   water, moat or a building -- and kept out of those as they roam.
   Cathedrals export `folkSpots` and get a static congregation.
@@ -196,14 +233,19 @@ you can always walk out of one that has stepped onto you.
   -- then rye and barley (14 x 12m), and in the back row cabbage, beans on
   poles and garlic (12 x 10 / 10 x 8m) and three rows of currant bushes (red,
   white, black). The orchard (22 x 16m) closes the east end: apples and
-  cherries alternating on a 5m grid, fruit on the crowns, trunks solid.
+  cherries alternating on a 5m grid, trunks solid. The currant bushes and
+  the orchard trees are PLANTS, not building parts: the sites export
+  `plants` (kind, species or fruit, place, seed, height) and the flora
+  builder grows them with the same `makeBush` / `makeTree` as the woods,
+  in the same herd and foliage mesh -- apple and cherry are orchard
+  species of the tree grower whose leafy branches also carry fruit cards
+  (the atlas's apple and cherry cells), the currants bush fruits.
   Fields are tilled slabs 12cm high; the plants themselves are shader
   cut-outs (`architecture.js` patterns 13-16): thin see-through slabs
   across the plot both ways carry rows of rye/barley stalks with ears,
   bean poles with leaves or garlic leaf-fans and are discarded between
   them, so a field costs a few dozen boxes rather than thousands of
-  stalks; currants, apples (~8cm) and cherries (~2.5cm) are sharp dot
-  patterns (17-19) over the foliage. Nothing in a field obstructs walking.
+  stalks. Nothing in a field obstructs walking.
   Behind the back row a stable yard (22 x 16m): a 12 x 5m stable block --
   stone plinth, boarded walls, tiled gable roof, four 3m stalls opening
   onto the paddock through half-doors with hay showing over them -- plus a
@@ -274,14 +316,24 @@ you can always walk out of one that has stepped onto you.
   outside), towers projecting outward every ~40m and at the corners with
   arrow slits and pyramid roofs, and a gatehouse where the street leaves at
   either end (arched 4.4m passage between two 11m towers) with a solid
-  stair, landing and timber handrail up to the walk beside each gate; a
+  stair, landing and timber handrail up to the walk beside each gate
+  (the west gate is watched: a gate's `guards` puts soldiers in mail and
+  steel caps outside its passage, one with sword and shield, one with spear
+  and shield -- the arms low-poly meshes in their hands, tools.js); a
   timber handrail runs the whole inner edge of the walk, broken only where
   a landing arrives. The NORTH hamlet has a timber palisade -- 4m of
   sharpened logs on a rail with inner posts, post-frame towers (platform,
-  boarded cabin with a lookout opening on each side, hip roof) outside the
-  line at the corners and every ~35m, and gatehouses (a gallery over the
+  boarded cabin with a lookout opening on each side, hip roof) INSIDE the
+  line, hard against it, at the corners and every ~35m, and gatehouses (a gallery over the
   passage between two towers) where the freight road and the quay street
-  cross it. Each tower has a ladder up its yard side: stand at its foot and
+  cross it. Both stand on land: given the world's `waterSD` (the one
+  signed distance to the river banks and the lake shore), `fitRing` in
+  `village.js` trims each side to the dry stretch of its whole band (stair
+  to tower roofs) that holds its corner, stopping short of the water with
+  room for the end tower; a side whose corner is wet is left out (the lake
+  closes the ring as the river does -- the town wall's east side), and a
+  gate slides along its side until its towers and stair fit, or is dropped.
+  Each tower has a ladder up its yard side: stand at its foot and
   "click to climb the ladder" puts you on the platform inside the cabin
   (a real floor; the hatchway faces the ladder), "climb down" returns you.
   Both enclosures sink 2m below grade on levelled bands, and are open to
@@ -330,10 +382,110 @@ you can always walk out of one that has stepped onto you.
   each piece always somewhere: hold, hands, quay, bed, yard, ground or
   your arms. Cart beds and the barge deck are moving floors. The whole
   chain runs on the deterministic tick.
-- **Flora** (`flora.js`): four branchy tree species with autumn palettes,
-  big bushes, five flower kinds at generous real sizes, mushrooms; drifting
-  multi-tone clouds. All static flora shares one instanced draw and rebuilds
-  deterministically when the season changes.
+- **Flora** (`flora.js`): trees GROWN from a seed by recursive branching
+  (after the trees lab): six species -- oak (random forks), birch
+  (alternate, drooping twigs), Scots pine (whorled crown on a long bole),
+  spruce (a leader with whorls of near-level branches, conical), willow
+  (weeping), maple (dichotomous) -- each a mode plus depth, fork count and
+  angle, jitter, length/radius ratios, curvature, wobble and lean, grown in
+  trunk units and scaled to its real height. The wood is capsule banners
+  in the trunk's bark out to the thinnest twig; the outer
+  levels carry leaf cards painted from the leaf atlas (oval, round, lobed,
+  needles, willow; textures.js), cut out by alpha with alpha-to-coverage
+  edges, shaded by facing and depth in the crown, swaying in the wind, all
+  cards of the forest in one draw (`foliage.js`). By default every card is
+  a banner turned to the camera (each by its own angle in the screen
+  plane; its grown orientation still shades it) -- `?billboard=0` stands
+  them fixed in space. Autumn turns each card on its own, so a crown turns
+  mottled. Bushes (1.6-3.2m) are a few bark stems fanning out of the ground
+  with a rounded clump of the same leaf cards; about a third bear fruit --
+  berry-cluster cards in currant, blueberry, blackberry, gooseberry or rose
+  hip colour on the clump's surface alongside the leaves. Five flower kinds at
+  generous real sizes, mushrooms; drifting multi-tone clouds. The wood and
+  undergrowth share one instanced draw; everything rebuilds
+  deterministically when the season changes. `grove.html` shows every
+  species (A: autumn, R: re-roll).
+
+## Village life
+
+`village-life.js` gives the village and the hamlet their people (`?villagers=32`):
+every villager has a home -- a house and a place in one of its double beds
+(each house exports `beds` and, when the beds are upstairs, `ways.up` -- the
+walk up the stairs) -- and a job: a work spot a building exports (folkSpots
+with `role: "work"`: miller, inn keeper, market vendors, baker, potter, smith,
+weaver, spinner, tailor, priest, a fisher on the jetty), two sack carriers
+(home to the mill's `drop` with wheat, or back with flour), and farming for
+everyone else (places spread over the fields, the orchard, the currants).
+
+- Night (N): home to bed; the keeper stays at the inn, a quarter first go
+  to the inn to eat if a seat is free.
+- The bell (the real clock's hours): half of those awake -- a different half
+  each hour, never the sleepers -- sit ten minutes in church (the rest stand
+  at the back), then go on.
+- Work: arms busy by trade -- `GESTURES` in `people.js` (dig, hoe, mow,
+  hammer, knead, sell, fish, strum, bless, eat, pick, weave, sew, lift), named by
+  the spot, swung by `skeleton.js` on the world clock (`an.gesture`, `an.work`);
+  a worker whose spot names a `tool` holds it in the right hand -- a low-poly
+  mesh (`tools.js`, one instanced draw per kind, placed each frame from the
+  posed hand and forearm; SDF shafts smeared the one-quad engine): the
+  scythe in the rye and barley, the spade on the plowed field, the hoe among
+  the vegetables, the smith's hammer, the fisher's rod, the bard's lute. Seated
+  hands work too (potter, weaver, spinner; guests eat). Between spells a small
+  chance to go and eat (a seat free) or to buy at the market or a shop.
+- More trades: by the quay a carpenter (sawing at the bench), a cooper (driving
+  hoops onto a half-raised cask) and a butcher (cleaver at the block behind the
+  counter); in the village's back row the beekeeper tends straw skeps.
+- The inn is never empty: at least three guests, day and night -- one whose
+  meal is over waits until someone new has come in and sat down.
+- Shutters stand open by day and close at night; glass (palace, church) stays.
+- The bard at the fountain plays a random song on a random instrument of the
+  day (lute, lyre, harp, flute, recorder, fiddle), then another -- heard from
+  where they stand (`instruments.js`).
+- Walking: out of the door (down the stairs first), the shortest way over the
+  path network (`routeGraph` in `paths.js`; the bridge deck is its one link
+  over the water), in at the door; doors open as they pass.
+- Each villager is four composite entries (walking, seated, lying, carrying a
+  sack), one shown; it moves on the fixed tick by its own seeded stream and is
+  drawn between ticks by the shared tracks. `__dbg.life.census()` lists where
+  everyone is; `__dbg.life.bell(h)` rings the bell for them.
+
+Sound: `environment.js` is fed the world's state each frame (weather,
+intensity, wind, night, indoors, distance to lake, river and hearth); `calls.js`
+gives every creature its own call; `speech.js` gives every person a seeded
+voice preset of their kind (`voiceFor`: men, women, children, and some old
+voices) and they say one to three random words when you are near.
+
+Wandering animals follow ROUTES planned once (`wanderLoop` in paths.js): a loop of waypoints inside
+their range, every leg checked when planned; per tick they only advance along it (walking and
+standing, hops, gliding and swimming as before), their heights sampled along the route the first time
+they pass and read back ever after -- no range tests or terrain probes per step (about 4.5 ms -> 1 ms a
+tick for ~520 of them). One moved by something else (a ridden horse let go) plans a new loop from there.
+
+Squirrels (`squirrels.js`, `?squirrels=14`) live in the groves -- trunks with a neighbour within a
+dash: across the ground to the next tree, up the trunk head first along its real bole (makeTree exports the trunk's centreline;
+the skeleton's root takes a pitch, `an.pitch`, matched to the trunk's slant, the feet on the bark), a pause up there, down head first, a watch at the foot.
+
+Behind the mirrors, on the salon side of the partition, hang gilt-framed paintings whose canvases are
+views of the world itself: on the third frame `paintings.js` draws the scene once from ten lookouts
+(just over the roofs of the town wall's and palisade's towers, spread round the village, each looking
+at its heart) into 640 x 480 pictures, which the frames take in turn.
+
+The lake is 6.6 m deep at its deepest (the bowl carved 8.8 m below the plain), with 30 fish. In water
+deeper than you stand you swim: afloat with the head just above the surface, E rises, Q dives to the
+bottom (Shift faster), a little slower than walking; a mount swims the same way, and a winged one
+lands on the water going down onto it and takes off from its surface. Bees hum round the beekeeper's
+hives by day in dry weather (the environment's `hives` distance).
+
+The palace's gallery is a Hall of Mirrors: sixteen tall gilt-framed mirrors on the partition opposite
+the windows (`baroquePalace` exports `mirrors`). `mirrors.js` makes them reflect with three's
+Reflector -- the scene drawn again from the mirrored camera. The reflection through a plane is the same
+for every mirror on it, so all the mirrors of one wall are ONE Reflector over their merged panes: one
+extra draw of the scene lights all sixteen. Up to two planes reflect (the largest on screen, in view,
+within 60 m), at half resolution, dulled like old glass, one bounce only; a plane off the budget shows
+still glass of the same tone. During a reflection the composite figures are drawn in full.
+
+Grain sways in the wind: the rye and barley cut-outs bend as rows on the
+leaves' wind clock (`FOLIAGE_T`), gusts running over the field.
 
 ## Environment switches
 
@@ -365,7 +517,7 @@ At most one action is available at a time, shown bottom-center:
   the lying figure (pose "lie" in `people.js`), not a seated one.
 - **fly** — the dragon, the manticore and the hydra are mountable too
   (visit the monster pen). On a winged mount **E** climbs and **Q**
-  descends (Shift: faster); in the air gravity is off, the mount never
+  descends (running, Shift on/off: faster); in the air gravity is off, the mount never
   sinks below the ground it crosses, walls still block, and it moves 1.5x
   faster. In flight the wings beat on their own clock and the legs hang
   still, while head and tail keep the pace of movement (faster with
@@ -381,12 +533,53 @@ At most one action is available at a time, shown bottom-center:
   chain until you drop it; drop it on the quay rows and the carts take it.
 - **open / close** — every building exports its doorways and its windows
   (all storeys, palace included); a hinged panel swings ~110° on click.
-  Closed doors are genuine walls. Every window pane in the world is one
-  InstancedMesh: each hinge is a bare transform whose matrix feeds its
-  instance when it swings, so hundreds of openable windows cost one draw.
+  Closed doors are genuine walls. Glass was a luxury: only buildings
+  flagged `glazed` (the palace, the church) have glass panes, every other
+  window is a wooden shutter. All panes share two InstancedMeshes (glass,
+  shutters): each hinge is a bare transform whose matrix feeds its
+  instance when it swings, so hundreds of openable windows cost two draws.
 - Stairs whose one side is open carry a balustrade along the flight (a
   baluster per step, close enough to stop the walker, plus the handrail);
   the top landing stays open so you can step off, and stairs against a
   wall need none. Stairwell openings in upper floors are railed the same
   way (`wellRail`): the drop edges get posts and a rail, the landing's
   stretch stays free.
+
+## The bow (archery.js)
+
+B takes the bow out or puts it away (a counter shows the quiver, 24 to
+start). With it out the mouse is the bow: hold to draw (~0.8 s to full
+draw, the view closing in a little, the player's own body in the draw
+pose with the bow in its left hand), release to loose, right button to
+lower it; clicking a stuck or fallen arrow close by takes it back. An
+arrow leaves at 14-50 m/s by the draw (the square root of it: a half draw
+already carries it past 100m, a full one about 240m at 45 degrees, as a
+real war bow), falls under gravity with a little
+drag and is traced every frame in steps of at most a metre against the
+ground, the water, the buildings' colliders (only the sites its path
+crosses), tree trunks, moving decks and every composite figure (a
+bounding sphere, then each part as a capsule). It sticks where it hits,
+a little way in: still targets keep it in the world; a cart, the barge
+or a figure keep it in their own frame -- a figure's in the very part it
+struck -- so it goes along. In water it floats a while and is gone.
+People and animals are struck alike, no reactions yet. All arrows are
+one InstancedMesh; the twang and the impacts (wood, body, earth, splash)
+are synthesised once. A shot is sent to peers (op `arrow`), who fly it
+too.
+
+## Tableware (tableware.js)
+
+The inn's mugs and jugs and the food on its plates are not building parts
+but data the building exports (`vessels`, `dishes`), built as separate
+objects because they change: each vessel an open stoneware shell (seen
+into) with a floor and the drink inside as a disc at its level -- 90%, 60%
+or 30% of the way up, or none when empty (dealt out in turn; ale in mugs,
+ale or wine in the jugs), the disc as wide as the inside at that height.
+Within reach and looked at -- standing, or seated at the table (the drink
+comes before "stand up": look away to rise) -- a click drinks one level
+down, or eats the bread, cheese or sausage off its plate. Both go to peers
+(ops `drink`, `eat`). Water vessels are the same thing: the fountain's two
+buckets on its rim and the stable yard's stone trough (a box vessel, an
+unseen solid box keeping you out of it) show their water at the same
+empty / 30% / 60% / 90% levels and can be drunk from.
+

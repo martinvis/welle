@@ -54,6 +54,18 @@ clock; a joining guest fast-forwards its own ticks to that instant and
 stays in lockstep from then on. (Only shooting stars remain local — pure
 cosmetics.)
 
+What is DRAWN is not the tick itself: everything a tick moves (wanderers,
+tour riders, cart teams' gait, dock hands) registers a *track* in
+index.html, and every frame draws the blend between the state before and
+after the latest tick, one tick (50ms) behind, so walkers and their legs
+move fluidly instead of holding each pose for three frames and jumping.
+Before the next tick the sim's own state is written back, so the blend never
+feeds into the simulation (verified: the sim state is byte-identical with
+and without blended frames between ticks). Carts, the barge and the boat
+place themselves every frame from their tick state as before. `?smooth=0`
+draws the raw ticks, for comparison. Anything new that a tick moves must
+register a track, or it will stutter.
+
 Player state rides in the `pose` op: position, heading, moving flag,
 resting kind (sit/lie), and mount index. Remote peers render as person
 avatars whose pose rebuilds on change — walking, seated on the bench they

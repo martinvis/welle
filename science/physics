@@ -641,6 +641,13 @@ Leidenfrost effect (water droplets on hot pan)
 #optics
 Beam splitter: splits light beam
 
+=Refraction: redirection of wave when passing between mediums
+Snell's law: ratio of sines of incidence/refraction angles equals ratio of refraction indices
+- n1 * sin(θ1) = n2 * sin(θ2)
+Refractive index (n): ratio of speed of light in vacuum to speef of light in medium
+- n = c / v
+Angle of incidence (θ): angle between ray and normal of surface
+
 Mach–Zehnder interferometer: measures phase shift between beams
 
 #Quantum mechanics

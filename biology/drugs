@@ -216,6 +216,7 @@ Quinine: oral + injection
 Chloroquine: oral
 - treatment of malaria + lupus + heumatoid arthritis
 - less used for malaria due to drug resistance
+Hydroxychloroquine: malaria, rheuma, lupus, oral
 Pyrimethamine: toxoplasmosis, oral
 - less used for malaria due to drug resistance
 
@@ -433,7 +434,7 @@ Epirubicin: isomer of Doxorubicin, intravenous
 Topotecan: oral + intravenous
 Irinotecan: intravenous
 =topoisomerase II inhibitor
-Mitoxantrone: intercalation, intravenous
+Mitoxantrone: intercalation, intravenous, multiple sclerosis
 Pixantrone: intercalation, intravenous
 Teniposide: intravenous
 Etoposide: oral + intravenous
@@ -472,6 +473,10 @@ CEPP: non-Hodgkin lymphoma, Cyclophosphamide + Etoposide + Procarbazine + Predni
 RICE: recurrent lymphoma, Rituximab + Ifosfamide + Carboplatin + Etoposide
 =supportive
 Palifermin: recombinant protein, epithelial growth
+
+Methotrexate: immunosuppresive, chemotherapy / autoimmune diseases, oral + IV
+Leflunomide: DHODH inhibitor, immunosuppressive, rheuma, oral
+Sulfasalazine: rheuma, oral
 
 Histone deacetylase inhibitor (HDI): epigenetic (affects gene expression), cancer treatment
 - Romidepsin: from Chromobacterium, intravenous, T-cell lymphomas
@@ -624,7 +629,7 @@ Selective
 Glucocorticoid: bind to glucocorticoid receptor
 - Prednisone: common, decrease inflammation, oral
 - Fluticasone: common, treat nasal congestion
-- Budesonide
+- Budesonide:
 - Dexamethasone: anti-inflammatory, chemotherapy
 Mineralocorticoid: bind to mineralocorticoid receptor
 Both
@@ -650,7 +655,7 @@ Dobutamine: heart failure, β1 agonist, intravenous
 #Antiasthmatic
 Epinephrine/adrenaline: anaphylaxis, cardiac arrest
 Budesonide (Pulmicort)
-Montelukast (Singulair)
+Montelukast (Singulair): leukotriene receptor antagonist, oral
 Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 β2-adrenergic agonist: bronchodilator
 - Salbutamol (Albuterol/Levalbuterol, Ventolin): short-term, inhalation
@@ -658,17 +663,32 @@ Tiotropium (Spiriva): bronchodilator, muscarinic antagonist, long-term
 - Salmeterol: long-term, inhalation
 - Formoterol: long-term, inhalation
 - Clenbuterol: banned due to side effects
+- Fenoterol: discontinued, short-term, inhalation
+Theophylline: PDE inhibitor, blocks adenosine receptors, oral + IV
+
+#allergy prevention
+Mast cell stabilizer: block degranulation (prevent histamine release)
+- Cromoglicic acid: treat asthma, nasal spray + inhaler
+
+#R03 - COPD
+Roflumilast: PDE4 inhibitor, long-acting, anti-inflammatory, oral
+
+#Sympathomimetic
+α-andrenergic agonists: vasoconstriction
+- Naphazoline: nasal decongestant, eye drops
+- Oxymetazoline: nasal decongestant, eye drops
+- Tetryzoline: nasal decongestant, eye drops
 
 #NSAID (Nonsteroidal anti-inflammatory drug): COX inhibitors, also analgesic, migraine relieve
 Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
 Ibuprofen (Nurofen): common, oral
 - side effects: gastrointestinal issues (ulcers)
 Naproxen (Aleve): 
-Diclofenac (Voltaren): 
+Diclofenac (Voltaren): oral + rectal + IV + topical
+Indometacin: oral + rectal + IV + topical
 
 Dimethyl sulfoxide (DMSO): anti-inflammatory, interstitial cystitis (via catheter)
 Pentosan polysulfate (Elmiron): interstitial cystitis, oral
-Colchicine: oral, treat gout, overdose very toxic, alkaloid
 
 #Analgesic: pain relievers
 Non-opioid
@@ -821,6 +841,9 @@ monoclonal antibody
 - Muromonab-CD3: organ transplants
 - Basiliximab: kidney transplants, interleukin 2 receptor
 - Daclizumab: withdrawn, multiple sclerosis
+- Infliximab:
+- Adalimumab:
+- Natalizumab: multiple sclerosis, Crohn's disease
 recombinant protein
 - Anakinra: interleukin 1 receptor antagonist, rheumatoid arthritis
 fusion protein
@@ -828,6 +851,16 @@ fusion protein
 Glatiramer acetate: random-sized peptides (Glu, Lys, Ala, Tyr), resembles myelin antigen, multiple sclerosis
 Cereblon modulators
 - Thalidomide: oral, teratogenic
+Azathioprine: purine analogue, carcinogen, oral + IV
+Fingolimod: multiple sclerosis
+
+#A07
+Mesalazine: inflammatory bowel disease, oral+rectal
+
+#M01 - antirheumatic
+Auranofin: gold salt, oral
+
+Omalizumab: monoclonal antibody, anti-IgE, subcutaneous
 
 #Antiemetic
 Setrons: serotonin antagonist, with chemotherapy
@@ -978,6 +1011,28 @@ Monoamine oxidate inhibitors (MAOI): antidepressants, Parkinson's disease
 - Selegiline: Parkinson's disease
 - Rasagiline: Parkinson's disease
 - Safinamide: Parkinson's disease
+
+#anorectics: appetite suppressant
+Sibutramine: SNDRI, cardiovascular risks, discontinued
+Rimonabant: cannaboid receptor inverse agonist, serious psychiatric side effects, discontinued
+Orlistat: lipase inhibitor, oral
+
+#M04 - gout
+Colchicine: oral, overdose very toxic, alkaloid
+Xanthine oxidase inhibitor (purine analog): reduce uric acid levels
+- Allopurinol: oral + IV
+- Febuxostat: allopurinol alternative, more side effects, oral
+Uricolytics: recombinant urate oxidase, metabolize uric acid to allantoin
+- Rasburicase: IV
+Uricosurics: increase uric acid excretion in urine
+- Probenecid: oral
+- Benzbromarone: oral
+
+#M05 - bone diseases
+Bisphosphonates: prevent loss of bone density, oral
+- Alendronic acid:
+- Risedronic acid:
+Denosumab: monoclonal antibody, RANKL inhibitor (mimics OPG), decreases bone resorption
 
 =ATC (Anatomical Therapeutic Chemical)
 drug classification system

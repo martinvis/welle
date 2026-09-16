@@ -7,12 +7,40 @@
 // (every Greek peripteral temple is the same five layers with different
 // numbers plugged in: crepidoma -> peristyle -> entablature -> roof -> cella).
 //
-// Outlines reuse the flat-fill-plus-dark-border look: the outline copy is
-// built by RE-GENERATING the primitive slightly larger (exact for boxes and
-// cylinders, where scaling tricks would distort), drawn backface-only.
+// Outlines are the world's one optional 1px line (outline.js, Shift+O): a
+// backface-only hull copy of every part, inflated in the VERTEX SHADER by
+// one pixel's worth of metres at its depth. The inflation direction per
+// vertex is exact for boxes and cylinders: it comes from RE-GENERATING the
+// primitive slightly larger and taking the vertex offsets (scaling tricks
+// would distort), baked as an attribute. Off, the hull meshes are hidden
+// and cost nothing.
 import * as THREE from "three";
+import { OUTLINE, OUTLINE_PX, OUTLINE_COLOR, onOutline } from "./outline.js";
+import { TEXTURES, TILES, tileTexture, PATTERN_GLSL, PARALLAX } from "./textures.js";
+import { FOLIAGE_T } from "./foliage.js";   // the one wind clock: leaves and grain sway together
 
-const OUTLINE = { color: 0x201812, t: .03 };
+const HULL_T = .03;   // metres the reference hull is generated larger by (its offsets are normalised to a direction)
+const hullMat = new THREE.ShaderMaterial({
+  side: THREE.BackSide,
+  uniforms: { uPx: OUTLINE_PX, uCol: { value: new THREE.Color(OUTLINE_COLOR) } },
+  vertexShader: /* glsl */ `
+    attribute vec3 aDir;
+    uniform float uPx;
+    void main() {
+      vec4 p = vec4(position, 1.0); vec3 d = aDir;
+      #ifdef USE_INSTANCING
+        p = instanceMatrix * p; d = mat3(instanceMatrix) * d;
+      #endif
+      vec4 mv = modelViewMatrix * p;
+      // 1.5 px of inflation at this depth: the visible rim is the projected inflation, so a little over one pixel
+      mv.xyz += mat3(modelViewMatrix) * d * (uPx * max(-mv.z, 0.3) * 1.5);
+      gl_Position = projectionMatrix * mv;
+    }`,
+  fragmentShader: /* glsl */ `
+    uniform vec3 uCol;
+    void main() { gl_FragColor = vec4(uCol, 1.0); #include <colorspace_fragment> }`,
+});
+onOutline((on) => { hullMat.visible = on; });
 
 // deterministic orientation shading: a face's brightness comes purely from
 // which way it points (all six directions distinct), so same-colored walls
@@ -25,128 +53,192 @@ const PAT_IDS = { ashlar: 1, brick: 2, grooves: 3, stars: 4, marble: 5, tiles: 6
 // this same object, so the demo flips all buildings at once.
 export const SNOW = { value: 0 };
 
-// `local`: pattern in the part's own space instead of world space -- for
-// things that move (a swinging door keeps its grain)
-function archMaterial(color, side, pat, accent, local = false) {
-  // pat: mathematically-defined surface patterns in world space --
+// Patterns live in the OBJECT's own frame -- its geometry's position and
+// normal (for an instanced copy, scaled by the instance's own scale, so a
+// unit box stretched into a shutter keeps metre-sized grain) -- and move
+// with it: a barge, a cart or a swinging door carries its texture instead
+// of sliding through a world-fixed one. Only the orientation shading and
+// the snow read the world (a face's brightness says which way it points
+// NOW). Buildings are placed by translation alone, so their merged,
+// root-local geometry patterns exactly as in world space.
+function archMaterial(color, side, pat, accent) {
+  // pat: mathematically-defined surface patterns in the object's space --
   //  ashlar: large stone courses, staggered joints   brick: tight running bond
   //  marble: hairline joints + soft veining (Greek precision masonry)
   //  grooves: vertical channels in an accent color (triglyphs)
   //  stars: a dot grid in an accent color (painted tympana, rosette bands)
+  //  (1-11 are flat repeating patterns: read from a baked, mipmapped tile --
+  //  textures.js -- or, with TEXTURES.on false, evaluated per pixel from the same GLSL)
+  const id = PAT_IDS[pat] ?? 0, tile = TEXTURES.on && id >= 1 && id <= 11 ? TILES[pat] : null;
+  const pom = PARALLAX.on && ((tile && tile.depth > 0) || id === 12);   // parallax: a tile's baked relief (textures.js patternHeight), or wood's grain
   return new THREE.ShaderMaterial({
-    defines: { PAT: PAT_IDS[pat] ?? 0, LOCAL_PAT: local ? 1 : 0 },
-    uniforms: { uC: { value: new THREE.Color(color) }, uC2: { value: new THREE.Color(accent ?? 0xffffff) }, uSnow: SNOW },
+    defines: { PAT: id, BAKED: tile ? 1 : 0, POM: pom ? 1 : 0, POM_STEPS: PARALLAX.steps, POM_SHADOW: PARALLAX.shadowSteps },
+    uniforms: { uC: { value: new THREE.Color(color) }, uC2: { value: new THREE.Color(accent ?? 0xffffff) }, uSnow: SNOW, uT: FOLIAGE_T,
+                uPatTex: { value: tile ? tileTexture(pat) : null }, uPeriod: { value: new THREE.Vector2(...(tile ? tile.period : [1, 1])) },
+                uDepth: { value: id === 12 ? .004 : tile?.depth ?? 0 }, uPomFar: { value: PARALLAX.far }, uTexelUV: { value: tile ? 1 / tile.size : 0 } },
     vertexShader: /* glsl */ `
-      varying vec3 vN, vW, vL;
+      varying vec3 vN, vW, vL, vNL;
+    #if POM
+      varying vec3 vV;        // to the camera, in the pattern frame (the object's own, in metres)
+      varying vec3 vTw, vBw;  // the pattern's two axes (along the face, up -- a floor's x, z) in the world
+    #endif
       void main() {
-        vL = position;
         // the same material serves InstancedMesh copies (cart wheels): three
         // defines USE_INSTANCING and supplies instanceMatrix for those
       #ifdef USE_INSTANCING
         mat4 mm = modelMatrix * instanceMatrix;
+        vec3 sc = vec3(length(instanceMatrix[0].xyz), length(instanceMatrix[1].xyz), length(instanceMatrix[2].xyz));
       #else
         mat4 mm = modelMatrix;
+        vec3 sc = vec3(1.0);
       #endif
+        vL = position * sc;                     // the pattern frame: the object's own, in metres
+        vNL = normal / sc;
         vN = normalize(mat3(mm) * normal);
         vW = (mm * vec4(position, 1.0)).xyz;
         gl_Position = projectionMatrix * viewMatrix * vec4(vW, 1.0);
+      #if POM
+        vV = (inverse(mm) * vec4(cameraPosition, 1.0)).xyz * sc - vL;
+        vec3 nl0 = normalize(normal / sc);
+        bool fl = PAT == 9 || PAT == 11, woodTop = PAT == 12 && abs(nl0.y) > .5;   // (wood on a level face: across z, along x)
+        vTw = normalize(mat3(mm) * (fl ? vec3(1.0, 0.0, 0.0) : woodTop || abs(nl0.x) > abs(nl0.z) ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0)));
+        vBw = normalize(mat3(mm) * (fl ? vec3(0.0, 0.0, 1.0) : woodTop ? vec3(1.0, 0.0, 0.0) : vec3(0.0, 1.0, 0.0)));
+      #endif
       }`,
     fragmentShader: /* glsl */ `
       uniform vec3 uC, uC2;
-      uniform float uSnow;
-      varying vec3 vN, vW, vL;
+      uniform float uSnow, uT;
+      varying vec3 vN, vW, vL, vNL;
+    #if BAKED
+      uniform sampler2D uPatTex;
+      uniform vec2 uPeriod;
+    #endif
+    #if POM
+      uniform float uDepth, uPomFar, uTexelUV;
+      varying vec3 vV, vTw, vBw;
+    #endif
+      ${PATTERN_GLSL}
+    #if POM
+      // the relief at q (metres in the pattern's plane): a tile's baked alpha, or wood's grain worked out here --
+      // q = (across the grain, along it); raised latewood, the soft wood between worn down
+      float reliefAt(vec2 q, vec2 gx, vec2 gy) {
+      #if PAT == 12
+        float g = sin(q.x * 42.0 + sin(q.y * 1.9 + q.x * 3.0) * 2.4 + sin(q.x * 8.5) * 1.1);
+        return 1.0 - .75 * smoothstep(.25, .95, g) - .15 * smoothstep(.6, 1.0, sin(q.y * 23.0 + q.x * 15.0));
+      #else
+        return textureGrad(uPatTex, q / uPeriod, gx, gy).a;
+      #endif
+      }
+    #endif
       void main() {
         vec3 n = normalize(vN);
         vec3 col = uC;
         float k = .82 + .2 * n.y + .1 * n.x + .06 * n.z;
-        float u = abs(n.x) > abs(n.z) ? vW.z : vW.x;          // coordinate along the face
-      #if PAT == 1 || PAT == 2
-        float ch = PAT == 2 ? .27 : .8;
-        float bw = PAT == 2 ? .56 : 1.6;
-        float row = floor(vW.y / ch);
-        float m = step(fract(vW.y / ch), PAT == 2 ? .1 : .045);
-        m = max(m, step(fract(u / bw + mod(row, 2.0) * .5), PAT == 2 ? .06 : .028));
-        k *= 1.0 - m * (PAT == 2 ? .16 : .09);
-      #elif PAT == 3
-        col = mix(col, uC2, step(.62, fract(u * 6.0)));
-      #elif PAT == 4
-        vec2 cell = fract(vec2(u, vW.y) / .55) - .5;
-        col = mix(col, uC2, smoothstep(.19, .13, length(cell)));
-      #elif PAT == 5
-        float row5 = floor(vW.y / 1.1);
-        float m5 = step(fract(vW.y / 1.1), .015);
-        m5 = max(m5, step(fract(u / 2.3 + mod(row5, 2.0) * .5), .0075));
-        k *= 1.0 - m5 * .05;
-        k *= 1.0 - .035 * (.5 + .5 * sin(vW.x * .8 + vW.y * 2.3 + vW.z * 1.1));
-      #elif PAT == 6
-        float rowT = floor(vW.y / .36);                       // scalloped tile courses
-        float tu = fract(u / .32 + mod(rowT, 2.0) * .5) - .5;
-        float m6 = step(fract(vW.y / .36), .14 + .2 * (1.0 - 2.0 * abs(tu)));
-        m6 = max(m6 * .8, step(abs(tu), .03) * .5);
-        k *= 1.0 - m6 * .2;
-      #elif PAT == 7
-        // flowing scrollwork: interfering waves curl into gilded tendrils
-        vec2 s7 = vec2(u, vW.y) * 1.9;
-        float w1 = sin(s7.x * 1.7 + sin(s7.y * 2.3 + s7.x * .8) * 1.6);
-        float w2 = sin(s7.y * 2.1 + sin(s7.x * 1.3 - s7.y * .7) * 1.8 + 1.2);
-        float m7 = smoothstep(.55, .8, w1 * w2);
-        float e7 = smoothstep(.38, .55, w1 * w2) - m7;   // fine drawn outline
-        col = mix(col, uC2, m7 + e7 * .45);
-        col = mix(col, vec3(.05, .045, .04), smoothstep(.55, .82, -(w1 * w2)) * .9);   // black counter-figures
-      #elif PAT == 9
-        // checkerboard floor tiles (1.1m marble squares) with thin joints
-        float ch9 = mod(floor(vW.x / 1.1) + floor(vW.z / 1.1), 2.0);
-        col = mix(col, uC2, ch9 * .8);
-        vec2 j9 = min(fract(vW.xz / 1.1), 1.0 - fract(vW.xz / 1.1));
-        k *= 1.0 - .12 * step(min(j9.x, j9.y), .012);
-      #elif PAT == 10
-        // simple wall ornament: a diamond-lattice band with center bosses
-        vec2 o10 = vec2(u, vW.y) / .85;
-        vec2 f10 = abs(fract(o10) - .5);
-        col = mix(col, uC2, smoothstep(.06, .02, abs(f10.x + f10.y - .5)) * .55);
-        col = mix(col, uC2, smoothstep(.11, .05, length(fract(o10) - .5)) * .6);
+        vec3 nl = normalize(vNL);                               // the face's normal in its own frame: picks the pattern plane
+        float u = abs(nl.x) > abs(nl.z) ? vL.z : vL.x;         // coordinate along the face
+      #if POM
+        // PARALLAX: walk the view ray down into the relief (reliefAt) -- POM_STEPS layers to uDepth, along the pattern's
+        // own axes (a wall's face: along it and up; a floor's top: x and z; wood: across the grain and along it) --
+        // refine between the last two layers; there the relief's slope tilts the normal (lit by the world's orientation
+        // shading, 1.8x, or in this flat-lit world the tilt would barely show) and POM_SHADOW reads toward that shading's
+        // light (high, from +x and +z) give the relief short shadows; the colour is read where the ray met the relief.
+        // Near only: it fades out toward uPomFar metres (beyond, the joints are under a pixel anyway)
+        float upP = step(.5, abs(nl.y));
+      #if PAT == 12
+        vec2 q0 = upP > .5 ? vL.zx : vec2(u, vL.y);
+        float onPlane = 1.0;
+        vec3 Tq = upP > .5 || abs(nl.x) > abs(nl.z) ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0), Bq = upP > .5 ? vec3(1.0, 0.0, 0.0) : vec3(0.0, 1.0, 0.0);
+        vec2 gx = vec2(0.0), gy = vec2(0.0), eq = vec2(.002);
+      #else
+        bool floorPat = PAT == 9 || PAT == 11;
+        vec2 q0 = floorPat ? vL.xz : vec2(u, vL.y);
+        float onPlane = floorPat ? abs(nl.y) : 1.0 - abs(nl.y);
+        vec3 Tq = floorPat ? vec3(1.0, 0.0, 0.0) : abs(nl.x) > abs(nl.z) ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0);
+        vec3 Bq = floorPat ? vec3(0.0, 0.0, 1.0) : vec3(0.0, 1.0, 0.0);
+        vec2 gx = dFdx(q0 / uPeriod), gy = dFdy(q0 / uPeriod), eq = uTexelUV * uPeriod;   // (every read at the unshifted gradients: the mip level never jumps)
+      #endif
+        float pdist = length(vV), fade = 1.0 - smoothstep(.65 * uPomFar, uPomFar, pdist), relief = 1.0;
+        vec2 qP = q0;
+        vec3 vd = vV / max(pdist, 1e-4);
+        float dn = dot(vd, nl);
+        if (fade > .01 && onPlane > .7 && dn > .06) {
+          vec2 dq = -vec2(dot(vd, Tq), dot(vd, Bq)) / dn * uDepth * fade / float(POM_STEPS);   // the ray's step across the pattern per layer (metres)
+          float layer = 1.0, h = reliefAt(qP, gx, gy), hPrev = h;
+          for (int i = 0; i < POM_STEPS; i++) {
+            if (h >= layer) break;
+            hPrev = h; layer -= 1.0 / float(POM_STEPS); qP += dq;
+            h = reliefAt(qP, gx, gy);
+          }
+          float after = h - layer, before = hPrev - (layer + 1.0 / float(POM_STEPS));
+          qP -= dq * clamp(after / max(after - before, 1e-5), 0.0, 1.0);   // between the last two layers
+          float h0 = reliefAt(qP, gx, gy);
+          relief = mix(1.0, h0, fade);
+          vec2 slope = vec2(reliefAt(qP + vec2(eq.x, 0.0), gx, gy) - h0, reliefAt(qP + vec2(0.0, eq.y), gx, gy) - h0) / eq * uDepth;   // metres of relief per metre
+          vec3 np = normalize(n - (vTw * slope.x + vBw * slope.y) * fade);
+          k += 1.8 * dot(np - n, vec3(.1, .2, .06));
+        #if POM_SHADOW > 0
+          vec3 Lw = normalize(vec3(.1, .2, .06));
+          vec3 lt = vec3(dot(Lw, vTw), dot(Lw, vBw), dot(Lw, n));
+          if (lt.z > .05 && h0 < .98) {
+            float occ = 0.0;
+            for (int i = 1; i <= POM_SHADOW; i++) {
+              float up = (1.0 - h0) * float(i) / float(POM_SHADOW);
+              occ = max(occ, reliefAt(qP + lt.xy / lt.z * uDepth * up, gx, gy) - (h0 + up));
+            }
+            k *= 1.0 - .45 * smoothstep(0.0, .12, occ) * fade;
+          }
+        #endif
+        }
+      #endif
+      #if PAT >= 1 && PAT <= 11
+        // flat repeating patterns: (brightness k, accent share, dark-figure share)
+        // at this point of the pattern's plane -- floors (checker, parquet) in x/z
+        vec2 q = PAT == 9 || PAT == 11 ? vL.xz : vec2(u, vL.y);
+      #if BAKED
+      #if POM
+        vec3 T = textureGrad(uPatTex, qP / uPeriod, gx, gy).rgb;   // the mipmapped tile, where the ray met the relief
+      #else
+        vec3 T = texture2D(uPatTex, q / uPeriod).rgb;   // the mipmapped tile, filtered at any distance
+      #endif
+        vec3 kab = vec3(T.r * 1.5, T.g, T.b);
+      #if POM
+        kab.x *= 1.0 - .2 * (1.0 - relief);   // the deep parts (mortar, channels) a shade darker still
+      #endif
+      #else
+        vec3 kab = patternTile(float(PAT), q);
+      #endif
+        k *= kab.x;
+        col = mix(col, uC2, kab.y);
+        col = mix(col, vec3(.05, .045, .04), kab.z);
+      #if PAT == 5
+        k *= 1.0 - .035 * (.5 + .5 * sin(vL.x * .8 + vL.y * 2.3 + vL.z * 1.1));   // marble veining: smooth, stays per pixel
+      #endif
       #elif PAT == 12
         // wood grain, slight: streaks along the board -- lengthwise on
         // horizontal faces, vertical on upright ones -- wandering a little
-      #if LOCAL_PAT
         vec3 P = vL;
-      #else
-        vec3 P = vW;
-      #endif
-        float upF = step(.5, abs(n.y));
+        float upF = step(.5, abs(nl.y));
         float along = mix(P.y, P.x, upF);
-        float across = mix(abs(n.x) > abs(n.z) ? P.z : P.x, P.z, upF);
+        float across = mix(u, P.z, upF);
+      #if POM
+        along = qP.y; across = qP.x;   // the grain where the ray met it
+        k *= 1.0 - .2 * (1.0 - relief);
+      #endif
         float g = sin(across * 42.0 + sin(along * 1.9 + across * 3.0) * 2.4 + sin(across * 8.5) * 1.1);
         k *= 1.0 - .075 * smoothstep(.25, .95, g) - .03 * smoothstep(.6, 1.0, sin(along * 23.0 + across * 15.0));
-      #elif PAT == 11
-        // parquet floor: .14m boards in 1.2m lengths, joints staggered by
-        // half a board per row, each board its own warm tone
-        float prw = floor(vW.z / .14);
-        float pjx = fract(vW.x / 1.2 + mod(prw, 2.0) * .5);
-        float pj = max(step(fract(vW.z / .14), .06), step(pjx, .02));
-        float ptone = fract(sin(prw * 12.99 + floor(vW.x / 1.2 + mod(prw, 2.0) * .5) * 78.23) * 437.58);
-        k *= (1.0 - pj * .22) * (.9 + .16 * ptone);
-      #elif PAT == 8
-        // gothic wall articulation, readable from a distance: recessed
-        // pilaster strips with a lit carved edge every 3m, string courses,
-        // fine blind-tracery lines in the upper bays, faint ashlar joints
-        float du8 = min(fract(u / 3.0), 1.0 - fract(u / 3.0)) * 3.0;   // meters to the bay edge
-        k *= 1.0 - .22 * smoothstep(.14, .05, du8);
-        k *= 1.0 + .1 * (smoothstep(.3, .17, du8) - smoothstep(.14, .05, du8));
-        float by8 = fract(vW.y / 6.5);
-        k *= 1.0 - .16 * step(by8, .05);
-        k *= 1.0 + .08 * step(.05, by8) * step(by8, .1);
-        k *= 1.0 - .08 * step(.92, fract(u / .75)) * step(.45, by8);
-        k *= 1.0 - .05 * step(fract(vW.y / .8), .06);
       #elif PAT >= 13 && PAT <= 16
         // crops as cut-outs: a thin see-through slab carries a row of plants
         // -- rye/barley stalks with ears, bean poles with leaves, garlic
         // leaf-fans -- and is discarded between them, so a field of thousands
         // of plants costs a few dozen boxes. Heights count from the soil top (.13m).
-        float hgt = vW.y - .13;
+        float hgt = vL.y - .12;   // (the site stands 1cm up: .12 local is the old .13 world)
       #if PAT == 13 || PAT == 14
         float H = PAT == 13 ? 1.15 : .85, cw = .07, earL = PAT == 13 ? .16 : .12, earW = PAT == 13 ? .026 : .034;
-        float id = floor(u / cw), fu = fract(u / cw) - .5;
+        // wind: the row bends as one -- the coordinate along the slab shifts by a smooth gust field that
+        // grows toward the ears (so neighbouring stalks move together, waves running over the field)
+        float sw = pow(clamp(hgt / H, 0.0, 1.0), 1.5) * (.06 * sin(uT * 1.3 + u * .35 + vL.z * .2) + .022 * sin(uT * 2.9 + u * 1.1));
+        float uu = u - sw;
+        float id = floor(uu / cw), fu = fract(uu / cw) - .5;
         float hs = fract(sin(id * 127.1) * 43758.5);
         float top = H * (.78 + .27 * hs);
         float dx = abs(fu * cw - (hs - .5) * .1 * hgt / H);   // a slight lean, each its own way
@@ -183,7 +275,7 @@ function archMaterial(color, side, pat, accent, local = false) {
       #elif PAT >= 17 && PAT <= 19
         // currants (17, ~1cm), apples (18, ~8cm) and cherries (19, ~2.5cm): sharp dots of the accent color scattered over a crown
         float c = PAT == 17 ? .065 : PAT == 18 ? .25 : .08, rr = PAT == 17 ? .005 : PAT == 18 ? .04 : .0125;
-        vec3 cell = floor(vW / c), f = fract(vW / c);
+        vec3 cell = floor(vL / c), f = fract(vL / c);
         vec3 jit = fract(sin(vec3(dot(cell, vec3(127.1, 311.7, 74.7)), dot(cell, vec3(269.5, 183.3, 246.1)), dot(cell, vec3(113.5, 271.9, 124.6)))) * 43758.5) * .5 + .25;
         float show = step(fract(sin(dot(cell, vec3(12.9, 78.2, 37.7))) * 4375.5), PAT == 17 ? .9 : PAT == 18 ? .75 : .85);   // a heavy crop
         col = mix(col, uC2, step(length((f - jit) * c), rr) * show);
@@ -202,8 +294,8 @@ function archMaterial(color, side, pat, accent, local = false) {
   });
 }
 
-// wood with grain in the object's own space: door and window panels the demo hinges
-export const woodMaterial = (color) => archMaterial(color, undefined, "wood", undefined, true);
+// wood with grain: door panels and shutters the demo hinges (patterns ride with the object anyway)
+export const woodMaterial = (color) => archMaterial(color, undefined, "wood");
 
 // ---- primitives -----------------------------------------------------------
 
@@ -236,6 +328,7 @@ function geoFor(shape, size, inflate = 0) {
   else if (shape === "cyl") g = new THREE.CylinderGeometry(size.r1 + inflate, size.r2 + inflate, size.h + 2 * inflate, size.seg ?? 10, 1, !!size.open);
   else if (shape === "sphere") g = new THREE.SphereGeometry(size.r + inflate, 10, 8);
   else if (shape === "capsule") g = new THREE.CapsuleGeometry(size.r + inflate, size.len, 3, 8);   // { r, len }: len = the straight middle, as in the species rigs
+  else if (shape === "panel") g = new THREE.PlaneGeometry(size[0] + 2 * inflate, size[1] + 2 * inflate);   // [w, h]: a flat sheet facing +-z, no thickness (a cut-out crop row: no edge faces)
   else if (shape === "arch") {
     // half-cylinder, flat side down, thickness along z -- a Roman arch top
     g = new THREE.CylinderGeometry(size.r + inflate, size.r + inflate, size.t + 2 * inflate, 10, 1, false, 0, Math.PI);
@@ -291,22 +384,23 @@ function geoFor(shape, size, inflate = 0) {
 export function buildBuilding(def) {
   const root = new THREE.Group();
   root.name = def.name;
-  const outlineMat = new THREE.MeshBasicMaterial({ color: OUTLINE.color, side: THREE.BackSide });
+  const outlineMat = hullMat;
   const glassMats = new Map();
   const glassFor = (c) => {
     if (!glassMats.has(c)) glassMats.set(c, new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .38,
                                                                           depthWrite: false, side: THREE.DoubleSide }));
     return glassMats.get(c);
   };
-  // stained glass: a world-space diamond lattice, each cell hash-picking a
-  // color from the classic palette, with near-opaque lead lines between
+  // stained glass: a diamond lattice in the building's own frame (as every
+  // pattern, see archMaterial), each cell hash-picking a color from the
+  // classic palette, with near-opaque lead lines between
   const stainedMat = new THREE.ShaderMaterial({
     transparent: true, depthWrite: false, side: THREE.DoubleSide,
     vertexShader: /* glsl */ `
       varying vec3 vW, vN;
       void main() {
-        vW = (modelMatrix * vec4(position, 1.0)).xyz;
-        vN = normalize(mat3(modelMatrix) * normal);
+        vW = position;
+        vN = normal;
         gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
       }`,
     fragmentShader: /* glsl */ `
@@ -333,10 +427,21 @@ export function buildBuilding(def) {
   const fillMats = new Map();
   const _m4 = new THREE.Matrix4(), _q = new THREE.Quaternion(), _e2 = new THREE.Euler(),
         _vp = new THREE.Vector3(), _vs = new THREE.Vector3();
-  const addTo = (mat, geo, p) => {
+  const _m3 = new THREE.Matrix3(), _d = new THREE.Vector3();
+  const addTo = (mat, geo, p, ref = null) => {
     const g2 = geo.index ? geo.toNonIndexed() : geo.clone();
     const [rx, ry, rz] = (p.rot ?? [0, 0, 0]).map((d) => d * Math.PI / 180);
     _m4.compose(_vp.set(...p.pos), _q.setFromEuler(_e2.set(rx, ry, rz)), _vs.set(...(p.scale ?? [1, 1, 1])));
+    if (ref) {   // a hull: per-vertex inflation direction = (larger primitive - this one) / HULL_T, turned with the part
+      const r2 = ref.index ? ref.toNonIndexed() : ref, a = g2.attributes.position.array, b = r2.attributes.position.array;
+      const dir = new Float32Array(a.length);
+      _m3.setFromMatrix4(_m4);
+      for (let i = 0; i < a.length; i += 3) {
+        _d.set(b[i] - a[i], b[i + 1] - a[i + 1], b[i + 2] - a[i + 2]).multiplyScalar(1 / HULL_T).applyMatrix3(_m3);
+        dir[i] = _d.x; dir[i + 1] = _d.y; dir[i + 2] = _d.z;
+      }
+      g2.setAttribute("aDir", new THREE.BufferAttribute(dir, 3));
+    }
     g2.applyMatrix4(_m4);
     if (!buckets.has(mat)) buckets.set(mat, []);
     buckets.get(mat).push(g2);
@@ -352,21 +457,24 @@ export function buildBuilding(def) {
     addTo(p.glass === "stained" ? stainedMat : p.glass ? glassFor(p.color) : fillMats.get(mk),
           geoFor(p.shape, p.size, eps), p);
     if (p.outline !== false && !p.glass)           // glass must NOT get the hull outline: its dark
-      addTo(outlineMat, geoFor(p.shape, p.size, OUTLINE.t + eps), p);   // backside would show through
+      addTo(outlineMat, geoFor(p.shape, p.size, eps), p, geoFor(p.shape, p.size, HULL_T + eps));   // backside would show through
   });
   for (const [mat, geos] of buckets) {
     let total = 0;
     for (const g of geos) total += g.attributes.position.count;
     const pos = new Float32Array(total * 3), nor = new Float32Array(total * 3);
+    const dir = geos[0].attributes.aDir ? new Float32Array(total * 3) : null;
     let o = 0;
     for (const g of geos) {
       pos.set(g.attributes.position.array, o * 3);
       nor.set(g.attributes.normal.array, o * 3);
+      if (dir) dir.set(g.attributes.aDir.array, o * 3);
       o += g.attributes.position.count;
     }
     const merged = new THREE.BufferGeometry();
     merged.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     merged.setAttribute("normal", new THREE.BufferAttribute(nor, 3));
+    if (dir) merged.setAttribute("aDir", new THREE.BufferAttribute(dir, 3));
     root.add(new THREE.Mesh(merged, mat));
   }
   return root;
@@ -848,6 +956,19 @@ export function gothicCathedral({
     parts.push({ shape: "box", size: [.12, aWinH + .15, 2.35], pos: [sx * (bodyW - T) / 2, aisleH * .55, z], color: glassC, glass: "stained" });
     parts.push({ shape: "box", size: [.12, (naveH - innerA) * .5 + .15, 2.35], pos: [sx * (naveW - T) / 2, innerA + (naveH - innerA) * .55, z], color: glassC, glass: "stained" });
   }
+  // paintings on the aisle walls' inner faces: every second space between the windows, at eye height above the
+  // dado, in gilt frames (their canvases are views of the world, taken at the start -- paintings.js)
+  const paintingsOut = [];
+  for (let i = 0; i + 1 < winZs.length; i += 2) {
+    const zm = (winZs[i] + winZs[i + 1]) / 2;
+    if (transeptW && zm > gapA - 1 && zm < gapB + 1) continue;   // (no wall across the transept's mouth)
+    for (const sx of [-1, 1]) {
+      const xf = sx * ((bodyW - T) / 2 - T / 2 - .2), py = 4.6, pw = 2.0, ph = 1.5;
+      paintingsOut.push({ x: xf - sx * .05, y: py, z: zm, w: pw, h: ph, n: [-sx, 0, 0] });
+      for (const [dz, dy, sz, sh] of [[0, ph / 2 + .07, pw + .28, .14], [0, -ph / 2 - .07, pw + .28, .14], [-pw / 2 - .07, 0, .14, ph], [pw / 2 + .07, 0, .14, ph]])
+        parts.push({ shape: "box", size: [.08, sh, sz], pos: [xf, py + dy, zm + dz], color: 0xc9a13b, collide: false });
+    }
+  }
 
   // hollow transept arms, fully open toward the crossing
   if (transeptW) {
@@ -1039,7 +1160,7 @@ export function gothicCathedral({
       if (si % 3 === 0) continue;                        // some rows stay empty
       for (let k = 0, kn = 1 + (si % 2); k < kn; k++) {
         const u = (((si * 7 + k * 13) % 10) / 10 - .5) * (pewLen - .9);
-        folkSpots.push({ x: sx * (pewLen / 2 + 1.1) + u, y: .505, z: zz - .02, h: Math.PI / 2, pose: "sit" });   // y = the pew seat top
+        folkSpots.push({ x: sx * (pewLen / 2 + 1.1) + u, y: .25 + .505, z: zz - .02, h: Math.PI / 2, pose: "sit" });   // y = the pew seat top (on the .25 nave platform)
       }
     }
   for (const dx of [-1.6, .2, 1.7]) folkSpots.push({ x: dx, y: .25, z: altarZ - 2.4, h: -Math.PI / 2, pose: "stand" });
@@ -1134,7 +1255,7 @@ export function gothicCathedral({
   };
 
   const facadeW = towers ? 2 * towerX + towerW : bodyW;
-  return { name, parts, footprint: [Math.max(bodyW, transeptW, facadeW), length], floorY, folkSpots, lifts };
+  return { name, parts, footprint: [Math.max(bodyW, transeptW, facadeW), length], floorY, folkSpots, lifts, paintings: paintingsOut };
 }
 
 // ---- generic Egyptian temple (Ptolemaic style) ----------------------------
@@ -1265,14 +1386,22 @@ export function medievalHouse({
   // furnishings: table, chairs and a bench below; bed + wardrobe upstairs.
   // Everything keeps to the half away from that storey's ramp strip and
   // stairwell hole (they alternate sides, see holeSide/side above).
+  // Beds (where the family sleeps, two to a bed) are exported for the village's
+  // people -- mattress top, the foot to walk up to, the storey: a one-room
+  // cottage sleeps on the ground floor, two beds along the back wall where
+  // a sofa would stand; upstairs a second bed beside the first.
+  const beds = [];
+  const bed = (x, y, z, storey) => { placeFurniture(parts, "bed", x, y, z); beds.push({ x, y: y + .69, z, foot: [x, z + 1.45], storey }); };
   const fx = -width * .18;
   placeFurniture(parts, "table", fx, .15, .6);
   placeFurniture(parts, "chair", fx, .15, 1.6, 2);
   placeFurniture(parts, "chair", fx + 1.15, .15, -.4, 1);
-  placeFurniture(parts, "sofa", -width * .1, .15, -D2 + T + .65);
+  if (storeys === 1) for (const sx of [-1, 1]) bed(sx * (width / 2 - T - .9), .15, -D2 + T + 1.1, 0);
+  else placeFurniture(parts, "sofa", -width * .1, .15, -D2 + T + .65);
   for (let s = 1; s < storeys; s++) {
     const y0 = s * floorH + .18, ws = width + s, ds = depth + .6;
-    placeFurniture(parts, "bed", 0, y0, -ds / 2 + T + 1.4);
+    bed(0, y0, -ds / 2 + T + 1.4, s);
+    if (s === 1) bed(-(ws / 2 - T - .9), y0, -ds / 2 + T + 1.4, s);
     placeFurniture(parts, "wardrobe", ws * .25, y0, ds / 2 - T - .5, 2);
     placeFurniture(parts, "chair", -ws * .15, y0, ds / 2 - T - .85, 2);
   }
@@ -1303,7 +1432,11 @@ export function medievalHouse({
   };
   // the front doorway and ground-floor window, exported so the demo can
   // hang clickable door/window panels in them
-  return { name, parts, footprint: [width + 2, depth + 2], floorY,
+  // the way up for a walker (house-local x, z): the first flight's foot beside the door, its top at the
+  // back, along the landing strip past the stairwell's railed edge, into the upstairs room
+  const sx0 = width / 2 - stairW / 2 - .2, hx0 = sx0 - stairW / 2 - .2;
+  const ways = { up: storeys > 1 ? [[sx0, D2 - .6], [sx0, zRun1 - .1], [hx0 - .3, zRun1 - .1], [hx0 - .3, zRun1 + 1.4]] : [] };
+  return { name, parts, footprint: [width + 2, depth + 2], floorY, beds, ways,
            doors: [{ x: 0, z: D2 - T / 2, w: doorW, h: doorH }],
            windows: winsOut,
            cobwebs: [{ x: -(width - T) / 2, y: floorH, z: -D2 + T, sx: 1, sz: 1, d: .6 },       // the back corners of the ground room
@@ -1592,6 +1725,8 @@ export function watermill({ name = "Water mill" } = {}) {
   const floorY = (x, z) => (Math.abs(x) < W / 2 && Math.abs(z) < D / 2 ? F : 0);
   return { name, parts, footprint: [W + 2, D + 2], floorY,
            doors: [{ x: W / 2 - T / 2, z: 0, w: 1.3, h: 2.3, yaw: 90 }], windows,
+           folkSpots: [{ x: W / 2 - 1.6, y: F, z: -1.4, h: Math.PI, pose: "stand", role: "work", gesture: "lift" }],   // the miller, just inside, facing the stones
+           drop: { x: W / 2 + 1.6, z: -.9 },   // where sacks are handed over: beside the wheat waiting outside the door
            cobwebs: [{ x: -(W / 2 - T), y: H, z: -(D / 2 - T), sx: 1, sz: 1, d: .6 }, { x: W / 2 - T, y: H, z: -(D / 2 - T), sx: -1, sz: 1, d: .5 }],
            wheelAt: [0, AX, wheelZ], wheel: { r: 3.05, w: 1.2, axleBack: wheelZ - pitZ + .3, axleFwd: .95 } };
 }
@@ -1669,18 +1804,18 @@ export function tavern({ name = "The Mill Inn" } = {}) {
   for (const x of [2.4, 4.4]) parts.push(...barrel("keg", [x, F + .73 + BARRELS.keg.belly, -D2 + T + .35], "x"));   // casks on tap, lying
   parts.push(...barrel("big", [.7, F + BARRELS.big.h / 2, -D2 + T + .5], "up"));
   parts.push({ shape: "box", size: [.02, .12, .04], pos: [1.02, F + .5, -D2 + T + .5], color: 0x8a7a5a });   // the tap
-  folkSpots.push({ x: 3.6, y: F, z: -D2 + T + .45, h: -Math.PI / 2, pose: "stand" });   // the keeper, facing the room
+  folkSpots.push({ x: 3.6, y: F, z: -D2 + T + .45, h: -Math.PI / 2, pose: "stand", role: "work", gesture: "sell" });   // the keeper, facing the room
   folkSpots.push({ x: 2.2, y: F, z: -D2 + T + 1.95, h: Math.PI / 2, pose: "stand" });   // a guest at the bar
-  const mug = (x, y, z) => parts.push({ shape: "cyl", size: { r1: .045, r2: .045, h: .12, seg: 8 }, pos: [x, y + .06, z], color: 0x8b6a4a });   // a straight stoneware mug
-  const jug = (x, y, z) => {   // a pitcher: belly, and a mouth wider than the foot
-    parts.push({ shape: "cyl", size: { r1: .085, r2: .065, h: .15, seg: 8 }, pos: [x, y + .075, z], color: 0x6f5a46 });
-    parts.push({ shape: "cyl", size: { r1: .075, r2: .085, h: .1, seg: 8 }, pos: [x, y + .2, z], color: 0x6f5a46 });
-  };
+  // what a guest can drink from and eat: not building parts but separate, changing objects (index.html -> tableware.js):
+  // mugs and jugs, open, the drink in them at a level (90%, 60%, 30% of the way up, or empty -- dealt out in turn), and the
+  // food on the plates (the plates themselves stay part of the building)
+  const vessels = [], dishes = [], LEVELS = [.9, .6, .3, 0];
+  let nv = 0;
+  const mug = (x, y, z) => vessels.push({ kind: "mug", x, y, z, fill: LEVELS[nv++ % 4], drink: "ale" });   // a straight stoneware mug
+  const jug = (x, y, z) => { vessels.push({ kind: "jug", x, y, z, fill: LEVELS[nv % 4], drink: nv % 2 ? "wine" : "ale" }); nv++; };   // a pitcher
   const plate = (x, y, z, food) => {
     parts.push({ shape: "cyl", size: { r1: .13, r2: .11, h: .014, seg: 10 }, pos: [x, y + .007, z], color: 0xe8e0d0, outline: false });
-    if (food === "bread") parts.push({ shape: "sphere", size: { r: .085 }, scale: [1.4, .6, .9], pos: [x, y + .06, z], color: 0xb8803e });
-    else if (food === "cheese") parts.push({ shape: "wedge", size: [.15, .05, .12], pos: [x - .06, y + .04, z + .05], color: 0xf0c95a });
-    else parts.push({ shape: "cyl", size: { r1: .02, r2: .02, h: .19, seg: 6 }, pos: [x, y + .035, z], rot: [0, 0, 90], color: 0x8a3a2a });   // sausage
+    dishes.push({ food, x, y, z });   // bread, cheese or a sausage
   };
   mug(2.6, F + 1.065, -D2 + T + 1.15); mug(3.1, F + 1.065, -D2 + T + 1.15); jug(4.6, F + 1.065, -D2 + T + 1.2);
   plate(1.6, F + 1.065, -D2 + T + 1.15, "bread");
@@ -1718,7 +1853,6 @@ export function tavern({ name = "The Mill Inn" } = {}) {
   table(1.2, 2.3, [[-.45, 1], [.45, -1]], [[.4, .05, "sausage"], [-.45, -.05, "bread"]]);
   table(-3.2, -1.4, [[-.45, -1], [.45, -1], [.45, 1]], [[0, 0, "cheese"], [.45, .2, "sausage"]]);
   table(2.6, -.6, [[-.45, 1]], [[-.45, -.1, "bread"]]);
-  placeFurniture(parts, "chandelier", -1, y1 - .05, .5);
 
   // ---- upstairs: corridor along the back, three guest rooms along the front ----
   const cz = -D2 + T + 1.6;    // corridor wall z (rooms are south of it)
@@ -1754,7 +1888,7 @@ export function tavern({ name = "The Mill Inn" } = {}) {
     }
     return lv;
   };
-  return { name, parts: raw, footprint: [W + 2, D + 2], floorY, folkSpots, fires, windows,
+  return { name, parts: raw, footprint: [W + 2, D + 2], floorY, folkSpots, fires, windows, vessels, dishes,   // vessels, dishes: tableware.js
            doors: [{ x: 0, z: D2 - T / 2, w: 1.4, h: 2.2 }, ...roomDoors],
            cobwebs: [{ x: -(W2 - T), y: y1, z: -(D2 - T), sx: 1, sz: 1, d: .7 }, { x: -(W2 - T), y: y1, z: D2 - T, sx: 1, sz: -1, d: .5 },
                      { x: W2 - T, y: y1, z: D2 - T, sx: -1, sz: -1, d: .55 }, { x: w1 / 2 - T, y: ceil + H1, z: d1 / 2 - T, sx: -1, sz: -1, d: .5 }] };
@@ -1936,6 +2070,8 @@ export function baroquePalace({
   const slabHoles = [];    // remembered for floorY
   const doorsOut = [];     // real clickable doors for every cut doorway
   const windowsOut = [];   // openable ground-floor window panes
+  const mirrorsOut = [];   // the Hall of Mirrors' glass (block-local = palace-local), for mirrors.js
+  const paintingsOut = [];   // framed canvases (palace-local), filled with views of the world by paintings.js
   // Where two blocks stand face to face, the shared plane is a party wall:
   // it gets no windows (they would stare into the neighbour's masonry) and
   // no facade trim, and a passage through it is ONE doorway -- the later
@@ -2076,15 +2212,36 @@ export function baroquePalace({
     }
     if (b.gallery) {
       const gz = b.z + 1.5, gy = lv[1] + .3, gh = storeys[1] - .3;
+      // the Hall of Mirrors: tall mirrors in gilt frames on the partition's gallery face, opposite the
+      // windows (exported: the demo makes them reflect, mirrors.js); two per span between the doorways
+      const mirrorSpan = (x0, x1, z, y0, hh) => {
+        const span = x1 - x0; if (span < 3) return;
+        const k = span > 7 ? 2 : 1, w = Math.min(2.4, span / k - 1.2), h = Math.min(hh - 1.6, 5.2), zf = z - pT / 2 - .04, yc = y0 + .7 + h / 2;
+        for (let i = 0; i < k; i++) {
+          const xc = x0 + span * (i + .5) / k;
+          // room: the gallery lane the mirror hangs in -- the only place it is seen from (mirrors.js reflects only there)
+          mirrorsOut.push({ x: xc, y: yc, z: zf - .01, w, h, n: [0, 0, -1], room: [b.x - b.w / 2 + T, b.x + b.w / 2 - T, lv[1] - .5, lv[2], b.z - b.d / 2 + T - .5, z] });
+          // behind it, on the salon side of the partition: a framed painting at eye height (its canvas a view of
+          // the world, taken at the start -- paintings.js)
+          const pz = z + pT / 2 + .04, py = y0 + 2.1, pw = 2.0, ph = 1.5;
+          paintingsOut.push({ x: xc, y: py, z: pz + .01, w: pw, h: ph, n: [0, 0, 1] });
+          for (const [dx, dy, sw, sh] of [[0, ph / 2 + .07, pw + .28, .14], [0, -ph / 2 - .07, pw + .28, .14], [-pw / 2 - .07, 0, .14, ph], [pw / 2 + .07, 0, .14, ph]])
+            parts.push({ shape: "box", size: [sw, sh, .08], pos: [xc + dx, py + dy, pz], color: gold, collide: false });
+          for (const [dx, dy, sw, sh] of [[0, h / 2 + .06, w + .24, .12], [0, -h / 2 - .06, w + .24, .12], [-w / 2 - .06, 0, .12, h], [w / 2 + .06, 0, .12, h]])
+            parts.push({ shape: "box", size: [sw, sh, .08], pos: [xc + dx, yc + dy, zf], color: gold, collide: false });
+        }
+      };
       let xa = b.x - b.w / 2 + T + 3.2;
       const xbEnd = b.x + b.w / 2 - T - 3.2;
       for (let i = 0; i < nRooms; i++) {
         const dx2 = p0 + (i + .5) * roomEvery;
         if (dx2 - 1.2 - xa > .3) parts.push({ shape: "box", size: [dx2 - 1.2 - xa, gh, pT], pos: [(xa + dx2 - 1.2) / 2, gy + gh / 2, gz], ...PANEL1 });
+        mirrorSpan(xa, dx2 - 1.2, gz, gy, gh);
         parts.push({ shape: "box", size: [2.4, gh - 3.2, pT], pos: [dx2, gy + 3.2 + (gh - 3.2) / 2, gz], ...PANEL1 });
         xa = dx2 + 1.2;
       }
       if (xbEnd - xa > .3) parts.push({ shape: "box", size: [xbEnd - xa, gh, pT], pos: [(xa + xbEnd) / 2, gy + gh / 2, gz], ...PANEL1 });
+      mirrorSpan(xa, xbEnd, gz, gy, gh);
     }
   }
 
@@ -2143,7 +2300,7 @@ export function baroquePalace({
   const zs = blocks.flatMap((b) => [b.z - b.d / 2, b.z + b.d / 2]);
   const cobwebs = blocks.slice(3).flatMap((b) => [   // the outer wings' ground-floor corners
     { x: b.x - b.w / 2 + T, y: lv[1], z: b.z - b.d / 2 + T, sx: 1, sz: 1, d: .8 }, { x: b.x + b.w / 2 - T, y: lv[1], z: b.z + b.d / 2 - T, sx: -1, sz: -1, d: .7 }]);
-  return { name, parts, footprint: [Math.max(...xs) - Math.min(...xs) + 2, Math.max(...zs) - Math.min(...zs) + 2], floorY, doors: doorsOut, windows: windowsOut, cobwebs };
+  return { name, parts, footprint: [Math.max(...xs) - Math.min(...xs) + 2, Math.max(...zs) - Math.min(...zs) + 2], floorY, doors: doorsOut, windows: windowsOut, glazed: true, mirrors: mirrorsOut, paintings: paintingsOut, cobwebs };   // glazed: glass panes (elsewhere shutters)
 }
 
 // ---- the catalogue --------------------------------------------------------

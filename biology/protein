@@ -164,6 +164,13 @@ Diakinesis: chromosomes further condense, tetrads become visible
 Shugoshin (SGO1): protects cohesin at centromere
 =Telophase I:
 
+#Ossification/Osteogenesis: bone tissue formation
+BMPs (Bone morphogenetic proteins): growth factors, morphogens, bone + cartilage formation
+Calcitonin: peptide hormone, reduces blood Ca+, secreted by C cells
+RANKL: apoptosis regulator
+- RANK: RANKL receptor, regulation of osteoclasts
+- Osteoprotegerin (OPG): cytokine receptor, decoy receptor, expressed by osteoblasts
+
 #Signaling - Transmitter
 #Neurotransmitter: neuron synapse
 Amino acid
@@ -608,6 +615,7 @@ Bromodomain: binds acetylated lysine on histones
 First messengers: extracellular signaling (hormones, neurotransmitters)
 Second messengers: intracellular signaling, released in response to first messengers (cAMP, cGMP, IP3, Ca2+, NO)
 
+Urate oxidase (UO): enzyme, converts uric acid to allantoin, not expressed in primates (pseudogene)
 Nitric oxide synthase (NOS): enzyme, converts arginine to citrulline and NO by oxidation
 Guanylate cyclase (GC): lyase enzyme, converts GTP to cGMP, activated by NO
 cGMP: cyclic nucleotide, second messenger, activates PKG
@@ -618,7 +626,6 @@ cAMP: cyclic nucleotide, second messenger
 
 Opiorphin: QRFSR polypeptid, painkiller in saliva
 Ptyalin: amylase in saliva
-BMPs (Bone morphogenetic proteins): growth factors, morphogens, bone + cartilage formation
 USAG1: BMP antagonist, inhibition could stimulate tooth regeneration
 
 Cytochrome P450: monooxygenases, contain heme, detoxification of xenobiotics, mainly in liver

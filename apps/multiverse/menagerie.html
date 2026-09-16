@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menagerie — Bannerfield animals</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #c7ddee; font: 13px "Avenir Next", "Segoe UI", sans-serif; color: #22303c; }
+  canvas { display: block; }
+  #bar { position: absolute; left: 10px; top: 10px; max-width: 46em; background: rgba(255, 255, 255, .82); border-radius: 6px; padding: 8px 10px; line-height: 1.5; }
+</style>
+</head>
+<body>
+<div id="bar">
+  <b>Menagerie</b>: species on the composite engine, in a row -- by default the ones built from curved
+  tubes (swan, snake, crocodile, fish, dolphin, shark). Drag to orbit · <b>X</b> parts-per-pixel heat map ·
+  <code>?only=cow,swan</code> (<code>cat1</code>..: a coat) <code>?t=</code> (freeze) <code>?cam=x,y,z,tx,ty,tz</code> <code>?scale=N</code> (small ones enlarged)
+</div>
+<script type="importmap">
+{ "imports": {
+    "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
+} }
+</script>
+<script type="module">
+// A test bench for animal shapes: each chosen species once, side by side,
+// posed and drawn exactly as the world does (composite herd, skeleton.js).
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { createComposite, PIPE, setPipe } from "./composite.js";
+import { SPECIES, makeFish, makeDolphin, makeShark, makeCat, partExtent } from "./species.js";
+
+const qp = new URLSearchParams(location.search);
+const freeze = qp.has("t") ? +qp.get("t") : null;
+const names = (qp.get("only") ?? "swan,snake,crocodile,fish,dolphin,shark").split(",");
+const defOf = (n) => /^cat\d+$/.test(n) ? makeCat({ seed: +n.slice(3) }) : n === "fish" ? makeFish({ seed: 3 }) : n === "dolphin" ? makeDolphin() : n === "shark" ? makeShark() : SPECIES.find((s) => s.name === n);
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0xc7ddee);
+const ground = new THREE.Mesh(new THREE.PlaneGeometry(200, 200), new THREE.MeshBasicMaterial({ color: 0x9aad6a }));
+ground.rotation.x = -Math.PI / 2;
+scene.add(ground);
+const camera = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, .05, 500);
+const cam = (qp.get("cam") ?? "0,2.2,9,0,.6,0").split(",").map(Number);
+camera.position.set(cam[0], cam[1], cam[2]);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(cam[3], cam[4], cam[5]);
+controls.update();
+
+const herd = createComposite(4000);
+scene.add(herd.mesh);
+// side by side by body length; a small one (the fish) scaled up to be seen (?scale)
+const defs = names.map(defOf).filter(Boolean);
+const lens = defs.map((d) => { const b = d.parts.find((p) => p.id === "body") ?? d.parts[0], e = partExtent(b); return Math.max(.6, e.len + 2 * e.r + .6, d.probe ? 2 * d.probe + 1.2 : 0); });   // (a rig's probe: half its nose-to-tail length)
+let x = -lens.reduce((a, b) => a + b, 0) / 2;
+defs.forEach((def, i) => {
+  const an = herd.add(def);
+  x += lens[i] / 2;
+  an.position.set(x, def.fly || def.swim ? .4 : 0, 0);
+  an.rotY = 0;
+  x += lens[i] / 2;
+});
+addEventListener("keydown", (e) => { if (e.key === "x" || e.key === "X") setPipe({ debug: !PIPE.debug }); });
+addEventListener("resize", () => { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); });
+let t = 0, last = performance.now();
+(function frame(now) {
+  t = freeze ?? t + Math.min(now - last, 50) / 1000; last = now;
+  for (const an of herd.animals) an.animT = t;
+  herd.update(t);
+  renderer.render(scene, camera);
+  window.__ready = true;
+  requestAnimationFrame(frame);
+})(last);
+window.__dbg = { herd, camera };
+</script>
+</body>
+</html>

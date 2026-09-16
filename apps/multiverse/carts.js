@@ -11,7 +11,7 @@
 // creature, so oxen trot, tails swish and heads turn for free. Every
 // dimension is meters from period sources: a two-wheel cart on 1.5m wheels,
 // a farm wagon, a heavy freight wagon behind up to three pairs.
-import { SPECIES } from "./species.js";
+import { SPECIES, gaitBase, bodyProbe } from "./species.js";
 import { makePerson } from "./people.js";
 import { rng } from "./flora.js";
 import { BARRELS, barrel, sack } from "./architecture.js";
@@ -118,6 +118,7 @@ const prefixed = (parts, pre, dz, phase) => parts.map((p) => ({
   ...p, id: pre + p.id, parent: p.parent ? pre + p.parent : null,
   pos: p.parent ? p.pos : [p.pos[0], p.pos[1], p.pos[2] + dz],
   anim: p.anim && phase ? { ...p.anim, phase: (p.anim.phase || 0) + phase } : p.anim,
+  ik: p.ik && phase && !p.ik.follow ? { ...p.ik, phase: (p.ik.phase || 0) + phase } : p.ik,   // rig legs are phased apart the same way
 }));
 
 // The team as ONE banner skeleton: a single animal between two shafts, or
@@ -126,8 +127,7 @@ const prefixed = (parts, pre, dz, phase) => parts.map((p) => ({
 // yoke for the rest). Pair 0 carries the pole, later pairs the trace chain.
 export function teamDef(kind, { pair = false, index = 0 } = {}) {
   const sp = SPECIES.find((s) => s.name === kind), D = sp.draft;
-  const lg = sp.parts.find((q) => q.id.startsWith("leg"));
-  const gait = Math.max(.15, 1.3 * (lg.size.len + lg.size.r));
+  const gait = gaitBase(sp);
   const bodyR = sp.parts[0].size.r;
   let parts, back;
   if (!pair) {
@@ -150,8 +150,8 @@ export function teamDef(kind, { pair = false, index = 0 } = {}) {
     else parts.push({ id: "trace", parent: null, shape: "capsule", size: { r: .022, len: back }, geomRot: [0, 0, 90],
                       pos: [D.yokeX - back / 2, D.yokeY - .4, 0], color: IRON });
   }
-  return { name: pair ? `pair-${kind}` : `single-${kind}`, parts, gait, back, speed: D.speed,
-           halfLen: sp.parts[0].size.len / 2 + bodyR };
+  return { name: pair ? `pair-${kind}` : `single-${kind}`, parts, gait, gaits: sp.gaits, legLen: sp.legLen, back, speed: D.speed,
+           halfLen: bodyProbe(sp) };
 }
 
 // a whole cart: body def, wheel placements, team defs (nearest the cart
@@ -168,7 +168,7 @@ export function makeCart({ size = "medium", kind = "ox", animals = 2, seed = 1, 
   return {
     size, kind, body, team, driver,
     wheels: S.wheels.flatMap((w) => [1, -1].map((s) => ({ x: w.x, r: w.r, z: s * (S.bedW / 2 + .16) }))),
-    seat: [body.seatX, body.seatTop + .08 - driver.hipY, 0],   // hips one thigh radius above the board: no banner cutting through the plank
+    seat: [body.seatX, driver.sitAt(body.seatTop), 0],   // the driver's origin on the box (people.js sitAt: resting on the board)
     floor: S.floor, bedL: S.bedL, bedW: S.bedW,
     capacity: size === "small" ? 2 : size === "medium" ? 3 : 5,   // live goods a freight cart takes
     speed: D.speed,

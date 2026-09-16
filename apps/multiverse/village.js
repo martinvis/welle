@@ -3,11 +3,11 @@
 // medievalHouse): a three-arch stone bridge a barge can pass under, a
 // bakery where the mill's flour becomes bread, fenced yards with a pigsty
 // and a hen house, tilled fields of rye, barley, cabbage, beans and
-// garlic, three rows of currant bushes, and an apple-and-cherry orchard.
+// garlic, three rows of currant bushes, and an apple-and-cherry orchard (grown by flora.js like the woods).
 // Each is a building definition in the same part vocabulary (real sizes,
 // merged into a few draw calls by buildBuilding); the demo places them by
 // x along the bank like the riverside street's buildings.
-import { placeFurniture, sack } from "./architecture.js";
+import { placeFurniture, sack, barrel } from "./architecture.js";
 import { rng } from "./flora.js";
 
 // ---- the stone bridge ---------------------------------------------------------
@@ -113,7 +113,7 @@ export function bakery({ name = "Bakery" } = {}) {
     parts.push({ shape: "sphere", size: { r: .085 }, scale: [1.2, .8, 1], pos: [tx + dx, top + .065, tz + dz], color: 0xe9dcbf });   // dough
   parts.push({ shape: "sphere", size: { r: .22 }, scale: [1.4, .25, 1.1], pos: [tx - .55, top + .04, tz + .25], color: 0xf2ece0, outline: false });   // flour
   parts.push({ shape: "cyl", size: { r1: .03, r2: .03, h: .45, seg: 6 }, pos: [tx + .5, top + .03, tz + .3], rot: [90, 0, 25], color: 0xa8865a });     // rolling pin
-  folkSpots.push({ x: tx, y: F, z: tz + 1.0, h: Math.PI / 2, pose: "stand" });       // the baker, facing the table (and the oven beyond)
+  folkSpots.push({ x: tx, y: F, z: tz + 1.0, h: Math.PI / 2, role: "work", gesture: "knead", pose: "stand" });       // the baker, facing the table (and the oven beyond)
   folkSpots.push({ x: 1.6, y: F, z: D2 - T - 1.1, h: Math.PI / 2, pose: "stand" });   // a customer just inside the door
   // ---- loaf racks along the west wall ----
   const rx = -(W2 - T) + .25;
@@ -148,7 +148,7 @@ export function bakery({ name = "Bakery" } = {}) {
 // `pen` is the animals' range (local): the yard inside the fence, minus the
 // shed walls they would otherwise walk through.
 export function farmyard({ name = "Farmyard", kind = "pigs", w = 20, d = 15 } = {}) {
-  const wood = 0x6b4a2c, dark = 0x4a3520, parts = [], W2 = w / 2, D2 = d / 2;
+  const wood = 0x6b4a2c, dark = 0x4a3520, parts = [], vessels = [], W2 = w / 2, D2 = d / 2;   // vessels: water to drink (tableware.js)
   const post = (x, z) => parts.push({ shape: "cyl", size: { r1: .07, r2: .08, h: 1.15, seg: 6 }, pos: [x, .575, z], color: dark });
   const rails = (x0, z0, x1, z1) => {
     const len = Math.hypot(x1 - x0, z1 - z0), yaw = Math.atan2(-(z1 - z0), x1 - x0) * 180 / Math.PI;
@@ -209,8 +209,9 @@ export function farmyard({ name = "Farmyard", kind = "pigs", w = 20, d = 15 } = 
       parts.push({ shape: "sphere", size: { r: .55 }, scale: [1.6, .7, 1], pos: [cx, 1.05, fz + 1.0], color: 0xc9b56a, collide: false });   // hay showing over the door
       if (i < 3) parts.push({ shape: "box", size: [.08, bh - .3, bd - .5], pos: [cx + 1.5, .15 + (bh - .3) / 2, bz + .1], color: wood, pat: "wood", collide: false });   // the partition between stalls, seen edge-on over the doors
     }
-    parts.push({ shape: "box", size: [2.2, .5, .7], pos: [bx - bw / 2 - 1.8, .25, fz - 1.4], color: stone, pat: "ashlar" });                   // stone water trough
-    parts.push({ shape: "box", size: [2.05, .02, .55], pos: [bx - bw / 2 - 1.8, .48, fz - 1.4], color: 0x6f8ea0, outline: false });
+    // the stone water trough: a water vessel (tableware.js: open, the water at its level) -- and an unseen solid box you cannot walk through
+    vessels.push({ kind: "trough", x: bx - bw / 2 - 1.8, y: 0, z: fz - 1.4, fill: .6, drink: "water" });
+    parts.push({ shape: "box", size: [2.2, .5, .7], pos: [bx - bw / 2 - 1.8, .25, fz - 1.4], color: stone, render: false });
     parts.push({ shape: "box", size: [3.6, .1, .1], pos: [bx, 1.05, fz - 2.4], color: dark });                                                // hitching rail
     for (const x of [bx - 1.5, bx + 1.5]) parts.push({ shape: "box", size: [.12, 1.1, .12], pos: [x, .55, fz - 2.4], color: dark });
     for (const [x, y, z] of [[bx + 4.6, .6, fz - 1.6], [bx + 5.9, .6, fz - 1.6], [bx + 5.25, 1.8, fz - 1.6]])                                // hay bales, two and one on top
@@ -233,7 +234,7 @@ export function farmyard({ name = "Farmyard", kind = "pigs", w = 20, d = 15 } = 
     blocks.push({ x0: hx - hw / 2 - .2, x1: hx + hw / 2 + .2, z0: hz - hd / 2 - .2, z1: hz + hd / 2 + .2 });
   }
   const pen = { x0: -W2 + .7, x1: W2 - .7, z0: -D2 + .7, z1: D2 - .7, blocks };
-  return { name, parts, footprint: [w + 1.6, d + 1.6], pen, kind, doors: [], windows: [] };
+  return { name, parts, footprint: [w + 1.6, d + 1.6], pen, kind, vessels, doors: [], windows: [] };
 }
 
 // ---- crop fields --------------------------------------------------------------
@@ -250,7 +251,9 @@ const CROPS = {
 export function cropField({ name, crop = "rye", w = 14, d = 12, seed = 1 } = {}) {
   const C = CROPS[crop] ?? CROPS.rye, r = rng(seed * 131 + 7), parts = [], W2 = w / 2, D2 = d / 2;
   parts.push({ shape: "box", size: [w, .12, d], pos: [0, .06, 0], color: C.soil, collide: false });
-  if (crop === "cabbage") {   // heads: one sphere each
+  if (crop === "soil") {   // plowed and not yet sown: furrow ridges across the plot, the spade's work
+    for (let z = -D2 + .5; z <= D2 - .5; z += .55) parts.push({ shape: "box", size: [w - .8, .1, .24], pos: [0, .17, z], color: 0x5a4028, collide: false, outline: false });
+  } else if (crop === "cabbage") {   // heads: one sphere each
     for (let x = -W2 + .5; x <= W2 - .5; x += C.dx) for (let z = -D2 + .5; z <= D2 - .5; z += C.dz) {
       const px = x + (r() - .5) * .12, pz = z + (r() - .5) * .12, R = .19 * (.85 + r() * .3);
       parts.push({ shape: "sphere", size: { r: R }, scale: [1, .9, 1], pos: [px, .12 + R * .85, pz], color: r() < .5 ? 0x86ad62 : 0x7aa35a, collide: false });
@@ -262,41 +265,43 @@ export function cropField({ name, crop = "rye", w = 14, d = 12, seed = 1 } = {})
     const H = { rye: 1.15, barley: .85, beans: 1.7, garlic: .45 }[crop], gap = crop === "beans" ? 1.0 : .5;
     const [c0, c1] = { rye: [0xb2a05a, 0xa89050], barley: [0xc9b66c, 0xd6c27a], beans: [0x6a5236, 0x3f8a3a], garlic: [0x7fb06a, 0x7fb06a] }[crop];
     const slab = { color: c0, accent: c1, pat: crop, side: "double", collide: false, outline: false };
-    for (let z = -D2 + .6; z <= D2 - .6; z += gap) parts.push({ shape: "box", size: [w - 1, H, .02], pos: [0, .12 + H / 2, z], ...slab });
-    for (let x = -W2 + .6; x <= W2 - .6; x += gap) parts.push({ shape: "box", size: [.02, H, d - 1], pos: [x, .12 + H / 2, 0], ...slab });
+    // (flat panels, not thin boxes: a box's 2cm end and top faces took the pattern across the row -- as the wind
+    // shifted the stalks a whole end face turned into one stalk, a thin long yellow line; 8% taller than the plants
+    // so the tallest ears are never cut)
+    const Hp = H * 1.08;
+    for (let z = -D2 + .6; z <= D2 - .6; z += gap) parts.push({ shape: "panel", size: [w - 1, Hp], pos: [0, .12 + Hp / 2, z], ...slab });
+    for (let x = -W2 + .6; x <= W2 - .6; x += gap) parts.push({ shape: "panel", size: [d - 1, Hp], pos: [x, .12 + Hp / 2, 0], rot: [0, 90, 0], ...slab });
   }
   const floorY = (x, z) => (Math.abs(x) <= W2 && Math.abs(z) <= D2 ? .12 : 0);
   return { name: name ?? `${crop} field`, parts, footprint: [w + 1, d + 1], floorY, crop, doors: [], windows: [] };
 }
 
 // ---- berry rows: red, white and black currant bushes ----
+// The bushes and the orchard's trees are PLANTS, not building parts: the
+// site only says where they grow (`plants`, site-local), and the flora
+// builder (index.html buildFlora) grows them with the same makeBush /
+// makeTree and draws them in the same herd and foliage mesh as the woods --
+// only the species differ (currants, apple, cherry, with their fruit cards).
 export function berryRows({ name = "Currant bushes", w = 14, d = 9, seed = 3 } = {}) {
-  const r = rng(seed * 61 + 3), parts = [], W2 = w / 2, D2 = d / 2;
-  const kinds = [[0x3f7a34, 0xd8202a], [0x467f3a, 0xe9e2d2], [0x3a6f30, 0x1c1224]];   // leaf, berry: red, white, black
+  const r = rng(seed * 61 + 3), plants = [], W2 = w / 2, D2 = d / 2;
+  const kinds = ["currant", "whitecurrant", "blackcurrant"];   // a row of each
   const rows = 3, per = Math.floor((w - 1) / 1.7);
   for (let row = 0; row < rows; row++) for (let k = 0; k < per; k++) {
-    const x = -W2 + .9 + k * 1.7 + (r() - .5) * .2, z = -D2 + 1.2 + row * ((d - 2.4) / (rows - 1)), [leaf, berry] = kinds[row], s = .85 + r() * .3;
-    // the berries are a dot pattern in the accent color over the foliage (architecture.js PAT 17), not geometry
-    parts.push({ shape: "sphere", size: { r: .55 * s }, scale: [1, .95, 1], pos: [x, .5 * s, z], color: leaf, accent: berry, pat: "berries", collide: false });
-    for (let m = 0; m < 3; m++) { const a = r() * Math.PI * 2; parts.push({ shape: "sphere", size: { r: .34 * s }, pos: [x + Math.cos(a) * .4 * s, .55 * s + (r() - .3) * .3, z + Math.sin(a) * .4 * s], color: leaf, accent: berry, pat: "berries", collide: false, outline: false }); }
+    const x = -W2 + .9 + k * 1.7 + (r() - .5) * .2, z = -D2 + 1.2 + row * ((d - 2.4) / (rows - 1)), s = .85 + r() * .3;
+    plants.push({ kind: "bush", fruit: kinds[row], x, z, seed: seed * 1000 + row * 50 + k, height: 1.15 * s, rotY: r() * 6.2832 });
   }
-  return { name, parts, footprint: [w + 1, d + 1], doors: [], windows: [] };
+  return { name, parts: [], plants, footprint: [w + 1, d + 1], doors: [], windows: [] };
 }
 
-// ---- the orchard: apple and cherry trees on a 5m grid ----
+// ---- the orchard: apple and cherry trees on a 5m grid (plants, see above) ----
 export function orchard({ name = "Orchard", w = 22, d = 16, seed = 5 } = {}) {
-  const r = rng(seed * 17 + 1), parts = [], W2 = w / 2, D2 = d / 2, trunks = [];
+  const r = rng(seed * 17 + 1), plants = [], W2 = w / 2, D2 = d / 2;
   const nx = Math.floor((w - 2) / 5), nz = Math.floor((d - 2) / 5);
   for (let i = 0; i <= nx; i++) for (let j = 0; j <= nz; j++) {
     const x = -W2 + 1 + i * 5 + (r() - .5) * .6, z = -D2 + 1 + j * 5 + (r() - .5) * .6, cherry = (i + j) % 2 === 1, s = .9 + r() * .25;
-    const th = 1.9 * s, cr = (cherry ? 1.5 : 1.7) * s, crown = cherry ? 0x467a34 : 0x4f8a3a;
-    parts.push({ shape: "cyl", size: { r1: .13, r2: .17, h: th, seg: 7 }, pos: [x, th / 2, z], color: 0x5a3d24, pat: "wood" });
-    trunks.push({ x, z, r: .17 });
-    const fc = cherry ? 0x8a1020 : 0xc8302a, pat = cherry ? "cherries" : "fruit";   // the fruit: dot patterns over the crown at real size (architecture.js PAT 18/19)
-    parts.push({ shape: "sphere", size: { r: cr }, scale: [1, .85, 1], pos: [x, th + cr * .6, z], color: crown, accent: fc, pat, collide: false });
-    for (let m = 0; m < 3; m++) { const a = r() * Math.PI * 2; parts.push({ shape: "sphere", size: { r: cr * .6 }, pos: [x + Math.cos(a) * cr * .55, th + cr * .6 + (r() - .2) * cr * .5, z + Math.sin(a) * cr * .55], color: crown, accent: fc, pat, collide: false, outline: false }); }
+    plants.push({ kind: "tree", species: cherry ? "cherry" : "apple", x, z, seed: seed * 1000 + i * 20 + j, height: (cherry ? 5.6 : 4.8) * s, rotY: r() * 6.2832 });
   }
-  return { name, parts, footprint: [w + 1, d + 1], trunks, doors: [], windows: [] };
+  return { name, parts: [], plants, footprint: [w + 1, d + 1], doors: [], windows: [] };
 }
 
 // ---- the fisherman's hut: a 5 x 4m boarded hut on the bank, nets and a drying rack, a plank jetty and a rowing boat ----
@@ -329,6 +334,7 @@ export function fisherHut({ name = "Fisherman's hut", water = -2.21 } = {}) {
   parts.push({ shape: "box", size: [1.4, .08, jz0 - jz1], pos: [jx, jy, (jz0 + jz1) / 2], color: plank, pat: "wood", collide: false });
   for (const z of [-4.6, -6.8, -8.8]) for (const s of [-1, 1]) parts.push({ shape: "cyl", size: { r1: .1, r2: .1, h: 4.6, seg: 6 }, pos: [jx + s * .6, jy - 2.3, z], color: dark, collide: false });
   parts.push({ shape: "cyl", size: { r1: .08, r2: .1, h: .5, seg: 6 }, pos: [jx + .6, jy + .25, -8.6], color: dark });   // mooring post
+  folkSpots.push({ x: jx - .2, y: jy + .04, z: jz1 + .7, h: Math.PI / 2, pose: "stand", role: "work", gesture: "fish", tool: "rod" });   // a fisher at the jetty's end, facing the river
   // (the boat and the fisherman are the demo's: `fisherBoat` below, moored at boatDock when not out fishing)
   const floorY = (x, z) => {
     if (Math.abs(x) <= W2 && Math.abs(z) <= D2) return F;
@@ -409,7 +415,7 @@ export function pottery({ name = "Pottery" } = {}) {
   for (const [a, b] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) parts.push({ shape: "box", size: [.08, .6, .08], pos: [kx + a * .5, F + .3, kz + b * .5], color: wood });   // the frame
   parts.push({ shape: "box", size: [.5, .06, .5], pos: [kx - .8, F + .45, kz], color: wood });   // the potter's seat
   for (const [a, b] of [[-1, -1], [1, 1]]) parts.push({ shape: "box", size: [.06, .42, .06], pos: [kx - .8 + a * .2, F + .21, kz + b * .2], color: wood });
-  folkSpots.push({ x: kx - .8, y: F + .48, z: kz, h: 0, pose: "sit" });   // the potter, seated at the wheel facing +x
+  folkSpots.push({ x: kx - .8, y: F + .48, z: kz, h: 0, role: "work", gesture: "knead", pose: "sit" });   // the potter, seated at the wheel facing +x
   parts.push({ shape: "sphere", size: { r: .4 }, scale: [1.4, .55, 1.2], pos: [-1.6, F + .2, -1.9], color: 0x8a5a3a, collide: false });   // the clay heap
   // shelves of pots along the back wall: jugs and bowls, raw clay and glazed
   const sy = [F + .55, F + 1.1, F + 1.65], sz = -D2 + T + .22;
@@ -476,7 +482,7 @@ export function smithy({ name = "Smithy" } = {}) {
   parts.push({ shape: "box", size: [.12, .05, .3], pos: [ax - .1, F + .85, az], color: 0xc85a20, collide: false });                  // hot iron on the face
   parts.push({ shape: "cyl", size: { r1: .02, r2: .02, h: .4, seg: 6 }, pos: [ax + .2, F + .86, az + .25], rot: [0, 0, 90], color: wood, collide: false });   // hammer
   parts.push({ shape: "box", size: [.09, .06, .1], pos: [ax + .38, F + .87, az + .25], color: iron, collide: false });
-  folkSpots.push({ x: ax, y: F, z: az + .9, h: Math.PI / 2, pose: "stand" });   // the smith, facing the anvil
+  folkSpots.push({ x: ax, y: F, z: az + .9, h: Math.PI / 2, role: "work", gesture: "hammer", tool: "hammer", pose: "stand" });   // the smith, facing the anvil
   // quench barrel, tool rack on the west wall, iron stock and horseshoes
   parts.push({ shape: "cyl", size: { r1: .32, r2: .3, h: .8, seg: 10 }, pos: [-2.6, F + .4, -1.4], color: 0x5a4a3a, pat: "wood" });
   parts.push({ shape: "cyl", size: { r1: .28, r2: .28, h: .02, seg: 10 }, pos: [-2.6, F + .79, -1.4], color: 0x4f6f7a, outline: false });
@@ -544,9 +550,9 @@ export function villageChurch({ name = "Village church" } = {}) {
   }
   P({ shape: "box", size: [.06, 1.6, .1], pos: [L2 - T - .06, 3.2, 0], color: 0xc9a227, collide: false });
   P({ shape: "box", size: [.06, .1, .9], pos: [L2 - T - .06, 3.5, 0], color: 0xc9a227, collide: false });
-  folkSpots.push({ x: L2 - T - 2.6 + xo, y: F + .2, z: 0, h: Math.PI, pose: "stand" });   // the priest, facing the pews
+  folkSpots.push({ x: L2 - T - 2.6 + xo, y: F + .2, z: 0, h: Math.PI, role: "work", gesture: "bless", pose: "stand" });   // the priest, facing the pews
   const floorY = (x, z) => (Math.abs(x - xo) <= L2 && Math.abs(z) <= W2 ? (x - xo > L2 - T - 3.6 ? F + .2 : F) : 0);
-  return { name, parts, footprint: [L + TW + 2, W + 2], floorY, folkSpots, windows, front: -1,
+  return { name, parts, footprint: [L + TW + 2, W + 2], floorY, folkSpots, windows, glazed: true, front: -1,   // glazed: a church could pay for glass
            doors: [{ x: -2.5 + xo, z: -W2 + T / 2, w: 1.6, h: 2.6 }],
            cobwebs: [{ x: -L2 + T + xo, y: H, z: -(W2 - T), sx: 1, sz: 1, d: .6 }, { x: L2 - T + xo, y: H, z: W2 - T, sx: -1, sz: -1, d: .5 }] };
 }
@@ -570,7 +576,7 @@ export function marketplace({ name = "Market" } = {}) {
     for (const a of [-1, 1]) parts.push({ shape: "box", size: [.08, top - .06, .08], pos: [cx + ax * .5 + px * a * 1.1, (top - .06) / 2, cz + az * .5 + pz * a * 1.1], color: wood });
     for (const a of [-1, 1]) for (const b of [-1, 1]) parts.push({ shape: "cyl", size: { r1: .05, r2: .06, h: 2.3, seg: 6 }, pos: [cx + ax * b * .9 + px * a * 1.3, 1.15, cz + az * b * .9 + pz * a * 1.3], color: wood });
     parts.push({ shape: "box", size: ax ? [2.2, .05, 2.9] : [2.9, .05, 2.2], pos: [cx, 2.35, cz], rot: [14 * az, 0, -14 * ax], color: awn, pat: "grooves", accent: 0xf0ece0, collide: false });
-    folkSpots.push({ x: cx - ax * .6, y: .1, z: cz - az * .6, h: Math.atan2(-az, ax), pose: "stand" });
+    folkSpots.push({ x: cx - ax * .6, y: .1, z: cz - az * .6, h: Math.atan2(-az, ax), role: "work", gesture: "sell", pose: "stand" });
     wares(cx + ax * .5, top, cz + az * .5, px, pz);
   };
   const W2i = W2 - 1.4, D2i = D2 - 1.4;   // stall centers, 1.4m in from the edge
@@ -615,29 +621,71 @@ export function marketplace({ name = "Market" } = {}) {
 // they are open toward the river, so a rectangle of three sides. `blocks`
 // lists the bands the wall actually occupies (for tree and people exclusion:
 // the footprint would otherwise empty the whole village).
+//
+// Both stand on land: `land(x, z)` is the signed distance to open water (+ on
+// land; the demo's waterSD). fitRing fits the three sides to it. Each outer
+// side keeps the dry stretch of its band -- every offset in `band` across the
+// line, outward +, at least CLEAR from the water -- that holds its corner
+// with the middle side; where the line would run on into the river or a lake
+// it stops `pad` short (room for the end tower), the water closing the ring as
+// the river does along the open side, and a side whose corner is already wet
+// is left out. The middle side keeps its longest dry stretch. A gate slides
+// along its side until its works ([before, after] about the gate) fit on the
+// stretch, or is left out.
+const CLEAR = .5;
+function fitRing(segs, land, band, pad, gates, [before, after]) {
+  const runsOf = (lo, hi, dry) => {   // the dry stretches of [lo, hi], sampled every .5m
+    const n = Math.max(1, Math.ceil((hi - lo) / .5)), at = (i) => lo + (hi - lo) * i / n, rs = [];
+    let a = null;
+    for (let i = 0; i <= n; i++) {
+      if (dry(at(i))) { if (a === null) a = at(i); if (i === n) rs.push([a, hi]); }
+      else if (a !== null) { rs.push([a, at(i - 1)]); a = null; }
+    }
+    return rs;
+  };
+  const sides = segs.map((sg, i) => {
+    const alongX = sg.a[1] === sg.b[1], k = alongX ? 0 : 1;
+    const lo = Math.min(sg.a[k], sg.b[k]), hi = Math.max(sg.a[k], sg.b[k]);
+    const c = alongX ? sg.a[1] : sg.a[0], o = alongX ? sg.out[1] : sg.out[0];
+    const dry = (u) => band.every((off) => land(...(alongX ? [u, c + o * off] : [c + o * off, u])) >= CLEAR);
+    return { ...sg, alongX, lo, hi, c, dry, corners: [sg.a[k], sg.b[k]], rs: runsOf(lo, hi, dry), middle: i === 1 };
+  });
+  for (const sd of sides.filter((q) => !q.middle)) {   // an outer side: from its corner with the middle side toward the open water
+    const corner = sd === sides[0] ? sd.corners[1] : sd.corners[0], atLo = corner === sd.lo;
+    const r = sd.rs.find((q) => (atLo ? q[0] === sd.lo : q[1] === sd.hi));
+    sd.span = r && (atLo ? [sd.lo, r[1] - pad] : [r[0] + pad, sd.hi]);
+  }
+  const mid = sides[1], joined = [sides[0].span ? mid.corners[0] : null, sides[2].span ? mid.corners[1] : null];
+  const best = mid.rs.sort((p, q) => (q[1] - q[0]) - (p[1] - p[0]))[0];
+  mid.span = best && best.map((e, j) => (joined.includes(e) ? e : e + (j ? -pad : pad)));   // a free end leaves room for its tower
+  return sides.filter((sd) => sd.span && sd.span[1] - sd.span[0] > 2 * pad).map((sd) => {
+    const [lo, hi] = sd.span;
+    const gs = gates.filter((g) => g.side === sd.side).map((g) => Math.min(Math.max(g.at, lo + before), hi - after)).filter((g) => g - before >= lo - 1e-6);
+    return { ...sd, lo, hi, gs: gs.sort((a, b) => a - b) };
+  });
+}
 
 // A curtain wall in stone, 4.5m to a walkway you can patrol: parapet with
 // merlons on the outside, a kerb inside, towers projecting outward every
 // ~40m and at the corners, gatehouses (arched passage between two taller
 // towers) where the street crosses, with a solid stair up beside each gate.
-export function stoneWall({ name = "Town wall", x0, x1, zS, zN0, zN1, gates = [], every = 40 } = {}) {
-  const H = 4.5, T = 1.8, stone = 0x8e8678, dark = 0x746c60, timber = 0x5b4326, parts = [], walks = [], stairs = [], blocks = [], towers = [];
+export function stoneWall({ name = "Town wall", x0, x1, zS, zN0, zN1, gates = [], every = 40, land = () => 1e9 } = {}) {
+  const H = 4.5, T = 1.8, stone = 0x8e8678, dark = 0x746c60, timber = 0x5b4326, parts = [], walks = [], stairs = [], blocks = [], towers = [], lookouts = [], guards = [];
   const segs = [{ a: [x0, zN0], b: [x0, zS], out: [-1, 0], side: "w" }, { a: [x0, zS], b: [x1, zS], out: [0, 1], side: "s" }, { a: [x1, zS], b: [x1, zN1], out: [1, 0], side: "e" }];
   const tower = ([px, pz], out, h) => {
     if (towers.some(([qx, qz]) => Math.hypot(qx - px, qz - pz) < 3)) return;
     towers.push([px, pz]);
     const cx = px + out[0] * 2.6, cz = pz + out[1] * 2.6;   // projecting outward from the parapet line
+    lookouts.push([cx, h + 3.6, cz]);   // a view from the top (just over the roof's peak): for the palace's paintings
     parts.push({ shape: "box", size: [4, h + 2, 4], pos: [cx, (h - 2) / 2, cz], color: stone, pat: "ashlar" });   // (2m below grade: nothing floats over a dip)
     for (const [sx, sz] of [[2.05, 0], [-2.05, 0], [0, 2.05], [0, -2.05]])
       parts.push({ shape: "box", size: sx ? [.3, .5, 4.4] : [4.4, .5, .3], pos: [cx + sx, h + .25, cz + sz], color: stone });   // the crown's merlon rim
     parts.push({ shape: "cyl", size: { r1: .05, r2: 2.95, h: 2.6, seg: 4 }, pos: [cx, h + 1.7, cz], rot: [0, 45, 0], color: 0x6f4a3a, pat: "tiles" });   // pyramid roof
     for (const y of [h * .4, h * .72]) parts.push({ shape: "box", size: out[0] ? [.04, .8, .16] : [.16, .8, .04], pos: [cx + out[0] * 2.02, y, cz + out[1] * 2.02], color: 0x1a120c, collide: false });   // arrow slits
   };
-  for (const sg of segs) {
-    const alongX = sg.side === "s";
-    const lo = alongX ? Math.min(sg.a[0], sg.b[0]) : Math.min(sg.a[1], sg.b[1]);
-    const hi = alongX ? Math.max(sg.a[0], sg.b[0]) : Math.max(sg.a[1], sg.b[1]);
-    const c = alongX ? sg.a[1] : sg.a[0];                       // the side's fixed coordinate
+  // across the band, outward +: the stair's inner edge .. the towers' roofs; along: an end tower's half; about a gate: its towers .. the stair's landing
+  for (const sg of fitRing(segs, land, [-(T / 2 + 1.4), -1, 0, 1, 2.5, 4, 2.6 + 3], 2.3, gates, [7.5, 15.5])) {
+    const { alongX, lo, hi, c, gs } = sg;                       // the side as fitted to the land: c its fixed coordinate, lo..hi its span
     const P = (u, off, y) => (alongX ? [u, y, c + off] : [c + off, y, u]);   // world position from along/offset
     const S = (len, h, t) => (alongX ? [len, h, t] : [t, h, len]);
     const o = alongX ? sg.out[1] : sg.out[0];                   // outward sign
@@ -660,7 +708,6 @@ export function stoneWall({ name = "Town wall", x0, x1, zS, zN0, zN1, gates = []
       rails(u0, u1, skip);
       walks.push(alongX ? { x0: u0, x1: u1, z0: c - T / 2, z1: c + T / 2 } : { x0: c - T / 2, x1: c + T / 2, z0: u0, z1: u1 });
     };
-    const gs = gates.filter((g) => g.side === sg.side).map((g) => g.at).sort((a, b) => a - b);
     let u = lo, skip = null;
     for (const g of gs) {
       body(u, g - 3, skip);
@@ -672,6 +719,12 @@ export function stoneWall({ name = "Town wall", x0, x1, zS, zN0, zN1, gates = []
       rails(g - 3, g + 3);
       walks.push(alongX ? { x0: g - 3, x1: g + 3, z0: c - T / 2, z1: c + T / 2 } : { x0: c - T / 2, x1: c + T / 2, z0: g - 3, z1: g + 3 });
       for (const s of [-1, 1]) tower(alongX ? [g + s * 5.3, c] : [c, g + s * 5.3], sg.out, 11);
+      // the watch (a gate's `guards`: their arms, one to each side): outside the passage, flanking its mouth, facing out
+      const gate = gates.filter((q) => q.side === sg.side).sort((a, b) => Math.abs(a.at - g) - Math.abs(b.at - g))[0];
+      (gate?.guards ?? []).forEach((arms, i) => {
+        const [x, , z] = P(g + (i % 2 ? 1.8 : -1.8), o * (T / 2 + .9), 0);
+        guards.push({ x, z, h: Math.atan2(-sg.out[1], sg.out[0]), arms });   // (h: a person's heading, forward = (cos h, 0, -sin h))
+      });
       // the stair: 18 solid steps of .25 rising along the inner face, starting 8m past the gate, a 1.4m
       // landing at the top level with the walkway, and a timber handrail down the open side
       const s0 = g + 8, n = 18, run = .32, ins = -o * (T / 2 + .7), L = run * n;
@@ -703,19 +756,23 @@ export function stoneWall({ name = "Town wall", x0, x1, zS, zN0, zN1, gates = []
     return lv;
   };
   const span = Math.max(Math.abs(x0), Math.abs(x1)), spanZ = Math.max(Math.abs(zS), Math.abs(zN0), Math.abs(zN1));
-  return { name, parts, footprint: [2 * span + 12, 2 * spanZ + 12], floorY, blocks, doors: [], windows: [] };
+  return { name, parts, footprint: [2 * span + 12, 2 * spanZ + 12], floorY, blocks, lookouts, guards, doors: [], windows: [], enclosure: true };   // enclosure: roofless -- its footprint is the whole town; guards: world x, z, heading, arms
 }
 
 // A timber palisade, 4m of sharpened logs on a rail, with post-frame towers
 // (platform, cabin, hip roof) at the corners and every ~35m, and gatehouses
 // -- a gallery over the passage between two towers -- where roads cross.
-export function palisade({ name = "Palisade", x0, x1, zN, zS0, zS1, gates = [], every = 35 } = {}) {
-  const H = 4.0, wood = 0x6b4a2c, dark = 0x4a3520, parts = [], blocks = [], towers = [], plats = [], lifts = [];
+// The towers stand INSIDE the line, hard against it: the watch looks out
+// over the stakes, and the ladder and hatch face the yard, so a tower is
+// climbed from within the village.
+export function palisade({ name = "Palisade", x0, x1, zN, zS0, zS1, gates = [], every = 35, land = () => 1e9 } = {}) {
+  const H = 4.0, wood = 0x6b4a2c, dark = 0x4a3520, parts = [], blocks = [], towers = [], plats = [], lifts = [], lookouts = [];
   const segs = [{ a: [x0, zS0], b: [x0, zN], out: [-1, 0], side: "w" }, { a: [x0, zN], b: [x1, zN], out: [0, -1], side: "n" }, { a: [x1, zN], b: [x1, zS1], out: [1, 0], side: "e" }];
   const tower = ([px, pz], out, h = 7) => {
     if (towers.some(([qx, qz]) => Math.hypot(qx - px, qz - pz) < 3)) return;
     towers.push([px, pz]);
-    const cx = px + out[0] * 2.3, cz = pz + out[1] * 2.3;   // wholly OUTSIDE the line of logs, hard against it
+    const cx = px - out[0] * 2.3, cz = pz - out[1] * 2.3;   // wholly INSIDE the line of logs, hard against it
+    lookouts.push([cx, h + 2.2, cz]);   // a view from over its roof
     const pfY = h - 2.3 + .075;                             // the platform top: the watch stands here
     for (const a of [-1, 1]) for (const b of [-1, 1]) parts.push({ shape: "cyl", size: { r1: .15, r2: .17, h: h + 2, seg: 6 }, pos: [cx + a * 1.55, (h - 2) / 2, cz + b * 1.55], color: dark });   // posts sunk 2m
     parts.push({ shape: "box", size: [3.5, .15, 3.5], pos: [cx, h - 2.3, cz], color: wood, pat: "wood", collide: false });      // platform
@@ -730,13 +787,12 @@ export function palisade({ name = "Palisade", x0, x1, zN, zS0, zS1, gates = [], 
     for (const s of [-1, 1]) parts.push({ shape: "box", size: out[0] ? [.06, pfY + .3, .06] : [.06, pfY + .3, .06], pos: [lx + (out[0] ? 0 : s * .25), (pfY + .3) / 2, lz + (out[0] ? s * .25 : 0)], color: dark, collide: false });
     for (let k = 0; k < Math.floor(pfY / .35); k++) parts.push({ shape: "box", size: out[0] ? [.04, .04, .5] : [.5, .04, .04], pos: [lx, .35 + k * .35, lz], color: dark, collide: false });
     plats.push({ x: cx, z: cz, y: pfY });
-    lifts.push({ bx: px - out[0] * 1.2, bz: pz - out[1] * 1.2, by: 0, tx: cx, tz: cz, ty: pfY, up: "climb the ladder", down: "climb down the ladder", rad: 2.0 });
+    lifts.push({ bx: cx - out[0] * 2.5, bz: cz - out[1] * 2.5, by: 0,   // at the ladder's foot, in the yard
+                  tx: cx, tz: cz, ty: pfY, up: "climb the ladder", down: "climb down the ladder", rad: 2.0 });
   };
-  for (const sg of segs) {
-    const alongX = sg.side === "n";
-    const lo = alongX ? Math.min(sg.a[0], sg.b[0]) : Math.min(sg.a[1], sg.b[1]);
-    const hi = alongX ? Math.max(sg.a[0], sg.b[0]) : Math.max(sg.a[1], sg.b[1]);
-    const c = alongX ? sg.a[1] : sg.a[0];
+  // across the band, outward +: the towers' roofs and the ladders' feet (inside) .. the gallery's gable; along: an end tower's half; about a gate: its towers
+  for (const sg of fitRing(segs, land, [-(2.3 + 2.95), -4, -2.5, -1, 0, 1.5], 2.3, gates, [7.3, 7.3])) {
+    const { alongX, lo, hi, c, gs } = sg;
     const P = (u, off, y) => (alongX ? [u, y, c + off] : [c + off, y, u]);
     const S = (len, h, t) => (alongX ? [len, h, t] : [t, h, len]);
     const o = alongX ? sg.out[1] : sg.out[0];
@@ -748,7 +804,6 @@ export function palisade({ name = "Palisade", x0, x1, zN, zS0, zS1, gates = [], 
       for (let v = u0 + 1; v < u1; v += 2.4) parts.push({ shape: "cyl", size: { r1: .16, r2: .18, h: H + 1.7, seg: 6 }, pos: P(v, -o * .35, (H - 2.3) / 2), color: dark });   // inner posts
       parts.push({ shape: "box", size: S(len, .14, .12), pos: P(m, -o * .33, 2.7), color: dark, collide: false });        // the rail binding them
     };
-    const gs = gates.filter((g) => g.side === sg.side).map((g) => g.at).sort((a, b) => a - b);
     let u = lo;
     for (const g of gs) {
       body(u, g - 2.6);
@@ -762,11 +817,12 @@ export function palisade({ name = "Palisade", x0, x1, zN, zS0, zS1, gates = [], 
     body(u, hi);
     const nT = Math.max(1, Math.round((hi - lo) / every));
     for (let k = 0; k <= nT; k++) { const v = lo + (hi - lo) * k / nT; if (!gs.some((g) => Math.abs(g - v) < 8)) tower(alongX ? [v, c] : [c, v], sg.out); }
-    blocks.push(alongX ? { x0: lo - 2.5, x1: hi + 2.5, z0: c - 5.5, z1: c + 2.5 } : { x0: c - (o < 0 ? 5.5 : 2.5), x1: c + (o < 0 ? 2.5 : 5.5), z0: lo - 2.5, z1: hi + 2.5 });
+    const b0 = c + Math.min(o * 2.5, -o * 6), b1 = c + Math.max(o * 2.5, -o * 6);   // 2.5m outside the line, 6m in (the towers and their ladders)
+    blocks.push(alongX ? { x0: lo - 2.5, x1: hi + 2.5, z0: b0, z1: b1 } : { x0: b0, x1: b1, z0: lo - 2.5, z1: hi + 2.5 });
   }
   const span = Math.max(Math.abs(x0), Math.abs(x1)), spanZ = Math.max(Math.abs(zN), Math.abs(zS0), Math.abs(zS1));
   const floorY = (x, z) => { const lv = []; for (const p of plats) if (Math.abs(x - p.x) <= 1.75 && Math.abs(z - p.z) <= 1.75) lv.push(p.y); return lv; };
-  return { name, parts, footprint: [2 * span + 12, 2 * spanZ + 12], floorY, blocks, lifts, doors: [], windows: [] };
+  return { name, parts, footprint: [2 * span + 12, 2 * spanZ + 12], floorY, blocks, lifts, lookouts, doors: [], windows: [], enclosure: true };   // enclosure: roofless -- its footprint is the whole village
 }
 
 // ---- the weaver's: a 7 x 6m workshop with the door on the STREET (-z) side, so it stands south of the
@@ -801,7 +857,7 @@ export function weaver({ name = "Weaver's" } = {}) {
   for (const a of [-1, 1]) parts.push({ shape: "box", size: [.5, .04, .14], pos: [kx + a * .3, F + .12, kz - .2], rot: [0, 0, a * 8], color: wood, collide: false });   // treadles
   parts.push({ shape: "box", size: [1.0, .06, .35], pos: [kx, F + .47, kz - 1.55], color: wood });   // the bench
   for (const a of [-1, 1]) parts.push({ shape: "box", size: [.07, .44, .3], pos: [kx + a * .42, F + .22, kz - 1.55], color: wood });
-  folkSpots.push({ x: kx, y: F + .5, z: kz - 1.55, h: -Math.PI / 2, pose: "sit" });   // the weaver, facing the loom (+z)
+  folkSpots.push({ x: kx, y: F + .5, z: kz - 1.55, h: -Math.PI / 2, role: "work", gesture: "weave", pose: "sit" });   // the weaver, facing the loom (+z)
   // the spinning wheel: rim, hub and spokes standing on a bench with the flyer, the spinner on a stool
   const sx = -1.9, sz = -.2;
   parts.push({ shape: "box", size: [1.0, .05, .3], pos: [sx, F + .55, sz], color: wood, pat: "wood" });
@@ -814,7 +870,7 @@ export function weaver({ name = "Weaver's" } = {}) {
   parts.push({ shape: "box", size: [.06, .2, .06], pos: [sx - .35, F + .65, sz], color: wood, collide: false });
   parts.push({ shape: "box", size: [.4, .04, .4], pos: [sx - .3, F + .45, sz + 1.0], color: wood });   // the stool
   for (const [a, b] of [[-1, -1], [1, 1], [-1, 1], [1, -1]]) parts.push({ shape: "box", size: [.05, .43, .05], pos: [sx - .3 + a * .15, F + .215, sz + 1.0 + b * .15], color: wood, collide: false });
-  folkSpots.push({ x: sx - .3, y: F + .47, z: sz + 1.0, h: Math.PI / 2, pose: "sit" });   // the spinner, facing the wheel (-z)
+  folkSpots.push({ x: sx - .3, y: F + .47, z: sz + 1.0, h: Math.PI / 2, role: "work", gesture: "weave", pose: "sit" });   // the spinner, facing the wheel (-z)
   for (const [bx, bz] of [[-2.4, 2.0], [-1.6, 2.2]]) {   // baskets of wool
     parts.push({ shape: "cyl", size: { r1: .28, r2: .24, h: .32, seg: 10 }, pos: [bx, F + .16, bz], color: 0x9a7a4a, collide: false });
     parts.push({ shape: "sphere", size: { r: .26 }, scale: [1, .55, 1], pos: [bx, F + .36, bz], color: 0xf0e8d8, collide: false });
@@ -860,7 +916,7 @@ export function tailor({ name = "Tailor's" } = {}) {
   parts.push({ shape: "box", size: [1.7, .025, .85], pos: [tx - .15, F + .865, tz], color: CLOTH[0], collide: false, outline: false });
   for (const a of [-1, 1]) parts.push({ shape: "box", size: [.34, .015, .04], pos: [tx + .75, F + .885, tz - .25], rot: [0, a * 22, 0], color: iron, collide: false, outline: false });   // the shears
   for (let k = 0; k < 3; k++) parts.push({ shape: "box", size: [.5, .07, .38], pos: [tx + .75, F + .89 + k * .07, tz + .25], color: CLOTH[k + 1], collide: false });
-  folkSpots.push({ x: tx, y: F, z: tz + 1.15, h: Math.PI / 2, pose: "stand" });   // the tailor, facing the table (and the street beyond)
+  folkSpots.push({ x: tx, y: F, z: tz + 1.15, h: Math.PI / 2, role: "work", gesture: "sew", pose: "stand" });   // the tailor, facing the table (and the street beyond)
   // the dress form: a tunic on a padded torso on its post
   const dx = 2.3, dz = 1.0;
   parts.push({ shape: "cyl", size: { r1: .32, r2: .32, h: .05, seg: 10 }, pos: [dx, F + .025, dz], color: dark, collide: false });
@@ -931,18 +987,107 @@ export function fountain({ name = "Fountain" } = {}) {
     parts.push({ shape: "cyl", size: { r1: .035, r2: .035, h: .45, seg: 6 }, pos: [ux * .45, sy, uz * .45], rot: k % 2 ? [90, 0, 0] : [0, 0, 90], color: 0x3a3a40, collide: false });
     flows.push({ kind: "jet", x: ux * .66, y: my - .02, z: uz * .66, r: .04, h: sy - .02 - my + .02 });
   }
-  for (const [bx, bz] of [[R + .2, -.9], [-.7, R + .25]]) {   // buckets on the rim
-    parts.push({ shape: "cyl", size: { r1: .13, r2: .11, h: .3, seg: 8 }, pos: [bx, y0 + wallH + .12 + .15, bz], color: 0x6b4a2c, collide: false });
-    parts.push({ shape: "cyl", size: { r1: .11, r2: .11, h: .02, seg: 8 }, pos: [bx, y0 + wallH + .12 + .28, bz], color: water, collide: false, outline: false });
-  }
+  // buckets on the rim: water vessels (tableware.js -- open, the water at its level, drinkable), not building parts
+  const vessels = [[R + .2, -.9, .9], [-.7, R + .25, .6]].map(([x, z, fill]) => ({ kind: "bucket", x, y: y0 + wallH + .12, z, fill, drink: "water" }));
   folkSpots.push({ x: R + .6, y: y0, z: -.9, h: Math.PI, pose: "stand" });   // fetching water: on the step, facing the basin
   folkSpots.push({ x: -.7, y: y0, z: R + .75, h: Math.PI / 2, pose: "stand" });
+  folkSpots.push({ x: -(R + 2.3), y: base, z: -1.3, h: 0, pose: "stand", role: "work", gesture: "strum", tool: "lute", bard: true });   // the bard's pitch on the open paving, facing the fountain
   folkSpots.push({ x: -2.9, y: base, z: -2.6, h: -Math.PI / 4, pose: "stand" });   // a neighbour stopped to talk, off the step
   const floorY = (x, z) => { const r = Math.hypot(x, z); return r < 2.5 ? y0 : Math.abs(x) <= 4 && Math.abs(z) <= 4 ? base : 0; };
-  return { name, parts, footprint: [9, 9], floorY, folkSpots, flows, square: 4, doors: [], windows: [] };   // square: the paving's half-width, for the path from the street
+  return { name, parts, footprint: [9, 9], floorY, folkSpots, flows, vessels, square: 4, doors: [], windows: [] };   // square: the paving's half-width, for the path from the street
 }
 
-export const VILLAGE = {   // (the bridge and the two enclosures are built by the demo to the river and the village as laid out)
+// ---- the hamlet's trades by the quay: carpenter, cooper, butcher --------------
+// All three work under one kind of roof: an open-fronted shed -- floor, back
+// and side walls, two posts at the open front (+z, onto the quay), a pitched
+// roof -- the trade is what stands inside.
+function shed(parts, { W, D, H = 3.0, T = .3, wall = 0x6b4a2c, wallPat = "wood", roof = 0x6f5a3a, floor = 0x7a6a52 }) {
+  const W2 = W / 2, D2 = D / 2;
+  parts.push({ shape: "box", size: [W, .15, D], pos: [0, .075, 0], color: floor });
+  parts.push({ shape: "box", size: [W, H, T], pos: [0, H / 2, -D2 + T / 2], color: wall, pat: wallPat });
+  for (const s of [-1, 1]) parts.push({ shape: "box", size: [T, H, D], pos: [s * (W2 - T / 2), H / 2, 0], color: wall, pat: wallPat });
+  for (const s of [-1, 1]) parts.push({ shape: "box", size: [.25, H, .25], pos: [s * (W2 - .3), H / 2, D2 - .2], color: 0x4a3520 });
+  parts.push({ shape: "box", size: [W, .25, .3], pos: [0, H - .12, D2 - .2], color: 0x4a3520 });   // the lintel beam over the open front
+  parts.push({ shape: "gable", size: [W + .8, 2.2, D + .9], pos: [0, H, 0], color: roof, pat: "tiles" });
+  return { F: .15, floorY: (x, z) => (Math.abs(x) <= W2 && Math.abs(z) <= D2 ? .15 : 0) };
+}
+
+// the carpenter: a workbench with a plank under the saw, a sawhorse, stacked boards and logs
+export function carpenter({ name = "Carpenter's" } = {}) {
+  const W = 9, D = 7, D2 = D / 2, parts = [], folkSpots = [], wood = 0x6b4a2c, board = 0xb08a5a;
+  const { F, floorY } = shed(parts, { W, D });
+  parts.push({ shape: "box", size: [2.4, .08, .8], pos: [0, F + .84, -.7], color: wood, pat: "wood" });   // the bench
+  for (const [a, b] of [[-1, -1], [1, -1], [-1, 1], [1, 1]]) parts.push({ shape: "box", size: [.09, .8, .09], pos: [a * 1.1, F + .4, -.7 + b * .32], color: wood });
+  parts.push({ shape: "box", size: [1.8, .04, .3], pos: [.1, F + .9, -.65], color: board, pat: "wood", collide: false });   // the plank being sawn
+  for (const x of [2.4, 3.4]) for (const s of [-1, 1]) parts.push({ shape: "box", size: [.07, .75, .07], pos: [x, F + .36, 1.0 + s * .22], rot: [s * 14, 0, 0], color: wood });   // the sawhorse
+  parts.push({ shape: "box", size: [1.3, .08, .1], pos: [2.9, F + .72, 1.0], color: wood });
+  for (let k = 0; k < 7; k++) parts.push({ shape: "box", size: [3.4, .05, .3], pos: [-2.4, F + .03 + k * .055, -D2 + .75 + (k % 2) * .05], color: board, pat: "wood", collide: false });   // boards stacked by the back wall
+  for (const z of [1.6, 2.1]) parts.push({ shape: "cyl", size: { r1: .2, r2: .22, h: 2.6, seg: 8 }, pos: [-2.6, F + .22, z], rot: [0, 0, 90], color: 0x6a5140, pat: "wood" });   // logs
+  folkSpots.push({ x: 0, y: F, z: -.05, h: Math.PI / 2, role: "work", gesture: "saw", tool: "saw", pose: "stand" });   // the carpenter at the bench
+  folkSpots.push({ x: 3.0, y: F, z: D2 - 1.0, h: Math.PI / 2, pose: "stand" });   // a customer
+  return { name, parts, footprint: [W + 2, D + 2], floorY, folkSpots, doors: [], windows: [] };
+}
+// the cooper: finished casks, one half-raised (its staves splayed in a hoop), a block to work at
+export function cooper({ name = "Cooper's" } = {}) {
+  const W = 9, D = 7, D2 = D / 2, parts = [], folkSpots = [];
+  const { F, floorY } = shed(parts, { W, D, wall: 0x7a6248 });
+  for (const [x, z] of [[-3.2, -2.4], [-2.4, -2.4], [-3.2, -1.6], [3.3, -2.4]]) parts.push(...barrel("big", [x, F + .45, z], "up"));
+  parts.push(...barrel("big", [-2.8, F + .45 + .9, -2.0], "up"));   // one on the stack
+  const bx = .2, bz = -.9;   // the cask being raised: splayed staves round a hoop
+  for (let k = 0; k < 12; k++) {
+    const a = k / 12 * Math.PI * 2;
+    parts.push({ shape: "box", size: [.1, .8, .03], pos: [bx + Math.cos(a) * .28, F + .4, bz + Math.sin(a) * .28], rot: [Math.sin(a) * 8, -a * 180 / Math.PI + 90, Math.cos(a) * -8], color: 0x9a7040, collide: false });
+  }
+  parts.push({ shape: "cyl", size: { r1: .33, r2: .33, h: .05, seg: 12, open: true }, pos: [bx, F + .72, bz], color: 0x4a4644, collide: false });
+  parts.push({ shape: "cyl", size: { r1: .3, r2: .32, h: .5, seg: 8 }, pos: [2.2, F + .25, .6], color: 0x5a4636, pat: "wood" });   // the block
+  for (let k = 0; k < 5; k++) parts.push({ shape: "cyl", size: { r1: .36, r2: .36, h: .03, seg: 12, open: true }, pos: [3.4, F + 1.2 + k * .12, -D2 + .35], rot: [90, 0, 0], color: 0x4a4644, collide: false });   // hoops on the wall
+  folkSpots.push({ x: bx, y: F, z: bz + .75, h: Math.PI / 2, role: "work", gesture: "hammer", tool: "hammer", pose: "stand" });   // the cooper, driving the hoop down
+  folkSpots.push({ x: 3.0, y: F, z: D2 - 1.0, h: Math.PI / 2, pose: "stand" });
+  return { name, parts, footprint: [W + 2, D + 2], floorY, folkSpots, doors: [], windows: [] };
+}
+// the butcher: stone walls, a counter across the open front, hams hanging from a rail, the block
+export function butcher({ name = "Butcher's" } = {}) {
+  const W = 8, D = 6, D2 = D / 2, parts = [], folkSpots = [], wood = 0x6b4a2c;
+  const { F, floorY } = shed(parts, { W, D, wall: 0x9a917f, wallPat: "ashlar", floor: 0x8b8578 });
+  parts.push({ shape: "box", size: [3.6, .9, .6], pos: [0, F + .45, D2 - .9], color: wood, pat: "wood" });   // the counter
+  parts.push({ shape: "box", size: [3.4, .05, .5], pos: [0, F + .92, D2 - .9], color: 0xe2dccc, collide: false });   // its board
+  for (let k = 0; k < 3; k++) parts.push({ shape: "capsule", size: { r: .07, len: .18 }, pos: [-1 + k * .8, F + 1.02, D2 - .9], rot: [0, 0, 90], color: 0xa04a3a, collide: false });   // cuts on the board
+  parts.push({ shape: "box", size: [W - 1, .06, .06], pos: [0, 2.35, -.6], color: 0x3e3a38 });   // the rail
+  for (let k = 0; k < 6; k++) parts.push({ shape: "capsule", size: { r: .11, r2: .07, len: .3 }, pos: [-2.6 + k * 1.0, 1.95, -.6], color: k % 2 ? 0x8a3a30 : 0x9a4a38, collide: false });   // hams
+  parts.push({ shape: "cyl", size: { r1: .34, r2: .36, h: .8, seg: 10 }, pos: [-2.2, F + .4, .6], color: 0x6a5140, pat: "wood" });   // the chopping block
+  folkSpots.push({ x: 0, y: F, z: D2 - 1.75, h: -Math.PI / 2, role: "work", gesture: "chop", tool: "cleaver", pose: "stand" });   // the butcher behind the counter, facing the quay
+  folkSpots.push({ x: -.6, y: 0, z: D2 + .6, h: Math.PI / 2, pose: "stand" });   // a customer before the counter
+  return { name, parts, footprint: [W + 2, D + 2], floorY, folkSpots, doors: [], windows: [] };
+}
+
+// ---- the beekeeper's garden: straw skeps on stands in two rows, a wattle fence, a bench ----
+export function apiary({ name = "Beekeeper's garden" } = {}) {
+  const W = 10, D = 8, W2 = W / 2, D2 = D / 2, parts = [], folkSpots = [], straw = 0xc9a24a, wood = 0x6b4a2c;
+  for (const [x0, z0, x1, z1] of [[-W2, -D2, W2, -D2], [-W2, -D2, -W2, D2], [W2, -D2, W2, D2], [-W2, D2, -1, D2], [1, D2, W2, D2]]) {   // the fence, a gap in the front
+    const len = Math.hypot(x1 - x0, z1 - z0);
+    parts.push({ shape: "box", size: x0 === x1 ? [.08, .7, len] : [len, .7, .08], pos: [(x0 + x1) / 2, .35, (z0 + z1) / 2], color: 0x7a6040, pat: "wood" });
+  }
+  for (const z of [-2, .8]) for (let k = 0; k < 4; k++) {   // skeps: a coiled-straw dome on a stand, its entrance at the foot
+    const x = -3.3 + k * 2.2;
+    parts.push({ shape: "box", size: [.55, .4, .55], pos: [x, .2, z], color: wood });
+    parts.push({ shape: "cyl", size: { r1: .3, r2: .27, h: .22, seg: 10 }, pos: [x, .51, z], color: straw });
+    parts.push({ shape: "cyl", size: { r1: .27, r2: .1, h: .26, seg: 10 }, pos: [x, .75, z], color: 0xbf9840 });
+    parts.push({ shape: "sphere", size: { r: .1 }, pos: [x, .88, z], color: straw });
+    parts.push({ shape: "box", size: [.12, .06, .04], pos: [x, .43, z + .29], color: 0x2a2010, collide: false });
+  }
+  parts.push({ shape: "box", size: [1.6, .06, .4], pos: [3.2, .46, 2.9], color: wood, pat: "wood" });   // the bench, a smoker and a comb frame on it
+  for (const dx of [-.65, .65]) parts.push({ shape: "box", size: [.08, .44, .34], pos: [3.2 + dx, .22, 2.9], color: wood });
+  parts.push({ shape: "cyl", size: { r1: .08, r2: .1, h: .22, seg: 8 }, pos: [2.8, .6, 2.9], color: 0x5a5550 });
+  parts.push({ shape: "box", size: [.4, .3, .03], pos: [3.5, .64, 2.9], color: 0xd9a92a, collide: false });
+  folkSpots.push({ x: -2.2, y: 0, z: -.6, h: Math.PI / 2, role: "work", gesture: "tend", pose: "stand" });   // the beekeeper among the hives
+  return { name, parts, footprint: [W + 2, D + 2], floorY: () => 0, folkSpots, doors: [], windows: [] };
+}
+
+export const VILLAGE = {
+  carpenter: carpenter(),
+  cooper: cooper(),
+  butcher: butcher(),
+  apiary: apiary(),   // (the bridge and the two enclosures are built by the demo to the river and the village as laid out)
   fisherHut: fisherHut(),
   pottery: pottery(),
   smithy: smithy(),
@@ -960,6 +1105,7 @@ export const VILLAGE = {   // (the bridge and the two enclosures are built by th
   cabbageField: cropField({ crop: "cabbage", w: 12, d: 10, seed: 3 }),
   beanField: cropField({ crop: "beans", w: 12, d: 10, seed: 4 }),
   garlicField: cropField({ crop: "garlic", w: 10, d: 8, seed: 5 }),
+  soilField: cropField({ name: "Plowed field", crop: "soil", w: 12, d: 10, seed: 6 }),
   berries: berryRows(),
   orchard: orchard(),
 };
