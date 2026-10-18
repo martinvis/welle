@@ -1,6 +1,55 @@
 # The world
 
-## Terrain and layout
+## Cultural periods (2026-10-09)
+
+A world is set in one PERIOD, decided at startup (`?period=NAME`, else drawn from the seed by weight):
+greek, roman, egyptian, chinese, medieval, byzantine, ottoman, islamic, industrial. Everything with a time and
+place follows it, all declared in `assets/world/periods.json`: the monuments (`landmarks`, from architecture.js
+LANDMARKS), what people wear (`dress`: wardrobe styles by weight, `""` the village's own -- each style brings its
+hair and jewelry), the town (`town.styles`: a medieval town style; or `town.houses`: the period's dwellings in the
+street rows, at the inn and on the farms; `church`, `walls` [pattern, palette], `without` farm plots such as the
+windmill), the fisherman's boat, the trees (flora.js species; the palm is a warm one, never in the wild mix) and the
+`ground` -- `grounds` gives its colours into grass.js GRADE, whether blades grow on it (sand: none, no fringe) and how
+many flowers it keeps. `?townstyle=` still forces a town style.
+
+## The grown map (2026-09-28)
+
+By default the land is GROWN at load (`mapgen.js`): the terrain lab (`terrain_lab.js`, docs/terrain_lab.md) runs its
+"river country" preset -- 2.6 km at 20 m cells, a big river (10 m³/s) coming in from beyond the region and cutting
+down through a layer cake with a basalt sill in it as the land rises, its side streams, its falls -- for 150,000
+years on the renderer's own GPU device, and the world is a window cut out of it. `?map=0` keeps the old world below
+(the sines, the lake, three landmarks); `?trees=0` scenes have no room for a map and keep it too; `?mapyears=`
+grows a shorter history (the headless checks: a software GPU takes minutes).
+
+- **The window**: the world's size (2 x groundR and a margin), along the big river where its banks, the herd's
+  meadow and the facade line are gentlest, turned so the river runs east (+x) about `extent + 120` south of the
+  middle -- where the old river ran -- so the town, the landing, the mill and the barge still find a river running
+  east along `z = riverZ(x)`.
+- **The ground**: the lab's, bicubic onto a 2 m grid with a little detail, then SETTLED -- the land shifted so the
+  river stands at the old -2.2 m at the bridge, and eased (a smooth warp ~110 m wide) so the town, its farms, the
+  meadow and the monument's stretch stand at 0. Everything built is laid out on 0 and stays there; the land round it
+  rises and falls. Plots are levelled toward 0 as before, but never under water (`wet`).
+- **The water has no one level any more.** Every channel -- the big river and each side stream with water enough
+  (a brook, 0.016 m³/s) -- is carved at ITS OWN level, falling downstream, never rising: the bed under it, a low bank
+  raised above it where the land is lower. The lakes the lab held keep their levels, the moats the old one. The
+  water is one mesh over the wet samples of the grid, each vertex at its water's height (and a ring round it, sunk
+  under the banks, so the shore is where the land rises through it); `river` on it says how much flows (the waves
+  slide downstream there), `fall` how steep it is (white water down a fall). The grass's mask reads the same
+  surface as a texture (grass.js `WATER_LEVEL`). `waterY(x, z)` (ground.js) is the surface anywhere (-Infinity:
+  dry) and `riverLevel(x)` the river's: swimmers, fish, birds, the barge, the rowing boat, arrows, a struck
+  animal, the swimming player and the underwater view all ask them. The reflection's plane follows the river's
+  level under the camera.
+- **The town** goes where both banks are flattest and the river quiet (falling 2.5 m at most past it, the banks
+  about 2.2 m over the water: a terrace over a gorge would be cut down to it): the bridge there, the town south of
+  it, the farms and the mill north and 95 m down.
+- **ONE landmark, the monument**, on the facade line where it is flattest; the highway along it reaches the
+  meadow's path at x = 0 wherever it stands.
+
+The lab is deterministic on one machine (every pass reads one state and writes another), so a seed grows the same
+land every time there. Different GPUs may round differently, so peers of one session on different hardware can
+grow different maps -- a shared session would have to send the host's.
+
+## Terrain and layout (the old world, `?map=0`)
 
 Ground height is an analytic function: three layered sines, blended flat
 (smoothstep over 20m) under every building footprint, the herd meadow, and
@@ -27,9 +76,29 @@ Zones: buildings line up along a north road; the fenced nature range holds
 animals and people; a smaller fenced pen to the east holds the monsters;
 the lake lies south, the river runs into it from the west, and the water
 mill stands on the river's north bank (the one building off the facade
-row: sites carry an optional `z`). Packed-earth paths (one merged ribbon mesh with wheel
-ruts, stone specks and ragged edges, mitered so bends stay clean) connect
-the road, every building door, the meadow and the lake.
+row: sites carry an optional `z`). Packed-earth paths (one merged mesh with wheel
+ruts, stone specks and a worn grassy verge) connect the road, every building
+door, the meadow and the lake.
+
+**Roads cut into the terrain (2026-10-06).** The roads are planned BEFORE the
+ground is built (paths.js `planRoads`): each route laid out and kept dry,
+sampled every ~1.5 m, its centreline's height following the natural ground
+along it (smoothed over ~6 m), pinned where it runs onto a wider road already
+laid (a spur meets the street at its height), and LEVEL ACROSS -- both edges
+at the centre's height. The ground then adjusts to the road, not the road to
+the ground: inside a road `groundH` is the road's surface, and over a 3 m
+shoulder beyond its edge it eases back to the land (ground.js `roads`,
+`naturalH` the land without them). The terrain is CUT along the roads' edges
+(terrain_data.js `roadTileData`): a tile a road or its shoulder touches is
+built at its finest level, and each cell a road touches is the cell less the
+road -- the square cut by every road piece over it, convex pieces fanned into
+triangles; the road's edges are split where they cross the lattice's lines, so
+the cut's points ARE the road's points, shared by the road mesh
+(buildPathNetwork) and the terrain, at the same heights. No terrain lies under
+a road; the skirts skip the stretches of a tile's border a road crosses.
+`?roadcut=0` lays the roads over the uncut ground as before (the comparison).
+Where a road runs over one laid before it (a door's spur on the street it leaves) its surface sinks up to 3 cm under
+that road's, in the mesh only: at one height the two drew over each other, the spur's verge flickering on the street.
 
 The road itself is a 6m **highway** in the Roman manner: two lanes 3.5m
 apart, right-hand traffic, running the whole facade line and ending in a
@@ -41,11 +110,17 @@ sampled by arc length so teams bend around the loops.
 
 The FPS controller is a 0.25m circle at eye height 1.5m: wall collision
 with sliding, climb ≤ 0.5m (stairs are real 0.25m steps with a 1m landing),
-gravity with anti-tunneling landing checks, Space jump (~0.8m of rise, so
-with the step-up a 1.3m sill is reachable), Shift+Space 10m dash. Every
+gravity with anti-tunneling landing checks, Space jump (~0.9m of rise, 2026-10-03: was 1.2, so
+with the step-up a 1.4m sill is reachable), Shift+Space 10m dash. Every
 wall opening is real: doors from the floor, windows between sill and
-lintel -- open a window, jump, and you are through it; a closed pane
-blocks at its own height. Support is footprint-aware (five probes) so hairline seams can't
+lintel -- open a window, jump, and you are through it: in the air the body
+tucks (collides `duck`: 60cm of gap instead of 1.2m), lands on the sill,
+and where only a ducked body fits (`wedged`: on a sill under its lintel) it
+ducks on through and down; a closed pane blocks at its own height. Steps
+are judged with the feet where they will stand: going down a stair the
+headroom is from the lower tread (and a ring sample that meets stone is
+asked again from the floor under it). A straight flight's sides and
+underside are in the wall field: it is walked up, not through. Support is footprint-aware (five probes) so hairline seams can't
 swallow you. Colliders derive automatically from building data — boxes and
 closed cylinders over 1.2m tall, `hwall` segments with passable door holes —
 plus closed doors and tree trunks. `floorY` fields make every storey,
@@ -83,7 +158,16 @@ you can always walk out of one that has stepped onto you.
   `tauric`: an animal's trunk, legs and tail without its head, neck and
   mane, optionally scaled, with a person's upper body -- makePerson's
   `upper` -- standing on its chest): the centaur (horse), the drider (the
-  spider at 25x) and the sphinx (lion); two camels, the dromedary and the
+  spider at 25x) and the sphinx (lion); winged people (winged.js, kind
+  "winged" in assets/creatures/monsters: makePerson's whole figure with a
+  pair of wings from the back of the chest, on a root bone turned up the
+  back so the wings spread behind it, chord hanging down, flapping about
+  the spine): the angel (mammals.js `birdWing`: primaries rooted ON the
+  hand's axis, secondaries along the forearm, coverts over their roots)
+  and the demon (`batWing`: the arm to the wrist, three fingers fanned
+  from it in the hand's frame, the skin between them scalloped and from
+  the last finger back to the flank -- the dragon and the manticore have
+  the same wing -- red skin, two horns); two camels, the dromedary and the
   two-humped bactrian; dinosaurs (`dinosaur: true`, in the monster pen)
   on the rig's `biped` option -- the tyrannosaur at real size (12.7m,
   hips at 3.3m, knees folding forward, tiny arms, the tail held out as a
@@ -116,6 +200,10 @@ you can always walk out of one that has stepped onto you.
   straight. Fliers cruise at per-individual altitudes and glide instead of
   standing: twenty parrots, fifty owls, twenty eagles, a hundred bats and 140 butterflies
   (`?butterflies=N`) range over the whole sky, spawned across the ground
+  (butterflies PERCH, 2026-10-09: at the end of a flight one may make
+  for the nearest free flower head within 18m, land on its bloom, fan its
+  wings there 4-14s and fly on -- one butterfly a flower; picking the
+  flower sends it off; `perchStep`, the flowers' `perches`)
   disc like the people, parrots up to 60m, owls 45m, eagles up to 155m
   -- the cathedral spires (bats swarm low around the buildings they roost
   in, town row and riverside); parrots and eagles fly by day, owls and bats
@@ -180,10 +268,30 @@ you can always walk out of one that has stepped onto you.
   man), **J** pins the word everyone says (random, then each of the 18 in
   turn -- for testing pronunciation), **H** pins a mood; "random" gives
   each their own. The label shows all four.
+- **The mine** (2026-10-03; `tools/archgen/mine.py` -> assets/architecture/village/mine.json, finishes mine-silver,
+  mine-copper, mine-salt; `?mine=silver|copper|salt` picks, `?mine=0` none): one a world, its ore by the town's seed,
+  placed after the town on open land away from every site and the water (its galleries too), where the ground over
+  the galleries never dips below -6.5 (they lie 10 m down), the higher the better. The surface: the shaft house over the
+  hauling shaft with its windlass (two men at the cranks) and kibbles, the walking shaft with steep flights (25 cm on
+  25 cm) under a roof, the spoil heap, the dressing bench, pit timber. Ten metres down: the shaft bottom, two galleries
+  with door sets every 1.5 m (none in the salt) and a plank track, carts, stopes with the vein and hewers, oil lamps.
+  Its CREW (the spots with `crew: "miner"`) is its own: men in the wardrobe's `miner` outfit (linen smock and hood,
+  leather apron), at work day and night with the spot's gesture and tool (index.html crewHerd); village-life leaves those
+  spots alone. The ground over the deep galleries stays a floor (`DIG`: only a floor within 4 m of the surface opens
+  the ground, and a building's `dig` rectangles -- the shafts' mouths); colliders reach the whole `extent`.
+- **The forest** (config.json `forest`, `?forest=N`): one dense wood -- `trees` trees `spacing` (6.6 m, 2026-10-03: was 4.4) apart, thinning
+  to an irregular edge `radius` (46 m) across, spruce, pine, oak, birch and maple with an undergrowth of bushes and
+  mushrooms -- on the clearest patch of open land nearest the world's middle (away from the sites with a margin for
+  their streets, the water and the meadow). Same herd and foliage mesh as the woods: no extra draw calls (+~140k
+  triangles in view at 130 trees; 60 now).
 - **Riders**: a person in riding pose fused onto a horse skeleton, patrolling
   one grand tour of the whole path network; loose horses roam free and can
-  be mounted.
-- **Water mill** (`watermill` in `architecture.js`): a 9 x 6.5m stone
+  be mounted. Where a rider sits is ONE placement (index.html `riderOrigin` /
+  `riderEye`, from the saddle `fuseRider` hangs the fused riders at): your
+  eyes when you ride anything -- a horse or a diplodocus -- your own body on
+  the saddle, a peer's rider and a clone all sit there. Your own body is
+  placed right after the move, before its head and the bow read it.
+- **Water mill** (`assets/architecture/village/watermill`, tools/archgen/riverside.py): a 9 x 6.5m stone
   mill house with a 6.1m undershot wheel standing off the river wall on a
   piled frame, its axle only .5m above the floor so the paddles reach the
   stream 2.35m below (the wheel turns at flow speed over radius, bottom
@@ -193,27 +301,12 @@ you can always walk out of one that has stepped onto you.
   frame under a hopper, meal runs down a chute; wheat waits in sacks by
   the door, flour leaves in barrels along the wall. The door opens east
   onto the riverside street.
-- **Tavern** (`tavern` in `architecture.js`): a 14 x 9m riverside inn --
-  stone taproom under a jettied timber-framed guest floor, chimney on the
-  east gable. Downstairs the bar runs along the back wall with the keeper
-  behind it and casks on tap; the hearth holds a log fire with a cook-pot
-  on its chain; four trestle tables with benches seat the company over
-  mugs, jugs and plates of bread, cheese and sausage (`folkSpots` seat the
-  guests and stand the keeper). The fire is live: a handful of cones that
-  sway, stretch and flicker in a vertex shader on the render clock (far
-  faster than the water), yellow core to orange tips -- any building may
-  export `fires` and get one. All furniture wood and every hinged door
-  carry a slight grain pattern (`wood`; doors keep theirs in their own
-  space so it does not slide when they swing). A straight stair up the west wall reaches
-  a corridor and three guest rooms, each with a bed (you can lie down), a
-  chair, a chest or wardrobe and a bedside board. Outside: the inn sign,
-  a bench under the windows, casks by the door.
-- **Riverside street**: a 1.5m track along the north bank 4m up from
-  the water, from the lake path to the mill's door, with every riverside
-  building set 2m behind it and reached by its own spur. Buildings here
-  are listed by x alone (`RIVERSIDE` in `index.html`) -- the place to add
-  more of them.
-- **Stone bridge** (`stoneBridge` in `village.js`): 35m west of the basin
+- **Fire**: a hearth's fire is live -- a handful of cones that sway, stretch and flicker in a vertex shader on
+  the render clock (far faster than the water), yellow core to orange tips; any building may export `fires`
+  (a definition's `fire` markers) and get one.
+- **Riverside street**: a 1.5m track along the north bank 4m up from the water, from the lake path to the
+  mill's door, then on round the landing yard to the bridge's north ramp.
+- **Stone bridge** (`assets/architecture/village/bridge`, tools/archgen/village.py): 35m west of the basin
   a three-arch bridge crosses the river, built to the river's width where
   it stands. The middle arch (4.3m radius) springs .3m over the water, so
   its crown clears the barge and its boatman by more than a metre; the side
@@ -222,122 +315,60 @@ you can always walk out of one that has stepped onto you.
   behind .95m parapets, reached by 14m stone-faced ramps (11.7 degrees) at
   either end, all walkable through its `floorY`. The barge passes under it
   coming and going. Roads: from the mill west along the quay, round the
-  landing yard, up the north ramp; down the south ramp into the village.
-- **Farm village** (`village.js`, south bank west of the basin): three
-  farmhouses (the town house at farm sizes) and the bakery back onto the
-  river 1m off the bank line with their doors on a 2.2m street 14m behind
-  the bank; the bridge lands among them. Beyond the street lie two rows of
-  farm plots: the pig yard (20 x 15m) and hen yard (15 x 12m) -- post-and-rail
-  fences with a gate open to the street, a pigsty with lean-to roof,
-  trough and wallow, a hen house on legs with a ladder plank and water bowl
-  -- then rye and barley (14 x 12m), and in the back row cabbage, beans on
-  poles and garlic (12 x 10 / 10 x 8m) and three rows of currant bushes (red,
-  white, black). The orchard (22 x 16m) closes the east end: apples and
-  cherries alternating on a 5m grid, trunks solid. The currant bushes and
-  the orchard trees are PLANTS, not building parts: the sites export
-  `plants` (kind, species or fruit, place, seed, height) and the flora
-  builder grows them with the same `makeBush` / `makeTree` as the woods,
-  in the same herd and foliage mesh -- apple and cherry are orchard
-  species of the tree grower whose leafy branches also carry fruit cards
-  (the atlas's apple and cherry cells), the currants bush fruits.
-  Fields are tilled slabs 12cm high; the plants themselves are shader
-  cut-outs (`architecture.js` patterns 13-16): thin see-through slabs
-  across the plot both ways carry rows of rye/barley stalks with ears,
-  bean poles with leaves or garlic leaf-fans and are discarded between
-  them, so a field costs a few dozen boxes rather than thousands of
-  stalks. Nothing in a field obstructs walking.
-  Behind the back row a stable yard (22 x 16m): a 12 x 5m stable block --
-  stone plinth, boarded walls, tiled gable roof, four 3m stalls opening
-  onto the paddock through half-doors with hay showing over them -- plus a
-  stone water trough, a hitching rail and stacked hay bales. Five pigs,
-  eight hens and four horses live in the yards, penned by their own ranges
-  (the yard inside the rails minus the sheds), grunting, clucking and
-  neighing; the horses can be ridden out.
-- **Bakery** (`bakery` in `village.js`): a 9 x 8m stone bakehouse where the
-  mill's flour becomes bread -- brick oven with a domed top, a live fire in
-  its mouth and a chimney through the ridge, the peel leaning beside it,
-  the kneading table with dough, a flour heap and rolling pin, three racks
-  of long and round loaves on the west wall, five flour sacks stacked in
-  the corner, a bench and a golden ring sign outside. The baker works at
-  the table and a customer waits by the door; all four windows open.
-- **Crafts and trades** (`village.js`): a fisherman's hut on the south
-  bank east of the farmhouses (boarded 5 x 4m hut with nets and a drying
-  rack, a plank jetty out over the bank you can walk, and the fisherman's
-  rowing boat: moored alongside for half a minute, then rowed -- oars
-  sweeping, the rower facing the stern -- 22m downstream to the river's
-  middle, where he sits turned to the side with a rod over the water for
-  fifty seconds, a fish coming up the line every so often, then rowed back
-  and moored; phases run on the shared sim tick like the barge); on
-  the north bank flanking the landing a smithy (open bay, hearth with fire
-  and hood, chimney, anvil on its stump with hot iron and hammer, bellows,
-  quench barrel, tool rack, bar stock, horseshoes; the smith at the anvil)
-  and a pottery (kick wheel with the potter seated at it, three shelves of
-  jugs and bowls raw and glazed, a clay heap, the kiln outside with its
-  fire, ware on a bench by the door). At the south village's east end a
-  marketplace (cobbled 14 x 12m square open to the street, a market cross,
-  eight striped-awning stalls with vendors: pottery, vegetables, fish,
-  meat, eggs, bread, fruit, cheese, and three shoppers) faces the village
-  church across the street: 18 x 9m nave with round-arched openable windows,
-  west tower with bell openings, 5.5m pyramid spire and cross, ten pews
-  with a seated congregation, chancel step, altar with candles, the priest.
-  Beyond the market the street runs on through the village's east end:
-  five cottages and houses along the river (with two more among the farms,
-  seven in all, single- and two-storey, so the village counts twenty roofs
-  with its crafts and church), and on the south side, past the church, a
-  weaver's (a treadle loom with the warp sloping from the beam through
-  heddle and beater to the cloth rolling up in front, the weaver on the
-  bench; a spinning wheel with the spinner; baskets of wool, shelves of
-  dyed bolts, dyed cloth drying on a line), a tailor's (cutting table with
-  cloth and shears, the tailor at it; a dress form; a rail of tunics; shelves
-  of folded cloth; a counter under the shop window with a customer) and the
-  public fountain: a paved square on a path from the street, an octagonal
-  basin on a step (its wall and coping are eight boxes each, so it is solid
-  to walk against and open to the water), a column with a small basin round
-  its foot a step above the pool, an upper bowl, and four spouts under the
-  bowl whose jets fall straight down into the small basin. The water is
-  live: pools ripple with their own ring shader, jets are cylinders with
-  streaks running down them (`flows` export, built by the demo like `fires`).
-  Every trade hangs its sign the tavern's way (`hangingSign`: a bracket over
-  the door, a painted board edge-on to the street, the emblem on both faces
-  -- shuttle, shears, jug, horseshoe). Hearth fires burn INSIDE their ovens:
-  the bakery oven and the pottery kiln have a real mouth cut through a front
-  slab (an `hwall`), a firebox of floor, cheeks, lintel and sooted back
-  behind it, and the flames in the firebox seen through the opening.
-  Every building levels its plot fully (`flatZones` entries carry `level`,
-  which also suppresses the river-bank carve out to 1m past the footprint),
-  so no house corner hangs over a falling bank; only what is built out over
-  the water -- landing, mill, fisherman's jetty, bridge -- keeps the bank.
-  The barge eases onto the river's center line for 30m either side of the
-  bridge and passes the middle arch straight, clear of both piers.
-- **Enclosures** (`village.js`, built in world coordinates at a site of
-  0,0 -- `blocks` lists the bands they occupy so trees and people are kept
-  off the wall line only, not the whole village): the SOUTH village has a
-  stone town wall -- 4.5m to a walkway you can patrol (parapet with merlons
-  outside), towers projecting outward every ~40m and at the corners with
-  arrow slits and pyramid roofs, and a gatehouse where the street leaves at
-  either end (arched 4.4m passage between two 11m towers) with a solid
-  stair, landing and timber handrail up to the walk beside each gate
-  (the west gate is watched: a gate's `guards` puts soldiers in mail and
-  steel caps outside its passage, one with sword and shield, one with spear
-  and shield -- the arms low-poly meshes in their hands, tools.js); a
-  timber handrail runs the whole inner edge of the walk, broken only where
-  a landing arrives. The NORTH hamlet has a timber palisade -- 4m of
-  sharpened logs on a rail with inner posts, post-frame towers (platform,
-  boarded cabin with a lookout opening on each side, hip roof) INSIDE the
-  line, hard against it, at the corners and every ~35m, and gatehouses (a gallery over the
-  passage between two towers) where the freight road and the quay street
-  cross it. Both stand on land: given the world's `waterSD` (the one
-  signed distance to the river banks and the lake shore), `fitRing` in
-  `village.js` trims each side to the dry stretch of its whole band (stair
-  to tower roofs) that holds its corner, stopping short of the water with
-  room for the end tower; a side whose corner is wet is left out (the lake
-  closes the ring as the river does -- the town wall's east side), and a
-  gate slides along its side until its towers and stair fit, or is dropped.
-  Each tower has a ladder up its yard side: stand at its foot and
-  "click to climb the ladder" puts you on the platform inside the cabin
-  (a real floor; the hatchway faces the ladder), "climb down" returns you.
-  Both enclosures sink 2m below grade on levelled bands, and are open to
-  the river.
+  landing yard, up the north ramp; down the south ramp into the town's bridge street.
+- **The town** (`town.js`, 2026-09-27): a walled market town on the south bank at the bridge's head, and its
+  farms over the river -- laid out and styled by the world's seed, built of the village definitions alone
+  (`assets/architecture/village`, docs/arch.md "The village"). The seed draws a STYLE first -- timbered (framed
+  upper storeys over plastered or stone ground storeys), stone (grey ashlar or rubble under slate), brick, or
+  plastered -- and every building shares it: one stone for the walls, the church, cellars and flagstones, ONE
+  roof covering on every roof in town, one wood, two or three plasters and one or two timber colours the houses
+  choose among, the house kinds the town favours, and the tops of its church tower (spire, pyramid, saddleback,
+  onion, battlements), its wall towers (open behind merlons, or a room under a cone, an ogee bell or a tent
+  roof) and its gatehouses (hipped roof or battlements). `?townstyle=timbered|stone|brick|plastered` forces one.
+  THE PLAN: the main street runs east-west 30m south of the bridge's foot from the west gate to the east gate;
+  the bridge street runs from the south ramp's foot past the square to the south gate; the south street 36m
+  beyond the main street, two lanes between them. Every house faces its street, set 1.2m back from its edge,
+  eaves-drip alleys between them and now and then a passage to the yards; each is its own definition --
+  frontage, depth, two or three storeys, pitch, jetty, a cellar or not, turned to its street (`yaw`) -- and its
+  own look within the style. Eight of them on the main and bridge streets are SHOPS (the ground storey an open
+  arch, a trade's furniture in the front room and its worker at it: smithy, bakery, pottery, weaver, tailor,
+  carpenter, cooper, butcher). The SQUARE at the bridge's head holds the market (stalls, market cross, vendors)
+  and the fountain; the INN (`tavern`: the eaves house at its largest, a cellar, the tavern room with the keeper
+  at the bar and two tables of guests) faces it from the east, the CHURCH (`church`: nave, chancel, west tower
+  with a spiral turret to the belfry, pews, the altar and the priest) from across the main street, its door in
+  the tower toward the bridge street. The fisherman's hut stands on the bank east of the square (its jetty, and
+  the fisherman's boat: rowed out, fished from, rowed back on the sim tick like the barge).
+  THE WALL: west, south and east, open to the river; a gatehouse where each street leaves (the west and east
+  gates watched: two soldiers in mail and steel caps outside each, armed out of the watch's kit -- a spear or a
+  sword and a shield, a halberd, a bill, an axe, a crossbow, a musket (assets/items/kits/guard, docs/items.md) -- the
+  gatehouse's `guard` markers), a round tower at each corner, at each river end and between, every stretch at
+  most 34m. The walk runs along the top all the way round -- behind the towers (their doors face it), through
+  the gatehouses' upper storeys -- behind a crenellated parapet on the field side and a low one on the town
+  side, which run into the corner towers and meet the gatehouses' faces; a flight climbs to it beside each gate.
+  THE LONGHOUSE: 3m walls under a thatched shell roof, a boarded loft over the whole house at the eaves (a stair up the
+  middle under the ridge, a smoke hole over the hearth), arched doors in both long sides.
+  THE FARMS: over the river, two longhouse farmsteads west of the bridge road (a farm track from the north
+  ramp's foot along their doors) and one east of the landing on the quay road, each with its plots in rows
+  behind it: rye and barley (14 x 12m), cabbage, beans on poles and garlic (12 x 10 / 10 x 8m), the plowed
+  field, three rows of currant bushes, the orchard (apples and cherries on a 5m grid), the pig yard (a
+  pigsty with lean-to roof, trough and wallow), the hen yard (a hen house on legs), the stable yard (a stable
+  block with four stalls, a trough, a hitching rail, hay) and the beekeeper's garden -- five pigs, eight hens
+  and four horses in their yards, penned by their own ranges. The currant bushes and the orchard trees are
+  PLANTS, not building parts (`plants`: the flora builder grows them with the woods' `makeBush` / `makeTree`);
+  fields are tilled slabs whose crops are shader cut-outs, so a field costs a few dozen boxes. Nothing in a
+  field obstructs walking.
+  THE GROUND UNDER THE BUILDINGS is cut away (grass.js `GROUND_HOLES`): wherever a town building has a floor of its own
+  at or below its ground floor -- its rooms, a cellar, the stair down -- read from its own floors on a 20cm grid, the
+  ground's material, the grass mask and the water plane all leave it out, so a stairwell opens onto the cellar and not
+  onto the lawn, nothing grows indoors, and a cellar dug below the water level stays dry.
+  The town's ground is level from the river to past the south wall; every building levels its own plot too
+  (`flatZones` with `level`, which also suppresses the river-bank carve under it) except what reaches over the
+  water -- landing, mill, fisherman's jetty, bridge -- and the wall, whose ends stand by the river. The
+  streets are paths.js tracks (`TOWN.routes`: gate to gate, the bridge to the south gate, the lanes, a spur to
+  every door, the farm tracks) and the villagers walk them. The town's buildings are drawn in the finish
+  material and merged across buildings (merge.js `mergeAcross`, taking the meshes from under each building's
+  translated groups): some 45 meshes for the whole town, about 2-3s of building at startup (pregen/ holds
+  every style's tiles, `town/<style>`; the houses' geometry is made per seed).
 - **Goods** (`architecture.js`): barrels at two real sizes (the ~225 l
   barrique and the ~40 l keg) and full grain sacks (~1m long, ~.5m
   across, standing or lying) -- shared by the mill and the cart loads.
@@ -363,7 +394,14 @@ you can always walk out of one that has stepped onto you.
   solid: below the bed you are blocked, the side boards are stepped over
   when low and jumped when high (the freight wagon keeps you in). The
   barge's hull and gunwales work the same way. The walker's
-  physics itself sub-steps at 50Hz whatever the frame rate.
+  physics itself sub-steps at 50Hz whatever the frame rate. ONE FRAME
+  OF REFERENCE (2026-10-09): `frameBody` advances the simulation and
+  places every mover (carts, barge, boat) and every rider first, then
+  moves the walker and the camera, so the cart, its driver, its load and
+  you on its bed all stand in the same frame; the bed's height is taken
+  on its tilted floor (`bedY`), the eye sits fixed on it (no easing while
+  carried), and figures on a mover (`moving`) are posed every frame
+  whatever their distance.
 - **Freight** (the transport chain): 60m west of the mill the river
   widens into a ~36m basin with a **landing** -- a gravel yard on the
   quay top, a plank deck on piles out over the bank, stairs down to a
@@ -408,7 +446,7 @@ you can always walk out of one that has stepped onto you.
 
 ## Village life
 
-`village-life.js` gives the village and the hamlet their people (`?villagers=32`):
+`village-life.js` gives the town and its farms their people (`?villagers=32`):
 every villager has a home -- a house and a place in one of its double beds
 (each house exports `beds` and, when the beds are upstairs, `ways.up` -- the
 walk up the stairs) -- and a job: a work spot a building exports (folkSpots
@@ -432,9 +470,16 @@ everyone else (places spread over the fields, the orchard, the currants).
   the vegetables, the smith's hammer, the fisher's rod, the bard's lute. Seated
   hands work too (potter, weaver, spinner; guests eat). Between spells a small
   chance to go and eat (a seat free) or to buy at the market or a shop.
-- More trades: by the quay a carpenter (sawing at the bench), a cooper (driving
-  hoops onto a half-raised cask) and a butcher (cleaver at the block behind the
-  counter); in the village's back row the beekeeper tends straw skeps.
+- The trades work in their shops on the main and bridge streets (town.js); the
+  beekeeper tends straw skeps in the garden behind a farmstead over the river.
+- What a site IS comes from the town plan, never from its key: `home`, `role`
+  ("inn": its keeper and its guests' seats; "church": the pews and the back),
+  `farm` (land the farmers work; the tool by the field's `crop`).
+- Homes: every site the town plan marks `home` (the houses, the inn, the
+  longhouses) with beds; two sleepers to a bed, laid along the bed however it is
+  turned; an upstairs bed's way up is the house's `way` markers only as far as
+  its own storey. A house's own table is its household's: only a place where
+  someone works (a shop, the market) takes customers.
 - The inn is never empty: at least three guests, day and night -- one whose
   meal is over waits until someone new has come in and sat down.
 - Shutters stand open by day and close at night; glass (palace, church) stays.
@@ -467,8 +512,7 @@ the skeleton's root takes a pitch, `an.pitch`, matched to the trunk's slant, the
 
 Behind the mirrors, on the salon side of the partition, hang gilt-framed paintings whose canvases are
 views of the world itself: on the third frame `paintings.js` draws the scene once from ten lookouts
-(just over the roofs of the town wall's and palisade's towers, spread round the village, each looking
-at its heart) into 640 x 480 pictures, which the frames take in turn.
+(on the town wall's walk, the middle of each stretch, spread round the town, each looking at its heart) into 640 x 480 pictures, which the frames take in turn.
 
 The lake is 6.6 m deep at its deepest (the bowl carved 8.8 m below the plain), with 30 fish. In water
 deeper than you stand you swim: afloat with the head just above the surface, E rises, Q dives to the
@@ -477,7 +521,7 @@ lands on the water going down onto it and takes off from its surface. Bees hum r
 hives by day in dry weather (the environment's `hives` distance).
 
 The palace's gallery is a Hall of Mirrors: sixteen tall gilt-framed mirrors on the partition opposite
-the windows (`baroquePalace` exports `mirrors`). `mirrors.js` makes them reflect with three's
+the windows (`mirror` markers in versailles.json, each with the gallery it reflects in: tools/archgen/versailles.py). `mirrors.js` makes them reflect with three's
 Reflector -- the scene drawn again from the mirrored camera. The reflection through a plane is the same
 for every mirror on it, so all the mirrors of one wall are ONE Reflector over their merged panes: one
 extra draw of the scene lights all sixteen. Up to two planes reflect (the largest on screen, in view,
@@ -583,3 +627,17 @@ buckets on its rim and the stable yard's stone trough (a box vessel, an
 unseen solid box keeping you out of it) show their water at the same
 empty / 30% / 60% / 90% levels and can be drunk from.
 
+
+
+## A rider is parted once (2026-09-25)
+
+A rider on the tour is ONE figure -- the horse's parts and the man's, fused in a single def -- so a blow has to
+part it: the struck one falls and the other goes on (the horse riderless, the man on foot). `onStrike` decides
+whether the figure it was handed is still that fused one, and the test used to be a count of parts: more parts
+than a horse has, so it must be horse-and-man. It is not. A man in a hat with a braid has thirty parts and a
+horse twenty-five -- so felling the horse and then shooting the man who walked on parted him a second time,
+and a fresh horse appeared out of nowhere under him.
+
+The rider now remembers the figure it was MADE as (`fused`), and only that one can be parted; parting clears
+it. `ref/rider.html` shoots both orders and counts the figures in the world: the first blow adds two (the horse
+and the man, the fused one hidden), the second adds none.

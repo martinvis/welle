@@ -26,19 +26,24 @@
 </header>
 <main id="grid"></main>
 <script type="importmap">
-{ "imports": { "three": "https://unpkg.com/three@0.185.1/build/three.module.js" } }
+{ "imports": {
+    "three": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/webgpu": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/tsl": "https://unpkg.com/three@0.185.1/build/three.tsl.js"
+} }
 </script>
 <script type="module">
 import * as THREE from "three";
 import { TILES, bakeTiles, readTile, leafAtlasCanvas, LEAF_STYLES } from "./textures.js";
 
-const renderer = new THREE.WebGLRenderer();
+const renderer = new THREE.WebGPURenderer();
+await renderer.init();
 bakeTiles(renderer);
 
 const BASE = [.74, .7, .64], ACCENT = [.62, .25, .2], DARK = [.05, .045, .04], GREEN = [.45, .6, .3];
 // texels -> canvas, top row first; `apply` turns a texel's channels into a colour
-function canvasFor(name, apply) {
-  const n = TILES[name].size, buf = readTile(renderer, name);
+async function canvasFor(name, apply) {
+  const n = TILES[name].size, buf = await readTile(renderer, name);
   const cv = document.createElement("canvas"); cv.width = cv.height = n;
   const ctx = cv.getContext("2d"), img = ctx.createImageData(n, n);
   for (let y = 0; y < n; y++) for (let x = 0; x < n; x++) {
@@ -67,7 +72,7 @@ function repeated(cv) {   // 4 x 4 copies at a quarter scale: the browser's own 
 
 const shown = {};
 for (const [name, t] of Object.entries(TILES)) {
-  const a = canvasFor(name, raw), b = canvasFor(name, preview(name)), c = repeated(b);
+  const a = await canvasFor(name, raw), b = await canvasFor(name, preview(name)), c = repeated(b);
   shown[name] = { raw: a, preview: b };
   const fig = document.createElement("figure"), row = document.createElement("div");
   row.append(a, b, c);

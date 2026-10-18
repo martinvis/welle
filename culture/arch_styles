@@ -42,6 +42,30 @@ Intrados: inner curve of arch
 Blind arch: without opening, decorative purpose
 Semicircular arch: 
 
+#Dome
+Tholobate / Tambour: upright structure supporting dome
+Onion dome: height > width > tholobate, s-curve with pointed top
+
+#ceiling
+Coffer: series of sunken rectangular panels in ceiling (e.g. Pantheon)
+
+#stairs
+Riser: vertical height between steps
+Tread: horizontal depth of step
+Blondel Formula: comfortable staircase, 2x riser + tread = 65cm
+
+#entrance
+Porch: roofed structure attached to entrance
+
+#opening
+Lintel: beam above opening
+
+Span: distance between two adjacent structural supports (bridge)
+Truss: assembly of beams creating rigid structure (bridge)
+
+Beam: horizonal element carrying load
+Column: vertical element carrying load
+
 Caisson: watertight structure, becomes base of bridge foundation
 Cofferdam: temporary watertight enclosure during dam construction
 
@@ -137,11 +161,18 @@ Mashrabiya: window with wooden lattice openings
 Hypostyle: roof supported by columns
 
 #Ottoman
+riwaq ceiling with serie of small domes
 Hagia Sophia influences
 Iznik tiles: blue-painted ceramic
 mosques
 - high central dome with semidomes
 - pointed finials with crescent on top
+
+#Chinese
+Dougong: interlocking wooden brackets, connect columns and roof, allow roof to extend outwards, earthquake resistant
+
+#Indian
+Chhatri: semi-open elevated domed pavilion
 
 #Castles
 Keep: fortified tower

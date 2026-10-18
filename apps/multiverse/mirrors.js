@@ -15,14 +15,14 @@
 // draws its figures in full (the half-resolution split belongs to the main
 // camera).
 import * as THREE from "three";
-import { Reflector } from "three/addons/objects/Reflector.js";
+import { reflector, uniform, vec3 } from "three/tsl";
 import { beginSecondaryView, endSecondaryView } from "./composite.js";
 
 export const MIRRORS = { planes: 2, reach: 60 };   // how many wall planes reflect at once, and within how many metres (index.html sets them from config.json)
 
 // list: [{ x, y, z (world centre), w, h, n: [nx, 0, nz] (facing into the room) }]
 export function createMirrors(scene, list, renderer) {
-  if (!list.length) return { update() {}, hide() {}, count: 0, planes: 0, list };
+  if (!list.length) return { update() {}, hide() {}, active: () => 0, count: 0, planes: 0, list };   // (a world with no mirrors answers the same questions)
   const size = new THREE.Vector2();
   renderer.getDrawingBufferSize(size);
   const still = new THREE.MeshBasicMaterial({ color: 0x7d8488 });   // old silvered glass, unlit: the dull tone the reflections have too
@@ -34,34 +34,57 @@ export function createMirrors(scene, list, renderer) {
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(m);
   }
+  // ALL THE STILL GLASS IS ONE MESH. Every pane in the world carries the same dull silver and none of them
+  // ever moves or is hidden on its own (the reflection is drawn over them), so a mesh apiece was a draw call
+  // apiece -- sixteen of them, two triangles each. They are baked into one geometry here.
+  const stillPos = [];
   const planes = [...groups.values()].map((ms) => {
     const o = ms[0], yaw = Math.atan2(o.n[0], o.n[2]), rx = Math.cos(yaw), rz = -Math.sin(yaw);   // the wall's own x axis (a plane's local +z turned by yaw faces n)
     const pos = [];
+    const ca = Math.cos(yaw), sa = Math.sin(yaw);
     for (const m of ms) {   // every pane as a quad in the plane's frame (origin: the first mirror's centre)
       const lx = (m.x - o.x) * rx + (m.z - o.z) * rz, ly = m.y - o.y, hw = m.w / 2, hh = m.h / 2;
       pos.push(lx - hw, ly - hh, 0, lx + hw, ly - hh, 0, lx + hw, ly + hh, 0, lx - hw, ly - hh, 0, lx + hw, ly + hh, 0, lx - hw, ly + hh, 0);
-      const glass = new THREE.Mesh(new THREE.PlaneGeometry(m.w, m.h), still);   // still glass behind it, for when the plane is off budget
-      glass.position.set(m.x, m.y, m.z); glass.rotation.y = yaw;
-      scene.add(glass);
+      // ...and the same quad in the world, for the one still-glass mesh (a plane's local +x turned by yaw)
+      for (const [ux, uy] of [[-hw, -hh], [hw, -hh], [hw, hh], [-hw, -hh], [hw, hh], [-hw, hh]])
+        stillPos.push(m.x + ux * ca, m.y + uy, m.z - ux * sa);
     }
     const geo = new THREE.BufferGeometry();
     geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
-    // half size (a quarter of the pixels); dull, grey-tinted like old glass
-    const refl = new Reflector(geo, { textureWidth: size.x / 2, textureHeight: size.y / 2, color: 0x8c9296, clipBias: .003 });
-    refl.position.set(o.x + o.n[0] * .005, o.y, o.z + o.n[2] * .005); refl.rotation.y = yaw;
+    // half size (a quarter of the pixels); dull, grey-tinted like old glass. The mirrored camera, its target
+    // and the projective lookup are TSL's reflector; bounces off means mirrors on one wall never see each other.
+    const target = new THREE.Object3D();
+    target.position.set(o.x + o.n[0] * .005, o.y, o.z + o.n[2] * .005);
+    target.rotation.y = yaw;
+    scene.add(target);
+    const rNode = reflector({ target, resolutionScale: .5, bounces: false });
+    const reflMat = new THREE.MeshBasicNodeMaterial();
+    reflMat.colorNode = rNode.rgb.mul(vec3(0x8c / 255, 0x92 / 255, 0x96 / 255));
+    const refl = new THREE.Mesh(geo, reflMat);
+    refl.userData.noMerge = true;           // ...and so is the reflecting plane
+    refl.position.copy(target.position); refl.rotation.y = yaw;
     refl.visible = false;
-    // its picture as plain 8-bit sRGB (three's default for it is half-float, which some GPUs cannot draw into)
-    const rt = refl.getRenderTarget(); rt.texture.type = THREE.UnsignedByteType; rt.texture.colorSpace = THREE.SRGBColorSpace;
-    const draw = refl.onBeforeRender;
-    refl.onBeforeRender = function (...args) {   // one bounce only; the composite figures in full while it draws
+    // the composite engine draws its figures in full while a secondary view is being rendered (its
+    // half-resolution split belongs to the main camera)
+    const base = rNode.reflector;
+    const draw = base.updateBefore.bind(base);
+    base.updateBefore = (frame) => {
       if (inside) return;
       inside = true; beginSecondaryView();
-      draw.apply(this, args);
-      endSecondaryView(); inside = false;
+      try { draw(frame); } finally { endSecondaryView(); inside = false; }
     };
     scene.add(refl);
     return { ms, refl, n: new THREE.Vector3(o.n[0], 0, o.n[2]), cs: ms.map((m) => new THREE.Vector3(m.x, m.y, m.z)), rooms: ms.map((m) => m.room).filter(Boolean) };
   });
+  if (stillPos.length) {
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(stillPos, 3));
+    g.computeBoundingSphere();
+    const glass = new THREE.Mesh(g, still);
+    glass.name = "mirror glass";
+    glass.userData.noMerge = true;
+    scene.add(glass);
+  }
   const _v = new THREE.Vector3(), _m = new THREE.Matrix4(), frustum = new THREE.Frustum(), sphere = new THREE.Sphere();
   return {
     count: list.length,

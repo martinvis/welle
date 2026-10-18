@@ -14,7 +14,10 @@
 // colour (species, per-tree and per-card tint, autumn). Wind: every card
 // sways by its height in the crown, on FOLIAGE_T (the frame loop ticks it).
 import * as THREE from "three";
+import { wgslFn, uniform, texture, attribute, varying, float, vec4, positionGeometry,
+         cameraViewMatrix, cameraProjectionMatrix, cameraPosition } from "three/tsl";
 import { MASK_MODE, NOGRASS_LAYER } from "./grass.js";
+import { lightWGSL } from "./light.js";
 import { leafAtlasTexture, LEAF_STYLES } from "./textures.js";
 
 export const FOLIAGE_T = { value: 0 };
@@ -24,52 +27,61 @@ export const FOLIAGE_T = { value: 0 };
 // varies through a crown); 0: cards stand fixed in space, as grown.
 export const FOLIAGE_BB = { value: 1 };
 
-const VERT = /* glsl */ `
-  attribute vec3 aC, aR, aU, aCol;
-  attribute vec4 aInfo;            // style, phase, sway (metres), crown shade
-  uniform float uT, uStyles, uBillboard;
-  varying vec2 vUv;
-  varying vec3 vCol, vN, vW;
-  varying float vShade;
-  void main() {
-    vec3 R = aR, U = aU;
-    if (uBillboard > .5) {   // a banner facing the camera: the view's right and up, turned by the card's own angle
-      vec3 cr = vec3(viewMatrix[0][0], viewMatrix[1][0], viewMatrix[2][0]), cu = vec3(viewMatrix[0][1], viewMatrix[1][1], viewMatrix[2][1]);
-      float s = length(aR), c = cos(aInfo.y), sn = sin(aInfo.y);
-      R = (cr * c + cu * sn) * s; U = (cu * c - cr * sn) * s;
+// ---- the shaders, in WGSL (docs/webgpu.md) ----------------------------------------------------------------
+// A leaf cluster is one card: its centre and two half-extent vectors, its style cell in the atlas, its phase,
+// how far it sways and its crown's shade. The card sways with the one wind clock; optionally it billboards,
+// turning with the view but keeping its own roll.
+const leafPoint = wgslFn(`
+  fn leafPoint(corner: vec3<f32>, C: vec3<f32>, R: vec3<f32>, U: vec3<f32>, info: vec4<f32>,
+               view: mat4x4<f32>, t: f32, billboard: f32) -> vec3<f32> {
+    var Rv = R;
+    var Uv = U;
+    if (billboard > 0.5) {   // a banner facing the camera: the view's right and up, turned by the card's own angle
+      let cr = vec3<f32>(view[0][0], view[1][0], view[2][0]);
+      let cu = vec3<f32>(view[0][1], view[1][1], view[2][1]);
+      let s = length(R);
+      let c = cos(info.y);
+      let sn = sin(info.y);
+      Rv = (cr * c + cu * sn) * s;
+      Uv = (cu * c - cr * sn) * s;
     }
-    vec3 p = aC + R * position.x + U * position.y;
-    p.x += aInfo.z * sin(uT * 1.6 + aInfo.y);
-    p.z += aInfo.z * .7 * sin(uT * 1.1 + aInfo.y * 1.7);
-    vUv = vec2((aInfo.x + position.x * .5 + .5) / uStyles, position.y * .5 + .5);
-    vN = normalize(cross(aR, aU)); vW = p; vCol = aCol; vShade = aInfo.w;
-    gl_Position = projectionMatrix * viewMatrix * vec4(p, 1.0);
+    var p = C + Rv * corner.x + Uv * corner.y;
+    p.x = p.x + info.z * sin(t * 1.6 + info.y);
+    p.z = p.z + info.z * 0.7 * sin(t * 1.1 + info.y * 1.7);
+    return p;
   }
-`;
-const FRAG = /* glsl */ `
-  uniform sampler2D uAtlas;
-  uniform float uMaskMode;
-  uniform vec2 uAtlasSize;
-  varying vec2 vUv;
-  varying vec3 vCol, vN, vW;
-  varying float vShade;
-  void main() {
-    vec4 t = texture2D(uAtlas, vUv);
-    vec2 dx = dFdx(vUv * uAtlasSize), dy = dFdy(vUv * uAtlasSize);
-    float mip = max(0.0, .5 * log2(max(dot(dx, dx), dot(dy, dy))));
-    float a = t.a * (1.0 + mip * .25);                        // keep far crowns full
-    a = (a - .5) / max(fwidth(a), 1e-4) + .5;                  // a one-pixel edge for alpha-to-coverage
-    if (a <= 0.0) discard;
-    vec3 n = normalize(vN);
-    if (dot(n, cameraPosition - vW) < 0.0) n = -n;             // the side we see
-    float k = .82 + .2 * n.y + .1 * n.x + .06 * n.z;
-    gl_FragColor = vec4(vCol * t.rgb * k * vShade, clamp(a, 0.0, 1.0));
+`);
+
+const leafUv = wgslFn(`
+  fn leafUv(corner: vec3<f32>, info: vec4<f32>, styles: f32) -> vec2<f32> {
+    return vec2<f32>((info.x + corner.x * 0.5 + 0.5) / styles, corner.y * 0.5 + 0.5);
+  }
+`);
+
+// the leaf's colour and its cut-out edge: the atlas's alpha sharpened to a one-pixel edge (for
+// alpha-to-coverage), the crown's own shade, and the mask pass's black where a leaf is not grass
+const leafFrag = wgslFn(`
+  fn leafFrag(atlas: texture_2d<f32>, samp: sampler, uv: vec2<f32>, atlasSize: vec2<f32>, col: vec3<f32>,
+              nrm: vec3<f32>, wp: vec3<f32>, shade: f32, eye: vec3<f32>, maskMode: f32) -> vec4<f32> {
+    let tex = textureSample(atlas, samp, uv);
+    let dx = dpdx(uv * atlasSize);
+    let dy = dpdy(uv * atlasSize);
+    let mip = max(0.0, 0.5 * log2(max(dot(dx, dx), dot(dy, dy))));
+    var a = tex.a * (1.0 + mip * 0.25);                          // keep far crowns full
+    a = (a - 0.5) / max(abs(dpdx(a)) + abs(dpdy(a)), 1e-4) + 0.5;  // a one-pixel edge for alpha-to-coverage
+    if (a <= 0.0) { discard; }
+    var n = normalize(nrm);
+    if (dot(n, eye - wp) < 0.0) { n = -n; }                      // the side we see
+    let k = ${lightWGSL("n")};
     // the grass mask (grass.js): a leaf is not grass and nothing may be painted over it. Its shape is this
     // alpha, so the mask cuts with it here rather than through an override material that never sees it.
-    if (uMaskMode > .5) { if (a < .5) discard; gl_FragColor = vec4(0.0); }
-    #include <colorspace_fragment>
+    if (maskMode > 0.5) {
+      if (a < 0.5) { discard; }
+      return vec4<f32>(0.0, 0.0, 0.0, 1.0);
+    }
+    return vec4<f32>(col * tex.rgb * k * shade, clamp(a, 0.0, 1.0));
   }
-`;
+`);
 
 // cards: [{ c: [x,y,z] world centre, r, u: half-extent vectors, color (hex), style (index), phase, sway, shade }]
 export function buildFoliage(cards) {
@@ -92,12 +104,25 @@ export function buildFoliage(cards) {
   geo.setAttribute("aInfo", new THREE.InstancedBufferAttribute(fInfo, 4));
   geo.instanceCount = n;
   const atlas = leafAtlasTexture();
-  const mat = new THREE.ShaderMaterial({
-    uniforms: { uMaskMode: MASK_MODE, uAtlas: { value: atlas }, uAtlasSize: { value: new THREE.Vector2(atlas.image.width, atlas.image.height) },
-                uT: FOLIAGE_T, uStyles: { value: LEAF_STYLES.length }, uBillboard: FOLIAGE_BB },
-    vertexShader: VERT, fragmentShader: FRAG,
-    side: THREE.DoubleSide, alphaToCoverage: true,
+  const A = { C: attribute("aC", "vec3"), R: attribute("aR", "vec3"), U: attribute("aU", "vec3"),
+              col: attribute("aCol", "vec3"), info: attribute("aInfo", "vec4") };
+  const uT = uniform(0).onRenderUpdate(() => FOLIAGE_T.value);           // the one wind clock
+  const uBillboard = uniform(0).onRenderUpdate(() => FOLIAGE_BB.value);
+  const uMask = uniform(0).onRenderUpdate(() => MASK_MODE.value);
+  const texNode = texture(atlas);
+  const p = leafPoint({ corner: positionGeometry, C: A.C, R: A.R, U: A.U, info: A.info,
+                        view: cameraViewMatrix, t: uT, billboard: uBillboard });
+  const mat = new THREE.MeshBasicNodeMaterial({ side: THREE.DoubleSide, alphaToCoverage: true, transparent: true });
+  mat.vertexNode = cameraProjectionMatrix.mul(cameraViewMatrix.mul(vec4(p, 1.0)));
+  const out = leafFrag({
+    atlas: texNode, samp: texNode,
+    uv: varying(leafUv({ corner: positionGeometry, info: A.info, styles: float(LEAF_STYLES.length) }), "vLeafUv"),
+    atlasSize: uniform(new THREE.Vector2(atlas.image.width, atlas.image.height)),
+    col: A.col, nrm: varying(A.R.cross(A.U).normalize(), "vLeafN"), wp: varying(p, "vLeafW"),
+    shade: A.info.w, eye: cameraPosition, maskMode: uMask,
   });
+  mat.colorNode = out.xyz;
+  mat.opacityNode = out.w;
   const mesh = new THREE.Mesh(geo, mat);
   mesh.frustumCulled = false;
   mesh.userData.cut = true;          // a leaf's shape lives in the shader's cut-out: never an occluder through an override material

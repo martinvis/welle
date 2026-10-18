@@ -9,12 +9,14 @@
 // cart's bed, in a yard (where it is consumed after a while and returns
 // to the pool), on the ground where you dropped it, or in your arms.
 import * as THREE from "three";
+import { itemGroup, itemInstanced } from "./architecture.js";   // (the casks, sacks, barge and gangplank are items: assets/items)
 
-// world: { scene, BUILDINGS, LANDING, BASIN, freightLane, buildInstanced, barrelParts, sackParts, bargeDef, buildBuilding, createComposite, makePerson, gaitBase,
-//          talkers, track, movers, cartUnder, carts, riverZ, riverHW, VILLAGE_X, WLEVEL, handHerds }
+// world: { scene, BUILDINGS, LANDING, BASIN, freightLane, bargeDef, createComposite, makePerson, gaitBase,
+//          talkers, track, movers, cartUnder, carts, riverZ, riverHW, VILLAGE_X, WLEVEL, waterAt(x, z) (the surface there: a
+//          grown map's river falls downstream), handHerds }
 export function createFreight(world) {
-  const { scene, BUILDINGS, LANDING, BASIN, freightLane, buildInstanced, barrelParts, sackParts, bargeDef, buildBuilding, createComposite, makePerson, gaitBase,
-          talkers, track, movers, cartUnder, carts, riverZ, riverHW, VILLAGE_X, WLEVEL, handHerds } = world;
+  const { scene, BUILDINGS, LANDING, BASIN, freightLane, bargeDef, createComposite, makePerson, gaitBase,
+          talkers, track, movers, cartUnder, carts, riverZ, riverHW, VILLAGE_X, WLEVEL, waterAt = () => WLEVEL, handHerds } = world;
   const goods = [], goodsSets = {};
   // ONE table of what each state of a piece means. Everything that asks --
   // can it be picked up, does it hold a quay slot, what to release when it
@@ -80,8 +82,8 @@ export function createFreight(world) {
   const hands = [];
   if (LANDING && freightLane) {
     const N = 14;
-    goodsSets.barrel = buildInstanced({ name: "barrels", parts: barrelParts("big", [0, .475, 0], "up") }, N);
-    goodsSets.sack = buildInstanced({ name: "sacks", parts: sackParts([0, .24, 0], "x") }, N);
+    goodsSets.barrel = itemInstanced("items/furniture/cask", N, { params: { r: .35, h: .95, bulge: .171 } });   // (a big cask, stood on its end: its foot at the origin)
+    goodsSets.sack = itemInstanced("items/tools/sack", N);
     scene.add(goodsSets.barrel.root); scene.add(goodsSets.sack.root);
     for (let i = 0; i < N; i++) { goods.push({ kind: "barrel", idx: i, state: "gone" }); goods.push({ kind: "sack", idx: i, state: "gone" }); }
     for (const it of goods) hideItem(it);
@@ -90,7 +92,7 @@ export function createFreight(world) {
                way: def.way.map(([x, y, z]) => [L.x + x, y, L.z + z]), bargeZ: L.z + def.bargeZ };
     // the barge: sails in from 120m downriver, moors at the landing, is unloaded, sails out, waits, comes back laden
     const bd = bargeDef();
-    bargeGrp = buildBuilding(bd); scene.add(bargeGrp);
+    bargeGrp = itemGroup(bd.item); scene.add(bargeGrp);
     bargeSt = { x: BASIN.x - 40, moorX: BASIN.x, outX: BASIN.x - 120, speed: 1.6, phase: "in", t: 0, def: bd, hold: [],
                 body: bargeGrp, yaw: 0, carry: { dx: 0, dz: 0, dyaw: 0 }, halfL: bd.halfL, halfW: bd.halfW, top: bd.deckY, side: .35, moving: true };
     movers.push(bargeSt);
@@ -115,7 +117,7 @@ export function createFreight(world) {
     }
     // the gangplank: hinged at the barge's north gunwale; a moving floor of its own when lowered
     {
-      const pg = buildBuilding({ name: "plank", parts: [{ shape: "box", size: [1.2, .06, 2.6], pos: [0, 0, -1.3], color: 0x7a5a36, pat: "wood", collide: false }] });
+      const pg = itemGroup("items/components/gangplank");
       pg.position.set(-.5, bd.deckY, -1.72); pg.rotation.x = -1.35;   // raised, folded up along the gunwale
       bargeGrp.add(pg);
       bargeSt.plank = pg;
@@ -138,7 +140,7 @@ export function createFreight(world) {
   };
   const bargeLocal = ([lx, ly, lz]) => {   // a barge-local point in world space, from the SIM pose (the mesh lags a frame)
     const p = bargePose(bargeSt.x), c = Math.cos(p.yaw), sn = Math.sin(p.yaw);
-    return [p.x + lx * c + lz * sn, WLEVEL + ly, p.z - lx * sn + lz * c];
+    return [p.x + lx * c + lz * sn, waterAt(p.x, p.z) + ly, p.z - lx * sn + lz * c];
   };
   const bargeHoldWorld = (it) => bargeLocal(bargeSt.def.holdSlots[it.slot]);
   function placeBarge(frac) {
@@ -148,7 +150,7 @@ export function createFreight(world) {
     bargeSt.carry.dx += p.x - bargeGrp.position.x; bargeSt.carry.dz += p.z - bargeGrp.position.z;
     bargeSt.carry.dyaw += ((p.yaw - bargeSt.yaw + Math.PI) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) - Math.PI;
     bargeSt.yaw = p.yaw;
-    bargeGrp.position.set(p.x, WLEVEL, p.z); bargeGrp.rotation.y = p.yaw;
+    bargeGrp.position.set(p.x, waterAt(p.x, p.z), p.z); bargeGrp.rotation.y = p.yaw;
     if (bargeSt.boatman) {   // (struck down, combat.js: he lies on the deck and rides on with it -- only his height and turn are his fall's)
       const w = bargeLocal([-5.3, bargeSt.def.deckY + .04, 0]), bm = bargeSt.boatman;
       bm.position.x = w[0]; bm.position.z = w[2];
@@ -160,10 +162,10 @@ export function createFreight(world) {
       const pm = bargeSt.plankMover, down = bargeSt.plank.rotation.x > -.08;
       if (down && !pm.active) { movers.push(pm); pm.active = true; }
       if (!down && pm.active) { movers.splice(movers.indexOf(pm), 1); pm.active = false; }
-      const w = bargeLocal([-.5, 0, -3.05]); pm.body.position.set(w[0], WLEVEL, w[2]); pm.yaw = p.yaw;
+      const w = bargeLocal([-.5, 0, -3.05]); pm.body.position.set(w[0], waterAt(p.x, p.z), w[2]); pm.yaw = p.yaw;
     }
     const c = Math.cos(p.yaw), sn = Math.sin(p.yaw);
-    for (const it of bargeSt.hold) { const s = bargeSt.def.holdSlots[it.slot]; placeItem(it, p.x + s[0] * c + s[2] * sn, WLEVEL + s[1], p.z - s[0] * sn + s[2] * c, p.yaw + (it.kind === "sack" ? Math.PI / 2 : 0)); }
+    for (const it of bargeSt.hold) { const s = bargeSt.def.holdSlots[it.slot]; placeItem(it, p.x + s[0] * c + s[2] * sn, waterAt(p.x, p.z) + s[1], p.z - s[0] * sn + s[2] * c, p.yaw + (it.kind === "sack" ? Math.PI / 2 : 0)); }
   }
   // the hands' way: the barge's plank end (moored), then the landing's waypoints, then a quay slot
   const bargePlankWorld = () => bargeLocal(bargeSt.def.plankEnd);

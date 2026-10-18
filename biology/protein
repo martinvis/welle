@@ -4,6 +4,7 @@ Structural motif: common 3D structure
 - Beta hairpin: 2 antiparallel strands
 - Greek key: 4 antiparallel strands, 4th adjacent to 1st
 - Zinc finger: 2 beta strands + alpha helix binding zinc ion
+- Forkhead / Winged helix: binding DNA
 
 =Secondary structure: hydrogen bonds between NH and C=O group
 Alpha helix: right-handed helix
@@ -85,6 +86,8 @@ KLF4: induces stem-like state, slows cell cycle
 SOX2: maintains stem-like state
 OCT4: maintains stem-like state
 PRDM1 / BLIMP1: repressor, immune cells differentiation, demethylation in embryo (by DNMT repression + TET promotion)
+FOX proteins: embryonic development, forkhead box motif
+- FOXP2: role in speech / echolocation / birdsong
 
 LIN28: RNA-binding, binds and destroys miRNA precursor let7, delays aging, oncogene
 

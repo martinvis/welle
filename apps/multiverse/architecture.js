@@ -7,40 +7,187 @@
 // (every Greek peripteral temple is the same five layers with different
 // numbers plugged in: crepidoma -> peristyle -> entablature -> roof -> cella).
 //
-// Outlines are the world's one optional 1px line (outline.js, Shift+O): a
-// backface-only hull copy of every part, inflated in the VERTEX SHADER by
-// one pixel's worth of metres at its depth. The inflation direction per
-// vertex is exact for boxes and cylinders: it comes from RE-GENERATING the
-// primitive slightly larger and taking the vertex offsets (scaling tricks
-// would distort), baked as an attribute. Off, the hull meshes are hidden
-// and cost nothing.
+// NO OUTLINE HULLS. Buildings used to carry a backface-only hull copy of every part, inflated in the vertex
+// shader to draw a 1px rim (outline.js, Shift+O). It was off by default and it cost a second copy of the whole
+// village -- eighty-one meshes and a fifth of a million triangles, built, walked and never drawn -- so it is
+// gone. The SDF engines still draw their 1px border, because theirs is a line in the shader and costs no
+// geometry at all. Part definitions may still carry `outline: false`; nothing reads it now.
 import * as THREE from "three";
-import { OUTLINE, OUTLINE_PX, OUTLINE_COLOR, onOutline } from "./outline.js";
-import { TEXTURES, TILES, tileTexture, PATTERN_GLSL, PARALLAX } from "./textures.js";
+import { ASSETS } from "./catalogue.js";   // the items rooms are furnished with (assets/items), for the assembler
+import { wgslFn, uniform, attribute, varying, texture, float, positionGeometry, positionWorld,
+         normalWorld, modelWorldMatrix, cameraPosition, vec3 } from "three/tsl";
+import { TEXTURES, TILES, tileTexture, PARALLAX } from "./textures.js";
+import { patternTile } from "./textures_wgsl.js";
 import { FOLIAGE_T } from "./foliage.js";   // the one wind clock: leaves and grain sway together
+import { registerPatterns, renderPattern, patternOf, sizeOf as patternSize } from "./patterns.js";
+import { PREGEN, pregenOn, pregenMiss, tileKey, groupsKey, wallsKey, recordFor, packGroups, packWalls } from "./pregen.js";   // what build/pregen.py made once (tiles, finished geometry, wall fields)
+import { finishPieces, ruleParams, partNames } from "./arch/finish.js";
+import PAT_PALETTES from "./assets/patterns/palettes.json" with { type: "json" };
+import PAT_SHAPES from "./assets/patterns/shapes.json" with { type: "json" };
+import PAT_STONE from "./assets/patterns/stone.json" with { type: "json" };
+import PAT_FLOORS from "./assets/patterns/floors.json" with { type: "json" };
+import PAT_CARPETS from "./assets/patterns/carpets.json" with { type: "json" };
+import PAT_TILES from "./assets/patterns/tiles.json" with { type: "json" };
+import PAT_PAINTED from "./assets/patterns/painted.json" with { type: "json" };
+import PAT_ROOFS from "./assets/patterns/roofs.json" with { type: "json" };
+import PAT_PANELS from "./assets/patterns/panels.json" with { type: "json" };
+import PAT_TIMBER from "./assets/patterns/timber.json" with { type: "json" };
+import PAT_MATERIALS from "./assets/patterns/materials.json" with { type: "json" };
+import PAT_HERALDRY from "./assets/patterns/heraldry.json" with { type: "json" };
+import PAT_HIEROGLYPHS from "./assets/patterns/hieroglyphs.json" with { type: "json" };
+import PAT_MURALS from "./assets/patterns/murals.json" with { type: "json" };
+import { registerMurals } from "./murals.js";   // (tomb paintings on walls: a pattern layer murals.js draws)
+import { registerGlyphs } from "./glyphs.js";   // (a wall of hieroglyphs is a pattern layer glyphs.js draws: its library from the catalogue)
+import FIN_ARENA from "./assets/finishes/arena.json" with { type: "json" };
+import FIN_BERLINER_DOM from "./assets/finishes/berliner-dom.json" with { type: "json" };
+import FIN_BLUE_MOSQUE from "./assets/finishes/blue-mosque.json" with { type: "json" };
+import FIN_CHICHEN_ITZA from "./assets/finishes/chichen-itza.json" with { type: "json" };
+import FIN_COLOGNE from "./assets/finishes/cologne.json" with { type: "json" };
+import FIN_DENDERA from "./assets/finishes/dendera.json" with { type: "json" };
+import FIN_GIZA from "./assets/finishes/giza.json" with { type: "json" };
+import FIN_DIDYMA from "./assets/finishes/didyma.json" with { type: "json" };
+import FIN_WINDMILL from "./assets/finishes/windmill.json" with { type: "json" };
+import FIN_EL_PILAR from "./assets/finishes/el-pilar.json" with { type: "json" };
+import FIN_FISHERMANS_BASTION from "./assets/finishes/fishermans-bastion.json" with { type: "json" };
+import FIN_FLORENCE from "./assets/finishes/florence.json" with { type: "json" };
+import FIN_FRAUENKIRCHE from "./assets/finishes/frauenkirche.json" with { type: "json" };
+import FIN_HAGIA_SOPHIA from "./assets/finishes/hagia-sophia.json" with { type: "json" };
+import FIN_HEPHAESTUS from "./assets/finishes/hephaestus.json" with { type: "json" };
+import FIN_KARLSKIRCHE from "./assets/finishes/karlskirche.json" with { type: "json" };
+import FIN_MAINZ from "./assets/finishes/mainz.json" with { type: "json" };
+import FIN_MELK from "./assets/finishes/melk.json" with { type: "json" };
+import FIN_MILAN from "./assets/finishes/milan.json" with { type: "json" };
+import FIN_MORITZBURG from "./assets/finishes/moritzburg.json" with { type: "json" };
+import FIN_NOTRE_DAME from "./assets/finishes/notre-dame.json" with { type: "json" };
+import FIN_PANTHEON from "./assets/finishes/pantheon.json" with { type: "json" };
+import FIN_PARLIAMENT from "./assets/finishes/parliament.json" with { type: "json" };
+import FIN_PARTHENON from "./assets/finishes/parthenon.json" with { type: "json" };
+import FIN_SACRE_COEUR from "./assets/finishes/sacre-coeur.json" with { type: "json" };
+import FIN_SCHWERIN from "./assets/finishes/schwerin.json" with { type: "json" };
+import FIN_ST_BASIL from "./assets/finishes/st-basil.json" with { type: "json" };
+import FIN_ST_ISAACS from "./assets/finishes/st-isaacs.json" with { type: "json" };
+import FIN_ST_PAULS from "./assets/finishes/st-pauls.json" with { type: "json" };
+import FIN_STEPHANSDOM from "./assets/finishes/stephansdom.json" with { type: "json" };
+import FIN_SULTAN_QABOOS from "./assets/finishes/sultan-qaboos.json" with { type: "json" };
+import FIN_TAJ_MAHAL from "./assets/finishes/taj-mahal.json" with { type: "json" };
+import FIN_TEMPLE_OF_HEAVEN from "./assets/finishes/temple-of-heaven.json" with { type: "json" };
+import FIN_ULM from "./assets/finishes/ulm.json" with { type: "json" };
+import FIN_ZWINGER from "./assets/finishes/zwinger.json" with { type: "json" };
+import { assemble, registerDocs, docOf, itemOf } from "./arch/assemble.js";
+import { lightWGSL } from "./light.js";   // the COMPONENT engine (arch/): buildings composed from real parts
+// the buildings' definitions, with every other asset in the world (assets/, docs/assets.md)
+import ARENA_DOC from "./assets/architecture/arena.json" with { type: "json" };
+import BASILICA_DOC from "./assets/architecture/basilica.json" with { type: "json" };
+import FLORENCE_DOC from "./assets/architecture/florence.json" with { type: "json" };
+import IWAN_DOC from "./assets/architecture/components/iwan.json" with { type: "json" };
+import PANTHEON_DOC from "./assets/architecture/pantheon.json" with { type: "json" };
+import PARTHENON_DOC from "./assets/architecture/parthenon.json" with { type: "json" };
+import HEPHAESTUS_DOC from "./assets/architecture/hephaestus.json" with { type: "json" };
+import TAJ_DOC from "./assets/architecture/taj-mahal.json" with { type: "json" };
+import STBASIL_DOC from "./assets/architecture/st-basil.json" with { type: "json" };
+import FRAUENKIRCHE_DOC from "./assets/architecture/frauenkirche.json" with { type: "json" };
+import ZWINGER_DOC from "./assets/architecture/zwinger.json" with { type: "json" };
+import HAGIA_DOC from "./assets/architecture/hagia-sophia.json" with { type: "json" };
+import NOTREDAME_DOC from "./assets/architecture/notre-dame.json" with { type: "json" };
+import MILAN_DOC from "./assets/architecture/milan.json" with { type: "json" };
+import COLOGNE_DOC from "./assets/architecture/cologne.json" with { type: "json" };
+import DENDERA_DOC from "./assets/architecture/dendera.json" with { type: "json" };
+import GIZA_DOC from "./assets/architecture/giza.json" with { type: "json" };
+import DIDYMA_DOC from "./assets/architecture/didyma.json" with { type: "json" };
+import WINDMILL_DOC from "./assets/architecture/windmill.json" with { type: "json" };
+import V_BRIDGE from "./assets/architecture/village/bridge.json" with { type: "json" };
+import C_CHHATRI from "./assets/architecture/components/chhatri.json" with { type: "json" };
+import C_MINARET from "./assets/architecture/components/minaret.json" with { type: "json" };
+import C_DOMED_TOWER from "./assets/architecture/components/domed-tower.json" with { type: "json" };
+import C_GALLERY from "./assets/architecture/components/gallery.json" with { type: "json" };
+import C_CURVED_GALLERY from "./assets/architecture/components/curved-gallery.json" with { type: "json" };
+import C_PAVILION from "./assets/architecture/components/pavilion.json" with { type: "json" };
+import C_PINNACLE from "./assets/architecture/components/pinnacle.json" with { type: "json" };
+import C_FLYING_BUTTRESS from "./assets/architecture/components/flying-buttress.json" with { type: "json" };
+import C_BRIDGE from "./assets/architecture/components/bridge.json" with { type: "json" };
+import C_PALACE_WING from "./assets/architecture/components/palace-wing.json" with { type: "json" };
+import MELK_DOC from "./assets/architecture/melk.json" with { type: "json" };
+import SCHWERIN_DOC from "./assets/architecture/schwerin.json" with { type: "json" };
+import KARLSKIRCHE_DOC from "./assets/architecture/karlskirche.json" with { type: "json" };
+import CHICHEN_DOC from "./assets/architecture/chichen-itza.json" with { type: "json" };
+import C_TOWER_STAIR from "./assets/architecture/components/tower-stair.json" with { type: "json" };
+import SACRE_DOC from "./assets/architecture/sacre-coeur.json" with { type: "json" };
+import STEPHAN_DOC from "./assets/architecture/stephansdom.json" with { type: "json" };
+import C_DRUM_DOME from "./assets/architecture/components/drum-dome.json" with { type: "json" };
+import C_PORTICO from "./assets/architecture/components/portico.json" with { type: "json" };
+import STPAULS_DOC from "./assets/architecture/st-pauls.json" with { type: "json" };
+import PARLIAMENT_DOC from "./assets/architecture/parliament.json" with { type: "json" };
+import STISAACS_DOC from "./assets/architecture/st-isaacs.json" with { type: "json" };
+import C_APSE from "./assets/architecture/components/apse.json" with { type: "json" };
+import BERLINERDOM_DOC from "./assets/architecture/berliner-dom.json" with { type: "json" };
+import MORITZBURG_DOC from "./assets/architecture/moritzburg.json" with { type: "json" };
+import FISHERMANS_DOC from "./assets/architecture/fishermans-bastion.json" with { type: "json" };
+import MAINZ_DOC from "./assets/architecture/mainz.json" with { type: "json" };
+import C_ROUND_STAIR_TOWER from "./assets/architecture/components/round-stair-tower.json" with { type: "json" };
+import EL_PILAR_DOC from "./assets/architecture/el-pilar.json" with { type: "json" };
+import SULTAN_QABOOS_DOC from "./assets/architecture/sultan-qaboos.json" with { type: "json" };
+import ULM_DOC from "./assets/architecture/ulm.json" with { type: "json" };
+import BLUE_MOSQUE_DOC from "./assets/architecture/blue-mosque.json" with { type: "json" };
+import C_BAROQUE_TOWER from "./assets/architecture/components/baroque-tower.json" with { type: "json" };
+import C_ARCADE_WALK from "./assets/architecture/components/arcade-walk.json" with { type: "json" };
+import C_CRENELLATION from "./assets/architecture/components/crenellation.json" with { type: "json" };
+import C_OMANI_MINARET from "./assets/architecture/components/omani-minaret.json" with { type: "json" };
+import C_PORTAL from "./assets/architecture/components/portal.json" with { type: "json" };
+import C_GOTHIC_TOWER_STAGE from "./assets/architecture/components/gothic-tower-stage.json" with { type: "json" };
+import C_GOTHIC_OCTAGON_STAGE from "./assets/architecture/components/gothic-octagon-stage.json" with { type: "json" };
+import C_GOTHIC_SPIRE from "./assets/architecture/components/gothic-spire.json" with { type: "json" };
+import C_DOME_CASCADE from "./assets/architecture/components/dome-cascade.json" with { type: "json" };
+import C_DOMED_ARCADE from "./assets/architecture/components/domed-arcade.json" with { type: "json" };
+import C_RIWAQ from "./assets/architecture/components/riwaq.json" with { type: "json" };
+import C_OTTOMAN_MINARET from "./assets/architecture/components/ottoman-minaret.json" with { type: "json" };
+import TEMPLE_OF_HEAVEN_DOC from "./assets/architecture/temple-of-heaven.json" with { type: "json" };
+import C_DOUGONG from "./assets/architecture/components/dougong.json" with { type: "json" };
+import C_CHINESE_HALL from "./assets/architecture/components/chinese-hall.json" with { type: "json" };
+import C_PALACE_WALL from "./assets/architecture/components/palace-wall.json" with { type: "json" };
+// the VILLAGE (tools/archgen/village.py): its buildings and the furniture that carries their life (beds, seats, work places)
+import F_ALTAR from "./assets/architecture/furniture/altar.json" with { type: "json" };
+import F_BAKERY from "./assets/architecture/furniture/bakery.json" with { type: "json" };
+import F_BARRELS from "./assets/architecture/furniture/barrels.json" with { type: "json" };
+import F_BED from "./assets/architecture/furniture/bed.json" with { type: "json" };
+import F_BUTCHER from "./assets/architecture/furniture/butcher.json" with { type: "json" };
+import F_CARPENTER from "./assets/architecture/furniture/carpenter.json" with { type: "json" };
+import F_CHEST from "./assets/architecture/furniture/chest.json" with { type: "json" };
+import F_COOPER from "./assets/architecture/furniture/cooper.json" with { type: "json" };
+import F_HEARTH from "./assets/architecture/furniture/hearth.json" with { type: "json" };
+import F_PEW from "./assets/architecture/furniture/pew.json" with { type: "json" };
+import F_POTTERY from "./assets/architecture/furniture/pottery.json" with { type: "json" };
+import F_SMITHY from "./assets/architecture/furniture/smithy.json" with { type: "json" };
+import F_TABLE from "./assets/architecture/furniture/table.json" with { type: "json" };
+import F_TAILOR from "./assets/architecture/furniture/tailor.json" with { type: "json" };
+import F_TAVERN_ROOM from "./assets/architecture/furniture/tavern-room.json" with { type: "json" };
+import F_WEAVER from "./assets/architecture/furniture/weaver.json" with { type: "json" };
+import V_CHURCH from "./assets/architecture/village/church.json" with { type: "json" };
+import V_EAVES_HOUSE from "./assets/architecture/village/eaves-house.json" with { type: "json" };
+import V_GABLE_HOUSE from "./assets/architecture/village/gable-house.json" with { type: "json" };
+import V_GATEHOUSE from "./assets/architecture/village/gatehouse.json" with { type: "json" };
+import V_JETTIED_HOUSE from "./assets/architecture/village/jettied-house.json" with { type: "json" };
+import V_LONGHOUSE from "./assets/architecture/village/longhouse.json" with { type: "json" };
+import V_STONE_HOUSE from "./assets/architecture/village/stone-house.json" with { type: "json" };
+import V_WALL from "./assets/architecture/village/wall.json" with { type: "json" };
+import V_WALL_TOWER from "./assets/architecture/village/wall-tower.json" with { type: "json" };
+import V_PIG_YARD from "./assets/architecture/village/pig-yard.json" with { type: "json" };
+import V_MARKET from "./assets/architecture/village/market.json" with { type: "json" };
+import V_APIARY from "./assets/architecture/village/apiary.json" with { type: "json" };
+import V_HEN_YARD from "./assets/architecture/village/hen-yard.json" with { type: "json" };
+import V_STABLE_YARD from "./assets/architecture/village/stable-yard.json" with { type: "json" };
+import C_FENCE from "./assets/architecture/components/fence.json" with { type: "json" };
+import C_GATE from "./assets/architecture/components/gate.json" with { type: "json" };
+import C_PIGSTY from "./assets/architecture/components/pigsty.json" with { type: "json" };
+import C_HEN_HOUSE from "./assets/architecture/components/hen-house.json" with { type: "json" };
+import C_STABLE from "./assets/architecture/components/stable.json" with { type: "json" };
+import { archRise, archCurve } from "./arch/profiles.js";   // how far a given arch profile rises over its span; its outline
 
-const HULL_T = .03;   // metres the reference hull is generated larger by (its offsets are normalised to a direction)
-const hullMat = new THREE.ShaderMaterial({
-  side: THREE.BackSide,
-  uniforms: { uPx: OUTLINE_PX, uCol: { value: new THREE.Color(OUTLINE_COLOR) } },
-  vertexShader: /* glsl */ `
-    attribute vec3 aDir;
-    uniform float uPx;
-    void main() {
-      vec4 p = vec4(position, 1.0); vec3 d = aDir;
-      #ifdef USE_INSTANCING
-        p = instanceMatrix * p; d = mat3(instanceMatrix) * d;
-      #endif
-      vec4 mv = modelViewMatrix * p;
-      // 1.5 px of inflation at this depth: the visible rim is the projected inflation, so a little over one pixel
-      mv.xyz += mat3(modelViewMatrix) * d * (uPx * max(-mv.z, 0.3) * 1.5);
-      gl_Position = projectionMatrix * mv;
-    }`,
-  fragmentShader: /* glsl */ `
-    uniform vec3 uCol;
-    void main() { gl_FragColor = vec4(uCol, 1.0); #include <colorspace_fragment> }`,
-});
-onOutline((on) => { hullMat.visible = on; });
+// GLASS: one material for every window in the world. Its colour used to be baked into a material of its own
+// (sixty of them, one mesh each -- exactly the mistake the building materials just stopped making); now it
+// rides in the vertices like every other part's, so a building's glass merges into one mesh and the whole
+// world shares one shader.
+const glassMat = new THREE.MeshBasicNodeMaterial({ transparent: true, opacity: .38, depthWrite: false, side: THREE.DoubleSide });
+glassMat.colorNode = varying(attribute("aC", "vec3"), "vGlassC");
 
 // deterministic orientation shading: a face's brightness comes purely from
 // which way it points (all six directions distinct), so same-colored walls
@@ -61,241 +208,525 @@ export const SNOW = { value: 0 };
 // the snow read the world (a face's brightness says which way it points
 // NOW). Buildings are placed by translation alone, so their merged,
 // root-local geometry patterns exactly as in world space.
-function archMaterial(color, side, pat, accent) {
+// The relief the parallax walks down into, at q (metres in the pattern's plane): a tile's baked alpha, or
+// wood's grain worked out here -- q = (across the grain, along it), raised latewood with the soft wood between
+// worn down. Generated per material because the wood case has no texture to sample.
+const reliefFn = (id) => wgslFn(id === 12 ? `
+  fn reliefAt(q: vec2<f32>, gx: vec2<f32>, gy: vec2<f32>, period: vec2<f32>) -> f32 {
+    let g = sin(q.x * 42.0 + sin(q.y * 1.9 + q.x * 3.0) * 2.4 + sin(q.x * 8.5) * 1.1);
+    return 1.0 - 0.75 * smoothstep(0.25, 0.95, g) - 0.15 * smoothstep(0.6, 1.0, sin(q.y * 23.0 + q.x * 15.0));
+  }
+` : `
+  fn reliefAt(tex: texture_2d<f32>, samp: sampler, q: vec2<f32>, gx: vec2<f32>, gy: vec2<f32>, period: vec2<f32>) -> f32 {
+    return textureSampleGrad(tex, samp, q / period, gx, gy).a;
+  }
+`);
+
+// THE BUILDING FRAGMENT. The GLSL twin was one shader with a wall of #if PAT == n; WGSL has no preprocessor,
+// so the same selection happens here in JavaScript and each material carries only the branch it needs.
+// Returns (rgb, keep) -- keep < 0 is the crops' discard, the material's alphaTest cutting the pixel away.
+// HOW A FACE IS LIT, and where snow lies: one source for every building material (archFrag, the finish material) --
+// brightness from which way the face points, snow on what faces up well above the ground
+const SHADE_K = lightWGSL("n");   // (light.js: the world's one sun, the same term every engine shades by)
+const SNOW_ON = (c) => `mix(${c}, vec3<f32>(0.93, 0.94, 0.97), snow * smoothstep(0.06, 0.45, n.y) * smoothstep(3.2, 5.5, pW.y))`;
+const archFragSource = ({ id, baked, pom, steps, shadow }) => {
+  const texParams = (baked || (pom && id !== 12)) ? "tex: texture_2d<f32>, samp: sampler, " : "";
+  const reliefCall = (q) => id === 12 ? `reliefAt(${q}, gx, gy, period)` : `reliefAt(tex, samp, ${q}, gx, gy, period)`;
+  const floorPat = id === 9 || id === 11;
+  return `
+  fn archFrag(nW: vec3<f32>, pW: vec3<f32>, pL: vec3<f32>, nL: vec3<f32>, Tw: vec3<f32>, Bw: vec3<f32>,
+              camPos: vec3<f32>, ${texParams}C: vec3<f32>, C2: vec3<f32>, snow: f32, t: f32,
+              period: vec2<f32>, depth: f32, pomFar: f32, texelUV: f32) -> vec4<f32> {
+    let n = normalize(nW);
+    var col = C;
+    var k = ${SHADE_K};
+    let nl = normalize(nL);                                  // the face's normal in its own frame: picks the pattern plane
+    let u = select(pL.x, pL.z, abs(nl.x) > abs(nl.z));       // coordinate along the face
+${pom ? `
+    // PARALLAX: walk the view ray down into the relief -- steps layers to depth metres, along the pattern's own
+    // axes (a wall's face: along it and up; a floor's top: x and z; wood: across the grain and along it) --
+    // refine between the last two layers; there the relief's slope tilts the normal (lit by the world's
+    // orientation shading, 1.8x) and the shadow reads toward that light give the relief short shadows; the
+    // colour is read where the ray met the relief. Near only: it fades out toward pomFar metres.
+    // The ray is followed in WORLD space against the world-space pattern axes, which is the same walk the GLSL
+    // made in the object's frame (the two frames differ by a rotation, and nothing here is scaled).
+    let upP = step(0.5, abs(nl.y));
+${id === 12 ? `
+    var q0 = vec2<f32>(u, pL.y);
+    if (upP > 0.5) { q0 = pL.zx; }
+    let onPlane = 1.0;
+    let gx = vec2<f32>(0.0);
+    let gy = vec2<f32>(0.0);
+    let eq = vec2<f32>(0.002);
+` : `
+    var q0 = vec2<f32>(u, pL.y);
+    ${floorPat ? "q0 = pL.xz;" : ""}
+    let onPlane = ${floorPat ? "abs(nl.y)" : "1.0 - abs(nl.y)"};
+    // every read at the UNSHIFTED gradients, so the mip level never jumps as the ray walks
+    let gx = dpdx(q0 / period);
+    let gy = dpdy(q0 / period);
+    let eq = texelUV * period;
+`}
+    let Vw = camPos - pW;
+    let pdist = length(Vw);
+    let fade = 1.0 - smoothstep(0.65 * pomFar, pomFar, pdist);
+    var relief = 1.0;
+    var qP = q0;
+    let vd = Vw / max(pdist, 1e-4);
+    let dn = dot(vd, n);
+    if (fade > 0.01 && onPlane > 0.7 && dn > 0.06) {
+      let dq = -vec2<f32>(dot(vd, Tw), dot(vd, Bw)) / dn * depth * fade / ${steps}.0;   // metres across the pattern per layer
+      var layer = 1.0;
+      var h = ${reliefCall("qP")};
+      var hPrev = h;
+      for (var i: i32 = 0; i < ${steps}; i = i + 1) {
+        if (h >= layer) { break; }
+        hPrev = h;
+        layer = layer - 1.0 / ${steps}.0;
+        qP = qP + dq;
+        h = ${reliefCall("qP")};
+      }
+      let after = h - layer;
+      let before = hPrev - (layer + 1.0 / ${steps}.0);
+      qP = qP - dq * clamp(after / max(after - before, 1e-5), 0.0, 1.0);       // between the last two layers
+      let h0 = ${reliefCall("qP")};
+      relief = mix(1.0, h0, fade);
+      let slope = vec2<f32>(${reliefCall("qP + vec2<f32>(eq.x, 0.0)")} - h0,
+                            ${reliefCall("qP + vec2<f32>(0.0, eq.y)")} - h0) / eq * depth;   // metres of relief per metre
+      let np = normalize(n - (Tw * slope.x + Bw * slope.y) * fade);
+      k = k + 1.8 * dot(np - n, vec3<f32>(0.1, 0.2, 0.06));
+${shadow > 0 ? `
+      let Lw = normalize(vec3<f32>(0.1, 0.2, 0.06));
+      let lt = vec3<f32>(dot(Lw, Tw), dot(Lw, Bw), dot(Lw, n));
+      if (lt.z > 0.05 && h0 < 0.98) {
+        var occ = 0.0;
+        for (var i: i32 = 1; i <= ${shadow}; i = i + 1) {
+          let up = (1.0 - h0) * f32(i) / ${shadow}.0;
+          occ = max(occ, ${reliefCall("qP + lt.xy / lt.z * depth * up")} - (h0 + up));
+        }
+        k = k * (1.0 - 0.45 * smoothstep(0.0, 0.12, occ) * fade);
+      }` : ""}
+    }
+` : ""}
+${id >= 1 && id <= 11 ? `
+    // flat repeating patterns: (brightness k, accent share, dark-figure share) at this point of the pattern's
+    // plane -- floors (checker, parquet) in x/z
+    let q = ${floorPat ? "pL.xz" : "vec2<f32>(u, pL.y)"};
+${baked ? `
+    let T = ${pom ? "textureSampleGrad(tex, samp, qP / period, gx, gy)" : "textureSample(tex, samp, q / period)"}.rgb;
+    var kab = vec3<f32>(T.r * 1.5, T.g, T.b);
+${pom ? "    kab.x = kab.x * (1.0 - 0.2 * (1.0 - relief));   // the deep parts (mortar, channels) a shade darker still" : ""}
+` : `
+    let kab = patternTile(${id}.0, q, 0.0);
+`}
+    k = k * kab.x;
+    col = mix(col, C2, kab.y);
+    col = mix(col, vec3<f32>(0.05, 0.045, 0.04), kab.z);
+${id === 5 ? "    k = k * (1.0 - 0.035 * (0.5 + 0.5 * sin(pL.x * 0.8 + pL.y * 2.3 + pL.z * 1.1)));   // marble veining: smooth, stays per pixel" : ""}
+` : ""}
+${id === 12 ? `
+    // wood grain, slight: streaks along the board -- lengthwise on horizontal faces, vertical on upright ones,
+    // wandering a little
+    let upF = step(0.5, abs(nl.y));
+    var along = mix(pL.y, pL.x, upF);
+    var across = mix(u, pL.z, upF);
+${pom ? `    along = qP.y; across = qP.x;      // the grain where the ray met it
+    k = k * (1.0 - 0.2 * (1.0 - relief));` : ""}
+    let g = sin(across * 42.0 + sin(along * 1.9 + across * 3.0) * 2.4 + sin(across * 8.5) * 1.1);
+    k = k * (1.0 - 0.075 * smoothstep(0.25, 0.95, g) - 0.03 * smoothstep(0.6, 1.0, sin(along * 23.0 + across * 15.0)));
+` : ""}
+${id >= 13 && id <= 16 ? `
+    // crops as cut-outs: a thin see-through slab carries a row of plants -- rye/barley stalks with ears, bean
+    // poles with leaves, garlic leaf-fans -- and is discarded between them, so a field of thousands of plants
+    // costs a few dozen boxes. Heights count from the soil top (the site stands 1cm up: .12 local is .13 world).
+    let hgt = pL.y - 0.12;
+${id === 13 || id === 14 ? `
+    let H = ${id === 13 ? "1.15" : "0.85"};
+    let cw = 0.07;
+    let earL = ${id === 13 ? "0.16" : "0.12"};
+    let earW = ${id === 13 ? "0.026" : "0.034"};
+    // wind: the row bends as one -- the coordinate along the slab shifts by a smooth gust field that grows
+    // toward the ears, so neighbouring stalks move together and waves run over the field
+    let sw = pow(clamp(hgt / H, 0.0, 1.0), 1.5) * (0.06 * sin(t * 1.3 + u * 0.35 + pL.z * 0.2) + 0.022 * sin(t * 2.9 + u * 1.1));
+    let uu = u - sw;
+    let id2 = floor(uu / cw);
+    let fu = fract(uu / cw) - 0.5;
+    let hs = fract(sin(id2 * 127.1) * 43758.5);
+    let top = H * (0.78 + 0.27 * hs);
+    let dx = abs(fu * cw - (hs - 0.5) * 0.1 * hgt / H);      // a slight lean, each its own way
+    if (hgt > top || hgt < 0.0) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+    if (hgt > top - earL) {
+      if (dx > earW) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+      col = C2;
+      k = k * (0.9 + 0.2 * hs);
+    } else {
+      if (dx > 0.011) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+      k = k * (0.85 + 0.3 * hs);
+    }
+` : id === 15 ? `
+    let cw = 0.5;
+    let id2 = floor(u / cw);
+    let fu = fract(u / cw) - 0.5;
+    let hs = fract(sin(id2 * 91.7) * 43758.5);
+    let top = 1.7 * (0.85 + 0.2 * hs);
+    if (hgt > top || hgt < 0.0) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+    let dx = fu * cw;
+    let row = floor(hgt / 0.17);
+    let fr = fract(hgt / 0.17) - 0.5;
+    let sd = ((row + floor(hs * 2.0)) - 2.0 * floor((row + floor(hs * 2.0)) / 2.0)) * 2.0 - 1.0;   // leaves alternate sides up the pole
+    let lj = fract(sin(id2 * 31.3 + row * 17.1) * 43758.5);
+    let lc = vec2<f32>(dx - sd * (0.07 + 0.05 * lj), fr * 0.17);
+    let leaf = step(length(lc * vec2<f32>(1.0, 1.6)), 0.085);
+    let pole = step(abs(dx), 0.014);
+    if (leaf < 0.5 && pole < 0.5) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+    col = select(C, C2, leaf > 0.5);
+    k = k * (0.85 + 0.3 * lj);
+` : `
+    let cw = 0.3;
+    let id2 = floor(u / cw);
+    let fu = fract(u / cw) - 0.5;
+    let hs = fract(sin(id2 * 57.3) * 43758.5);
+    let top = 0.45 * (0.8 + 0.35 * hs);
+    if (hgt > top || hgt < 0.0) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+    let dx = fu * cw;
+    var keep = 0.0;
+    for (var i: i32 = -1; i <= 1; i = i + 1) {        // three leaves fanning out from the bulb
+      let lx = f32(i) * (0.05 + 0.04 * hs) * hgt / 0.45 + (hs - 0.5) * 0.04;
+      keep = max(keep, step(abs(dx - lx), 0.012 * (1.0 - 0.5 * hgt / top)));
+    }
+    if (keep < 0.5) { return vec4<f32>(0.0, 0.0, 0.0, -1.0); }
+    k = k * (0.85 + 0.3 * hs);
+`}` : ""}
+${id >= 17 && id <= 19 ? `
+    // currants (17, ~1cm), apples (18, ~8cm) and cherries (19, ~2.5cm): sharp dots of the accent colour
+    // scattered over a crown
+    let c = ${id === 17 ? "0.065" : id === 18 ? "0.25" : "0.08"};
+    let rr = ${id === 17 ? "0.005" : id === 18 ? "0.04" : "0.0125"};
+    let cell = floor(pL / c);
+    let f = fract(pL / c);
+    let jit = fract(sin(vec3<f32>(dot(cell, vec3<f32>(127.1, 311.7, 74.7)),
+                                  dot(cell, vec3<f32>(269.5, 183.3, 246.1)),
+                                  dot(cell, vec3<f32>(113.5, 271.9, 124.6)))) * 43758.5) * 0.5 + 0.25;
+    let show = step(fract(sin(dot(cell, vec3<f32>(12.9, 78.2, 37.7))) * 4375.5), ${id === 17 ? "0.9" : id === 18 ? "0.75" : "0.85"});   // a heavy crop
+    col = mix(col, C2, step(length((f - jit) * c), rr) * show);
+` : ""}
+    var shaded = col * k;
+    // snow settles on upward-facing surfaces well above the ground (roofs, cornices, the stands) -- walls and
+    // columns stay bare; the ramp starts near 0 so even steep spires collect snow
+    shaded = ${SNOW_ON("shaded")};
+    return vec4<f32>(shaded, 1.0);
+  }
+`;
+};
+
+// the pattern's two axes in the world (along the face, up -- a floor's x, z), for the parallax to step along
+const patAxes = wgslFn(`
+  fn patAxes(nl0: vec3<f32>, model: mat4x4<f32>, which: f32, flat3: f32, wood: f32) -> vec3<f32> {
+    let m3 = mat3x3<f32>(model[0].xyz, model[1].xyz, model[2].xyz);
+    let woodTop = wood > 0.5 && abs(nl0.y) > 0.5;          // (wood on a level face: across z, along x)
+    var v = vec3<f32>(1.0, 0.0, 0.0);
+    if (which < 0.5) {                                     // T: along the face
+      if (flat3 > 0.5) { v = vec3<f32>(1.0, 0.0, 0.0); }
+      else if (woodTop || abs(nl0.x) > abs(nl0.z)) { v = vec3<f32>(0.0, 0.0, 1.0); }
+    } else {                                               // B: up the face
+      if (flat3 > 0.5) { v = vec3<f32>(0.0, 0.0, 1.0); }
+      else if (woodTop) { v = vec3<f32>(1.0, 0.0, 0.0); }
+      else { v = vec3<f32>(0.0, 1.0, 0.0); }
+    }
+    return normalize(m3 * v);
+  }
+`);
+
+const cutOf = wgslFn(`fn cutOf(v: f32) -> f32 { if (v < 0.0) { return 0.0; } return 1.0; }`);
+
+// THE COLOUR RIDES IN THE VERTICES, NOT IN THE MATERIAL.
+// Every part of a building used to ask for a material of its own colour, and since buildBuilding merges parts
+// by MATERIAL, a house with thirty-nine colours ended up as thirty-nine meshes -- thirty-nine objects for
+// three to walk, five times a frame, and thirty-nine draws when it is in view. The shader is the same for all
+// of them: what differs is two vec3 uniforms. So the colour and the accent are written per vertex instead
+// (paintGeometry, below) and a material is keyed by what actually changes the SHADER -- its pattern and which
+// side it shows. A farmhouse then merges into a handful of meshes, and the picture is identical: the value
+// that reached the shader as a uniform now reaches it as an attribute, unchanged.
+const archCache = new Map();
+function archMaterial(side, pat, placed = false) {
   // pat: mathematically-defined surface patterns in the object's space --
   //  ashlar: large stone courses, staggered joints   brick: tight running bond
   //  marble: hairline joints + soft veining (Greek precision masonry)
   //  grooves: vertical channels in an accent color (triglyphs)
   //  stars: a dot grid in an accent color (painted tympana, rosette bands)
   //  (1-11 are flat repeating patterns: read from a baked, mipmapped tile --
-  //  textures.js -- or, with TEXTURES.on false, evaluated per pixel from the same GLSL)
+  //  textures.js -- or, with TEXTURES.on false, evaluated per pixel from the same maths)
+  // `placed`: the twin for geometry that has had its building's translation BAKED IN (merge.js mergeAcross joins
+  // whole streets into one mesh). The pattern must still be read in the building's own frame, so the vertices
+  // carry their original local position in `aLocal` and the pattern reads that -- bit for bit what it read before.
+  const key = `${side ?? ""}|${pat ?? ""}${placed ? "|placed" : ""}`;
+  if (archCache.has(key)) return archCache.get(key);
   const id = PAT_IDS[pat] ?? 0, tile = TEXTURES.on && id >= 1 && id <= 11 ? TILES[pat] : null;
-  const pom = PARALLAX.on && ((tile && tile.depth > 0) || id === 12);   // parallax: a tile's baked relief (textures.js patternHeight), or wood's grain
-  return new THREE.ShaderMaterial({
-    defines: { PAT: id, BAKED: tile ? 1 : 0, POM: pom ? 1 : 0, POM_STEPS: PARALLAX.steps, POM_SHADOW: PARALLAX.shadowSteps },
-    uniforms: { uC: { value: new THREE.Color(color) }, uC2: { value: new THREE.Color(accent ?? 0xffffff) }, uSnow: SNOW, uT: FOLIAGE_T,
-                uPatTex: { value: tile ? tileTexture(pat) : null }, uPeriod: { value: new THREE.Vector2(...(tile ? tile.period : [1, 1])) },
-                uDepth: { value: id === 12 ? .004 : tile?.depth ?? 0 }, uPomFar: { value: PARALLAX.far }, uTexelUV: { value: tile ? 1 / tile.size : 0 } },
-    vertexShader: /* glsl */ `
-      varying vec3 vN, vW, vL, vNL;
-    #if POM
-      varying vec3 vV;        // to the camera, in the pattern frame (the object's own, in metres)
-      varying vec3 vTw, vBw;  // the pattern's two axes (along the face, up -- a floor's x, z) in the world
-    #endif
-      void main() {
-        // the same material serves InstancedMesh copies (cart wheels): three
-        // defines USE_INSTANCING and supplies instanceMatrix for those
-      #ifdef USE_INSTANCING
-        mat4 mm = modelMatrix * instanceMatrix;
-        vec3 sc = vec3(length(instanceMatrix[0].xyz), length(instanceMatrix[1].xyz), length(instanceMatrix[2].xyz));
-      #else
-        mat4 mm = modelMatrix;
-        vec3 sc = vec3(1.0);
-      #endif
-        vL = position * sc;                     // the pattern frame: the object's own, in metres
-        vNL = normal / sc;
-        vN = normalize(mat3(mm) * normal);
-        vW = (mm * vec4(position, 1.0)).xyz;
-        gl_Position = projectionMatrix * viewMatrix * vec4(vW, 1.0);
-      #if POM
-        vV = (inverse(mm) * vec4(cameraPosition, 1.0)).xyz * sc - vL;
-        vec3 nl0 = normalize(normal / sc);
-        bool fl = PAT == 9 || PAT == 11, woodTop = PAT == 12 && abs(nl0.y) > .5;   // (wood on a level face: across z, along x)
-        vTw = normalize(mat3(mm) * (fl ? vec3(1.0, 0.0, 0.0) : woodTop || abs(nl0.x) > abs(nl0.z) ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0)));
-        vBw = normalize(mat3(mm) * (fl ? vec3(0.0, 0.0, 1.0) : woodTop ? vec3(1.0, 0.0, 0.0) : vec3(0.0, 1.0, 0.0)));
-      #endif
-      }`,
-    fragmentShader: /* glsl */ `
-      uniform vec3 uC, uC2;
-      uniform float uSnow, uT;
-      varying vec3 vN, vW, vL, vNL;
-    #if BAKED
-      uniform sampler2D uPatTex;
-      uniform vec2 uPeriod;
-    #endif
-    #if POM
-      uniform float uDepth, uPomFar, uTexelUV;
-      varying vec3 vV, vTw, vBw;
-    #endif
-      ${PATTERN_GLSL}
-    #if POM
-      // the relief at q (metres in the pattern's plane): a tile's baked alpha, or wood's grain worked out here --
-      // q = (across the grain, along it); raised latewood, the soft wood between worn down
-      float reliefAt(vec2 q, vec2 gx, vec2 gy) {
-      #if PAT == 12
-        float g = sin(q.x * 42.0 + sin(q.y * 1.9 + q.x * 3.0) * 2.4 + sin(q.x * 8.5) * 1.1);
-        return 1.0 - .75 * smoothstep(.25, .95, g) - .15 * smoothstep(.6, 1.0, sin(q.y * 23.0 + q.x * 15.0));
-      #else
-        return textureGrad(uPatTex, q / uPeriod, gx, gy).a;
-      #endif
-      }
-    #endif
-      void main() {
-        vec3 n = normalize(vN);
-        vec3 col = uC;
-        float k = .82 + .2 * n.y + .1 * n.x + .06 * n.z;
-        vec3 nl = normalize(vNL);                               // the face's normal in its own frame: picks the pattern plane
-        float u = abs(nl.x) > abs(nl.z) ? vL.z : vL.x;         // coordinate along the face
-      #if POM
-        // PARALLAX: walk the view ray down into the relief (reliefAt) -- POM_STEPS layers to uDepth, along the pattern's
-        // own axes (a wall's face: along it and up; a floor's top: x and z; wood: across the grain and along it) --
-        // refine between the last two layers; there the relief's slope tilts the normal (lit by the world's orientation
-        // shading, 1.8x, or in this flat-lit world the tilt would barely show) and POM_SHADOW reads toward that shading's
-        // light (high, from +x and +z) give the relief short shadows; the colour is read where the ray met the relief.
-        // Near only: it fades out toward uPomFar metres (beyond, the joints are under a pixel anyway)
-        float upP = step(.5, abs(nl.y));
-      #if PAT == 12
-        vec2 q0 = upP > .5 ? vL.zx : vec2(u, vL.y);
-        float onPlane = 1.0;
-        vec3 Tq = upP > .5 || abs(nl.x) > abs(nl.z) ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0), Bq = upP > .5 ? vec3(1.0, 0.0, 0.0) : vec3(0.0, 1.0, 0.0);
-        vec2 gx = vec2(0.0), gy = vec2(0.0), eq = vec2(.002);
-      #else
-        bool floorPat = PAT == 9 || PAT == 11;
-        vec2 q0 = floorPat ? vL.xz : vec2(u, vL.y);
-        float onPlane = floorPat ? abs(nl.y) : 1.0 - abs(nl.y);
-        vec3 Tq = floorPat ? vec3(1.0, 0.0, 0.0) : abs(nl.x) > abs(nl.z) ? vec3(0.0, 0.0, 1.0) : vec3(1.0, 0.0, 0.0);
-        vec3 Bq = floorPat ? vec3(0.0, 0.0, 1.0) : vec3(0.0, 1.0, 0.0);
-        vec2 gx = dFdx(q0 / uPeriod), gy = dFdy(q0 / uPeriod), eq = uTexelUV * uPeriod;   // (every read at the unshifted gradients: the mip level never jumps)
-      #endif
-        float pdist = length(vV), fade = 1.0 - smoothstep(.65 * uPomFar, uPomFar, pdist), relief = 1.0;
-        vec2 qP = q0;
-        vec3 vd = vV / max(pdist, 1e-4);
-        float dn = dot(vd, nl);
-        if (fade > .01 && onPlane > .7 && dn > .06) {
-          vec2 dq = -vec2(dot(vd, Tq), dot(vd, Bq)) / dn * uDepth * fade / float(POM_STEPS);   // the ray's step across the pattern per layer (metres)
-          float layer = 1.0, h = reliefAt(qP, gx, gy), hPrev = h;
-          for (int i = 0; i < POM_STEPS; i++) {
-            if (h >= layer) break;
-            hPrev = h; layer -= 1.0 / float(POM_STEPS); qP += dq;
-            h = reliefAt(qP, gx, gy);
-          }
-          float after = h - layer, before = hPrev - (layer + 1.0 / float(POM_STEPS));
-          qP -= dq * clamp(after / max(after - before, 1e-5), 0.0, 1.0);   // between the last two layers
-          float h0 = reliefAt(qP, gx, gy);
-          relief = mix(1.0, h0, fade);
-          vec2 slope = vec2(reliefAt(qP + vec2(eq.x, 0.0), gx, gy) - h0, reliefAt(qP + vec2(0.0, eq.y), gx, gy) - h0) / eq * uDepth;   // metres of relief per metre
-          vec3 np = normalize(n - (vTw * slope.x + vBw * slope.y) * fade);
-          k += 1.8 * dot(np - n, vec3(.1, .2, .06));
-        #if POM_SHADOW > 0
-          vec3 Lw = normalize(vec3(.1, .2, .06));
-          vec3 lt = vec3(dot(Lw, vTw), dot(Lw, vBw), dot(Lw, n));
-          if (lt.z > .05 && h0 < .98) {
-            float occ = 0.0;
-            for (int i = 1; i <= POM_SHADOW; i++) {
-              float up = (1.0 - h0) * float(i) / float(POM_SHADOW);
-              occ = max(occ, reliefAt(qP + lt.xy / lt.z * uDepth * up, gx, gy) - (h0 + up));
-            }
-            k *= 1.0 - .45 * smoothstep(0.0, .12, occ) * fade;
-          }
-        #endif
-        }
-      #endif
-      #if PAT >= 1 && PAT <= 11
-        // flat repeating patterns: (brightness k, accent share, dark-figure share)
-        // at this point of the pattern's plane -- floors (checker, parquet) in x/z
-        vec2 q = PAT == 9 || PAT == 11 ? vL.xz : vec2(u, vL.y);
-      #if BAKED
-      #if POM
-        vec3 T = textureGrad(uPatTex, qP / uPeriod, gx, gy).rgb;   // the mipmapped tile, where the ray met the relief
-      #else
-        vec3 T = texture2D(uPatTex, q / uPeriod).rgb;   // the mipmapped tile, filtered at any distance
-      #endif
-        vec3 kab = vec3(T.r * 1.5, T.g, T.b);
-      #if POM
-        kab.x *= 1.0 - .2 * (1.0 - relief);   // the deep parts (mortar, channels) a shade darker still
-      #endif
-      #else
-        vec3 kab = patternTile(float(PAT), q);
-      #endif
-        k *= kab.x;
-        col = mix(col, uC2, kab.y);
-        col = mix(col, vec3(.05, .045, .04), kab.z);
-      #if PAT == 5
-        k *= 1.0 - .035 * (.5 + .5 * sin(vL.x * .8 + vL.y * 2.3 + vL.z * 1.1));   // marble veining: smooth, stays per pixel
-      #endif
-      #elif PAT == 12
-        // wood grain, slight: streaks along the board -- lengthwise on
-        // horizontal faces, vertical on upright ones -- wandering a little
-        vec3 P = vL;
-        float upF = step(.5, abs(nl.y));
-        float along = mix(P.y, P.x, upF);
-        float across = mix(u, P.z, upF);
-      #if POM
-        along = qP.y; across = qP.x;   // the grain where the ray met it
-        k *= 1.0 - .2 * (1.0 - relief);
-      #endif
-        float g = sin(across * 42.0 + sin(along * 1.9 + across * 3.0) * 2.4 + sin(across * 8.5) * 1.1);
-        k *= 1.0 - .075 * smoothstep(.25, .95, g) - .03 * smoothstep(.6, 1.0, sin(along * 23.0 + across * 15.0));
-      #elif PAT >= 13 && PAT <= 16
-        // crops as cut-outs: a thin see-through slab carries a row of plants
-        // -- rye/barley stalks with ears, bean poles with leaves, garlic
-        // leaf-fans -- and is discarded between them, so a field of thousands
-        // of plants costs a few dozen boxes. Heights count from the soil top (.13m).
-        float hgt = vL.y - .12;   // (the site stands 1cm up: .12 local is the old .13 world)
-      #if PAT == 13 || PAT == 14
-        float H = PAT == 13 ? 1.15 : .85, cw = .07, earL = PAT == 13 ? .16 : .12, earW = PAT == 13 ? .026 : .034;
-        // wind: the row bends as one -- the coordinate along the slab shifts by a smooth gust field that
-        // grows toward the ears (so neighbouring stalks move together, waves running over the field)
-        float sw = pow(clamp(hgt / H, 0.0, 1.0), 1.5) * (.06 * sin(uT * 1.3 + u * .35 + vL.z * .2) + .022 * sin(uT * 2.9 + u * 1.1));
-        float uu = u - sw;
-        float id = floor(uu / cw), fu = fract(uu / cw) - .5;
-        float hs = fract(sin(id * 127.1) * 43758.5);
-        float top = H * (.78 + .27 * hs);
-        float dx = abs(fu * cw - (hs - .5) * .1 * hgt / H);   // a slight lean, each its own way
-        if (hgt > top || hgt < 0.0) discard;
-        if (hgt > top - earL) { if (dx > earW) discard; col = uC2; k *= .9 + .2 * hs; }
-        else { if (dx > .011) discard; k *= .85 + .3 * hs; }
-      #elif PAT == 15
-        float cw = .5, id = floor(u / cw), fu = fract(u / cw) - .5;
-        float hs = fract(sin(id * 91.7) * 43758.5);
-        float top = 1.7 * (.85 + .2 * hs);
-        if (hgt > top || hgt < 0.0) discard;
-        float dx = fu * cw;
-        float row = floor(hgt / .17), fr = fract(hgt / .17) - .5;
-        float sd = mod(row + floor(hs * 2.0), 2.0) * 2.0 - 1.0;   // leaves alternate sides up the pole
-        float lj = fract(sin(id * 31.3 + row * 17.1) * 43758.5);
-        vec2 lc = vec2(dx - sd * (.07 + .05 * lj), fr * .17);
-        float leaf = step(length(lc * vec2(1.0, 1.6)), .085);
-        float pole = step(abs(dx), .014);
-        if (leaf < .5 && pole < .5) discard;
-        col = leaf > .5 ? uC2 : uC; k *= .85 + .3 * lj;
-      #else
-        float cw = .3, id = floor(u / cw), fu = fract(u / cw) - .5;
-        float hs = fract(sin(id * 57.3) * 43758.5);
-        float top = .45 * (.8 + .35 * hs);
-        if (hgt > top || hgt < 0.0) discard;
-        float dx = fu * cw, keep = 0.0;
-        for (int i = -1; i <= 1; i++) {   // three leaves fanning out from the bulb
-          float lx = float(i) * (.05 + .04 * hs) * hgt / .45 + (hs - .5) * .04;
-          keep = max(keep, step(abs(dx - lx), .012 * (1.0 - .5 * hgt / top)));
-        }
-        if (keep < .5) discard;
-        k *= .85 + .3 * hs;
-      #endif
-      #elif PAT >= 17 && PAT <= 19
-        // currants (17, ~1cm), apples (18, ~8cm) and cherries (19, ~2.5cm): sharp dots of the accent color scattered over a crown
-        float c = PAT == 17 ? .065 : PAT == 18 ? .25 : .08, rr = PAT == 17 ? .005 : PAT == 18 ? .04 : .0125;
-        vec3 cell = floor(vL / c), f = fract(vL / c);
-        vec3 jit = fract(sin(vec3(dot(cell, vec3(127.1, 311.7, 74.7)), dot(cell, vec3(269.5, 183.3, 246.1)), dot(cell, vec3(113.5, 271.9, 124.6)))) * 43758.5) * .5 + .25;
-        float show = step(fract(sin(dot(cell, vec3(12.9, 78.2, 37.7))) * 4375.5), PAT == 17 ? .9 : PAT == 18 ? .75 : .85);   // a heavy crop
-        col = mix(col, uC2, step(length((f - jit) * c), rr) * show);
-      #endif
-        vec3 shaded = col * k;
-        // snow settles on upward-facing surfaces well above the ground
-        // (roofs, cornices, the stands) -- walls and columns stay bare
-        // the ramp starts near 0 so even steep spires collect snow;
-        // true verticals (walls, columns) still stay bare
-        shaded = mix(shaded, vec3(.93, .94, .97),
-                     uSnow * smoothstep(.06, .45, n.y) * smoothstep(3.2, 5.5, vW.y));
-        gl_FragColor = vec4(shaded, 1.0);
-        #include <colorspace_fragment>
-      }`,
-    side: side === "double" ? THREE.DoubleSide : THREE.FrontSide,
-  });
+  const pom = PARALLAX.on && ((tile && tile.depth > 0) || id === 12);   // parallax: a tile's baked relief, or wood's grain
+  const baked = !!tile;
+  const texNode = tile ? texture(tileTexture(pat)) : null;
+
+  const rawPos = placed ? attribute("aLocal", "vec3") : positionGeometry, rawNormal = attribute("normal", "vec3");
+  const flat3 = id === 9 || id === 11 ? 1 : 0, wood = id === 12 ? 1 : 0;
+  const args = {
+    nW: normalWorld, pW: positionWorld, pL: rawPos, nL: rawNormal,
+    Tw: varying(patAxes({ nl0: rawNormal.normalize(), model: modelWorldMatrix, which: float(0), flat3: float(flat3), wood: float(wood) }), "vTw"),
+    Bw: varying(patAxes({ nl0: rawNormal.normalize(), model: modelWorldMatrix, which: float(1), flat3: float(flat3), wood: float(wood) }), "vBw"),
+    camPos: cameraPosition,
+    C: varying(attribute("aC", "vec3"), "vArchC"), C2: varying(attribute("aC2", "vec3"), "vArchC2"),
+    snow: uniform(0).onRenderUpdate(() => SNOW.value),
+    t: uniform(0).onRenderUpdate(() => FOLIAGE_T.value),      // the one wind clock (foliage.js): the crops sway with the leaves
+    period: uniform(new THREE.Vector2(...(tile ? tile.period : [1, 1]))),
+    depth: uniform(id === 12 ? .004 : tile?.depth ?? 0),
+    pomFar: uniform(PARALLAX.far), texelUV: uniform(tile ? 1 / tile.size : 0),
+  };
+  if (texNode) { args.tex = texNode; args.samp = texNode; }
+
+  const includes = [];
+  if (pom) includes.push(reliefFn(id));
+  if (id >= 1 && id <= 11 && !baked) includes.push(patternTile);
+  const frag = wgslFn(archFragSource({ id, baked, pom, steps: PARALLAX.steps, shadow: PARALLAX.shadowSteps }), includes)(args);
+
+  const mat = new THREE.MeshBasicNodeMaterial({ side: side === "double" ? THREE.DoubleSide : THREE.FrontSide });
+  mat.colorNode = frag.xyz;
+  if (id >= 13 && id <= 16) {          // the crops are cut-outs: a node material discards through alphaTest
+    mat.opacityNode = cutOf({ v: frag.w });
+    mat.alphaTest = .5;
+  }
+  mat.userData.archArgs = { side, pat };
+  mat.userData.arch = { side, pat, placed };
+  archCache.set(key, mat);
+  return mat;
+}
+// the `placed` twin of a building material (null for any other material: nothing else reads the local frame)
+export const placedMaterial = (mat) => mat?.userData?.arch ? (mat.userData.arch.placed ? mat : archMaterial(mat.userData.arch.side, mat.userData.arch.pat, true)) : null;
+
+// ---- FINISHES: patterned surfaces (arch/finish.js says which surface is what; patterns.js draws the tiles) ------------
+// The pattern library: every family, and the palettes. A building's finish (assets/finishes/<building>.json) names
+// patterns from it; the asset viewer shows it.
+registerPatterns({ palettes: PAT_PALETTES, shapes: PAT_SHAPES, stone: PAT_STONE, floors: PAT_FLOORS, carpets: PAT_CARPETS,
+                   tiles: PAT_TILES, painted: PAT_PAINTED, roofs: PAT_ROOFS, panels: PAT_PANELS, timber: PAT_TIMBER,
+                   materials: PAT_MATERIALS, heraldry: PAT_HERALDRY, hieroglyphs: PAT_HIEROGLYPHS, murals: PAT_MURALS,
+                   fabrics: ASSETS.get("patterns/fabrics") });   // (the cloth a room's cushions, hangings and bedding are of: the tailor's own, clothes.js)
+registerGlyphs(Object.fromEntries([...ASSETS].filter(([p]) => p.startsWith("glyphs/"))));
+registerMurals(Object.fromEntries([...ASSETS].filter(([p]) => p.startsWith("murals/"))));
+// every building's finish, by its document (archBuilding finds its own; Florence and the arena are built by code and ask)
+export const FINISHES = { "arena": FIN_ARENA, "berliner-dom": FIN_BERLINER_DOM, "blue-mosque": FIN_BLUE_MOSQUE, "chichen-itza": FIN_CHICHEN_ITZA, "cologne": FIN_COLOGNE, "dendera": FIN_DENDERA, "giza": FIN_GIZA, "didyma": FIN_DIDYMA, "windmill": FIN_WINDMILL, "el-pilar": FIN_EL_PILAR, "fishermans-bastion": FIN_FISHERMANS_BASTION, "florence": FIN_FLORENCE, "frauenkirche": FIN_FRAUENKIRCHE, "hagia-sophia": FIN_HAGIA_SOPHIA, "hephaestus": FIN_HEPHAESTUS, "karlskirche": FIN_KARLSKIRCHE, "mainz": FIN_MAINZ, "melk": FIN_MELK, "milan": FIN_MILAN, "moritzburg": FIN_MORITZBURG, "notre-dame": FIN_NOTRE_DAME, "pantheon": FIN_PANTHEON, "parliament": FIN_PARLIAMENT, "parthenon": FIN_PARTHENON, "sacre-coeur": FIN_SACRE_COEUR, "schwerin": FIN_SCHWERIN, "st-basil": FIN_ST_BASIL, "st-isaacs": FIN_ST_ISAACS, "st-pauls": FIN_ST_PAULS, "stephansdom": FIN_STEPHANSDOM, "sultan-qaboos": FIN_SULTAN_QABOOS, "taj-mahal": FIN_TAJ_MAHAL, "temple-of-heaven": FIN_TEMPLE_OF_HEAVEN, "ulm": FIN_ULM, "zwinger": FIN_ZWINGER };
+// a rule's tile: the pattern drawn once (patterns.js renderPattern) into a mipmapped, anisotropic texture -- shared by
+// every rule and every building that asks for the same pattern in the same colours
+const finishTiles = new Map();
+const finishKey = (r) => `${r.pattern}|${JSON.stringify(r.palette ?? null)}|${JSON.stringify(ruleParams(r))}|${r.res ?? ""}`;
+function finishTile(r) {
+  const key = finishKey(r);
+  let t = finishTiles.get(key);
+  // (pregenerated, if pregen/ has it: the same tile, drawn once by build/pregen.py -- else drawn here, as always)
+  const pk = pregenOn() ? tileKey(r.pattern, r.palette, ruleParams(r), r.res) : null;
+  if (pk && t) recordFor("tiles", pk, t.canvas);   // (the generator notes which buildings use a tile made for another)
+  if (!t) {
+    const cached = pk && PREGEN.tiles.get(pk), def = patternOf(r.pattern);
+    const tile = cached ? { canvas: cached, size: patternSize(def, ruleParams(r)), repeat: def.repeat !== false }
+                        : renderPattern(r.pattern, { palette: r.palette, params: ruleParams(r), res: r.res });
+    if (pk) recordFor("tiles", pk, tile.canvas);
+    if (pk && !cached) pregenMiss("tile", r.pattern, pk);
+    const tex = new THREE.CanvasTexture(tile.canvas);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.wrapS = tex.wrapT = tile.repeat ? THREE.RepeatWrapping : THREE.ClampToEdgeWrapping;
+    tex.minFilter = THREE.LinearMipmapLinearFilter; tex.anisotropy = 8; tex.generateMipmaps = true;
+    finishTiles.set(key, t = { tex, size: tile.size, canvas: tile.canvas });
+  }
+  return t;
+}
+export const finishRuleSize = (r) => patternSize(patternOf(r.pattern), ruleParams(r));
+// every tile a finish draws with, drawn now (build/pregen.py: a town's style bakes its whole range this way)
+export function finishTilesOf(finish) { for (const r of finish.rules) if (r.pattern) finishTile(r); }
+// THE FINISH MATERIAL: the tile read at the vertex's own pattern coordinates (`aUV`, metres; the tile is `period`
+// metres), lit and snowed on exactly as every other building material is (SHADE_K, SNOW_ON)
+const finishShade = wgslFn(`
+  fn finishShade(c: vec3<f32>, nW: vec3<f32>, pW: vec3<f32>, snow: f32) -> vec3<f32> {
+    let n = normalize(nW);
+    let k = ${SHADE_K};
+    return ${SNOW_ON("c * k")};
+  }
+`);
+const finishMats = new Map();
+function finishMaterial(r, side) {
+  const key = finishKey(r) + "|" + (r.scale ?? 1) + "|" + (side ?? "");
+  let mat = finishMats.get(key);
+  if (!mat) {
+    const { tex, size } = finishTile(r), k = r.scale ?? 1;
+    const q = attribute("aUV", "vec2").div(uniform(new THREE.Vector2(size[0] * k, size[1] * k))).add(.5);
+    mat = new THREE.MeshBasicNodeMaterial({ side: side === "double" ? THREE.DoubleSide : THREE.FrontSide });
+    mat.colorNode = finishShade({ c: texture(tex, q).rgb, nW: normalWorld, pW: positionWorld, snow: uniform(0).onRenderUpdate(() => SNOW.value) });
+    mat.userData.finish = key;
+    finishMats.set(key, mat);
+  }
+  return mat;
+}
+// the finished building: its pieces (arch/finish.js), one mesh per rule -- a pattern's in the finish material, a plain
+// stone's (and whatever no rule took: the building's `stone`) in the building material, coloured in its vertices;
+// the glass no rule took in the glass
+const hexOf = (c, d) => c === undefined ? d : typeof c === "number" ? c : parseInt(String(c).replace("#", ""), 16);
+function finishMeshes(asm, finish, { side, glassColor = 0x4d5f7a } = {}) {
+  // (the pieces pregenerated, if pregen/ has them for exactly this assembly and finish -- they are most of a
+  //  building's cost: every surface told inside from outside by rays)
+  const pk = pregenOn() ? groupsKey(asm, finish, finishRuleSize) : null;
+  const cached = pk && PREGEN.groups.get(pk);
+  const groups = cached ? cached.map((g) => ({ ...g, rule: g.rule >= 0 ? finish.rules[g.rule] : null }))
+                        : finishPieces(asm, finish, { sizeOf: finishRuleSize }).groups;
+  if (pk && !cached && PREGEN.record) recordFor("groups", pk, packGroups(groups, finish));
+  // (the generator notes every tile this building's rules draw with -- a material shared with a building made
+  //  earlier never asks for its tile again, and the game fetches a building's tiles by this list)
+  if (PREGEN.record) for (const g of groups) if (g.rule?.pattern) recordFor("tiles", tileKey(g.rule.pattern, g.rule.palette, ruleParams(g.rule), g.rule.res), null);
+  if (pk && !cached) pregenMiss("geometry", finish.building ?? "", pk);
+  const stone = finish.stone ?? {};
+  const out = new THREE.Group();
+  for (const g of groups) {
+    if (!g.pos.length) continue;
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(g.pos, 3));
+    geo.setAttribute("normal", new THREE.BufferAttribute(g.nor, 3));
+    let mat;
+    if (g.rule?.pattern) { geo.setAttribute("aUV", new THREE.BufferAttribute(g.uv, 2)); mat = finishMaterial(g.rule, side); }
+    else if (g.glass && !g.rule) { paintGeometry(geo, glassColor, glassColor); mat = glassMat; }
+    else {
+      const r = g.rule ?? stone;
+      paintGeometry(geo, hexOf(r.color, hexOf(stone.color, 0xd9cdb4)), hexOf(r.accent, hexOf(stone.accent, 0xc2b598)));
+      mat = archMaterial(side, r.pat ?? (g.rule ? undefined : stone.pat));
+    }
+    geo.computeBoundingSphere();
+    out.add(new THREE.Mesh(geo, mat));
+  }
+  return out;
+}
+
+// AN ITEM, DRAWN (items.js builds it: its triangles one set per material): one mesh per material, each in the finish
+// material of its pattern -- shared with every building and item drawn in the same pattern and colours, so the world's
+// merge joins them. (A material's `side` "double": thin things seen from both sides.)
+export function itemGeometry(g) {
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.BufferAttribute(g.pos, 3));
+  geo.setAttribute("normal", new THREE.BufferAttribute(g.nor, 3));
+  geo.setAttribute("aUV", new THREE.BufferAttribute(g.uv, 2));
+  geo.setIndex(new THREE.BufferAttribute(g.idx, 1));
+  geo.computeBoundingSphere();
+  return geo;
+}
+export const itemMaterial = (m) => finishMaterial({ pattern: m.pattern, palette: m.palette, scale: m.scale, params: m.params }, m.side);
+export function itemObject(built) {
+  const out = new THREE.Group();
+  out.name = built.name ?? "item";
+  for (const g of built.groups) out.add(new THREE.Mesh(itemGeometry(g), itemMaterial(g.material)));
+  return out;
+}
+// AN ITEM OUT OF THE CATALOGUE (assets/items), by path: as one group (itemGroup: a barge, a water wheel, a cart's body)
+// or as `count` instanced copies (itemInstanced: the freight's casks and sacks, the fleet's wheels) -- the same API the
+// parts-list helpers have (buildBuilding, buildInstanced: root, set(i, matrix), commit()), so a prop moves from code to
+// an asset without its user changing. `built` is the item as items.js made it (its params, its markers).
+export function itemGroup(path, { seed = 1, params = {}, materials = null } = {}) {
+  const built = itemOf({ path, seed, params, materials }), g = itemObject(built);
+  g.userData.built = built;
+  return g;
+}
+export function itemInstanced(path, count, { seed = 1, params = {}, materials = null } = {}) {
+  const built = itemOf({ path, seed, params, materials }), root = new THREE.Group(), meshes = [];
+  root.name = built.name ?? path;
+  for (const g of built.groups) {
+    const im = new THREE.InstancedMesh(itemGeometry(g), itemMaterial(g.material), count);
+    im.frustumCulled = false;   // copies roam the whole world
+    root.add(im); meshes.push(im);
+  }
+  return { root, built, set(i, mat) { for (const im of meshes) im.setMatrixAt(i, mat); }, commit() { for (const im of meshes) im.instanceMatrix.needsUpdate = true; } };
 }
 
 // wood with grain: door panels and shutters the demo hinges (patterns ride with the object anyway)
-export const woodMaterial = (color) => archMaterial(color, undefined, "wood");
+// wood with grain: the material is shared, the colour comes from the geometry (paintGeometry)
+export const woodMaterial = () => archMaterial(undefined, "wood");
+
+// A PLAIN STONE, for looking at a definition on its own: the world's own light-free shading (how bright a
+// face is says which way it points) with no pattern and nothing baked behind it. FLAT SHADING WITHOUT VERTEX
+// NORMALS -- architecture wants every face flat and every corner sharp, and the engine wants its vertices
+// WELDED, which pull against each other -- so the normal is taken per pixel from the derivatives of the world
+// position. The face is then exactly as flat as it is. (arch_lab.html and assets.html draw with it.)
+let plainCache = null;
+export function plainStone(base = [.80, .76, .66]) {
+  const fn = plainCache ?? (plainCache = wgslFn(`
+    fn plainStone(pw: vec3<f32>, eye: vec3<f32>, base: vec3<f32>) -> vec3<f32> {
+      var n = normalize(cross(dpdx(pw), dpdy(pw)));
+      if (dot(n, eye - pw) < 0.0) { n = -n; }
+      let k = ${lightWGSL("n")};
+      return base * k;
+    }
+  `));
+  const mat = new THREE.MeshBasicNodeMaterial({ side: THREE.DoubleSide, polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 });
+  mat.colorNode = fn({ pw: positionWorld, eye: cameraPosition, base: vec3(...base) });
+  return mat;
+}
+
+// what a part is painted with: its colour and its accent, per vertex, exactly the values the uniforms carried
+// (THREE.Color does the same sRGB -> linear conversion either way, so the shader sees the same numbers).
+// A DOOR'S PANEL, shaped to its doorway: straight up to `spring` over the floor, then the opening's own head (arch/profiles.js
+// archCurve -- flat, segmental, semicircular, pointed...), 3cm clear of the jambs and 2cm under the head, with iron strap
+// hinges and a knob on both faces. In the hinge's frame: x across the doorway from the hinge, y up from the floor, z
+// through the panel. A door without a head (the older buildings' `{ w, h }`) is flat, 12cm short of `h` as it always was.
+// One geometry per shape: the game draws every door of a shape in one instanced draw.
+const doorPanels = new Map();
+// AN OPENING'S OUTLINE AS A SLAB, `T` thick about z = 0: from the sill (x 0..w) up the jambs to the springing `top`
+// and over the head (archCurve, the opening's own) -- a door's panel, a window's pane or shutter, exactly its opening
+function openingSlab(w, top, head, T) {
+  const curve = archCurve(w / 2, head ?? { profile: "flat" }), shape = new THREE.Shape();
+  shape.moveTo(0, 0); shape.lineTo(w, 0);
+  for (let i = curve.length - 1; i >= 0; i--) shape.lineTo(w / 2 + curve[i][0], top + curve[i][1]);   // up one side, over the head, down the other
+  shape.lineTo(0, 0);
+  const g = new THREE.ExtrudeGeometry(shape, { depth: T, bevelEnabled: false, curveSegments: 4 });
+  g.translate(0, 0, -T / 2);
+  return g;
+}
+// a WINDOW's pane (glass) or shutter (wood) shaped to its opening when it has a head (an arched window: the pane
+// fills the arch too); one geometry per shape, shared by every window of it
+const windowPanes = new Map();
+export function windowPane({ w, h, spring, head }, wood = false) {
+  const sp = spring ?? h, key = `${w.toFixed(3)}|${sp.toFixed(3)}|${JSON.stringify(head)}|${wood}`;
+  if (!windowPanes.has(key)) {
+    const g = openingSlab(w, sp, head, .06);
+    windowPanes.set(key, wood ? paintGeometry(g, 0x6e4c2e) : g);
+  }
+  return windowPanes.get(key);
+}
+export function doorPanel({ w, h, spring, head }) {
+  const hd = head ?? { profile: "flat" }, sp = head ? spring ?? h : h - .12;
+  const key = `${w.toFixed(3)}|${sp.toFixed(3)}|${JSON.stringify(hd)}`;
+  if (doorPanels.has(key)) return doorPanels.get(key);
+  const c = 0, top = sp, T = .07, iron = 0x2b2926;   // (the panel IS the opening: jambs, head and sill, no gap round it)
+  const panel = openingSlab(w, top, hd, T);
+  const parts = [paintGeometry(panel, 0x5a3c22)];
+  for (const y of [.3, Math.max(.6, top - .35)]) for (const zs of [-1, 1]) {   // the strap hinges, out from the hinge side
+    const g = new THREE.BoxGeometry(w * .72, .05, .012); g.translate(c + w * .36, y, zs * (T / 2 + .006)); parts.push(paintGeometry(g, iron, iron));
+  }
+  const kx = w - c - .12, ky = Math.min(1.0, top - .25);                        // the knob on the latch side, through the panel
+  const spindle = new THREE.CylinderGeometry(.012, .012, T + .1, 6); spindle.rotateX(Math.PI / 2); spindle.translate(kx, ky, 0);
+  parts.push(paintGeometry(spindle, iron, iron));
+  for (const zs of [-1, 1]) { const k = new THREE.SphereGeometry(.035, 8, 6); k.translate(kx, ky, zs * (T / 2 + .05)); parts.push(paintGeometry(k, iron, iron)); }
+  const flat = parts.map((g) => (g.index ? g.toNonIndexed() : g)), geo = new THREE.BufferGeometry();
+  for (const name of ["position", "normal", "uv", "aC", "aC2"]) {
+    const size = flat[0].attributes[name].itemSize, arr = new Float32Array(flat.reduce((n, g) => n + g.attributes[name].count * size, 0));
+    let o = 0; for (const g of flat) { arr.set(g.attributes[name].array, o); o += g.attributes[name].array.length; }
+    geo.setAttribute(name, new THREE.BufferAttribute(arr, size));
+  }
+  doorPanels.set(key, geo);
+  return geo;
+}
+export function paintGeometry(geo, color, accent) {
+  const n = geo.attributes.position.count;
+  const c = new THREE.Color(color), a = new THREE.Color(accent ?? 0xffffff);
+  const cs = new Float32Array(n * 3), as = new Float32Array(n * 3);
+  for (let i = 0; i < n; i++) {
+    cs[i * 3] = c.r; cs[i * 3 + 1] = c.g; cs[i * 3 + 2] = c.b;
+    as[i * 3] = a.r; as[i * 3 + 1] = a.g; as[i * 3 + 2] = a.b;
+  }
+  geo.setAttribute("aC", new THREE.BufferAttribute(cs, 3));
+  geo.setAttribute("aC2", new THREE.BufferAttribute(as, 3));
+  return geo;
+}
 
 // ---- primitives -----------------------------------------------------------
 
@@ -325,7 +756,10 @@ function geoFor(shape, size, inflate = 0) {
   if (geoCache.has(key)) return geoCache.get(key);
   let g;
   if (shape === "box") g = new THREE.BoxGeometry(size[0] + 2 * inflate, size[1] + 2 * inflate, size[2] + 2 * inflate);
-  else if (shape === "cyl") g = new THREE.CylinderGeometry(size.r1 + inflate, size.r2 + inflate, size.h + 2 * inflate, size.seg ?? 10, 1, !!size.open);
+  // `a0`/`span` (radians, a0 measured from +z the way a yaw is) make it an ARC of a cylinder rather than the
+  // whole round: the marble course round a cathedral's tribune, which is five bays of a ten-bay ring and not a
+  // ring at all -- drawn full, the other half of it hangs in the air beside the building.
+  else if (shape === "cyl") g = new THREE.CylinderGeometry(size.r1 + inflate, size.r2 + inflate, size.h + 2 * inflate, size.seg ?? 10, 1, !!size.open, size.a0 ?? 0, size.span ?? Math.PI * 2);
   else if (shape === "sphere") g = new THREE.SphereGeometry(size.r + inflate, 10, 8);
   else if (shape === "capsule") g = new THREE.CapsuleGeometry(size.r + inflate, size.len, 3, 8);   // { r, len }: len = the straight middle, as in the species rigs
   else if (shape === "panel") g = new THREE.PlaneGeometry(size[0] + 2 * inflate, size[1] + 2 * inflate);   // [w, h]: a flat sheet facing +-z, no thickness (a cut-out crop row: no edge faces)
@@ -381,100 +815,344 @@ function geoFor(shape, size, inflate = 0) {
   return g;
 }
 
+// ---- the COMPONENT engine, in the village ------------------------------------------------------------------
+// arch/ builds a building the way it is actually composed -- an opening's profile, a wall face, a bay, a ring
+// of bays, a storey -- and its triangles are exact: welded, closed, no T-junctions, and a ring of bays that
+// meets itself when it comes round. The definitions are JSON (assets/architecture) and the lab that shows them is
+// arch_lab.html.
+//   Here the parts and their instances are baked into ONE flat-shaded mesh in the village's own stone, because
+// the village draws a static building as a single mesh and merges it with its neighbours. Flat normals come
+// from the triangles themselves (the engine welds its vertices, which is what makes the pieces MEET, so there
+// are no per-corner normals to average and none are wanted: architecture is flat faces and sharp arrises).
+const ARCH_DOCS = { arena: ARENA_DOC, basilica: BASILICA_DOC, florence: FLORENCE_DOC, "pantheon": PANTHEON_DOC, "parthenon": PARTHENON_DOC, "hephaestus": HEPHAESTUS_DOC, "taj-mahal": TAJ_DOC, "st-basil": STBASIL_DOC, "frauenkirche": FRAUENKIRCHE_DOC, "zwinger": ZWINGER_DOC, "notre-dame": NOTREDAME_DOC, "milan": MILAN_DOC, "cologne": COLOGNE_DOC, "dendera": DENDERA_DOC, "giza": GIZA_DOC, "didyma": DIDYMA_DOC, "windmill": WINDMILL_DOC, "hagia-sophia": HAGIA_DOC, "melk": MELK_DOC, "schwerin": SCHWERIN_DOC, "karlskirche": KARLSKIRCHE_DOC, "chichen-itza": CHICHEN_DOC, "sacre-coeur": SACRE_DOC, "stephansdom": STEPHAN_DOC, "st-pauls": STPAULS_DOC, "parliament": PARLIAMENT_DOC, "st-isaacs": STISAACS_DOC, "berliner-dom": BERLINERDOM_DOC, "moritzburg": MORITZBURG_DOC, "fishermans-bastion": FISHERMANS_DOC, "mainz": MAINZ_DOC, "el-pilar": EL_PILAR_DOC, "sultan-qaboos": SULTAN_QABOOS_DOC, "ulm": ULM_DOC, "blue-mosque": BLUE_MOSQUE_DOC, "temple-of-heaven": TEMPLE_OF_HEAVEN_DOC,
+                    "village/church": V_CHURCH, "village/eaves-house": V_EAVES_HOUSE, "village/gable-house": V_GABLE_HOUSE, "village/gatehouse": V_GATEHOUSE, "village/jettied-house": V_JETTIED_HOUSE, "village/longhouse": V_LONGHOUSE, "village/stone-house": V_STONE_HOUSE, "village/wall": V_WALL, "village/wall-tower": V_WALL_TOWER };
+// the COMPONENTS those buildings use (a definition `use`d by another: Florence's tribune morte are `iwan`s, the
+// Taj Mahal's minarets carry `chhatri`s, Notre-Dame's nave is the `basilica`)
+registerDocs({ "components/chhatri": C_CHHATRI, "components/minaret": C_MINARET, "components/iwan": IWAN_DOC, "components/domed-tower": C_DOMED_TOWER, "components/gallery": C_GALLERY, "components/curved-gallery": C_CURVED_GALLERY, "components/pavilion": C_PAVILION, "components/pinnacle": C_PINNACLE, "components/flying-buttress": C_FLYING_BUTTRESS, "components/bridge": C_BRIDGE, "components/palace-wing": C_PALACE_WING, "components/tower-stair": C_TOWER_STAIR, "components/drum-dome": C_DRUM_DOME, "components/portico": C_PORTICO, "components/apse": C_APSE, "components/round-stair-tower": C_ROUND_STAIR_TOWER, "components/baroque-tower": C_BAROQUE_TOWER, "components/arcade-walk": C_ARCADE_WALK, "components/crenellation": C_CRENELLATION, "components/omani-minaret": C_OMANI_MINARET, "components/portal": C_PORTAL, "components/gothic-tower-stage": C_GOTHIC_TOWER_STAGE, "components/gothic-octagon-stage": C_GOTHIC_OCTAGON_STAGE, "components/gothic-spire": C_GOTHIC_SPIRE, "components/dome-cascade": C_DOME_CASCADE, "components/domed-arcade": C_DOMED_ARCADE, "components/riwaq": C_RIWAQ, "components/ottoman-minaret": C_OTTOMAN_MINARET, "components/dougong": C_DOUGONG, "components/chinese-hall": C_CHINESE_HALL, "components/palace-wall": C_PALACE_WALL, basilica: BASILICA_DOC,
+             "furniture/altar": F_ALTAR, "furniture/bakery": F_BAKERY, "furniture/barrels": F_BARRELS, "furniture/bed": F_BED, "furniture/butcher": F_BUTCHER, "furniture/carpenter": F_CARPENTER, "furniture/chest": F_CHEST, "furniture/cooper": F_COOPER, "furniture/hearth": F_HEARTH, "furniture/pew": F_PEW, "furniture/pottery": F_POTTERY, "furniture/smithy": F_SMITHY, "furniture/table": F_TABLE, "furniture/tailor": F_TAILOR, "furniture/tavern-room": F_TAVERN_ROOM, "furniture/weaver": F_WEAVER, "village/church": V_CHURCH, "village/eaves-house": V_EAVES_HOUSE, "village/gable-house": V_GABLE_HOUSE, "village/gatehouse": V_GATEHOUSE, "village/jettied-house": V_JETTIED_HOUSE, "village/longhouse": V_LONGHOUSE, "village/stone-house": V_STONE_HOUSE, "village/wall": V_WALL, "village/wall-tower": V_WALL_TOWER,
+             "village/pig-yard": V_PIG_YARD, "village/bridge": V_BRIDGE, "village/market": V_MARKET, "village/apiary": V_APIARY, "village/hen-yard": V_HEN_YARD, "village/stable-yard": V_STABLE_YARD, "components/fence": C_FENCE, "components/gate": C_GATE, "components/pigsty": C_PIGSTY, "components/hen-house": C_HEN_HOUSE, "components/stable": C_STABLE });
+// (and every ITEM in the catalogue -- a building's `item` parts, its chairs and beds, by the same paths the asset viewer
+//  shows them under: items/furniture/...)
+registerDocs(Object.fromEntries([...ASSETS].filter(([k]) => k.startsWith("items/"))));
+// (and every other definition the catalogue lists -- the village's fountain, fields, mill, landing and fisherman's hut,
+//  Caerphilly, Versailles -- straight from it, with the finish each names as its building's: no import list to keep in
+//  step with the index)
+registerDocs(Object.fromEntries([...ASSETS].filter(([k]) => k.startsWith("architecture/") && !docOf(k.slice(13))).map(([k, v]) => [k.slice(13), v])));
+for (const [k, v] of ASSETS) if (k.startsWith("finishes/") && v.building?.startsWith("architecture/")) FINISHES[v.building.slice(13)] ??= v;
+const archCacheAsm = new Map();
+// `yaw` (degrees, among the params): the whole building TURNED about its origin -- a house facing its street. The
+// assembly itself is turned (every instance of every part), so its mesh, its floors and walls, its finish and its
+// markers all come out turned alike, and nothing downstream has to know.
+export function archAssembly(name, params = {}, build = null) {
+  const { yaw = 0, ...own } = params;
+  if (typeof name !== "string") return turnAssembly(assemble(name, build ? { ...own, build } : own), yaw);   // a document itself (the asset viewer's, edited and not yet saved)
+  const key = name + "|" + JSON.stringify(params) + "|" + (build ?? []).join(",");
+  if (!archCacheAsm.has(key)) {
+    const doc = ARCH_DOCS[name] ?? docOf(name);          // (a building, or a component the library holds)
+    if (!doc) throw new Error(`architecture: no component definition "${name}"`);
+    archCacheAsm.set(key, turnAssembly(assemble(doc, build ? { ...own, build } : own), yaw));
+  }
+  return archCacheAsm.get(key);
+}
+function turnAssembly(asm, deg) {
+  if (!deg) return asm;
+  const Y = deg * Math.PI / 180, c = Math.cos(Y), s = Math.sin(Y);
+  return { ...asm, yaw: deg, parts: asm.parts.map((p) => ({ ...p, instances: p.instances.map(([a, x, y, z]) => [a + Y, x * c + z * s, y, -x * s + z * c]) })) };
+}
+// A BUILDING'S LIFE, read from its MARKERS (arch/assemble.js `marker`): where its beds, doors, windows, seats, fires and
+// work places are, in the site's frame (offset by -cx, -cz), each turned with whatever placed it. The shapes are the
+// ones the village's hand-built houses always exported, so everything that reads them -- the villagers' day, the
+// door panels and shutters, the seats, the fires, the guards -- takes an arch building as it took those.
+//   a marker's `face` is a heading in the building's frame (radians, the figures' convention: 0 faces +x, pi/2 -z)
+export function lifeOf(asm, cx, cz) {   // (exported: the asset viewer reads a building's statues by it, as the game does)
+  const L = { beds: [], doors: [], windows: [], folkSpots: [], seats: [], fires: [], guards: [], up: [], pen: null, blocks: [], vessels: [], statues: [],
+              dishes: [], flows: [], cobwebs: [], plants: [], crops: [], quaySlots: [], way: [], boatDock: null, wheelAt: null, wheel: null, drop: null, bargeZ: null,
+              lifts: [], paintings: [], mirrors: [], spins: [] };
+  for (const p of asm.parts) {
+    if (p.kind !== "marker") continue;
+    const d0 = p.data ?? {};
+    for (const [i, [a, X, Y, Z]] of p.instances.entries()) {
+      const d = Object.fromEntries(Object.entries(d0).map(([k, v]) => [k, Array.isArray(v) && p.instances.length > 1 ? v[i] : v]));   // (a value a placement: a `block` marker's w and d per rect)
+      const x = X - cx, z = Z - cz, deg = a * 180 / Math.PI, fwd = [Math.sin(a), Math.cos(a)];   // (local +z, turned)
+      if (p.role === "bed") {   // its frame's centre; its foot `foot` metres along its own +z, the mattress `top` over it
+        const f = d.foot ?? 1.1;
+        L.beds.push({ x, y: Y + (d.top ?? .5), z, foot: [x + fwd[0] * f, z + fwd[1] * f], storey: d.storey ?? 0, yaw: a });
+      } else if (p.role === "door" || p.role === "window") {   // the opening's middle; its width runs along the marker's +x
+        (p.role === "door" ? L.doors : L.windows).push({ x, y: Y + (p.role === "window" ? (d.h ?? 1) / 2 : 0), z, w: d.w ?? 1, h: d.h ?? 2, yaw: -deg,
+                                                         ...(d.panel === 0 ? { panel: false } : {}),   // (panel 0: a doorway without a door)
+                                                         ...(d.head ? { head: { per90: asm.params?.detail ?? 4, ...d.head }, spring: d.spring ?? d.h } : {}) });   // (its opening's shape, at the building's own detail -- the panel's arch has as many facets as the doorway's: doorPanel)
+      } else if (p.role === "spot") {
+        L.folkSpots.push({ x, y: Y, z, h: (d.face ?? 0) + a, pose: d.pose ?? "stand", ...(d.work ? { role: "work" } : {}),
+                           ...(d.gesture ? { gesture: d.gesture } : {}), ...(d.tool ? { tool: d.tool } : {}), ...(d.bard ? { bard: true } : {}), ...(d.crew ? { crew: d.crew } : {}) });   // (crew: a place the building's own people keep -- a mine's miners -- not the villagers')
+      } else if (p.role === "seat" || p.role === "lie") {   // a box to sit or lie on: `w` by `d`, its top `top` over the marker
+        const turned = Math.abs(Math.sin(a)) > .7, hw = (d.w ?? .5) / 2, hd = (d.d ?? .5) / 2;
+        L.seats.push({ x, z, hx: turned ? hd : hw, hz: turned ? hw : hd, top: Y + (d.top ?? .45), lie: p.role === "lie" });
+      } else if (p.role === "fire") L.fires.push({ x, y: Y, z, r: d.r ?? .25, h: d.h ?? .5, ...(d.candle ? { candle: true } : {}), ...(d.flicker !== undefined ? { flicker: d.flicker } : {}) });   // (a candle's flame: one small calm cone, no sound; `flicker` how wild)
+      else if (p.role === "guard") L.guards.push({ x, z, h: (d.face ?? 0) + a, arms: d.arms ?? [] });
+      // a STATUE (statues.js): a figure carved -- its pose, dress, what it holds, its stone, its size -- standing at
+      // the marker facing `face` (on whatever pedestal the definition built under it)
+      else if (p.role === "statue") L.statues.push({ x, y: Y, z, h: (d.face ?? 0) + a, kind: d.kind ?? "man", pose: d.pose ?? "stand", style: d.style ?? null,
+                                                    outfit: d.outfit ?? null, hold: d.hold ?? null, stone: d.stone ?? "marble", scale: d.scale ?? 1, seed: d.seed ?? 1, gesture: d.gesture ?? null });
+      else if (p.role === "way") L.up.push({ order: d.order ?? 0, storey: d.storey ?? 0, at: [x, z] });   // the route up the stairs
+      // a farmyard's stock: its `pen` (the range, w by d about the marker, of a `kind`), the `block` rects it keeps out of, its `trough`
+      else if (p.role === "pen") L.pen = { x0: x - (d.w ?? 10) / 2, x1: x + (d.w ?? 10) / 2, z0: z - (d.d ?? 10) / 2, z1: z + (d.d ?? 10) / 2, kind: d.kind ?? "pigs" };
+      else if (p.role === "block") L.blocks.push({ x0: x - (d.w ?? 1) / 2, x1: x + (d.w ?? 1) / 2, z0: z - (d.d ?? 1) / 2, z1: z + (d.d ?? 1) / 2 });
+      else if (p.role === "trough") L.vessels.push({ kind: "trough", x, y: Y, z, fill: d.fill ?? .6, drink: d.drink ?? "water" });
+      // the rest of a site's life (2026-10-02: what the fountain, the fisherman's hut, the mill, the landing, the fields
+      // and the orchards handed the game as code): a VESSEL to drink from (tableware.js), a DISH of food, running water
+      // (`flow`: a falling jet or a rippling pool), a COBWEB in a corner, a PLANT (a fruit tree, a bush: flora grows
+      // it), a CROP (its rows painted on the field: cropPanels), the quay's SLOTS and the hands' PATH (in `i` order),
+      // the boat's DOCK, the mill wheel's ROTOR (its axle; the wheel's numbers), the sacks' DROP, the barge's BERTH
+      else if (p.role === "vessel") L.vessels.push({ kind: d.kind ?? "mug", x, y: Y, z, fill: d.fill ?? .9, drink: d.drink ?? "ale", ...(a ? { yaw: deg } : {}) });
+      else if (p.role === "dish") L.dishes.push({ food: d.food ?? "bread", x, y: Y, z });
+      else if (p.role === "flow") L.flows.push({ kind: d.kind ?? "pool", x, y: Y, z, r: d.r ?? .5, ...(d.h !== undefined ? { h: d.h } : {}), ...(d.seg ? { seg: d.seg } : {}) });
+      else if (p.role === "cobweb") L.cobwebs.push({ x, y: Y, z, sx: d.sx ?? 1, sz: d.sz ?? 1, d: d.d ?? .5 });
+      else if (p.role === "plant") L.plants.push({ kind: d.kind ?? "tree", ...(d.species ? { species: d.species } : {}), ...(d.fruit ? { fruit: d.fruit } : {}),
+                                                    x, z, seed: d.seed ?? 1, height: d.height ?? 4, rotY: d.rotY ?? a });
+      else if (p.role === "crop") L.crops.push({ crop: d.crop ?? "rye", x, z, w: d.w ?? 10, d: d.d ?? 8, yaw: a });
+      else if (p.role === "slot") L.quaySlots.push([x, Y, z]);
+      else if (p.role === "path") L.way[d.i ?? L.way.length] = [x, Y, z];
+      else if (p.role === "dock") L.boatDock = [x, Y, z];
+      else if (p.role === "rotor") { L.wheelAt = [x, Y, z]; L.wheel = { r: d.r ?? 3, w: d.w ?? 1.2, axleBack: d.axleBack ?? 5, axleFwd: d.axleFwd ?? .95 }; }
+      else if (p.role === "drop") L.drop = { x, z };
+      else if (p.role === "berth") L.bargeZ = z;
+      // a LIFT (a stair's shortcut: the castle's walk onto a tower deck) from the marker to its top `dx`, `dy`, `dz` away
+      // (in the marker's frame); a PAINTING's canvas or a MIRROR's glass, `w` by `h`, facing the marker's +z -- a
+      // mirror reflects only within its `room` ([x0, x1, y0, y1, z0, z1] in the building's frame: mirrors.js)
+      // a SPIN: a piece of millwork (an item: a gear, a shaft, a runner stone) turned by the game about its own `axis`
+      // (x, y or z of the marker's frame) `ratio` times as fast as the building's drive -- its water wheel, its sails
+      else if (p.role === "spin") L.spins.push({ x, y: Y, z, yaw: a, item: d.item, params: d0.params ?? {}, axis: d.axis ?? "y", ratio: d.ratio ?? 1 });
+      else if (p.role === "lift") {
+        const dx = d.dx ?? 0, dz = d.dz ?? 0, c = Math.cos(a), s = Math.sin(a);
+        L.lifts.push({ bx: x, bz: z, by: Y, tx: x + dx * c + dz * s, tz: z - dx * s + dz * c, ty: Y + (d.dy ?? 0) });
+      } else if (p.role === "painting" || p.role === "mirror") {
+        const n = [Math.sin(a), 0, Math.cos(a)].map((v) => (Math.abs(v) < 1e-6 ? 0 : v));
+        const rm = Array.isArray(d.room?.[0]) ? d.room[0] : d.room;   // (a room per placement: one placement's list is still a list)
+        (p.role === "mirror" ? L.mirrors : L.paintings).push({ x, y: Y, z, w: d.w ?? 1, h: d.h ?? 1, n,
+          ...(rm ? { room: [rm[0] - cx, rm[1] - cx, rm[2], rm[3], rm[4] - cz, rm[5] - cz] } : {}) });
+      }
+    }
+  }
+  L.up.sort((u, v) => u.order - v.order);
+  return L;
+}
+// `glass: true` makes the building's GLASS instead -- its windows' panes (the definition's "... glass" parts) in the
+// shared window material; the stone mesh leaves them out. null when it has none.
+export function archMesh(name, { params = {}, build = null, color = 0xd9cdb4, accent = 0xc2b598, pat = "ashlar", side,
+                          colors = null, glass = false, glassColor = 0x4d5f7a, floor = null, finish = null } = {}) {
+  const asm0 = archAssembly(name, params, build);
+  // A FINISHED building is every surface as its rules say, glass and all, in one call (the glass variant is empty)
+  if (finish) return glass ? null : withItems(finishMeshes(asm0, finish, { side, glassColor }), asm0);
+  const asm = { ...asm0, parts: asm0.parts.filter((p) => (p.kind === "glass") === glass && p.kind !== "item") };
+  if (glass) {
+    if (!asm.parts.length) return null;
+    colors = { "kind:glass": { color: glassColor, accent: glassColor } };
+  }
+  // A PART MAY HAVE ITS OWN STONE (`colors`, by part name, a component's part by its own name, or by kind) -- and
+  // its own PATTERN (`pat` in its colour entry: St Basil's onions are striped, chequered, starred): the parts are
+  // grouped by pattern, one mesh each, and within a mesh the colours ride in the vertices.
+  // a part's colours: by its name, its name less a trailing number (the pieces of one floor: "aisle roof 3"), its
+  // own name inside a component ("cap"), the component's name ("minarets"), then its kind
+  const ownOf = (p) => colors ? partNames(p).map((k) => colors[k]).find((v) => v !== undefined) ?? null : null;
+  // THE FLOORS ARE FLOORS: with `floor` ({ pat, color, accent }) every flat, up-facing triangle of the stone -- a
+  // floor, a landing, a tread, a terrace, the platform -- is baked apart, in the floor's pattern and colours, so a
+  // building's floors are tiled or paved rather than the colour of its walls (roofs, domes and vaults keep theirs)
+  const isFloor = floor && !glass ? (n, p) => n.y > .9 && !FLOORLESS.has(p.kind) : () => false;
+  const groups = new Map();
+  for (const p of asm.parts) { const k = ownOf(p)?.pat ?? pat; if (!groups.has(k)) groups.set(k, []); groups.get(k).push(p); }
+  const meshes = [...groups].map(([gpat, parts]) => bakeArch(parts, { color, accent, colors, ownOf, material: glass ? glassMat : archMaterial(side, gpat),
+                                                                      keep: (n, p) => !isFloor(n, p) }));
+  if (floor && !glass) meshes.push(bakeArch(asm.parts, { color: floor.color ?? 0xcfc6b4, accent: floor.accent ?? 0x9d937f, colors: null, ownOf,
+                                                         material: archMaterial(side, floor.pat ?? "checker"), keep: isFloor }));
+  if (!glass) meshes.push(...itemMeshes(asm0));
+  if (meshes.length === 1) return meshes[0];
+  const g = new THREE.Group();
+  for (const m of meshes) g.add(m);
+  return g;
+}
+const FLOORLESS = new Set(["roof", "dome", "vault", "ribs", "pendentives", "glass"]);   // (their tops are roofs, not floors)
+// THE ITEMS a building is furnished with (arch/assemble.js `item` parts: its chairs, tables, beds, chests), drawn in their
+// own materials -- every copy of every item merged into one mesh per material (a room's oak, its linen, its iron), in
+// the building's frame like the stone round them
+function itemMeshes(asm) {
+  const by = new Map();
+  for (const p of asm.parts) {
+    if (p.kind !== "item") continue;
+    const it = itemOf(p.item);
+    for (const [a, X, Y, Z] of p.instances) for (const g of it.groups) {
+      let o = by.get(g.material.key);
+      if (!o) by.set(g.material.key, o = { material: g.material, copies: [], verts: 0, idx: 0 });
+      o.copies.push([g, Math.cos(a), Math.sin(a), X, Y, Z]); o.verts += g.pos.length / 3; o.idx += g.idx.length;
+    }
+  }
+  return [...by.values()].map((o) => {
+    const pos = new Float32Array(o.verts * 3), nor = new Float32Array(o.verts * 3), uv = new Float32Array(o.verts * 2);
+    const idx = new (o.verts > 65535 ? Uint32Array : Uint16Array)(o.idx);
+    let v = 0, t = 0;
+    for (const [g, c, sn, X, Y, Z] of o.copies) {
+      const n = g.pos.length / 3;
+      for (let i = 0; i < n; i++) {
+        const k = (v + i) * 3, x = g.pos[i * 3], y = g.pos[i * 3 + 1], z = g.pos[i * 3 + 2], nx = g.nor[i * 3], nz = g.nor[i * 3 + 2];
+        pos[k] = x * c + z * sn + X; pos[k + 1] = y + Y; pos[k + 2] = -x * sn + z * c + Z;
+        nor[k] = nx * c + nz * sn; nor[k + 1] = g.nor[i * 3 + 1]; nor[k + 2] = -nx * sn + nz * c;
+      }
+      uv.set(g.uv, v * 2);
+      for (let k = 0; k < g.idx.length; k++) idx[t + k] = g.idx[k] + v;
+      v += n; t += g.idx.length;
+    }
+    const m = new THREE.Mesh(itemGeometry({ pos, nor, uv, idx }), itemMaterial(o.material));
+    m.name = "items";
+    return m;
+  });
+}
+// a finished building's group, with its furniture in it
+function withItems(group, asm) {
+  for (const m of itemMeshes(asm)) group.add(m);
+  return group;
+}
+// the parts, instanced, flat-shaded, into one mesh -- the triangles `keep` (by world normal and part) keeps
+function bakeArch(parts, { color, accent, colors, ownOf, material, keep = () => true }) {
+  // (a first pass to count what is kept: the arrays are sized once)
+  const A0 = new THREE.Vector3(), B0 = new THREE.Vector3(), C0 = new THREE.Vector3(), U0 = new THREE.Vector3(), V0 = new THREE.Vector3(), N0 = new THREE.Vector3();
+  let tris = 0;
+  for (const p of parts) {
+    const P = p.geometry.position, I = p.geometry.index;
+    for (const inst of p.instances) {
+      const ca = Math.cos(inst[0]), sa = Math.sin(inst[0]);
+      const put = (j, out) => out.set(P[j * 3] * ca + P[j * 3 + 2] * sa, P[j * 3 + 1], -P[j * 3] * sa + P[j * 3 + 2] * ca);
+      for (let k = 0; k < I.length; k += 3) {
+        put(I[k], A0); put(I[k + 1], B0); put(I[k + 2], C0);
+        N0.copy(U0.subVectors(B0, A0)).cross(V0.subVectors(C0, A0));
+        if (N0.lengthSq() > 1e-18) N0.normalize(); else N0.set(0, 1, 0);
+        if (keep(N0, p)) tris++;
+      }
+    }
+  }
+  const pos = new Float32Array(tris * 9), nor = new Float32Array(tris * 9);
+  const col = colors ? new Float32Array(tris * 9) : null;
+  const acc = colors ? new Float32Array(tris * 9) : null;
+  const _c = new THREE.Color(color), _a = new THREE.Color(accent);
+  let o = 0;
+  const ax = new THREE.Vector3(), bx = new THREE.Vector3(), cx = new THREE.Vector3(), u = new THREE.Vector3(), v = new THREE.Vector3(), nn = new THREE.Vector3();
+  for (const p of parts) {
+    const P = p.geometry.position, I = p.geometry.index;
+    if (col) {
+      const own = ownOf(p);
+      _c.set(own?.color ?? own ?? color); _a.set(own?.accent ?? accent);
+    }
+    for (const inst of p.instances) {
+      const ca = Math.cos(inst[0]), sa = Math.sin(inst[0]);
+      const put = (j, out) => out.set(P[j * 3] * ca + P[j * 3 + 2] * sa + inst[1], P[j * 3 + 1] + inst[2],
+                                      -P[j * 3] * sa + P[j * 3 + 2] * ca + inst[3]);
+      for (let k = 0; k < I.length; k += 3) {
+        put(I[k], ax); put(I[k + 1], bx); put(I[k + 2], cx);
+        nn.copy(u.subVectors(bx, ax)).cross(v.subVectors(cx, ax));
+        if (nn.lengthSq() > 1e-18) nn.normalize(); else nn.set(0, 1, 0);
+        if (!keep(nn, p)) continue;
+        for (const q of [ax, bx, cx]) {
+          pos[o] = q.x; pos[o + 1] = q.y; pos[o + 2] = q.z;
+          nor[o] = nn.x; nor[o + 1] = nn.y; nor[o + 2] = nn.z;
+          if (col) { col[o] = _c.r; col[o + 1] = _c.g; col[o + 2] = _c.b; acc[o] = _a.r; acc[o + 1] = _a.g; acc[o + 2] = _a.b; }
+          o += 3;
+        }
+      }
+    }
+  }
+  const geo = new THREE.BufferGeometry();
+  geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+  geo.setAttribute("normal", new THREE.BufferAttribute(nor, 3));
+  if (col) {
+    geo.setAttribute("aC", new THREE.BufferAttribute(col, 3));
+    geo.setAttribute("aC2", new THREE.BufferAttribute(acc, 3));
+  } else paintGeometry(geo, color, accent);
+  geo.computeBoundingSphere();
+  return new THREE.Mesh(geo, material);
+}
+
 export function buildBuilding(def) {
   const root = new THREE.Group();
   root.name = def.name;
-  const outlineMat = hullMat;
-  const glassMats = new Map();
-  const glassFor = (c) => {
-    if (!glassMats.has(c)) glassMats.set(c, new THREE.MeshBasicMaterial({ color: c, transparent: true, opacity: .38,
-                                                                          depthWrite: false, side: THREE.DoubleSide }));
-    return glassMats.get(c);
-  };
+
   // stained glass: a diamond lattice in the building's own frame (as every
   // pattern, see archMaterial), each cell hash-picking a color from the
   // classic palette, with near-opaque lead lines between
-  const stainedMat = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false, side: THREE.DoubleSide,
-    vertexShader: /* glsl */ `
-      varying vec3 vW, vN;
-      void main() {
-        vW = position;
-        vN = normal;
-        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-      }`,
-    fragmentShader: /* glsl */ `
-      varying vec3 vW, vN;
-      void main() {
-        float u = abs(vN.x) > abs(vN.z) ? vW.z : vW.x;
-        vec2 q = vec2(u + vW.y, u - vW.y) / .62;
-        float h = fract(sin(dot(floor(q), vec2(127.1, 311.7))) * 43758.5);
-        vec3 col = h < .3 ? vec3(.14, .24, .55) : h < .5 ? vec3(.55, .12, .15)
-                 : h < .68 ? vec3(.72, .55, .16) : h < .86 ? vec3(.16, .4, .24) : vec3(.38, .2, .5);
-        vec2 f = abs(fract(q) - .5);
-        float lead = step(.43, max(f.x, f.y));
-        col = mix(col, vec3(.07, .06, .05), lead);
-        gl_FragColor = vec4(col, mix(.55, .92, lead));
-        #include <colorspace_fragment>
-      }`,
-  });
+  const stainedGlass = wgslFn(`
+    fn stainedGlass(pL: vec3<f32>, nL: vec3<f32>) -> vec4<f32> {
+      let u = select(pL.x, pL.z, abs(nL.x) > abs(nL.z));
+      let q = vec2<f32>(u + pL.y, u - pL.y) / 0.62;
+      let h = fract(sin(dot(floor(q), vec2<f32>(127.1, 311.7))) * 43758.5);
+      var col = vec3<f32>(0.38, 0.2, 0.5);
+      if (h < 0.3) { col = vec3<f32>(0.14, 0.24, 0.55); }
+      else if (h < 0.5) { col = vec3<f32>(0.55, 0.12, 0.15); }
+      else if (h < 0.68) { col = vec3<f32>(0.72, 0.55, 0.16); }
+      else if (h < 0.86) { col = vec3<f32>(0.16, 0.4, 0.24); }
+      let f = abs(fract(q) - 0.5);
+      let lead = step(0.43, max(f.x, f.y));
+      return vec4<f32>(mix(col, vec3<f32>(0.07, 0.06, 0.05), lead), mix(0.55, 0.92, lead));
+    }
+  `);
+  const stained = stainedGlass({ pL: positionGeometry, nL: attribute("normal", "vec3") });
+  const stainedMat = new THREE.MeshBasicNodeMaterial({ transparent: true, depthWrite: false, side: THREE.DoubleSide });
+  stainedMat.colorNode = stained.xyz;
+  stainedMat.opacityNode = stained.w;
+
   // MERGED static geometry: a building never moves, so every part sharing a
   // material collapses into ONE BufferGeometry/draw call (a cathedral goes
-  // from ~1000 draws to ~40), and every outline hull merges into a single
-  // draw. World-space patterns and orientation shading read baked positions
-  // and normals identically, so nothing changes visually.
+  // from ~1000 draws to a handful). World-space patterns and orientation
+  // shading read baked positions and normals identically, so nothing changes
+  // visually.
   const buckets = new Map();   // material -> [transformed geometries]
   const fillMats = new Map();
   const _m4 = new THREE.Matrix4(), _q = new THREE.Quaternion(), _e2 = new THREE.Euler(),
         _vp = new THREE.Vector3(), _vs = new THREE.Vector3();
-  const _m3 = new THREE.Matrix3(), _d = new THREE.Vector3();
-  const addTo = (mat, geo, p, ref = null) => {
+  const addTo = (mat, geo, p) => {
     const g2 = geo.index ? geo.toNonIndexed() : geo.clone();
+    paintGeometry(g2, p.color, p.accent);   // the colour travels with the vertices (see archMaterial)
     const [rx, ry, rz] = (p.rot ?? [0, 0, 0]).map((d) => d * Math.PI / 180);
     _m4.compose(_vp.set(...p.pos), _q.setFromEuler(_e2.set(rx, ry, rz)), _vs.set(...(p.scale ?? [1, 1, 1])));
-    if (ref) {   // a hull: per-vertex inflation direction = (larger primitive - this one) / HULL_T, turned with the part
-      const r2 = ref.index ? ref.toNonIndexed() : ref, a = g2.attributes.position.array, b = r2.attributes.position.array;
-      const dir = new Float32Array(a.length);
-      _m3.setFromMatrix4(_m4);
-      for (let i = 0; i < a.length; i += 3) {
-        _d.set(b[i] - a[i], b[i + 1] - a[i + 1], b[i + 2] - a[i + 2]).multiplyScalar(1 / HULL_T).applyMatrix3(_m3);
-        dir[i] = _d.x; dir[i + 1] = _d.y; dir[i + 2] = _d.z;
-      }
-      g2.setAttribute("aDir", new THREE.BufferAttribute(dir, 3));
-    }
     g2.applyMatrix4(_m4);
     if (!buckets.has(mat)) buckets.set(mat, []);
     buckets.get(mat).push(g2);
   };
   def.parts.forEach((p, pi) => {
     if (p.render === false) return;   // collider-only parts (a solid stand-in under a pitched handrail)
-    const mk = p.color + (p.side ?? "") + (p.pat ?? "") + (p.accent ?? "");
-    if (!fillMats.has(mk)) fillMats.set(mk, archMaterial(p.color, p.side, p.pat, p.accent));
+    const mk = (p.side ?? "") + "|" + (p.pat ?? "");     // the colour is no longer part of it: it is in the vertices
+    if (!fillMats.has(mk)) fillMats.set(mk, archMaterial(p.side, p.pat));
     // per-part inflation, 1.2-10.8mm cycling with the part index: two parts
     // authored on the same plane end up a few mm apart instead of
     // z-fighting, and flush neighbors overlap rather than gap
     const eps = p.glass ? 0 : (pi % 9 + 1) * .0012;
-    addTo(p.glass === "stained" ? stainedMat : p.glass ? glassFor(p.color) : fillMats.get(mk),
+    addTo(p.glass === "stained" ? stainedMat : p.glass ? glassMat : fillMats.get(mk),
           geoFor(p.shape, p.size, eps), p);
-    if (p.outline !== false && !p.glass)           // glass must NOT get the hull outline: its dark
-      addTo(outlineMat, geoFor(p.shape, p.size, eps), p, geoFor(p.shape, p.size, HULL_T + eps));   // backside would show through
   });
+  if (def.arch) {
+    // the stone, and the glass in its windows (a second mesh, in the one window material)
+    for (const am of [archMesh(def.arch.def, def.arch), archMesh(def.arch.def, { ...def.arch, glass: true })]) {
+      if (!am) continue;
+      if (def.arch.offset) am.position.set(def.arch.offset[0], 0, def.arch.offset[1]);   // (centred on its site: archBuilding)
+      root.add(am);
+    }
+  }   // a building (or a part of one) from the component engine
   for (const [mat, geos] of buckets) {
     let total = 0;
     for (const g of geos) total += g.attributes.position.count;
     const pos = new Float32Array(total * 3), nor = new Float32Array(total * 3);
-    const dir = geos[0].attributes.aDir ? new Float32Array(total * 3) : null;
+    const col = geos[0].attributes.aC ? new Float32Array(total * 3) : null;      // ...and the parts' colours
+    const acc = col ? new Float32Array(total * 3) : null;
     let o = 0;
     for (const g of geos) {
       pos.set(g.attributes.position.array, o * 3);
       nor.set(g.attributes.normal.array, o * 3);
-      if (dir) dir.set(g.attributes.aDir.array, o * 3);
+      if (col) { col.set(g.attributes.aC.array, o * 3); acc.set(g.attributes.aC2.array, o * 3); }
       o += g.attributes.position.count;
     }
     const merged = new THREE.BufferGeometry();
     merged.setAttribute("position", new THREE.BufferAttribute(pos, 3));
     merged.setAttribute("normal", new THREE.BufferAttribute(nor, 3));
-    if (dir) merged.setAttribute("aDir", new THREE.BufferAttribute(dir, 3));
+    if (col) {
+      merged.setAttribute("aC", new THREE.BufferAttribute(col, 3));
+      merged.setAttribute("aC2", new THREE.BufferAttribute(acc, 3));
+    }
     root.add(new THREE.Mesh(merged, mat));
   }
   return root;
@@ -508,366 +1186,478 @@ export function buildInstanced(def, count) {
 
 const linspace = (a, b, k) => Array.from({ length: k }, (_, i) => a + (b - a) * i / (k - 1));
 
-// ---- stairs -----------------------------------------------------------------
-// Real staircases (0.25m risers) replacing the old ramps: boxes stacked into
-// a sawtooth. stairSteps emits geometry for a straight flight along z;
-// stairY is the matching walk height -- the top of the step underfoot at
-// progress t in [0,1] -- used by the generators' floorY samplers so movement
-// climbs step by step (each riser is well under the 0.5m climb limit).
-// The last meter of every flight is a flat landing at full height, so the
-// climb is steeper but arrival on the floor is eased.
-// Real proportions: ~0.3m treads, so the flight is compact and anchored at
-// the landing (z1) end -- the walker crosses flat floor to the first step.
-// `rail`: +1/-1 = the x side of the flight that is open (no wall) -- the
-// flight gets a balustrade: a baluster per step (close enough that the
-// walker's .5m circle cannot slip between) and a sloped handrail. The top
-// landing is left open, so nothing blocks stepping off. Stairs against a
-// wall pass no rail.
-export function stairSteps(parts, { x, w, y0, rise, z0, z1, color, rail = 0 }) {
-  const run = Math.abs(z1 - z0), dir = Math.sign(z1 - z0);
-  const n = Math.max(2, Math.round(rise / .25)), dy = rise / n;
-  const plat = Math.min(1, run * .35);
-  const climb = Math.min(n * .3, run - plat);
-  const dz = dir * climb / n, zs = z1 - dir * (plat + climb);
-  for (let i = 0; i < n; i++)
-    parts.push({ shape: "box", size: [w, dy + .06, Math.abs(dz) + .04],
-                 pos: [x, y0 + (i + 1) * dy - (dy + .06) / 2 + .03, zs + (i + .5) * dz], color });
-  parts.push({ shape: "box", size: [w, .14, plat + .06],
-               pos: [x, y0 + rise - .04, z1 - dir * plat / 2], color });
-  if (rail) {
-    const xr = x + rail * (w / 2 + .05), dark = 0x3e2c1a;
-    for (let i = 0; i < n; i++)
-      parts.push({ shape: "box", size: [.08, .95, .08], pos: [xr, y0 + (i + 1) * dy + .475, zs + (i + .5) * dz], color: dark, outline: false });
-    // the landing at the top stays open on every side: that is where you step off
-    const L = Math.hypot(climb, rise), th = Math.atan2(rise, climb) * 180 / Math.PI;
-    parts.push({ shape: "box", size: [.07, .07, L], pos: [xr, y0 + rise / 2 + .95, zs + dir * climb / 2], rot: [-dir * th, 0, 0], color: dark });   // handrail (pitched: visual)
-  }
-}
-// Balustrade around a stairwell opening in a floor slab. {x0,x1,z0,z1} is
-// the hole, y the slab top, `side` the open x side (the other side is the
-// wall the flight hugs), `landAt` the z end where the flight arrives: the
-// landing's stretch on the open side stays free (that is where you step
-// off, either sideways or straight ahead), the far end is a drop over the
-// flight below and gets railed, and the landing end is slab and needs none.
-export function wellRail(parts, { x0, x1, z0, z1, y, side, landAt, plat = 1.05 }) {
-  const dark = 0x3e2c1a;
-  const post = (x, z) => parts.push({ shape: "box", size: [.08, .95, .08], pos: [x, y + .475, z], color: dark, outline: false });
-  const xo = side > 0 ? x1 : x0;
-  const [za, zb] = landAt === "z0" ? [z0 + plat, z1] : [z0, z1 - plat];   // the open side minus the landing
-  if (zb - za > .2) {
-    const n = Math.max(1, Math.round((zb - za) / .45));
-    for (let i = 0; i <= n; i++) post(xo, za + (zb - za) * i / n);
-    parts.push({ shape: "box", size: [.07, .07, zb - za + .08], pos: [xo, y + .95, (za + zb) / 2], color: dark });
-  }
-  const zd = landAt === "z0" ? z1 : z0;   // the drop end
-  const n2 = Math.max(1, Math.round((x1 - x0) / .45));
-  for (let i = 1; i < n2; i++) post(x0 + (x1 - x0) * i / n2, zd);
-  parts.push({ shape: "box", size: [x1 - x0 + .08, .07, .07], pos: [(x0 + x1) / 2, y + .95, zd], color: dark });
-}
-export const stairY = (y0, rise, t, run = 8) => {
-  const n = Math.max(2, Math.round(rise / .25));
-  const plat = Math.min(1, run * .35);
-  const climb = Math.min(n * .3, run - plat);
-  const tc = (Math.max(0, t) * run - (run - plat - climb)) / climb;   // progress within the flight itself
-  if (tc <= 0) return y0;
-  return y0 + Math.min(n, Math.floor(tc * n) + 1) * (rise / n);
-};
+// (the old box stairs -- stairSteps, wellRail, stairY -- went with the last code-built buildings that used them: every
+//  stair is an arch flight now, railed by the engine, walked as a slope)
 
 // Polychromy presets -- best-guess reconstructions of how the temples were
 // painted. Pick per building so not every temple looks alike.
-export const GREEK_PAINT = {
-  festival: { triglyph: 0x2e4f6e, metope: 0x9e3c2c, tympanum: 0x8a3325 },   // blue triglyphs, red ochre fields
-  aegean:   { triglyph: 0x274a63, metope: 0xc8b795, tympanum: 0x35566b },   // blue on cream, deep blue pediment
-};
+// (the Greek temples are assets: hephaestus.json, parthenon.json, didyma.json -- tools/archgen/temples.py)
 
-export function greekTemple({
-  name,
-  width, length,                     // stylobate
-  columnsFront, columnsSide,         // peripteral ring, corners counted in both
-  columnH, columnD,                  // full column height / lower shaft diameter
-  steps = 3, stepH = .3, stepOut = .33,
-  entablatureH = columnH * .29,
-  pedimentH = width * .125,
-  colonnadeRows = 1,                 // 2 = dipteral (a second ring inside the first)
-  roof = true,                       // false = hypaethral: entablature but open sky (Didyma)
-  paint = null,                      // a GREEK_PAINT preset: painted frieze + tympanum
-  cella = true,
-  stone = 0xd8d2c2, stoneDark = 0xc2b9a6, stoneShadow = 0xa89f8c,
-}) {
-  const parts = [];
-
-  // 1) crepidoma: the stepped platform, each step protruding stepOut further
-  const baseY = steps * stepH;
-  for (let i = 0; i < steps; i++) {
-    const out = 2 * stepOut * (steps - 1 - i);
-    parts.push({ shape: "box", size: [width + out, stepH, length + out],
-                 pos: [0, i * stepH + stepH / 2, 0], color: i === steps - 1 ? stone : stoneDark, pat: "marble" });
+// A STAIR IS WALKED AS A SLOPE: its treads are replaced in the floor field by a ramp through their middles (the
+// stair part's `path`), half a tread past the first and last, so running or landing from a jump on it finds one
+// smooth surface instead of a comb of 30cm treads with a riser's gap between them. The treads the ramp covers are
+// left out; a landing (wider than the ramp's ends) keeps its own flat floor.
+function stairRamps(path, W) {
+  const tri = [], runs = [];
+  let cur = [];
+  for (const q of path) {
+    const prev = cur[cur.length - 1];
+    if (q.landing || (prev && (Math.hypot(q.p[0] - prev.p[0], q.p[2] - prev.p[2]) > 1.2 || Math.abs(q.p[1] - prev.p[1]) > .45))) {
+      if (cur.length > 1) runs.push(cur);
+      cur = q.landing ? [] : [q];
+    } else cur.push(q);
   }
-
-  // 2) peristyle: ring of Doric columns (tapered shaft, echinus flare, abacus)
-  const r = columnD / 2;
-  const inset = columnD * .8;                    // stylobate edge -> column axis
-  const capH = Math.min(.5, columnH * .085), echH = capH * .45, abaH = capH * .55;
-  const shaftH = columnH - capH;
-  const topR = r * .78, abaW = columnD * .96;
-  for (let row = 0; row < colonnadeRows; row++) {
-    const rowIn = inset + row * columnD * 2.2;
-    const xs = linspace(-(width / 2 - rowIn), width / 2 - rowIn, columnsFront);
-    const zs = linspace(-(length / 2 - rowIn), length / 2 - rowIn, columnsSide);
-    for (let xi = 0; xi < xs.length; xi++) for (let zi = 0; zi < zs.length; zi++) {
-      if (xi > 0 && xi < xs.length - 1 && zi > 0 && zi < zs.length - 1) continue;   // perimeter only
-      const [x, z] = [xs[xi], zs[zi]];
-      parts.push({ shape: "cyl", size: { r1: topR, r2: r, h: shaftH }, pos: [x, baseY + shaftH / 2, z], color: stone, pat: "marble" });
-      parts.push({ shape: "cyl", size: { r1: abaW * .46, r2: topR, h: echH }, pos: [x, baseY + shaftH + echH / 2, z], color: stone });
-      parts.push({ shape: "box", size: [abaW, abaH, abaW], pos: [x, baseY + shaftH + echH + abaH / 2, z], color: stone });
+  if (cur.length > 1) runs.push(cur);
+  const strips = [];
+  for (const r of runs) {
+    const n = r.length, P = r.map((q) => W(...q.p));
+    const a = P[0], b = P[1], y = P[n - 1], z = P[n - 2];
+    const pts = [[2 * a[0] - b[0], 2 * a[1] - b[1], 2 * a[2] - b[2]], ...P, [y[0] + (y[0] - z[0]) / 2, y[1], y[2] + (y[2] - z[2]) / 2]];
+    const ws = [r[0].w, ...r.map((q) => q.w), r[n - 1].w];
+    const edges = pts.map((p, i) => {
+      const o = pts[Math.min(i + 1, pts.length - 1)], pr = pts[Math.max(i - 1, 0)];
+      let dx = o[0] - pr[0], dz = o[2] - pr[2]; const l = Math.hypot(dx, dz) || 1; dx /= l; dz /= l;
+      const h = ws[i] / 2;
+      return [[p[0] - dz * h, p[1], p[2] + dx * h], [p[0] + dz * h, p[1], p[2] - dx * h]];
+    });
+    for (let i = 0; i + 1 < edges.length; i++) {
+      const [l0, r0] = edges[i], [l1, r1] = edges[i + 1];
+      tri.push(...l0, ...r0, ...r1, ...l0, ...r1, ...l1);
+      strips.push([l0, r0, r1], [l0, r1, l1]);
     }
   }
-
-  // 3) entablature: architrave + frieze band + protruding cornice. Under a
-  // roof solid slabs are fine (invisible from below the gable); a hypaethral
-  // temple needs a true RING beam over the colonnade, open to the sky inside
-  const entW = width - 2 * inset + columnD;      // flush with the column bases
-  const entL = length - 2 * inset + columnD;
-  const entY = baseY + columnH;
-  const archH = entablatureH * .42, friezeH = entablatureH * .42, cornH = entablatureH * .16;
-  const bands = [[archH, 0, 0, stone], [friezeH, archH, 0, paint ? paint.metope : stoneDark], [cornH, archH + friezeH, .5, stone]];
-  const bandPat = (c) => paint && c === paint.metope ? { pat: "stars", accent: 0xd9c27a } : { pat: "marble" };
-  if (roof) {
-    for (const [h, y0, pad, c] of bands)
-      parts.push({ shape: "box", size: [entW + pad, h, entL + pad], pos: [0, entY + y0 + h / 2, 0], color: c, ...bandPat(c) });
-  } else {
-    const bw = columnD * (colonnadeRows > 1 ? 4.4 : 1.9);   // beam deep enough to cover every column row
-    for (const [h, y0, pad, c] of bands) {
-      const y = entY + y0 + h / 2;
-      for (const sz of [-1, 1]) {
-        parts.push({ shape: "box", size: [entW + pad, h, bw], pos: [0, y, sz * (entL + pad - bw) / 2], color: c, ...bandPat(c) });
-        parts.push({ shape: "box", size: [bw, h, entL + pad - 2 * bw], pos: [sz * (entW + pad - bw) / 2, y, 0], color: c, ...bandPat(c) });
-      }
-    }
-  }
-
-  // painted frieze: blue triglyphs marching over the colored metope band --
-  // two per intercolumniation plus one over each column, all four sides
-  if (paint) {
-    const ty = entY + archH + friezeH / 2, th = friezeH * .8;
-    for (const x of linspace(-(entW / 2 - .9), entW / 2 - .9, 2 * columnsFront - 1))
-      for (const sz of [-1, 1])
-        parts.push({ shape: "box", size: [.85, th, .5], pos: [x, ty, sz * (entL / 2 - .1)], color: paint.triglyph, pat: "grooves", accent: 0x18293c });
-    for (const z of linspace(-(entL / 2 - .9), entL / 2 - .9, 2 * columnsSide - 1))
-      for (const sx of [-1, 1])
-        parts.push({ shape: "box", size: [.5, th, .85], pos: [sx * (entW / 2 - .1), ty, z], color: paint.triglyph, pat: "grooves", accent: 0x18293c });
-  }
-
-  // 4) roof: a single gable prism is the two slopes AND both pediments;
-  // when painted, a slightly longer inset gable shows the colored tympanum
-  // triangle inside the marble frame at both ends
-  if (roof) parts.push({ shape: "gable", size: [entW + .5, pedimentH, entL + .5],
-                         pos: [0, entY + entablatureH, 0], color: stone, pat: "marble" });
-  if (roof && paint) parts.push({ shape: "gable", size: [entW * .86, pedimentH * .78, entL + .56],
-                                  pos: [0, entY + entablatureH + .1, 0], color: paint.tympanum, outline: false, pat: "scroll", accent: 0xd9b54a });
-
-  // 5) cella: a real room -- side and back walls, a doorway up front, ceiling
-  if (cella) {
-    const cw = width * .5, cl = length * .62, ch = columnH * .96, t = .9;
-    const doorW = Math.min(3.2, cw * .3), doorH = ch * .62;
-    const wall = (sz, pos) => parts.push({ shape: "box", size: sz, pos, color: stoneShadow, pat: "marble" });
-    wall([t, ch, cl], [-(cw - t) / 2, baseY + ch / 2, 0]);
-    wall([t, ch, cl], [(cw - t) / 2, baseY + ch / 2, 0]);
-    wall([cw, ch, t], [0, baseY + ch / 2, -(cl - t) / 2]);
-    const jamb = (cw - doorW) / 2;
-    wall([jamb, ch, t], [-(doorW + jamb) / 2, baseY + ch / 2, (cl - t) / 2]);
-    wall([jamb, ch, t], [(doorW + jamb) / 2, baseY + ch / 2, (cl - t) / 2]);
-    wall([doorW, ch - doorH, t], [0, doorH + baseY + (ch - doorH) / 2, (cl - t) / 2]);
-    if (roof) wall([cw, .5, cl], [0, baseY + ch + .25, 0]);   // hypaethral cella: open court
-  }
-
-  // walking up the crepidoma raises you step by step onto the stylobate
-  const floorY = (x, z) => {
-    let h = 0;
-    for (let i = 0; i < steps; i++) {
-      const out = stepOut * (steps - 1 - i);
-      if (Math.abs(x) <= width / 2 + out && Math.abs(z) <= length / 2 + out) h = (i + 1) * stepH;
-    }
-    return h;
-  };
-
-  const spread = 2 * stepOut * (steps - 1);    // the bottom step is the true footprint
-  return { name, parts, footprint: [width + spread, length + spread], floorY };
+  // (a tread is covered when its middle stands over a ramp triangle, within a riser and a half of the ramp's height)
+  const covers = (x, y, z) => strips.some(([a, b, c]) => {
+    const d = (b[2] - c[2]) * (a[0] - c[0]) + (c[0] - b[0]) * (a[2] - c[2]);
+    if (Math.abs(d) < 1e-9) return false;
+    const w0 = ((b[2] - c[2]) * (x - c[0]) + (c[0] - b[0]) * (z - c[2])) / d, w1 = ((c[2] - a[2]) * (x - c[0]) + (a[0] - c[0]) * (z - c[2])) / d;
+    if (w0 < -1e-3 || w1 < -1e-3 || w0 + w1 > 1.001) return false;
+    return Math.abs(w0 * a[1] + w1 * b[1] + (1 - w0 - w1) * c[1] - y) < .3;
+  });
+  return { tri, covers };
 }
 
-// ---- generic Roman amphitheatre -------------------------------------------
-// An elliptical arcade wall: stacked stories of pier-arch-pier rings around
-// a dark inner drum, topped by a solid attic. Openings are composed
-// positively: stone piers + a stone spandrel panel over each bay, with a
-// dark half-cylinder "void" whose flat base tops the see-through gap -- so
-// every opening reads as an arch without any real hole-cutting. Circular
-// rings become ellipses by squashing z (built at radius outerA, scaled by
-// outerB/outerA), so outline thickness stays honest.
-
-export function romanAmphitheatre({
-  name,
-  outerA, outerB,                    // semi-axes of the outer ellipse
-  stories = 3, storyH = 10.7, atticH = 13.5,
-  arches = 40,                       // arcade bays per ring (the original: 80)
-  wallT = 3, bandH = 1.1, plinthH = 1.5,
-  stone = 0xd9cdb4, stoneDark = 0xc2b598, voidDark = 0x453f34,
-}) {
-  const parts = [];
-  const ratio = outerB / outerA;
-  const squash = [1, 1, ratio];
-  const ring = (r, h, y, color, extra = {}) =>
-    parts.push({ shape: "cyl", size: { r1: r, r2: r, h, seg: 72, open: extra.open }, pos: [0, y, 0], scale: squash, color, ...extra });
-
-  // collide: false -- these are walk-ON platforms; a closed cylinder would
-  // otherwise become a solid DISC collider trapping anyone below its top
-  ring(outerA + 1.2, plinthH, plinthH / 2, stoneDark, { collide: false });
-  ring(outerA + 4, .7, .35, stoneDark, { collide: false });   // broad lower step of the entrance approach
-  const wallH = stories * storyH;
-
-  // cavea: the seating bowl as one open funnel surface sloping from the
-  // ambulatory rim down to the arena -- walkable (the floor field follows
-  // the slope), visible from both sides, no caps so the arena stays open
-  const arenaA = outerA * .42;
-  const bowlOut = outerA - 10;
-  const bowlTop = 18.9;
-  // the whole bowl sits ON the plinth (whose disc top, at plinthH, is the
-  // true visible ground everywhere inside) -- sand, slope and seating all
-  // measure from there, so nothing stands buried in the platform
-  parts.push({ shape: "cyl", size: { r1: bowlOut, r2: arenaA, h: bowlTop, seg: 72, open: true },
-               pos: [0, plinthH + bowlTop / 2, 0], scale: squash, color: stoneDark, side: "double", outline: false });
-  for (let i = 1; i <= 8; i++) {           // seating rows resting on the slope
-    const rr = arenaA + (bowlOut - arenaA) * i / 8.5;
-    const hy = plinthH + .3 + (rr - arenaA) / (bowlOut - arenaA) * bowlTop;
-    parts.push({ shape: "cyl", size: { r1: rr, r2: rr, h: .55, seg: 72, open: true },
-                 pos: [0, hy, 0], scale: squash, color: stone, side: "double", outline: false });
-  }
-  ring(arenaA, .3, plinthH + .15, 0xcbb98a, { collide: false });   // the sand of the arena, on the plinth
-
-  // two STRAIGHT staircases from the ambulatory up to the bowl rim, like
-  // the real vomitoria: each a solid ascending mass of treads, walled on
-  // both sides, slanting inward from the outer arcades to the rim
-  const bowlTopF = plinthH + .3 + bowlTop;
-  const stRise = bowlTopF - plinthH;
-  const stairChords = [];
-  for (const t0 of [0, Math.PI]) {
-    const th0 = t0 + .12, th1 = t0 + .40;
-    const ax = (outerA - 2.5) * Math.cos(th0), az = (outerA - 2.5) * ratio * Math.sin(th0);
-    const bx2 = (bowlOut + 1.2) * Math.cos(th1), bz2 = (bowlOut + 1.2) * ratio * Math.sin(th1);
-    const len = Math.hypot(bx2 - ax, bz2 - az);
-    const ux = (bx2 - ax) / len, uz = (bz2 - az) / len;
-    stairChords.push({ ax, az, ux, uz, len });
-    const ry = Math.atan2(ux, uz) * 57.29578;
-    const at = (lz, lx) => [ax + ux * lz + uz * lx, az + uz * lz - ux * lx];
-    const n = Math.max(2, Math.round(stRise / .25));
-    const plat = Math.min(1, len * .35);
-    const climb = Math.min(n * .3, len - plat);
-    const dz = climb / n, zc0 = len - plat - climb;
-    for (let k = 0; k < n; k++) {
-      const [wx2, wz2] = at(zc0 + (k + .5) * dz, 0);
-      const th2 = (k + 1) * (stRise / n) + .06;
-      parts.push({ shape: "box", size: [4.6, th2, dz + .04], rot: [0, ry, 0], outline: false,
-                   pos: [wx2, plinthH + th2 / 2 - .03, wz2], color: stoneDark });
-    }
-    const [lxp, lzp] = at(len - plat / 2, 0);
-    parts.push({ shape: "box", size: [4.6, stRise + .1, plat + .06], rot: [0, ry, 0],
-                 pos: [lxp, plinthH + (stRise + .1) / 2 - .05, lzp], color: stoneDark });
-    for (const s2 of [-2.55, 2.55]) {                // flanking walls: nothing to fall off
-      const [wx2, wz2] = at(len / 2, s2);
-      parts.push({ shape: "box", size: [.4, stRise + 1.2, len + .8], rot: [0, ry, 0],
-                   pos: [wx2, plinthH + (stRise + 1.2) / 2, wz2], color: stone, pat: "ashlar" });
-    }
-  }
-
-  // radial spoke walls with arched passages between the bowl and the outer
-  // arcades -- the plan of the real substructure, walkable straight through
-  const spokeR0 = bowlOut + .5, spokeR1 = outerA - wallT / 2;
-  for (let i = 0; i < arches / 2; i++) {
-    const a = 2 * Math.PI * (i + .5) / (arches / 2);
-    const near = (t0) => { const d = ((a - t0) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI); return d < .55 || d > 2 * Math.PI - .1; };
-    if (near(0) || near(Math.PI)) continue;   // keep clear of the two staircases
-    const mid = (spokeR0 + spokeR1) / 2;
-    parts.push({ shape: "hwall", size: { w: spokeR1 - spokeR0, h: 7.5, t: .9, holes: [[0, 0, 3.2, 4.6]] },
-                 pos: [mid * Math.cos(a), plinthH, mid * ratio * Math.sin(a)],
-                 rot: [0, -a * 57.29578, 0], color: stone, pat: "ashlar" });
-  }
-
-  // arcade proportions per bay
-  const perim = Math.PI * (3 * (outerA + outerB) - Math.sqrt((3 * outerA + outerB) * (outerA + 3 * outerB)));
-  const bay = perim / arches;
-  const pierW = bay * .42, openW = bay * .55, archR = openW / 2, spandrelH = 1.2;
-  const openRectH = storyH - bandH - archR - spandrelH;
-  const rMidA = outerA - wallT / 2, rMidB = outerB - wallT / 2;
-  const at = (t) => [rMidA * Math.cos(t), rMidB * Math.sin(t)];
-  const facing = (t) => [0, Math.atan2(outerB * Math.cos(t), outerA * Math.sin(t)) * 180 / Math.PI, 0];
-
-  for (let s = 0; s < stories; s++) {
-    const y0 = plinthH + s * storyH;
-    for (let i = 0; i < arches; i++) {
-      const tp = 2 * Math.PI * i / arches, tg = tp + Math.PI / arches;
-      const [px, pz] = at(tp), [gx, gz] = at(tg);
-      parts.push({ shape: "box", size: [pierW, storyH - bandH, wallT], pos: [px, y0 + (storyH - bandH) / 2, pz], rot: facing(tp), color: stone, pat: "ashlar" });
-      parts.push({ shape: "spandrel", size: { w: openW + .4, h: archR + spandrelH, r: archR * .98, t: wallT * .9 },
-                   pos: [gx, y0 + openRectH, gz], rot: facing(tg), color: stone, pat: "ashlar" });
-      // restrained polychromy, as the reconstructions suggest: marble statues
-      // in the second-story arches, red-painted plaster in the third
-      if (s === 1 && i % 2 === 0) {
-        parts.push({ shape: "cyl", size: { r1: .45, r2: .62, h: 3.1, seg: 8 }, pos: [gx, y0 + 1.85, gz], color: 0xd8d0bd });
-        parts.push({ shape: "sphere", size: { r: .42 }, pos: [gx, y0 + 3.75, gz], color: 0xd8d0bd });
+// THE FLOOR, READ FROM THE STONE ITSELF. A building assembled from components has no primitive to guess a
+// height field from, and guessing one is how you get a slope where the building has a hole: the village's
+// walker climbed the seating straight over the vomitoria, which are tunnels. So the field is the GEOMETRY --
+// every up-facing triangle of the assembled building, indexed by its place on the ground. At a point it
+// answers with every surface height there (the sand, a step of the cavea, the vault over a tunnel, the deck
+// of the upper storey), which is exactly what floorsAt wants, and where the stone has a hole it answers with
+// nothing and the walker falls through as it should.
+//   Up-facing only (|ny| > .35): a wall is not a floor, and leaving them out cuts the set by two thirds.
+export function archFloorField(name, params = {}, cell = 3) {
+  const asm = archAssembly(name, params);
+  const tri = [];                        // [ax, ay, az, bx, by, bz, cx, cy, cz] per floor triangle
+  const A = new THREE.Vector3(), B = new THREE.Vector3(), C = new THREE.Vector3(), u = new THREE.Vector3(), v = new THREE.Vector3(), nn = new THREE.Vector3();
+  for (const p of asm.parts) {
+    const P = p.geometry.position, I = p.geometry.index;
+    for (const inst of p.instances) {
+      const ca = Math.cos(inst[0]), sa = Math.sin(inst[0]);
+      const W = (x, y, z) => [x * ca + z * sa + inst[1], y + inst[2], -x * sa + z * ca + inst[3]];
+      const put = (j, out) => out.set(...W(P[j * 3], P[j * 3 + 1], P[j * 3 + 2]));
+      const ramps = p.path ? stairRamps(p.path, W) : null;
+      for (let k = 0; k < I.length; k += 3) {
+        put(I[k], A); put(I[k + 1], B); put(I[k + 2], C);
+        nn.copy(u.subVectors(B, A)).cross(v.subVectors(C, A));
+        const l = nn.length();
+        if (l < 1e-9 || Math.abs(nn.y / l) < .35) continue;
+        if (ramps && nn.y > 0 && ramps.covers((A.x + B.x + C.x) / 3, (A.y + B.y + C.y) / 3, (A.z + B.z + C.z) / 3)) continue;
+        tri.push(A.x, A.y, A.z, B.x, B.y, B.z, C.x, C.y, C.z);
       }
-      if (s === 2 && i % 2 === 1)
-        parts.push({ shape: "box", size: [openW * .75, openRectH * .85, .4], pos: [gx, y0 + openRectH * .48, gz], rot: facing(tg), color: 0x8e3f2e, outline: false });
+      if (ramps) tri.push(...ramps.tri);
     }
-    ring(outerA + .3, bandH, y0 + storyH - bandH / 2, stoneDark, { open: true, side: "double" });   // the cornice between stories
   }
-
-  // attic: solid ring with small dark openings, crowned by a cornice
-  const atticY = plinthH + wallH;
-  ring(outerA, atticH, atticY + atticH / 2, stone, { open: true, side: "double" });
-  ring(outerA + .35, 1.1, atticY + atticH * .78, 0x9a4a34, { open: true, side: "double" });   // painted fresco band
-  for (let i = 0; i < arches; i += 2) {
-    const t = 2 * Math.PI * (i + .5) / arches;
-    const [wx, wz] = [(outerA + .2) * Math.cos(t), (outerB + .2) * Math.sin(t)];
-    parts.push({ shape: "box", size: [2, 2.6, .5], pos: [wx, atticY + atticH * .55, wz], rot: facing(t), color: voidDark, outline: false });
+  // ...indexed by the ground cell each one covers
+  const grid = new Map(), key = (i, j) => i * 100003 + j;
+  const at = (q) => Math.floor(q / cell);
+  for (let t = 0; t < tri.length; t += 9) {
+    const x0 = at(Math.min(tri[t], tri[t + 3], tri[t + 6])), x1 = at(Math.max(tri[t], tri[t + 3], tri[t + 6]));
+    const z0 = at(Math.min(tri[t + 2], tri[t + 5], tri[t + 8])), z1 = at(Math.max(tri[t + 2], tri[t + 5], tri[t + 8]));
+    for (let i = x0; i <= x1; i++) for (let j = z0; j <= z1; j++) {
+      const k = key(i, j);
+      const list = grid.get(k) ?? (grid.set(k, []), grid.get(k));
+      list.push(t);
+    }
   }
-  ring(outerA + .6, .9, atticY + atticH + .45, stoneDark, { open: true, side: "double" });
-
-  const floorY = (x, z) => {
-    const r = Math.hypot(x, z / ratio);
-    if (r > outerA + 1.2)                                                   // ramped entrance approach
-      return r < outerA + 6 ? Math.max(0, plinthH * (outerA + 6 - r) / 4.8) : 0;
-    if (r > bowlOut) {                                                      // ambulatory + the two straight stairs
-      for (const st of stairChords) {
-        const qx = x - st.ax, qz = z - st.az;
-        const t = qx * st.ux + qz * st.uz;
-        if (t > -.5 && t < st.len + .5 && Math.abs(qx * st.uz - qz * st.ux) < 2.35)
-          return [plinthH, stairY(plinthH, stRise, Math.max(0, Math.min(1, t / st.len)), st.len)];
-      }
-      return plinthH;
+  const out = [];
+  return (x, z) => {
+    const list = grid.get(key(at(x), at(z)));
+    if (!list) return 0;
+    out.length = 0;
+    for (const t of list) {
+      // the point inside the triangle's ground projection, by its barycentric coordinates -- then the height
+      const ax = tri[t], az = tri[t + 2], bx = tri[t + 3], bz = tri[t + 5], cx = tri[t + 6], cz = tri[t + 8];
+      const d = (bz - cz) * (ax - cx) + (cx - bx) * (az - cz);
+      if (Math.abs(d) < 1e-9) continue;
+      const w0 = ((bz - cz) * (x - cx) + (cx - bx) * (z - cz)) / d;
+      if (w0 < -1e-4 || w0 > 1.0001) continue;
+      const w1 = ((cz - az) * (x - cx) + (ax - cx) * (z - cz)) / d;
+      if (w1 < -1e-4 || w0 + w1 > 1.0001) continue;
+      const y = w0 * tri[t + 1] + w1 * tri[t + 4] + (1 - w0 - w1) * tri[t + 7];
+      let seen = false;
+      for (const q of out) if (Math.abs(q - y) < .06) { seen = true; break; }
+      if (!seen) out.push(y);
     }
-    if (r > arenaA) {
-      const slope = plinthH + .3 + (r - arenaA) / (bowlOut - arenaA) * bowlTop;   // the sloping stands...
-      return [plinthH, slope];                                              // ...and the passage beneath them
-    }
-    return plinthH + .3;                                                    // arena sand
+    return out.slice();
   };
+}
 
-  // the publicum: spectators seated on the cavea rings, facing the arena
+// CAN EVERY FLOOR BE REACHED? The building walked as the game walks it -- the same floor field and wall field, the
+// same rule (the next support is the highest floor at most .5m above the feet, else the fall to the one below; the
+// way is shut where stone stands between the knee and the head) -- from the open ground all round it, over a grid
+// of `cell`. Then every FLAT floor with a room's headroom (2m) is looked at: the ones the walk never reached, in
+// connected regions, are the floors nobody can get to -- a gallery without a stair, a room without a door. A floor
+// counts if something is over it with a room's height (not a pitched roof: that is a roof space), or if it is open to
+// the sky and its part says it is walked (`walked: true`: a terrace, a roof walk).
+// Returns { levels: [{ y, area, reached }], unreached: [{ y, area, at }] } -- areas in square metres.
+export function archAccess(name, params = {}, { cell = .25, minArea = 8, probe = null } = {}) {
+  const asm = archAssembly(name, params), floors = archFloorField(name, params), walls = archWallField(name, params);
+  // the flat floors and what is over them, per grid cell: every triangle's heights, whether it faces up, its kind
+  let x0 = 1e9, x1 = -1e9, z0 = 1e9, z1 = -1e9;
+  const tris = [];
+  for (const p of asm.parts) {
+    if (p.kind === "glass") continue;
+    const P = p.geometry.position, I = p.geometry.index;
+    for (const [yaw, X, Y, Z] of p.instances) {
+      const c = Math.cos(yaw), sn = Math.sin(yaw);
+      const at = (j) => [P[j * 3] * c + P[j * 3 + 2] * sn + X, P[j * 3 + 1] + Y, -P[j * 3] * sn + P[j * 3 + 2] * c + Z];
+      for (let k = 0; k < I.length; k += 3) {
+        const a = at(I[k]), b = at(I[k + 1]), d = at(I[k + 2]);
+        const ux = b[0] - a[0], uy = b[1] - a[1], uz = b[2] - a[2], vx = d[0] - a[0], vy = d[1] - a[1], vz = d[2] - a[2];
+        const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx, l = Math.hypot(nx, ny, nz);
+        if (l < 1e-9 || Math.abs(ny / l) < .35) continue;
+        tris.push({ a, b, d, up: ny / l, kind: p.kind, flatRoof: !!p.flatRoof, walked: !!p.walked || p.kind === "base", name: p.name });
+        for (const q of [a, b, d]) { if (q[0] < x0) x0 = q[0]; if (q[0] > x1) x1 = q[0]; if (q[2] < z0) z0 = q[2]; if (q[2] > z1) z1 = q[2]; }
+      }
+    }
+  }
+  x0 -= 2; z0 -= 2; x1 += 2; z1 += 2;
+  const NX = Math.ceil((x1 - x0) / cell), NZ = Math.ceil((z1 - z0) / cell);
+  const cx = (i) => x0 + (i + .5) * cell, cz = (j) => z0 + (j + .5) * cell;
+  const surf = Array.from({ length: NX * NZ }, () => []);
+  for (const t of tris) {
+    const [a, b, d] = [t.a, t.b, t.d];
+    const i0 = Math.max(0, Math.floor((Math.min(a[0], b[0], d[0]) - x0) / cell)), i1 = Math.min(NX - 1, Math.floor((Math.max(a[0], b[0], d[0]) - x0) / cell));
+    const j0 = Math.max(0, Math.floor((Math.min(a[2], b[2], d[2]) - z0) / cell)), j1 = Math.min(NZ - 1, Math.floor((Math.max(a[2], b[2], d[2]) - z0) / cell));
+    const den = (b[2] - d[2]) * (a[0] - d[0]) + (d[0] - b[0]) * (a[2] - d[2]);
+    if (Math.abs(den) < 1e-12) continue;
+    for (let i = i0; i <= i1; i++) for (let j = j0; j <= j1; j++) {
+      const x = cx(i), z = cz(j);
+      const u = ((b[2] - d[2]) * (x - d[0]) + (d[0] - b[0]) * (z - d[2])) / den, v = ((d[2] - a[2]) * (x - d[0]) + (a[0] - d[0]) * (z - d[2])) / den;
+      if (u < -1e-6 || v < -1e-6 || u + v > 1 + 1e-6) continue;
+      surf[i * NZ + j].push({ h: u * a[1] + v * b[1] + (1 - u - v) * d[1], up: t.up, kind: t.kind, flatRoof: t.flatRoof, walked: t.walked, name: t.name });
+    }
+  }
+  // the walk: from every cell on the edge, at the ground
+  const key = (i, j, h) => `${i},${j},${Math.round(h * 20)}`;
+  const reached = new Map(), queue = [];
+  const supportAt = (i, j, maxY) => {                      // (as the game's: the highest floor at or below maxY, the ground -- 0 -- only where there is none, so a cellar is walked down into)
+    let best = -1e9; const f = floors(cx(i), cz(j));
+    for (const h of Array.isArray(f) ? f : []) if (h <= maxY && h > best) best = h;
+    return best === -1e9 ? 0 : best;
+  };
+  const visit = (i, j, h) => { const k = key(i, j, h); if (reached.has(k)) return; reached.set(k, true); queue.push([i, j, h]); };
+  for (let i = 0; i < NX; i++) { visit(i, 0, supportAt(i, 0, .5)); visit(i, NZ - 1, supportAt(i, NZ - 1, .5)); }
+  for (let j = 0; j < NZ; j++) { visit(0, j, supportAt(0, j, .5)); visit(NX - 1, j, supportAt(NX - 1, j, .5)); }
+  while (queue.length) {
+    const [i, j, h] = queue.pop();
+    for (const [di, dj] of [[1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [1, -1], [-1, 1], [-1, -1]]) {   // (diagonals too: a door askew to the grid)
+      const i2 = i + di, j2 = j + dj;
+      if (i2 < 0 || j2 < 0 || i2 >= NX || j2 >= NZ) continue;
+      // (the walker's circle, as the game samples it: its middle and four points of its rim, 0.25m out)
+      if ([[0, 0], [.25, 0], [-.25, 0], [0, .25], [0, -.25]].some(([ox, oz]) => walls(cx(i2) + ox, cz(j2) + oz, h + .5, h + 1.7))) continue;
+      visit(i2, j2, supportAt(i2, j2, h + .5));
+    }
+  }
+  // WHICH FLAT SURFACES ARE FLOORS: why one is not (null: it is one)
+  const notFloor = (list, k, x, z) => {
+    const f = list[k];
+    if (f.up < .95 || FLOORLESS.has(f.kind) || f.kind === "roof" || f.flatRoof) return "not flat, or a roof";
+    if (["wall", "enclosure", "ring"].includes(f.kind) && !f.walked) return "a wall's head or a sill";   // (unless walked: a gallery built as an enclosure)
+    const over = list.slice(k + 1).find((q) => q.h > f.h + .05);
+    if (over && over.up > 0) return `inside a solid (${over.name} over it faces up)`;
+    if (over && over.h < f.h + 2.0) return `no headroom (${over.name} at ${over.h.toFixed(2)})`;
+    // (a roof space: the roof is the ceiling, with no floor slab of the storey's own just over it -- the attic; a top
+    //  storey's ceiling is its attic floor, which an eave may reach a little below)
+    if (over && over.kind === "roof" && !list.some((q) => q.up < 0 && q.kind !== "roof" && q.h > over.h - .01 && q.h < over.h + .5)) return "a roof space";
+    if (over && over.h > f.h + 20 && !f.walked) return "a ceiling 20m up";
+    if (!over && !f.walked) return "open to the sky, not walked";
+    // (where the walker's circle -- the walk's own test -- meets a wall: no one stands there, it is the wall's foot)
+    if ([[0, 0], [.25, 0], [-.25, 0], [0, .25], [0, -.25]].some(([ox, oz]) => walls(x + ox, z + oz, f.h + .5, f.h + 1.7))) return "in a wall";
+    return null;
+  };
+  if (probe) {                                            // (what the check sees over one point: every surface, and the walk's heights there)
+    const i = Math.floor((probe[0] - x0) / cell), j = Math.floor((probe[1] - z0) / cell);
+    const list = surf[i * NZ + j].sort((p, q) => p.h - q.h);
+    const hs = [...reached.keys()].filter((k) => k.startsWith(`${i},${j},`)).map((k) => (+k.split(",")[2] / 20).toFixed(2));
+    return { reachedAt: hs, surfaces: list.map((q, k) => `${q.h.toFixed(2)} ${q.up > 0 ? "up" : "down"} ${q.kind} ${q.name}` +
+      (q.up > .95 ? ` [${notFloor(list, k, cx(i), cz(j)) ?? "FLOOR"}]` : "")) };
+  }
+  const isReached = (i, j, h) => { for (let d = -1; d <= 1; d++) if (reached.has(`${i},${j},${Math.round(h * 20) + d}`)) return true; return false; };
+  // the flat floors with a room's headroom, and which of them the walk reached
+  const flat = new Map();                                  // "i,j" -> [h...]
+  const levels = new Map();
+  const unreachedCells = [];
+  for (let i = 0; i < NX; i++) for (let j = 0; j < NZ; j++) {
+    const list = surf[i * NZ + j].sort((p, q) => p.h - q.h);
+    for (let k = 0; k < list.length; k++) {
+      const f = list[k];
+      if (notFloor(list, k, cx(i), cz(j))) continue;
+      const over = list.slice(k + 1).find((q) => q.h > f.h + .05);
+      const band = Math.round(f.h * 2) / 2, lv = levels.get(band) ?? { y: band, area: 0, reached: 0 };
+      lv.area += cell * cell;
+      if (isReached(i, j, f.h)) lv.reached += cell * cell; else unreachedCells.push([i, j, f.h, f.name, over ? `${over.name} at ${over.h.toFixed(1)}` : "sky"]);
+      levels.set(band, lv);
+    }
+  }
+  // the unreached floors in connected regions
+  const left = new Map(unreachedCells.map((c) => [`${c[0]},${c[1]},${Math.round(c[2] * 10)}`, c]));
+  const unreached = [];
+  for (const [k0, c0] of left) {
+    if (!left.has(k0)) continue;
+    left.delete(k0);
+    const stack = [c0]; let n = 0;
+    while (stack.length) {
+      const [i, j, h] = stack.pop(); n++;
+      for (const [di, dj] of [[1, 0], [-1, 0], [0, 1], [0, -1]]) for (const dh of [-1, 0, 1]) {
+        const k = `${i + di},${j + dj},${Math.round(h * 10) + dh}`;
+        if (left.has(k)) { stack.push(left.get(k)); left.delete(k); }
+      }
+    }
+    if (n * cell * cell >= minArea) unreached.push({ y: +c0[2].toFixed(2), area: +(n * cell * cell).toFixed(1), at: [+cx(c0[0]).toFixed(1), +cz(c0[1]).toFixed(1)],
+                                                   floor: c0[3], under: c0[4] });
+  }
+  return { levels: [...levels.values()].sort((a, b) => a.y - b.y).map((l) => ({ y: l.y, area: +l.area.toFixed(1), reached: +l.reached.toFixed(1) })), unreached };
+}
+
+// ---- the amphitheatre, from the COMPONENT engine ---------------------------
+// Verona's arena at its real size (assets/architecture/arena.json): sixty bays of arcade in two storeys, each opening a
+// real one with a barrel vault behind it, a cavea of forty rows on a podium, and the vomitoria and stairs cut
+// through the seating the way the building's own section shows them. None of that is written here -- it is a
+// definition the component engine assembles (buildBuilding, def.arch).
+//   What the VILLAGE needs beside the stone is where you can stand, where the crowd sits, how much ground it
+// takes and where the show happens. All four are read from the definition's OWN numbers (its resolved
+// params), so the floor cannot drift from the stone: change the radius in the JSON and the sand, the seats
+// and the walk follow.
+//   The COLLIDERS are the piers alone -- you walk in through the arches, as you would -- and the seating is
+// not a collider at all: it is a height field, so the slope carries you up it.
+// THE WALLS, READ FROM THE STONE: the collision counterpart of archFloorField. Every near-vertical triangle of the
+// assembled building is sampled on the ground at `cell` spacing, and each cell keeps the heights its walls span
+// (merged into intervals). A walker is blocked where a cell under it has stone between its knees and its head --
+// so a doorway, an arch or a window leaves its own gap, with nothing written by hand.
+// (0.2m cells: a wall sampled into a cell stands, for the walk, anywhere in that cell -- at 0.4 a doorway had to be
+//  1.3m wide to pass the walker's 0.5m circle; at 0.2 a 0.9m one does)
+export function archWallField(name, params = {}, cell = .2) {
+  const asm = archAssembly(name, params);
+  const key = (i, j) => i * 131071 + j;
+  // (pregenerated, if pregen/ has this assembly's -- else worked out here)
+  const pk = pregenOn() ? wallsKey(asm, cell) : null;
+  const cached = pk && PREGEN.walls.get(pk);
+  const cells = cached || wallCells(asm, cell, key);
+  if (pk && !cached && PREGEN.record) recordFor("walls", pk, packWalls(cells));
+  if (pk && !cached) pregenMiss("walls", typeof name === "string" ? name : name?.name ?? "", pk);
+  // (each cell's intervals were grown one sample at a time: the samples of one wall join into its full height)
+  return (x, z, lo, hi) => {
+    const list = cells.get(key(Math.floor(x / cell), Math.floor(z / cell)));
+    if (!list) return false;
+    for (const [y0, y1] of list) if (y0 < hi && y1 > lo) return true;
+    return false;
+  };
+}
+function wallCells(asm, cell, key) {
+  const cells = new Map();
+  const add = (x, z, y0, y1) => {
+    const k = key(Math.floor(x / cell), Math.floor(z / cell));
+    const list = cells.get(k);
+    if (!list) { cells.set(k, [[y0, y1]]); return; }
+    for (const iv of list) if (y0 <= iv[1] + .05 && y1 >= iv[0] - .05) { iv[0] = Math.min(iv[0], y0); iv[1] = Math.max(iv[1], y1); return; }
+    list.push([y0, y1]);
+  };
+  const A = [0, 0, 0], B = [0, 0, 0], C = [0, 0, 0];
+  for (const p of asm.parts) {
+    // (a stair's upright faces are its risers and its edges: steps, walked up, not walls -- its open sides have
+    //  railings, which are walls; a riser in the wall field stops the walk at the step after next)
+    // (but a STRAIGHT flight's SIDES and its UNDERSIDE are in the way: one walks up it, not through it from beside or
+    //  beneath -- in its own frame the run is x, so a side faces z and an underside faces down)
+    if (p.path && p.kind !== "flight") continue;
+    const P = p.geometry.position, I = p.geometry.index;
+    const sideOrUnder = p.path ? (k) => {
+      const a = I[k] * 3, b = I[k + 1] * 3, c = I[k + 2] * 3;
+      const ux = P[b] - P[a], uy = P[b + 1] - P[a + 1], uz = P[b + 2] - P[a + 2], vx = P[c] - P[a], vy = P[c + 1] - P[a + 1], vz = P[c + 2] - P[a + 2];
+      const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx, l = Math.hypot(nx, ny, nz);
+      return l > 1e-12 && (Math.abs(nz / l) > .9 || ny / l < -.35);
+    } : null;
+    for (const inst of p.instances) {
+      const ca = Math.cos(inst[0]), sa = Math.sin(inst[0]);
+      const put = (j, o) => { o[0] = P[j * 3] * ca + P[j * 3 + 2] * sa + inst[1]; o[1] = P[j * 3 + 1] + inst[2]; o[2] = -P[j * 3] * sa + P[j * 3 + 2] * ca + inst[3]; };
+      for (let k = 0; k < I.length; k += 3) {
+        if (sideOrUnder && !sideOrUnder(k)) continue;
+        put(I[k], A); put(I[k + 1], B); put(I[k + 2], C);
+        const ux = B[0] - A[0], uy = B[1] - A[1], uz = B[2] - A[2], vx = C[0] - A[0], vy = C[1] - A[1], vz = C[2] - A[2];
+        const nx = uy * vz - uz * vy, ny = uz * vx - ux * vz, nz = ux * vy - uy * vx, l = Math.hypot(nx, ny, nz);
+        if (l < 1e-9 || (Math.abs(ny / l) > .35 && !sideOrUnder)) continue;   // floors and roofs are not walls (a flight's underside is: it comes down to the floor)
+        // sample the triangle at under a cell's spacing (by its full size: a tall thin sliver of wall still has
+        // its height), and give each cell it touches ONE interval, from its lowest sample there to its highest
+        const len = Math.max(Math.hypot(ux, uy, uz), Math.hypot(vx, vy, vz), Math.hypot(C[0] - B[0], C[1] - B[1], C[2] - B[2]));
+        const n = Math.max(1, Math.ceil(len / (cell * .7)));
+        const span = new Map();
+        for (let i = 0; i <= n; i++) for (let j = 0; j <= n - i; j++) {
+          const a = i / n, b = j / n, x = A[0] + ux * a + vx * b, z = A[2] + uz * a + vz * b, y = A[1] + uy * a + vy * b;
+          const ck = key(Math.floor(x / cell), Math.floor(z / cell)), iv = span.get(ck);
+          if (!iv) span.set(ck, [x, z, y, y]); else { if (y < iv[2]) iv[2] = y; if (y > iv[3]) iv[3] = y; }
+        }
+        for (const [x, z, y0, y1] of span.values()) add(x, z, y0, y1);
+      }
+    }
+  }
+  return cells;
+}
+
+// ANY BUILDING FROM ITS DEFINITION: assets/architecture/<doc>.json, assembled, as a site the village can place --
+// the mesh (archMesh, coloured by part name or kind), its FLOORS (archFloorField: every up-facing triangle, the
+// base platform, stairs and terraces included) and its WALLS (archWallField). Centred on its site: the footprint
+// is the rectangle round what it built, and everything is moved so that rectangle's middle is the site's.
+// `moat: { hw, hd, w, depth }` is a ring of water round an island hw x hd about the definition's own origin (which
+// is not the site's middle when a bridge reaches out over it): the game carves it (index.html `moats`).
+// `floor`: the floors' pattern and colours ({ pat, color, accent }) -- checkered marble unless the building says
+// `origin`: keep the DEFINITION's origin as the site's (no centring on the bounding box) and take `footprint` as given -- a
+// building placed by an edge it measures from its own middle (the mill, the landing and the fisherman's hut against the
+// bank: their footprint is the yard, not the jetty or the piles reaching out over the water)
+export function archBuilding(doc, { name, params = {}, color = 0xdcd4c2, accent = 0xc4b79f, pat = "ashlar", colors = {}, moat = null,
+                                    floor = { pat: "checker", color: 0xd6cfc0, accent: 0x8f877a }, origin = false, footprint = null,
+                                    finish = typeof doc === "string" ? FINISHES[doc] ?? null : null } = {}) {
+  const asm = archAssembly(doc, params);
+  // (a site that keeps its OWN ORIGIN says so -- `site.origin`, the yard it stands in `footW` x `footD`: the mill and the
+  // fisherman's hut are set against the bank by their yard, not by the middle of a jetty or a wheel out over the water)
+  const site = (typeof doc === "string" ? ARCH_DOCS[doc] ?? docOf(doc) : doc)?.site;
+  if (site?.origin) { origin = true; footprint ??= asm.params.footW !== undefined ? [asm.params.footW, asm.params.footD] : null; }
+  moat ??= site?.moat ?? null;   // (an island's water, the game carves it: Caerphilly's)
+  let x0 = 1e9, x1 = -1e9, z0 = 1e9, z1 = -1e9;
+  for (const p of asm.parts) {
+    const P = p.geometry.position;
+    for (const [yaw, X, , Z] of p.instances) {
+      const c = Math.cos(yaw), s2 = Math.sin(yaw);
+      for (let i = 0; i < P.length; i += 3) {
+        const x = P[i] * c + P[i + 2] * s2 + X, z = -P[i] * s2 + P[i + 2] * c + Z;
+        if (x < x0) x0 = x; if (x > x1) x1 = x; if (z < z0) z0 = z; if (z > z1) z1 = z;
+      }
+    }
+  }
+  const cx = origin ? 0 : (x0 + x1) / 2, cz = origin ? 0 : (z0 + z1) / 2;
+  const floors = archFloorField(doc, params), walls = archWallField(doc, params);
+  const life = lifeOf(asm, cx, cz);
+  // (an iron railing is iron; a stone or balustered one is the building's stone)
+  const iron = (typeof doc === "string" ? ARCH_DOCS[doc] : doc)?.railing?.type === "iron";
+  const palette = { "kind:dome": { color: 0xa9532e, accent: 0x8c4426 }, "kind:roof": { color: 0x9a5a3e, accent: 0x7e4631 },
+                    "kind:ribs": { color: 0xf1ece0 }, ...(iron ? { "kind:railing": { color: 0x2e2f31, accent: 0x1f2022 } } : {}), ...colors };
+  return {
+    name: name ?? asm.name, parts: life.crops.flatMap((c) => cropPanels(c)),   // (a field's crop: its painted rows -- the only parts it has of its own)
+    arch: { def: doc, params, color, accent, pat, side: "double", colors: palette, offset: [-cx, -cz], floor, finish },
+    footprint: footprint ?? [x1 - x0, z1 - z0],
+    // (how far it reaches from its site's middle -- past its footprint where it has one of its own: a mine's galleries
+    //  run far under the ground round its yard -- for what must know all of it: the walls the walker meets)
+    extent: x1 >= x0 ? [Math.max(Math.abs(x0 - cx), Math.abs(x1 - cx)), Math.max(Math.abs(z0 - cz), Math.abs(z1 - cz))] : [0, 0],   // (none: an orchard is only its items)
+    // (where the ground is OPEN over it: `site.dig`, rectangles [x0, z0, x1, z1] in its frame -- a shaft's mouth, which
+    //  has no floor near the surface to open it as a cellar's stair does)
+    ...(site?.dig ? { dig: site.dig.map(([a, b, c, d]) => [a - cx, b - cz, c - cx, d - cz]) } : {}),
+    ...(moat ? { moat: { ...moat, ox: -cx, oz: -cz } } : {}),
+    floorY: (x, z) => floors(x + cx, z + cz),
+    wallField: (x, z, lo, hi) => walls(x + cx, z + cz, lo, hi),
+    spirals: spiralsOf(asm, cx, cz),
+    // (its life, where it has any: markers in its definition)
+    ...(life.beds.length ? { beds: life.beds, ways: { up: life.up.map((u) => u.at), upStorey: life.up.map((u) => u.storey) } } : {}),
+    ...(life.doors.length ? { doors: life.doors } : {}), ...(life.windows.length ? { windows: life.windows } : {}),
+    ...(life.folkSpots.length ? { folkSpots: life.folkSpots } : {}), ...(life.seats.length ? { seats: life.seats } : {}),
+    ...(life.fires.length ? { fires: life.fires } : {}), ...(life.guards.length ? { guards: life.guards } : {}),
+    ...(life.pen ? { pen: { ...life.pen, blocks: life.blocks }, kind: life.pen.kind } : {}), ...(life.vessels.length ? { vessels: life.vessels } : {}),
+    ...(life.dishes.length ? { dishes: life.dishes } : {}), ...(life.flows.length ? { flows: life.flows } : {}), ...(life.cobwebs.length ? { cobwebs: life.cobwebs } : {}),
+    ...(life.plants.length ? { plants: life.plants } : {}), ...(life.crops.length ? { crop: life.crops[0].crop } : {}),
+    ...(life.quaySlots.length ? { quaySlots: life.quaySlots } : {}), ...(life.way.length ? { way: life.way } : {}), ...(life.bargeZ !== null ? { bargeZ: life.bargeZ } : {}),
+    ...(life.boatDock ? { boatDock: life.boatDock } : {}), ...(life.wheelAt ? { wheelAt: life.wheelAt, wheel: life.wheel } : {}), ...(life.drop ? { drop: life.drop } : {}),
+    ...(life.spins.length ? { spins: life.spins } : {}), ...(life.statues.length ? { statues: life.statues } : {}),
+    ...(life.lifts.length ? { lifts: life.lifts } : {}), ...(life.paintings.length ? { paintings: life.paintings } : {}), ...(life.mirrors.length ? { mirrors: life.mirrors } : {}),
+    ...(site?.glazed || asm.params?.glazed ? { glazed: true } : {}),   // (its windows' panes are glass, not shutters: a palace's, a merchant's stone house)
+  };
+}
+// A FIELD'S CROP, painted: the plants are a shader pattern on thin see-through panels (archFrag PAT 13-16, swaying with
+// the wind), rows across the plot both ways so the field reads from every side -- a few dozen panels instead of thousands
+// of stalks. Flat panels, not thin boxes: a box's 2cm end and top faces took the pattern across the row, and as the wind
+// shifted the stalks a whole end face turned into one long yellow line; 8% taller than the plants, so no ear is cut.
+// (The field itself -- its soil, furrows, a cabbage's heads -- is its definition: assets/architecture/village/field-*.)
+const CROP_LOOK = { rye: { h: 1.15, gap: .5, c: [0xb2a05a, 0xa89050] }, barley: { h: .85, gap: .5, c: [0xc9b66c, 0xd6c27a] },
+                    beans: { h: 1.7, gap: 1.0, c: [0x6a5236, 0x3f8a3a] }, garlic: { h: .45, gap: .5, c: [0x7fb06a, 0x7fb06a] } };
+export function cropPanels({ crop, x = 0, z = 0, w, d }) {
+  const C = CROP_LOOK[crop]; if (!C) return [];
+  const slab = { color: C.c[0], accent: C.c[1], pat: crop, side: "double", collide: false, outline: false }, Hp = C.h * 1.08, out = [];
+  for (let zz = -d / 2 + .6; zz <= d / 2 - .6; zz += C.gap) out.push({ shape: "panel", size: [w - 1, Hp], pos: [x, .12 + Hp / 2, z + zz], ...slab });
+  for (let xx = -w / 2 + .6; xx <= w / 2 - .6; xx += C.gap) out.push({ shape: "panel", size: [d - 1, Hp], pos: [x + xx, .12 + Hp / 2, z], rot: [0, 90, 0], ...slab });
+  return out;
+}
+// THE SPIRAL STAIRS of an assembly, for the walk: each copy's axis (in the site's frame, offset by -cx, -cz), the
+// radius its treads reach and the heights it climbs between -- a walker on one turns with it (index.html)
+function spiralsOf(asm, cx = 0, cz = 0) {
+  const out = [];
+  for (const p of asm.parts) {
+    if (p.kind !== "spiral-stair" || !p.path) continue;
+    const r = Math.max(...p.path.map((q) => Math.hypot(q.p[0], q.p[2]) + q.w / 2));
+    const y0 = Math.min(...p.path.map((q) => q.p[1])), y1 = Math.max(...p.path.map((q) => q.p[1]));
+    for (const [, X, Y, Z] of p.instances) out.push({ x: X - cx, z: Z - cz, r, y0: Y + y0 - .3, y1: Y + y1 + .3 });
+  }
+  return out;
+}
+
+export function amphitheatre({ name = "Amphitheatre", def = "arena", params = {} } = {}) {
+  const P = archAssembly(def, params).params;
+  const { rOuter, wallT, rOuterInner, rInnerFace, rArena, podium, caveaTop, storeyH, bays } = P;
+  const rWallIn = rOuter - wallT;
+  const parts = [];
+  // the piers of both arcade rings, on both storeys: collider-only (the stone itself is the component engine's)
+  const bayA = 2 * Math.PI / bays, pierW = Math.max(.8, bayA * rOuter - P.openW), pierIn = Math.max(.7, bayA * rOuterInner - P.innerOpenW);
+  for (let s = 0; s < 2; s++) for (let i = 0; i < bays; i++) {
+    // A PIER STANDS BETWEEN TWO BAYS, and a bay is CENTRED on its own angle (assemble.js: bay k sits at
+    // k * 2pi / n), so the stone between them is at the half-angle -- put a collider on the bay's own angle
+    // and it stands in the archway you can see through. And its box must run along the TANGENT, not the
+    // radius, or it lies across both neighbours as well.
+    const a = bayA * (i + .5), deg = -(a * 180 / Math.PI + 90), y = s * storeyH + storeyH / 2;
+    parts.push({ shape: "box", size: [pierW, storeyH, wallT], rot: [0, deg, 0], render: false,
+                 pos: [(rOuter - wallT / 2) * Math.cos(a), y, (rOuter - wallT / 2) * Math.sin(a)], color: 0xd9cdb4 });
+    parts.push({ shape: "box", size: [pierIn, storeyH, P.innerT], rot: [0, deg, 0], render: false,
+                 pos: [(rOuterInner - P.innerT / 2) * Math.cos(a), y, (rOuterInner - P.innerT / 2) * Math.sin(a)], color: 0xd9cdb4 });
+  }
+  // the walk: read from the stone (archFloorField), so the steps, the vaults, the stairs and the decks are
+  // where they are drawn -- and a vomitorium is a hole, not a slope
+  const stone = archFloorField(def, params);
+  const floorY = (x, z) => (Math.hypot(x, z) > rOuter + 3 ? 0 : stone(x, z));
+  const slopeOf = (r) => podium + (r - rArena) * (caveaTop - podium) / (rInnerFace - rArena);   // (the seats, for the crowd below)
+  // the publicum: seated up the cavea, facing the sand, thinning out toward the top
+  //   (every spot is a PERSON, posed and drawn every frame, so a full house is a frame's worth of work all by
+  //    itself: five rows of a scattered crowd read as a crowd and cost a fifth of what a packed bowl would)
   const folkSpots = [];
-  for (let i = 1; i <= 8; i++) {
-    const rr = arenaA + (bowlOut - arenaA) * i / 8.5;
-    const hy = plinthH + .3 + (rr - arenaA) / (bowlOut - arenaA) * bowlTop;
-    const nSeats = 14 + i * 2;
-    for (let k = 0; k < nSeats; k++) {
-      if ((i * 5 + k * 3) % 7 < 3) continue;                 // scattered crowd, not a sold-out house
-      const a = 2 * Math.PI * (k + (i % 3) * .33) / nSeats;
-      const sx2 = rr * Math.cos(a), sz2 = rr * ratio * Math.sin(a);
-      folkSpots.push({ x: sx2, y: hy, z: sz2, h: Math.atan2(sz2, -sx2), pose: "sit" });   // y = the seat (step top)
+  for (let row = 0; row < 5; row++) {
+    const r = rArena + (rInnerFace - rArena) * (row + 1) / 7, y = slopeOf(r);
+    const n = Math.round(2 * Math.PI * r / 6.5);
+    for (let k = 0; k < n; k++) {
+      if ((row * 5 + k * 3) % 7 < 3) continue;          // a scattered crowd, not a sold-out house
+      const a = 2 * Math.PI * (k + (row % 3) * .33) / n, sx = r * Math.cos(a), sz = r * Math.sin(a);
+      folkSpots.push({ x: sx, y, z: sz, h: Math.atan2(sz, -sx), pose: "sit" });
     }
   }
-
-  return { name, parts, footprint: [2 * outerA + 3, 2 * outerB + 3], floorY, folkSpots,
-           arena: { r: arenaA, y: plinthH + .3 } };   // the demo stages beasts and gladiators on the sand
+  return { name, parts, arch: { def, params, side: "double", finish: FINISHES[def] ?? null },   // (its stone: assets/finishes/arena.json)
+           footprint: [2 * rOuter + 6, 2 * rOuter + 6], floorY, folkSpots,
+           arena: { r: rArena * .78, y: 0 } };   // the demo stages beasts and gladiators on the sand
 }
+
+
+// ---- Santa Maria del Fiore, from the COMPONENT engine ----------------------
+// Florence at its real size (assets/architecture/florence.json): a nave of four 20.3m bays, an octagon 45.5m across the
+// flats, Brunelleschi's dome springing from the drum at 54.8m to a crown at 91m with the lantern over it, the
+// three tribunes closing the octagon's other sides, and Giotto's campanile standing clear of the facade with
+// a flight of stairs in each of its five storeys.
+//   The engine builds the STONE -- walls, arcades, vaults, drum, dome, tribunes, tower, stairs. What it has
+// no part for yet is a timber roof, so the nave's and the aisles' are prisms of the village's own kind here,
+// and so are the colliders: a wall you cannot walk through is a box, whatever drew it.
+// (Santa Maria del Fiore is wholly its definition now -- assets/architecture/florence.json, tools/archgen/florence.py:
+//  its pavement, its marble bands and its congregation's pews included)
 
 // ---- generic Gothic cathedral ---------------------------------------------
 // The classic massing, layer by layer: low aisle block + tall clerestory nave
@@ -922,11 +1712,15 @@ export function gothicCathedral({
     const wx = sx * (bodyW - T) / 2;
     if (transeptW) { sideWall(wx, zA, gapA); sideWall(wx, gapB, zB); }
     else sideWall(wx, zA, zB);
-    parts.push({ shape: "hwall", size: { w: bodyL, h: naveH - innerA, t: T,
+    // THE ARCADE AND THE CLERESTORY ARE BUILT BY THE COMPONENT ENGINE (assets/architecture/basilica.json, below): real
+    // arches on real piers, with the nave's and the aisles' barrel vaults over them. These two stay as the
+    // COLLIDERS they always were -- a wall with its openings, a pier you cannot walk through -- and are not
+    // drawn, so the walk is unchanged and the church is no longer a flat-ceilinged box.
+    parts.push({ shape: "hwall", render: false, size: { w: bodyL, h: naveH - innerA, t: T,
                  holes: winZs.map((z) => [z - zc, (naveH - innerA) * .3, 2.2, (naveH - innerA) * .5]) },
                  pos: [sx * (naveW - T) / 2, innerA, zc], rot: [0, -90, 0], color: stone, pat: "gothic" });
     for (let z = zA + 3; z < zB - 2; z += buttressEvery) {
-      parts.push({ shape: "box", size: [1.8, innerA, 1.8], pos: [sx * (naveW - T) / 2, innerA / 2, z], color: stone, pat: "ornament", accent: 0x8d7a4f });
+      parts.push({ shape: "box", render: false, size: [1.8, innerA, 1.8], pos: [sx * (naveW - T) / 2, innerA / 2, z], color: stone, pat: "ornament", accent: 0x8d7a4f });
       if (aisles >= 5) parts.push({ shape: "box", size: [1.5, aisleH, 1.5], pos: [sx * x2, aisleH / 2, z], color: stone, pat: "ornament", accent: 0x8d7a4f });
     }
     if (aisles >= 5) {
@@ -1255,715 +2049,120 @@ export function gothicCathedral({
   };
 
   const facadeW = towers ? 2 * towerX + towerW : bodyW;
-  return { name, parts, footprint: [Math.max(bodyW, transeptW, facadeW), length], floorY, folkSpots, lifts, paintings: paintingsOut };
+  // THE INTERIOR, FROM THE COMPONENT ENGINE. The massing above is the church seen from outside -- walls,
+  // roofs, towers, spires, buttresses, the apse -- and it was also the church seen from INSIDE, which meant
+  // square piers carrying nothing and a flat slab for a ceiling. The nave is composed now: an arcade of
+  // arches on each side, a clerestory over it, a barrel vault over the nave and one over each aisle, all
+  // from assets/architecture/basilica.json and all following the numbers this generator already has.
+  //   Everything is derived, nothing is repeated: the bays are the buttress spacing (so a pier stands where
+  // a buttress does), the nave vault springs low enough that its crown clears the old ceiling line, and the
+  // aisle vault's extrados is the aisle's own roof line.
+  // EVERY HEIGHT FOLLOWS FROM THE ONES THE CHURCH ALREADY HAS, and a vault's rise is not negotiable: a round
+  // or pointed head over a span of naveW rises naveW / 2, so the nave's vault must spring that far below the
+  // ceiling line it reaches. Where that leaves no room for a clerestory (Milan's aisles stand 30m up under a
+  // 38m nave) the ARCADE gives way, not the vault -- the engine refuses a vault that would cut its own
+  // arches, and rightly.
+  const bays = Math.max(4, Math.round(bodyL / buttressEvery));
+  const bayLen = bodyL / bays, pierT = T + .8, aisleT = T;
+  const aisleW = Math.max(3, (bodyW - naveW - 2 * pierT - 2 * aisleT) / 2);
+  // HOW FAR AN ARCH RISES IS THE PROFILE'S BUSINESS, not a guess: a round head rises half its span, a POINTED
+  // one (which is what a Gothic church is) rises .87 of it, and a vault written for the round rise cuts
+  // straight through its own crown when the profile changes. Ask the profile.
+  //   A POINTED HEAD'S RISE IS ITS SPREAD. The two centres sit `spread` half-widths apart, and the crown then
+  // stands (w/2) * sqrt(1 + 2 * spread) over the springing -- the equilateral arch (spread 1) at .87 of the
+  // span, a drop arch lower. So an arch that has to fit a given height is not a compromise between profiles:
+  // it is the spread that fits, and only where even a semicircle is too tall does the vault become a shallow
+  // SEGMENTAL one (which is what a wide, low aisle is built with anyway).
+  const riseOf = (w, spread) => (w / 2) * Math.sqrt(1 + 2 * spread);
+  const spreadFor = (w, h) => ((2 * h / w) ** 2 - 1) / 2;
+  const fit = (w, h) => Math.max(0, Math.min(1, spreadFor(w, h)));
+  const clearH = Math.max(8, Math.min(naveH, ridgeH - 2) - riseOf(naveW, 1) - .8);
+  const arcadeH = Math.max(6, Math.min(innerA, clearH - 2.5));
+  const spring = Math.max(3.0, Math.min(innerA * .42, arcadeH * .5));
+  const openW = Math.max(2.4, Math.min(bayLen - 2.6, naveW * .92));
+  const arcSpread = fit(openW, arcadeH - spring - .6);
+  const crown = spring + riseOf(openW, arcSpread);
+  // the nave vault: from the clerestory's head to just under the roof
+  const naveRoom = Math.min(naveH, ridgeH - 2) - clearH - .8;
+  const naveFlat = spreadFor(naveW, naveRoom) < -1e-9;
+  const naveSpread = fit(naveW, naveRoom);
+  // the aisle vault: it springs at the arcade's crown (below it, it would cut the arches) and has the aisle's
+  // own roof over it
+  const aisleSpring = Math.max(crown, 2.6);
+  const aisleRoom = Math.max(.8, aisleH - .5 - aisleSpring - .5);
+  const aisleFlat = spreadFor(aisleW, aisleRoom) < -1e-9;
+  const aisleSpread = fit(aisleW, aisleRoom);
+  const aisleTop = aisleSpring + (aisleFlat ? Math.min(aisleRoom, aisleW * .49) : riseOf(aisleW, aisleSpread)) + .5;
+  // the clerestory is whatever band is left between the arcade and the vault: where a church is steep and its
+  // aisles high (Milan) that is a course of blind wall, and its windows shrink to fit or go
+  const band = clearH - arcadeH, clearSill = Math.min(1.4, band * .2), clearSpring = clearSill + Math.min(1.2, band * .2);
+  const clearWinW = Math.max(.6, Math.min(2.6, naveW * .2, (band - clearSpring - .5) / .87));
+  const arch = {
+    def: "basilica", color: stone, accent: stoneDark, pat: "gothic", side: "double",
+    build: ["arcade", "clerestory", "nave vault", "nave ribs", "aisle vault", "aisle ribs"],
+    params: {
+      arch: "pointed", detail: 4, bays, bayLen, naveW, aisleW, pierT, aisleT, zc,
+      openW, spring, gap: bayLen - openW, arcadeH, clearH, crown,
+      arcSpread, naveSpread, aisleSpread,
+      naveArch: naveFlat ? "segmental" : "pointed", naveRise: Math.min(naveRoom, naveW * .49),
+      aisleArch: aisleFlat ? "segmental" : "pointed", aisleRise: Math.min(aisleRoom, aisleW * .49),
+      // ...and the arch ALONG the bay, which is a different span and so a different arch: a groin vault's
+      // crown is set by its longer one, and a bay is rarely square
+      naveAlongArch: spreadFor(bayLen, naveRoom) < -1e-9 ? "segmental" : "pointed",
+      naveAlongSpread: fit(bayLen, naveRoom), naveAlongRise: Math.min(naveRoom, bayLen * .49),
+      aisleAlongArch: spreadFor(bayLen, aisleRoom) < -1e-9 ? "segmental" : "pointed",
+      aisleAlongSpread: fit(bayLen, aisleRoom), aisleAlongRise: Math.min(aisleRoom, bayLen * .49),
+      naveTop: clearH + (naveFlat ? Math.min(naveRoom, naveW * .49) : riseOf(naveW, naveSpread)) + .8,
+      aisleSpring, aisleTop,
+      clearWinW, clearSill, clearSpring, clearSpread: fit(clearWinW, clearH - arcadeH - clearSpring - .4),
+      winW: 2.2, winSill: 4,
+    },
+  };
+  return { name, parts, arch, footprint: [Math.max(bodyW, transeptW, facadeW), length], floorY, folkSpots, lifts, paintings: paintingsOut };
 }
 
-// ---- generic Egyptian temple (Ptolemaic style) ----------------------------
-// Flat-roofed sandstone mass: a pronaos facade of columns linked by
-// half-height screen walls under a fat cavetto cornice, a hypostyle forest
-// of columns behind it, then the lower, darker inner temple with its naos.
-// Fully walkable: in through the open central bay, between the columns,
-// through the inner door, around the sanctuary.
+// (the Egyptian temple is an asset: dendera.json -- tools/archgen/dendera.py)
 
-export function egyptianTemple({
-  name,
-  width, length,
-  hallH,                             // hypostyle hall / facade height
-  innerH = hallH * .7,               // the rear temple block sits lower
-  hallDepth = length * .32,
-  columnH = hallH * .85, columnD = 2.2,
-  colsFront = 6, hypoRows = 4,
-  screenH = hallH * .4,
-  sand = 0xc9b283, sandDark = 0xb09a6d, sandShadow = 0x8f7c55,
-}) {
-  const parts = [];
-  const T = 1.2, L2 = length / 2, baseY = .5;
-  parts.push({ shape: "box", size: [width + 2, .5, length + 2], pos: [0, .25, 0], color: sandDark });
-
-  // column: gently tapered shaft + Hathor block capital + abacus
-  const col = (x, z) => {
-    const r = columnD / 2, h = columnH;
-    parts.push({ shape: "cyl", size: { r1: r * .88, r2: r, h: h - 2.4 }, pos: [x, baseY + (h - 2.4) / 2, z], color: sand });
-    parts.push({ shape: "box", size: [columnD * 1.15, 1.6, columnD * 1.15], pos: [x, baseY + h - 1.6, z], color: sandDark });
-    parts.push({ shape: "box", size: [columnD * .9, .8, columnD * .9], pos: [x, baseY + h - .4, z], color: sand });
-  };
-
-  // pronaos: front columns joined by screen walls, the central bay open
-  const xs = linspace(-(width / 2 - columnD), width / 2 - columnD, colsFront);
-  const zF = L2 - columnD;
-  for (const x of xs) col(x, zF);
-  for (let i = 0; i < xs.length - 1; i++) {
-    if (i === colsFront / 2 - 1) continue;
-    parts.push({ shape: "box", size: [xs[i + 1] - xs[i] - columnD * .8, screenH, 1], pos: [(xs[i] + xs[i + 1]) / 2, baseY + screenH / 2, zF], color: sand });
-  }
-  // hypostyle rows behind the facade (the central file stays clear)
-  const rowGap = (hallDepth - 5) / hypoRows;
-  for (let rz = 1; rz < hypoRows; rz++) for (const x of xs) col(x, zF - rz * rowGap);
-
-  // hall enclosure: side walls, roof slab, cavetto cornice over the facade
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [T, hallH, hallDepth], pos: [sx * (width - T) / 2, baseY + hallH / 2, L2 - hallDepth / 2], color: sand, pat: "ashlar" });
-  parts.push({ shape: "box", size: [width, .8, hallDepth], pos: [0, baseY + hallH + .4, L2 - hallDepth / 2], color: sandDark });
-  parts.push({ shape: "box", size: [width + 1.6, 1.7, 2], pos: [0, baseY + hallH + .85, L2 - 1], color: sand });
-
-  // inner temple: lower block, entered by an axial door; the naos at the rear
-  const innerDepth = length - hallDepth, ziC = -L2 + innerDepth / 2, zin = L2 - hallDepth + T / 2;
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [T, innerH, innerDepth], pos: [sx * (width - T) / 2, baseY + innerH / 2, ziC], color: sand, pat: "ashlar" });
-  parts.push({ shape: "box", size: [width, innerH, T], pos: [0, baseY + innerH / 2, -L2 + T / 2], color: sand });
-  const doorW = 3.4, doorH = Math.min(6, innerH - 2), jw = (width - doorW) / 2;
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [jw, innerH, T], pos: [sx * (doorW + jw) / 2, baseY + innerH / 2, zin], color: sand });
-  parts.push({ shape: "box", size: [doorW, innerH - doorH, T], pos: [0, baseY + doorH + (innerH - doorH) / 2, zin], color: sand });
-  parts.push({ shape: "box", size: [width, .8, innerDepth], pos: [0, baseY + innerH + .4, ziC], color: sandDark });
-  parts.push({ shape: "box", size: [6, 6, 8], pos: [0, baseY + 3, -L2 + 7], color: sandShadow });         // the naos
-  parts.push({ shape: "box", size: [2.2, 3.6, .5], pos: [0, baseY + 1.8, -L2 + 11.2], color: 0x2e2a22, outline: false });   // its dark doorway
-
-  const floorY = (x, z) => Math.abs(x) <= width / 2 + 1 && Math.abs(z) <= L2 + 1 ? .5 : 0;
-  return { name, parts, footprint: [width + 2, length + 2], floorY };
-}
-
-// ---- generic medieval house -----------------------------------------------
-// Half-timbered town house: stone ground floor (a hollow room with a real
-// door), jettied plaster upper storeys laced with timber, steep gable roof,
-// chimney. Sized by parameters so a street can mix widths and heights.
-
-export function medievalHouse({
-  name = "House",
-  width = 6.5, depth = 8.5, storeys = 2, floorH = 2.9,
-  roofH,
-  stone = 0x9a917f, plaster = 0xd9cfba, timber = 0x5b4326, roofC = 0x8a5a35, glassC = 0x40474d,
-}) {
-  const parts = [];
-  const T = .4, D2 = depth / 2;
-  const doorW = 1.4, doorH = 2.2, jw = (width - doorW) / 2;
-  parts.push({ shape: "box", size: [width, .15, depth], pos: [0, .075, 0], color: stone });   // floor slab
-  for (const sx of [-1, 1])                                                                   // ground room side walls
-    parts.push({ shape: "box", size: [T, floorH, depth], pos: [sx * (width - T) / 2, floorH / 2, 0], color: stone, pat: "ashlar" });
-  parts.push({ shape: "hwall", size: { w: width, h: floorH, t: T, holes: [[0, 0, doorW, doorH], [-width * .28, 1.1, 1.1, 1]] },
-               pos: [0, 0, D2 - T / 2], color: stone, pat: "ashlar" });                        // front: real door + window openings
-  parts.push({ shape: "box", size: [width, floorH, T], pos: [0, floorH / 2, -D2 + T / 2], color: stone });
-  // the ground-floor front window is a DYNAMIC pane (openable, exported
-  // below), so no static glass part here
-
-  // jettied upper storeys: HOLLOW rooms (walls + floor slab with a hole over
-  // the ramp), timber framing and windows outside
-  const stairW = 1.7, zRun0 = D2 - .8, zRun1 = -D2 + .8, run = zRun0 - zRun1;
-  const winsOut = [{ x: -width * .28, y: 1.6, z: D2 - T / 2, w: 1.25, h: 1.15 }];   // every front window opens
-  let w = width;
-  for (let s = 1; s < storeys; s++) {
-    w = width + s;
-    const y0 = s * floorH, d = depth + .6;
-    const holeSide = (s - 1) % 2 ? -1 : 1;   // where the flight below arrives
-    const hsx = holeSide * (width / 2 - stairW / 2 - .2);
-    const x0 = hsx - stairW / 2 - .2, x1 = hsx + stairW / 2 + .2;      // stairwell strip, centered on the ramp
-    const hzA = holeSide > 0 ? zRun1 : zRun0 - run * .78;              // headroom: a 2m walker on the flight below
-    const hzB = holeSide > 0 ? zRun1 + run * .78 : zRun0;              // must clear this slab the whole climb
-    parts.push({ shape: "box", size: [x0 + w / 2, .18, d], pos: [(x0 - w / 2) / 2, y0 + .09, 0], color: timber });
-    parts.push({ shape: "box", size: [w / 2 - x1, .18, d], pos: [(x1 + w / 2) / 2, y0 + .09, 0], color: timber });
-    parts.push({ shape: "box", size: [x1 - x0, .18, hzA + d / 2], pos: [(x0 + x1) / 2, y0 + .09, (hzA - d / 2) / 2], color: timber });
-    parts.push({ shape: "box", size: [x1 - x0, .18, d / 2 - hzB], pos: [(x0 + x1) / 2, y0 + .09, (hzB + d / 2) / 2], color: timber });
-    wellRail(parts, { x0, x1, z0: hzA, z1: hzB, y: y0 + .18, side: -holeSide, landAt: holeSide > 0 ? "z0" : "z1" });
-    for (const sx of [-1, 1]) parts.push({ shape: "box", size: [T, floorH, d], pos: [sx * (w - T) / 2, y0 + floorH / 2, 0], color: plaster });
-    parts.push({ shape: "hwall", size: { w, h: floorH, t: T, holes: [[-w * .22, floorH * .55 - .55, .9, 1.1], [w * .22, floorH * .55 - .55, .9, 1.1]] },
-                 pos: [0, y0, (d - T) / 2], color: plaster });                                 // front wall with window openings
-    parts.push({ shape: "box", size: [w, floorH, T], pos: [0, y0 + floorH / 2, -(d - T) / 2], color: plaster });
-    for (const sz of [-1, 1]) parts.push({ shape: "box", size: [w + .15, .25, .3], pos: [0, y0 + .1, sz * (d - .1) / 2], color: timber });   // jetty beams:
-    for (const sx of [-1, 1]) parts.push({ shape: "box", size: [.3, .25, d + .15], pos: [sx * (w - .1) / 2, y0 + .1, 0], color: timber });   // a frame, not a slab
-    for (const sz of [-1, 1]) for (let k = 0; k < 4; k++)                                                   // studs, front & back
-      parts.push({ shape: "box", size: [.2, floorH, .12], pos: [(k / 3 - .5) * w * .9, y0 + floorH / 2, sz * (d / 2 + .04)], color: timber });
-    for (const sx of [-1, 1])   // upper-storey front windows: dynamic, openable panes
-      winsOut.push({ x: sx * w * .22, y: y0 + floorH * .55, z: (d - T) / 2, w: 1.05, h: 1.25 });
-  }
-  parts.push({ shape: "box", size: [w, .18, depth + .6], pos: [0, storeys * floorH + .09, 0], color: timber });   // attic floor under the roof
-  // a real staircase per storey, hugging alternating side walls
-  for (let s = 0; s < storeys - 1; s++) {
-    const side = s % 2 ? -1 : 1;
-    const sxp = side * (width / 2 - stairW / 2 - .2);
-    stairSteps(parts, { x: sxp, w: stairW, y0: s * floorH + .15, rise: floorH, rail: -side,
-                        z0: side > 0 ? zRun0 : zRun1, z1: side > 0 ? zRun1 : zRun0, color: 0x74582f });
-  }
-  // furnishings: table, chairs and a bench below; bed + wardrobe upstairs.
-  // Everything keeps to the half away from that storey's ramp strip and
-  // stairwell hole (they alternate sides, see holeSide/side above).
-  // Beds (where the family sleeps, two to a bed) are exported for the village's
-  // people -- mattress top, the foot to walk up to, the storey: a one-room
-  // cottage sleeps on the ground floor, two beds along the back wall where
-  // a sofa would stand; upstairs a second bed beside the first.
-  const beds = [];
-  const bed = (x, y, z, storey) => { placeFurniture(parts, "bed", x, y, z); beds.push({ x, y: y + .69, z, foot: [x, z + 1.45], storey }); };
-  const fx = -width * .18;
-  placeFurniture(parts, "table", fx, .15, .6);
-  placeFurniture(parts, "chair", fx, .15, 1.6, 2);
-  placeFurniture(parts, "chair", fx + 1.15, .15, -.4, 1);
-  if (storeys === 1) for (const sx of [-1, 1]) bed(sx * (width / 2 - T - .9), .15, -D2 + T + 1.1, 0);
-  else placeFurniture(parts, "sofa", -width * .1, .15, -D2 + T + .65);
-  for (let s = 1; s < storeys; s++) {
-    const y0 = s * floorH + .18, ws = width + s, ds = depth + .6;
-    bed(0, y0, -ds / 2 + T + 1.4, s);
-    if (s === 1) bed(-(ws / 2 - T - .9), y0, -ds / 2 + T + 1.4, s);
-    placeFurniture(parts, "wardrobe", ws * .25, y0, ds / 2 - T - .5, 2);
-    placeFurniture(parts, "chair", -ws * .15, y0, ds / 2 - T - .85, 2);
-  }
-
-  const rh = roofH ?? w * .6;
-  parts.push({ shape: "gable", size: [w + .7, rh, depth + 1], pos: [0, storeys * floorH, 0], color: roofC, pat: "tiles" });
-  parts.push({ shape: "box", size: [.9, rh + 1.6, .9], pos: [w * .25, storeys * floorH + (rh + 1.6) / 2 - .8, -depth * .2], color: stone });
-
-  const floorY = (x, z) => {
-    if (Math.abs(x) > (width + storeys - 1) / 2 + .3 || Math.abs(z) > D2 + .3) return 0;
-    const lv = [.15];
-    for (let s = 1; s < storeys; s++) {              // slabs, minus the cutout over each ramp's arrival
-      const side = (s - 1) % 2 ? -1 : 1;
-      const sxp = side * (width / 2 - stairW / 2 - .2);
-      const hzA = side > 0 ? zRun1 : zRun0 - run * .78;
-      const hzB = side > 0 ? zRun1 + run * .78 : zRun0;
-      if (!(Math.abs(x - sxp) <= stairW / 2 + .2 && z >= hzA && z <= hzB)) lv.push(s * floorH + .18);
-    }
-    for (let s = 0; s < storeys - 1; s++) {          // the staircases themselves
-      const side = s % 2 ? -1 : 1;
-      const sxp = side * (width / 2 - stairW / 2 - .2);
-      if (Math.abs(x - sxp) <= stairW / 2 + .1) {
-        const t = side > 0 ? (zRun0 - z) / run : (z - zRun1) / run;
-        if (t >= 0 && t <= 1) lv.push(stairY(s * floorH + .15, floorH, t, run));
-      }
-    }
-    return lv;
-  };
-  // the front doorway and ground-floor window, exported so the demo can
-  // hang clickable door/window panels in them
-  // the way up for a walker (house-local x, z): the first flight's foot beside the door, its top at the
-  // back, along the landing strip past the stairwell's railed edge, into the upstairs room
-  const sx0 = width / 2 - stairW / 2 - .2, hx0 = sx0 - stairW / 2 - .2;
-  const ways = { up: storeys > 1 ? [[sx0, D2 - .6], [sx0, zRun1 - .1], [hx0 - .3, zRun1 - .1], [hx0 - .3, zRun1 + 1.4]] : [] };
-  return { name, parts, footprint: [width + 2, depth + 2], floorY, beds, ways,
-           doors: [{ x: 0, z: D2 - T / 2, w: doorW, h: doorH }],
-           windows: winsOut,
-           cobwebs: [{ x: -(width - T) / 2, y: floorH, z: -D2 + T, sx: 1, sz: 1, d: .6 },       // the back corners of the ground room
-                     { x: (width - T) / 2, y: floorH, z: -D2 + T, sx: -1, sz: 1, d: .5 },
-                     { x: (width + 1 - T) / 2, y: 2 * floorH + .18, z: -(depth + .6) / 2 + T, sx: -1, sz: 1, d: .5 }] };
-}
-
-// ---- English medieval castle (Caerphilly) -----------------------------------
-// A concentric water castle: the island plinth carries a low outer curtain
-// and a high inner ward with four drum towers (the south-east one famously
-// leaning), a twin-towered gatehouse, a great hall, straight stairs up to
-// the wall-walk, and lift spots onto the tower decks. The moat ring around
-// the island is exported (`moat`) -- the demo carves the water around it
-// and lays the bridge deck across.
-
-export function englishCastle({ name = "Caerphilly Castle" } = {}) {
-  const parts = [], lifts = [];
-  const IW = 17, ID = 13;            // inner ward half extents
-  const OW = 29, OD = 25;            // outer curtain half extents
-  const HW = 34, HD = 30;            // island half extents
-  const MW = 13;                     // moat width
-  const wallH = 9, wallT = 2.2, outH = 5.5, outT = 1.5, towerR = 5.2, towerH = 14.5;
-  const stone = 0xa9a294, dark = 0x8e887b, wood = 0x4c3a26;
-  const walkY = .4 + wallH, deckY = .4 + towerH;
-
-  parts.push({ shape: "box", size: [2 * HW, .4, 2 * HD], pos: [0, .2, 0], color: dark, collide: false });   // the island
-
-  // outer curtain: low ring with front and rear gates, corner turrets
-  for (const sz of [1, -1])
-    parts.push({ shape: "hwall", size: { w: 2 * OW, h: outH, t: outT, holes: [[0, 0, 4.2, 4.4]] },
-                 pos: [0, .4, sz * (OD - outT / 2)], color: stone, pat: "ashlar" });
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [outT, outH, 2 * OD], pos: [sx * (OW - outT / 2), .4 + outH / 2, 0], color: stone, pat: "ashlar" });
-  // battlements on every tower top: a low parapet ring (walkers cannot
-  // step over it) carrying merlons ~1m wide with ~.6m embrasures between,
-  // the classic 13th-century proportion; boxes stand tangent to the drum
-  const crenellate = (cx, topY, cz, r, seg) => {
-    const rp = r - .2, n = Math.max(6, Math.round(2 * Math.PI * rp / 1.55));
-    for (let i = 0; i < seg; i++) {   // parapet: one box per drum facet, .75m high
-      const a = (i + .5) * 2 * Math.PI / seg;
-      parts.push({ shape: "box", size: [2 * rp * Math.tan(Math.PI / seg) + .05, .75, .36], rot: [0, -a * 57.29578 - 90, 0], outline: false,
-                   pos: [cx + Math.cos(a) * rp, topY + .375, cz + Math.sin(a) * rp], color: stone });
-    }
-    for (let i = 0; i < n; i++) {     // merlons
-      const a = i * 2 * Math.PI / n;
-      parts.push({ shape: "box", size: [.95, .95, .38], rot: [0, -a * 57.29578 - 90, 0],
-                   pos: [cx + Math.cos(a) * rp, topY + .75 + .475, cz + Math.sin(a) * rp], color: stone });
-    }
-  };
-  for (const sx of [-1, 1]) for (const sz of [-1, 1]) {
-    parts.push({ shape: "cyl", size: { r1: 1.9, r2: 1.9, h: outH + 2.4, seg: 10 }, pos: [sx * OW, .4 + (outH + 2.4) / 2, sz * OD], color: stone, pat: "ashlar" });
-    crenellate(sx * OW, .4 + outH + 2.4, sz * OD, 1.9, 10);
-  }
-
-  // inner ward: high curtain with a wall-walk and parapets both sides
-  for (const sz of [1, -1])
-    parts.push({ shape: "hwall", size: { w: 2 * IW, h: wallH, t: wallT, holes: [[0, 0, 3.6, 4.4]] },
-                 pos: [0, .4, sz * ID], color: stone, pat: "ashlar" });
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [wallT, wallH, 2 * ID], pos: [sx * IW, .4 + wallH / 2, 0], color: stone, pat: "ashlar" });
-  for (const sz of [-1, 1]) for (const o of [-1, 1])
-    parts.push({ shape: "box", size: [2 * IW + wallT, 1.15, .3], pos: [0, walkY + .57, sz * ID + o * (wallT / 2 - .15)], color: stone });
-  for (const sx of [-1, 1]) {
-    parts.push({ shape: "box", size: [.3, 1.15, 2 * ID], pos: [sx * IW + sx * (wallT / 2 - .15), walkY + .57, 0], color: stone });
-    // the INNER parapet leaves a gap where the stair lands on the walk
-    parts.push({ shape: "box", size: [.3, 1.15, ID + 5.6], pos: [sx * IW - sx * (wallT / 2 - .15), walkY + .57, (-ID + 5.6) / 2], color: stone });
-    parts.push({ shape: "box", size: [.3, 1.15, ID - 8.7], pos: [sx * IW - sx * (wallT / 2 - .15), walkY + .57, (8.7 + ID) / 2], color: stone });
-  }
-
-  // four straight drum towers, each with a crenellated deck and a lift spot
-  for (const sx of [-1, 1]) for (const sz of [-1, 1]) {
-    parts.push({ shape: "cyl", size: { r1: towerR, r2: towerR, h: towerH, seg: 14 },
-                 pos: [sx * IW, .4 + towerH / 2, sz * ID], color: stone, pat: "ashlar" });
-    crenellate(sx * IW, deckY, sz * ID, towerR, 14);
-    lifts.push({ bx: sx * IW, bz: sz * (ID - towerR - 1.4), by: walkY,
-                 tx: sx * IW, tz: sz * ID, ty: deckY });
-  }
-
-  // twin-towered gatehouse over the front gate
-  for (const sx of [-1, 1]) {
-    parts.push({ shape: "cyl", size: { r1: 3.1, r2: 3.1, h: 12, seg: 12 }, pos: [sx * 4.5, .4 + 6, ID + 1.2], color: stone, pat: "ashlar" });
-    crenellate(sx * 4.5, .4 + 12, ID + 1.2, 3.1, 12);
-  }
-  parts.push({ shape: "box", size: [10.4, 3.4, 6.2], pos: [0, .4 + 7.2, ID + .8], color: stone, pat: "ashlar" });
-  // (the gate leaf is a real openable door, exported below)
-
-  // the great hall against the rear wall
-  parts.push({ shape: "hwall", size: { w: 15, h: 5.5, t: 1, holes: [[-4, 0, 1.6, 2.6], [2, 1.4, 1.6, 1.8], [5.2, 1.4, 1.6, 1.8]] },
-               pos: [-1, .4, -ID + 7], color: stone, pat: "ashlar" });
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [1, 5.5, 6.5], pos: [-1 + sx * 7.5, .4 + 2.75, -ID + 3.75], color: stone, pat: "ashlar" });
-  parts.push({ shape: "gable", size: [16.5, 3.4, 8], pos: [-1, .4 + 5.5, -ID + 3.6], color: 0x6b6f68, pat: "tiles" });
-  const windows = [{ x: 1, y: .4 + 2.3, z: -ID + 7.5, w: 1.5, h: 1.7 }];   // the hall window opens
-  placeFurniture(parts, "table", -3, .4, -ID + 4);
-  placeFurniture(parts, "chair", -3, .4, -ID + 5.2, 2);
-  placeFurniture(parts, "chair", -1.6, .4, -ID + 3.2, 1);
-
-  // straight stairs from the ward up to the wall-walk, hugging both side walls
-  for (const sx of [-1, 1])
-    stairSteps(parts, { x: sx * (IW - 1.9), w: 1.8, y0: .4, rise: wallH, z0: -6.5, z1: 8, color: dark, rail: -sx });
-
-  // the bridge over the moat to the front gates: deck runs from the road's
-  // end onto the island, with an apron step so the walk on is fluent
-  parts.push({ shape: "box", size: [4.6, .5, MW + 8], pos: [0, .2, HD + MW / 2 + 2], color: wood, collide: false });
-  parts.push({ shape: "box", size: [4.6, .3, 3], pos: [0, .15, HD + MW + 6.5], color: wood, collide: false });
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [.3, 1.1, MW + 8], pos: [sx * 2.15, 1.0, HD + MW / 2 + 2], color: wood });
-  for (const bz of [HD + 3.5, HD + MW - 3.5])   // piers stay fully below the deck
-    parts.push({ shape: "cyl", size: { r1: .8, r2: .9, h: 4, seg: 8 }, pos: [0, -1.85, bz], color: dark });
-
-  const floorY = (x, z) => {
-    if (Math.abs(x) < 2.3 && z > HD - 1 && z <= HD + MW + 5) return .45;          // the bridge deck
-    if (Math.abs(x) < 2.3 && z > HD + MW + 5 && z <= HD + MW + 8.2) return .3;    // the apron step down to the road
-    if (Math.abs(x) > HW || Math.abs(z) > HD) return 0;
-    const lv = [.4];
-    for (const sx of [-1, 1]) for (const sz of [-1, 1])                            // tower decks
-      if (Math.hypot(x - sx * IW, z - sz * ID) < towerR - .2) return [deckY];
-    if (Math.abs(Math.abs(z) - ID) < wallT / 2 + .2 && Math.abs(x) < IW + 1) lv.push(walkY);   // wall-walk
-    if (Math.abs(Math.abs(x) - IW) < wallT / 2 + .2 && Math.abs(z) < ID + 1) lv.push(walkY);
-    for (const sx of [-1, 1])                                                      // the stairs
-      if (Math.abs(x - sx * (IW - 1.9)) < 1.1 && z > -6.7 && z < 8.2)
-        lv.push(stairY(.4, wallH, (z + 6.5) / 14.5, 14.5));
-    return lv;
-  };
-
-  const cobwebs = [{ x: -8, y: .4 + 5.5, z: -ID + 6.5, sx: 1, sz: -1, d: .7 }, { x: 6, y: .4 + 5.5, z: -ID + .9, sx: -1, sz: 1, d: .6 }];   // the great hall's corners
-  return { name, parts, footprint: [2 * (HW + MW) + 4, 2 * (HD + MW) + 4], floorY, lifts, windows, cobwebs,
-           moat: { hw: HW, hd: HD, w: MW, depth: 4.4 },   // 2.2m of water at the shared water level
-           doors: [{ x: 0, z: ID, w: 3.4, h: 4.2 },          // the inner gate leaf
-                   { x: -5, z: -ID + 7, w: 1.6, h: 2.6 }] }; // the great hall door
-}
+// (Caerphilly Castle is an asset: caerphilly.json -- tools/archgen/caerphilly.py; its moat and its lifts onto the tower
+//  decks the definition's)
 
 // ---- windmill ---------------------------------------------------------------
 // A tapered stone tower mill under a conical cap. The rotating sail cross is
 // NOT part of the static build: its hub position is exported as `sailAt` and
 // the demo hangs a live, world-clock-driven cross there.
 
-export function windmill({ name = "Windmill", h = 11, r0 = 4.2, r1 = 2.6,
-                           stone = 0xcfc4ae, roofC = 0x7a5a38, wood = 0x4c3a26 } = {}) {
-  const parts = [
-    { shape: "cyl", size: { r1, r2: r0, h, seg: 12 }, pos: [0, h / 2, 0], color: stone, pat: "ashlar" },
-    { shape: "cyl", size: { r1: .25, r2: r1 + .5, h: 3.6, seg: 12 }, pos: [0, h + 1.8, 0], color: roofC, pat: "tiles" },
-    { shape: "box", size: [1.3, 2.2, .4], pos: [0, 1.1, r0 - .5], color: wood },                    // door
-  ];
-  return { name, parts, footprint: [2 * r0 + 2, 2 * r0 + 2], floorY: () => 0,
-           windows: [{ x: 0, y: h * .55, z: (r0 + r1) / 2 - .35, w: .9, h: 1.0 }, { x: r0 * .82, y: h * .32, z: 0, w: .9, h: .9, yaw: 90 }],
-           sailAt: [0, h + .9, r1 + 1.3], sailR: 6.8 };
-}
+// (the windmill is an asset: windmill.json -- tools/archgen/windmill.py; its sail cross items/components/windmill-sails)
 
-// ---- goods: what travels on carts and gets stored in mills -------------------
-// real cooperage: the workhorse ~225 l barrique most wine, ale and flour
-// travelled in, and the ~40 l firkin/keg for everything sold by the small
-// measure -- belly, head and hoop positions from the actual staves
-export const BARRELS = {
-  big: { h: .95, belly: .35, head: .29, hoops: [.06, .3, .65, .89] },
-  keg: { h: .55, belly: .21, head: .17, hoops: [.04, .275, .51] },
-};
-const STAVE = 0x9a7040, HOOP = 0x4a4644;
-
-// a barrel as parts, centered at `pos`: two stacked frustums meeting at the
-// bilge, iron hoops riding the stave curve. orient: "up" standing on its
-// head, "z" lying across a bed, "x" lying along it
-export function barrel(kind, [x, y, z], orient = "up") {
-  const b = BARRELS[kind], hh = b.h / 2;
-  const rAt = (t) => b.head + (b.belly - b.head) * (1 - Math.abs(t - hh) / hh);
-  const pieces = [
-    { shape: "cyl", size: { r1: b.belly, r2: b.head, h: hh, seg: 12 }, t: hh / 2, color: STAVE },
-    { shape: "cyl", size: { r1: b.head, r2: b.belly, h: hh, seg: 12 }, t: hh * 1.5, color: STAVE },
-    ...b.hoops.map((t) => ({ shape: "cyl", size: { r1: rAt(t) + .012, r2: rAt(t) + .012, h: .045, seg: 12 },
-                              t, color: HOOP, outline: false })),
-  ];
-  return pieces.map(({ t, ...p }) => {
-    const d = t - hh;   // signed offset from the barrel's center along its axis
-    return orient === "up" ? { ...p, pos: [x, y + d, z] }
-         : orient === "z" ? { ...p, pos: [x, y, z + d], rot: [90, 0, 0] }
-         : { ...p, pos: [x - d, y, z], rot: [0, 0, 90] };
-  });
-}
-
-// a full grain sack (~1m long, ~.5m across: the 60-80 kg sack a man could
-// still shoulder): a plump ellipsoid with the tied neck. axis "x"/"z" =
-// lying along that axis, "up" = standing on its bottom; pos = its center.
-// Standing: .9 tall (center y = floor + .45); lying: .48 tall (floor + .24).
-export const SACK = { len: 1.0, w: .5 };
-export function sack([x, y, z], axis = "x", color = 0xc4a672) {
-  const R = .3;
-  const sc = axis === "up" ? [.8, 1.5, .8] : axis === "x" ? [1.65, .8, .95] : [.95, .8, 1.65];
-  const neck = axis === "up" ? [0, R * 1.5 + .03, 0] : axis === "x" ? [R * 1.65 + .03, .04, 0] : [0, .04, R * 1.65 + .03];
-  return [
-    { shape: "sphere", size: { r: R }, scale: sc, pos: [x, y, z], color },
-    { shape: "sphere", size: { r: .09 }, pos: [x + neck[0], y + neck[1], z + neck[2]], color: 0x9c8258 },
-  ];
-}
+// (the goods -- barrels, kegs, sacks -- are items now: items/furniture/barrel, barrel-on-side, items/tools/sack, sack-standing)
 
 // ---- water mill --------------------------------------------------------------
 // An undershot water wheel, axis along z, centered on its axle: two felloe
 // rims joined by radial paddle boards, spokes, hub, and the axle running
 // back into the mill (with the pit wheel on it) -- the whole thing turns
 // as one group, driven by the demo at flow speed / radius.
-export function waterWheel({ r = 3.05, w = 1.2, axleBack = 5.2, axleFwd = .95 } = {}) {
-  const dark = 0x4e3a24, plank = 0x7a5a36, parts = [];
-  const n = r > 2.6 ? 14 : 12, rf = r - .08;
-  parts.push({ shape: "cyl", size: { r1: .22, r2: .22, h: w + .3, seg: 10 }, pos: [0, 0, 0], rot: [90, 0, 0], color: dark });
-  parts.push({ shape: "cyl", size: { r1: .14, r2: .14, h: axleBack + axleFwd, seg: 8 },
-               pos: [0, 0, (axleFwd - axleBack) / 2], rot: [90, 0, 0], color: dark });
-  parts.push({ shape: "cyl", size: { r1: 1.05, r2: 1.05, h: .16, seg: 16 }, pos: [0, 0, -axleBack + .3], rot: [90, 0, 0], color: plank });   // pit wheel, just inside the wall
-  for (const sz of [-1, 1]) for (let i = 0; i < 14; i++) {   // two rims
-    const b = (i + .5) * 360 / 14, br = b * Math.PI / 180;
-    parts.push({ shape: "box", size: [2 * rf * Math.tan(Math.PI / 14) + .02, .16, .1], pos: [Math.cos(br) * rf, Math.sin(br) * rf, sz * w / 2],
-                 rot: [0, 0, b + 90], color: dark });
-    if (i % 2 === 0) {   // seven spokes per rim
-      const a = i * 360 / 14, ar = a * Math.PI / 180, rc = (rf - .08 + .2) / 2;
-      parts.push({ shape: "box", size: [rf - .08 - .2, .1, .08], pos: [Math.cos(ar) * rc, Math.sin(ar) * rc, sz * w / 2],
-                   rot: [0, 0, a], color: plank, outline: false });
-    }
-  }
-  for (let i = 0; i < n; i++) {   // paddle boards, set radially between the rims
-    const a = i * 360 / n, ar = a * Math.PI / 180, rc = r - .32;
-    parts.push({ shape: "box", size: [.6, .05, w - .12], pos: [Math.cos(ar) * rc, Math.sin(ar) * rc, 0], rot: [0, 0, a], color: plank });
-  }
-  return { name: "water wheel", parts };
-}
+// the mill's water wheel is an asset now (items/components/water-wheel): its numbers -> the item's params
+export const waterWheelParams = ({ r = 3.05, w = 1.2, axleBack = 5.2, axleFwd = .95 } = {}) => ({ r, w, axleBack, axleFwd, paddles: r > 2.6 ? 14 : 12 });
 
-// The mill house on the river bank: a 9 x 6.5 m stone building (real
-// village mills ran 8-12 m long) with the door on the -z side and the wheel
-// standing off the +z wall in the stream on a piled frame. Inside, the
-// axle's pit wheel drives a wallower on the upright shaft, which turns the
-// runner stone over the bedstone on the hurst frame; a hopper feeds the
-// eye, the meal runs down a chute. Wheat arrives in sacks, flour leaves in
-// barrels -- both stacked where they would be. Floor is walkable.
-export function watermill({ name = "Water mill" } = {}) {
-  const W = 9, D = 6.5, H = 3.4, T = .5, F = .15;
-  const stone = 0xb8ad98, dark = 0x8e887b, wood = 0x6a5236, darkWood = 0x4e3a24, parts = [];
-  // The wheel: 6.1m across, its axle only .5m above the floor -- the water
-  // is 2.35m below the floor, so this is the only way paddles reach the
-  // stream (the medieval answer: a big low wheel). Inside, the pit wheel on
-  // that axle turns in a fenced PIT cut through the floor.
-  const AX = .5, pitZ = D / 2 - .9, pitZ0 = pitZ - 1.05, pitZ1 = D / 2 - T;
-  const FLOOR = { color: dark, pat: "checker", accent: 0x7c7468 };
-  parts.push({ shape: "box", size: [W, .3, pitZ0 + D / 2], pos: [0, 0, (pitZ0 - D / 2) / 2], ...FLOOR });   // floor slab, top at F, minus the pit
-  for (const sx of [-1, 1]) parts.push({ shape: "box", size: [W / 2 - .7, .3, D / 2 - pitZ0], pos: [sx * (W / 2 + .7) / 2, 0, (pitZ0 + D / 2) / 2], ...FLOOR });
-  parts.push({ shape: "box", size: [1.4, .1, pitZ1 - pitZ0], pos: [0, -1.55, (pitZ0 + pitZ1) / 2], color: 0x5a544c });   // pit floor
-  for (const sx of [-1, 1]) parts.push({ shape: "box", size: [.12, 1.65, pitZ1 - pitZ0], pos: [sx * .76, -.7, (pitZ0 + pitZ1) / 2], color: stone, pat: "ashlar" });
-  parts.push({ shape: "box", size: [1.64, 1.65, .12], pos: [0, -.7, pitZ0 - .06], color: stone, pat: "ashlar" });
-  for (const [x, z] of [[-.85, pitZ0 - .1], [.85, pitZ0 - .1], [-.85, pitZ1 - .1], [.85, pitZ1 - .1]])   // the rail around the pit
-    parts.push({ shape: "box", size: [.07, .95, .07], pos: [x, F + .475, z], color: darkWood });
-  parts.push({ shape: "box", size: [1.8, .06, .06], pos: [0, F + .92, pitZ0 - .1], color: darkWood });
-  for (const sx of [-1, 1]) parts.push({ shape: "box", size: [.06, .06, pitZ1 - pitZ0], pos: [sx * .85, F + .92, (pitZ0 + pitZ1) / 2 - .1], color: darkWood });
-  parts.push({ shape: "hwall", size: { w: W, h: H, t: T, holes: [[-2.5, 1.3, .9, 1.0]] }, pos: [0, 0, -D / 2 + T / 2], color: stone, pat: "ashlar" });   // north wall: window
-  parts.push({ shape: "hwall", size: { w: W, h: H, t: T, holes: [[0, AX - .2, .6, .4], [3.0, 1.3, .9, 1.0]] }, pos: [0, 0, D / 2 - T / 2], color: stone, pat: "ashlar" });   // river wall: axle hole + window
-  parts.push({ shape: "hwall", size: { w: D, h: H, t: T, holes: [[0, 0, 1.3, 2.3]] }, pos: [W / 2 - T / 2, 0, 0], rot: [0, -90, 0], color: stone, pat: "ashlar" });   // east wall: the door, onto the riverside street
-  parts.push({ shape: "hwall", size: { w: D, h: H, t: T, holes: [[0, 1.3, .9, 1.0]] }, pos: [-(W / 2 - T / 2), 0, 0], rot: [0, -90, 0], color: stone, pat: "ashlar" });
-  const windows = [[3.0, D / 2 - T / 2], [-2.5, -D / 2 + T / 2], [-(W / 2 - T / 2), 0]]   // openable panes
-    .map(([x, z]) => ({ x, y: 1.8, z, w: .9, h: 1.0, yaw: z === 0 ? 90 : 0 }));
-  parts.push({ shape: "gable", size: [W + .8, 2.8, D + .8], pos: [0, H, 0], color: 0x6b5a48, pat: "tiles" });
-  parts.push({ shape: "box", size: [W + 1.0, .25, D + 1.0], pos: [0, H - .1, 0], color: darkWood });   // eaves plate
+// (the water mill and the river landing are assets now: assets/architecture/village/watermill.json and landing.json,
+//  tools/archgen/riverside.py -- the wheel's axle, the sacks' drop, the quay's slots, the hands' way and the barge's
+//  berth their markers; built below in BUILD_FACTORIES)
 
-  // the wheel frame in the stream: two piles and the bearing beam the axle rests on
-  const wheelZ = D / 2 + 4.6;
-  for (const sx of [-1, 1])
-    parts.push({ shape: "cyl", size: { r1: .18, r2: .2, h: 5.6, seg: 8 }, pos: [sx * .6, -1.9, wheelZ + .95], color: darkWood });
-  parts.push({ shape: "box", size: [1.8, .28, .32], pos: [0, AX - .28, wheelZ + .95], color: darkWood });
-
-  // the drive: pit wheel (on the axle, in the pit) -> wallower on the upright shaft -> the stones on the hurst frame
-  const sz = pitZ - 1.05 - .35;   // upright shaft z: the wallower meshes with the pit wheel's rim
-  parts.push({ shape: "box", size: [2.6, .75, 1.6], pos: [0, F + .375, sz - .5], color: wood, solid: true, pat: "wood" });   // hurst frame
-  parts.push({ shape: "cyl", size: { r1: .12, r2: .12, h: 2.9, seg: 8 }, pos: [0, F + 1.3, sz], color: darkWood });   // upright shaft
-  parts.push({ shape: "cyl", size: { r1: .33, r2: .33, h: .18, seg: 12 }, pos: [0, AX, sz], color: wood });          // wallower
-  parts.push({ shape: "cyl", size: { r1: .72, r2: .72, h: .22, seg: 16 }, pos: [0, F + .75 + .11, sz], color: 0xa8a29a });   // bedstone
-  parts.push({ shape: "cyl", size: { r1: .72, r2: .72, h: .22, seg: 16 }, pos: [0, F + .75 + .33, sz], color: 0x9d9790 });   // runner stone
-  parts.push({ shape: "cyl", size: { r1: .8, r2: .8, h: .35, seg: 16, open: true }, pos: [0, F + .75 + .45, sz], color: wood, side: "double", outline: false });   // the tun
-  for (const sx of [-1, 1])
-    parts.push({ shape: "box", size: [.08, 1.1, .08], pos: [sx * .5, F + 1.85, sz], color: darkWood });   // hopper frame
-  parts.push({ shape: "cyl", size: { r1: .55, r2: .18, h: .7, seg: 8 }, pos: [0, F + 2.35, sz], color: wood });   // hopper
-  parts.push({ shape: "box", size: [.35, .12, 1.4], pos: [0, F + .95, sz - 1.6], rot: [-22, 0, 0], color: wood, collide: false });   // meal chute
-  // wheat in, flour out
-  const wheat = 0xc4a672;
-  for (const [x, z, ax] of [[2.9, -1.6, "x"], [2.9, -1.05, "x"], [2.9, -.5, "x"], [2.9, -1.33, "x"], [2.9, -.78, "x"], [1.7, -2.4, "up"], [3.2, -2.5, "up"]])
-    parts.push(...sack([x, F + (ax === "up" ? .45 : .24) + (Math.abs(z + 1.33) < .01 || Math.abs(z + .78) < .01 ? .4 : 0), z], ax, wheat));
-  parts.push(...sack([0, F + .24, sz - 2.45], "z", wheat));   // one open at the chute's foot
-  for (const x of [-3.6, -2.85, -2.1]) parts.push(...barrel("big", [x, F + BARRELS.big.h / 2, 2.2], "up"));
-  for (const x of [-3.6, -2.9]) parts.push(...barrel("keg", [x, F + BARRELS.keg.h / 2, 1.3], "up"));
-  parts.push(...barrel("big", [-3.6, F + BARRELS.big.belly, -1.6], "z"));
-  for (const [x, z] of [[W / 2 + 1.6, -1.9], [W / 2 + 1.6, -2.5]]) parts.push(...sack([x, .24, z], "z", wheat));   // waiting outside the door
-
-  const floorY = (x, z) => (Math.abs(x) < W / 2 && Math.abs(z) < D / 2 ? F : 0);
-  return { name, parts, footprint: [W + 2, D + 2], floorY,
-           doors: [{ x: W / 2 - T / 2, z: 0, w: 1.3, h: 2.3, yaw: 90 }], windows,
-           folkSpots: [{ x: W / 2 - 1.6, y: F, z: -1.4, h: Math.PI, pose: "stand", role: "work", gesture: "lift" }],   // the miller, just inside, facing the stones
-           drop: { x: W / 2 + 1.6, z: -.9 },   // where sacks are handed over: beside the wheat waiting outside the door
-           cobwebs: [{ x: -(W / 2 - T), y: H, z: -(D / 2 - T), sx: 1, sz: 1, d: .6 }, { x: W / 2 - T, y: H, z: -(D / 2 - T), sx: -1, sz: 1, d: .5 }],
-           wheelAt: [0, AX, wheelZ], wheel: { r: 3.05, w: 1.2, axleBack: wheelZ - pitZ + .3, axleFwd: .95 } };
-}
-
-// ---- tavern ------------------------------------------------------------------
-// A riverside inn at real village-inn size: a 14 x 9 m stone taproom under
-// a jettied, timber-framed guest floor. Downstairs: the bar along the back
-// wall with the keeper behind it and casks on tap, a hearth on the east
-// gable with a cook-pot hanging over the fire, four trestle tables with
-// benches where guests sit over mugs, jugs and plates of bread, cheese
-// and sausage. A straight stair up the west wall reaches a corridor and
-// three guest rooms, each with a bed to sleep in, a chair and a chest or
-// wardrobe. The door opens to +z (the riverside street); folkSpots seat the
-// company and stand the keeper.
-export function tavern({ name = "The Mill Inn" } = {}) {
-  const W = 14, D = 9, H0 = 3.2, H1 = 2.7, T = .4, F = .15, D2 = D / 2, W2 = W / 2;
-  const stone = 0x9a917f, plaster = 0xd9cfba, timber = 0x5b4326, wood = 0x6b4a2c, dark = 0x4a3520, roofC = 0x7d5433;
-  const raw = [], folkSpots = [];
-  const parts = { push: (...ps) => raw.push(...ps.map((p) => ((p.color === wood || p.color === dark) && p.shape === "box" && !p.pat ? { ...p, pat: "wood" } : p))) };
-  const y1 = H0, ceil = y1 + .18;   // upper slab bottom / top
-
-  // ---- shell ----
-  parts.push({ shape: "box", size: [W, .15, D], pos: [0, .075, 0], color: 0x8b8578, pat: "checker", accent: 0x6f6960 });   // flagstone floor
-  parts.push({ shape: "hwall", size: { w: W, h: H0, t: T, holes: [[0, 0, 1.4, 2.2], [-3.4, 1.1, 1.2, 1.1], [3.6, 1.1, 1.2, 1.1]] },
-               pos: [0, 0, D2 - T / 2], color: stone, pat: "ashlar" });                                  // front: door + two windows
-  parts.push({ shape: "hwall", size: { w: W, h: H0, t: T, holes: [[-4.2, 1.3, 1.0, .9]] }, pos: [0, 0, -D2 + T / 2], color: stone, pat: "ashlar" });
-  parts.push({ shape: "hwall", size: { w: D, h: H0, t: T, holes: [[1.5, 1.2, 1.0, 1.0]] }, pos: [-(W2 - T / 2), 0, 0], rot: [0, -90, 0], color: stone, pat: "ashlar" });
-  parts.push({ shape: "box", size: [T, H0, D], pos: [W2 - T / 2, H0 / 2, 0], color: stone, pat: "ashlar" });   // east gable wall carries the hearth
-  const windows = [[-3.4, D2 - T / 2, 1], [3.6, D2 - T / 2, 1], [-4.2, -D2 + T / 2, 1], [-(W2 - T / 2), 1.5, 0]]   // all openable
-    .map(([x, z, along]) => ({ x, y: 1.7, z, w: along ? 1.2 : 1.0, h: along ? 1.1 : 1.0, yaw: along ? 0 : 90 }));
-  // the guest floor: slab with the stairwell cut out, jettied .5m all round in timber framing
-  const stairX = -(W2 - T - .85), stairW = 1.5, zBot = D2 - T - .3, zTop = -D2 + T + .3, run = zBot - zTop;
-  const hx0 = stairX - stairW / 2 - .2, hx1 = stairX + stairW / 2 + .2;
-  const hz0 = zTop - .2, hz1 = zTop + run * .62;   // headroom over the upper 62% of the climb (a 2m walker under a 3.2m storey)
-  const w1 = W + 1, d1 = D + 1;   // the jetty: the guest floor overhangs .5m all round
-  const iw0 = -w1 / 2 + T, iw1 = w1 / 2 - T, id0 = -d1 / 2 + T, id1 = d1 / 2 - T;   // slab reaches the jettied walls
-  parts.push({ shape: "box", size: [hx0 - iw0, .18, id1 - id0], pos: [(hx0 + iw0) / 2, y1 + .09, 0], color: timber, pat: "parquet" });
-  parts.push({ shape: "box", size: [iw1 - hx1, .18, id1 - id0], pos: [(hx1 + iw1) / 2, y1 + .09, 0], color: timber, pat: "parquet" });
-  parts.push({ shape: "box", size: [hx1 - hx0, .18, hz0 - id0], pos: [(hx0 + hx1) / 2, y1 + .09, (hz0 + id0) / 2], color: timber, pat: "parquet" });
-  parts.push({ shape: "box", size: [hx1 - hx0, .18, id1 - hz1], pos: [(hx0 + hx1) / 2, y1 + .09, (hz1 + id1) / 2], color: timber, pat: "parquet" });
-  for (let x = -W2 + T + .6; x < W2 - T; x += 1.2)   // exposed ceiling joists under the guest floor
-    if (x < hx0 - .1 || x > hx1 + .1) parts.push({ shape: "box", size: [.16, .22, D - 2 * T], pos: [x, y1 - .11, 0], color: dark, collide: false });
-  parts.push({ shape: "hwall", size: { w: w1, h: H1, t: T, holes: [[-4.5, .9, 1.0, 1.1], [-.5, .9, 1.0, 1.1], [3.7, .9, 1.0, 1.1]] },
-               pos: [0, ceil, (d1 - T) / 2], color: plaster });
-  parts.push({ shape: "box", size: [w1, H1, T], pos: [0, ceil + H1 / 2, -(d1 - T) / 2], color: plaster });
-  for (const sx of [-1, 1]) parts.push({ shape: "box", size: [T, H1, d1], pos: [sx * (w1 - T) / 2, ceil + H1 / 2, 0], color: plaster });
-  for (const x of [-4.5, -.5, 3.7]) windows.push({ x, y: ceil + 1.45, z: (d1 - T) / 2, w: 1.1, h: 1.2 });
-  for (const sz of [-1, 1]) parts.push({ shape: "box", size: [w1 + .2, .28, .3], pos: [0, ceil + .1, sz * (d1 - .1) / 2], color: timber });
-  for (const sx of [-1, 1]) parts.push({ shape: "box", size: [.3, .28, d1 + .2], pos: [sx * (w1 - .1) / 2, ceil + .1, 0], color: timber });
-  for (const sz of [-1, 1]) for (let k = 0; k < 7; k++)   // studs, and diagonal braces between them
-    parts.push({ shape: "box", size: [.2, H1, .12], pos: [(k / 6 - .5) * w1 * .92, ceil + H1 / 2, sz * (d1 / 2 + .04)], color: timber });
-  for (const sx of [-1, 1]) for (let k = 0; k < 4; k++)
-    parts.push({ shape: "box", size: [.12, H1, .2], pos: [sx * (w1 / 2 + .04), ceil + H1 / 2, (k / 3 - .5) * d1 * .85], color: timber });
-  parts.push({ shape: "box", size: [w1, .18, d1], pos: [0, ceil + H1 + .09, 0], color: timber });   // attic floor
-  const rh = 4.6;
-  parts.push({ shape: "gable", size: [w1 + .8, rh, d1 + 1.2], pos: [0, ceil + H1, 0], color: roofC, pat: "tiles" });
-  parts.push({ shape: "box", size: [1.1, ceil + H1 + rh - .6, 1.6], pos: [W2 + .55, (ceil + H1 + rh - .6) / 2 + .2, 0], color: stone, pat: "ashlar" });   // chimney stack outside the gable, ground to above the ridge
-  // the inn sign on a bracket beside the door, and a bench under the front windows
-  parts.push({ shape: "box", size: [.08, .08, 1.1], pos: [1.6, 2.65, D2 + .5], color: dark });
-  parts.push({ shape: "box", size: [.06, .55, .85], pos: [1.6, 2.25, D2 + .75], color: 0xb0453a, pat: "stars", accent: 0xe4c25a });
-  parts.push({ shape: "box", size: [2.4, .06, .38], pos: [-3.4, .45, D2 + .55], color: wood, sit: true });
-  for (const x of [-4.4, -2.4]) parts.push({ shape: "box", size: [.08, .42, .34], pos: [x, .21, D2 + .55], color: wood });
-  parts.push(...barrel("keg", [4.6, BARRELS.keg.h / 2, D2 + .7], "up"));
-  parts.push(...barrel("big", [5.6, BARRELS.big.h / 2, D2 + .8], "up"));
-
-  // ---- the stair up the west wall ----
-  stairSteps(parts, { x: stairX, w: stairW, y0: F, rise: H0 + .03, z0: zBot, z1: zTop, color: 0x74582f, rail: 1 });
-  wellRail(parts, { x0: hx0, x1: hx1, z0: hz0, z1: hz1, y: ceil, side: 1, landAt: "z0" });   // balustrade around the stairwell
-
-  // ---- the bar along the back wall, kegs behind it, the keeper ----
-  parts.push({ shape: "box", size: [5.2, 1.0, .65], pos: [3.4, F + .5, -D2 + T + 1.15], color: wood, solid: true });
-  parts.push({ shape: "box", size: [5.5, .07, .85], pos: [3.4, F + 1.03, -D2 + T + 1.15], color: dark });
-  parts.push({ shape: "box", size: [4.4, .06, .5], pos: [3.4, F + .7, -D2 + T + .35], color: wood });   // back shelf on trestles
-  for (const x of [1.5, 5.3]) parts.push({ shape: "box", size: [.08, .64, .45], pos: [x, F + .35, -D2 + T + .35], color: wood });
-  for (const x of [2.4, 4.4]) parts.push(...barrel("keg", [x, F + .73 + BARRELS.keg.belly, -D2 + T + .35], "x"));   // casks on tap, lying
-  parts.push(...barrel("big", [.7, F + BARRELS.big.h / 2, -D2 + T + .5], "up"));
-  parts.push({ shape: "box", size: [.02, .12, .04], pos: [1.02, F + .5, -D2 + T + .5], color: 0x8a7a5a });   // the tap
-  folkSpots.push({ x: 3.6, y: F, z: -D2 + T + .45, h: -Math.PI / 2, pose: "stand", role: "work", gesture: "sell" });   // the keeper, facing the room
-  folkSpots.push({ x: 2.2, y: F, z: -D2 + T + 1.95, h: Math.PI / 2, pose: "stand" });   // a guest at the bar
-  // what a guest can drink from and eat: not building parts but separate, changing objects (index.html -> tableware.js):
-  // mugs and jugs, open, the drink in them at a level (90%, 60%, 30% of the way up, or empty -- dealt out in turn), and the
-  // food on the plates (the plates themselves stay part of the building)
-  const vessels = [], dishes = [], LEVELS = [.9, .6, .3, 0];
-  let nv = 0;
-  const mug = (x, y, z) => vessels.push({ kind: "mug", x, y, z, fill: LEVELS[nv++ % 4], drink: "ale" });   // a straight stoneware mug
-  const jug = (x, y, z) => { vessels.push({ kind: "jug", x, y, z, fill: LEVELS[nv % 4], drink: nv % 2 ? "wine" : "ale" }); nv++; };   // a pitcher
-  const plate = (x, y, z, food) => {
-    parts.push({ shape: "cyl", size: { r1: .13, r2: .11, h: .014, seg: 10 }, pos: [x, y + .007, z], color: 0xe8e0d0, outline: false });
-    dishes.push({ food, x, y, z });   // bread, cheese or a sausage
-  };
-  mug(2.6, F + 1.065, -D2 + T + 1.15); mug(3.1, F + 1.065, -D2 + T + 1.15); jug(4.6, F + 1.065, -D2 + T + 1.2);
-  plate(1.6, F + 1.065, -D2 + T + 1.15, "bread");
-
-  // ---- the hearth on the east gable: firebox, fire, pot on its chain ----
-  const hxw = W2 - T;   // wall inner face
-  parts.push({ shape: "box", size: [1.0, .1, 2.6], pos: [hxw - .5, F + .05, 0], color: 0x6f6960 });          // stone hearth slab
-  for (const sz of [-1, 1]) parts.push({ shape: "box", size: [.75, 1.55, .32], pos: [hxw - .375, F + .78, sz * 1.0], color: stone, pat: "ashlar" });   // cheeks
-  parts.push({ shape: "box", size: [.75, .55, 2.32], pos: [hxw - .375, F + 1.8, 0], color: stone, pat: "ashlar" });   // lintel
-  parts.push({ shape: "box", size: [.75, H0 - F - 2.1, 2.32], pos: [hxw - .375, F + 2.07 + (H0 - F - 2.1) / 2, 0], color: stone, pat: "ashlar" });   // breast up to the ceiling
-  for (const [z, a] of [[-.2, 20], [.2, -25], [0, 70]])   // logs
-    parts.push({ shape: "cyl", size: { r1: .06, r2: .06, h: .65, seg: 6 }, pos: [hxw - .4, F + .16, z], rot: [90 + a, 0, 0], color: 0x3a2a1c });
-  const fires = [{ x: hxw - .4, y: F + .2, z: 0, r: .22, h: .6 }];   // the live fire (the demo animates it)
-  parts.push({ shape: "box", size: [.06, .06, 2.0], pos: [hxw - .4, F + 1.5, 0], color: 0x3e3a38 });                     // crossbar
-  parts.push({ shape: "cyl", size: { r1: .012, r2: .012, h: .5, seg: 4 }, pos: [hxw - .4, F + 1.22, 0], color: 0x3e3a38 });   // chain
-  parts.push({ shape: "cyl", size: { r1: .2, r2: .24, h: .3, seg: 10 }, pos: [hxw - .4, F + .83, 0], color: 0x2a2624 });     // the pot
-  parts.push({ shape: "cyl", size: { r1: .17, r2: .17, h: .02, seg: 10 }, pos: [hxw - .4, F + .985, 0], color: 0x8a6a3a, outline: false });   // stew
-  parts.push({ shape: "box", size: [.04, .04, .5], pos: [hxw - .4, F + 1.02, 0], color: 0x3e3a38 });                        // bail handle
-
-  // ---- tables with benches, the company, and what is on the tables ----
-  const benchTop = F + .47;
-  const table = (tx, tz, seats, fare) => {
-    placeFurniture(parts, "table", tx, F, tz);
-    const top = F + .79;
-    for (const s of [-1, 1]) {   // benches either side, along x
-      parts.push({ shape: "box", size: [1.8, .06, .32], pos: [tx, benchTop - .03, tz + s * .8], color: wood, solid: true, sit: true });
-      for (const dx of [-.75, .75]) parts.push({ shape: "box", size: [.08, .41, .28], pos: [tx + dx, F + .205, tz + s * .8], color: wood });
-    }
-    seats.forEach(([dx, s]) => folkSpots.push({ x: tx + dx, y: benchTop, z: tz + s * .8, h: s > 0 ? Math.PI / 2 : -Math.PI / 2, pose: "sit" }));
-    seats.forEach(([dx, s]) => mug(tx + dx + .18, top, tz + s * .32));   // mugs at the guest's edge, plates on the center line: never overlapping
-    jug(tx - .7, top, tz);
-    fare.forEach(([dx, , f]) => plate(tx + dx, top, tz, f));
-  };
-  table(-3.2, 2.3, [[-.45, 1], [.45, 1], [-.45, -1]], [[-.45, .05, "bread"], [.45, -.05, "cheese"]]);
-  table(1.2, 2.3, [[-.45, 1], [.45, -1]], [[.4, .05, "sausage"], [-.45, -.05, "bread"]]);
-  table(-3.2, -1.4, [[-.45, -1], [.45, -1], [.45, 1]], [[0, 0, "cheese"], [.45, .2, "sausage"]]);
-  table(2.6, -.6, [[-.45, 1]], [[-.45, -.1, "bread"]]);
-
-  // ---- upstairs: corridor along the back, three guest rooms along the front ----
-  const cz = -D2 + T + 1.6;    // corridor wall z (rooms are south of it)
-  const pT = .15, rx = [-5.0, -1.4, 2.2, W2 - T];
-  const PLANK = { color: 0xc9b58e, pat: "grooves", accent: 0x8f7650 };   // planked partitions
-  const wallBox = (x0, x1, z, h = H1) => x1 - x0 > .05 && parts.push({ shape: "box", size: [x1 - x0, h, pT], pos: [(x0 + x1) / 2, ceil + h / 2, z], ...PLANK });
-  for (let x = -w1 / 2 + T + .9; x < w1 / 2 - T; x += 1.5)   // interior studs on the long walls: the frame shows inside too
-    for (const z of [-d1 / 2 + T + .06, d1 / 2 - T - .06]) parts.push({ shape: "box", size: [.14, H1, .12], pos: [x, ceil + H1 / 2, z], color: timber });
-  const roomDoors = [];   // real hinged doors into the guest rooms (exported with their storey height)
-  for (let i = 0; i < 3; i++) {
-    const x0 = rx[i], x1 = rx[i + 1], cx = (x0 + x1) / 2;
-    wallBox(x0, cx - .45, cz); wallBox(cx + .45, x1, cz);                              // corridor wall with a doorway per room
-    parts.push({ shape: "box", size: [.9, H1 - 2.0, pT], pos: [cx, ceil + 2.0 + (H1 - 2.0) / 2, cz], ...PLANK });   // lintel
-    roomDoors.push({ x: cx, z: cz, y: ceil, w: .9, h: 2.0 });
-    if (i < 2) parts.push({ shape: "box", size: [pT, H1, id1 - cz], pos: [x1, ceil + H1 / 2, (cz + id1) / 2], ...PLANK });   // party wall
-    placeFurniture(parts, "bed", cx + (i === 1 ? .9 : -.6), ceil, id1 - 1.4, 1);                   // bed along the front wall
-    placeFurniture(parts, "chair", cx + (i === 1 ? -1.2 : 1.2), ceil, cz + 1.0, i === 1 ? 1 : 3);
-    if (i === 2) placeFurniture(parts, "wardrobe", x1 - .5, ceil, cz + 1.4, 3);
-    else parts.push({ shape: "box", size: [.9, .5, .5], pos: [x0 + .6, ceil + .25, cz + .6], color: dark });   // a chest
-    parts.push({ shape: "box", size: [.45, .02, .45], pos: [cx + (i === 1 ? -1.2 : 1.2), ceil + .7, id1 - .5], color: wood });   // bedside board
-    mug(cx + (i === 1 ? -1.2 : 1.2), ceil + .71, id1 - .5);
-  }
-  wallBox(rx[0], rx[0] + .05, cz);   // (closes the wall at the stairwell edge)
-  parts.push({ shape: "box", size: [pT, H1, id1 - cz], pos: [rx[0], ceil + H1 / 2, (cz + id1) / 2], ...PLANK });   // west room wall beside the stairwell
-
-  const floorY = (x, z) => {
-    if (Math.abs(x) > W2 + .3 || Math.abs(z) > D2 + .3) return 0;
-    const lv = [F];
-    if (!(x >= hx0 && x <= hx1 && z >= hz0 && z <= hz1)) lv.push(ceil);
-    if (Math.abs(x - stairX) <= stairW / 2 + .1) {
-      const t = (zBot - z) / run;
-      if (t >= 0 && t <= 1) lv.push(stairY(F, H0 + .03, t, run));
-    }
-    return lv;
-  };
-  return { name, parts: raw, footprint: [W + 2, D + 2], floorY, folkSpots, fires, windows, vessels, dishes,   // vessels, dishes: tableware.js
-           doors: [{ x: 0, z: D2 - T / 2, w: 1.4, h: 2.2 }, ...roomDoors],
-           cobwebs: [{ x: -(W2 - T), y: y1, z: -(D2 - T), sx: 1, sz: 1, d: .7 }, { x: -(W2 - T), y: y1, z: D2 - T, sx: 1, sz: -1, d: .5 },
-                     { x: W2 - T, y: y1, z: D2 - T, sx: -1, sz: -1, d: .55 }, { x: w1 / 2 - T, y: ceil + H1, z: d1 / 2 - T, sx: -1, sz: -1, d: .5 }] };
-}
-
-// ---- river landing and barge --------------------------------------------------
-// The landing: a gravel yard on the quay top (the storage rows and the
-// carts' turning place), a plank deck on piles reaching 2m out over the
-// bank line, stairs down to a floating stage at barge-deck height with
-// mooring bollards. The barge moors alongside the stage. Everything the
-// dock hands walk is exported as waypoints (local coordinates).
-export function landing({ name = "Landing" } = {}) {
-  const W = 20, D = 12, parts = [];
-  const plank = 0x7a5a36, dark = 0x4e3a24;
-  parts.push({ shape: "box", size: [W, .1, D], pos: [0, 0, 0], color: 0x8a8070, collide: false });                   // gravel apron
-  parts.push({ shape: "box", size: [12, .16, 5.2], pos: [0, .1, 6.5], color: plank, pat: "wood", collide: false });   // the deck, z 4..9
-  for (const x of [-5.5, -2, 2, 5.5]) for (const z of [4.6, 8.6]) parts.push({ shape: "cyl", size: { r1: .16, r2: .18, h: 5, seg: 8 }, pos: [x, -2.3, z], color: dark });
-  parts.push({ shape: "box", size: [8, .14, 4], pos: [0, -1.3, 11], color: plank, pat: "wood", collide: false });     // the stage, z 9..13, at -1.3
-  for (const x of [-3.6, 0, 3.6]) for (const z of [9.5, 12.6]) parts.push({ shape: "cyl", size: { r1: .16, r2: .18, h: 4, seg: 8 }, pos: [x, -3.2, z], color: dark });
-  stairSteps(parts, { x: 5.2, w: 1.4, y0: -1.23, rise: 1.41, z0: 13.2, z1: 9.2, color: 0x74582f, rail: 1 });       // down to the stage, east side
-  for (const x of [-6, -4, -2, 0, 2, 4]) parts.push({ shape: "box", size: [.08, .95, .08], pos: [x, .65, 9.05], color: dark });   // rail along the deck's edge
-  parts.push({ shape: "box", size: [10.1, .06, .06], pos: [-1, 1.1, 9.05], color: dark });
-  for (const x of [-3, 3]) parts.push({ shape: "cyl", size: { r1: .12, r2: .14, h: .7, seg: 8 }, pos: [x, -.95, 12.7], color: dark });   // bollards
-  const floorY = (x, z) => {
-    const lv = [];
-    if (Math.abs(x) <= 6.2 && z >= 3.8 && z <= 9.15) lv.push(.18);
-    if (Math.abs(x) <= 4.1 && z >= 8.9 && z <= 13.1) lv.push(-1.23);
-    if (Math.abs(x - 5.2) <= .8 && z >= 9.1 && z <= 13.3) lv.push(stairY(-1.23, 1.41, (13.2 - z) / 4, 4));
-    if (!lv.length && Math.abs(x) <= W / 2 && Math.abs(z) <= D / 2) return .05;
-    return lv.length ? lv : 0;
-  };
-  const quaySlots = [];   // where goods are stacked on the quay top
-  for (let r = 0; r < 3; r++) for (let i = 0; i < 6; i++) quaySlots.push([-5 + i * 2, .05, -4.6 + r * 2.2]);
-  return { name, parts, footprint: [W + 2, D + 2], floorY, quaySlots,
-           // the hands' way from the stage edge (where the barge's plank lands) up to the quay
-           way: [[.6, -1.23, 12.8], [5.2, -1.23, 12.8], [5.2, .18, 9.5], [3.0, .18, 4.6]],
-           bargeZ: 15.5 };   // the moored barge's centerline, local z
-}
-
+// ---- the barge --------------------------------------------------------------
 // A river barge, 11 x 3.5m: raked bow and stern, plank deck .6m above the
 // water, gunwales, a stern cabin with the tiller, ten cargo places on
 // deck, and a gangplank off the north side that lands on the stage when
 // moored. Origin at the waterline amidships, forward = +x.
 export function barge({ name = "Barge" } = {}) {
-  const hull = 0x3e2e1e, plank = 0x7a5a36, dark = 0x4e3a24, parts = [];
-  parts.push({ shape: "box", size: [11, 1.4, 3.5], pos: [0, -.1, 0], color: hull, pat: "wood", collide: false });
-  parts.push({ shape: "box", size: [2.4, 1.1, 3.2], pos: [6.0, .05, 0], rot: [0, 0, 32], color: hull, pat: "wood" });    // bow, raked up
-  parts.push({ shape: "box", size: [2.0, 1.1, 3.2], pos: [-6.0, .05, 0], rot: [0, 0, -28], color: hull, pat: "wood" });  // stern
-  parts.push({ shape: "box", size: [10.8, .06, 3.3], pos: [0, .6, 0], color: plank, pat: "wood", collide: false });      // deck
-  for (const sz of [-1, 1]) parts.push({ shape: "box", size: [11, .35, .12], pos: [0, .8, sz * 1.7], color: dark, pat: "wood" });   // gunwales
-  parts.push({ shape: "box", size: [2.2, 1.5, 2.2], pos: [-4.0, 1.38, 0], color: plank, pat: "wood" });                  // cabin
-  parts.push({ shape: "box", size: [2.5, .1, 2.5], pos: [-4.0, 2.18, 0], color: dark });
-  parts.push({ shape: "box", size: [1.8, .08, .08], pos: [-5.6, 1.15, 0], rot: [0, 0, -20], color: dark });               // tiller
-  for (const x of [-2.5, 2.5]) parts.push({ shape: "cyl", size: { r1: .1, r2: .12, h: .5, seg: 8 }, pos: [x, .85, -1.55], color: dark });   // bollards
-  // (the gangplank is the demo's: hinged at the north gunwale, raised under way, lowered when moored)
-  const holdSlots = [];   // cargo places on deck
-  for (let i = 0; i < 10; i++) holdSlots.push([-2.5 + (i % 5) * 1.3, .63, i < 5 ? -.75 : .75]);
-  return { name, parts, holdSlots, deckY: .63, halfL: 5.4, halfW: 1.7, plankEnd: [-.5, .63, -4.1] };
+  // (the river barge is an asset now: items/ships/barge -- its hold's places and the plank's foot its markers)
+  const b = itemOf({ path: "items/ships/barge" }), at = (role) => b.markers.filter((m) => m.role === role);
+  return { name, item: "items/ships/barge", holdSlots: at("hold").sort((p, q) => p.data.i - q.data.i).map((m) => m.at.slice()),
+           deckY: b.params.deckY, halfL: b.params.halfL, halfW: b.params.halfW, plankEnd: at("plank")[0].at.slice() };
 }
 
 // ---- furniture --------------------------------------------------------------
-// Basic pieces as part lists, origin on the floor (the chandelier hangs from
-// its origin instead). Reusable anywhere: append with an offset.
-
-// Drop a piece into a part list at (x,y,z), rotated q quarter-turns about y.
-// Pieces are axis-aligned boxes, so a quarter-turn is a position swizzle plus
-// swapped x/z extents -- no rotation matrices needed.
-export function placeFurniture(parts, kind, x, y, z, q = 0, o) {
-  for (const p of furniture(kind, o)) {
-    let [px, py, pz] = p.pos, s = Array.isArray(p.size) ? [...p.size] : p.size;
-    for (let k = 0; k < q; k++) { [px, pz] = [pz, -px]; if (Array.isArray(s)) s = [s[2], s[1], s[0]]; }
-    parts.push({ ...p, size: s, pos: [x + px, y + py, z + pz] });
-  }
-}
-
+// Basic pieces as part lists, origin on the floor (the chandelier hangs from its origin instead) -- the old Gothic
+// cathedral's pews and altar (gothicCathedral above); the palace's and the castle's table, chairs, sofa, beds,
+// wardrobes and chandeliers are items now (items/furniture/plain-*, sofa, chandelier: tools/propgen.py)
 export function furniture(kind, o = {}) {
   return furnitureParts(kind, o).map((p) => (p.color === 0x6b4a2c && !p.pat ? { ...p, pat: "wood" } : p));   // grain on every wooden piece
 }
@@ -2028,397 +2227,126 @@ function furnitureParts(kind, o = {}) {
   return [];
 }
 
-// ---- generic baroque palace -------------------------------------------------
-// A plan of rectangular blocks, each a hollow three-storey shell with the
-// endlessly repeated baroque bay (arched ground window, tall piano-nobile
-// window between pilasters, square attic window), cornice lines, a flat roof
-// behind a balustrade. Blocks connect through ground-floor doors; ramps stand
-// in for the grand stairs; floors are walkable throughout.
-
-export function baroquePalace({
-  name,
-  blocks,                      // {x, z, w, d, door: [[face, offset]...], ramp, plain: [faces]}
-  storeys = [5.2, 7.8, 5.5],   // ground / piano nobile / attic heights
-  bay = 5.5, T = 1, roomEvery = 11,
-  furnish = true,
-  stone = 0xdfcda4, stoneDark = 0xc3b28c, glassC = 0x39424e, gold = 0xd4a437, roofC = 0x5e6672,
-  brick = 0xa2543f,            // blocks flagged `brick` wear the old chateau's red
-}) {
-  const parts = [];
-  const lv = [0];
-  for (const h of storeys) lv.push(lv[lv.length - 1] + h);
-  const H = lv[storeys.length];
-  const doorW = 3.4, doorH = 4.2, rampW = 2;
-
-  // face helpers: n/s = short-z sides, e/w = short-x sides
-  const FACES = { n: [0, -1], s: [0, 1], e: [1, 0], w: [-1, 0] };
-  const faceLen = (b, f) => (f === "n" || f === "s") ? b.w : b.d;
-  const at = (b, f, u, out) => {   // tangent offset u along the face, `out` from the wall centerline
-    const [nx, nz] = FACES[f];
-    const px = b.x + nx * (b.w / 2 - T / 2 + out * 0), pz = b.z + nz * (b.d / 2 - T / 2 + 0);
-    return f === "n" || f === "s"
-      ? [b.x + u, b.z + nz * (b.d / 2 - T / 2 + out)]
-      : [b.x + nx * (b.w / 2 - T / 2 + out), b.z + u];
-  };
-  const fsz = (f, along, thick) => (f === "n" || f === "s") ? [along, thick] : [thick, along];
-  const fbox = (b, f, u, out, along, h, y, thick, color, extra) => {
-    const [x, z] = at(b, f, u, out);
-    const [sx, sz] = fsz(f, along, thick);
-    parts.push({ shape: "box", size: [sx, h, sz], pos: [x, y, z], color, ...extra });
-  };
-
-  const slabHoles = [];    // remembered for floorY
-  const doorsOut = [];     // real clickable doors for every cut doorway
-  const windowsOut = [];   // openable ground-floor window panes
-  const mirrorsOut = [];   // the Hall of Mirrors' glass (block-local = palace-local), for mirrors.js
-  const paintingsOut = [];   // framed canvases (palace-local), filled with views of the world by paintings.js
-  // Where two blocks stand face to face, the shared plane is a party wall:
-  // it gets no windows (they would stare into the neighbour's masonry) and
-  // no facade trim, and a passage through it is ONE doorway -- the later
-  // block snaps its doorway onto the earlier block's and leaves the door
-  // panel to it, so no double doors meet in the wall.
-  const OPP = { n: "s", s: "n", e: "w", w: "e" };
-  const contacts = (b, f) => {
-    const [nx, nz] = FACES[f], out = [];
-    const along = f === "n" || f === "s";
-    for (const o of blocks) {
-      if (o === b) continue;
-      const mine = along ? b.z + nz * b.d / 2 : b.x + nx * b.w / 2;
-      const theirs = along ? o.z - nz * o.d / 2 : o.x - nx * o.w / 2;
-      if (Math.abs(mine - theirs) > .05) continue;
-      const u0 = along ? Math.max(b.x - b.w / 2, o.x - o.w / 2) - b.x : Math.max(b.z - b.d / 2, o.z - o.d / 2) - b.z;
-      const u1 = along ? Math.min(b.x + b.w / 2, o.x + o.w / 2) - b.x : Math.min(b.z + b.d / 2, o.z + o.d / 2) - b.z;
-      if (u1 - u0 > .5) out.push({ u0, u1, o });
-    }
-    return out;
-  };
-  for (const b of blocks) {
-    const doors = b.door ?? [];
-    const plain = b.plain ?? [];
-    const wallC = b.brick ? brick : stone;
-    for (const f of ["n", "s", "e", "w"]) {
-      const L = faceLen(b, f);
-      const along = f === "n" || f === "s";
-      const cts = contacts(b, f);
-      const inContact = (u, half) => cts.find((c) => u + half > c.u0 - .3 && u - half < c.u1 + .3);
-      const fdoors = doors.filter(([df]) => df === f).map(([, u]) => {
-        const c = inContact(u, doorW / 2);
-        if (!c || blocks.indexOf(c.o) > blocks.indexOf(b)) return { u, panel: true };
-        const theirs = (c.o.door ?? []).filter(([df]) => df === OPP[f])
-          .map(([, ou]) => along ? c.o.x + ou - b.x : c.o.z + ou - b.z);   // their doorway, in my face coordinate
-        const near = theirs.find((ou) => Math.abs(ou - u) < 3.5);
-        return near === undefined ? null : { u: near, panel: false };   // no doorway opposite: the passage would end in their wall
-      }).filter(Boolean);
-      const isPlain = plain.includes(f);
-      const nb = Math.max(1, Math.round(L / bay) - 1);
-      const us = (isPlain ? [] : (nb === 1 ? [0] : linspace(-(L / 2 - bay * .8), L / 2 - bay * .8, nb)))
-        .filter((u) => !inContact(u, 1.3));
-      // one wall per face with every opening truly cut out (doors + windows),
-      // then thin translucent panes in the window openings
-      const wins = [];
-      for (const u of us) for (const [wy, ww, wh] of [[1.15, 1.7, 3.6], [lv[1] + 1, 1.9, 4.8], [lv[2] + .9, 1.4, 2.1]]) {   // ground sills at 1.15m: reachable with a jump
-        if (wy < lv[1] && fdoors.some((d) => Math.abs(u - d.u) < doorW / 2 + 1.2)) continue;
-        wins.push([u, wy, ww, wh]);
-      }
-      const [wx, wz] = at(b, f, 0, 0);
-      parts.push({ shape: "hwall", size: { w: L, h: H, t: T, holes: [...fdoors.map((d) => [d.u, 0, doorW, doorH]), ...wins] },
-                   pos: [wx, 0, wz], rot: (f === "e" || f === "w") ? [0, -90, 0] : null, color: wallC, pat: b.brick ? "brick" : "ashlar" });
-      for (const d of fdoors) {
-        if (!d.panel) continue;
-        const [dxw, dzw] = at(b, f, d.u, 0);
-        doorsOut.push({ x: dxw, z: dzw, w: doorW, h: doorH, yaw: (f === "e" || f === "w") ? 90 : 0 });
-      }
-      for (const [u, wy, ww, wh] of wins) {   // every window is a DYNAMIC openable pane
-        const [px, pz] = at(b, f, u, 0);
-        windowsOut.push({ x: px, z: pz, y: wy + wh / 2, w: ww + .15, h: wh + .15,
-                          yaw: (f === "e" || f === "w") ? 90 : 0 });
-      }
-      if (isPlain) continue;
-      for (const u of us) {
-        if (b.gilt) {   // gilded lintel and sill on the piano nobile windows
-          fbox(b, f, u, T / 2 + .18, 2.3, .18, lv[1] + 6.05, .14, gold, { outline: false });
-          fbox(b, f, u, T / 2 + .18, 2.3, .14, lv[1] + .85, .14, gold, { outline: false });
-        }
-        if (u !== us[us.length - 1]) {
-          fbox(b, f, u + bay / 2, T / 2 + .12, .55, storeys[1] - .6, lv[1] + storeys[1] / 2, .3, stone, { outline: false });
-          fbox(b, f, u + bay / 2, .1, .16, .85, H + .5, .16, stone, { outline: false });   // balustrade post
-        }
-      }
-      for (const y of [lv[1], lv[2]]) fbox(b, f, 0, .25, L + .4, .5, y, T + .5,
-        b === blocks[0] && y === lv[2] ? gold : stoneDark);
-      fbox(b, f, 0, .25, L + .4, .6, H, T + .5, stoneDark);           // crowning cornice
-      fbox(b, f, 0, .1, L + .3, .18, H + .95, .2, b.gilt ? gold : stone, { outline: false });   // balustrade rail
-    }
-    // roof and interior floors
-    parts.push({ shape: "box", size: [b.w, .4, b.d], pos: [b.x, H + .2, b.z], color: roofC });
-    parts.push({ shape: "box", size: [b.w - 2 * T, .12, b.d - 2 * T], pos: [b.x, H - .07, b.z], color: 0x8a6a48, pat: "wood" });   // boarded attic ceiling
-    const FLOOR0 = { color: 0xd8d0be, pat: "checker", accent: 0x8a8070 };   // marble flags downstairs
-    const FLOOR1 = { color: 0x9c6b3e, pat: "parquet" };                       // parquet on the upper floors
-    parts.push({ shape: "box", size: [b.w - 2 * T, .2, b.d - 2 * T], pos: [b.x, .1, b.z], ...FLOOR0 });
-    const zR0 = b.z + b.d / 2 - 2.6, zR1 = b.z - b.d / 2 + 2.6, run = zR0 - zR1;
-    const rampX = [b.x - b.w / 2 + T + 1.3, b.x + b.w / 2 - T - 1.3];
-    for (let s = 1; s <= 2; s++) {
-      const y = lv[s] + .15;
-      if (!b.ramp) { parts.push({ shape: "box", size: [b.w - 2 * T, .3, b.d - 2 * T], pos: [b.x, y, b.z], ...FLOOR1 }); continue; }
-      // slab with a stairwell hole over the arriving flight
-      const side = s - 1, hx = rampX[side];
-      const hz0 = side === 0 ? zR1 : zR0 - run * .5, hz1 = side === 0 ? zR1 + run * .5 : zR0;   // headroom for a 2m walker
-      const x0 = hx - rampW / 2 - .2, x1 = hx + rampW / 2 + .2;
-      const iw0 = b.x - b.w / 2 + T, iw1 = b.x + b.w / 2 - T, id0 = b.z - b.d / 2 + T, id1 = b.z + b.d / 2 - T;
-      parts.push({ shape: "box", size: [x0 - iw0, .3, id1 - id0], pos: [(x0 + iw0) / 2, y, b.z], ...FLOOR1 });
-      parts.push({ shape: "box", size: [iw1 - x1, .3, id1 - id0], pos: [(x1 + iw1) / 2, y, b.z], ...FLOOR1 });
-      parts.push({ shape: "box", size: [x1 - x0, .3, hz0 - id0], pos: [(x0 + x1) / 2, y, (hz0 + id0) / 2], ...FLOOR1 });
-      parts.push({ shape: "box", size: [x1 - x0, .3, id1 - hz1], pos: [(x0 + x1) / 2, y, (hz1 + id1) / 2], ...FLOOR1 });
-      slabHoles.push({ b, level: lv[s] + .3, hx, hz0, hz1 });
-      wellRail(parts, { x0, x1, z0: hz0, z1: hz1, y: y + .15, side: side === 0 ? 1 : -1, landAt: side === 0 ? "z0" : "z1" });
-      // the flight itself: a real staircase
-      const rise = s === 1 ? lv[1] + .1 : storeys[1];
-      const y0f = s === 1 ? .2 : lv[1] + .3;
-      stairSteps(parts, { x: hx, w: rampW, y0: y0f, rise, rail: side === 0 ? 1 : -1,
-                          z0: side === 0 ? zR0 : zR1, z1: side === 0 ? zR1 : zR0, color: stoneDark });
-    }
-
-    // interior partitions: rooms along the long axis with an enfilade of
-    // aligned doorways; `gallery` keeps the piano nobile's garden half as
-    // one long hall behind a doored longitudinal wall
-    const longX = b.w >= b.d;
-    const pT = .4, pdW = 2.4;
-    // partitions are paneled: marble-lined downstairs, ornament lattice
-    // (gilded in the gilt blocks) on the piano nobile
-    const PANEL0 = { color: 0xe6dcc6, pat: "marble" };
-    const PANEL1 = { color: 0xe9e0cc, pat: "ornament", accent: b.gilt ? gold : 0xcdbfa2 };
-    const axisLen = longX ? b.w : b.d;
-    const p0 = (longX ? b.x : b.z) - axisLen / 2;
-    const nRooms = Math.floor(axisLen / roomEvery);
-    const pwall = (pos, y0p, hgt, s0, s1, doorU) => {
-      const PANEL = y0p < lv[1] ? PANEL0 : PANEL1;
-      const mk = (a2, b2) => b2 - a2 > .25 && parts.push(longX
-        ? { shape: "box", size: [pT, hgt, b2 - a2], pos: [pos, y0p + hgt / 2, (a2 + b2) / 2], ...PANEL }
-        : { shape: "box", size: [b2 - a2, hgt, pT], pos: [(a2 + b2) / 2, y0p + hgt / 2, pos], ...PANEL });
-      mk(s0, doorU - pdW / 2); mk(doorU + pdW / 2, s1);
-      const lh = hgt - 3.2;
-      if (lh > .1) parts.push(longX
-        ? { shape: "box", size: [pT, lh, pdW], pos: [pos, y0p + 3.2 + lh / 2, doorU], ...PANEL }
-        : { shape: "box", size: [pdW, lh, pT], pos: [doorU, y0p + 3.2 + lh / 2, pos], ...PANEL });
-    };
-    const s0 = (longX ? b.z - b.d / 2 : b.x - b.w / 2) + T;
-    const s1 = (longX ? b.z + b.d / 2 : b.x + b.w / 2) - T;
-    for (let i = 1; i < nRooms; i++) {
-      const pos = p0 + i * roomEvery;
-      if (b.ramp && rampX.some((rx) => Math.abs(pos - rx) < 2.8)) continue;
-      pwall(pos, .2, lv[1] - .2, s0, s1, s0 + 2);
-      if (b.gallery) pwall(pos, lv[1] + .3, storeys[1] - .3, b.z + 1.7, s1, b.z + 3.2);
-      else pwall(pos, lv[1] + .3, storeys[1] - .3, s0, s1, s0 + 2);
-    }
-    if (b.gallery) {
-      const gz = b.z + 1.5, gy = lv[1] + .3, gh = storeys[1] - .3;
-      // the Hall of Mirrors: tall mirrors in gilt frames on the partition's gallery face, opposite the
-      // windows (exported: the demo makes them reflect, mirrors.js); two per span between the doorways
-      const mirrorSpan = (x0, x1, z, y0, hh) => {
-        const span = x1 - x0; if (span < 3) return;
-        const k = span > 7 ? 2 : 1, w = Math.min(2.4, span / k - 1.2), h = Math.min(hh - 1.6, 5.2), zf = z - pT / 2 - .04, yc = y0 + .7 + h / 2;
-        for (let i = 0; i < k; i++) {
-          const xc = x0 + span * (i + .5) / k;
-          // room: the gallery lane the mirror hangs in -- the only place it is seen from (mirrors.js reflects only there)
-          mirrorsOut.push({ x: xc, y: yc, z: zf - .01, w, h, n: [0, 0, -1], room: [b.x - b.w / 2 + T, b.x + b.w / 2 - T, lv[1] - .5, lv[2], b.z - b.d / 2 + T - .5, z] });
-          // behind it, on the salon side of the partition: a framed painting at eye height (its canvas a view of
-          // the world, taken at the start -- paintings.js)
-          const pz = z + pT / 2 + .04, py = y0 + 2.1, pw = 2.0, ph = 1.5;
-          paintingsOut.push({ x: xc, y: py, z: pz + .01, w: pw, h: ph, n: [0, 0, 1] });
-          for (const [dx, dy, sw, sh] of [[0, ph / 2 + .07, pw + .28, .14], [0, -ph / 2 - .07, pw + .28, .14], [-pw / 2 - .07, 0, .14, ph], [pw / 2 + .07, 0, .14, ph]])
-            parts.push({ shape: "box", size: [sw, sh, .08], pos: [xc + dx, py + dy, pz], color: gold, collide: false });
-          for (const [dx, dy, sw, sh] of [[0, h / 2 + .06, w + .24, .12], [0, -h / 2 - .06, w + .24, .12], [-w / 2 - .06, 0, .12, h], [w / 2 + .06, 0, .12, h]])
-            parts.push({ shape: "box", size: [sw, sh, .08], pos: [xc + dx, yc + dy, zf], color: gold, collide: false });
-        }
-      };
-      let xa = b.x - b.w / 2 + T + 3.2;
-      const xbEnd = b.x + b.w / 2 - T - 3.2;
-      for (let i = 0; i < nRooms; i++) {
-        const dx2 = p0 + (i + .5) * roomEvery;
-        if (dx2 - 1.2 - xa > .3) parts.push({ shape: "box", size: [dx2 - 1.2 - xa, gh, pT], pos: [(xa + dx2 - 1.2) / 2, gy + gh / 2, gz], ...PANEL1 });
-        mirrorSpan(xa, dx2 - 1.2, gz, gy, gh);
-        parts.push({ shape: "box", size: [2.4, gh - 3.2, pT], pos: [dx2, gy + 3.2 + (gh - 3.2) / 2, gz], ...PANEL1 });
-        xa = dx2 + 1.2;
-      }
-      if (xbEnd - xa > .3) parts.push({ shape: "box", size: [xbEnd - xa, gh, pT], pos: [(xa + xbEnd) / 2, gy + gh / 2, gz], ...PANEL1 });
-      mirrorSpan(xa, xbEnd, gz, gy, gh);
-    }
-  }
-
-  // furnishings: chandeliers and salon groups in the first block's piano
-  // nobile, bedrooms along the outer blocks' ground floors
-  if (furnish && blocks.length) {
-    const addF = (kind, x, y, z, q = 0) => placeFurniture(parts, kind, x, y, z, q);
-    const b0 = blocks[0];
-    const nR0 = Math.floor(b0.w / roomEvery);
-    for (let i = 0; i < nR0; i++) {
-      const rc = b0.x - b0.w / 2 + (i + .5) * roomEvery;   // room centers, clear of partitions
-      addF("chandelier", rc, lv[2] - .05, b0.z - 4);       // gallery lane on the garden side
-      addF("chandelier", rc, lv[1] - .05, b0.z);
-      if (i % 2 === 0) {
-        addF("table", rc, lv[1] + .3, b0.z - 4);
-        addF("chair", rc - 1.5, lv[1] + .3, b0.z - 4, 1);
-        addF("chair", rc + 1.5, lv[1] + .3, b0.z - 4, 3);
-        addF("sofa", rc, lv[1] + .3, b0.z - 7, 2);
-      }
-    }
-    for (const bw of blocks.slice(3)) {
-      const nRw = Math.floor(bw.w / roomEvery);
-      for (let i = 0; i < nRw; i += 2) {
-        const rc = bw.x - bw.w / 2 + (i + .5) * roomEvery;
-        addF("bed", rc, .2, bw.z + 1.5, 0);
-        addF("wardrobe", rc + 3, .2, bw.z - bw.d / 2 + T + .45, 0);
-      }
-    }
-  }
-
-  const walk1 = lv[1] + .3, walk2 = lv[2] + .3;
-  const floorY = (x, z) => {
-    for (const b of blocks) {
-      if (Math.abs(x - b.x) > b.w / 2 + .5 || Math.abs(z - b.z) > b.d / 2 + .5) continue;
-      const out = [.2];
-      for (const s of [1, 2]) {
-        const level = s === 1 ? walk1 : walk2;
-        const hole = slabHoles.find((hh) => hh.b === b && hh.level === level);
-        if (!(hole && Math.abs(x - hole.hx) <= rampW / 2 + .2 && z >= hole.hz0 && z <= hole.hz1)) out.push(level);
-      }
-      if (b.ramp) {
-        const zR0 = b.z + b.d / 2 - 2.6, zR1 = b.z - b.d / 2 + 2.6, run = zR0 - zR1;
-        const rampX = [b.x - b.w / 2 + T + 1.3, b.x + b.w / 2 - T - 1.3];
-        for (const s of [0, 1]) {
-          if (Math.abs(x - rampX[s]) > rampW / 2 + .1) continue;
-          const t = s === 0 ? (zR0 - z) / run : (z - zR1) / run;
-          if (t >= 0 && t <= 1) out.push(s === 0 ? stairY(.2, walk1 - .2, t, run) : stairY(walk1, walk2 - walk1, t, run));
-        }
-      }
-      return out;
-    }
-    return 0;
-  };
-
-  const xs = blocks.flatMap((b) => [b.x - b.w / 2, b.x + b.w / 2]);
-  const zs = blocks.flatMap((b) => [b.z - b.d / 2, b.z + b.d / 2]);
-  const cobwebs = blocks.slice(3).flatMap((b) => [   // the outer wings' ground-floor corners
-    { x: b.x - b.w / 2 + T, y: lv[1], z: b.z - b.d / 2 + T, sx: 1, sz: 1, d: .8 }, { x: b.x + b.w / 2 - T, y: lv[1], z: b.z + b.d / 2 - T, sx: -1, sz: -1, d: .7 }]);
-  return { name, parts, footprint: [Math.max(...xs) - Math.min(...xs) + 2, Math.max(...zs) - Math.min(...zs) + 2], floorY, doors: doorsOut, windows: windowsOut, glazed: true, mirrors: mirrorsOut, paintings: paintingsOut, cobwebs };   // glazed: glass panes (elsewhere shutters)
-}
+// (the baroque palace -- Versailles' plan of blocks, party walls, enfilades and the Hall of Mirrors -- is an asset:
+//  versailles.json, tools/archgen/versailles.py)
 
 // ---- the catalogue --------------------------------------------------------
 
-export const BUILDINGS = {
+// THE CATALOGUE, as FACTORIES: a building is built the first time something asks for it, not when the module
+// loads -- the village places three of them, and the rest cost nothing.
+const BUILD_FACTORIES = {
   // a village water mill (placed by the demo on the river bank, not in the facade row)
-  watermill: watermill(),
-  tavern: tavern(),
-  landing: landing(),
-  // Temple of Hephaestus, Athens (~449 BC). Doric peripteral, 6 x 13 columns,
-  // stylobate 13.71 x 31.78m, columns 5.71m tall, ~10m to the ridge.
-  hephaestus: greekTemple({
-    name: "Temple of Hephaestus",
-    width: 13.71, length: 31.78,
-    columnsFront: 6, columnsSide: 13,
-    columnH: 5.71, columnD: 1.02,
-    entablatureH: 1.68, pedimentH: 1.7,
-    paint: GREEK_PAINT.festival,
-  }),
-  // Parthenon, Athens (447-432 BC). Doric octastyle, 8 x 17 columns (46, like
-  // the original), stylobate 30.88 x 69.5m, columns 10.43m, famously oversized
-  // 0.55m steps, ~15.7m to the ridge. Pentelic marble reads a touch warmer.
-  parthenon: greekTemple({
-    name: "Parthenon",
-    width: 30.88, length: 69.5,
-    columnsFront: 8, columnsSide: 17,
-    columnH: 10.43, columnD: 1.91,
-    steps: 3, stepH: .5, stepOut: .7,   // real: .55m -- trimmed to stay under the .5m climb limit
-
-    entablatureH: 3.29, pedimentH: 3.5,
-    stone: 0xded8c6, stoneDark: 0xc9c0ac, stoneShadow: 0xafa691,
-    paint: GREEK_PAINT.aegean,
-  }),
+  watermill: () => archBuilding("village/watermill", { name: "Water mill" }),
+  landing: () => archBuilding("village/landing", { name: "Landing" }),
+  // the village's land and its riverside, each its own definition (assets/architecture/village): the fisherman's hut
+  // with its jetty, the fountain on the square, the fields, the currant rows, the orchard -- town.js places them
+  fisherHut: () => archBuilding("village/fisher-hut", { name: "Fisherman's hut" }),
+  fountain: () => archBuilding("village/fountain", { name: "Fountain" }),
+  ...Object.fromEntries([["ryeField", "rye"], ["barleyField", "barley"], ["cabbageField", "cabbage"], ["beanField", "beans"], ["garlicField", "garlic"], ["soilField", "soil"]]
+    .map(([k, crop]) => [k, () => archBuilding("village/field-" + crop)])),
+  berries: () => archBuilding("village/berries", { name: "Currant bushes" }),
+  // the MINE, one of a world (index.html places it by the seed): silver, copper or salt -- one definition, the ore its word
+  // and its finish (assets/finishes/mine-<ore>)
+  ...Object.fromEntries(["silver", "copper", "salt"].map((ore) => ["mine" + ore[0].toUpperCase() + ore.slice(1),
+    () => archBuilding("village/mine", { name: { silver: "Silver mine", copper: "Copper mine", salt: "Salt mine" }[ore], params: { ore }, finish: ASSETS.get("finishes/mine-" + ore) })])),
+  orchard: () => archBuilding("village/orchard", { name: "Orchard" }),
   // Palace of Versailles, garden front and court (simplified plan, real
   // scale): 100m corps central flanked by 115m wings on a continuous ~330m
   // garden facade, court arms embracing the Cour Royale, three storeys
   // (ground, piano nobile, attic) to a balustraded flat roofline at ~18.5m.
   // The court opens toward +z; enter there or from the garden side.
-  versailles: baroquePalace({
-    name: "Palace of Versailles",
-    blocks: [
-      { x: 0, z: -21, w: 100, d: 24, ramp: true, gallery: true, gilt: true,
-        door: [["s", 0], ["s", -41], ["s", 41], ["n", 0], ["w", -1.5], ["e", -1.5]] },
-      { x: -41, z: 12, w: 18, d: 42, brick: true, gilt: true, door: [["e", 0], ["n", 0]], plain: ["n"] },
-      { x: 41, z: 12, w: 18, d: 42, brick: true, gilt: true, door: [["w", 0], ["n", 0]], plain: ["n"] },
-      { x: -107.5, z: -22.5, w: 115, d: 21, ramp: true, door: [["s", 0], ["e", 0]], plain: ["e"] },
-      { x: 107.5, z: -22.5, w: 115, d: 21, ramp: true, door: [["s", 0], ["w", 0]], plain: ["w"] },
-    ],
-  }),
+  versailles: () => archBuilding("versailles", { name: "Palace of Versailles" }),   // (tools/archgen/versailles.py: the plan, its party walls, the Hall of Mirrors)
   // Temple of Hathor, Dendera (Ptolemaic, ~54 BC). Pronaos of six Hathor
   // columns behind screen walls, 24-column hypostyle in four rows, the lower
   // inner temple with its naos. ~81m long, facade ~34m wide, ~17m tall.
-  dendera: egyptianTemple({
-    name: "Temple of Hathor, Dendera",
-    width: 34, length: 81,
-    hallH: 17, columnH: 15,
-    colsFront: 6, hypoRows: 4,
-    innerH: 12,
-  }),
-  // Generic medieval townhouses in two sizes -- parameters, not landmarks.
-  house: medievalHouse({ name: "Town House" }),
-  bighouse: medievalHouse({ name: "Merchant House", width: 9, depth: 12, storeys: 3 }),
-  windmill: windmill({}),
-  caerphilly: englishCastle({}),
-  // Temple of Apollo, Didyma (begun ~300 BC). Dipteral: a DOUBLE ring of
-  // columns, 10 x 21 in each, nearly 20m tall on a seven-step platform --
-  // and hypaethral: the huge adyton court stood open to the sky.
-  didyma: greekTemple({
-    name: "Temple of Apollo, Didyma",
-    width: 51.13, length: 109.34,
-    columnsFront: 10, columnsSide: 21,
-    columnH: 19.7, columnD: 1.98,
-    steps: 7, stepH: .45, stepOut: .45,
-    entablatureH: 4.3,
-    colonnadeRows: 2, roof: false,
-    stone: 0xd6cfc0, stoneDark: 0xc2baa9, stoneShadow: 0xa39a87,
-  }),
-  // Colosseum, Rome (80 AD), as built. Ellipse 189 x 156m, ~48m tall:
-  // three arcade stories plus the attic. Travertine.
-  colosseum: romanAmphitheatre({
-    name: "Colosseum",
-    outerA: 94.5, outerB: 78,
-    stories: 3, storyH: 10.7, atticH: 13.5,
-    arches: 40,
-  }),
-  // Cologne Cathedral (completed form, 1880). 144.5m long, twin 157m west
-  // spires, great roof ridge at 61m. The famously darkened grey stone.
-  cologne: gothicCathedral({
-    name: "Cologne Cathedral",
-    length: 144.5, bodyW: 45,
-    naveW: 14, naveH: 42, ridgeH: 61, aisleH: 19, aisles: 5, aisleH2: 21.5,   // five-aisled: four pier rows inside
-    towerW: 22, towerH: 100, spireH: 57,
-    transeptW: 86, transeptD: 20, transeptZ: -20,
-    stone: 0x6f6a60, stoneDark: 0x5a554c, roofC: 0x4f5654,   // the soot-blackened grey it is famous for
-  }),
-  // Notre-Dame de Paris (with Viollet-le-Duc's fleche). 128m long, flat-topped
-  // 69m twin towers, ridge at 43m, fleche to ~96m. Paler Lutetian limestone,
-  // lead-grey roof.
-  notredame: gothicCathedral({
-    name: "Notre-Dame de Paris",
-    length: 128, bodyW: 40,
-    naveW: 13, naveH: 34, ridgeH: 43, aisleH: 14, aisles: 5, aisleH2: 16.5,   // five-aisled double ambulatory plan
-    towerW: 15, towerH: 69, spireH: 0,
-    transeptW: 48, transeptD: 14, transeptZ: 5,
-    flecheH: 48,
-    stone: 0xc3bba8, stoneDark: 0xa79f8d, roofC: 0x6d7a80,
-  }),
-  // Milan Cathedral. No west towers: a wide gable marble facade, a forest of
-  // pinnacles along the flanks, and the Madonnina spire to 108.5m over the
-  // crossing. 158.6m long, transept 92m.
-  milan: gothicCathedral({
-    name: "Milan Cathedral",
-    length: 158.6, bodyW: 66,
-    naveW: 19, naveH: 38, ridgeH: 45, aisleH: 22, aisles: 5, aisleH2: 30,   // the famously steep five-aisle step-up
-    towers: false,
-    transeptW: 92, transeptD: 22, transeptZ: -15,
-    flecheH: 58, pinnacleEvery: 9,
-    // bright white-pink Candoglia marble, roof terraces of the same stone
-    stone: 0xeae4d9, stoneDark: 0xd8d0c3, roofC: 0xe1dacd,
-  }),
+  dendera: () => archBuilding("dendera", { name: "Temple of Hathor, Dendera" }),
+  // Khufu's, Khafre's and Menkaure's pyramids at a quarter size (tools/pyramidgen.py): a passage from each north face
+  // to a burial chamber painted with tomb scenes (murals.js)
+  giza: () => archBuilding("giza", { name: "The Pyramids of Giza" }),
+  // Town houses in two sizes -- the village's own definitions (town.js builds the town of them), not landmarks.
+  house: () => archBuilding("village/gable-house", { name: "Town House" }),
+  bighouse: () => archBuilding("village/eaves-house", { name: "Merchant House", params: { W: 11, D: 10, n: 3, build: ["walls 0", "walls 1", "walls 2", "windows 0 front", "windows 0 back", "windows 1", "windows 2", "floor 0",
+    "floor 1 beside", "floor 1 front", "floor 1 back", "floor 2 beside", "floor 2 front", "floor 2 back", "floor 2 col A", "flight 0", "flight 1",
+    "way 1", "way 1 top", "way 2", "way 2 top", "roof", "chimney", "hearth", "table", "bed 1", "sleep 1", "bed 2", "sleep 2", "door"] } }),
+  windmill: () => {   // (its sail cross turns at the hub the definition says: sx, sy, sz, sailR -- in the site's frame)
+    const d = archBuilding("windmill", { name: "Windmill" }), P = archAssembly("windmill").params, [ox, oz] = d.arch.offset;
+    return Object.assign(d, { sailAt: [P.sx + ox, P.sy, P.sz + oz], sailR: P.sailR });
+  },
+  caerphilly: () => archBuilding("caerphilly", { name: "Caerphilly Castle" }),
+  didyma: () => archBuilding("didyma", { name: "Temple of Apollo, Didyma" }),
+  // The amphitheatre: Verona's arena at its real size (138m across, two 11m storeys of arcade, forty rows of
+  // seating from a 4m podium to 20m), built by the component engine from assets/architecture/arena.json -- every arch a
+  // real opening with its vault, the cavea cut through by vomitoria and stairs.
+  colosseum: () => amphitheatre({ name: "Arena" }),
+  // Santa Maria del Fiore: the whole church from the component engine, dome and campanile and all
+  florence: () => archBuilding("florence", { name: "Santa Maria del Fiore", params: { base: false } }),   // (the game lays it at the ground: no platform)
+  // ---- FROM THE COMPONENT ENGINE: whole buildings defined in assets/architecture, walls, floors and all
+  pantheon: () => archBuilding("pantheon", { name: "Pantheon" }),
+  tajmahal: () => archBuilding("taj-mahal", { name: "Taj Mahal" }),
+  // St Basil's: red brick with white trim, and no two onions alike -- each chapel's cap its own colours and pattern
+  stbasil: () => archBuilding("st-basil", { name: "St Basil's Cathedral" }),
+  frauenkirche: () => archBuilding("frauenkirche", { name: "Frauenkirche" }),
+  zwinger: () => archBuilding("zwinger", { name: "Zwinger", moat: { hw: 115, hd: 56.5, w: 12, depth: 4.4 } }),
+  // Hagia Sophia: rendered walls the colour of its ochre plaster, the domes in lead
+  hagiasophia: () => archBuilding("hagia-sophia", { name: "Hagia Sophia" }),
+  // Stift Melk: Melk yellow with white trim, red roofs, the church's caps and dome in green copper
+  melk: () => archBuilding("melk", { name: "Stift Melk" }),
+  // Schloss Schwerin on its island: sandstone and terracotta, slate roofs, the cupolas gilded; the lake round it
+  schwerin: () => archBuilding("schwerin", { name: "Schloss Schwerin", moat: { hw: SCHWERIN_DOC._moat.hw, hd: SCHWERIN_DOC._moat.hd, w: SCHWERIN_DOC._moat.w, depth: 4.4 } }),
+  // the Karlskirche: pale stone, the dome and the roofs in green copper
+  karlskirche: () => archBuilding("karlskirche", { name: "Karlskirche" }),
+  chichenitza: () => archBuilding("chichen-itza", { name: "Chichen Itza" }),
+  // Sacre-Coeur: white travertine throughout, domes and all
+  sacrecoeur: () => archBuilding("sacre-coeur", { name: "Sacre-Coeur" }),
+  // the Stephansdom: weathered sandstone, the great roof in its yellow-and-green tiles, the spires in stone
+  stephansdom: () => archBuilding("stephansdom", { name: "Stephansdom" }),
+  // St Paul's: Portland stone, the dome and the roofs in lead, the ball and cross gilt
+  stpauls: () => archBuilding("st-pauls", { name: "St Paul's Cathedral" }),
+  // the Hungarian Parliament: white limestone, red roofs, the dome red between white ribs
+  parliament: () => archBuilding("parliament", { name: "Hungarian Parliament" }),
+  // the Berliner Dom: sandstone, the domes green copper, the cross gilt
+  berlinerdom: () => archBuilding("berliner-dom", { name: "Berliner Dom" }),
+  // Moritzburg on its island: ochre and white, red roofs, the lake round it
+  // Mainz Cathedral: red sandstone, green copper roofs, the vaults limewashed
+  mainz: () => archBuilding("mainz", { name: "Mainz Cathedral" }),
+  // El Pilar, Zaragoza: brick, stone trim, the domes in coloured glazed tiles
+  elpilar: () => archBuilding("el-pilar", { name: "El Pilar, Zaragoza" }),
+  // the Sultan Qaboos Grand Mosque: pale sandstone and marble, the gilded dome
+  sultanqaboos: () => archBuilding("sultan-qaboos", { name: "Sultan Qaboos Grand Mosque" }),
+  // Ulm Minster: grey-white stone, slate roofs
+  ulm: () => archBuilding("ulm", { name: "Ulm Minster" }),
+  // the Blue Mosque: grey stone, lead domes, gilded finials
+  bluemosque: () => archBuilding("blue-mosque", { name: "Blue Mosque" }),
+  // the Temple of Heaven: white marble altar and balustrades, red lacquered columns and lattice, painted beams and brackets,
+  // blue glazed tiles, the finial gilt; the court's walls red under green copings
+  templeofheaven: () => archBuilding("temple-of-heaven", { name: "Temple of Heaven" }),
+  // the Fisherman's Bastion: white limestone, dark tent caps
+  fishermansbastion: () => archBuilding("fishermans-bastion", { name: "Fisherman's Bastion" }),
+  moritzburg: () => archBuilding("moritzburg", { name: "Moritzburg Castle", moat: { hw: MORITZBURG_DOC._moat.hw, hd: MORITZBURG_DOC._moat.hd, w: MORITZBURG_DOC._moat.w, depth: 4.4 } }),
+  // St Isaac's: grey marble, the portico columns red granite, the domes gilded
+  stisaacs: () => archBuilding("st-isaacs", { name: "St Isaac's Cathedral" }),
 };
+// (the temples and two of the cathedrals were drawn in code; they are the component engine's definitions now)
+Object.assign(BUILD_FACTORIES, {
+  hephaestus: () => archBuilding("hephaestus", { name: "Temple of Hephaestus" }),
+  parthenon: () => archBuilding("parthenon", { name: "Parthenon" }),
+  notredame: () => archBuilding("notre-dame", { name: "Notre-Dame de Paris" }),
+  cologne: () => archBuilding("cologne", { name: "Cologne Cathedral" }),
+  milan: () => archBuilding("milan", { name: "Milan Cathedral" }),
+});
+export const BUILDINGS = {};
+for (const [k, make] of Object.entries(BUILD_FACTORIES)) {
+  let built;
+  Object.defineProperty(BUILDINGS, k, { enumerable: true, configurable: true,
+    get: () => (built ??= make()), set: (v) => { built = v; } });
+}
+// the DRESS of a landmark's people (clothes: the wardrobe's `styles`): its congregation wears it, and so does a share of
+// the world's wanderers when the landmark stands (index.html)
+export const DRESS = { hephaestus: "greek", parthenon: "greek", didyma: "greek", colosseum: "roman", pantheon: "roman", templeofheaven: "chinese",
+                       giza: "egyptian", notredame: "gothic", cologne: "gothic", milan: "gothic", ulm: "gothic", stephansdom: "gothic", florence: "gothic", mainz: "gothic", caerphilly: "gothic" };
+// THE VILLAGE'S LAND AND ITS RIVERSIDE: definitions in their own finishes, the same in every world -- pregen caches them
+// as it does the landmarks (pregen.html), and the game asks for them (index.html loadPregen)
+export const LAND = ["watermill", "windmill", "landing", "fisherHut", "fountain", "ryeField", "barleyField", "cabbageField", "beanField", "garlicField", "soilField", "berries", "orchard",
+                     "mineSilver", "mineCopper", "mineSalt"];
+export const LANDMARKS = ["florence", "dendera", "giza", "didyma", "milan", "notredame", "cologne", "hephaestus", "parthenon", "colosseum",
+                          "versailles", "caerphilly", "pantheon", "tajmahal", "stbasil", "frauenkirche", "zwinger", "hagiasophia", "melk", "schwerin", "karlskirche", "chichenitza", "sacrecoeur", "stephansdom", "stpauls", "parliament", "stisaacs", "berlinerdom", "moritzburg", "fishermansbastion", "mainz", "elpilar", "sultanqaboos", "ulm", "bluemosque", "templeofheaven"];

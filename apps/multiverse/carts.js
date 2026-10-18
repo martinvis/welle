@@ -1,118 +1,42 @@
 // Carts and wagons: the highway's haulage, at real dimensions.
 //
 // A cart is two things. Its BODY -- bed, sides, axles, bolsters, driver's
-// board and the barrels and sacks it carries -- is boxes and cylinders, so
-// it goes through architecture.js (merged per material, orientation-shaded,
-// outlined) and moves as one rigid group. Its WHEELS are shared
-// InstancedMesh copies: three real wheel sizes serve the whole fleet, each
-// size one draw call per material, rolled by matrix per frame. Its TEAM --
-// the draft animals with yoke, bows, pole/traces or shafts -- and its
+// board and the casks and sacks it carries -- is an ITEM (assets/items/
+// components/cart-*, tools/propgen.py) and moves as one rigid group. Its
+// WHEELS are shared instanced copies of items/components/cart-wheel: three
+// real wheel sizes serve the whole fleet, rolled by matrix per frame. Its
+// TEAM -- the draft animals with yoke, bows, pole/traces or shafts -- and its
 // DRIVER are banner skeletons in an instanced herd like every other
 // creature, so oxen trot, tails swish and heads turn for free. Every
 // dimension is meters from period sources: a two-wheel cart on 1.5m wheels,
 // a farm wagon, a heavy freight wagon behind up to three pairs.
 import { SPECIES, gaitBase, bodyProbe } from "./species.js";
 import { makePerson } from "./people.js";
-import { rng } from "./flora.js";
-import { BARRELS, barrel, sack } from "./architecture.js";
-export { BARRELS, barrel, sack };
+import "./architecture.js";   // (it registers the catalogue's items with the assembler: before the sizes are read below)
+import { itemOf } from "./arch/assemble.js";   // (the bodies and wheels are items: assets/items/components/cart-*)
 
-const WOODS = [0x7a5a36, 0x6f5433, 0x846040, 0x6a4a2c];
 const DARK = 0x4e3a24, IRON = 0x3e3a38;
 
-// the three carts. All body-local, origin on the ground under the bed's
-// center, +x forward. floor = bed height, wheels = axle x and radius
-// (4-wheelers steer on smaller front wheels), seatX = the driver's board.
-export const CART_SIZES = {
-  // two-wheeled cart, one animal between shafts: 1.5m wheels, the bed
-  // balanced just ahead of the axle
-  small:  { bedL: 1.6, bedW: 1.05, floor: .8, side: .35, seatX: .5,
-            wheels: [{ x: -.1, r: .75 }], teams: [1] },
-  // farm wagon: 2.8m bed, one pair (or a single animal in shafts)
-  medium: { bedL: 2.8, bedW: 1.4, floor: .85, side: .45, seatX: 1.05,
-            wheels: [{ x: 1.05, r: .45 }, { x: -1.05, r: .6 }], teams: [1, 2] },
-  // heavy freight wagon: 4.2m bed, high sides, two or three pairs
-  large:  { bedL: 4.2, bedW: 1.7, floor: .95, side: .6, seatX: 1.75,
-            wheels: [{ x: 1.55, r: .6 }, { x: -1.55, r: .75 }], teams: [2, 4, 6] },
-};
+// the three carts are ASSETS (tools/propgen.py -> items/components/cart-small, -medium, -large): their bodies with the
+// five loads each, origin on the ground under the bed's centre, +x forward; the wheels items/components/cart-wheel.
+// What the fleet needs to drive them -- the bed, its floor, the axles and wheel sizes (4-wheelers steer on smaller
+// front wheels), the driver's board -- is read from the bodies' own params, so the numbers live in one place.
+const CART_ITEM = (size) => `items/components/cart-${size}`;
+const TEAMS = { small: [1], medium: [1, 2], large: [2, 4, 6] };   // one animal between shafts; a pair; two or three pairs
+export const CART_SIZES = Object.fromEntries(Object.keys(TEAMS).map((size) => {
+  const P = itemOf({ path: CART_ITEM(size) }).params;
+  const wheels = [1, 2].filter((i) => P[`axle${i}X`] !== undefined).map((i) => ({ x: P[`axle${i}X`], r: P[`wheel${i}R`] }));
+  return [size, { bedL: P.bedL, bedW: P.bedW, floor: P.floor, side: P.side, seatX: P.seatX, seatTop: P.seatTop, wheels, teams: TEAMS[size] }];
+}));
+export const LOAD_VARIANTS = 5;   // (the bodies' `load` 0..4: casks lying, standing casks, kegs, sacks in two courses, mixed; -1 empty)
 
-// loads per size, five variants each: rows of big barrels lying across
-// the bed (chocked pyramids -- the way casks were actually stacked),
-// standing casks, kegs filling the gaps, and grain sacks laid across the
-// bed in two courses, sometimes mixed with casks
-export const LOAD_VARIANTS = 5;
-function load(size, variant, floor) {
-  const B = BARRELS.big, K = BARRELS.keg, out = [];
-  if (variant < 0) return out;   // an empty bed: the freight carts carry live goods instead
-  const bigLying = (xs, y = floor + B.belly) => xs.forEach((x) => out.push(...barrel("big", [x, y, 0], "z")));
-  const pyramidTop = floor + B.belly + B.belly * Math.sqrt(3);   // nested on two below
-  const kegsUp = (pts) => pts.forEach(([x, z]) => out.push(...barrel("keg", [x, floor + K.h / 2, z], "up")));
-  const bigUp = (pts) => pts.forEach(([x, z]) => out.push(...barrel("big", [x, floor + B.h / 2, z], "up")));
-  // sacks lie across the bed .52m apart; a second course sits in the hollows
-  const sacks = (xs, course = 0) => xs.forEach((x) => out.push(...sack([x, floor + .24 + course * .4, 0], "z")));
-  if (size === "small") {
-    if (variant === 0) { bigLying([-.15]); kegsUp([[.5, 0]]); }
-    else if (variant === 1) kegsUp([[-.45, .25], [-.45, -.25], [.05, .25], [.05, -.25], [.5, 0]]);
-    else if (variant === 2) bigUp([[-.35, 0], [.4, 0]]);
-    else if (variant === 3) { sacks([-.55, -.03, .49]); sacks([-.29, .23], 1); }
-    else { bigLying([-.3]); sacks([.35]); }
-  } else if (size === "medium") {
-    if (variant === 0) { bigLying([-.95, -.2, .55]); bigLying([-.575, .175], pyramidTop); }
-    else if (variant === 1) { bigUp([[-.85, 0], [-.1, 0]]); kegsUp([[.55, .4], [.55, 0], [.55, -.4]]); }
-    else if (variant === 2) kegsUp([[-1, .45], [-1, 0], [-1, -.45], [-.55, .45], [-.55, 0], [-.55, -.45], [-.1, .45], [-.1, 0], [-.1, -.45], [.35, .2], [.35, -.2]]);
-    else if (variant === 3) { sacks([-1.15, -.63, -.11, .41, .93]); sacks([-.89, -.37, .15, .67], 1); }
-    else { bigLying([-.95, -.2]); sacks([.45, .97]); }
-  } else {
-    if (variant === 0) { bigLying([-1.6, -.85, -.1, .65]); bigLying([-1.225, -.475, .275], pyramidTop); kegsUp([[1.3, .45], [1.3, -.45]]); }
-    else if (variant === 1) bigUp([[-1.5, .38], [-1.5, -.38], [-.75, .38], [-.75, -.38], [0, .38], [0, -.38], [.75, .38], [.75, -.38]]);
-    else if (variant === 2) { bigLying([-1.6, -.85, -.1]); kegsUp([[.55, .55], [.55, 0], [.55, -.55], [1.0, .55], [1.0, 0], [1.0, -.55]]); }
-    else if (variant === 3) { const xs = [-1.82, -1.3, -.78, -.26, .26, .78, 1.3, 1.82]; sacks(xs); sacks(xs.slice(0, -1).map((x) => x + .26), 1); }
-    else { bigLying([-1.6, -.85, -.1]); bigLying([-1.225, -.475], pyramidTop); sacks([.6, 1.12, 1.64]); sacks([.86, 1.38], 1); }
-  }
-  return out;
-}
-
-// the cart body as an architecture-style parts def
+// the cart body: its item, the load drawn, the driver's board
 export function cartBody(size, { seed = 1, variant = 0 } = {}) {
-  const S = CART_SIZES[size], r = rng(seed * 313 + 7);
-  const wood = WOODS[Math.floor(r() * WOODS.length)];
-  const { bedL, bedW, floor, side } = S;
-  const parts = [
-    { shape: "box", size: [bedL, .06, bedW], pos: [0, floor - .03, 0], color: wood },                   // bed planks
-    { shape: "box", size: [bedL, side, .05], pos: [0, floor + side / 2, bedW / 2 + .025], color: wood },  // sides
-    { shape: "box", size: [bedL, side, .05], pos: [0, floor + side / 2, -bedW / 2 - .025], color: wood },
-    { shape: "box", size: [.05, side, bedW + .1], pos: [bedL / 2 + .025, floor + side / 2, 0], color: wood },   // headboard
-    { shape: "box", size: [.05, side, bedW + .1], pos: [-bedL / 2 - .025, floor + side / 2, 0], color: wood },  // tailboard
-    { shape: "box", size: [.42, .05, bedW - .1], pos: [S.seatX, floor + .44, 0], color: DARK },          // driver's board
-    { shape: "box", size: [.05, .42, .06], pos: [S.seatX, floor + .21, bedW / 2 - .1], color: DARK },
-    { shape: "box", size: [.05, .42, .06], pos: [S.seatX, floor + .21, -bedW / 2 + .1], color: DARK },
-    { shape: "box", size: [.36, .04, bedW - .2], pos: [bedL / 2 + .2, floor + .08, 0], color: DARK },     // footboard
-  ];
-  for (const w of S.wheels) {   // axle across, bolster block up to the bed
-    parts.push({ shape: "cyl", size: { r1: .05, r2: .05, h: bedW + .5, seg: 8 }, pos: [w.x, w.r, 0], rot: [90, 0, 0], color: DARK });
-    parts.push({ shape: "box", size: [.16, Math.max(.04, floor - .06 - w.r), bedW * .8], pos: [w.x, (floor - .06 + w.r) / 2, 0], color: DARK });
-  }
-  if (S.wheels.length > 1)   // the reach beam tying both axles
-    parts.push({ shape: "box", size: [bedL - .4, .08, .12], pos: [0, floor - .11, 0], color: DARK });
-  parts.push(...load(size, variant, floor));
-  return { name: `cart-${size}`, parts, seatTop: floor + .465, seatX: S.seatX };
+  const S = CART_SIZES[size];
+  return { name: `cart-${size}`, item: CART_ITEM(size), seed, params: { load: variant }, seatTop: S.seatTop, seatX: S.seatX };
 }
-
-// a spoked wheel, axis along z, centered on its axle: hub, radial spokes
-// and the felloe ring segments (iron-shod, dark)
-export function wheelDef(r) {
-  const n = r < .5 ? 8 : r < .7 ? 10 : 12, rf = r - .04, parts = [];
-  parts.push({ shape: "cyl", size: { r1: .1, r2: .1, h: .24, seg: 10 }, pos: [0, 0, 0], rot: [90, 0, 0], color: DARK });
-  for (let i = 0; i < n; i++) {
-    const a = i * 360 / n, ar = a * Math.PI / 180, rc = (.08 + rf - .035) / 2;
-    parts.push({ shape: "box", size: [rf - .035 - .08, .04, .04], pos: [Math.cos(ar) * rc, Math.sin(ar) * rc, 0],
-                 rot: [0, 0, a], color: WOODS[2], outline: false });
-    const b = (i + .5) * 360 / n, br = b * Math.PI / 180;
-    parts.push({ shape: "box", size: [2 * rf * Math.tan(Math.PI / n) + .015, .08, .06], pos: [Math.cos(br) * rf, Math.sin(br) * rf, 0],
-                 rot: [0, 0, b + 90], color: DARK });
-  }
-  return { name: `wheel-${r}`, parts };
-}
+// a spoked wheel r in radius (items/components/cart-wheel): more spokes the bigger it is
+export const wheelParams = (r) => ({ r, n: r < .5 ? 8 : r < .7 ? 10 : 12 });
 
 const prefixed = (parts, pre, dz, phase) => parts.map((p) => ({
   ...p, id: pre + p.id, parent: p.parent ? pre + p.parent : null,

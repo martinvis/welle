@@ -15,25 +15,31 @@
 <div id="bar">
   <b>Wardrobe</b>: the people of people.js on the composite engine (one quad per person).
   Rows front to back: tops on men · tops on women · hats · hair · poses and children · a random crowd.
-  <br>Drag to orbit · <b>W</b> walk on/off · <b>R</b> re-roll the crowd · <b>Shift+O</b> outline · pipeline: <b>C</b> cells <b>V</b> view space <b>X</b> heat map <span id="pipe"></span> ·
+  <br>Drag to orbit · <b>W</b> walk on/off · <b>R</b> re-roll the crowd · <b>Shift+O</b> outline · <b>V</b> view space <span id="pipe"></span> ·
   <code>?crowd=N</code> <code>?seed=N</code> <code>?t=</code> (freeze) <code>?cam=x,y,z,tx,ty,tz</code>
   <span id="fps"></span>
 </div>
 <script type="importmap">
 { "imports": {
-    "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+    "three": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/webgpu": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/tsl": "https://unpkg.com/three@0.185.1/build/three.tsl.js",
     "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
 } }
 </script>
 <script type="module">
-// A test bench for people.js: every garment, hat, hairstyle and pose in
-// rows, plus a random crowd walking in circles. Headless checks drive it
+// A test bench for people.js and the tailor (clothes.js): every outfit of the
+// wardrobe, every garment on its own over a shirt and hose, every hat,
+// hairstyle and pose in rows, plus a random crowd walking in circles. Headless checks drive it
 // through window.__dbg (herd, people, camera) after window.__ready.
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { createComposite, PIPE, setPipe, pipeFromQuery } from "./composite.js";
-import { makePerson, TOPS, HATS, HAIRS } from "./people.js";
+import { makePerson, HAIRS, GARMENTS } from "./people.js";
+import { WARDROBE, garmentDef } from "./clothes.js";
 import { createTools, handIndex } from "./tools.js";
+import { createHeads } from "./heads.js";
+import { createJewels } from "./jewels.js";
 import { OUTLINE } from "./banner.js";
 import { gaitBase } from "./species.js";
 import { EMOTIONS, expression } from "./faces.js";
@@ -42,9 +48,10 @@ const qp = new URLSearchParams(location.search);
 const num = (k, d) => qp.has(k) ? +qp.get(k) : d;
 const freeze = qp.has("t") ? +qp.get("t") : null;
 let walk = num("walk", 1) > 0, seed0 = num("seed", 1);
-pipeFromQuery(qp);   // ?viewspace=0|1 ?cells=N ?cellmin= ?pipedebug=1
+pipeFromQuery(qp);   // ?viewspace=0|1 ?shelllod= ?shellblend=0 ?shelldebug=1
 
-const renderer = new THREE.WebGLRenderer({ antialias: false });
+const renderer = new THREE.WebGPURenderer({ antialias: false });
+await renderer.init();
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
 renderer.setSize(innerWidth, innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -61,29 +68,51 @@ controls.target.set(cam[3], cam[4], cam[5]);
 controls.update();
 
 // the rows: [z, [makePerson options...]]
+const HEAD = GARMENTS.filter((g) => garmentDef(g).head), BODY = GARMENTS.filter((g) => !garmentDef(g).head);
 const FACE = -Math.PI / 2;   // +x forward -> facing the camera (+z)
+const HAIR_STYLES = (await (await fetch("./assets/index.json")).json()).categories.find((c) => c.name === "Items: hair").paths.map((q) => q.split("/").pop()).filter((k) => k !== "none" && (!qp.has("hairs") || qp.get("hairs").split(",").includes(k)))
+  .sort((a, b) => qp.has("hairs") ? qp.get("hairs").split(",").indexOf(a) - qp.get("hairs").split(",").indexOf(b) : 0);   // (?hairs=a,b: those, in that order)
+const JEWEL_PATHS = (await (await fetch("./assets/index.json")).json()).categories.find((c) => c.name === "Items: jewelry").paths;
+const JEWELS = Object.fromEntries(["neck", "head", "ears"].map((k) => [k, JEWEL_PATHS
+  .filter((p) => p.startsWith("items/jewelry/" + k + "/") && (k !== "neck" || !qp.has("jewel") || qp.get("jewel").split(",").includes(p.split("/").pop())))]));
 const rows = [
-  [4, TOPS.map((top, i) => ({ seed: 11 + i, kind: "man", outfit: { top, hat: "none", bottom: i % 2 ? "trousers" : "hose" } }))],
-  [2.5, TOPS.map((top, i) => ({ seed: 21 + i, kind: "woman", outfit: { top: top === "tunic" ? "short" : top, hat: "none", bottom: i % 2 ? "longskirt" : "skirt", apron: i === 2 } }))],
-  [1, HATS.map((hat, i) => ({ seed: 31 + i, kind: i % 2 ? "woman" : "man", outfit: { hat } }))],
-  [-.5, HAIRS.map((hair, i) => ({ seed: 41 + i, kind: i % 2 ? "man" : "woman", outfit: { hair, hat: "none", fringe: i === 3 } }))],
-  [-2, [{ seed: 51, pose: "sit", still: true, adult: true, y: .45 }, { seed: 52, kind: "woman", pose: "sit", still: true, y: .45, outfit: { top: "dress" } },
+  // every garment that is not on the head, over a shirt (a chemise) and hose -- men first, then the skirted on women
+  [4, BODY.map((garment, i) => ({ seed: 11 + i, kind: garmentDef(garment).skirted || garment === "chemise" ? "woman" : "man",
+        outfit: { hat: "none", wear: [{ garment: garmentDef(garment).skirted ? "chemise" : "shirt" }, { garment: "hose" }, { garment }] } }))],
+  // the wardrobe's kits by name (a guard, the beast-men's clothes on a man)
+  [2.5, Object.keys(WARDROBE.outfits).map((named, i) => ({ seed: 21 + i, kind: named === "drider" ? "woman" : "man", outfit: { named } }))],
+  // every garment on the head
+  [1, HEAD.map((garment, i) => ({ seed: 31 + i, kind: i % 2 ? "woman" : "man", outfit: { wear: [{ garment: "shirt" }, { garment: "hose" }, { garment: "tunic" }, { garment }] } }))],
+  // every item hairstyle (assets/items/hair), on women, a fringe on every other
+  [-.5, HAIR_STYLES.map((hair, i) => ({ seed: 41 + i, kind: "woman", outfit: { hair, hat: "none", fringe: i % 2 === 1 } }))],
+  [-2, [{ seed: 51, pose: "sit", still: true, adult: true, y: .45 }, { seed: 52, kind: "woman", pose: "sit", still: true, y: .45, outfit: { wear: [{ garment: "chemise" }, { garment: "kirtle" }, { garment: "apron" }] } },
         { seed: 53, pose: "carry", adult: true }, { seed: 54, pose: "ride", still: true, adult: true, y: .9 }, { seed: 55, kind: "child10" }, { seed: 56, kind: "child5" },
         { seed: 57, pose: "lie", still: true, adult: true, y: .3 }, { seed: 58, kind: "child10", pose: "sit", still: true, y: .45 }]],
   // at work: every tool in hand, swinging its trade's gesture (people.js GESTURES), and a seated worker
   [-3.5, [["scythe", "mow"], ["spade", "dig"], ["hoe", "hoe"], ["hammer", "hammer"], ["rod", "fish"], ["lute", "strum"], [null, "knead"], [null, "sell"]]
-        .map(([tool, gesture], i) => ({ seed: 61 + i, adult: true, tool, gesture }))],
+        .map(([tool, gesture], i) => ({ seed: 61 + i, adult: true, tool, gesture, ...(qp.has("wear") ? { kind: "woman", outfit: { hat: "none", wear: [{ garment: "chemise" }, { garment: qp.get("wear") }] } } : {}) }))],   // (?wear=G: the workers in that garment -- sleeves at work)
   // faces (faces.js): every emotion, one a person, in its order
   [-5, Object.keys(EMOTIONS).map((face, i) => ({ seed: 71 + i, adult: true, still: true, face, outfit: { hat: "none" } }))],
+  // JEWELRY (jewelry.js): every necklace on a woman in a chemise and a kirtle; every headwear and pair of earrings on one
+  // with her hair up (?jewel=a,b: those necklaces only)
+  [-6.5, JEWELS.neck.map((path, i) => ({ seed: 81 + i, kind: "woman", still: true, outfit: { hat: "none", hair: "bun", wear: [{ garment: "chemise" }, { garment: "kirtle" }], jewelry: { neck: [path], head: null, ears: null } } }))],
+  // EVERY STYLE OF DRESS (the wardrobe's `styles`) on a woman and a man, with the jewelry their seed draws for it (?seed=N: other ones)
+  [-9.5, [null, ...Object.keys(WARDROBE.styles).filter((k) => !k.startsWith("_"))].flatMap((style, i) => ["woman", "man"].map((kind, j) => ({ seed: num("seed", 201) + i * 2 + j, kind, still: true, style })))],
+  [-8, [...JEWELS.head.map((path, i) => ({ seed: 91 + i, kind: "woman", still: true, outfit: { hat: "none", hair: i % 2 ? "long" : "bun", wear: [{ garment: "chemise" }, { garment: "kirtle" }], jewelry: { neck: [], head: path, ears: JEWELS.ears[i % JEWELS.ears.length] } } }))]],
 ];
-const herd = createComposite(40 * 60);
+const only = num("row", -1);   // ?row=N: that row alone, at z = 0, no crowd
+// (the people first: the herd is sized to what they are made of, with room for the crowd -- a new garment is a new
+//  person in the first rows, and a fixed size ran out)
+const made = rows.map(([, specs], ri) => (only < 0 || only === ri ? specs.map((o) => makePerson(o)) : []));
+const herd = createComposite(made.flat().reduce((n, d) => n + d.parts.length, 0) + 60 * num("crowd", 16));
 scene.add(herd.mesh);
 const tools = createTools(scene);   // the tools: low-poly meshes in the right hand (tools.js)
+const heads = createHeads(scene, { shade: (await import("./config.json", { with: { type: "json" } })).default.people?.faceShade ?? {} });   // the faces: mesh heads on the head parts (heads.js)
+const jewels = createJewels(scene);   // what hangs round their necks (jewels.js)
 const people = [];
-const only = num("row", -1);   // ?row=N: that row alone, at z = 0, no crowd
 for (const [ri, [z0, specs]] of rows.entries()) if (only < 0 || only === ri) specs.forEach((o, i) => {
   const z = only < 0 ? z0 : 0;
-  const def = makePerson(o);
+  const def = made[ri][i];
   const an = herd.add(def);
   const x = (i - (specs.length - 1) / 2) * 1.15;
   an.position.set(x, o.pose === "sit" ? o.y + .08 - def.hipY : o.y ?? 0, z);   // seated: y is the seat top, as the world's benches give it
@@ -111,10 +140,8 @@ addEventListener("keydown", (e) => {
   if (e.key === "w" || e.key === "W") walk = !walk;
   if (e.key === "r" || e.key === "R") { seed0++; makeCrowd(); }
   if (e.key === "O" && e.shiftKey) OUTLINE.value = OUTLINE.value > .5 ? 0 : 1;
-  // the composite pipeline, live: C cells on/off, V camera-space endpoints on/off, X the parts-per-pixel heat map
-  if (e.key === "c" || e.key === "C") setPipe({ cells: PIPE.cells > 1 ? 1 : 4 });
+  // V: the endpoints in camera space or in the world, live
   if (e.key === "v" || e.key === "V") setPipe({ viewSpace: !PIPE.viewSpace });
-  if (e.key === "x" || e.key === "X") setPipe({ debug: !PIPE.debug });
   showPipe();
 });
 addEventListener("resize", () => { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); });
@@ -130,15 +157,15 @@ function frame(now) {
     c.an.rotY = -a + (c.w > 0 ? -Math.PI : 0);   // heading along the tangent
     c.an.animT = t * s / c.base; c.an.ampT = 1;
   }
-  herd.update(t); tools.place([[herd, held]]);
+  herd.update(t); tools.place([[herd, held]]); heads.place([herd]); jewels.place([herd]);
   if (freeze !== null) for (const an of herd.animals) { if (an.ampT !== undefined) an.amp = an.ampT; }
-  if (freeze !== null) { herd.update(t); tools.place([[herd, held]]); }
+  if (freeze !== null) { herd.update(t); tools.place([[herd, held]]); heads.place([herd]); jewels.place([herd]); }
   renderer.render(scene, camera);
   acc += dt; if (++n === 30) { document.getElementById("fps").textContent = ` · ${(acc / n * 1000).toFixed(1)} ms/frame`; acc = 0; n = 0; }
   window.__ready = true;
   requestAnimationFrame(frame);
 }
-const showPipe = () => { document.getElementById("pipe").textContent = `(cells ${PIPE.cells}, view space ${PIPE.viewSpace ? "on" : "off"}${PIPE.debug ? ", heat" : ""})`; };
+const showPipe = () => { document.getElementById("pipe").textContent = `(view space ${PIPE.viewSpace ? "on" : "off"})`; };
 showPipe();
 window.__dbg = { PIPE, setPipe, THREE, herd, people, crowd, camera, controls, scene, renderer };
 requestAnimationFrame(frame);

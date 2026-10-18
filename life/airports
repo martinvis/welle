@@ -1,0 +1,146 @@
+International airports: ~1000
+Flights / year: 40M
+Passengers / year
+- Total: 4G
+- Top 1: 100M
+- Top 50: 40M
+
+#Far East
+Tokio:
+- Haneda HND (4 runways)
+- Narita NRT
+Beijing: PEK
+- Daxing PKX (4 runways)
+Shanghai:
+- Pudong PVG (5 runways)
+- Hongqiao SHA
+Guangzhou: CAN (4 runways)
+Hong Kong: HKG
+Seoul:
+- Incheon ICN (4 runways)
+- Gimpo GMP
+Shenzen: SZX
+Chengdu:
+- Tianfu TFU
+- Shuangliu CTU
+Chongqing: Jiangbei CKG (4 runways)
+Hangzhou: Xiaoshan HGH
+Kunming: Changshui KMG
+Xi'an: Xianyang XIY
+Wuhan: Tianhe WUH
+Changsha: Huanghua CSX
+Nanjing: Lukou NKG
+Osaka: Kansai KIX
+Jeju: CJU
+
+#Middle East
+Istanbul: IST (5 runways)
+- Sabiha Gökçen SAW
+Dubai: DXB
+Antalya: AYT
+Tehran: Mehrabad THR + Imam Khomeini IKA
+Jeddah: King Abdulaziz JED
+Riyadh: King Khalid RUH
+Israel: Ben Gurion TLV
+
+#Southeast Asia
+Singapore: Changi SIN
+Bangkok: BKK
+- Don Mueang DMK
+Kuala Lumpur: KUL
+Jakarta: Soekarno–Hatta CGK
+Manila: Ninoy Aquino MNL
+Ho Chi Minh City: Tan Son Nhat SGN
+Hanoi: Noi Bai HAN
+
+#South Asia
+New Delhi: Indira Gandhi DEL (4 runways)
+Mumbai: BOM
+Bangalore: BLR
+
+#Europe
+London:
+- Heathrow LHR
+- Gatwick LGW
+- Stansted STN
+- Luton LTN
+Paris:
+- Charles de Gaulle CDG (4 runways)
+- Orly ORY
+Amsterdam: Schiphol AMS (6 runways)
+Frankfurt: FRA (4 runways)
+Munich: MUC
+Rome: Leonardo da Vinci/Fiumicino FCO
+Milan: Malpensa MXP + Bergamo BGY
+Vienna: Schwechat VIE
+Zurich: ZRH
+Copenhagen: CPH
+Brussels: BRU
+Berlin: Brandenburg BER
+Düsseldorf: DUS
+Hamburg: HAM
+Naples: NAP
+Venice: Marco Polo VCE
+Stockholm: Arlanda ARN
+Budapest: Ferenc Liszt BUD
+Prague: Václav Havel PRG
+Nice: Côte d'Azur NCE
+Marseille: Provence MRS
+Lyon: Saint-Exupéry LYS
+
+#Iberia
+Madrid: Barajas MAD (4 runways)
+Barcelona: El Prat BCN
+Palma de Mallorca: PMI
+Málaga: Costa del Sol AGP
+Ibiza: IBZ
+Valencia: VLC
+Sevilla: SVQ
+Lisbon: LIS
+
+#Canaries
+Gran Canaria LPA
+Tenerife TFS TFN
+Lanzarote ACE
+Fuerteventura FUE
+
+#East Europe
+Moscow:
+- Sheremetyevo SVO
+- Domodedovo DME
+- Vnukovo VKO
+Saint Petersburg: Pulkovo LED
+Athens: ATH
+Warsaw: Chopin WAW
+Bucharest: Henri Coandă OTP
+
+#North America
+Atlanta: Hartsfield–Jackson ATL (5 runways)
+Dallas: Fort Worth DFW (7 runways)
+Denver: DEN (6 runways)
+Chicago: O'Hare ORD (8 runways)
+Los Angeles: LAX (4 runways)
+New York: 
+- John F. Kennedy JFK (4 runways)
+- Newark EWR
+- LaGuardia LGA
+Las Vegas: Harry Reid LAS (4 runways)
+Charlotte: CLT
+Miami: MIA (4 runways)
+Orlando: MCO (4 runways)
+Phoenix: PHX
+San Francisco: SFO (4 runways)
+Seattle: SEA
+Boston: Logan BOS (6 runways)
+Minneapolis: Saint Paul MSP (4 runways)
+Houston: George Bush IAH (5 runways)
+Toronto: Pearson YYZ (5 runways)
+
+#Latin America
+Mexico City: Benito Juárez MEX
+Cancún: CUN
+São Paulo: Guarulhos GRU + Congonhas CGH
+Bogotá: El Dorado BOG
+Lima: Jorge Chávez LIM
+Santiago: Arturo Merino Benítez SCL
+Buenos Aires: Jorge Newbery AEP

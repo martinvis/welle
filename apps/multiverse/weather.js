@@ -6,51 +6,54 @@
 // indoors you still see it falling outside a window, and each curtain also
 // hides itself when its own anchor point is under a roof (large interiors)
 import * as THREE from "three";
+import { wgslFn, uniform, uv } from "three/tsl";
+
+// One curtain's worth of falling weather, in WGSL: parallax sublayers of flakes (snow) or streaks (rain),
+// the sublayer count and density set by the intensity. Returns (tint, alpha).
+const weatherFrag = wgslFn(`
+  fn weatherFrag(uvc: vec2<f32>, t: f32, mode: f32, layer: f32, intensity: f32) -> vec4<f32> {
+    let uvs = vec2<f32>(uvc.x * 2.6, uvc.y);
+    var den = 1.6;
+    if (intensity < 0.5) { den = 0.55; } else if (intensity < 1.5) { den = 1.0; }
+    var a = 0.0;
+    var tint = vec3<f32>(1.0);
+    if (mode > 1.5) {                                 // SNOW: flakes drifting, three sublayers
+      for (var j: i32 = 0; j < 3; j = j + 1) {
+        let fj = f32(j);
+        let s = 1.0 + fj * 0.8;
+        let q = uvs * 11.0 * s + vec2<f32>(sin(t * 0.4 + fj * 2.1) * 1.1, t * (0.5 + 0.22 * fj) * s);
+        let id = floor(q);
+        let h = hashW(id + layer * 13.0);
+        let c = fract(q) - 0.5 + 0.3 * vec2<f32>(sin(h * 6.28 + t * 1.3), cos(h * 5.0 + t * 0.6));
+        a = a + smoothstep(0.10, 0.04, length(c)) * step(h, 0.55 * den) * (0.85 - 0.2 * fj);
+      }
+    } else {                                          // RAIN: streaks, two sublayers, slanted
+      for (var j: i32 = 0; j < 2; j = j + 1) {
+        let fj = f32(j);
+        let s = 1.0 + fj * 0.9;
+        let q = vec2<f32>((uvs.x + uvs.y * 0.16) * 26.0 * s, uvs.y * 3.4 * s + t * (5.5 + 2.5 * fj));
+        let id = floor(q);
+        let h = hashW(id + layer * 7.0);
+        let c = fract(q) - 0.5;
+        a = a + (1.0 - smoothstep(0.02, 0.07, abs(c.x))) * smoothstep(0.42, 0.2, abs(c.y)) * step(h, 0.4 * den) * 0.45;
+      }
+      tint = vec3<f32>(0.72, 0.8, 0.88);
+    }
+    var k = 1.25;
+    if (intensity < 0.5) { k = 0.75; } else if (intensity < 1.5) { k = 1.0; }
+    a = a * k;
+    return vec4<f32>(tint, min(a, 0.95) * (0.95 - 0.22 * layer));
+  }
+`, [wgslFn(`fn hashW(p: vec2<f32>) -> f32 { return fract(sin(dot(p, vec2<f32>(127.1, 311.7))) * 43758.5); }`)]);
 
 const mkWeatherLayer = (d, i) => {
   const h = 2 * d * Math.tan(THREE.MathUtils.degToRad(22.5)) * 1.8;
-  const mat = new THREE.ShaderMaterial({
-    transparent: true, depthWrite: false,
-    uniforms: { uT: { value: 0 }, uMode: { value: 0 }, uI: { value: i }, uInt: { value: 1 } },
-    vertexShader: /* glsl */ `
-      varying vec2 vUv;
-      void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.); }`,
-    fragmentShader: /* glsl */ `
-      precision highp float;
-      uniform float uT, uMode, uI, uInt;
-      varying vec2 vUv;
-      float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
-      void main() {
-        // the original overlay animation, drawn per curtain: multiple
-        // parallax sublayers of flakes/streaks; uInt = 0/1/2 intensity
-        vec2 uv = vec2(vUv.x * 2.6, vUv.y);
-        float den = uInt < .5 ? .55 : uInt < 1.5 ? 1. : 1.6;
-        float a = 0.; vec3 tint;
-        if (uMode > 1.5) {
-          for (int j = 0; j < 3; j++) {
-            float s = 1. + float(j) * .8;
-            vec2 q = uv * 11. * s + vec2(sin(uT * .4 + float(j) * 2.1) * 1.1, uT * (.5 + .22 * float(j)) * s);
-            vec2 id = floor(q);
-            float h = hash(id + uI * 13.);
-            vec2 c = fract(q) - .5 + .3 * vec2(sin(h * 6.28 + uT * 1.3), cos(h * 5. + uT * .6));
-            a += smoothstep(.10, .04, length(c)) * step(h, .55 * den) * (.85 - .2 * float(j));
-          }
-          tint = vec3(1.);
-        } else {
-          for (int j = 0; j < 2; j++) {
-            float s = 1. + float(j) * .9;
-            vec2 q = vec2((uv.x + uv.y * .16) * 26. * s, uv.y * 3.4 * s + uT * (5.5 + 2.5 * float(j)));
-            vec2 id = floor(q);
-            float h = hash(id + uI * 7.);
-            vec2 c = fract(q) - .5;
-            a += (1. - smoothstep(.02, .07, abs(c.x))) * smoothstep(.42, .2, abs(c.y)) * step(h, .4 * den) * .45;
-          }
-          tint = vec3(.72, .8, .88);
-        }
-        a *= uInt < .5 ? .75 : uInt < 1.5 ? 1. : 1.25;
-        gl_FragColor = vec4(tint, min(a, .95) * (.95 - .22 * uI));
-      }`,
-  });
+  const U = { t: uniform(0), mode: uniform(0), layer: uniform(i), intensity: uniform(1) };
+  const mat = new THREE.MeshBasicNodeMaterial({ transparent: true, depthWrite: false });
+  const out = weatherFrag({ uvc: uv(), t: U.t, mode: U.mode, layer: U.layer, intensity: U.intensity });
+  mat.colorNode = out.xyz;
+  mat.opacityNode = out.w;
+  mat.userData.U = U;
   const m = new THREE.Mesh(new THREE.PlaneGeometry(h * 2.6, h), mat);
   m.position.z = -d;
   m.frustumCulled = false;
@@ -74,9 +77,8 @@ export function createWeather(scene) {
       camera.getWorldDirection(dir);
       for (const { d, m } of layers) {
         m.visible = !roofedAt(camera.position.x + dir.x * d, camera.position.z + dir.z * d, camera.position.y + dir.y * d);
-        m.material.uniforms.uT.value = t;
-        m.material.uniforms.uMode.value = mode;
-        m.material.uniforms.uInt.value = intensity;
+        const U = m.material.userData.U;
+        U.t.value = t; U.mode.value = mode; U.intensity.value = intensity;
       }
     },
   };

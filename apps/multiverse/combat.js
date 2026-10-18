@@ -29,13 +29,14 @@ export function segSeg(p0, p1, a, b) {
   return [Math.hypot(cx, cy, cz), s];
 }
 
-// world: { groundH(x, z), floorAt(x, z, y) (the floor or bench top under a point), WLEVEL, waterSD(x, z) (< 0: water),
+// world: { groundH(x, z), floorAt(x, z, y) (the floor or bench top under a point), WLEVEL, waterY(x, z) (the surface
+//          there), waterSD(x, z) (< 0: water),
 //          names() -> [[name, herd]] (the same on every peer: the struck figures' ids), targets() -> the herds that can
 //          be struck, ignore() -> figures that cannot (the player, their mount), onStrike(herd, an, i, dir) -> true when
 //          an owner handles the blow itself (a rider off a horse), onDown(herd, an) (owners stop what drives it),
 //          send(op) (peers), clock() -> the world time }
 export function createCombat(world) {
-  const { floorAt, WLEVEL, waterSD, names, targets, ignore, onStrike, onDown, send, clock } = world;
+  const { floorAt, WLEVEL, waterY = () => WLEVEL, waterSD, names, targets, ignore, onStrike, onDown, send, clock } = world;
   const falling = [];
   // which side a blow along dir (world) knocks a figure: +1 toward its own +z (its left), -1 toward -z
   const sideOf = (an, dir) => (dir && dir.x * Math.sin(an.rotY) + dir.z * Math.cos(an.rotY) < 0 ? -1 : 1);
@@ -97,9 +98,9 @@ export function createCombat(world) {
       }
     }
     const x = an.position.x, z = an.position.z, floor = floorAt(x, z, an.position.y + Math.max(1, yMax));
-    const wet = waterSD(x, z) < 0 && an.position.y < WLEVEL + .3 && floor < WLEVEL;   // (in the water -- not on a deck over it: a boat's bottom)
+    const wl = waterY(x, z), wet = waterSD(x, z) < 0 && an.position.y < wl + .3 && floor < wl;   // (in the water -- not on a deck over it: a boat's bottom)
     let roll, y1;
-    if (wet) { roll = Math.PI; y1 = WLEVEL + .02 + yMin; }   // belly-up, its underside just out of the water
+    if (wet) { roll = Math.PI; y1 = wl + .02 + yMin; }   // belly-up, its underside just out of the water
     else {   // on its side: turned by a quarter about its forward axis, its lowest point that way on the floor
       roll = s * Math.PI / 2;
       y1 = floor + (s > 0 ? zMax : -zMin);

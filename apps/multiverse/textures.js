@@ -20,6 +20,8 @@
 // tiles; build/textures.py saves them as PNG files into texture/ for looking
 // at. Nothing loads those files: the tiles are always calculated.
 import * as THREE from "three";
+import { wgslFn, uniform, uv } from "three/tsl";
+import { patternTile, patternHeight } from "./textures_wgsl.js";
 
 export const TEXTURES = { on: true };
 // PARALLAX on the baked architecture tiles (archMaterial): the relief baked in each tile's alpha, walked in `steps`
@@ -52,144 +54,8 @@ export const TILES = {
 
 // The patterns. q: metres in the pattern's plane. Returns (k, accent, dark);
 // the grass returns its masks.
-export const PATTERN_GLSL = /* glsl */ `
-  float tileHash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
-  // value noise that repeats with the tile: its lattice (cells of ~c metres, a whole number of them to a period)
-  // wraps every per metres, so a baked tile still tiles seamlessly
-  float tileNoise(vec2 q, vec2 per, float c) {
-    vec2 N = max(floor(per / c + .5), 1.0), g = q / per * N, i = floor(g), f = g - i;
-    f = f * f * (3.0 - 2.0 * f);
-    vec2 i0 = mod(i, N), i1 = mod(i + 1.0, N);
-    return mix(mix(tileHash(i0), tileHash(vec2(i1.x, i0.y)), f.x), mix(tileHash(vec2(i0.x, i1.y)), tileHash(i1), f.x), f.y);
-  }
-  float gTilePhase = 0.0;   // which way the wind has the blades leaning while this grass tile is baked (-1 .. 1)
-  vec3 patternTile(float pat, vec2 q) {
-    float k = 1.0, a = 0.0, b = 0.0;
-    if (pat < 2.5) {                     // 1 ashlar: large courses, staggered joints   2 brick: tight running bond
-      bool br = pat > 1.5;
-      float ch = br ? .27 : .8, bw = br ? .56 : 1.6;
-      float row = floor(q.y / ch);
-      float m = step(fract(q.y / ch), br ? .1 : .045);
-      m = max(m, step(fract(q.x / bw + mod(row, 2.0) * .5), br ? .06 : .028));
-      k = 1.0 - m * (br ? .16 : .09);
-    } else if (pat < 3.5) {              // 3 grooves: vertical channels in the accent colour
-      a = step(.62, fract(q.x * 6.0));
-    } else if (pat < 4.5) {              // 4 stars: a dot grid in the accent colour
-      a = smoothstep(.19, .13, length(fract(q / .55) - .5));
-    } else if (pat < 5.5) {              // 5 marble: hairline joints of Greek precision masonry
-      float row = floor(q.y / 1.1);
-      float m = step(fract(q.y / 1.1), .015);
-      m = max(m, step(fract(q.x / 2.3 + mod(row, 2.0) * .5), .0075));
-      k = 1.0 - m * .05;
-    } else if (pat < 6.5) {              // 6 tiles: scalloped roof courses
-      float row = floor(q.y / .36);
-      float tu = fract(q.x / .32 + mod(row, 2.0) * .5) - .5;
-      float m = step(fract(q.y / .36), .14 + .2 * (1.0 - 2.0 * abs(tu)));
-      m = max(m * .8, step(abs(tu), .03) * .5);
-      k = 1.0 - m * .2;
-    } else if (pat < 7.5) {              // 7 scroll: interfering waves curl into gilded tendrils, black counter-figures
-      vec2 s = q * .76;                  // every frequency a whole multiple of .76: the tile repeats exactly
-      float w1 = sin(s.x * 4.0 + sin(s.y * 6.0 + s.x * 2.0) * 1.6);
-      float w2 = sin(s.y * 5.0 + sin(s.x * 3.0 - s.y * 2.0) * 1.8 + 1.2);
-      float m = smoothstep(.55, .8, w1 * w2), e = smoothstep(.38, .55, w1 * w2) - m;
-      a = clamp(m + e * .45, 0.0, 1.0);
-      b = smoothstep(.55, .82, -(w1 * w2)) * .9;
-    } else if (pat < 8.5) {              // 8 gothic: pilaster strips every 3m, string courses, blind tracery, faint joints
-      float du = min(fract(q.x / 3.0), 1.0 - fract(q.x / 3.0)) * 3.0;
-      k *= 1.0 - .22 * smoothstep(.14, .05, du);
-      k *= 1.0 + .1 * (smoothstep(.3, .17, du) - smoothstep(.14, .05, du));
-      float by = fract(q.y / 6.5);
-      k *= 1.0 - .16 * step(by, .05);
-      k *= 1.0 + .08 * step(.05, by) * step(by, .1);
-      k *= 1.0 - .08 * step(.92, fract(q.x / .75)) * step(.45, by);
-      k *= 1.0 - .05 * step(fract(q.y / .8125), .06);   // 8 joints to a course
-    } else if (pat < 9.5) {              // 9 checker: 1.1m marble squares with thin joints
-      a = mod(floor(q.x / 1.1) + floor(q.y / 1.1), 2.0) * .8;
-      vec2 j = min(fract(q / 1.1), 1.0 - fract(q / 1.1));
-      k = 1.0 - .12 * step(min(j.x, j.y), .012);
-    } else if (pat < 10.5) {             // 10 ornament: a diamond lattice with centre bosses
-      vec2 o = q / .85, f = abs(fract(o) - .5);
-      float a1 = smoothstep(.06, .02, abs(f.x + f.y - .5)) * .55, a2 = smoothstep(.11, .05, length(fract(o) - .5)) * .6;
-      a = 1.0 - (1.0 - a1) * (1.0 - a2);
-    } else if (pat < 11.5) {             // 11 parquet: .14m boards in 1.2m lengths, staggered, each its own warm tone
-      float row = floor(q.y / .14), sh = mod(row, 2.0) * .5;
-      float j = max(step(fract(q.y / .14), .06), step(fract(q.x / 1.2 + sh), .02));
-      float tone = fract(sin(mod(row, 16.0) * 12.99 + mod(floor(q.x / 1.2 + sh), 4.0) * 78.23) * 437.58);
-      k = (1.0 - j * .22) * (.9 + .16 * tone);
-    } else {                             // 99 grass: BLADES -- three to a ~3cm cell, each a tapered streak from its
-      // root in the direction it leans, the tip pushed along +x by the tile's wind phase. The nearest blade wins the
-      // texel; R is its coverage, G and B its along-the-blade place and its own tone, both PREMULTIPLIED by the
-      // coverage so the mip chain averages them the way it averages the coverage (the ground divides them back out).
-      // A real blade is 4mm wide, which from standing eye height is ONE PIXEL at the nearest ground you can see
-      // (~4m at the bottom of the screen) -- true, and invisible. These are painted blades: 8mm at the root and
-      // leaning far enough to read as a stroke, 3 to a 6cm cell, which is ~25% cover. Cells stay big enough that
-      // a blade reaches no further than its neighbours, so a texel still tests 3x3 cells and no more.
-      const float CELLS = 16.0, CELL = 1.0 / CELLS, W0 = .004, W1 = .0012, BEND = .018;
-      vec2 gi = floor(q / CELL);
-      float cov = 0.0, tip = 0.0, tone = 0.0;
-      for (int j = -1; j <= 1; j++) for (int i = -1; i <= 1; i++) {
-        vec2 cc = gi + vec2(float(i), float(j)), cw = mod(cc, CELLS);   // wrapped: the tile repeats seamlessly at its period
-        for (int n = 0; n < 3; n++) {
-          float o = float(n) * 13.0;
-          float h1 = tileHash(cw + o), h2 = tileHash(cw + o + 17.0), h3 = tileHash(cw + o + 41.0), h4 = tileHash(cw + o + 73.0);
-          vec2 root = (cc + vec2(h1, h2)) * CELL;
-          float ang = h3 * 6.2832, len = CELL * (.6 + .8 * h4);
-          vec2 t = root + vec2(cos(ang), sin(ang)) * len + vec2(gTilePhase * BEND * (.6 + .8 * h2), 0.0);
-          vec2 d = t - root, pq = q - root;
-          float u = clamp(dot(pq, d) / max(dot(d, d), 1e-9), 0.0, 1.0);
-          float dist = length(pq - d * u), w = mix(W0, W1, u);
-          float c = smoothstep(w, w * .45, dist);
-          if (c > cov) { cov = c; tip = u; tone = h3; }
-        }
-      }
-      return vec3(cov, cov * tip, cov * tone);
-    }
-    return vec3(k, a, b);
-  }
-  // the pattern's RELIEF (baked into the tile's alpha, for parallax): 1 the face, 0 its deepest -- mortar, a
-  // channel, the gap under a roof tile. The same joints as patternTile; stones' edges bevelled and unevenly worn, their
-  // faces pitted, bricks chipped, mortar grainy (per: the tile's period -- the noise repeats with it)
-  float patternHeight(float pat, vec2 q, vec2 per) {
-    if (pat < 2.5) {                     // ashlar, brick: stones proud of the mortar, rounded at the arrises
-      bool br = pat > 1.5;
-      float ch = br ? .27 : .8, bw = br ? .56 : 1.6, wy = br ? .1 : .045, wx = br ? .06 : .028, bev = br ? .01 : .035;
-      float row = floor(q.y / ch), fy = fract(q.y / ch), sx = q.x / bw + mod(row, 2.0) * .5, fx = fract(sx);
-      float d = min(min(fy - wy, 1.0 - fy) * ch, min(fx - wx, 1.0 - fx) * bw);   // metres inside the stone (< 0: the mortar)
-      float rough = br ? .1 * tileNoise(q, per, .025) + .05 * tileNoise(q + 7.0, per, .01)
-                       : .12 * tileNoise(q, per, .08) + .07 * tileNoise(q + 3.0, per, .025) + .04 * tileNoise(q + 9.0, per, .01);
-      float wear = (br ? .4 : .5) * tileNoise(q + 5.0, per, br ? .04 : .1);   // the arris worn unevenly: the bevel wider here, sharper there
-      return d < 0.0 ? .1 + .06 * tileNoise(q + 11.0, per, .02)
-                     : .5 + .5 * smoothstep(0.0, bev * (.6 + wear * 2.0), d) - .1 * tileHash(vec2(row, floor(sx))) - rough;
-    } else if (pat < 3.5) {              // grooves: channels cut in
-      float f = fract(q.x * 6.0);
-      return 1.0 - .9 * smoothstep(.6, .66, f) * (1.0 - smoothstep(.96, 1.0, f));
-    } else if (pat < 5.5 && pat > 4.5) { // marble: hairline joints
-      float row = floor(q.y / 1.1), j = min(min(fract(q.y / 1.1), 1.0 - fract(q.y / 1.1)) * 1.1, min(fract(q.x / 2.3 + mod(row, 2.0) * .5), 1.0 - fract(q.x / 2.3 + mod(row, 2.0) * .5)) * 2.3);
-      return .2 + .8 * smoothstep(.004, .012, j);
-    } else if (pat < 6.5 && pat > 5.5) { // tiles: each course thick at its lower edge (lying on the one below), sunk where the scallops part
-      float row = floor(q.y / .36), fy = fract(q.y / .36), tu = fract(q.x / .32 + mod(row, 2.0) * .5) - .5;
-      float m = step(fy, .14 + .2 * (1.0 - 2.0 * abs(tu)));
-      return mix(.3 + .7 * (1.0 - fy), .1, m) - .08 * tileNoise(q, per, .04);
-    } else if (pat < 8.5 && pat > 7.5) { // gothic: pilaster strips and string courses stand out, tracery and joints cut in
-      float du = min(fract(q.x / 3.0), 1.0 - fract(q.x / 3.0)) * 3.0, by = fract(q.y / 6.5);
-      float h = .55 + .45 * smoothstep(.14, .1, du);
-      h = max(h, step(by, .05));
-      h -= .25 * step(.92, fract(q.x / .75)) * step(.45, by) + .15 * step(fract(q.y / .8125), .06);
-      return clamp(h - .06 * tileNoise(q, per, .1) - .03 * tileNoise(q + 3.0, per, .03), 0.0, 1.0);
-    } else if (pat < 9.5 && pat > 8.5) { // checker: thin joints
-      vec2 j = min(fract(q / 1.1), 1.0 - fract(q / 1.1)) * 1.1;
-      return .1 + .9 * smoothstep(.008, .016, min(j.x, j.y));
-    } else if (pat < 10.5 && pat > 9.5) {   // ornament: lattice and bosses raised
-      vec2 o = q / .85, f = abs(fract(o) - .5);
-      float a1 = smoothstep(.07, .02, abs(f.x + f.y - .5)), a2 = smoothstep(.12, .04, length(fract(o) - .5));
-      return .4 + .6 * max(a1, a2) - .04 * tileNoise(q, per, .03);
-    } else if (pat < 11.5 && pat > 10.5) {  // parquet: the joints between boards
-      float row = floor(q.y / .14), sh = mod(row, 2.0) * .5;
-      return 1.0 - .8 * max(step(fract(q.y / .14), .06), step(fract(q.x / 1.2 + sh), .02));
-    }
-    return 1.0;                          // flat: stars, scroll, grass
-  }
-`;
+// The patterns live in textures_wgsl.js now; the GLSL they were ported from is kept outside the repo as the
+// parity reference (examples/webgpu_parity.html).
 
 const targets = new Map();
 // the tile's texture (baked by bakeTiles; materials may take it before that)
@@ -197,7 +63,7 @@ export function tileTexture(name) {
   let rt = targets.get(name);
   if (!rt) {
     const t = TILES[name];
-    rt = new THREE.WebGLRenderTarget(t.size, t.size, {
+    rt = new THREE.RenderTarget(t.size, t.size, {
       depthBuffer: false, generateMipmaps: true,
       minFilter: THREE.LinearMipmapLinearFilter, magFilter: t.nearest ? THREE.NearestFilter : THREE.LinearFilter,
       wrapS: THREE.RepeatWrapping, wrapT: THREE.RepeatWrapping,
@@ -207,45 +73,49 @@ export function tileTexture(name) {
   return rt.texture;
 }
 
-// Render every tile once (3 x 3 samples per texel), mipmaps and anisotropy
-// on. Call once after the renderer exists, before the first frame.
+// The tile bake, in WGSL: one full-screen pass per tile, 3 x 3 samples a texel, mipmaps and anisotropy on.
+// Colour carries the pattern, ALPHA its relief (patternHeight) for the parallax to walk down into.
+// Call once after the renderer exists, before the first frame.
+const bakeFn = wgslFn(`
+  fn bakeTile(uv: vec2<f32>, pat: f32, period: vec2<f32>, texel: f32, phase: f32) -> vec4<f32> {
+    var s = vec3<f32>(0.0);
+    var h = 0.0;
+    for (var i: i32 = 0; i < 3; i = i + 1) {
+      for (var j: i32 = 0; j < 3; j = j + 1) {
+        let q = (uv + (vec2<f32>(f32(i), f32(j)) - 1.0) * texel / 3.0) * period;
+        s = s + patternTile(pat, q, phase);       // (the grass tiles are one pattern baked three times, leaning three ways)
+        h = h + patternHeight(pat, q, period);
+      }
+    }
+    s = s / 9.0;
+    h = h / 9.0;
+    if (pat > 98.5) { return vec4<f32>(s, 1.0); }          // grass: the blades' own three channels, no relief
+    return vec4<f32>(s.x / 1.5, s.y, s.z, h);
+  }
+`, [patternTile, patternHeight]);
+
 let baked = false;
 export function bakeTiles(renderer) {
   if (baked) return;
   baked = true;
-  const mat = new THREE.ShaderMaterial({
-    uniforms: { uPat: { value: 0 }, uPeriod: { value: new THREE.Vector2() }, uTexel: { value: 0 }, uPhase: { value: 0 } },
-    vertexShader: /* glsl */ `varying vec2 vUv; void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }`,
-    fragmentShader: /* glsl */ `
-      precision highp float;
-      uniform float uPat, uTexel, uPhase;
-      uniform vec2 uPeriod;
-      varying vec2 vUv;
-      ${PATTERN_GLSL}
-      void main() {
-        gTilePhase = uPhase;   // the grass tiles are one pattern baked three times, leaning three ways
-        vec3 s = vec3(0.0); float h = 0.0;
-        for (int i = 0; i < 3; i++) for (int j = 0; j < 3; j++) {
-          vec2 q = (vUv + (vec2(float(i), float(j)) - 1.0) * uTexel / 3.0) * uPeriod;
-          s += patternTile(uPat, q); h += patternHeight(uPat, q, uPeriod);
-        }
-        s /= 9.0; h /= 9.0;
-        gl_FragColor = vec4(uPat > 98.5 ? s : vec3(s.x / 1.5, s.y, s.z), uPat > 98.5 ? 1.0 : h);   // alpha: the relief (parallax)
-      }`,
-    depthTest: false, depthWrite: false,
-  });
+  const uPat = uniform(0), uPeriod = uniform(new THREE.Vector2()), uTexel = uniform(0), uPhase = uniform(0);
+  const mat = new THREE.MeshBasicNodeMaterial({ depthTest: false, depthWrite: false, transparent: true });
+  mat.blending = THREE.NoBlending;                         // the alpha IS data (the relief), never a blend factor
+  const baked4 = bakeFn({ uv: uv(), pat: uPat, period: uPeriod, texel: uTexel, phase: uPhase });
+  mat.colorNode = baked4.xyz;
+  mat.opacityNode = baked4.w;
   const quad = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat);
   quad.frustumCulled = false;
-  const scene = new THREE.Scene(), cam = new THREE.Camera();
+  const scene = new THREE.Scene(), cam = new THREE.OrthographicCamera(-1, 1, 1, -1, -1, 1);
   scene.add(quad);
-  const prev = renderer.getRenderTarget(), aniso = renderer.capabilities.getMaxAnisotropy();
+  const prev = renderer.getRenderTarget(), aniso = renderer.getMaxAnisotropy();
   for (const [name, t] of Object.entries(TILES)) {
     const tex = tileTexture(name);
     tex.anisotropy = aniso;
-    mat.uniforms.uPat.value = t.id;
-    mat.uniforms.uPeriod.value.set(t.period[0], t.period[1]);
-    mat.uniforms.uTexel.value = 1 / t.size;
-    mat.uniforms.uPhase.value = t.phase ?? 0;
+    uPat.value = t.id;
+    uPeriod.value.set(t.period[0], t.period[1]);
+    uTexel.value = 1 / t.size;
+    uPhase.value = t.phase ?? 0;
     renderer.setRenderTarget(targets.get(name));
     renderer.render(scene, cam);
   }
@@ -253,11 +123,22 @@ export function bakeTiles(renderer) {
   mat.dispose(); quad.geometry.dispose();
 }
 
-// a baked tile's texels (RGBA, bottom row first) -- for textures.html and the PNG export
-export function readTile(renderer, name) {
-  const rt = targets.get(name), n = TILES[name].size, buf = new Uint8Array(n * n * 4);
-  renderer.readRenderTargetPixels(rt, 0, 0, n, n, buf);
+// a baked tile's texels (RGBA, BOTTOM row first) -- for textures.html and the PNG export
+//   THE ROW ORDER IS THIS FUNCTION'S BUSINESS, not its callers'. WebGL's readPixels handed back the bottom
+// row first; WebGPU's readback starts at the TOP (its render targets have their origin there), so on the
+// switch every exported tile came out upside down. The rows are turned back here, once, so everything that
+// reads a tile -- textures.html, the PNG export, the two engines' comparison page -- keeps the one order.
+export async function readTile(renderer, name) {
+  const rt = targets.get(name), n = TILES[name].size;
+  const buf = await renderer.readRenderTargetPixelsAsync(rt, 0, 0, n, n);   // WebGPU reads back asynchronously
   for (let i = 3; i < buf.length; i += 4) buf[i] = 255;   // (the alpha holds the relief, for parallax: the picture shows opaque)
+  const row = n * 4, tmp = buf.slice(0, row);
+  for (let y = 0; y < n >> 1; y++) {
+    const a = y * row, b = (n - 1 - y) * row;
+    tmp.set(buf.subarray(a, a + row));
+    buf.copyWithin(a, b, b + row);
+    buf.set(tmp, b);
+  }
   return buf;
 }
 

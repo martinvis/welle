@@ -6,6 +6,7 @@
 // everything about tracks -- their layout, the dry routing, the ribbons --
 // lives here, once.
 import * as THREE from "three";
+import { wgslFn, uniform, uv, positionWorld } from "three/tsl";
 import { MASK_MODE, NOGRASS_LAYER } from "./grass.js";
 
 // a closed lane: arc-length sampler over a polyline (wrapping), plus the
@@ -130,11 +131,52 @@ export function routeGraph(pathRoutes, links = []) {
 }
 
 // world: { scene, town, BUILDINGS, frontZ, extent, hasLake, LAKE, waterSD (+ on land), riverZ, BASIN,
-//          MILL, RIVERSIDE, quayZ, VILLAGE_X, vStreet, wallX, groundH }
+//          MILL, RIVERSIDE, quayZ, VILLAGE_X, TOWN (town.js: its streets), groundH }
 // -> { pathRoutes (each { w, pts, path }: path is the dry line), highway (the carts' lane loop),
 //      hwGeom (the highway's geometry), dryKeep, links (walkable joins no track draws: the bridge deck) }
-export function buildPathNetwork(world) {
-  const { scene, town, BUILDINGS, frontZ, extent, hasLake, LAKE, waterSD, riverZ, BASIN, MILL, RIVERSIDE, quayZ, VILLAGE_X, vStreet, wallX, groundH } = world;
+// The cart track's surface, in WGSL: a ragged edge cut per pixel, rutted dirt with stone specks -- and, in the
+// grass mask pass, the one value that says "a track is not grass" (only this shader knows where the track
+// really is, which is why the mask draws it in its own material and not an override).
+const trackFrag = wgslFn(`
+  fn trackFrag(uvc: vec2<f32>, wp: vec3<f32>, maskMode: f32) -> vec4<f32> {
+    // ragged edges: the track width breathes along its length
+    // (the road is cut into the terrain now: nothing under it to show through -- the ragged edge is painted, a worn
+    //  verge of grass and dirt, not cut away)
+    let edge = 0.78 + 0.2 * (hashT(floor(vec2<f32>(uvc.y * 0.7, 3.0))) - 0.5);
+    let verge = smoothstep(edge - 0.06, edge + 0.06, abs(uvc.x));
+    // .5: not grass, but flat enough for a stalk beside it to cross
+    if (maskMode > 0.5) { return vec4<f32>(0.0, 0.0, 0.0, 0.5); }
+    let n = hashT(floor(wp.xz * 2.1));
+    var col = mix(vec3<f32>(0.54, 0.44, 0.31), vec3<f32>(0.42, 0.34, 0.24), smoothstep(0.25, 0.75, n));
+    col = col * (1.0 - 0.16 * smoothstep(0.14, 0.03, abs(abs(uvc.x) - 0.5)));   // wheel ruts
+    let st = hashT(floor(wp.xz * 4.7) + 7.0);
+    col = mix(col, vec3<f32>(0.62, 0.6, 0.55), step(0.94, st) * 0.8);           // stone specks
+    col = col * (0.92 + 0.12 * hashT(floor(wp.xz * 0.9) + 3.0));               // large-scale tone patches
+    col = mix(col, mix(vec3<f32>(0.36, 0.42, 0.2), vec3<f32>(0.46, 0.42, 0.26), hashT(floor(wp.xz * 3.3) + 11.0)), verge * 0.85);   // the verge
+    return vec4<f32>(col, 1.0);
+  }
+`, [wgslFn(`fn hashT(p: vec2<f32>) -> f32 { return fract(sin(dot(p, vec2<f32>(127.1, 311.7))) * 43758.5); }`)]);
+
+function trackMaterial() {
+  const uMask = uniform(0).onRenderUpdate(() => MASK_MODE.value);
+  const mat = new THREE.MeshBasicNodeMaterial({ transparent: true, polygonOffset: true, polygonOffsetFactor: -1, polygonOffsetUnits: -2 });   // (roads overlapping at a junction: drawn over the ground they share points with)
+  mat.blending = THREE.NoBlending;       // in the mask pass the channels are data; in the world it is opaque
+  const out = trackFrag({ uvc: uv(), wp: positionWorld, maskMode: uMask });
+  mat.colorNode = out.xyz;
+  mat.opacityNode = out.w;
+  return mat;
+}
+
+// THE ROADS PLANNED (2026-10-06) -- before the terrain is built, since the terrain is cut along them: every route laid
+// out and kept dry (as before), then each SAMPLED every ~1.5 m with its SURFACE: its centreline's height following
+// the natural ground along it (smoothed over ~6 m, so it does not ripple with every hump), pinned where it meets a
+// wider road already laid (a spur arrives at the street's own height), and LEVEL ACROSS -- both edges at the centre's
+// height. The edges are split wherever they cross the terrain's lattice lines (`lattice`: { origin, cell }), and the
+// road between two samples is one convex piece [[x, y, z], ...] -- the very points the terrain is cut along
+// (terrain_data.js) and the road mesh is made of (buildPathNetwork), so the two share them.
+// -> { routes, highway, hwGeom, dryKeep, links, surfaces ([{ w, pts: [[x, z, y], ...] }]: ground.js's roads), pieces }
+export function planRoads(world) {
+  const { town, BUILDINGS, frontZ, extent, hasLake, LAKE, waterSD, riverZ, BASIN, MILL, RIVERSIDE, quayZ, VILLAGE_X, TOWN, naturalH, lattice } = world;
   const pathRoutes = [], links = [];
   let highway = null, hwGeom = null;
   // medieval tracks: packed-earth ribbons draped over the terrain, with wheel
@@ -196,8 +238,9 @@ export function buildPathNetwork(world) {
   if (town.length) {
     const routes = pathRoutes;
     const roadZ = frontZ + 7;
-    const xW = Math.min(...town.map((s) => s.x - BUILDINGS[s.key].footprint[0] / 2)) - 16;
-    const xE = Math.max(...town.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 16;
+    // (it reaches the meadow's path at x = 0 whatever the row -- one monument off to the side on a grown map)
+    const xW = Math.min(-12, Math.min(...town.map((s) => s.x - BUILDINGS[s.key].footprint[0] / 2)) - 16);
+    const xE = Math.max(12, Math.max(...town.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 16);
     const LR = 9, LANE = 1.75;
     routes.push({ w: 6, pts: [[xW + LR - 3, roadZ], [xE - LR + 3, roadZ]] });
     for (const s of town) routes.push({ w: 1.5, pts: [[s.x, roadZ], [s.x, frontZ + .6]] });
@@ -210,28 +253,21 @@ export function buildPathNetwork(world) {
     hwGeom = { roadZ, xW, xE, LR, LANE, arc };
     routes.push({ w: 6, pts: arc(xE, 0, Math.PI * 2, 40) }, { w: 6, pts: arc(xW, 0, Math.PI * 2, 40) });   // the turning loops
     if (MILL) {   // the riverside street: from the lake path west along the shore, then along the bank to the mill door
-      const xE = Math.max(...RIVERSIDE.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 12;
+      const north = RIVERSIDE.filter((s) => !s.bank && !s.plot);
+      const xE = Math.max(...north.map((s) => s.x + BUILDINGS[s.key].footprint[0] / 2)) + 12;
       const xM = MILL.x + BUILDINGS.watermill.footprint[0] / 2 + 1.5;
       const quay = [];
       for (let x = xE; x > xM; x -= 6) quay.push([x, quayZ(x)]);
       routes.push({ w: 1.5, pts: [[8, extent + 12], [-40, extent + 26], [xE + 20, quayZ(xE) - 22], ...quay, [xM, MILL.z]] });
-      for (const s of RIVERSIDE) if (s !== MILL && !s.bank)   // each building's own spur from the street to its door
-        routes.push({ w: 1.2, pts: [[s.x, quayZ(s.x)], [s.x, s.z + BUILDINGS[s.key].footprint[1] / 2 - .4]] });
-      if (VILLAGE_X !== null) {   // the bridge road: quay -> round the landing yard -> north ramp; south ramp -> the village street, with spurs to doors and gates
+      if (VILLAGE_X !== null) {   // the bridge road: quay -> round the landing yard -> north ramp; the deck to the town's own streets
         const xb = VILLAGE_X, BR = BUILDINGS.bridge, LAND = RIVERSIDE.find((s) => s.key === "landing"), lfp = BUILDINGS.landing.footprint;
         const xe = LAND.x + lfp[0] / 2 + 2, xw = LAND.x - lfp[0] / 2 - 2, zN = LAND.z - lfp[1] / 2 - 2;
         const footN = riverZ(xb) - BR.halfL - BR.ramp;   // the north ramp's foot: the road must arrive there from beyond it, not run in under the ramp
         dryKeep.push([xb, footN], [xb, riverZ(xb) + BR.halfL + BR.ramp]);   // the bridge's ramp feet: the only place a track meets the water
         links.push([[xb, footN + .5], [xb, riverZ(xb) + BR.halfL + BR.ramp]]);   // ...and the deck between them joins the two roads for walkers
         routes.push({ w: 2.2, pts: [[xM, quayZ(xM)], [xe, quayZ(xe)], [xe, zN], [xw, zN], [xw, Math.min(quayZ(xw), footN - 4)], [xb + 6, footN - 3], [xb, footN - 2], [xb, footN + .5]] });
-        const street = []; for (let x = wallX[0] - 10; x <= wallX[1] + 10; x += 6) street.push([x, vStreet(x)]);   // gate to gate and a little beyond
-        routes.push({ w: 2.2, pts: [[xb, riverZ(xb) + BR.halfL + BR.ramp], [xb, vStreet(xb)]] }, { w: 2.2, pts: street });
-        for (const s of RIVERSIDE) if (s.bank === "south") {
-          const d = BUILDINGS[s.key], fp = d.footprint;
-          if (d.pen) { const gx = s.x - (fp[0] - 1.6) / 2 + 3.5; routes.push({ w: 1.2, pts: [[gx, vStreet(gx)], [gx, s.z - fp[1] / 2 + 1.6]] }); }   // to the gate
-          else if (d.doors?.length) { const dx = s.x + (d.doors[0].x ?? 0), fr = d.front ?? 1; routes.push({ w: 1.2, pts: [[dx, vStreet(dx)], [dx, s.z + fr * (fp[1] / 2 - .4)]] }); }   // to the door (front: -1 faces the street from the south)
-          else if (d.square) routes.push({ w: 2.0, pts: [[s.x, vStreet(s.x)], [s.x, s.z - d.square + .3]] });   // to the fountain square's paving
-        }
+        // THE TOWN'S STREETS (town.js): gate to gate, the bridge to the south gate, the lanes, every door's spur, the farm tracks
+        for (const rt of TOWN?.routes ?? []) routes.push({ w: rt.w, pts: rt.pts.map((q) => q.slice()) });
       }
     }
     {   // the lane loop: eastbound on the south lane, round the east loop, back west, round the west loop
@@ -244,69 +280,121 @@ export function buildPathNetwork(world) {
       highway = laneFrom(lane);
       hwGeom.xc = xc; hwGeom.a0 = a0;
     }
-    const pos = [], uvs = [], idx = [];
     for (const rt of routes) rt.path = dryRoute(rt.pts, rt.w);
-    for (const rt of routes) {
-      // resample every ~1.5m, then one continuous strip whose cross-bars follow
-      // the local tangent -- bends (the turning loops) stay clean instead of
-      // wedging open at every polyline vertex
-      const smp = [];
-      let dist = 0;
-      for (let s2 = 0; s2 + 1 < rt.path.length; s2++) {
-        const [ax, az] = rt.path[s2], [bx, bz] = rt.path[s2 + 1];
-        const len2 = Math.hypot(bx - ax, bz - az), steps2 = Math.max(1, Math.ceil(len2 / 1.5));
-        for (let i = s2 ? 1 : 0; i <= steps2; i++) {
-          const t = i / steps2;
-          smp.push([ax + (bx - ax) * t, az + (bz - az) * t, dist + t * len2]);
-        }
-        dist += len2;
+  }
+  // ---- the surfaces: samples, heights, edges, pieces
+  const surfaces = [], pieces = [];
+  const order = pathRoutes.map((_, k) => k).sort((a, b) => pathRoutes[b].w - pathRoutes[a].w);   // (the widest first: the others are pinned to them)
+  const laid = [];   // { w, smp } of the roads already laid, for the pinning
+  const onLaid = (x, z, upto = laid.length, reach = .3) => {   // the surface of a laid road over (x, z), if any: its height and how far inside it is
+    let best = null;
+    for (const L of laid.slice(0, upto)) for (let i = 0; i + 1 < L.smp.length; i++) {
+      const a = L.smp[i], b = L.smp[i + 1], dx = b[0] - a[0], dz = b[1] - a[1], L2 = dx * dx + dz * dz || 1e-9;
+      const t = Math.max(0, Math.min(1, ((x - a[0]) * dx + (z - a[1]) * dz) / L2)), d = Math.hypot(x - a[0] - dx * t, z - a[1] - dz * t) - L.w / 2;
+      if (d < reach && (!best || d < best.d)) best = { d, y: a[3] + (b[3] - a[3]) * t };
+    }
+    return best;
+  };
+  const { origin: LO = 0, cell: LC = 2 } = lattice ?? {};
+  for (const k of order) {
+    const rt = pathRoutes[k], smp = [];   // [x, z, distance, y]
+    let dist = 0;
+    for (let s2 = 0; s2 + 1 < rt.path.length; s2++) {
+      const [ax, az] = rt.path[s2], [bx, bz] = rt.path[s2 + 1];
+      const len2 = Math.hypot(bx - ax, bz - az), steps2 = Math.max(1, Math.ceil(len2 / 1.5));
+      for (let i = s2 ? 1 : 0; i <= steps2; i++) { const t = i / steps2; smp.push([ax + (bx - ax) * t, az + (bz - az) * t, dist + t * len2, 0]); }
+      dist += len2;
+    }
+    if (smp.length < 2) continue;
+    // the profile: the natural ground along the centreline, smoothed (a Gaussian over 3 m by distance)
+    const raw = smp.map((q) => naturalH(q[0], q[1]));
+    for (let i = 0; i < smp.length; i++) {
+      let sw = 0, sy = 0;
+      for (let j = i; j >= 0 && smp[i][2] - smp[j][2] < 9; j--) { const w = Math.exp(-(((smp[i][2] - smp[j][2]) / 3) ** 2)); sw += w; sy += w * raw[j]; }
+      for (let j = i + 1; j < smp.length && smp[j][2] - smp[i][2] < 9; j++) { const w = Math.exp(-(((smp[j][2] - smp[i][2]) / 3) ** 2)); sw += w; sy += w * raw[j]; }
+      smp[i][3] = sy / sw;
+    }
+    // pinned where it runs onto a laid road: the offset to that road's surface there, eased in over ~8 m either side
+    const fix = [];
+    for (let i = 0; i < smp.length; i++) { const L = onLaid(smp[i][0], smp[i][1]); if (L) fix.push([smp[i][2], L.y - smp[i][3]]); }
+    if (fix.length) for (const q of smp) {
+      let sw = 0, so = 0;
+      for (const [fd, fo] of fix) { const w = Math.exp(-(((q[2] - fd) / 6) ** 2)); sw += w; so += w * fo; }
+      if (sw > 1e-4) q[3] += so / Math.max(1, sw) * Math.min(1, sw);
+    }
+    laid.push({ w: rt.w, smp });
+    rt.samples = smp;
+    surfaces.push({ w: rt.w, pts: smp.map((q) => [q[0], q[1], q[3]]) });
+    // the edges, level across; an inner edge that would run backwards round a sharp bend held still instead
+    const hw = rt.w / 2, Le = [], Re = [];
+    for (let i = 0; i < smp.length; i++) {
+      const [x, z, , y] = smp[i], q = smp[Math.max(0, i - 1)], nq = smp[Math.min(smp.length - 1, i + 1)];
+      const tl = Math.hypot(nq[0] - q[0], nq[1] - q[1]) || 1, tx = (nq[0] - q[0]) / tl, tz = (nq[1] - q[1]) / tl, px = -tz, pz = tx;
+      let l = [x - px * hw, y, z - pz * hw], r = [x + px * hw, y, z + pz * hw];
+      if (i) {
+        const pl = Le[i - 1], pr = Re[i - 1];
+        if ((l[0] - pl[0]) * tx + (l[2] - pl[2]) * tz < 0) l = [pl[0], y, pl[2]];
+        if ((r[0] - pr[0]) * tx + (r[2] - pr[2]) * tz < 0) r = [pr[0], y, pr[2]];
       }
-      for (let i = 0; i < smp.length; i++) {
-        const [x, z, d] = smp[i], q = smp[Math.max(0, i - 1)], nq = smp[Math.min(smp.length - 1, i + 1)];
-        const tl = Math.hypot(nq[0] - q[0], nq[1] - q[1]) || 1;
-        const px = -(nq[1] - q[1]) / tl, pz = (nq[0] - q[0]) / tl;   // unit perpendicular to the local tangent
-        const y = groundH(x, z) + .12, hw = rt.w / 2;   // above the ground mesh's interpolation error
-        const vi = pos.length / 3;
-        pos.push(x - px * hw, y, z - pz * hw, x + px * hw, y, z + pz * hw);
-        uvs.push(-1, d, 1, d);
-        if (i) idx.push(vi - 2, vi - 1, vi, vi - 1, vi + 1, vi);
+      Le.push(l); Re.push(r);
+    }
+    // an edge from a to b split where it crosses the lattice's lines (x = LO + k LC, z = LO + k LC)
+    const split = (a, b) => {
+      const ts = [];
+      for (const ax of [0, 2]) {
+        const lo = Math.min(a[ax], b[ax]), hi = Math.max(a[ax], b[ax]);
+        for (let m = Math.ceil((lo - LO) / LC); LO + m * LC <= hi; m++) { const v = LO + m * LC; if (Math.abs(b[ax] - a[ax]) > 1e-9) { const t = (v - a[ax]) / (b[ax] - a[ax]); if (t > 1e-6 && t < 1 - 1e-6) ts.push([t, ax, v]); } }
       }
+      ts.sort((p, q) => p[0] - q[0]);
+      return ts.map(([t, ax, v]) => { const p = [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t, a[2] + (b[2] - a[2]) * t]; p[ax] = v; return p; });   // (exactly on the line)
+    };
+    rt.pieces = [];
+    const near = smp.map((q) => !!onLaid(q[0], q[1], laid.length - 1, hw + .3));   // (a sample whose edges may reach onto an earlier road)
+    for (let i = 0; i + 1 < smp.length; i++) {
+      // the right edge forward, the left edge back (clockwise in (x, z); terrain_data.js orders it as it needs)
+      const P = [Re[i], ...split(Re[i], Re[i + 1]), Re[i + 1], Le[i + 1], ...split(Le[i + 1], Le[i]), Le[i]];
+      const uv = P.map((p) => { const fl = Math.hypot(p[0] - Le[i][0], p[2] - Le[i][2]), fr = Math.hypot(p[0] - Re[i][0], p[2] - Re[i][2]);
+        return [fl <= fr ? 1 : -1, smp[i][2]]; });
+      // (where it runs over a road laid before it -- a door's spur on the street it leaves -- its surface sinks 3 cm under
+      //  that road's: the two at one height drew both, the spur's verge flickering over the street. The mesh only: the
+      //  terrain is cut along the pieces as they are, and none of these points is on its edge)
+      const sink = !(near[i] || near[i + 1]) ? [] : P.map((q) => { const L = onLaid(q[0], q[2], laid.length - 1); return L && L.d < 0 ? Math.min(.03, -L.d * .5) : 0; });
+      rt.pieces.push({ P, uv, d0: smp[i][2], d1: smp[i + 1][2], ...(sink.some((v) => v > 0) ? { sink } : {}) });
+      pieces.push(P);
+    }
+  }
+  return { pathRoutes, highway, hwGeom, dryKeep, links, surfaces, pieces };
+}
+
+// THE ROAD MESH from the plan: each piece fanned from its first point, the points the terrain shares; v along the road,
+// u across it (-1 the right edge, +1 the left)
+export function buildPathNetwork(world, plan = null) {
+  const P0 = plan ?? planRoads(world);
+  const { scene } = world;
+  if (P0.pathRoutes.length) {
+    const pos = [], uvs = [], idx = [];
+    for (const rt of P0.pathRoutes) for (const pc of rt.pieces ?? []) {
+      const base = pos.length / 3, n = pc.P.length;
+      // u across from the edges' own geometry: the share of the way from the right edge to the left
+      const R0 = pc.P[0], L0 = pc.P[n - 1], wx = L0[0] - R0[0], wz = L0[2] - R0[2], W2 = wx * wx + wz * wz || 1;
+      const tx = -wz, tz = wx, T2 = Math.sqrt(W2);
+      for (const [i, p] of pc.P.entries()) {
+        pos.push(p[0], p[1] - (pc.sink?.[i] ?? 0), p[2]);
+        const u = ((p[0] - R0[0]) * wx + (p[2] - R0[2]) * wz) / W2 * 2 - 1, v = pc.d0 + ((p[0] - R0[0]) * tx + (p[2] - R0[2]) * tz) / T2;
+        uvs.push(-u, v);
+      }
+      for (let k = 1; k + 1 < n; k++) idx.push(base, base + k, base + k + 1);   // (a piece runs clockwise in (x, z): wound so to face up)
     }
     const pgeo = new THREE.BufferGeometry();
     pgeo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
     pgeo.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
     pgeo.setIndex(idx);
-    const track = new THREE.Mesh(pgeo, new THREE.ShaderMaterial({
-      uniforms: { uMaskMode: MASK_MODE },
-      vertexShader: /* glsl */ `
-        varying vec2 vUv; varying vec3 vW;
-        void main() { vUv = uv; vW = (modelMatrix * vec4(position, 1.0)).xyz;
-                      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
-      fragmentShader: /* glsl */ `
-        precision highp float;
-        uniform float uMaskMode;
-        varying vec2 vUv; varying vec3 vW;
-        float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5); }
-        void main() {
-          // ragged edges: the track width breathes along its length
-          float edge = .78 + .2 * (hash(floor(vec2(vUv.y * .7, 3.))) - .5);
-          if (abs(vUv.x) > edge) discard;
-          // the grass mask (grass.js): where a track really is, it is not grass -- and only this shader knows
-          // where that is, which is why the mask draws the track in its own material and not an override
-          if (uMaskMode > .5) { gl_FragColor = vec4(0.0, 0.0, 0.0, .5); return; }   // .5: not grass, but flat enough for a stalk beside it to cross
-          float n = hash(floor(vW.xz * 2.1));
-          vec3 col = mix(vec3(.54, .44, .31), vec3(.42, .34, .24), smoothstep(.25, .75, n));
-          col *= 1. - .16 * smoothstep(.14, .03, abs(abs(vUv.x) - .5));   // wheel ruts
-          float st = hash(floor(vW.xz * 4.7) + 7.);
-          col = mix(col, vec3(.62, .6, .55), step(.94, st) * .8);         // stone specks
-          col *= .92 + .12 * hash(floor(vW.xz * .9) + 3.);                // large-scale tone patches
-          gl_FragColor = vec4(col, 1.0);
-          #include <colorspace_fragment>
-        }`,
-    }));
-    track.userData.cut = true;   // its ragged edge is a discard: it writes the mask in its own material instead
+    const track = new THREE.Mesh(pgeo, trackMaterial());
+    track.userData.cut = true;   // (its own material writes the grass mask)
     track.layers.enable(NOGRASS_LAYER);
     scene.add(track);
   }
+  const { pathRoutes, highway, hwGeom, dryKeep, links } = P0;
   return { pathRoutes, highway, hwGeom, dryKeep, links };
 }
+

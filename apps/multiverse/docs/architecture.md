@@ -117,14 +117,14 @@ stream by kind and can be overridden (`makePerson({ outfit })`);
 
 ## Buildings
 
-`village.js` adds the farm village in the same vocabulary — `stoneBridge`
-(built to the river's half-width, its `floorY` carrying deck and ramps),
-`bakery`, `farmyard` (exporting the animals' `pen`), `cropField`,
-`berryRows`, `orchard` — merged by the same `buildBuilding`.
+The village's land and its riverside -- the stone bridge, the yards, the market, the apiary, the fountain, the fields,
+the currant rows, the orchard, the fisherman's hut, the water mill, the landing -- and the town's buildings -- houses,
+shops, inn, church, walls, towers, gatehouses, longhouses -- are component-engine definitions
+(`assets/architecture/village`, written by `tools/archgen/village.py` and `riverside.py`), laid out and finished by
+`town.js` and the demo (docs/world.md, docs/arch.md). So are the landmarks, Caerphilly and Versailles among them.
 
-`architecture.js` is a set of parameterized generators — `greekTemple`,
-`romanAmphitheatre`, `gothicCathedral`, `egyptianTemple`, `medievalHouse`,
-`baroquePalace` — that emit a richer part vocabulary (`box`, `cyl`, `arch`,
+`architecture.js` still holds two parameterized generators — `amphitheatre` (its colliders) and the unused
+`gothicCathedral` — that emit a richer part vocabulary (`box`, `cyl`, `arch`,
 `spandrel`, `hwall` = wall with real cut openings, `capsule`, `gable`; a part
 with `collide: false` is drawn but never blocks, one with `render: false`
 blocks but is never drawn -- the level stand-ins under a sloped

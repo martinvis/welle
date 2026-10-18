@@ -16,9 +16,9 @@
 import * as THREE from "three";
 import { segmentFor } from "./banner.js";
 
-const PAT = { leaf: 1, bark: 2, stripes: 3, bands: 4, spots: 5, wingspots: 6, scutes: 7, diamond: 8, scales: 17, rosettes: 18, twist: 19, barkH: 20,   // (17: after the cloth ids)
-              // cloth (composite engine only, see people.js): two colours in the garment's wrapped frame
-              hstripes: 9, vstripes: 10, checks: 11, weave: 12, leather: 13, mail: 14, braid: 15, hair: 16 };
+const PAT = { leaf: 1, bark: 2, stripes: 3, bands: 4, spots: 5, wingspots: 6, scutes: 7, diamond: 8, scales: 17, rosettes: 18, twist: 19, barkH: 20, patches: 21, piebald: 22,   // (17: after the cloth ids)
+              // strands (people.js): two colours down a plait or a fall of hair (9-14 were cloth, now clothes.js's fabrics)
+              braid: 15, hair: 16 };
 export const CYCLES = .8;   // gait cycles per unit of the gait clock (the trot's rate; wanderers scale the clock by travel speed over leg length)
 
 // species def -> flat skeleton: parents come before children in the data,
@@ -57,6 +57,7 @@ export function compileDef(def) {
       side: Math.sign(((seg.b?.[2] ?? 0) + (seg.c?.[2] ?? 0)) || (part.pos?.[2] ?? 0)) || 1,
       ik: part.ik ?? null,        // mammal rig leg: { leg, upper, lower, side, foot, phase } on the upper bone, { leg, follow: true } on the lower
       bob: !!part.bob,            // the body: rides the gait's vertical bob
+      spine: !!part.spine,        // a torso cut (mammals.js): these sweep as ONE lathe, whatever their shading
       // body motion (head turns, tail swishes, neck sway) follows MOVEMENT in
       // general -- the gait clock, or a mount's own movement clock while it
       // flies with its legs hanging still. Swimmers and fliers keep
@@ -70,14 +71,14 @@ export function compileDef(def) {
       // radius of -1 marks it and the composite shaders skip it; dot (-2): no SDF either -- a FACE MARK the
       // composite paints onto its parent's surface (eyes, a mouth): { iris, pupil: round|bar|slit, round }
       fur: !!part.fur,          // composite: a strand texture laid over its colour or pattern (mammals' coats)
-      // composite: a PANEL painted on the part -- a sector of it in another colour, no shape of its own: an
-      // apron on a skirt (half: its half-angle about the figure's forward, radians; from/to: down the part's
-      // axis as a fraction of its cut, 0 at A). It takes the cloth's own shading, so it lies on the folds.
-      panel: part.panel ? { color: new THREE.Color(part.panel.color), half: part.panel.half, from: part.panel.from, to: part.panel.to } : null,
+      stone: part.stone ?? 0,   // composite: carved -- a statue's material (1 marble, 2 bronze, 3 gold, 4 limestone): shell.js stoneAt
       flat: part.flat ?? 0,     // composite: a capsule squashed along the figure's forward to this share of its width (a flat torso)
-      // composite: a band painted round a flat part (a belt): its centre along the axis from A and width (mm), its colour packed (linear 8-bit)
-      band: part.band ? (() => { const c = new THREE.Color(part.band.color); return { cmm: Math.round(part.band.at * 1000), wmm: Math.round(part.band.width * 1000),
-              rgb: Math.round(c.r * 255) * 65536 + Math.round(c.g * 255) * 256 + Math.round(c.b * 255) }; })() : null,
+      // ...and its two end caps, as tall as `a` (the A end) and `b` of their radius and as square as the superellipse
+      // exponent `p` (2: an ellipse; a person's shoulders are a low, squared cap) -- a flat part's only
+      caps: part.caps ?? null,
+      // clothes.js: what the part WEARS -- a stack of layers of sheet, outermost first ({ standing, layers }), each drawn
+      // by the shell engine from the static texels composite.js writes for it (see packDress there)
+      dress: part.dress ?? null,
       dot: part.dot ? { iris: part.dot.iris !== undefined ? new THREE.Color(part.dot.iris) : null, pupil: PUPILS[part.dot.pupil ?? "round"], round: !!part.dot.round,
                          role: part.dot.role ?? null, side: part.dot.side ?? 0,   // role (eye, brow, mouth) and side (+-1): what an expression does to it (faces.js)
                          // relief: the shape the mark lends the face in the LIGHT alone (composite gRelief) -- 1 a ridge
@@ -91,19 +92,25 @@ export function compileDef(def) {
       color: new THREE.Color(part.color),
       // composite engine, people's clothing (see people.js): a clip slab
       // along the segment [lo, hi] metres from A, mode 1 = open shell, 2 = solid
-      // with flat caps; `back` (shells): also cut away everything more than
+      // with flat caps, 3 = a garment's shell whose near cut is always closed (a skirt's waistband); `squash`:
+      // the shell flattened front to back to that share of its width (a skirt round a flattened torso); `back` (shells): also cut away everything more than
       // that many metres in FRONT of A along the animal's forward direction
       // (its root segment) -- a fall of hair open where the face is. Packed
       // into one float: mode + 4 * (the offset in mm + 501), 0 when unused.
       // Then a second colour, pattern scale and cloth flags; seams
       clip: part.clip ? [part.clip.lo ?? -1e4, part.clip.hi ?? 1e4,
-                         (part.clip.solid ? 2 : 1) + (part.clip.back !== undefined ? 4 * (Math.round((part.clip.back + .5) * 1000) + 1) : 0)] : null,
+                         (part.clip.lid ? 3 : part.clip.solid ? 2 : 1) + (part.clip.back !== undefined ? 4 * (Math.round((part.clip.back + .5) * 1000) + 1) : 0),
+                         part.clip.squash ?? 0] : null,
       color2: new THREE.Color(part.color2 ?? part.color),
-      cloth: part.cloth ?? null,  // { scale, pleats, trim, lace, wear } -- packed by the composite engine
+      cloth: part.cloth ?? null,  // { scale }: a strand pattern's (hair, a braid) -- what people wear is `dress`
       seam: part.seam ? 1 : 0,    // composite engine: a dark line where this part meets another colour
     };
   });
   parts.gaits = def.gaits ?? null;
+  // the root's drawn axis is the figure's FORWARD (a flat torso is squashed along it, the cloth and the jewels take
+  // their frame from it); `forwardFrom` names the part whose frame turns it instead -- a person's chest, so a trunk
+  // turned at the waist faces where it turns (that frame is the root's own at rest)
+  parts.forwardFrom = def.forwardFrom ? index.get(def.forwardFrom) ?? -1 : -1;
   compiledCache.set(def, parts);
   return parts;
 }
@@ -158,6 +165,9 @@ const _lower = [];   // per part: the lower bone's angle computed with its upper
 //   an.amp: stride amplitude (1 = full gait, 0 = standing)   an.run: 0 walk .. 1 run
 //   an.gesture / an.work: which working swing (anim.work[gesture]) and how strongly
 //   an.hidden: parked out of sight -- posed once when hidden, then skipped until shown again
+//   an.pose: a POSITION held by its joints (joints.js): per part index null, or { q, c } -- the part's rotation in its
+//     parent (a THREE.Quaternion) in place of its own, its swing and its leg IK, turned about the point c of its
+//     frame (null: its origin, the joint); a posed foot is not kept level
 export function writeAnimal(an, t, fA, fB, fC) {
   if (an.stillT !== undefined) t = an.stillT;   // (a figure struck down, combat.js: its world clock stopped -- no idle motion)
   if (an.hidden && an._parked) return;   // (its parts already lie parked from the frame it was hidden)
@@ -215,7 +225,13 @@ export function writeAnimal(an, t, fA, fB, fC) {
     // the body rides the stride's bob; the idle parts hung on it (neck, head, tail) cancel it -- they
     // stay as steady running as they do walking or flying
     const dy = (p.bob ? bob : 0) - (p.idle && p.parentIdx >= 0 && parts[p.parentIdx].bob ? bob : 0);
-    if (!p.anim && !(p.ik && g) && !(an.down && p.fold)) {   // a part that never moves in its parent: its local transform built once, cached (only the bob added)
+    const held = an.pose?.[i];
+    if (held) {   // held by its joint: that rotation, about the joint's pivot
+      _local.makeRotationFromQuaternion(held.q);
+      if (held.c) { _v.copy(held.c).applyQuaternion(held.q); _local.setPosition(p.pos[0] + held.c.x - _v.x, p.pos[1] + dy + held.c.y - _v.y, p.pos[2] + held.c.z - _v.z); }
+      else _local.setPosition(p.pos[0], p.pos[1] + dy, p.pos[2]);
+      if (p.scale) _local.scale(_v.set(p.scale[0], p.scale[1], p.scale[2]));
+    } else if (!p.anim && !(p.ik && g) && !(an.down && p.fold)) {   // a part that never moves in its parent: its local transform built once, cached (only the bob added)
       _local.copy(p._lm ?? (p._lm = new THREE.Matrix4().makeRotationFromEuler(new THREE.Euler(rx, ry, rz)).setPosition(p.pos[0], p.pos[1], p.pos[2])
         .scale(new THREE.Vector3(...(p.scale ?? [1, 1, 1])))));
       _local.elements[13] += dy;
@@ -226,7 +242,7 @@ export function writeAnimal(an, t, fA, fB, fC) {
     }
     const world = _mats[i] ?? (_mats[i] = new THREE.Matrix4());
     world.multiplyMatrices(p.parentIdx < 0 ? _root : _mats[p.parentIdx], _local);
-    if (p.level) {   // placed by the chain, oriented by the root alone
+    if (p.level && !held) {   // placed by the chain, oriented by the root alone
       _v.setFromMatrixPosition(world);
       world.multiplyMatrices(_root, _local).setPosition(_v);
     }
@@ -240,7 +256,16 @@ export function writeAnimal(an, t, fA, fB, fC) {
       fC[j] = _v.x; fC[j + 1] = _v.y; fC[j + 2] = _v.z;
     }
   }
+  if (parts.forwardFrom > 0) {   // the root's axis, turned by the frame that names the figure's forward
+    const j = an.base * 3, m = _mats[parts.forwardFrom];
+    _v.copy(parts[0].pA).applyMatrix4(m); fA[j] = _v.x; fA[j + 1] = _v.y; fA[j + 2] = _v.z;
+    _v.copy(parts[0].pB).applyMatrix4(m); fB[j] = _v.x; fB[j + 1] = _v.y; fB[j + 2] = _v.z;
+  }
 }
+
+// the WORLD MATRICES of the parts as the last writeAnimal posed them (each part's frame: its origin is its joint) --
+// read at once, the next call overwrites them (joints.js reads the frames a position puts the parts in)
+export const lastFrames = () => _mats;
 
 // stride amplitude and run factor ease toward their targets (ampT, runT)
 // so a stopping animal's legs straighten smoothly instead of snapping

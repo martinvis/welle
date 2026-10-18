@@ -21,7 +21,10 @@
 // Ordering: SPECIES is sorted small -> large so the demo's grid puts small
 // animals in the front rows.
 
-import { rigSpecies, catRig, CAT_COATS, eyeMark } from "./mammals.js";
+import { catRig, CAT_COATS, eyeMark } from "./mammals.js";
+import "./winged.js";   // (registers the winged people's kind with creatures.js: assets/creatures/monsters/angel.json)
+import { buildCreature } from "./creatures.js";
+import { CATALOGUE, ASSETS } from "./catalogue.js";
 import { makePerson } from "./people.js";
 import { scalePart } from "./geom.js";
 
@@ -77,90 +80,9 @@ function legs({ len, r, spreadX, spreadZ, dropY, color, pat }) {
   }));
 }
 
-// A two-boned bat wing for the winged monsters: humerus rising from the
-// shoulder, finger spar carrying on outward, one closed membrane skin
-// behind them, and a wingtip claw. Flapping animates both bones about x --
-// the spar swings wider and slightly out of phase, so the wing folds like
-// a hinge instead of see-sawing as one slab. s = +1 for the left (+z)
-// wing, -1 for the right; k scales the whole wing. Wing anims carry
-// `wing: true`: a mount in flight beats them on their own clock while the
-// legs hang still.
-//
-// The skin is four flat triangle banners, two per bone, and every seam is
-// exact at every instant of the flap: the arm's lobes share the arm frame,
-// the spar's lobes share the spar frame, and the one seam that crosses
-// frames runs from the elbow straight back along the spar's HINGE AXIS
-// (the arm-frame x direction) to corner D -- points on a hinge axis do not
-// move when the hinge turns, so both frames agree on that edge always.
-function batWing(s, { k = 1, x = -.2, y = .5, z = .4, bone = 0x4a2a3a, mem = bone, deg = 12, speed = .5 } = {}) {
-  const S = s > 0 ? "L" : "R";
-  const E = 1.08 * k;   // the elbow: where the spar hangs on the arm
-  return [
-    { id: `wArm${S}`, parent: "body", shape: "capsule", size: { r: .07 * k, len: 1.1 * k },
-      pos: [x, y, s * z], rot: [s * 62, 0, 0], pivot: [0, .55 * k, 0], color: bone,
-      anim: { axis: "x", deg: s * deg, speed, phase: 0, wing: true },
-      fold: [s * 118, 0, 70] },   // (struck down: the arm swept back and a little down along the flank, the membrane up over it, flat)
-    // arm frame: shoulder-elbow-flank lobe, then elbow-flank-D closing back to the hinge point
-    { id: `wMemA${S}`, parent: `wArm${S}`, shape: "tri",
-      size: { a: [0, .02 * k, 0], b: [0, E - .02 * k, 0], c: [-1.05 * k, -.2 * k, 0], r: .03 * k },
-      pos: [0, 0, 0], color: mem },
-    { id: `wMemA2${S}`, parent: `wArm${S}`, shape: "tri",
-      size: { a: [0, E - .02 * k, 0], b: [-1.05 * k, -.2 * k, 0], c: [-1.0 * k, E, 0], r: .03 * k },
-      pos: [0, 0, 0], color: mem },
-    { id: `wHand${S}`, parent: `wArm${S}`, shape: "capsule", size: { r: .05 * k, len: 1.0 * k },
-      pos: [0, E, 0], rot: [s * 42, 0, 0], pivot: [0, .5 * k, 0], color: bone,
-      anim: { axis: "x", deg: s * deg * 1.6, speed, phase: .6, wing: true }, fold: [-s * 42, 0, 0] },   // (struck down: straight on from the arm)
-    // spar frame: elbow-tip-trailing lobe, then elbow-trailing-D (D = the same hinge point, seen from here)
-    { id: `wMemB${S}`, parent: `wHand${S}`, shape: "tri",
-      size: { a: [0, .02 * k, 0], b: [0, 1.02 * k, 0], c: [-1.0 * k, .25 * k, 0], r: .03 * k },
-      pos: [0, 0, 0], color: mem },
-    { id: `wMemB2${S}`, parent: `wHand${S}`, shape: "tri",
-      size: { a: [0, .02 * k, 0], b: [-1.0 * k, .25 * k, 0], c: [-1.0 * k, 0, 0], r: .03 * k },
-      pos: [0, 0, 0], color: mem },
-    { id: `wClaw${S}`, parent: `wHand${S}`, shape: "cone", size: { r: .045 * k, h: .24 * k },
-      pos: [0, 1.06 * k, 0], color: bone },
-  ];
-}
+export { batWing, birdWing } from "./mammals.js";   // (the wing lives with the rig now: a component a definition asks for by name)
 
-// Generative butterflies: sized like the largest real butterflies
-// (~30-40cm span) so they stay visible up close, wings as flat triangle
-// banners in bright two-tone variants, some with spot patterns. Fliers:
-// they flutter .5-5m above the ground and glide when "standing".
-const BFLY = [
-  { f: 0xe07818, h: 0xc86410, pat: "wingspots" },   // monarch orange
-  { f: 0x3a78e0, h: 0x2c5cc0 },                     // morpho blue
-  { f: 0xe8d44a, h: 0xd8bc32, pat: "wingspots" },   // swallowtail yellow
-  { f: 0x38302e, h: 0xc23028 },                     // red admiral
-  { f: 0xeae6d8, h: 0xd0ccba, pat: "wingspots" },   // cabbage white
-  { f: 0x7a52b8, h: 0x5c3a9c },                     // purple emperor
-];
-export function makeButterfly({ seed = 1 } = {}) {
-  let s = (seed * 2654435761) >>> 0 || 1;                      // tiny LCG: keeps this file import-free
-  const r = () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296;
-  const v = BFLY[Math.floor(r() * BFLY.length)];
-  const k = .85 + r() * .45;
-  const dark = 0x241c14;
-  const parts = [
-    { id: "body", parent: null, shape: "capsule", size: { r: .013 * k, len: .07 * k }, geomRot: [0, 0, 90], pos: [0, 0, 0], color: dark },
-    { id: "head", parent: "body", shape: "sphere", size: { r: .015 * k }, pos: [.05 * k, .006 * k, 0], color: dark },
-    { id: "antL", parent: "head", shape: "capsule", size: { r: .003 * k, len: .045 * k }, pos: [.012 * k, .012 * k, .006 * k], rot: [28, 0, -55], pivot: [0, .022 * k, 0], color: dark },
-    { id: "antR", parent: "head", shape: "capsule", size: { r: .003 * k, len: .045 * k }, pos: [.012 * k, .012 * k, -.006 * k], rot: [-28, 0, -55], pivot: [0, .022 * k, 0], color: dark },
-  ];
-  for (const sd of [1, -1]) {
-    const S = sd > 0 ? "L" : "R";
-    const m = (p) => [p[0] * k, p[1] * k, p[2] * k * sd];
-    const anim = { axis: "x", deg: 58 * sd, speed: 4, phase: 0 };   // flap about the body axis
-    parts.push(
-      { id: `foreW${S}`, parent: "body", shape: "tri", pos: [0, .008 * k, 0],
-        size: { a: m([.015, 0, .01]), b: m([.11, .015, .17]), c: m([-.025, 0, .14]), r: .012 * k },
-        color: v.f, pat: v.pat, anim },
-      { id: `hindW${S}`, parent: "body", shape: "tri", pos: [0, .006 * k, 0],
-        size: { a: m([-.005, 0, .01]), b: m([-.035, .005, .15]), c: m([-.105, 0, .085]), r: .015 * k },
-        color: v.h, pat: v.pat, anim },
-    );
-  }
-  return { name: "butterfly", parts, fly: { alt: [.5, 5], speed: [.8, 2.2], hz: 4 } };
-}
+// (the butterflies are assets now: assets/butterflies, drawn by butterflies.js)
 
 // Generative dragonflies, 7-8cm long with a 10cm span: a long thin abdomen,
 // big eyes, four narrow glassy wings beating fast. They dart low and only
@@ -263,9 +185,23 @@ export function makeShark() {
   ] };
 }
 
-// The rigged mammals (mammals.js): two-lobe bodies, IK legs, arc tails.
-// Built here so they can share batWing with the dragon and hydra.
-const RIG = Object.fromEntries(rigSpecies({ batWing }).map((d) => [d.name, d]));
+// ---- THE DEFINITIONS (assets/creatures/**.json, creatures.js). Everything that is an animal is written out
+// there -- a frame it stands on, its size, its colours, what it carries -- and built here into the part lists
+// the engines draw. The catalogue (catalogue.js) is loaded before this module runs, so every importer of SPECIES
+// sees a world that is ready (a module with a top-level await is awaited by whoever imports it).
+const built = new Map();
+// (by the NAME the definition gives itself, not by its file: a frame is called horse too, and is not a horse)
+const byName = new Map([...ASSETS.values()].filter((d) => d?.name).map((d) => [d.name, d]));
+export const A = (name) => {          // a species by name, built once
+  if (built.has(name)) return built.get(name);
+  const def = byName.get(name);
+  if (!def) throw new Error(`species: no definition for "${name}" (assets/index.json)`);
+  const made = buildCreature(def, ASSETS);
+  built.set(name, made);
+  return made;
+};
+export const assetCatalogue = () => ({ index: CATALOGUE, bank: ASSETS });
+const RIG = new Proxy({}, { get: (_, k) => A(String(k)) });   // (RIG.horse, as it always was)
 // a house cat in one of the coats (mammals.js CAT_COATS), picked by seed
 export const makeCat = ({ seed = 1 } = {}) => catRig(CAT_COATS[((seed * 2654435761) >>> 0) % CAT_COATS.length]);
 export const SQUIRREL = RIG.squirrel;   // not a wanderer: it lives in the trees (squirrels.js)
@@ -364,13 +300,17 @@ function tauric(name, base, { scale = 1, at, drop = [], call, ...person }) {
   const root = parts.find((p) => !p.parent), man = makePerson({ upper: true, ...person });
   const human = man.parts.map((p) => p.id === "pelvis" ? { ...p, parent: root.id, bob: false, pos: at.map((v, i) => v - (root.pos?.[i] ?? 0)) } : p);
   const { mount, draft, climber, ...rest } = base;   // (no saddle, yoke or trees for them)
-  return { ...rest, name, monster: true, call, parts: [...parts, ...human] };
+  // (its HEAD is the person's mesh face, heads.js -- found by part index: the person's indices moved past the animal's,
+  //  as a fused rider's are; without it the man had no head at all)
+  const face = man.face ? { ...man.face, head: parts.length + man.face.head, gaze: parts.length + man.face.gaze } : null;
+  return { ...rest, name, monster: true, call, parts: [...parts, ...human], ...(face ? { face } : {}) };
 }
 
 // ---- beast-men: the human rig (people.js makePerson) with an animal's head -- the species' own rig head (its
 // head sphere and everything hung on it: muzzle, ears, eye marks, nose, horns, tusks, fangs), scaled to a
 // human-sized head -- in the animal's hide, with its tail and, for the hoofed, hooves; they call as the animal;
-// outfit: what it wears (makePerson's, over the bare hide: a kilt, a tunic, breeches...)
+// outfit: what it wears over the bare hide (makePerson's: a kilt, a tunic, breeches... -- the wardrobe's kit of its
+// name, assets/clothes/wardrobe.json `outfits`)
 function beastman(name, rig, { seed, height, build = 1.2, hoof = false, headScale, eye, call, outfit } = {}) {
   const head = rig.parts.find((p) => p.id === "head"), body = rig.parts.find((p) => p.id === "body");
   const beast = { hide: body.color, build, hoof, headScale, eye, foot: rig.parts.find((p) => p.id.startsWith("foot"))?.color ?? body.color,
@@ -379,346 +319,79 @@ function beastman(name, rig, { seed, height, build = 1.2, hoof = false, headScal
   return { ...makePerson({ seed, kind: "man", height, beast, outfit }), name, monster: true, call: call ?? rig.name };
 }
 
+
+// THE WORLD'S CAST, in the order the demo grid lays them out (small to large). Every one of them is a
+// DEFINITION now -- assets/creatures/**.json, built by creatures.js -- except the hybrids below, which are a
+// person and an animal put together and so are built from both.
 export const SPECIES = [
-  { // ---- chicken: the biped -- two legs authored by hand, comb+wattle ------
-    // 1:1 -> ~0.5m to the top of the head
-    name: "chicken",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "sphere", size: { r: .14 }, scale: [1.2, 1.05, .95], pos: [0, .235, 0], color: 0xd8d3c8 },
-      { id: "tailFan", parent: "body", shape: "sphere", size: { r: .07 }, scale: [.9, 1.1, .5], pos: [-.16, .09, 0], rot: [0, 0, 35], color: 0xb8b2a4 },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .085 }, pos: [.13, .19, 0], color: 0xd8d3c8, anim: { axis: "y", deg: 25, speed: .6, phase: 0 } },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .025, h: .06 }, pos: [.09, 0, 0], rot: [0, 0, -90], color: 0xd9a03c },
-      { id: "comb", parent: "head", shape: "sphere", size: { r: .035 }, scale: [1.2, 1, .35], pos: [0, .085, 0], color: 0xc0392b },
-      { id: "wattle", parent: "head", shape: "sphere", size: { r: .02 }, scale: [1, 1.3, .5], pos: [.07, -.05, 0], color: 0xc0392b },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .01 }, pos: [.045, .03, .055], color: 0xc06a20 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .01 }, pos: [.045, .03, -.055], color: 0xc06a20 },
-      { id: "legL", parent: "body", shape: "capsule", size: { r: .015, len: .12 }, pos: [.02, -.1, .06], pivot: [0, -.06, 0], color: 0xd9a03c, anim: { axis: "z", deg: 28, speed: .8, phase: 0 } },
-      { id: "legR", parent: "body", shape: "capsule", size: { r: .015, len: .12 }, pos: [.02, -.1, -.06], pivot: [0, -.06, 0], color: 0xd9a03c, anim: { axis: "z", deg: 28, speed: .8, phase: 3.14 } },
-    ], 1),
-  },
-  { // ---- parrot: scarlet macaw -- a flier: wings beat, legs tucked away ----
-    name: "parrot", fly: { alt: [3, 60], speed: [3, 6], hz: 1.3 }, active: "day",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .055, len: .17 }, geomRot: [0, 0, 90], pos: [0, .3, 0], color: 0xd03028 },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .055 }, pos: [.13, .05, 0], color: 0xd03028 },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .022, h: .05 }, pos: [.055, -.005, 0], rot: [0, 0, -115], color: 0x2b2b2b },
-      { id: "patchL", parent: "head", shape: "sphere", size: { r: .026 }, scale: [.7, 1, .5], pos: [.035, .012, .04], color: 0xece7dc },
-      { id: "patchR", parent: "head", shape: "sphere", size: { r: .026 }, scale: [.7, 1, .5], pos: [.035, .012, -.04], color: 0xece7dc },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.045, .018, .048], color: 0x201a14 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.045, .018, -.048], color: 0x201a14 },
-      { id: "tail", parent: "body", shape: "cone", size: { r: .03, h: .33 }, pos: [-.12, -.02, 0], rot: [0, 0, 100], color: 0x2857b0 },
-      { id: "wingL", parent: "body", shape: "sphere", size: { r: .16 }, scale: [.75, .1, 1.6], pos: [0, .03, .05], pivot: [0, 0, .15], color: 0x2857b0, anim: { axis: "x", deg: 45, speed: 1.3, phase: 0, wing: true } },
-      { id: "wingR", parent: "body", shape: "sphere", size: { r: .16 }, scale: [.75, .1, 1.6], pos: [0, .03, -.05], pivot: [0, 0, -.15], color: 0x2857b0, anim: { axis: "x", deg: -45, speed: 1.3, phase: 0, wing: true } },
-    ], 1),
-  },
-  { // ---- owl: round head, pale face disc, mottled feathers -- a flier ------
-    name: "owl", fly: { alt: [3, 45], speed: [2.5, 5], hz: .6 }, active: "night",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .1, len: .2 }, geomRot: [0, 0, 90], pos: [0, .35, 0], color: 0x8a7663, pat: "leaf" },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .115 }, pos: [.15, .09, 0], color: 0x9a8672 },
-      { id: "face", parent: "head", shape: "sphere", size: { r: .09 }, scale: [.45, 1, 1], pos: [.075, .01, 0], color: 0xd8cfc0 },
-      { id: "tuftL", parent: "head", shape: "cone", size: { r: .025, h: .055 }, pos: [-.02, .105, .06], rot: [20, 0, 0], color: 0x7a6753 },
-      { id: "tuftR", parent: "head", shape: "cone", size: { r: .025, h: .055 }, pos: [-.02, .105, -.06], rot: [-20, 0, 0], color: 0x7a6753 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .028 }, pos: [.1, .025, .042], color: 0xe0a91c },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .028 }, pos: [.1, .025, -.042], color: 0xe0a91c },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .015, h: .035 }, pos: [.107, -.025, 0], rot: [0, 0, -105], color: 0x3a332c },
-      { id: "tail", parent: "body", shape: "sphere", size: { r: .08 }, scale: [1.5, .25, .8], pos: [-.24, -.02, 0], rot: [0, 0, 15], color: 0x7a6753 },
-      { id: "wingL", parent: "body", shape: "sphere", size: { r: .3 }, scale: [.7, .09, 1.5], pos: [0, .04, .08], pivot: [0, 0, .28], color: 0x7a6753, pat: "leaf", anim: { axis: "x", deg: 38, speed: .6, phase: 0, wing: true } },
-      { id: "wingR", parent: "body", shape: "sphere", size: { r: .3 }, scale: [.7, .09, 1.5], pos: [0, .04, -.08], pivot: [0, 0, -.28], color: 0x7a6753, pat: "leaf", anim: { axis: "x", deg: -38, speed: .6, phase: 0, wing: true } },
-    ], 1),
-  },
-  { // ---- hare: long upright ears (capsules growing up), white bob tail -----
-    // 1:1 -> back ~0.26m, ~0.38m long
-    name: "hare",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .1, len: .18 }, geomRot: [0, 0, 90], pos: [0, .16, 0], color: 0x9b8468 },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .08 }, pos: [.17, .08, 0], color: 0x9b8468, anim: { axis: "y", deg: 16, speed: .5, phase: 0 } },
-      { id: "snout", parent: "head", shape: "sphere", size: { r: .035 }, pos: [.06, -.01, 0], color: 0xb59f85 },
-      { id: "earL", parent: "head", shape: "capsule", size: { r: .022, len: .15 }, pos: [-.03, .06, .035], rot: [10, 0, -15], pivot: [0, .075, 0], color: 0x7d6950 },
-      { id: "earR", parent: "head", shape: "capsule", size: { r: .022, len: .15 }, pos: [-.03, .06, -.035], rot: [-10, 0, -15], pivot: [0, .075, 0], color: 0x7d6950 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .015 }, pos: [.05, .03, .04], color: 0x2c1c12 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .015 }, pos: [.05, .03, -.04], color: 0x2c1c12 },
-      { id: "tail", parent: "body", shape: "sphere", size: { r: .04 }, pos: [-.17, .03, 0], color: 0xe8e0d5 },
-      ...legs({ len: .08, r: .025, spreadX: .1, spreadZ: .05, dropY: -.055, color: 0x7d6950, speed: .9, deg: 8 }),
-    ], 1),
-  },
-  RIG.cat,
-  RIG.fox,
-  { // ---- eagle: golden eagle, ~2.2m span -- soars with slow wingbeats ------
-    name: "eagle", fly: { alt: [20, 155], speed: [4, 8], hz: .4 }, active: "day",   // up to the cathedral spires
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .11, len: .4 }, geomRot: [0, 0, 90], pos: [0, .4, 0], color: 0x4b3520 },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .095 }, pos: [.28, .08, 0], color: 0x9a7a42 },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .03, h: .085 }, pos: [.09, -.01, 0], rot: [0, 0, -105], color: 0xd9b04a },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .02 }, pos: [.06, .03, .05], color: 0xd9a520 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .02 }, pos: [.06, .03, -.05], color: 0xd9a520 },
-      { id: "tail", parent: "body", shape: "sphere", size: { r: .14 }, scale: [1.7, .18, 1], pos: [-.34, 0, 0], rot: [0, 0, 10], color: 0x5a4128 },
-      { id: "wingL", parent: "body", shape: "sphere", size: { r: .42 }, scale: [.62, .08, 1.5], pos: [0, .05, .08], pivot: [0, 0, .35], color: 0x5a4128, anim: { axis: "x", deg: 35, speed: .4, phase: 0, wing: true } },
-      { id: "wingR", parent: "body", shape: "sphere", size: { r: .42 }, scale: [.62, .08, 1.5], pos: [0, .05, -.08], pivot: [0, 0, -.35], color: 0x5a4128, anim: { axis: "x", deg: -35, speed: .4, phase: 0, wing: true } },
-    ], 1),
-  },
-  RIG.dog,
-  RIG.sheep,
-  RIG.ram,
-  RIG.pig,
-  RIG.wolf,
-  RIG.deer,
-  RIG.reindeer,
-  RIG.oryx,
-  RIG.cervicapra,
-  RIG.tiger,
-  RIG.lion,
-  RIG.leopard,
-  RIG.smilodon,
-  RIG.cow,
-  RIG.ox,
-  RIG.zebra,
-  RIG.horse,
-  RIG.bear,
-  RIG.hippo,
-  RIG.giraffe,
-  RIG.elephant,
-  RIG.rhinoceros,
-  { // ---- snake: grass snake, 1.4m of chained segments slithering in a wave --
-    // each segment hangs off the one before and swings about y a little
-    // out of phase with it, so a sine travels down the body as it moves
-    name: "snake",
-    // four curved tubes (a body and three segments) where there were seven pills: each bends a little
-    // the other way, hangs off the one before and swings about y out of phase with it -- the sine
-    // still travels down the body, now as one smooth, tapering line
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "tube", size: { a: [-.35, 0, 0], c: [-.12, 0, .05], b: [.1, 0, 0], r1: .032, r2: .034 }, pos: [0, .035, 0], color: 0x6b7a3a },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .036 }, scale: [1.5, .7, 1.1], pos: [.15, .005, 0], color: 0x6b7a3a, anim: { axis: "y", deg: 12, speed: .8, phase: 0 } },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.03, .012, .03], color: 0xd9a520 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.03, .012, -.03], color: 0xd9a520 },
-      { id: "tongue", parent: "head", shape: "cone", size: { r: .004, h: .05 }, pos: [.06, -.005, 0], rot: [0, 0, -90], color: 0xb03030, anim: { axis: "y", deg: 15, speed: 2.5, phase: 0 } },
-      ...[[.45, -.06, .032, .026], [.42, .05, .026, .017], [.34, -.035, .017, .005]].map(([len, bend, r1, r2], i) => ({ id: "seg" + (i + 1), parent: i ? "seg" + i : "body",
-        shape: "tube", size: { a: [0, 0, 0], c: [-len / 2, 0, bend], b: [-len, 0, 0], r1, r2 }, pos: [i === 0 ? -.35 : -[.45, .42][i - 1], 0, 0],
-        color: i % 2 ? 0x6b7a3a : 0x5f6e33, anim: { axis: "y", deg: 22, speed: .8, phase: (i + 1) * 1.4 } })),
-    ], 1),
-  },
-  { // ---- rat: brown rat, 25cm body + 20cm naked tail, 8cm at the shoulder ---
-    name: "rat",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .045, len: .14 }, geomRot: [0, 0, 90], pos: [0, .07, 0], color: 0x6b5a4a },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .04 }, scale: [1.3, .9, .9], pos: [.11, .015, 0], color: 0x6b5a4a, anim: { axis: "y", deg: 20, speed: .6, phase: 0 } },
-      { id: "snout", parent: "head", shape: "cone", size: { r: .018, h: .04 }, pos: [.05, -.008, 0], rot: [0, 0, -90], color: 0xd9b8a8 },
-      { id: "earL", parent: "head", shape: "sphere", size: { r: .016 }, scale: [.6, 1, 1], pos: [-.01, .035, .025], color: 0xc9a090 },
-      { id: "earR", parent: "head", shape: "sphere", size: { r: .016 }, scale: [.6, 1, 1], pos: [-.01, .035, -.025], color: 0xc9a090 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.03, .015, .028], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.03, .015, -.028], color: 0x1a1210 },
-      { id: "tail", parent: "body", shape: "capsule", size: { r: .007, len: .2 }, pos: [-.1, -.01, 0], rot: [0, 0, -80], pivot: [0, -.1, 0], color: 0xc9a090, anim: { axis: "y", deg: 20, speed: .7, phase: 0 } },   // trails behind, nearly level
-      ...legs({ len: .05, r: .012, spreadX: .06, spreadZ: .035, dropY: -.03, color: 0xc9a090 }),
-    ], 1),
-  },
-  RIG.boar,
-  { // ---- swan: mute swan, 1.5m, S-neck, floats half-submerged on the lake --
-    name: "swan", swim: { depth: .18 },
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .22, len: .5 }, geomRot: [0, 0, 90], pos: [0, .2, 0], color: 0xf4f2ec },
-      { id: "wingL", parent: "body", shape: "sphere", size: { r: .3 }, scale: [1.2, .55, .35], pos: [-.05, .14, .16], rot: [-18, 0, 0], color: 0xf4f2ec },
-      { id: "wingR", parent: "body", shape: "sphere", size: { r: .3 }, scale: [1.2, .55, .35], pos: [-.05, .14, -.16], rot: [18, 0, 0], color: 0xf4f2ec },
-      { id: "tail", parent: "body", shape: "cone", size: { r: .07, h: .22 }, pos: [-.38, .1, 0], rot: [0, 0, 110], color: 0xf4f2ec },
-      // the S-neck: two curved tubes -- out of the breast bowing forward, then up bowing back to the head
-      { id: "neck", parent: "body", shape: "tube", size: { a: [0, 0, 0], c: [.2, .16, 0], b: [.1, .4, 0], r1: .065, r2: .045 }, pos: [.3, .12, 0], color: 0xf4f2ec, anim: { axis: "z", deg: 5, speed: .3, phase: 0 } },
-      { id: "neck2", parent: "neck", shape: "tube", size: { a: [0, 0, 0], c: [-.1, .2, 0], b: [.02, .36, 0], r1: .045, r2: .038 }, pos: [.1, .4, 0], color: 0xf4f2ec, anim: { axis: "z", deg: 6, speed: .3, phase: 1 } },
-      { id: "head", parent: "neck2", shape: "sphere", size: { r: .055 }, scale: [1.5, .9, .9], pos: [.07, .38, 0], color: 0xf4f2ec, anim: { axis: "y", deg: 14, speed: .3, phase: 0 } },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .028, h: .09 }, pos: [.1, -.01, 0], rot: [0, 0, -90], color: 0xe0782a },
-      { id: "knob", parent: "head", shape: "sphere", size: { r: .018 }, pos: [.065, .02, 0], color: 0x1a1210 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.04, .02, .045], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.04, .02, -.045], color: 0x1a1210 },
-    ], 1),
-  },
-  { // ---- flamingo: greater flamingo, ~1.4m standing -- a pink body high on stilt legs, the S-neck of two
-    // curved tubes (the swan's way), a small head and the bent beak, white with a black tip; wades at the shore
-    name: "flamingo", shore: true,
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .13, len: .22 }, geomRot: [0, 0, 90], pos: [0, .88, 0], color: 0xf2a0a8 },
-      { id: "wingL", parent: "body", shape: "sphere", size: { r: .16 }, scale: [1.3, .45, .45], pos: [-.05, .05, .08], rot: [-15, 0, 0], color: 0xe8788a },
-      { id: "wingR", parent: "body", shape: "sphere", size: { r: .16 }, scale: [1.3, .45, .45], pos: [-.05, .05, -.08], rot: [15, 0, 0], color: 0xe8788a },
-      { id: "tail", parent: "body", shape: "cone", size: { r: .05, h: .14 }, pos: [-.26, .02, 0], rot: [0, 0, 100], color: 0x2a1a1a },
-      { id: "neck", parent: "body", shape: "tube", size: { a: [0, 0, 0], c: [.14, .12, 0], b: [.04, .27, 0], r1: .034, r2: .026 }, pos: [.22, .06, 0], color: 0xf4b0b6, anim: { axis: "z", deg: 6, speed: .3, phase: 0 } },
-      { id: "neck2", parent: "neck", shape: "tube", size: { a: [0, 0, 0], c: [-.11, .12, 0], b: [.04, .22, 0], r1: .026, r2: .022 }, pos: [.04, .27, 0], color: 0xf4b0b6, anim: { axis: "z", deg: 7, speed: .3, phase: 1 } },
-      { id: "head", parent: "neck2", shape: "sphere", size: { r: .04 }, scale: [1.3, 1, 1], pos: [.05, .23, 0], color: 0xf6c0c4, anim: { axis: "y", deg: 14, speed: .3, phase: 0 } },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .022, h: .07 }, pos: [.07, -.01, 0], rot: [0, 0, -110], color: 0xf0e0d8 },
-      { id: "beakTip", parent: "beak", shape: "cone", size: { r: .016, h: .05 }, pos: [0, .06, 0], rot: [0, 0, -40], color: 0x1a1414 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .008 }, pos: [.025, .015, .03], color: 0xe0b020 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .008 }, pos: [.025, .015, -.03], color: 0xe0b020 },
-      { id: "legL", parent: "body", shape: "capsule", size: { r: .012, len: .77 }, pos: [0, -.1, .05], pivot: [0, -.385, 0], color: 0xe87a88, anim: { axis: "z", deg: 22, speed: .6, phase: 0 } },
-      { id: "legR", parent: "body", shape: "capsule", size: { r: .012, len: .77 }, pos: [0, -.1, -.05], pivot: [0, -.385, 0], color: 0xe87a88, anim: { axis: "z", deg: 22, speed: .6, phase: 3.14 } },
-      { id: "footL", parent: "legL", shape: "sphere", size: { r: .03 }, scale: [1.6, .4, 1], pos: [.03, -.77, 0], color: 0xe87a88 },
-      { id: "footR", parent: "legR", shape: "sphere", size: { r: .03 }, scale: [1.6, .4, 1], pos: [.03, -.77, 0], color: 0xe87a88 },
-    ], 1),
-  },
-  { // ---- duck: mallard drake, 55cm, green head, white collar, curled tail ---
-    name: "duck", swim: { depth: .07 },
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .1, len: .22 }, geomRot: [0, 0, 90], pos: [0, .09, 0], color: 0x8a7f6e },
-      { id: "breast", parent: "body", shape: "sphere", size: { r: .09 }, scale: [.8, .9, 1], pos: [.1, -.01, 0], color: 0x5a3d2e },
-      { id: "wingL", parent: "body", shape: "sphere", size: { r: .13 }, scale: [1.1, .4, .3], pos: [-.02, .06, .08], color: 0x6f665a },
-      { id: "wingR", parent: "body", shape: "sphere", size: { r: .13 }, scale: [1.1, .4, .3], pos: [-.02, .06, -.08], color: 0x6f665a },
-      { id: "tail", parent: "body", shape: "cone", size: { r: .035, h: .1 }, pos: [-.17, .05, 0], rot: [0, 0, 125], color: 0x2a2622 },
-      { id: "neck", parent: "body", shape: "capsule", size: { r: .035, len: .06 }, pos: [.15, .08, 0], rot: [0, 0, -25], pivot: [0, .03, 0], color: 0xf0ede4 },
-      { id: "head", parent: "neck", shape: "sphere", size: { r: .055 }, scale: [1.2, 1, .9], pos: [.01, .09, 0], color: 0x2e6b3a, anim: { axis: "y", deg: 18, speed: .5, phase: 0 } },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .022, h: .06 }, pos: [.065, -.01, 0], rot: [0, 0, -90], color: 0xd9b83c },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.035, .015, .045], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.035, .015, -.045], color: 0x1a1210 },
-    ], 1),
-  },
-  { // ---- peacock: 1m bird, iridescent neck, crest, a 1.2m fan of eyed plumes
-    name: "peacock",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .13, len: .3 }, geomRot: [0, 0, 90], pos: [0, .38, 0], color: 0x1f7a4a },
-      { id: "neck", parent: "body", shape: "capsule", size: { r: .045, len: .3 }, pos: [.15, .1, 0], rot: [0, 0, -18], pivot: [0, .15, 0], color: 0x1c3f9a, anim: { axis: "z", deg: 5, speed: .4, phase: 0 } },
-      { id: "head", parent: "neck", shape: "sphere", size: { r: .05 }, scale: [1.3, .9, .9], pos: [.02, .32, 0], color: 0x1c3f9a, anim: { axis: "y", deg: 22, speed: .5, phase: 0 } },
-      { id: "beak", parent: "head", shape: "cone", size: { r: .018, h: .05 }, pos: [.06, -.01, 0], rot: [0, 0, -90], color: 0x9a9080 },
-      { id: "crestStalk", parent: "head", shape: "capsule", size: { r: .004, len: .06 }, pos: [0, .06, 0], color: 0x1c3f9a },
-      { id: "crest", parent: "crestStalk", shape: "sphere", size: { r: .022 }, scale: [1.4, .6, 1], pos: [0, .045, 0], color: 0x2a6fd0 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.035, .015, .04], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.035, .015, -.04], color: 0x1a1210 },
-      // the train: seven flat plumes fanned about x behind the tail, leaning back, eyespots in the shader
-      ...[-3, -2, -1, 0, 1, 2, 3].map((k) => ({ id: "plume" + (k + 3), parent: "body", shape: "tri",
-        size: { a: [0, 0, 0], b: [-.35, 1.15, .16], c: [-.35, 1.15, -.16], r: .025 },
-        pos: [-.22, .02, 0], rot: [k * 24, 0, 32], color: k % 2 ? 0x1f7a4a : 0x2a8a52, pat: "wingspots" })),
-      { id: "legL", parent: "body", shape: "capsule", size: { r: .012, len: .24 }, pos: [.02, -.14, .05], pivot: [0, -.12, 0], color: 0x8a8070, anim: { axis: "z", deg: 26, speed: .8, phase: 0 } },
-      { id: "legR", parent: "body", shape: "capsule", size: { r: .012, len: .24 }, pos: [.02, -.14, -.05], pivot: [0, -.12, 0], color: 0x8a8070, anim: { axis: "z", deg: 26, speed: .8, phase: 3.14 } },
-    ], 1),
-  },
-  { // ---- crocodile: 3.5m, low and flat, long jaws, tail swaying -- on the shore
-    name: "crocodile", shore: true,
-    // three tubes where the pills were: a spindle body, the long tapering head over its paler jaw, a
-    // curving tail in two (it sways in a wave); low on its splayed legs
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "tube", size: { a: [-.7, 0, 0], c: [0, .03, 0], b: [.7, 0, 0], r1: .17, r2: .18, bulge: .12 }, pos: [0, .26, 0], color: 0x4f5c3a, pat: "bark" },
-      { id: "belly", parent: "body", shape: "capsule", size: { r: .2, len: 1.1 }, geomRot: [0, 0, 90], pos: [0, -.1, 0], color: 0x9a9a6a },
-      { id: "head", parent: "body", shape: "tube", size: { a: [0, 0, 0], c: [.35, .03, 0], b: [.75, -.04, 0], r1: .17, r2: .06 }, pos: [.7, .02, 0], color: 0x4f5c3a, anim: { axis: "y", deg: 8, speed: .25, phase: 0 } },
-      { id: "jawLow", parent: "head", shape: "tube", size: { a: [.05, 0, 0], c: [.38, -.04, 0], b: [.72, -.03, 0], r1: .12, r2: .05 }, pos: [0, -.06, 0], color: 0x8a8a5a },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .035 }, pos: [.14, .13, .09], color: 0xc9a520 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .035 }, pos: [.14, .13, -.09], color: 0xc9a520 },
-      { id: "tail", parent: "body", shape: "tube", size: { a: [0, 0, 0], c: [-.4, 0, .06], b: [-.8, .02, 0], r1: .18, r2: .1 }, pos: [-.7, 0, 0], color: 0x4f5c3a, pat: "bark", anim: { axis: "y", deg: 12, speed: .5, phase: 0 } },
-      { id: "tail2", parent: "tail", shape: "tube", size: { a: [0, 0, 0], c: [-.4, 0, -.08], b: [-.85, .02, 0], r1: .1, r2: .02 }, pos: [-.8, .02, 0], color: 0x46523a, anim: { axis: "y", deg: 16, speed: .5, phase: 1.2 } },
-      ...legs({ len: .22, r: .07, spreadX: .55, spreadZ: .29, dropY: -.06, color: 0x46523a }),   // hips inside the flattened belly (the body is only ~.2 wide that low)
-    ], 1),
-  },
-  { // ---- frog: edible frog, 10cm, bulging eyes, folded hind legs --------------
-    name: "frog", shore: true, hop: { period: .9, h: .16 },   // travels in hops: ~.5m long, .16m high, always landing before a rest
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "sphere", size: { r: .05 }, scale: [1.35, .8, 1], pos: [0, .045, 0], color: 0x5a9a3a },
-      { id: "stripe", parent: "body", shape: "capsule", size: { r: .008, len: .09 }, geomRot: [0, 0, 90], pos: [0, .038, 0], color: 0xa8d060 },
-      { id: "eyeL", parent: "body", shape: "sphere", size: { r: .014 }, pos: [.045, .04, .028], color: 0x2a1a08 },
-      { id: "eyeR", parent: "body", shape: "sphere", size: { r: .014 }, pos: [.045, .04, -.028], color: 0x2a1a08 },
-      { id: "thighL", parent: "body", shape: "capsule", size: { r: .014, len: .06 }, pos: [-.03, -.02, .045], rot: [0, 0, 70], pivot: [0, -.03, 0], color: 0x4a8a30, anim: { axis: "z", deg: 30, speed: .8, phase: 0 } },
-      { id: "thighR", parent: "body", shape: "capsule", size: { r: .014, len: .06 }, pos: [-.03, -.02, -.045], rot: [0, 0, 70], pivot: [0, -.03, 0], color: 0x4a8a30, anim: { axis: "z", deg: 30, speed: .8, phase: 0 } },
-      { id: "shinL", parent: "thighL", shape: "capsule", size: { r: .01, len: .06 }, pos: [0, -.06, 0], rot: [0, 0, -120], pivot: [0, -.03, 0], color: 0x4a8a30 },
-      { id: "shinR", parent: "thighR", shape: "capsule", size: { r: .01, len: .06 }, pos: [0, -.06, 0], rot: [0, 0, -120], pivot: [0, -.03, 0], color: 0x4a8a30 },
-      { id: "legFL", parent: "body", shape: "capsule", size: { r: .008, len: .04 }, pos: [.04, -.03, .035], pivot: [0, -.02, 0], color: 0x4a8a30, anim: { axis: "z", deg: 24, speed: .8, phase: 3.14 } },
-      { id: "legFR", parent: "body", shape: "capsule", size: { r: .008, len: .04 }, pos: [.04, -.03, -.035], pivot: [0, -.02, 0], color: 0x4a8a30, anim: { axis: "z", deg: 24, speed: .8, phase: 3.14 } },
-    ], 1),
-  },
-  { // ---- turtle: pond turtle, 25cm shell, stubby legs, head on a short neck --
-    name: "turtle", shore: true,
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "sphere", size: { r: .12 }, scale: [1.2, .55, 1], pos: [0, .085, 0], color: 0x4a5a2e, pat: "scutes" },
-      { id: "plastron", parent: "body", shape: "sphere", size: { r: .1 }, scale: [1.2, .3, .95], pos: [0, -.04, 0], color: 0xb8a878 },
-      { id: "neck", parent: "body", shape: "capsule", size: { r: .022, len: .06 }, pos: [.13, -.01, 0], rot: [0, 0, -80], pivot: [0, .03, 0], color: 0x6a7a3a },
-      { id: "head", parent: "neck", shape: "sphere", size: { r: .03 }, scale: [1.3, .9, .9], pos: [0, .07, 0], color: 0x6a7a3a, anim: { axis: "y", deg: 18, speed: .3, phase: 0 } },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.02, .012, .022], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.02, .012, -.022], color: 0x1a1210 },
-      { id: "tail", parent: "body", shape: "cone", size: { r: .015, h: .05 }, pos: [-.14, -.03, 0], rot: [0, 0, 100], color: 0x6a7a3a },
-      ...legs({ len: .05, r: .02, spreadX: .09, spreadZ: .09, dropY: -.04, color: 0x6a7a3a }),
-    ], 1),
-  },
-  { // ---- hedgehog: 25cm, a ball of spines on short legs, pale pointed snout --
-    name: "hedgehog",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "sphere", size: { r: .1 }, scale: [1.3, .9, 1], pos: [0, .09, 0], color: 0x5a4a3c, pat: "bark" },
-      ...Array.from({ length: 14 }, (_, i) => {   // spines: cones bristling over the back
-        const a = (i % 7) / 6 * Math.PI - Math.PI / 2, row = i < 7 ? .04 : -.05;
-        return { id: "spine" + i, parent: "body", shape: "cone", size: { r: .012, h: .05 },
-                 pos: [row, .06 * Math.cos(a) + .02, .08 * Math.sin(a)], rot: [-a * 57.3 * .8, 0, (i < 7 ? 15 : -15)], color: 0xd9cdb0 };
-      }),
-      { id: "head", parent: "body", shape: "cone", size: { r: .045, h: .1 }, pos: [.13, -.03, 0], rot: [0, 0, -95], color: 0x9a8a78 },
-      { id: "nose", parent: "head", shape: "sphere", size: { r: .012 }, pos: [0, .1, 0], color: 0x1a1210 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.02, .05, .028], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.02, .05, -.028], color: 0x1a1210 },
-      ...legs({ len: .04, r: .012, spreadX: .07, spreadZ: .06, dropY: -.055, color: 0x6a5a4a }),
-    ], 1),
-  },
-  { // ---- scorpion: emperor scorpion, 20cm, pincers ahead, tail curled over --
-    name: "scorpion",
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .025, len: .07 }, geomRot: [0, 0, 90], pos: [0, .03, 0], color: 0x1e1a1a },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .022 }, scale: [1.2, .7, 1.1], pos: [.05, 0, 0], color: 0x1e1a1a },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.008, .012, .012], color: 0x3a3030 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.008, .012, -.012], color: 0x3a3030 },
-      ...[1, -1].map((s) => ({ id: "arm" + (s > 0 ? "L" : "R"), parent: "head", shape: "capsule", size: { r: .008, len: .06 }, pos: [.02, -.005, s * .025], rot: [0, s * -35, -70], pivot: [0, .03, 0], color: 0x1e1a1a, anim: { axis: "y", deg: 10, speed: .6, phase: s } })),
-      ...[1, -1].map((s) => ({ id: "claw" + (s > 0 ? "L" : "R"), parent: "arm" + (s > 0 ? "L" : "R"), shape: "sphere", size: { r: .02 }, scale: [1.5, .6, 1], pos: [0, .07, 0], color: 0x2a2222 })),
-      // the tail: five spheres in a rising arc that curls forward over the back, then the sting
-      ...[1, 2, 3, 4, 5].map((i) => ({ id: "tail" + i, parent: i === 1 ? "body" : "tail" + (i - 1), shape: "sphere", size: { r: .016 - i * .001 },
-        pos: i === 1 ? [-.055, .015, 0] : [-.018 + i * .006, .022, 0], color: 0x1e1a1a, anim: { axis: "z", deg: 4, speed: .5, phase: i * .6 } })),
-      { id: "sting", parent: "tail5", shape: "cone", size: { r: .008, h: .03 }, pos: [.015, .008, 0], rot: [0, 0, -50], color: 0x6a2a1a },
-      ...[1, -1].flatMap((s) => [0, 1, 2, 3].map((k) => ({ id: "leg" + k + (s > 0 ? "L" : "R"), parent: "body", shape: "capsule", size: { r: .005, len: .05 },
-        pos: [.03 - k * .022, -.01, s * .025], rot: [s * 60, 0, 0], pivot: [0, -.025, 0], color: 0x2a2222,
-        anim: { axis: "z", deg: 20, speed: .8, phase: (k + (s > 0 ? 0 : 1)) % 2 * 3.14 } }))),
-    ], 1),
-  },
-  SPIDER,
-  { // ---- beaver: 1m with the paddle tail, 30cm tall, orange incisors -- shore
-    name: "beaver", shore: true,
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .16, len: .35 }, geomRot: [0, 0, 90], pos: [0, .19, 0], color: 0x4a3222 },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .11 }, scale: [1.2, .9, 1], pos: [.3, .04, 0], color: 0x4a3222, anim: { axis: "y", deg: 16, speed: .4, phase: 0 } },
-      { id: "snout", parent: "head", shape: "sphere", size: { r: .06 }, scale: [1.1, .8, 1], pos: [.1, -.03, 0], color: 0x5a4030 },
-      { id: "nose", parent: "snout", shape: "sphere", size: { r: .02 }, pos: [.06, .01, 0], color: 0x1a1210 },
-      { id: "toothL", parent: "snout", shape: "cone", size: { r: .008, h: .035 }, pos: [.05, -.03, .012], rot: [0, 0, 180], color: 0xe08a30 },
-      { id: "toothR", parent: "snout", shape: "cone", size: { r: .008, h: .035 }, pos: [.05, -.03, -.012], rot: [0, 0, 180], color: 0xe08a30 },
-      { id: "earL", parent: "head", shape: "sphere", size: { r: .022 }, pos: [-.02, .09, .07], color: 0x3a2618 },
-      { id: "earR", parent: "head", shape: "sphere", size: { r: .022 }, pos: [-.02, .09, -.07], color: 0x3a2618 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .014 }, pos: [.07, .04, .075], color: 0x1a1210 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .014 }, pos: [.07, .04, -.075], color: 0x1a1210 },
-      // the paddle: a flat scaled sphere hinged at the rump, swinging side to side
-      // (the pivot is scaled with the paddle, so its center sits .2 behind the hinge: the near end tucks under the rump)
-      { id: "tail", parent: "body", shape: "sphere", size: { r: .16 }, scale: [1.7, .2, .9], pos: [-.34, -.08, 0], pivot: [-.12, 0, 0], color: 0x2e2018, pat: "diamond", anim: { axis: "y", deg: 12, speed: .5, phase: 0 } },
-      ...legs({ len: .1, r: .035, spreadX: .2, spreadZ: .12, dropY: -.11, color: 0x3a2618 }),
-    ], 1),
-  },
-  RIG.camel,
-  RIG.bactrian,
-  { // ---- bat: a common bat, 50cm span, out only at night, jinking low over the fields
-    name: "bat", fly: { alt: [2, 9], speed: [3, 6], hz: 5 }, active: "night",   // low, at roof height, where it can be seen
-    parts: scaleParts([
-      { id: "body", parent: null, shape: "capsule", size: { r: .022, len: .05 }, geomRot: [0, 0, 90], pos: [0, .2, 0], color: 0x000000 },
-      { id: "head", parent: "body", shape: "sphere", size: { r: .02 }, pos: [.04, .008, 0], color: 0x000000 },
-      { id: "earL", parent: "head", shape: "cone", size: { r: .007, h: .022 }, pos: [-.005, .018, .01], rot: [15, 0, 5], color: 0x000000 },
-      { id: "earR", parent: "head", shape: "cone", size: { r: .007, h: .022 }, pos: [-.005, .018, -.01], rot: [-15, 0, 5], color: 0x000000 },
-      { id: "eyeL", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.014, .005, .011], color: 0x000000 },
-      { id: "eyeR", parent: "head", shape: "sphere", size: { r: .012 }, pos: [.014, .005, -.011], color: 0x000000 },
-      // wings: flat membrane triangles from the shoulder, flapping fast about x
-      { id: "wingL", parent: "body", shape: "tri", size: { a: [0, 0, 0], b: [.02, 0, .15], c: [-.06, 0, .12], r: .008 }, pos: [0, .01, .015], rot: [0, 0, 0], color: 0x000000, anim: { axis: "x", deg: 40, speed: 5, phase: 0, wing: true } },
-      { id: "wingR", parent: "body", shape: "tri", size: { a: [0, 0, 0], b: [.02, 0, -.15], c: [-.06, 0, -.12], r: .008 }, pos: [0, .01, -.015], rot: [0, 0, 0], color: 0x000000, anim: { axis: "x", deg: -40, speed: 5, phase: 0, wing: true } },
-    ], 1.67),   // 50cm span
-  },
-  RIG.unicorn,
-  // ---- tauric beasts: the centaur (a horse), the drider (a spider at 25x: a 1.7m body, legs spanning ~3.5m), the sphinx (a lion)
-  tauric("centaur", RIG.horse, { at: [.5, 1.45, 0], drop: ["mane"], seed: 11, kind: "man", height: 2.2, outfit: { top: "none", hat: "none", hair: "long", belt: false } }),
-  tauric("drider", SPIDER, { scale: 25, at: [.28, .95, 0], seed: 31, kind: "woman", height: 1.8, outfit: { top: "long", hat: "none", hair: "long", belt: false, apron: false } }),
-  tauric("sphinx", RIG.lion, { at: [.5, 1.0, 0], drop: ["mane"], call: "lion", seed: 41, kind: "man", height: 1.9, outfit: { top: "none", hat: "none", hair: "bob", belt: false } }),
-  // ---- beast-men (beastman): the minotaur (an ox's head, red-eyed, its own bellow), then the others
-  beastman("minotaur", RIG.ox, { seed: 5, height: 2.45, build: 1.3, hoof: true, eye: 0xb03a2a, call: "minotaur", outfit: { bottom: "skirt", belt: true, mats: { skirt: [0x5c3b22, 0x3a2414, "leather", 20], belt: [0x2e2118, 0xc9a15a, "solid", 1] } } }),
-  beastman("wolfman", RIG.wolf, { seed: 21, height: 2.1, build: 1.1, outfit: { top: "short", bottom: "trousers", belt: true, mats: { shirt: [0xc9bb98, 0x9a8a6a, "weave", 40], legs: [0x3a3430, 0x55504a, "solid", 12], belt: [0x3a2a1c, 0x8a8378, "solid", 1] } } }),
-  beastman("boarman", RIG.boar, { seed: 22, height: 1.9, build: 1.35, hoof: true, outfit: { top: "tunic", belt: true, mats: { shirt: [0x6b4a2a, 0x4a3018, "leather", 22], belt: [0x2e2118, 0xc9a15a, "solid", 1] } } }),
-  beastman("catman", RIG.cat, { seed: 23, height: 1.75, build: .95, outfit: { top: "long", bottom: "trousers", belt: true, mats: { shirt: [0x6b4a86, 0x9a7ab0, "vstripes", 10], legs: [0x3e4a5e, 0x5a667a, "solid", 12], belt: [0x3a2a1c, 0xc9a15a, "solid", 1] } } }),
-  beastman("foxman", RIG.fox, { seed: 24, height: 1.8, build: .95, outfit: { top: "tunic", bottom: "trousers", belt: true, mats: { shirt: [0x3f6b46, 0x2a4a30, "weave", 40], legs: [0x5c4a32, 0x7a6a50, "solid", 12], belt: [0x3a2a1c, 0xc9a15a, "solid", 1] } } }),
-  beastman("bearman", RIG.bear, { seed: 25, height: 2.35, build: 1.45, outfit: { bottom: "trousers", belt: true, mats: { legs: [0x4a2f1d, 0x2e1c10, "leather", 20], belt: [0x2e2118, 0x8a8378, "solid", 1] } } }),
-  beastman("ramman", RIG.ram, { seed: 26, height: 2.0, build: 1.15, hoof: true, outfit: { top: "tunic", belt: true, mats: { shirt: [0xd9cfb6, 0xa89a7a, "weave", 40], belt: [0x5c3b22, 0xc9a15a, "solid", 1] } } }),
-  beastman("smilodonman", RIG.smilodon, { seed: 27, height: 2.2, build: 1.25, outfit: { bottom: "skirt", belt: true, mats: { skirt: [0x8a6a40, 0x5a4020, "leather", 16], belt: [0x3a2a1c, 0xe8e0cc, "solid", 1] } } }),
-  RIG.manticore,
-  RIG.dragon,
-  RIG.hydra,
-  // ---- dinosaurs: the rig on two legs (mammals.js `biped`), real sizes
-  RIG.tyrannosaur,
-  RIG.triceratops,
-  RIG.styracosaurus,
-  RIG.stegosaurus,
-  RIG.ankylosaurus,
+  A("chicken"),
+  A("parrot"),
+  A("owl"),
+  A("hare"),
+  A("cat"),
+  A("fox"),
+  A("eagle"),
+  A("dog"),
+  A("sheep"),
+  A("ram"),
+  A("pig"),
+  A("wolf"),
+  A("deer"),
+  A("reindeer"),
+  A("oryx"),
+  A("cervicapra"),
+  A("tiger"),
+  A("lion"),
+  A("leopard"),
+  A("smilodon"),
+  A("cow"),
+  A("ox"),
+  A("zebra"),
+  A("horse"),
+  A("bear"),
+  A("hippo"),
+  A("giraffe"),
+  A("elephant"),
+  A("rhinoceros"),
+  A("snake"),
+  A("rat"),
+  A("boar"),
+  A("swan"),
+  A("flamingo"),
+  A("duck"),
+  A("peacock"),
+  A("crocodile"),
+  A("frog"),
+  A("turtle"),
+  A("hedgehog"),
+  A("scorpion"),
+  A("spider"),
+  A("beaver"),
+  A("camel"),
+  A("bactrian"),
+  A("bat"),
+  A("unicorn"),
+  tauric("centaur", A("horse"), { at: [.5, 1.45, 0], drop: ["mane"], seed: 11, kind: "man", height: 2.2, outfit: { bare: true, hair: "long" } }),
+  tauric("drider", A("spider"), { scale: 25, at: [.28, .95, 0], seed: 31, kind: "woman", height: 1.8, outfit: { named: "drider", hair: "long" } }),
+  tauric("sphinx", A("lion"), { at: [.5, 1.0, 0], drop: ["mane"], call: "lion", seed: 41, kind: "man", height: 1.9, outfit: { bare: true, hair: "bob" } }),
+  A("angel"),
+  A("demon"),
+  beastman("minotaur", A("ox"), { seed: 5, height: 2.45, build: 1.3, hoof: true, eye: 0xb03a2a, call: "minotaur", outfit: { named: "minotaur" } }),
+  beastman("wolfman", A("wolf"), { seed: 21, height: 2.1, build: 1.1, outfit: { named: "wolfman" } }),
+  beastman("boarman", A("boar"), { seed: 22, height: 1.9, build: 1.35, hoof: true, outfit: { named: "boarman" } }),
+  beastman("catman", A("cat"), { seed: 23, height: 1.75, build: .95, outfit: { named: "catman" } }),
+  beastman("foxman", A("fox"), { seed: 24, height: 1.8, build: .95, outfit: { named: "foxman" } }),
+  beastman("bearman", A("bear"), { seed: 25, height: 2.35, build: 1.45, outfit: { named: "bearman" } }),
+  beastman("ramman", A("ram"), { seed: 26, height: 2.0, build: 1.15, hoof: true, outfit: { named: "ramman" } }),
+  beastman("smilodonman", A("smilodon"), { seed: 27, height: 2.2, build: 1.25, outfit: { named: "smilodonman" } }),
+  A("manticore"),
+  A("dragon"),
+  A("hydra"),
+  A("tyrannosaur"),
+  A("triceratops"),
+  A("styracosaurus"),
+  A("stegosaurus"),
+  A("ankylosaurus"),
+  A("diplodocus"),
+  A("parasaurolophus"),
 ];

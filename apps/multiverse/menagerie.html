@@ -18,7 +18,9 @@
 </div>
 <script type="importmap">
 { "imports": {
-    "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+    "three": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/webgpu": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/tsl": "https://unpkg.com/three@0.185.1/build/three.tsl.js",
     "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
 } }
 </script>
@@ -27,15 +29,17 @@
 // posed and drawn exactly as the world does (composite herd, skeleton.js).
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { createComposite, PIPE, setPipe } from "./composite.js";
+import { createComposite, PIPE, setPipe, pipeFromQuery } from "./composite.js";
 import { SPECIES, makeFish, makeDolphin, makeShark, makeCat, partExtent } from "./species.js";
 
 const qp = new URLSearchParams(location.search);
+pipeFromQuery(qp);   // the same switches as the game: ?shelllod= ?shellblend=0 ?shelldebug=1 ?viewspace=0
 const freeze = qp.has("t") ? +qp.get("t") : null;
 const names = (qp.get("only") ?? "swan,snake,crocodile,fish,dolphin,shark").split(",");
 const defOf = (n) => /^cat\d+$/.test(n) ? makeCat({ seed: +n.slice(3) }) : n === "fish" ? makeFish({ seed: 3 }) : n === "dolphin" ? makeDolphin() : n === "shark" ? makeShark() : SPECIES.find((s) => s.name === n);
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });
+const renderer = new THREE.WebGPURenderer({ antialias: true });
+await renderer.init();
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
 renderer.setSize(innerWidth, innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -64,7 +68,6 @@ defs.forEach((def, i) => {
   an.rotY = 0;
   x += lens[i] / 2;
 });
-addEventListener("keydown", (e) => { if (e.key === "x" || e.key === "X") setPipe({ debug: !PIPE.debug }); });
 addEventListener("resize", () => { renderer.setSize(innerWidth, innerHeight); camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); });
 let t = 0, last = performance.now();
 (function frame(now) {

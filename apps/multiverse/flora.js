@@ -1,6 +1,6 @@
 // Flora for the banner engines: trees (grown by recursive branching, with
-// leaf cards drawn by foliage.js), mushrooms, bushes, grass, clouds and
-// flowers -- the same part vocabulary as the animals (capsules, spheres,
+// leaf cards drawn by foliage.js), mushrooms, bushes, grass and clouds
+// (the flowers are polygon items: assets/items/flowers) -- the same part vocabulary as the animals (capsules, spheres,
 // cones), so the instanced herd renders a whole forest's wood in one call.
 // A seed varies every individual; deciduous species take an `autumn` blend
 // toward their own autumn colour (or an explicit `leaf` override).
@@ -42,7 +42,7 @@ const lerpC = (a, b, t) => {
 // card sizes are real metres.
 //   depth: branch levels   branches: children per fork   angle: fork angle (deg)   jitter: angle noise
 //   lenRatio / radRatio: child vs parent   curve: - lifts, + droops   trunkR: trunk radius / trunk length
-//   wobble: segment noise   tilt: max trunk lean (deg)   whorls: spruce whorls   twigSegs: segments of the thinnest levels
+//   wobble: segment noise   tilt: max trunk lean (deg)   taper: trunk top vs foot radius (a palm's bole hardly narrows; else radRatio)   whorls: spruce whorls   twigSegs: segments of the thinnest levels
 //   whorlLen: spruce whorl branch length (trunk units, at the foot of the crown)
 //   cards: { style, density (cards per leafy branch), size (m for a 14m tree; it grows with the tree), levels (leafy levels from the tips), flat (0..1: cards lying level, conifers) }
 //   fruit: { style (atlas cell), color, density (fruit cards per leafy branch), size } -- orchard trees, drawn exactly like the leaves
@@ -68,6 +68,10 @@ const TREES = {
   maple: { hRange: [12, 22], trunk: 0x5a4636, leaf: [0x5f8f3a, 0x3f6e2a], autumnC: 0xc8401e,
     mode: "dichotomous", depth: 5, branches: 2, angle: 30, jitter: .45, lenRatio: .74, radRatio: .66, curve: -.08, trunkR: .065, wobble: .3, tilt: 4,
     cards: { style: "lobed", density: 6, size: 1.3, levels: 3 } },
+  // warm species (not in the wild mix: only where a period asks for them, assets/world/periods.json `trees`)
+  palm: { hRange: [9, 16], trunk: 0x8a7458, bark: "barkH", leaf: [0x5f7f36, 0x4a682a], evergreen: true, warm: true,   // the date palm: a bare ringed bole, a crown of arching fronds
+    mode: "palm", depth: 2, branches: 18, angle: 58, jitter: .35, lenRatio: .42, radRatio: .12, taper: .75, curve: 1.8, trunkR: .03, wobble: .15, tilt: 9,
+    cards: { style: "willow", density: 10, size: 1.5, levels: 1 } },
   // orchard species (the village's orchard; not in the wild mix): low pruned crowns carrying fruit cards
   apple: { hRange: [4, 6], trunk: 0x5a3d24, leaf: [0x4f8a3a, 0x3f7430], autumnC: 0xc09a3a, orchard: true,
     mode: "dichotomous", depth: 4, branches: 2, angle: 42, jitter: .5, lenRatio: .78, radRatio: .66, curve: .08, trunkR: .1, wobble: .35, tilt: 5,
@@ -76,7 +80,8 @@ const TREES = {
     mode: "random", depth: 4, branches: 3, angle: 38, jitter: .45, lenRatio: .72, radRatio: .62, curve: .02, trunkR: .085, wobble: .3, tilt: 4,
     cards: { style: "oval", density: 6, size: 1.7, levels: 2 }, fruit: { style: "cherries", color: 0x8a1020, density: 3, size: .8 } },
 };
-export const TREE_SPECIES = Object.keys(TREES).filter((k) => !TREES[k].orchard);   // the wild mix
+export const TREE_SPECIES = Object.keys(TREES).filter((k) => !TREES[k].orchard && !TREES[k].warm);   // the wild mix
+export const WARM_TREES = Object.keys(TREES).filter((k) => TREES[k].warm);
 export const FRUIT_TREES = Object.keys(TREES).filter((k) => TREES[k].orchard);
 const LEAF_STYLE_IDS = { oval: 0, round: 1, lobed: 2, needles: 3, willow: 4, berries: 5, apples: 6, cherries: 7 };   // the leaf atlas's cells (textures.js LEAF_STYLES)
 
@@ -103,7 +108,7 @@ export function makeTree(species, { seed = 1, height, autumn = 0, leaf } = {}) {
   };
   function grow(pos, dir, len, rad, level) {
     if (level > P.depth) return;
-    const segs = segsFor(level), step = len / segs, r0 = rad, r1 = rad * (level === P.depth ? .3 : P.radRatio);
+    const segs = segsFor(level), step = len / segs, r0 = rad, r1 = rad * (level === P.depth ? .3 : level === 1 && P.taper ? P.taper : P.radRatio);
     let p = pos, d = dir;
     for (let s = 0; s < segs; s++) {
       const q = vAdd(p, vSc(d, step));
@@ -296,58 +301,4 @@ export function makeCloud({ seed = 1 } = {}) {
   return { name: "cloud", parts };
 }
 
-// flowers: generous real-world sizes (sunflowers chest-high, foxglove
-// spikes, palm-sized poppy and tulip cups). The head is a tilted parent
-// sphere; petals are flattened spheres ringed in its local plane, so the
-// whole bloom faces out at a natural angle instead of flat up.
-export const FLOWERS = ["sunflower", "poppy", "daisy", "tulip", "foxglove"];
-export function makeFlower({ seed = 1, kind } = {}) {
-  const r = rng(seed * 449 + 11);
-  const k = kind ?? FLOWERS[Math.floor(r() * FLOWERS.length)];
-  const parts = [];
-  const stemC = 0x3f6b2f, leafC = 0x4c7a38;
-  const stem = (h, rr = .012) => parts.push({ id: "stem", parent: null, shape: "capsule", size: { r: rr, len: h }, pos: [0, h / 2, 0], color: stemC });
-  const leaf = (y, a, s = 1) => parts.push({ id: `leaf${a}`, parent: null, shape: "sphere", size: { r: .09 * s },
-    scale: [1.7, .2, .7], pos: [Math.cos(a) * .1, y, Math.sin(a) * .1], rot: [0, -a * 57.3, 0], color: leafC });
-  const head = (y, tilt, cR, cC) => parts.push({ id: "head", parent: null, shape: "sphere", size: { r: cR },
-    pos: [0, y, 0], rot: [0, r() * 360, tilt], color: cC });
-  const petals = (n, d, pr, col, sc = [1.7, .22, .6]) => {
-    for (let i = 0; i < n; i++) {
-      const a = i / n * Math.PI * 2;
-      parts.push({ id: `pet${i}`, parent: "head", shape: "sphere", size: { r: pr }, scale: sc,
-        pos: [Math.cos(a) * d, 0, Math.sin(a) * d], rot: [0, -a * 57.3, 0], color: col });
-    }
-  };
-  if (k === "sunflower") {
-    const h = 1.3 + r() * .6;
-    stem(h, .018); leaf(h * .45, 1); leaf(h * .7, 4);
-    head(h, -55, .09, 0x5a3d1e);
-    petals(9, .13, .055, 0xe8c227);
-  } else if (k === "poppy") {
-    const h = .6 + r() * .35;
-    stem(h); leaf(h * .3, 2, .7);
-    head(h, -35 - r() * 25, .035, 0x2a2320);
-    petals(5, .055, .05, [0xc23428, 0xd84a30, 0xb52a3c][Math.floor(r() * 3)], [1.5, .3, .9]);
-  } else if (k === "daisy") {
-    const h = .45 + r() * .3;
-    stem(h);
-    head(h, -30 - r() * 30, .04, 0xe0b62a);
-    petals(8, .07, .04, 0xf0eee4);
-  } else if (k === "tulip") {
-    const h = .5 + r() * .3;
-    const col = [0xd8342c, 0xe0a01e, 0x9040b0, 0xe66a9a][Math.floor(r() * 4)];
-    stem(h); leaf(h * .35, 0, .9);
-    head(h + .04, 0, .05, col);
-    petals(4, .045, .05, col, [.7, 1.3, .7]);   // upright cup petals
-  } else {   // foxglove: a tall spike of bells
-    const h = 1.1 + r() * .6;
-    stem(h, .014); leaf(h * .2, 3);
-    const col = r() > .5 ? 0xb45ac2 : 0xd87ba8;
-    for (let i = 0; i < 7; i++) {
-      const t = .45 + i / 7 * .5, a = i * 2.4;
-      parts.push({ id: `bell${i}`, parent: null, shape: "sphere", size: { r: .038 * (1 - i / 14) }, scale: [1.25, .9, 1.25],
-        pos: [Math.cos(a) * .05, h * t, Math.sin(a) * .05], color: col });
-    }
-  }
-  return { name: k, parts };
-}
+// (the flowers are items now: assets/items/flowers, tools/flowergen.py -- polygons, placed by index.html buildFlora)

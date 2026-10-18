@@ -22,25 +22,17 @@
 // (the string's twang, a thud in wood, a duller one in a body, earth, a
 // splash) and played from where it happens.
 import * as THREE from "three";
-import { rod, plate, V, at, piecesGeometry } from "./tools.js";
+import { paintedGeometry } from "./tools.js";
+import { itemOf } from "./arch/assemble.js";   // (the arrow is an asset: assets/items/weapons/arrow)
+import { litMaterial } from "./light.js";
 import { SR, toBuffer, play } from "./dsp.js";
 
 const SPEED = 50, MIN_SPEED = 14, DRAW_TIME = .8, QUIVER = 24, MAX_STUCK = 100, MAX_FLY = 30, G = 9.81, DRAG = .012;
 const DEPTH = { ground: .16, building: .06, tree: .1, body: .12, mover: .09, goods: .06 };   // how far an arrow sinks in (m)
 const FLOAT_TIME = 20, MAX_WOUNDS = 120;   // seconds an arrow floats in the water; blood splats kept
 
-// the arrow: its tip at the origin, the shaft back along -x -- an iron head, a 76cm shaft, two crossed fletchings
-function arrowGeometry() {
-  const head = new THREE.ConeGeometry(.009, .05, 4).rotateZ(-Math.PI / 2);   // apex along +x
-  head.translate(-.025, 0, 0);
-  const f0 = -.79, f1 = -.68, fh = .022;
-  return piecesGeometry([
-    rod(V(-.8, 0, 0), V(1, 0, 0), .76, .0045, 0x9a7a4a, 5),
-    [head, 0x5e6266],
-    plate([[[f0, 0, 0], [f1, 0, 0], [f0, fh, 0]], [[f0, 0, 0], [f1, 0, 0], [f0, -fh, 0]]], 0xd8d0c0),
-    plate([[[f0, 0, 0], [f1, 0, 0], [f0, 0, fh]], [[f0, 0, 0], [f1, 0, 0], [f0, 0, -fh]]], 0xb03a2e),
-  ]);
-}
+// the arrow (items/weapons/arrow): its tip at the origin, the shaft back along -x -- one painted geometry, lit in the world
+const arrowGeometry = () => paintedGeometry(itemOf({ path: "items/weapons/arrow" }));
 
 // ---- geometry helpers: a segment p0 -> p1 against the targets; each returns the entry parameter t in [0, 1] or -1
 const _a = new THREE.Vector3(), _b = new THREE.Vector3(), _d = new THREE.Vector3(), _m = new THREE.Matrix4();
@@ -130,12 +122,12 @@ function partFrame(a, b, an, out) {
   return out;
 }
 
-// world: { camera, groundH(x, z), waterSD(x, z) (< 0: water), WLEVEL, colliderSites, treeCols, movers,
+// world: { camera, groundH(x, z), waterSD(x, z) (< 0: water), WLEVEL, waterY(x, z) (the surface there), colliderSites, treeCols, movers,
 //          combat (combat.js: the figures -- its hit test, and striking them down), goods() -> the barrels and sacks (freight.js: each
 //          with kind, state and its placement `m`), audio() -> AudioContext, send(op) (multiplayer) }
 export function createArchery(scene, world) {
-  const { camera, groundH, waterSD, WLEVEL, colliderSites, treeCols, movers, combat, goods, audio, send } = world;
-  const mesh = new THREE.InstancedMesh(arrowGeometry(), new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide }), MAX_STUCK + MAX_FLY + 1);
+  const { camera, groundH, waterSD, WLEVEL, waterY = () => WLEVEL, colliderSites, treeCols, movers, combat, goods, audio, send } = world;
+  const mesh = new THREE.InstancedMesh(arrowGeometry(), litMaterial({ side: THREE.DoubleSide }), MAX_STUCK + MAX_FLY + 1);
   mesh.count = 0; mesh.frustumCulled = false;
   scene.add(mesh);
   const flying = [], stuck = [];
@@ -186,7 +178,8 @@ export function createArchery(scene, world) {
     const g0 = p.y - groundH(p.x, p.z), g1 = q.y - groundH(q.x, q.z);
     if (g1 < 0 && g0 >= 0) take(g0 / (g0 - g1), { kind: "ground" });
     // the water's surface
-    if (q.y < WLEVEL && p.y >= WLEVEL) { const t = (p.y - WLEVEL) / (p.y - q.y), x = p.x + (q.x - p.x) * t, z = p.z + (q.z - p.z) * t; if (waterSD(x, z) < 0) take(t, { kind: "water" }); }
+    const wl = waterY(p.x, p.z);   // (the water's surface where the flight begins this tick: level enough over one)
+    if (q.y < wl && p.y >= wl) { const t = (p.y - wl) / (p.y - q.y), x = p.x + (q.x - p.x) * t, z = p.z + (q.z - p.z) * t; if (waterSD(x, z) < 0) take(t, { kind: "water" }); }
     // buildings: the sites whose footprint the segment's box crosses, then their boxes and columns
     const x0 = Math.min(p.x, q.x), x1 = Math.max(p.x, q.x), z0 = Math.min(p.z, q.z), z1 = Math.max(p.z, q.z);
     for (const s of colliderSites) {
@@ -236,7 +229,7 @@ export function createArchery(scene, world) {
     const depth = DEPTH[hit.kind] ?? .08;
     const P = tip.clone().addScaledVector(dir, depth), D = dir.clone();
     const a = { kind: hit.kind, pos: P, dir: D, take: hit.kind !== "water", until: hit.kind === "water" ? FLOAT_TIME : Infinity };
-    if (hit.kind === "water") { a.pos.y = WLEVEL + .01; a.dir.y = 0; a.dir.normalize(); }
+    if (hit.kind === "water") { a.pos.y = waterY(a.pos.x, a.pos.z) + .01; a.dir.y = 0; a.dir.normalize(); }
     else if (hit.kind === "mover") {
       hit.mover.body.updateMatrixWorld();
       _m.copy(hit.mover.body.matrixWorld).invert();

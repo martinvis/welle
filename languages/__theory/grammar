@@ -1,0 +1,51 @@
+=Consonant:
+Consonant cluster: group of consonants without vowel
+Liquid consonant: more often part of consonant clusters and syllable nucleus [RL]
+
+Obstruent: block airflow, plosives + fricatives + affricates
+Sonorant: continuous airflow, voiced, vowels + nasals + liquids
+
+=Finite verb: complements subject, with grammatical categories
+=Nonfinite verb: without grammatical categories
+Infinitive: basic dictionary form
+Participle: function as adjective
+Gerund: function as noun
+
+#
+Morphology: how words are formed
+Syntax: how words form sentences
+Semantics: meaning of words
+
+#
+Grammatical categories
+
+=Grammatical number: singular, plural
+=Grammatical person: 1st (speaker), 2nd (spoken to), 3rd (others)
+=Grammatical gender: masculine, feminine, neuter
+
+=Grammatical tense: time reference
+Present tense: now
+Preterite: past
+- german: written
+- spanish: completed
+- english: completed and specific time
+Perfect: past
+- german: spoken
+- spanish: ongoing
+- english: ongoing or no exact time
+Future: expectation
+
+=Grammatical mood: modality
+Indicative: factual
+Conditional: if then
+Subjunctive: hypothetical
+Imperative: command
+
+=Grammatical voice: relationship between action and subject
+Active: subject does action
+Passive: action done to subject
+
+=Grammatical aspect: duration over time
+Perfective: once
+Imperfective: continuous / habitual
+

@@ -1,0 +1,17 @@
+#budget
+debt interest: 5%
+mandatory: 70%
+- healthcare: 30%
+- social security: 30%
+- pension: 30%
+discretionary: 25%
+- military
+- education
+- infrastructure
+
+#tax
+wage income: 30%
+turnover: 30%
+interest income: 5%
+corporate income: 5%
+capital gains

@@ -19,7 +19,9 @@
 </div>
 <script type="importmap">
 { "imports": {
-    "three": "https://unpkg.com/three@0.185.1/build/three.module.js",
+    "three": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/webgpu": "https://unpkg.com/three@0.185.1/build/three.webgpu.js",
+    "three/tsl": "https://unpkg.com/three@0.185.1/build/three.tsl.js",
     "three/addons/": "https://unpkg.com/three@0.185.1/examples/jsm/"
 } }
 </script>
@@ -29,7 +31,7 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { createHerd } from "./instanced.js";
-import { makeTree, TREE_SPECIES, FRUIT_TREES, makeBush, BUSH_FRUITS } from "./flora.js";
+import { makeTree, TREE_SPECIES, WARM_TREES, FRUIT_TREES, makeBush, BUSH_FRUITS } from "./flora.js";
 import { buildFoliage, FOLIAGE_T, FOLIAGE_BB } from "./foliage.js";
 
 const qp = new URLSearchParams(location.search);
@@ -38,7 +40,8 @@ const freeze = qp.has("t") ? +qp.get("t") : null;
 let seed = num("seed", 1), autumn = num("autumn", 0);
 FOLIAGE_BB.value = num("billboard", 1) > 0 ? 1 : 0;
 
-const renderer = new THREE.WebGLRenderer({ antialias: true });   // multisampled: the leaves' alpha-to-coverage edges
+const renderer = new THREE.WebGPURenderer({ antialias: true });
+await renderer.init();   // multisampled: the leaves' alpha-to-coverage edges
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
 renderer.setSize(innerWidth, innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -53,14 +56,14 @@ camera.position.set(cam[0], cam[1], cam[2]);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(cam[3], cam[4], cam[5]);
 controls.update();
-document.getElementById("species").textContent = [...TREE_SPECIES, ...FRUIT_TREES].join(", ");
+document.getElementById("species").textContent = [...TREE_SPECIES, ...WARM_TREES, ...FRUIT_TREES].join(", ");
 
 let herd = null, foliage = null;
 function build() {
   if (herd) scene.remove(herd.mesh);
   if (foliage) { scene.remove(foliage); foliage.geometry.dispose(); foliage.material.dispose(); }
   const trees = [];
-  const all = [...TREE_SPECIES, ...FRUIT_TREES];
+  const all = [...TREE_SPECIES, ...WARM_TREES, ...FRUIT_TREES];
   all.forEach((sp, i) => { for (let j = 0; j < 2; j++) trees.push({ def: makeTree(sp, { seed: seed * 100 + i * 2 + j, autumn }), x: (i * 2 + j - (all.length * 2 - 1) / 2) * 14 }); });
   // a row of bushes in front: plain ones and one of every fruit
   [null, ...BUSH_FRUITS.map((f) => f.name), null].forEach((fruit, i, all) => trees.push({ def: makeBush({ seed: seed * 50 + i, autumn, fruit }), x: (i - (all.length - 1) / 2) * 5, z: 22 }));

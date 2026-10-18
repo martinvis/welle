@@ -10,72 +10,76 @@
 // level down; "eat" takes the food off its plate. Both go to peers
 // (ops "drink", "eat"), like a picked flower.
 import * as THREE from "three";
+import { ASSETS } from "./catalogue.js";
+import { itemGroup } from "./architecture.js";
+import { farHide } from "./farhide.js";
 
 const LEVELS = [.9, .6, .3, 0];
 const DRINKS = { ale: 0xa8741f, wine: 0x5a1822, water: 0x5a8a96 };   // (water: the fountain pool's colour)
-// the vessels' shapes: round ones by their walls (open cylinders, bottom radius r2, top r1, stacked from the base up) and
-// the floor's thickness; box ones (a trough) by outer width x height x depth, wall t and floor thickness
-const SHAPES = {
-  mug: { color: 0x8b6a4a, floor: .008, walls: [{ r2: .045, r1: .045, h: .12 }] },
-  jug: { color: 0x6f5a46, floor: .008, walls: [{ r2: .065, r1: .085, h: .15 }, { r2: .085, r1: .075, h: .1 }] },   // a belly, then a mouth wider than the foot
-  bucket: { color: 0x6b4a2c, floor: .02, walls: [{ r2: .11, r1: .13, h: .3 }] },                                     // the fountain's wooden buckets
-  trough: { color: 0x9a917f, pat: "ashlar", box: { w: 2.2, h: .5, d: .7, t: .09, floor: .12 } },                     // a stone water trough
+// THE VESSELS ARE ITEMS (assets/items/tableware/<kind>: tools/propgen.py), and their shape is read from them: a round
+// one's inside from its `walls` lathe (the profile, [radius, height] from the base up) and its `floor` param, a box one
+// (the trough) from its w x h x d, wall t and floor params -- so the drink fills whatever the item is drawn as
+const shapeOf = (kind) => {
+  const path = `items/tableware/${ASSETS.has(`items/tableware/${kind}`) ? kind : "mug"}`, doc = ASSETS.get(path), P = doc.params ?? {};
+  const walls = doc.parts.find((q) => q.id === "walls");
+  return walls ? { path, floor: P.floor, profile: walls.profile } : { path, floor: P.floor, box: { w: P.w, h: P.h, d: P.d, t: P.t } };
 };
-const FOODS = {
-  bread: { shape: "sphere", size: { r: .085 }, scale: [1.4, .6, .9], pos: [0, .06, 0], color: 0xb8803e },
-  cheese: { shape: "wedge", size: [.15, .05, .12], pos: [-.06, .04, .05], color: 0xf0c95a },
-  sausage: { shape: "cyl", size: { r1: .02, r2: .02, h: .19, seg: 6 }, pos: [0, .035, 0], rot: [0, 0, 90], color: 0x8a3a2a },
-};
+const SHAPES = new Map();
+const SHAPE = (kind) => { if (!SHAPES.has(kind)) SHAPES.set(kind, shapeOf(kind)); return SHAPES.get(kind); };
+// the food on a plate: items too (assets/items/food)
+const FOODS = { bread: "items/food/plain-loaf", cheese: "items/food/cheese-slice", sausage: "items/food/sausage" };
 const WALL = .005;
 
-export function createTableware(scene, { buildBuilding }) {
+export function createTableware(scene) {
   const vessels = [], dishes = [];
   const discGeo = new THREE.CircleGeometry(1, 16).rotateX(-Math.PI / 2), rectGeo = new THREE.PlaneGeometry(1, 1).rotateX(-Math.PI / 2);
-  const height = (sh) => sh.box ? sh.box.h : sh.walls.reduce((a, w) => a + w.h, 0), floorOf = (sh) => sh.box ? sh.box.floor : sh.floor;
-  const innerR = (sh, y) => {   // the inside radius at height y above the floor of the vessel
-    let y0 = 0;
-    for (const w of sh.walls) { if (y <= y0 + w.h) return w.r2 + (w.r1 - w.r2) * (y - y0) / w.h - WALL; y0 += w.h; }
-    return sh.walls[sh.walls.length - 1].r1 - WALL;
+  // one material per DRINK, not per vessel: there are three or four drinks in the world and seventy vessels,
+  // and a material apiece was seventy shaders and seventy pipeline switches for a disc of sixteen triangles
+  const drinkMats = new Map();
+  const drinkMat = (c) => {
+    if (!drinkMats.has(c)) drinkMats.set(c, new THREE.MeshBasicMaterial({ color: c }));
+    return drinkMats.get(c);
+  };
+  const height = (sh) => sh.box ? sh.box.h : sh.profile[sh.profile.length - 1][1];
+  const innerR = (sh, y) => {   // the inside radius at height y above the vessel's base: along its walls' profile
+    const pr = sh.profile;
+    for (let i = 1; i < pr.length; i++) if (y <= pr[i][1]) return pr[i - 1][0] + (pr[i][0] - pr[i - 1][0]) * (y - pr[i - 1][1]) / (pr[i][1] - pr[i - 1][1]) - WALL;
+    return pr[pr.length - 1][0] - WALL;
   };
   function level(v) {   // the drink's surface at the vessel's fill (hidden when empty): a disc as wide as the inside, or the trough's rectangle
-    const sh = SHAPES[v.kind], H = height(sh), F = floorOf(sh), y = F + v.fill * (H - F);
+    const sh = SHAPE(v.kind), H = height(sh), F = sh.floor, y = F + v.fill * (H - F);
     v.disc.visible = v.fill > 0;
     v.disc.position.y = y;
     if (sh.box) v.disc.scale.set(sh.box.w - 2 * sh.box.t, 1, sh.box.d - 2 * sh.box.t);
     else v.disc.scale.setScalar(innerR(sh, y));
   }
-  function vesselParts(sh) {   // the shell, open at the top (seen into), and its floor
-    if (sh.box) {
-      const { w, h, d, t, floor } = sh.box, m = { color: sh.color, pat: sh.pat, outline: false };
-      return [{ shape: "box", size: [w, floor, d], pos: [0, floor / 2, 0], ...m },
-              ...[1, -1].map((s) => ({ shape: "box", size: [w, h, t], pos: [0, h / 2, s * (d - t) / 2], ...m })),
-              ...[1, -1].map((s) => ({ shape: "box", size: [t, h, d - 2 * t], pos: [s * (w - t) / 2, h / 2, 0], ...m }))];
-    }
-    let y = 0;
-    const parts = sh.walls.map((w) => { const p = { shape: "cyl", size: { r1: w.r1, r2: w.r2, h: w.h, seg: 10, open: true }, pos: [0, y + w.h / 2, 0], color: sh.color, side: "double", outline: false }; y += w.h; return p; });
-    parts.push({ shape: "cyl", size: { r1: sh.walls[0].r2, r2: sh.walls[0].r2, h: sh.floor, seg: 10 }, pos: [0, sh.floor / 2, 0], color: sh.color, outline: false });
-    return parts;
-  }
   return {
     vessels, dishes,
     // a site's tableware, placed at its world offset (sites stand 1cm up)
     addSite(def, ox, oz) {
+      // one group per site for everything on its tables: the world switches it off from afar (farhide.js), and it is
+      // one top-level node instead of one per mug. The pieces keep their world coordinates: the group stays at the origin.
+      const n = (def.vessels?.length ?? 0) + (def.dishes?.length ?? 0); if (!n) return;
+      const site = new THREE.Group(); site.name = "tableware"; scene.add(site);
+      let sx = 0, sy = 0, sz = 0, far = 0;
+      for (const d of [...(def.vessels ?? []), ...(def.dishes ?? [])]) { sx += d.x / n; sy += d.y / n; sz += d.z / n; }
+      for (const d of [...(def.vessels ?? []), ...(def.dishes ?? [])]) far = Math.max(far, Math.hypot(d.x - sx, d.z - sz));
+      farHide(site, [ox + sx, sy, oz + sz], 45 + far);
       for (const d of def.vessels ?? []) {
-        const sh = SHAPES[d.kind] ?? SHAPES.mug;
-        const grp = buildBuilding({ name: d.kind, parts: vesselParts(sh) });
+        const sh = SHAPE(d.kind), grp = itemGroup(sh.path);
         grp.position.set(ox + d.x, d.y + .01, oz + d.z);
         if (d.yaw) grp.rotation.y = d.yaw * Math.PI / 180;
-        const disc = new THREE.Mesh(sh.box ? rectGeo : discGeo, new THREE.MeshBasicMaterial({ color: DRINKS[d.drink] ?? DRINKS.ale }));
+        const disc = new THREE.Mesh(sh.box ? rectGeo : discGeo, drinkMat(DRINKS[d.drink] ?? DRINKS.ale));
         grp.add(disc);
-        scene.add(grp);
+        site.add(grp);
         const v = { ...d, grp, disc, wx: ox + d.x, wy: d.y + .01, wz: oz + d.z, reach: sh.box ? Math.max(sh.box.w, sh.box.d) / 2 : 0 };
         vessels.push(v);
         level(v);
       }
       for (const d of def.dishes ?? []) {
-        const grp = buildBuilding({ name: d.food, parts: [{ ...FOODS[d.food], outline: false }] });
+        const grp = itemGroup(FOODS[d.food] ?? FOODS.bread);
         grp.position.set(ox + d.x, d.y + .01, oz + d.z);
-        scene.add(grp);
+        site.add(grp);
         dishes.push({ ...d, grp, eaten: false, wx: ox + d.x, wy: d.y + .01, wz: oz + d.z });
       }
     },

@@ -32,9 +32,9 @@ import { laneFrom } from "./paths.js";
 import { handIndex } from "./tools.js";
 
 const CHURCH = 600, EAT = [240, 420], SHOP = [100, 200], WORK = [60, 150], WAIT = [30, 90], HANDOVER = [20, 40];   // seconds
-const HOME = /^(cottage|farmhouse)/, FARM = /Field$|^berries$|^orchard$/;
+// (what a site IS comes from the town plan, not its key: `home`, `role` "inn" or "church", `farm` -- town.js)
 // farm work by what grows there (people.js GESTURES; the tool rides in the right hand)
-const FARMWORK = (key) => (/^(rye|barley)/.test(key) ? ["mow", "scythe"] : /^soil/.test(key) ? ["dig", "spade"] : /Field$/.test(key) ? ["hoe", "hoe"] : ["pick", null]);
+const FARMWORK = (def) => (["rye", "barley"].includes(def.crop) ? ["mow", "scythe"] : def.crop === "soil" ? ["dig", "spade"] : def.crop ? ["hoe", "hoe"] : ["pick", null]);
 const MIN_INN = 3;
 
 // world: { sites (the village's and hamlet's), BUILDINGS, siteZ, supportAt, router (routeGraph), makePerson,
@@ -56,29 +56,40 @@ export function createVillageLife(world) {
   let MILL = null;
   for (const s of sites) {
     const def = BUILDINGS[s.key];
+    // (a place that is not work is a guest's -- at the inn, in church, or a customer's where someone works: a shop, the
+    //  market; a house's own table is its household's, not a shop)
+    const shop = (def.folkSpots ?? []).some((sp) => sp.role === "work");
     for (const sp of def.folkSpots ?? []) {
+      if (sp.crew) continue;   // (a crew's place: the building keeps its own people there -- index.html, a mine's miners)
       const q = spot(s, sp.x, sp.pose === "sit" ? sp.y : sp.y + .01, sp.z, { h: sp.h, pose: sp.pose === "sit" ? "sit" : "stand", bard: !!sp.bard,
-                     gesture: sp.gesture ?? (sp.role === "work" ? "sell" : s.key === "tavern" && sp.pose === "sit" ? "eat" : null), tool: sp.tool ?? null });
-      (sp.role === "work" ? WORKS : s.key === "tavern" ? EATS : s.key === "church" ? PEWS : SHOPS).push(q);
+                     gesture: sp.gesture ?? (sp.role === "work" ? "sell" : s.role === "inn" && sp.pose === "sit" ? "eat" : null), tool: sp.tool ?? null });
+      const list = sp.role === "work" ? WORKS : s.role === "inn" ? EATS : s.role === "church" ? PEWS : shop ? SHOPS : null;
+      list?.push(q);
     }
     if (def.drop) MILL = spot(s, def.drop.x, 0, def.drop.z, { shared: true, door: null, h: Math.PI / 2 });
-    if (FARM.test(s.key)) {   // a few places spread over the field, each facing its own way
-      const [fw, fd] = def.footprint, r = rng(s.x * 7 + 11), [gesture, tool] = FARMWORK(s.key);
+    if (s.farm) {   // a few places spread over the field, each facing its own way
+      const [fw, fd] = def.footprint, r = rng(s.x * 7 + 11), [gesture, tool] = FARMWORK(def);
       for (const [a, b] of [[-.3, -.25], [.3, .25], [-.3, .3], [.3, -.3]]) {
         const x = a * (fw - 3), z = b * (fd - 3);
         FIELDS.push(spot(s, x, supportAt(s.x + x, siteZ(s) + z, 1e9), z, { h: r() * Math.PI * 2, door: null, gesture, tool }));
       }
     }
-    if (HOME.test(s.key) && def.beds) {
-      const up = (def.ways?.up ?? []).map(([x, z]) => toW(s, x, z));
-      def.beds.forEach((b, i) => { for (const o of [-.38, .38]) {   // two sleepers to a bed, side by side
-        const q = spot(s, b.x + o, b.y + .05, b.z, { pose: "lie", h: Math.PI / 2, via: b.storey ? up : [], goal: toW(s, b.x + o, b.foot[1]) });
-        q.slot = i * 2 + (o > 0); BEDS.push(q);
-      } });
+    if (s.home && def.beds) {   // (a home: the town plan says which sites are lived in)
+      const up = (def.ways?.up ?? []).map(([x, z]) => toW(s, x, z)), upStorey = def.ways?.upStorey ?? [];
+      // the way up to a storey: every point up to the first that reaches it (not on to the foot of the next flight)
+      const upTo = (st) => { const out = []; for (let i = 0; i < up.length; i++) { out.push(up[i]); if ((upStorey[i] ?? st) >= st) break; } return out; };
+      def.beds.forEach((b, i) => {
+        const a = b.yaw ?? 0, ax = Math.cos(a), az = -Math.sin(a);   // the bed's own x, turned: the sleepers lie side by side along it
+        for (const o of [-.38, .38]) {   // two sleepers to a bed, side by side
+          const q = spot(s, b.x + o * ax, b.y + .05, b.z + o * az, { pose: "lie", h: Math.PI / 2 + a, yaw: a, via: b.storey ? upTo(b.storey) : [],
+                                                                    goal: toW(s, b.foot[0] + o * ax, b.foot[1] + o * az) });
+          q.slot = i * 2 + (o > 0); BEDS.push(q);
+        }
+      });
     }
   }
   // the church's back, for those the pews cannot seat: standing a step inside the door
-  const church = sites.find((s) => s.key === "church"), cd = church && doorOf.get(church);
+  const church = sites.find((s) => s.role === "church"), cd = church && doorOf.get(church);
   if (cd) for (let k = 0; k < 10; k++) {
     const [ix, iz] = cd.inn, [ox, oz] = cd.out, nx = (ix - ox) / 2.3, nz = (iz - oz) / 2.3;   // inward unit (door in/out are 2.3m apart)
     const u = (k % 5 - 2) * .75, w = .4 + Math.floor(k / 5) * .8;
@@ -95,7 +106,7 @@ export function createVillageLife(world) {
 
   // ---- the villagers
   const vs = [];
-  const keeperSpot = WORKS.find((q) => q.s.key === "tavern");
+  const keeperSpot = WORKS.find((q) => q.s.role === "inn");
   const jobs = [...WORKS, ...(MILL ? ["carry", "carry"] : [])];
   for (let i = 0; i < n; i++) {
     const seed = 500 + i * 13, r = rng(seed * 31 + 7);
@@ -112,6 +123,22 @@ export function createVillageLife(world) {
                 keeper: job === keeperSpot, homeStand: { s: house, x: hd.inn[0], y: .16, z: hd.inn[1], h: 0, pose: "stand", via: [], goal: hd.inn, door: hd, by: null, shared: true },
                 pos: [0, 0, 0], h: 0, animT: r() * 10, at: null, lane: null, s: 0, goal: null, until: 0, night: null };
     if (v.work && typeof job !== "string" && job !== "farm") v.work.by = v;
+    // Stand him in his own doorway, in one pose, BEFORE the first tick. Until his routine first ran, all four
+    // of his poses were drawn and all of them sat at the origin -- so the opening frames of every session put
+    // every villager in the world (four figures each) in one pile on one spot: the wrong picture, and the
+    // heaviest thing this renderer can be asked to draw.
+    // ...and housemates share a doorway, so give each his own half-metre of it: figures standing in exactly
+    // the same place are the one case where this renderer pays twice for one silhouette
+    const jr = rng(seed * 17 + 3);
+    v.pos = [hd.inn[0] + (jr() - .5) * 1.1, .16, hd.inn[1] + (jr() - .5) * 1.1];
+    v.h = jr() * 6.2832;
+    for (const key in vr) {
+      const an = vr[key];
+      an.hidden = key !== "walk";                  // one pose shown, the other three held back
+      an.position.set(v.pos[0], v.pos[1], v.pos[2]);
+      an.rotY = v.h;
+      an.animT = v.animT;
+    }
     vs.push(v);
     // (figure: the pose shown now -- its face is the one that changes; asleep: in bed, where only a cough or a sneeze comes)
     talkers.push({ p: vr.walk, seed, kind: walkDef.kind, figure: () => Object.values(vr).find((an) => !an.hidden) ?? vr.walk, asleep: () => v.at === v.bed && !v.lane });
@@ -158,7 +185,10 @@ export function createVillageLife(world) {
   function settle(v, sp) {   // arrived: take the spot's pose
     v.at = sp; v.h = sp.h;
     let k;
-    if (sp.pose === "lie") { k = "lie"; v.pos = [sp.x, sp.y, sp.z + v.tall * .47]; }   // the lying figure runs from its origin (the feet) along +x: head to the headboard (-z)
+    if (sp.pose === "lie") {   // the lying figure runs from its origin (the feet) along its heading: head to the headboard (the bed's -z)
+      const a = sp.yaw ?? 0;
+      k = "lie"; v.pos = [sp.x + Math.sin(a) * v.tall * .47, sp.y, sp.z + Math.cos(a) * v.tall * .47];
+    }
     else if (sp.pose === "sit") { k = "sit"; v.pos = [sp.x, v.sitAt(sp.y), sp.z]; }
     else { k = v.load ? "carry" : "walk"; v.pos = [sp.x, sp.y, sp.z]; }
     show(v, k);
@@ -191,7 +221,7 @@ export function createVillageLife(world) {
       if (vs.filter((u) => u !== v && EATS.includes(u.at)).length < MIN_INN) { v.until = t + 10; return; }   // stay till the newcomer sits
     }
     if (night && !v.keeper) {
-      if (v.eatTonight && !v.ate && v.at?.s.key !== "tavern") { const q = free(EATS, v); v.ate = true; if (q) return go(v, q, t, rand(v, EAT)); }
+      if (v.eatTonight && !v.ate && v.at?.s.role !== "inn") { const q = free(EATS, v); v.ate = true; if (q) return go(v, q, t, rand(v, EAT)); }
       if (v.at === v.bed) { v.until = t + 20; return; }   // asleep
       return go(v, v.bed, t, 20);
     }

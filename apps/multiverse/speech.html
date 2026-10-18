@@ -18,30 +18,86 @@
 </head>
 <body>
 <h1>Bannerfield speech — formant synthesis, 18 words in 5 languages</h1>
+<p style="margin:0 0 8px"><a href="voice_lab.html">Voice lab →</a> every parameter, table and constant of the engine, editable, with JSON profiles in and out.</p>
 <div class="row">
   voice: <button data-v="man">man</button><button data-v="woman">woman</button><button data-v="child">child</button><button data-v="giant">giant</button>
   &nbsp; rate: <input id="rate" type="range" min=".6" max="1.6" step=".05" value="1"> <span id="rateV">1.0</span>
+  &nbsp; <select id="preset"><option value="">(the four above)</option></select>
   &nbsp; <button id="all">say every word in every language</button>
+</div>
+<div class="row" style="background:#e9e4d8; padding:6px 8px; border-radius:4px">
+  <b>source:</b> <label><input type="checkbox" id="s_lf" checked> LF pulse (the return phase is the tilt)</label>
+  <label><input type="checkbox" id="s_trachea" checked> tracheal coupling</label>
+  <label><input type="checkbox" id="s_aspiration" checked> aspiration pulses with the glottis</label>
+  <label><input type="checkbox" id="s_openQuotient" checked> open quotient varies</label>
+  <label><input type="checkbox" id="s_diplophonia" checked> creak as alternating cycles</label>
+  <br>
+  <b>tract:</b> <label><input type="checkbox" id="s_undershoot" checked> formant undershoot (targets chased, not reached)</label>
+  <label><input type="checkbox" id="s_interaction" checked> source-filter interaction (B1 opens with the glottis)</label>
+  <label><input type="checkbox" id="s_bandwidths" checked> bandwidths follow their formant</label>
+  <label><input type="checkbox" id="s_effort" checked> effort brightens the source</label>
+  <label><input type="checkbox" id="s_piriform" checked> piriform notch</label>
+  <br>
+  <b>rhythm and tune:</b> <label><input type="checkbox" id="s_durations" checked> duration rules (voicing effect, clusters, function words)</label>
+  <label><input type="checkbox" id="s_reduction" checked> vowel reduction</label>
+  <label><input type="checkbox" id="s_fujisaki" checked> Fujisaki intonation</label>
+  <br>
+  <b>a woman, not a small man:</b> <label><input type="checkbox" id="s_centrePitch" checked> the voice's pitch is the middle of its tune</label>
+  <label><input type="checkbox" id="s_vowelSpace" checked> dispersed vowel space</label>
+  <label><input type="checkbox" id="s_chink" checked> glottal chink (wide B1, breath as upper-band noise)</label>
+  <label><input type="checkbox" id="s_phonation" checked> phonation varies with stress and phrase end</label>
+  <label><input type="checkbox" id="s_measured" checked> defaults fitted to recordings (pace, closure, consonants)</label>
+  <br>
+  <b>speaker:</b> <label><input type="checkbox" id="s_microprosody" checked> microprosody, asymmetric accents, downstep</label>
+  <label><input type="checkbox" id="s_breathIn" checked> breath in before a long line</label>
+  <label><input type="checkbox" id="s_air" checked> air above the top formant</label>
+  <br>
+  <b>each sound's own:</b> <label><input type="checkbox" id="s_upperFormants" checked> F4/F5 move with the sound (rounding, ɹ, i)</label>
+  <label><input type="checkbox" id="s_phonemeBw" checked> bandwidths per sound</label>
+  <label><input type="checkbox" id="s_lateral" checked> the zero of /l/</label>
+  <label><input type="checkbox" id="s_fricZeros" checked> fricative zeros + third noise band</label>
+  <label><input type="checkbox" id="s_sinuses" checked> sinus antiformants in nasals</label>
+  <br>
+  <b>fitted against recorded women:</b> <label><input type="checkbox" id="s_sineVoicing" checked> sinusoidal voicing (strong fundamental)</label>
+  <label><input type="checkbox" id="s_anchoredClosure" checked> cycles anchored at closure</label>
+  <label><input type="checkbox" id="s_correlatedJitter" checked> jitter and shimmer with memory</label>
+  <label><input type="checkbox" id="s_femaleTract" checked> female F1 up, F3+ down</label>
+  <label><input type="checkbox" id="s_f1Floor" checked> F1 floor for close vowels</label>
+  <label><input type="checkbox" id="s_trachea2" checked> second tracheal resonance</label>
+  <label><input type="checkbox" id="s_voicedH" checked> voiced /h/ between vowels</label>
+  <label><input type="checkbox" id="s_voicingTails" checked> voicing tails</label>
+  <label><input type="checkbox" id="s_intrinsicPitch" checked> intrinsic vowel pitch</label>
+  &nbsp; <button id="ab">A/B: the sentence, everything off then everything on</button>
+  <span style="color:#666">(undershoot is the big one — try a fast rate and a long sentence)</span>
 </div>
 <div class="row">
   sentence: <input id="sent" size="48" value="hello, beer please!"> in
   <select id="sentLang"><option value="en">English</option><option value="de">Deutsch</option><option value="fr">Français</option><option value="es">Español</option><option value="ru">Русский</option></select>
-  <select id="mood"><option value="normal">normal</option><option value="excited">excited</option><option value="angry">angry</option></select>
+  <select id="mood"><option value="normal">normal</option><option value="excited">excited</option><option value="angry">angry (cold)</option><option value="furious">furious</option><option value="joyful">joyful</option><option value="afraid">afraid</option><option value="bored">bored</option><option value="sad">sad</option></select>
   <button id="sayS">say it</button> <span style="color:#666">(lexicon words by key; anything else is read as IPA; , . ? ! shape the melody)</span>
+</div>
+<div class="row">
+  written: <input id="dictSent" size="60" value="Der Hund ist schlecht, aber die Sonne scheint."> in
+  <select id="dictLang"><option value="de">Deutsch</option><option value="en">English (American)</option><option value="en-GB">English (British)</option><option value="fr">Français</option><option value="es">Español</option><option value="it">Italiano</option><option value="ru">Русский</option><option value="pl">Polski</option><option value="zh">中文</option></select>
+  <button id="sayD">say it from the dictionary</button>
+  <span style="color:#666">(words from lang/: function words, then the dictionary, then the spelling rules; lead/2 = second pronunciation; [ˈaɪpiːeɪ] = IPA)</span>
+  <div id="dictOut" style="font-family:'DejaVu Sans','Noto Sans',sans-serif;margin-top:4px"></div>
 </div>
 <table id="tbl"></table>
 <div id="log"></div>
 <script type="module">
-import { createSpeaker, LANGS, WORDS } from "./speech.js";
-const VOICES = { man: { pitch: 112, scale: 1, breath: .25, tilt: 7 }, woman: { pitch: 218, scale: 1.2, breath: .6, tilt: 3 }, child: { pitch: 280, scale: 1.3, breath: .3, tilt: 6 }, giant: { pitch: 70, scale: .85, tilt: 10 } };
+import { createSpeaker, LANGS, WORDS, VOICES, SOURCE } from "./speech.js";
+const VOICES2 = { man: { pitch: 112, scale: 1, breath: .25, tilt: 7 }, woman: { pitch: 218, scale: 1.2, breath: .6, tilt: 3 }, child: { pitch: 280, scale: 1.3, breath: .3, tilt: 6 }, giant: { pitch: 70, scale: .85, tilt: 10 } };
 let ctx = null, sp = null, voice = "man";
+const presetEl = document.getElementById("preset");
 const rateEl = document.getElementById("rate"), rateV = document.getElementById("rateV");
 const speaker = () => {
   if (!ctx) ctx = new AudioContext();
   if (ctx.state === "suspended") ctx.resume();
   if (!sp || sp.voice !== voice || sp.rate !== +rateEl.value) {
     sp?.stop();
-    sp = createSpeaker(ctx, { ...VOICES[voice], rate: +rateEl.value });
+    sp = presetEl.value ? createSpeaker(ctx, { voice: presetEl.value, rate: +rateEl.value })
+                       : createSpeaker(ctx, { ...VOICES2[voice], rate: +rateEl.value });
     sp.voice = voice; sp.rate = +rateEl.value;
   }
   return sp;
@@ -52,6 +108,13 @@ const tbl = document.getElementById("tbl");
 const langs = Object.keys(LANGS);
 tbl.innerHTML = `<tr><th>word</th>${langs.map((l) => `<th>${LANGS[l].name}</th>`).join("")}</tr>` +
   WORDS.map((w) => `<tr><td>${w}</td>${langs.map((l) => `<td><button data-w="${w}" data-l="${l}">${LANGS[l].words[w].replace(/[ˈˌ]/g, "")}</button></td>`).join("")}</tr>`).join("");
+// WRITTEN TEXT, pronounced from the dictionary in lang/ (./lexicon.js). The mood box above applies.
+document.getElementById("sayD").onclick = async () => {
+  const { writtenToIPA, sayResult, reportHTML } = await import("./lexicon.js"), lang = document.getElementById("dictLang").value;
+  const r = await writtenToIPA(document.getElementById("dictSent").value, lang);
+  document.getElementById("dictOut").innerHTML = reportHTML(r); sayResult(speaker(), r, lang, document.getElementById("mood").value);
+};
+document.getElementById("dictLang").onchange = async (e) => { const { SAMPLES } = await import("./lexicon.js"), box = document.getElementById("dictSent"); if (Object.values(SAMPLES).includes(box.value)) box.value = SAMPLES[e.target.value] ?? box.value; };
 tbl.onclick = (e) => { const b = e.target.closest("button"); if (b) speaker().say(b.dataset.w, b.dataset.l); };
 document.getElementById("all").onclick = () => {
   const s = speaker(); let at = ctx.currentTime + .1;
@@ -59,7 +122,144 @@ document.getElementById("all").onclick = () => {
 };
 document.getElementById("sayS").onclick = () => speaker().sayText(document.getElementById("sent").value, document.getElementById("sentLang").value, undefined, document.getElementById("mood").value);
 tbl.onclick = (e) => { const b = e.target.closest("button"); if (b) speaker().say(b.dataset.w, b.dataset.l, undefined, document.getElementById("mood").value); };
-window.__speech = { createSpeaker, LANGS, WORDS };
+// the source switches, and an A/B that says the same sentence twice: once with all three off, once with all on
+const FLAGS = Object.keys(SOURCE);   // every switch the engine has, so none is left on by omission
+for (const k of FLAGS) {
+  const el = document.getElementById("s_" + k);
+  if (!el) continue;
+  el.onchange = () => { SOURCE[k] = el.checked; sp = null; };
+}
+presetEl.innerHTML = `<option value="">(the four above)</option>` +
+  Object.entries(VOICES).map(([k, v]) => `<option value="${k}">${v.name}</option>`).join("");
+presetEl.onchange = () => { voice = presetEl.value || "man"; sp = null; };
+const speakerFor = () => (presetEl.value
+  ? createSpeaker(ctx, { voice: presetEl.value, rate: +rateEl.value })
+  : createSpeaker(ctx, { ...VOICES2[voice], rate: +rateEl.value }));
+document.getElementById("ab").onclick = () => {
+  if (!ctx) ctx = new AudioContext();
+  if (ctx.state === "suspended") ctx.resume();
+  const text = document.getElementById("sent").value, lang = document.getElementById("sentLang").value;
+  const mood = document.getElementById("mood").value;
+  const was = { ...SOURCE }, all = (v) => Object.fromEntries(FLAGS.map((k) => [k, v]));
+  Object.assign(SOURCE, all(false));
+  const end = speakerFor().sayText(text, lang, ctx.currentTime + .1, mood);      // as it was
+  Object.assign(SOURCE, all(true));
+  speakerFor().sayText(text, lang, end + .6, mood);                              // as it is now
+  Object.assign(SOURCE, was);
+  document.getElementById("log").textContent = "old source, then 0.6s, then new source.";
+};
+window.__speech = { createSpeaker, LANGS, WORDS, SOURCE };
+
+// ?probe=1 / ?analyze=1 -- no audio device needed. Both use voice_analysis.js, the one analyser there is, so a
+// recording of a person and the synthesiser's output are measured by the same code.
+//   probe    the synthesiser with every switch off, then on
+//   analyze  four recorded speakers (CMU Arctic: two women, two men) against the synthesiser's voices, all of
+//            them saying the SAME eight sentences -- the synthesiser from IPA
+const qp = new URLSearchParams(location.search);
+if (qp.get("probe") === "1" || qp.get("analyze") === "1") {
+  const { renderText } = await import("./speech.js");
+  const { parseWav, newAnalysis, addUtterance, finishAnalysis, BANDS } = await import("./voice_analysis.js");
+  const post = (t) => fetch("/log", { method: "POST", body: String(t).slice(0, 6000) }).catch(() => {});
+  const ARCTIC = [
+    "ˈɔθəɹ əv ðə ˈdeɪndʒəɹ ˈtɹeɪl, ˈfɪlɪp ˈstilz, ɛt ˈsɛtəɹə.",
+    "ˈnɑt æt ðɪs pəɹˈtɪkjələɹ ˈkeɪs, ˈtɑm, əˈpɑlədʒaɪzd ˈwɪtmɔɹ.",
+    "fɔɹ ðə ˈtwɛntiəθ ˈtaɪm ðæt ˈivnɪŋ ðə ˈtu ˈmɛn ʃʊk ˈhændz.",
+    "ˈlɔɹd, bʌt aɪm ˈglæd tə ˈsi ju əˈgɛn, ˈfɪl.",
+    "wɪl wi ˈɛvəɹ fəɹˈgɛt ɪt.",
+    "ˈgɑd ˈblɛs əm, aɪ ˈhoʊp aɪl ˈgoʊ ɑn ˈsiɪŋ ðɛm fəˈɹɛvəɹ.",
+    "ænd ju ˈɔlweɪz ˈwɑnt tə ˈsi ɪt ɪn ðə suˈpɜɹlətɪv dɪˈgɹi.",
+    "ˈgæd, jɔɹ ˈlɛtəɹ ˈkeɪm dʒʌst ɪn ˈtaɪm.",
+  ];
+  const head = "                   f0   sd  span | H1-H2 H1-A3 |  CPP  sd |" + BANDS.map(([lo]) => String(lo).padStart(6)).join("") + " | hfAll | lvSd  flux  pert | voic%  rate   sec";
+  const row = (name, f) => post(`${name.padEnd(16)} ${f.f0.toFixed(0).padStart(4)} ${f.f0sd.toFixed(2).padStart(5)} ${f.f0span.toFixed(1).padStart(5)} | ` +
+    `${f.h1h2.toFixed(1).padStart(5)} ${f.h1a3.toFixed(1).padStart(5)} | ${f.cpp.toFixed(1).padStart(4)} ${f.cppSd.toFixed(1).padStart(3)} |` +
+    f.ltas.map((v) => v.toFixed(1).padStart(6)).join("") + ` | ${f.hfAll.toFixed(1).padStart(5)} | ${f.levelSd.toFixed(1).padStart(4)} ${f.flux.toFixed(2).padStart(5)} ${f.perturb.toFixed(2).padStart(5)} | ` +
+    `${(100 * f.voicedShare).toFixed(0).padStart(4)}  ${f.rate.toFixed(1).padStart(4)} ${f.seconds.toFixed(1).padStart(5)}`);
+  // &set=key:value,key:value lays parameters over a preset, to ask what ONE number is doing
+  const { VOICES: PRESETS } = await import("./speech.js");
+  const over = Object.fromEntries((qp.get("set") ?? "").split(",").filter(Boolean).map((kv) => { const [k, v] = kv.split(":"); return [k, +v]; }));
+  const synthFeat = (voice, lines) => {
+    const A = newAnalysis(), v = Object.keys(over).length ? { ...(PRESETS[voice]?.set ?? {}), ...over } : voice;
+    for (const l of lines) addUtterance(A, renderText(l, "en", v), 32000);
+    return finishAnalysis(A);
+  };
+  try {
+    if (qp.get("probe") === "1") {
+      const FL = Object.keys(SOURCE), all = (v) => Object.fromEntries(FL.map((k) => [k, v]));
+      post(head);
+      for (const v of (qp.get("voices") ?? "breathywoman,woman,baritone,gravelly,child").split(",")) {
+        Object.assign(SOURCE, all(false)); row(v + " off", synthFeat(v, ARCTIC.slice(0, 4)));
+        Object.assign(SOURCE, all(true));  row(v + " ON", synthFeat(v, ARCTIC.slice(0, 4)));
+      }
+    } else {
+      post(head);
+      const feats = {};
+      for (const spk of (qp.get("speakers") ?? "slt,clb,bdl,rms").split(",")) {
+        const A = newAnalysis();
+        for (let n = 1; n <= 8; n++) {
+          const r = await fetch(`/ref/voices/${spk}_a000${n}.wav`);
+          if (!r.ok) throw new Error("missing recording " + spk + " " + n);
+          const w = parseWav(await r.arrayBuffer());
+          addUtterance(A, w.samples, w.sr);
+        }
+        feats["real:" + spk] = finishAnalysis(A); row("REAL " + spk, feats["real:" + spk]);
+      }
+      for (const k of (qp.get("off") ?? "").split(",").filter(Boolean)) SOURCE[k] = false;   // &off=flag,flag to see what one switch is doing
+      for (const v of (qp.get("voices") ?? "woman,maturewoman,crispwoman,softwoman,man,baritone,warmbaritone,deep").split(",")) {
+        feats["synth:" + v] = synthFeat(v, ARCTIC); row("synth " + v, feats["synth:" + v]);
+      }
+      post("FEATS " + JSON.stringify(feats));
+    }
+    post("SPEECH DONE");
+  } catch (e) { post("ERR " + (e && e.stack || e)); }
+}
+
+// ?fit=female|male -- FIT THE SYNTHESISER TO PEOPLE. The target is the mean of two recorded speakers; the search
+// is a coordinate descent over the handful of voice parameters that shape the long-term spectrum and the
+// phonation, scoring each try with the same analyser. What it cannot close is the interesting part: a residual
+// that no setting removes is the MODEL's, not the parameters'.
+if (qp.get("fit")) {
+  const { renderText, VOICES, SOURCE } = await import("./speech.js");
+  const { parseWav, newAnalysis, addUtterance, finishAnalysis, BANDS } = await import("./voice_analysis.js");
+  const post = (t) => fetch("/log", { method: "POST", body: String(t).slice(0, 6000) }).catch(() => {});
+  SOURCE.breathIn = false;   // the recordings are cut at the first sound; a breath before the line would count as speech and bias the rate ~10% fast
+  const ARCTIC = ["ˈɔθəɹ əv ðə ˈdeɪndʒəɹ ˈtɹeɪl, ˈfɪlɪp ˈstilz, ɛt ˈsɛtəɹə.", "ˈnɑt æt ðɪs pəɹˈtɪkjələɹ ˈkeɪs, ˈtɑm, əˈpɑlədʒaɪzd ˈwɪtmɔɹ.",
+    "fɔɹ ðə ˈtwɛntiəθ ˈtaɪm ðæt ˈivnɪŋ ðə ˈtu ˈmɛn ʃʊk ˈhændz.", "ˈlɔɹd, bʌt aɪm ˈglæd tə ˈsi ju əˈgɛn, ˈfɪl.", "wɪl wi ˈɛvəɹ fəɹˈgɛt ɪt.",
+    "ˈgɑd ˈblɛs əm, aɪ ˈhoʊp aɪl ˈgoʊ ɑn ˈsiɪŋ ðɛm fəˈɹɛvəɹ.", "ænd ju ˈɔlweɪz ˈwɑnt tə ˈsi ɪt ɪn ðə suˈpɜɹlətɪv dɪˈgɹi.", "ˈgæd, jɔɹ ˈlɛtəɹ ˈkeɪm dʒʌst ɪn ˈtaɪm."];
+  try {
+    const sex = qp.get("fit"), spk = sex === "male" ? ["bdl", "rms"] : sex === "female" ? ["slt", "clb"] : [sex];
+    const base = ["bdl", "rms", "male"].includes(sex) ? "man" : "woman";
+    const A = newAnalysis(); let LINES = ARCTIC, lang = "en";
+    if (sex === "spr08") {   // a LABELLED corpus (voice_corpus.js): the neutral takes, and the synthesiser says the very sounds she said
+      const vc = await import("./voice_corpus.js"); LINES = []; lang = "de";
+      for (const f of vc.SPR08.files.filter((f) => vc.nameParts(f).emotion === "N")) {
+        const t = await vc.loadTake(vc.SPR08, f, async (p) => (await fetch(p)).arrayBuffer(), async (p) => (await fetch(p)).text()); addUtterance(A, t.samples, t.sr); LINES.push(t.ipa + "."); }
+    } else for (const sp of spk) for (let n = 1; n <= 8; n++) { const w = parseWav(await (await fetch(`/ref/voices/${sp}_a000${n}.wav`)).arrayBuffer()); addUtterance(A, w.samples, w.sr); }
+    const T = finishAnalysis(A); T.seconds /= spk.length;
+    const feat = (P, lines) => { const a = newAnalysis(); for (const l of lines) addUtterance(a, renderText(l, lang, { ...VOICES[base].set, ...P }), 32000); return finishAnalysis(a); };
+    const err = (f) => f.ltas.reduce((e, v, i) => e + (v - T.ltas[i]) ** 2, 0) + 1.5 * (f.h1h2 - T.h1h2) ** 2 + .5 * (f.h1a3 - T.h1a3) ** 2
+                     + 2 * (f.cpp - T.cpp) ** 2 + 2 * (f.cppSd - T.cppSd) ** 2 + (f.levelSd - T.levelSd) ** 2 + .5 * (f.hfAll - T.hfAll) ** 2 + 6 * (f.f0sd - T.f0sd) ** 2;
+    const P = { f0: T.f0, oq: .62, ra: .014, rk: .34, bwHi: 1, bw: 1, airLevel: 1, fundamental: 4, f1Scale: 1, f2Scale: 1, breath: base === "man" ? .15 : .3, jitter: .7, shimmer: 3.5, f4: 3400, f5: 4200, rate: 1, f0Range: 40, stressF0: 22, fricGain: 1 };
+    const GRID = { f0Range: [30, 45, 60, 80, 100, 130, 170, 220], stressF0: [15, 22, 32, 45, 60], fricGain: [.7, 1, 1.4, 2, 2.8], fundamental: [0, 2, 4, 6, 8, 10, 12], ra: [.002, .003, .004, .007, .01, .014, .02, .03], f4: [2800, 3100, 3400, 3700], f5: [3400, 3800, 4200, 4600], oq: [.48, .55, .62, .69, .76, .82, .88], rk: [.22, .34, .46, .6],
+                   bwHi: [.6, .8, 1, 1.3, 1.7], bw: [.75, .9, 1.05, 1.25, 1.5], f1Scale: [.94, 1, 1.06, 1.12, 1.18, 1.25], f2Scale: [.9, .95, 1, 1.05, 1.1], breath: [.04, .12, .22, .34, .48], airLevel: [.25, .5, 1, 2, 3.5],
+                   jitter: [.2, .4, .7, 1.1], shimmer: [1, 2, 3.5, 5] };
+    const short = LINES.slice(0, lang === "de" ? 5 : 3);
+    const f0 = feat(P, LINES); post(`start   err ${err(f0).toFixed(0)}   ${JSON.stringify(P)}`);
+    P.rate = +(f0.seconds / T.seconds).toFixed(2);           // the rate is separable: just how long it took
+    let best = err(feat(P, short));
+    for (let round = 0; round < 3; round++) for (const k of Object.keys(GRID)) {
+      let bv = P[k];
+      for (const v of GRID[k]) { if (v === P[k]) continue; const e = err(feat({ ...P, [k]: v }, short)); if (e < best) { best = e; bv = v; } }
+      P[k] = bv; post(`round ${round} ${k.padEnd(8)} -> ${bv}   err ${best.toFixed(0)}`);
+    }
+    const F = feat(P, LINES);
+    post(`FITTED ${sex}: ${JSON.stringify(P)}   err ${err(F).toFixed(0)}`);
+    const line = (n, f) => post(`${n.padEnd(8)} f0 ${f.f0.toFixed(0)}±${f.f0sd.toFixed(1)}st  H1-H2 ${f.h1h2.toFixed(1)}  H1-A3 ${f.h1a3.toFixed(1)}  CPP ${f.cpp.toFixed(1)}±${f.cppSd.toFixed(1)}  ltas ${f.ltas.map((v) => v.toFixed(0)).join(" ")}  hfAll ${f.hfAll.toFixed(1)}  lvSd ${f.levelSd.toFixed(1)}  flux ${f.flux.toFixed(2)}  sec ${f.seconds.toFixed(1)}`);
+    line("REAL", T); line("before", f0); line("fitted", F);
+    post("RESIDUAL ltas " + F.ltas.map((v, i) => (v - T.ltas[i]).toFixed(1)).join(" ") + `   h1h2 ${(F.h1h2 - T.h1h2).toFixed(1)}  cpp ${(F.cpp - T.cpp).toFixed(1)}  cppSd ${(F.cppSd - T.cppSd).toFixed(1)}  lvSd ${(F.levelSd - T.levelSd).toFixed(1)}`);
+    post("SPEECH DONE");
+  } catch (e) { post("ERR " + (e && e.stack || e)); }
+}
 </script>
 </body>
 </html>

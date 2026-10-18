@@ -52,9 +52,15 @@ instruments.js    11 instruments x 10 songs, any song on any instrument (the vil
 squirrels.js      squirrels: dash between neighbouring trees, climb the trunks head first up and down
 paintings.js      the palace's paintings: views of the world from the towers, taken once at the start
 mirrors.js        planar mirrors (the palace's Hall of Mirrors): reflections on a budget, the nearest three
-tools.js          tools in people's hands (scythe, spade, hoe, hammer, rod, lute) as low-poly instanced meshes
+tools.js          what people hold: items (a scythe, a halberd, a heater shield...) put in the hand by their grip, instanced per kind and material
+items.js          the items builder: weapons, shields, tools, furniture and their components from assets/items -- materials, holds, markers, kits (docs/items.md)
+defs.js           how definitions stand on each other (`use`) and merge: shared by the creatures and the items
+catalogue.js      assets/index.json loaded once for the world: the animals, the people, the items in hands and rooms
 dsp.js            shared DSP for the four sound engines: filters, loudness, loops, buffer playback
-village.js        the village: stone bridge, bakery, yards with sheds and stables, fields, orchard, fisherman, smithy, pottery, church, market, town wall and palisade
+town.js           the town by seed: a style (stone, roof, timbers, plasters, tower tops) and a plan -- streets, houses, shops, inn, church, the wall ring with towers and gates, the farms
+village.js        MAX_PIER_DEPTH (the village's land and riverside are definitions now: assets/architecture/village, tools/archgen/village.py, riverside.py)
+terrain_lab.html  the terrain lab: a region grown by its geology on the GPU (plates, volcanoes, rain, rivers, falls, lakes, the sea; layered rock) -- docs/terrain_lab.md
+mapgen.js         the world's land grown at load: a window of the lab's river country, settled for the town and the monument, every stream at its own level -- docs/world.md
 village-life.js   the villagers' day: homes and beds, jobs, sleep at night, church at the bell, the inn, the market, sacks to the mill
 speech.html       the speech test page: every word in every language, four voices
 wardrobe.html     the people test page: every garment, hat, hairstyle and pose, plus a walking crowd
@@ -62,7 +68,7 @@ textures.html     the pattern tiles as baked, alone and repeated, and the leaf a
 menagerie.html    the animal test page: chosen species in a row (default: the ones built from curved tubes)
 grove.html        the tree test page: every species twice, autumn and re-roll keys
 texture/          the tiles saved as PNGs by build/textures.py -- for looking at only, the game calculates them
-docs/             architecture, engines, world, networking
+docs/             architecture, engines, world, networking, items
 build/            single-file distribution build
 dist/             generated — bannerfield.html, fully self-contained
 ```
@@ -78,9 +84,9 @@ python3 -m http.server 8471
 ```
 
 Useful URL parameters: `?near=10` (3D-marched fillets within that distance, off by default), `?mode=banner|instanced` (instanced = composite for the animals), `?species=cow`,
-`?building=none|parthenon|cologne|...`, `?n=1000` (herd size), `?trees=0`,
-`?people=0`, `?textures=0` (patterns per pixel instead of baked tiles), `?smooth=0` (raw sim ticks), `?billboard=0` (leaf cards fixed instead of facing the camera), `?carts=N` (fleet size), `?butterflies=0`, `?autumn=1`, `?weather=1|2`, `?intensity=0-2`,
-`?night=1`, `?villagers=N` (the village's people, default 32), `?freeze=<t>` (pin the animation clock), `?cam=orbit`,
+`?building=none|parthenon|cologne|...` (which landmarks; otherwise three at random), `?seed=N` (the random three: picked when absent and
+written into the address), `?n=1000` (herd size), `?trees=0`, `?people=0`, `?textures=0` (patterns per pixel instead of baked tiles), `?smooth=0` (raw sim ticks), `?billboard=0` (leaf cards fixed instead of facing the camera), `?carts=N` (fleet size), `?butterflies=0`, `?autumn=1`, `?weather=1|2`, `?intensity=0-2`,
+`?night=1`, `?villagers=N` (the village's people, default 32), `?townstyle=timbered|stone|brick|plastered`, `?freeze=<t>` (pin the animation clock), `?cam=orbit`,
 `?cx/cy/cz/tx/ty/tz` (camera), `?depth=flat` (disable per-pixel depth).
 
 Controls: WASD + mouse (click to grab), Shift run on/off (like C crouch), Space jump, Shift+Space
