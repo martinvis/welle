@@ -77,7 +77,7 @@ First pass effect: reduction in drug concentration
 
 #Pharmacokinetics: plasma concentration in time
 - longer elimination decreases fluctuations
-- shorted dosing interval decreases fluctuations
+- shorter dosing interval decreases fluctuations
 - cumulative balance requires ~3x elimination half-time
 Dose: amount administered
 Dosing interval: time between administrations
@@ -121,11 +121,11 @@ Ginger: anticoagulant
 
 #Asparaginase
 enzyme breaking down asparagine
-used to tread lymphoblastic leukemia, many side effects
+used to treat lymphoblastic leukemia, many side effects
 
 #stimulants: increase alertness
 =Amphetamine
-CNS stimulant, improves congnitive control
+CNS stimulant, improves cognitive control
 ADHD and narcolepsy treatment
 obesity treatment historically
 recreational drug, addictive
@@ -211,10 +211,10 @@ Artemisinin: contains peroxide ring, oral + injection
 Proguanil: prevention, inhibits dihydrofolate reductase, oral
 Atovaquone: toxoplasmosis, malaria with Proguanil, oral
 Quinine: oral + injection
-- treatment of malaria + lupus + heumatoid arthritis
+- treatment of malaria + lupus + rheumatoid arthritis
 - less used for malaria due to serious side effects
 Chloroquine: oral
-- treatment of malaria + lupus + heumatoid arthritis
+- treatment of malaria + lupus + rheumatoid arthritis
 - less used for malaria due to drug resistance
 Hydroxychloroquine: malaria, rheuma, lupus, oral
 Pyrimethamine: toxoplasmosis, oral
@@ -275,7 +275,7 @@ Tetracyclines: bacteria product, cheap
 - Doxycycline: common, oral
 - Minocycline: oral
 Macrolides: gram positive
-- Erythromycin: can cause arrhytmia, oral + injection
+- Erythromycin: can cause arrhythmia, oral + injection
 Chloramphenicol: can cause bone marrow suppression, eye drops + oral + injection
 Oxazolidinone
 - Linezolid: gram positive including MRSA, reserve, oral + injection
@@ -426,7 +426,7 @@ Carboplatin: platinum, intravenous
 Cisplatin: platinum, intravenous
 =break DNA strands
 Bleomycin: can cause pulmonary fibrosis, injection
-=Anthracyclins: from bacteria, intercalation, topoisomerase II inhibitor
+=Anthracyclines: from bacteria, intercalation, topoisomerase II inhibitor
 Daunorubicin: can damage heart, intravenous
 Doxorubicin (Adriamycin): can damage heart, intravenous
 Epirubicin: isomer of Doxorubicin, intravenous
@@ -474,7 +474,7 @@ RICE: recurrent lymphoma, Rituximab + Ifosfamide + Carboplatin + Etoposide
 =supportive
 Palifermin: recombinant protein, epithelial growth
 
-Methotrexate: immunosuppresive, chemotherapy / autoimmune diseases, oral + IV
+Methotrexate: immunosuppressive, chemotherapy / autoimmune diseases, oral + IV
 Leflunomide: DHODH inhibitor, immunosuppressive, rheuma, oral
 Sulfasalazine: rheuma, oral
 
@@ -515,7 +515,7 @@ Metformin (Glucophage): common, oral
 =Sulfonylureas: inhibit ATP-sensitive K channels in beta cells, long duration
 Glibenclamide: oral
 Glimepiride: oral
-=Metglinides: inhibit ATP-sensitive K channels in beta cells, short duration
+=Meglitinides: inhibit ATP-sensitive K channels in beta cells, short duration
 Repaglinide
 Nateglinide
 =GLP1 agonists
@@ -561,7 +561,7 @@ Cetirizine: oral, hay fever
 Loratadine (Claritin): oral, hay fever
 
 #Antimigraine
-Triptan: serotonine agonist
+Triptan: serotonin agonist
 - Sumatriptan:
 Ergotamine:
 
@@ -602,7 +602,7 @@ ACE inhibitor: inhibit angiotensin-converting enzyme, antihypertensive (decrease
 - Benazepril: prodrug (activated in liver)
 - Enalapril: prodrug (activated in liver)
 - Perindopril: prodrug (activated in liver)
-Angiotensine receptor blocker (ARB) / Sartan: angiotensine antagonist, antihypertensive (decrease blood pressure), protect kidney, oral
+Angiotensin receptor blocker (ARB) / Sartan: angiotensin antagonist, antihypertensive (decrease blood pressure), protect kidney, oral
 - Losartan: common
 - Valsartan: common
 - Telmisartan: long half-life
@@ -674,12 +674,12 @@ Mast cell stabilizer: block degranulation (prevent histamine release)
 Roflumilast: PDE4 inhibitor, long-acting, anti-inflammatory, oral
 
 #Sympathomimetic
-α-andrenergic agonists: vasoconstriction
+α-adrenergic agonists: vasoconstriction
 - Naphazoline: nasal decongestant, eye drops
 - Oxymetazoline: nasal decongestant, eye drops
 - Tetryzoline: nasal decongestant, eye drops
 
-#NSAID (Nonsteroidal anti-inflammatory drug): COX inhibitors, also analgesic, migraine relieve
+#NSAID (Nonsteroidal anti-inflammatory drug): COX inhibitors, also analgesic, migraine relief
 Aspirin: common, anti-inflammatory (overdose ~10g: brain/lungs edema)
 Ibuprofen (Nurofen): common, oral
 - side effects: gastrointestinal issues (ulcers)
@@ -692,7 +692,7 @@ Pentosan polysulfate (Elmiron): interstitial cystitis, oral
 
 #Analgesic: pain relievers
 Non-opioid
-- Paracetamol (Panadol): common, antipyretic, migraine relieve (overdose ~5g: liver failure)
+- Paracetamol (Panadol): common, antipyretic, migraine relief (overdose ~5g: liver failure)
 - Metamizole/Dipyrone (Novalgin): antipyretic, antispasmodic (colic), rarely causes agranulocytosis
 Opioid: μ-opioid agonist, strong, hypoventilation + constipation
 - Morphine: recreational drug, found in opium, addictive
@@ -756,7 +756,7 @@ Triazoles: oral or injection
 - Itraconazole
 - Voriconazole
 Terbinafine: oral or topical
-=Damage egosterol in membrane
+=Damage ergosterol in membrane
 Polyenes: bacteria product
 - Amphotericin B: can cause fever or damage kidneys, injection
 - Nystatin: Candida, topical
@@ -832,7 +832,7 @@ Phenytoin: oral or intravenous
 
 #
 
-#Immunosuppresant
+#Immunosuppressant
 Sirolimus: from bacteria Streptomyces, organ transplants, coronary stent coat
 Calcineurin inhibitor (CNI): organ transplants
 - Cyclosporine: from fungus Tolypocladium
@@ -889,8 +889,8 @@ Hydroxyethyl starch (HES): intravenous volume expander
 - Nitrendipine: oral
 - Felodipine: oral
 - Nicardipine: fast onset, oral or intravenous
-- Verapamil: oral or intravenous, antiarrhytmic (decrease heart rate)
-- Diltiazem: oral or intravenous, antiarrhytmic (decrease heart rate)
+- Verapamil: oral or intravenous, antiarrhythmic (decrease heart rate)
+- Diltiazem: oral or intravenous, antiarrhythmic (decrease heart rate)
 =Antianginal
 Ivabradine: pacemaker current inhibitor, oral
 Nitroglycerin / Glyceryl trinitrate: vasodilator, sublingual, causes headache
@@ -899,7 +899,7 @@ Isosorbide dinitrate: vasodilator, oral
 Amiodarone: potassium channel blocker, contains iodine, oral, accumulates in body, serious side effects (e.g. hypothyroidism)
 Lidocaine: sodium channel blocker, intravenous
 Adenosine: supraventricular tachycardia, few second asystole, intravenous
-=Cardiac glycoside: sodium-potassium pump inhibitor, steroid code, increase output, decrease heart rate
+=Cardiac glycoside: sodium-potassium pump inhibitor, steroid core, increase output, decrease heart rate
 Digoxin / Digitalis: foxglove plant, long half-life, excretion by kidney
 Digitoxin: foxglove plant, very long half-life
 =Hypolipidemic: prevent cardiovascular diseases
@@ -978,7 +978,7 @@ Methemoglobin
 - Methylene blue: reduce Fe3+ to Fe2+
 Cyanide poisoning: smoke from fire
 - Sodium thiosulfate: intravenous
-Thalium poisoning: historically by rat poison
+Thallium poisoning: historically by rat poison
 - Prussian blue
 
 =antioxidants
@@ -988,7 +988,7 @@ Sulforaphane: contains sulfur, in cruciferous vegetables
 Quercetin: flavonol (polyphenol), in fruits/vegetables
 
 =Parkinson's disease
-Levodopa: amino acid (to cross blood-brain barrier), dopamine precursor (coverted by AADC enzyme), used with AADC and COMT inhibitors
+Levodopa: amino acid (to cross blood-brain barrier), dopamine precursor (converted by AADC enzyme), used with AADC and COMT inhibitors
 AADC inhibitors: inhibit dopamine synthesis outside brain, oral
 - Carbidopa:
 - Benserazide:
@@ -1007,14 +1007,14 @@ Non-ergoline dopamine agonists
 - Rotigotine: transdermal patch
 Amantadine: treats dyskinesia, oral
 
-Monoamine oxidate inhibitors (MAOI): antidepressants, Parkinson's disease
+Monoamine oxidase inhibitors (MAOI): antidepressants, Parkinson's disease
 - Selegiline: Parkinson's disease
 - Rasagiline: Parkinson's disease
 - Safinamide: Parkinson's disease
 
 #anorectics: appetite suppressant
 Sibutramine: SNDRI, cardiovascular risks, discontinued
-Rimonabant: cannaboid receptor inverse agonist, serious psychiatric side effects, discontinued
+Rimonabant: cannabinoid receptor inverse agonist, serious psychiatric side effects, discontinued
 Orlistat: lipase inhibitor, oral
 
 #M04 - gout
@@ -1046,10 +1046,10 @@ Tadalafil: oral
 Avanafil: oral, fast-acting
 
 #A / Alimentary tract and metabolism
-A02 / Antiacids
+A02 / Antacids
 A03 / Anticholinergic
 A03 / Antispasmodic: suppress muscle spasms
-A04 / Antiemetic: against vomitting
+A04 / Antiemetic: against vomiting
 A06 / Laxative
 A07 / Antidiarrhoeal
 A11 / Vitamins
@@ -1058,7 +1058,7 @@ A13 / Tonics
 A14 / Anabolic steroids: mimic effects of testosterone
 
 #B / Blood and blood forming organs
-B01 / Antithrombotic: reduce blood cloths formation
+B01 / Antithrombotic: reduce blood clots formation
 B02 / Antihemorrhagic: stop bleeding
 B03 / Antianemic
 

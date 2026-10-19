@@ -39,7 +39,7 @@ Photovoltaics: converts light into electricity
 #Fuel cell
 - converts chemical energy of fuel into electricity
 - requires continuous source of fuel and oxygen
-- consists of catode, anode and electrolyte
+- consists of cathode, anode and electrolyte
 
 #Pump
 - moves fluid by mechanical action
@@ -98,7 +98,7 @@ Secondary battery: rechargeable, chemical energy
 - Nickel-Hydrogen (NiH2): long cycle life, satellites
 - Lithium-Ion: good energy density, risk of ignition
 Lithium-Ion
-- Lithium-Iron-Phospate (LFP): LiFePO4, long cycle life, low cost, fast recharge, EVs
+- Lithium-Iron-Phosphate (LFP): LiFePO4, long cycle life, low cost, fast recharge, EVs
 - Lithium-Manganese-Oxide (LMO): LiMnO2, low cost, fast recharge
 - Lithium-Nickel-Manganese-Cobalt-Oxide (NMC): high energy density, EVs
 - Lithium-Cobalt-Oxide (LCO): LiCoO2, high energy density, smartphones
@@ -157,7 +157,7 @@ Frequency modulated: continuously varies signal frequency
 #Laser
 - emits coherent light by optical amplification
 - stimulated emission of electromagnetic radiation
-- laser printers, fiber-optic, optical litography, surgery, welding
+- laser printers, fiber-optic, optical lithography, surgery, welding
 Three-level laser: ineffective
 Four-level laser: L1 (ground state), L2, L3, L4
 - fast radiationless transition from L4 to L3, and from L2 to L1
@@ -165,7 +165,7 @@ Four-level laser: L1 (ground state), L2, L3, L4
 - L3 population higher than L2
 - pump transition from L1 to L4
 
-#Photolitography:
+#Photolithography:
 - integrated circuits fabrication
 - uses ultraviolet light to produce thin patterned film
 - photoresist consists of resin, sensitizer and solvent
@@ -222,7 +222,7 @@ FM: frequency modulation, better quality
 
 #Enriched uranium
 - high percentage of U-235 isotope
-- naturally occuring uranium is 99% isotope U-238
+- naturally occurring uranium is 99% isotope U-238
 - fuel in nuclear reactors
 - old method: gaseous diffusion of UF6, use of effusion
 - new method: gas centrifuge of UF6
@@ -275,7 +275,7 @@ HVAC (Heating ventilation air conditioning): control indoor air temperature and 
 
 #Automobile
 Safety
-- Crumple zone: cotrolled deformation, increase time to reduce collision force
+- Crumple zone: controlled deformation, increase time to reduce collision force
 - Seat belt: prevent sudden movement during collision
 - Airbag: cushion inflated at collision
 - ABS (Anti-lock braking system): improve steering control
@@ -295,7 +295,7 @@ Tower
 - Double vertical: parallel or inclined (A shape)
 - Portal: parallel, connected tops
 - H shape: portal with double parallel on top
-- inverted Y: double inclided with single on top
+- inverted Y: double inclined with single on top
 =Beam bridge
 - support only by piers
 - span 5-50m

@@ -25,7 +25,7 @@ maltose = glucose + glucose
 sucrose = fructose + glucose
 trehalose = glucose + glucose
 
-FODMAP (ermentable oligosaccharides, disaccharides, monosaccharides, and polyols): short-chain saccharides, poorly absorbed in small intestine, ferment in colon
+FODMAP (fermentable oligosaccharides, disaccharides, monosaccharides, and polyols): short-chain saccharides, poorly absorbed in small intestine, ferment in colon
 
 #fats/lipids
 linoleic acid COOH(CH2)7CH=CHCH2CH=CH(CH2)4CH3
@@ -40,7 +40,7 @@ Lipoprotein: transports hydrophobic lipids in water
 - High-density lipoprotein (HDL): good cholesterol, created in liver, transport fat out of artery walls to liver (cleanup)
 - Low-density lipoprotein (LDL): bad cholesterol, risk of atherosclerosis (delivery)
 - Intermediate-density lipoprotein (IDL): VLDL remnant (mostly cholesterol), becomes LDL after further loss of triglycerides
-- Very low-density lipoprotein (VLDL): created in liver, transfromed into IDL in bloodstream, transport lipids from liver through arteries (to muscles + body fat)
+- Very low-density lipoprotein (VLDL): created in liver, transformed into IDL in bloodstream, transport lipids from liver through arteries (to muscles + body fat)
 - Chylomicron / Ultra low-density lipoprotein (ULDL): transport dietary lipids, store lipids as body fat
 
 #phospholipids
@@ -56,7 +56,7 @@ Platelet-activating factor (PAF): initiates inflammation, causes platelet aggreg
 
 oxygenic photosynthesis: CO2 + H2O + light => O2 + glucose
 anoxygenic photosynthesis: CO2 + H2S + light => S + H2O + glucose
-aerobic resporation: O2 + glucose => CO2 + H2O + ATP
+aerobic respiration: O2 + glucose => CO2 + H2O + ATP
 anaerobic respiration: glucose => lactic acid + ATP
 alcoholic fermentation: glucose + yeast => ethanol + CO2 + ATP
 - dough rising, alcohol, biofuel
@@ -226,4 +226,4 @@ Nitric oxide (NO): signaling molecule, vasodilator (relaxes smooth muscles to in
 
 #brain
 Adenosine: buildup during day (ATP breakdown), inhibitory neurotransmitter (sleep signal)
-Orexin / Hypocretin (HCRT): neuropeptid, wakefulness management, produced in hypothalamus
+Orexin / Hypocretin (HCRT): neuropeptide, wakefulness management, produced in hypothalamus

@@ -15,7 +15,7 @@ Cation: ion with more protons than electrons
 Anion: ion with more electrons than protons
 Isoelectronic: same number of electron but different element
 
-Semi-empirical mass formula: nucleas mass based on number of protons and neutrons, liquid drop model
+Semi-empirical mass formula: nucleus mass based on number of protons and neutrons, liquid drop model
 - Volume term: energy increased with mass number, strong nuclear force
 - Surface term: energy decreased with surface volume, volume term correction
 - Coulomb term: energy decreased with atomic number, electrostatic repulsion
@@ -31,7 +31,7 @@ Quarks: up/down, top/bottom, strange/charm
 Leptons: not affected by strong force
 - Electron: negative charge, orbit nucleus
 - Muon: decay into electron + electron antineutrino + muon neutrino
-- Tau: decay into (pions | electron + electron antineutrino | muan + muon antineutrino) + tau neutrino
+- Tau: decay into (pions | electron + electron antineutrino | muon + muon antineutrino) + tau neutrino
 - Neutrinos: neutral leptons
 =Bosons: integer spin, force carriers
 Photon: quantum of electromagnetic field, massless, chargeless
@@ -49,13 +49,13 @@ Mesons: made of even number of quarks (usually quark and anti-quark)
 Alpha: helium nucleus
 Beta: high speed electron or positron
 - caused by weak interaction
-- emmitted by atomic nucleus
-- atom obtains more stable ration of protons and neutrons
+- emitted by atomic nucleus
+- atom obtains more stable ratio of protons and neutrons
 - change of atomic number
 - continuous spectrum
 Beta minus decay: neutron -> proton + electron + antineutrino
 Beta plus decay: proton -> neutron + positron + neutrino
-Gama: high energy ray
+Gamma: high energy ray
 Bremsstrahlung: produced by electron deceleration, continuous spectrum
 
 #Electron capture
@@ -64,7 +64,7 @@ electron from inner orbital is captured by nucleus
 proton and electron fuse into neutron and emit electron neutrino
 emitted neutrino has characteristic energy
 missing electron is afterwards replaced by outer electron
-- either one or more characteristic X-rays are emitted or Augur effect occurs
+- either one or more characteristic X-rays are emitted or Auger effect occurs
 Auger effect: electron is ejected from shell, atom becomes positive ion
 
 #Basic
@@ -176,9 +176,9 @@ Wave equation: linear partial differential, describes wave in spacetime
 Diffraction: bending of wave due to obstacle
 - X-ray diffraction: measurements under different angles determine crystal structure
 Interference: combination of two waves
-- constructive: greater aplitude
+- constructive: greater amplitude
 - destructive: lower amplitude
-Superposition principle: in linear system result of multiple stimule is sum of individual stimuli (waves)
+Superposition principle: in linear system result of multiple stimuli is sum of individual stimuli (waves)
 Huygens–Fresnel principle: every wavefront point can be considered source of secondary spherical wavelets
 Wavefront: points in wave with same phase
 Bragg's law: interference of waves interacting with atoms in crystal depends on angle
@@ -209,7 +209,7 @@ Sun radius: 700 Mm
 Betelgeuse radius: 600 Gm
 Sun to Jupiter: 740 Gm
 Sun to Sirius: 8.6 ly
-Sun to Betelguese: 650 ly
+Sun to Betelgeuse: 650 ly
 Andromeda Galaxy: 2.5 Mly
 
 #Dynamics
@@ -248,7 +248,7 @@ Work: force per displacement (W = F*s)
 Kinetic energy: energy caused by movement, 1/2 * m * v^2
 Potential energy: energy caused by position, m * a * s
 Thermal energy: energy caused by heat
-Joul (J): unit of energy [kg * m^2 / s^2]
+Joule (J): unit of energy [kg * m^2 / s^2]
 Calorie (cal): unit of energy, 4.18J
 
 #Pressure
@@ -269,8 +269,8 @@ Diffusion: gradual mixing of particles due to motion, depends on particle speed
 - Fick's second law: diffusion depth is proportional to square root of time, x = √(Dt)
 
 #Gases
-- at constant temperate all gas particles have same average kinetic energy
-- at constant temperate gas particles speed depends on their weight (lighter=faster)
+- at constant temperature all gas particles have same average kinetic energy
+- at constant temperature gas particles speed depends on their weight (lighter=faster)
 Boyle's law: at constant temperature volume of gas is inversely proportional to pressure
 Charles's law: at constant pressure volume of gas is proportional to temperature
 Avogadro's law: at constant pressure and temperature volume of gas is proportional to mass
@@ -281,7 +281,7 @@ Graham's law: effusion rate is inversely proportional to square root of particle
 Mean free path: average distance travelled by particle between collisions, depends on density
 Ideal gas: ignores gas molecule volume and intermolecular interactions
 - at high pressure gas molecule volume increase volume
-- at low temperate intermolecular interactions decrease pressure
+- at low temperature intermolecular interactions decrease pressure
 Ideal gas law: p*V = n*T*R where R is gas-specific constant
 Van der Waals equation: considers also gas molecule volume and intermolecular interactions
 
@@ -422,7 +422,7 @@ F = G * m1 * m2 / r^2
 Dalton: atomic mass unit, 1/12 of C12
 
 #Mass
-Betelgueze: 30 PEg
+Betelgeuse: 30 PEg
 Sun: 2 PEg
 Jupiter: 2 TEg
 Earth: 6 GEg
@@ -439,7 +439,7 @@ mouse: ~20 g
 bee: ~100 mg
 rice seed: ~20 mg
 sesame seed: ~2 mg
-humam cell: ~1 ng
+human cell: ~1 ng
 human DNA: ~6 pg
 hemoglobin: 250 png
 glucose: 300 ppg
@@ -451,7 +451,7 @@ electron: 0.91 pfg
 Ionizing: sufficient energy to detach electron from atom (Gamma rays, X rays, Extreme ultraviolet)
 Gamma rays: under 10 pm, radioactive decay
 X rays: 10 pm - 10 nm, radiology
-Extreme ultraviolet: 10-100 nm, litography, solar corona
+Extreme ultraviolet: 10-100 nm, lithography, solar corona
 Ultraviolet: 100-400 nm, fluorescence, disinfection, sunburn, vitamin D
 Visible: 380-750 nm, colors, rainbow (violet/blue/cyan/green/yellow/orange/red)
 Infrared: 700 nm - 1 mm, heat, night vision
@@ -460,7 +460,7 @@ Microwaves: 10 mm - 1 m, microwave oven, wireless network
 Radio waves: over 10mm, radar, broadcasting
 
 #Spectral line: narrow frequency of light affected by photon emission/absorption in chemical substance
-photon energy is equivalent to enegy difference of electron energy levels
+photon energy is equivalent to energy difference of electron energy levels
 atom-specific - can be used to identify substances (fingerprint)
 depend on temperature (energy levels) and density of substance (intensity)
 absorption line - when photons pass through cooler substance
@@ -510,7 +510,7 @@ high energy photon near nucleus producing particle-antiparticle pair
 matter wave: λ = h / (m*v)
 
 Planck relation: photon energy is proportional to frequency (E = h*f = h*c / λ)
-Planc constant: 663 aaJ/Hz
+Planck constant: 663 aaJ/Hz
 Mass-energy equivalence: E = m * c^2
 
 Galilean transformation: Newtonian physics, between coordinates differing by constant relative motion
@@ -523,12 +523,12 @@ Lorentz transformation: between coordinates differing by constant relative motio
 time dilation: time slows down with greater velocity
 relativistic mass: mass increases with greater velocity
 Lorentz contraction: length decreases with greater velocity, only in direction of movement
-relativity of simultaneity: two spacially separated events do not occur at same time for every observerr
+relativity of simultaneity: two spatially separated events do not occur at same time for every observer
 inertial frame of reference: not undergoing acceleration, objects in same constant linear motion
 
 #General relativity
 gravity is curvature of spacetime
-gravivational lens: path of light follows curvature of spacetime
+gravitational lens: path of light follows curvature of spacetime
 gravitational time dilation: light moves slower when gravity increases
 gravitational waves: propagate at speed of light
 
@@ -548,7 +548,7 @@ present in cosmic rays, produced in high energy collisions
 
 #Electrical conductivity
 - slightly decreases with temperature in conductors
-- greatly increases with temperatute in semiconductors
+- greatly increases with temperature in semiconductors
 
 #Band theory
 - overlap of high number of orbitals in solids creates continuous range of energy levels
@@ -558,7 +558,7 @@ Valence band: highest range of energy levels with electrons
 Conduction band: lowest range of energy levels without electrons
 Conductors: valence and conduction band overlap
 Semiconductors: gap between valence and conduction band is small
-- n-type: doping with electron donnor, new band under conduction band 
+- n-type: doping with electron donor, new band under conduction band 
 - p-type: doping with electron acceptor, new band over valence band
 Insulators: gap between valence and conduction band is big
 
@@ -571,7 +571,7 @@ Meissner effect: expulsion of magnetic field below critical temperature
 Type I: aluminium, mercury, lead
 Type II: niobium, YBCO (YBaCuO), BSCCO (BiSrCaCuO)
 
-#Semicondactors
+#Semiconductors
 - very pure material needed
 elements: Si, Ge
 n-type doping: P, As, Sb
@@ -614,7 +614,7 @@ Doppler effect: change of wave frequency in movement
 
 Thermoelectric effect: conversion between temperature difference and voltage
 - Thermocouple: two electrical conductors with different thermal conductivity
-- Seebeck effect: electric current between thermocouple proportional to temperate difference
+- Seebeck effect: electric current between thermocouple proportional to temperature difference
 - Peltier effect: heat transfer between thermocouple proportional to electric current
 - Thomson effect: heat transfer by electric current within single material
 
@@ -622,7 +622,7 @@ Aristotle's wheel paradox: all points of wheel travel same distance during wheel
 - points travel same distance only horizontally but not vertically
 - points follow cycloid path, center travels 2πR (circumference) and all other points more
 
-Block-stacking problem (Leaning tower of Lyre): overhang of blocks over edge
+Block-stacking problem (Leaning tower of Lire): overhang of blocks over edge
 - maximum is sum(1/2i) for i stacked blocks, diverges to infinity
 
 Birthday paradox: probability of same birthday between people, 50% for 23, 99.9% for 70
@@ -644,7 +644,7 @@ Beam splitter: splits light beam
 =Refraction: redirection of wave when passing between mediums
 Snell's law: ratio of sines of incidence/refraction angles equals ratio of refraction indices
 - n1 * sin(θ1) = n2 * sin(θ2)
-Refractive index (n): ratio of speed of light in vacuum to speef of light in medium
+Refractive index (n): ratio of speed of light in vacuum to speed of light in medium
 - n = c / v
 Angle of incidence (θ): angle between ray and normal of surface
 
@@ -686,7 +686,7 @@ Einstein–Podolsky–Rosen paradox (EPR): quantum mechanics conflicts with loca
 - Many-worlds: no wave function collapse, all possible outcomes are realized (parallel non-interacting worlds)
 
 
-#Quantumm electrodynamics
+#Quantum electrodynamics
 Compton scattering: high-frequency photon hitting electron transfers part of its energy to electron
 - both electron and photon move from impact at new angle
 - more energy lost with larger angle
@@ -706,7 +706,7 @@ Equilibrium fractionation: slow reversible reactions, gradual exchange of isotop
 Kinetic fractionation: fast irreversible reactions, different reaction rate (lighter = more reactive)
 Mass-independent fractionation: multiple distinct mechanisms
 - asymmetric molecules more stable
-- UV light affects rares isotopes deeper (most abundant absorb higher)
+- UV light affects rarer isotopes deeper (most abundant absorb higher)
 
 Fermi gas: packed fermions, degeneracy pressure enforces Pauli exclusion principle (electrons in white dwarf, neutrons in neutron star)
 Bose gas: trapped bosons, any number can share same state, without Pauli exclusion principle

@@ -27,7 +27,7 @@ Levels
 - Confidential: low
 - Secret: medium
 - Top Secret: high
-SCIF (Sensitive compartmented information facility): area to proccess classified information
+SCIF (Sensitive compartmented information facility): area to process classified information
 
 #United States bases
 Quantico: Marine Corps + FBI + DEA training base
@@ -37,7 +37,7 @@ USA
 - Fort Cavazos (Hood), Texas
 - Fort Campbell, Kentucky/Tennessee
 Thule, Greenland
-Carribean
+Caribbean
 - Guantanamo Bay, Cuba
 Pacific
 - Kadena, Japan
@@ -192,7 +192,7 @@ Circular error probable (CEP): median error radius of munition
 #Explosives
 Close air support (CAS)
 Bomb: explosive weapon, usually airdropped
-- Glide bomb: can be release at distance from target
+- Glide bomb: can be released at distance from target
 Laser-guided bomb (LGB)
 - Paveway, USA
 Grenade: hand-thrown explosive weapon
@@ -264,7 +264,7 @@ Homing guidance: guidance computer in missile
 - SLBM: Submarine-launched ballistic missile
 - Multiple independently targetable reentry vehicle (MIRV): multiple warheads with different targets, 1960s
 - Fractional Orbital Bombardment System (FOBS): low orbit to conceal target and evade radars, smaller payload, 1960s
-- Hypersonic glide vehicle (HGV): manouver at hypersonic speed to evade air defenses, 2010s
+- Hypersonic glide vehicle (HGV): maneuver at hypersonic speed to evade air defenses, 2010s
 Topol, Russia, intercontinental
 Iskander, Russia, short-range
 Kinzhal, Russia, air-based
@@ -414,7 +414,7 @@ Fifth generation:
 #aerial refuelling
 Boeing KC-97: USA, piston-powered tanker, production 1951-1956, retired
 Boeing KC-135: USA, jet-powered tanker, production 1955-1965
-Beoing KC-46: USA, jet-powered tanker, production since 2013
+Boeing KC-46: USA, jet-powered tanker, production since 2013
 Ilyushin Il-78: USSR, jet-powered tanker, production since 1984
 
 =AWACS: Airborne Warning and Control System, radar

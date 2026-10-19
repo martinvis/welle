@@ -12,7 +12,7 @@ glottal: ʔ h ɦ
 nasal: m ɱ n ɳ ɲ ŋ
 plosive: b p t d ʈ ɖ c(ť) ɟ(ď) k g q ʔ
 fricative: ɸ β f v θ ð s z ʃ ʒ ʂ ʐ ɕ(š) ʑ(ž) ç j x ɣ χ ʁ h ɦ ɥ(y) w(u)
-thrill: r
+trill: r
 lateral: l ʎ(ľ)
 
 close: i/y ɨ/ʉ ɯ/u
@@ -40,7 +40,7 @@ palatal: ɟ(ď) c(ť) ɲ(ň) j
 velar: g k x ŋ[n]
 glottal: ɦ
 vowel: a ɛ ɪ o u
-vowel: a ɛ: i: o: u:
+vowel: a: ɛ: i: o: u:
 
 Polish
 bilabial: m b p

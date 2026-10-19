@@ -31,8 +31,8 @@ Nervous: information processing
 Immune: defense against pathogens
 Integumentary: skin, protection
 --
-Circulatory/Cardiovascular: deliver nutritients
-Digestive: absorb nutritients
+Circulatory/Cardiovascular: deliver nutrients
+Digestive: absorb nutrients
 Respiratory: gas exchange
 Urinary: eliminate blood waste
 --
@@ -57,13 +57,13 @@ Deltoid: shoulder
 Biceps: shoulder to elbow on front, forearm flexor
 Triceps: upper arm on back, forearm extensor
 
-#musles torso
+#muscles torso
 Erector spinae: spine, spine extensor
 Gluteus: pelvis to femur, buttocks, hip extensor
 Latissimus dorsi: lower spine to humerus, arm extensor
 Pectoralis major: chest, humerus flexor
 Rectus abdominis: abdomen, lower spine flexor
-Rhomboids: upper to spatula, under trapezius, moves scapula
+Rhomboids: upper spine to scapula, under trapezius, moves scapula
 Trapezius: upper spine to scapula, moves scapula, supports arm
 
 #muscles thigh
@@ -87,7 +87,7 @@ Tongue:
 Tooth wear: loss of tooth substance
 - Attrition: tooth-to-tooth contact
 - Abrasion: non-tooth contact (food)
-- Erosion: dissolutoin by acids (drinks, reflux)
+- Erosion: dissolution by acids (drinks, reflux)
 Heterodont: different teeth types, most mammals
 Isodont / Homodont: all teeth same, in whales + sharks + reptiles
 Polyphyodont: teeth continually replaced, in sharks + crocodiles + elephants

@@ -10,7 +10,7 @@ MOSFET (metal-oxide-semiconductor field-effect-transistor): fabricated by contro
 
 Integrated circuit: microchip, interconnected electronic components
 Capacitor: stores electrical energy, accumulates charges on two surfaces with insulator in between
-Diode: conducts current in one direction, converts AD to DC
+Diode: conducts current in one direction, converts AC to DC
 Transformer: transfers electrical energy between circuits, two coils wrapped around magnetic core
 - use: electricity transmission at high voltage
 

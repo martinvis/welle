@@ -240,7 +240,7 @@ center
 #size
 absolute
 - pixel: px
-- milimeter: mm
+- millimeter: mm
 - centimeter: cm
 - point: pt
 - pica: pc (12pt)

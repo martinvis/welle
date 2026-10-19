@@ -17,7 +17,7 @@ Credit: potential debt
 Bond: public, balloon payment
 Loan: private, amortization
 - Mortgage: loan secured by real estate
-- Payday loan: short-tem, unsecured, high interest rate
+- Payday loan: short-term, unsecured, high interest rate
 Non-performing loan (NPL): loan with late repayments (90d+), unlikely to be repaid in full
 Repayment plan: installment schedule of loan
 
@@ -41,7 +41,7 @@ Capital structure: mix of funds used to finance business
 Cost of capital: cost of funds, expected return on capital has to exceed it
 Opportunity cost: value of next best alternative
 Senior debt: low risk, usually banks, usually secured, highest priority, lowest interest rate
-- Covenant: condition borrower needs to fulfull (e.g. LTV ratio, debt coverage ratio)
+- Covenant: condition borrower needs to fulfill (e.g. LTV ratio, debt coverage ratio)
 Junior debt / Subordinated debt: priority below senior, higher risk, higher interest rate
 Mezzanine debt: often can be conditionally converted to equity, priority below junior
 
@@ -62,7 +62,7 @@ ETF (exchange traded fund): traded on stock exchange, most are index funds
 Futures: contract to buy or sell at predetermined price and date
 Stock: 
 Publicly traded company:
-IPO (initial public offering): company transformed from privat to public, shares sold to investors
+IPO (initial public offering): company transformed from private to public, shares sold to investors
 
 #stock
 Common stock: vote rights, dividend
@@ -112,7 +112,7 @@ America
 Asia
 - Hong Kong: .HK
 - Shanghai
-- Shenzen
+- Shenzhen
 - Taiwan
 - Tokyo: .T
 
@@ -147,7 +147,7 @@ income statement: profit and loss over period (earnings view)
 statement of equity: changes in equity over period (financial health view)
 
 #balance sheet
-Accounts receivable (AR): enforcable claims for payment (pending invoices)
+Accounts receivable (AR): enforceable claims for payment (pending invoices)
 
 #cashflow activities
 operating: related to net income (revenues/expenses), interest on debt
@@ -176,7 +176,7 @@ PEG ratio: P/E divided by EPS growth
 Market cap: total value of company shares
 EV (enterprise value): market value, shareholders + creditors
 Book value: value based on balance sheet, assets minus liabilities
-Profic margin: percentage of profit to revenue
+Profit margin: percentage of profit to revenue
 - Gross margin: revenue minus cost of goods sold to revenue, only direct expenses (material, labor)
 - Operating margin: operating profit to revenue, considers all expenses (rent, insurance)
 - Net margin: net profit to revenue, considers all cashflows (debt, taxes)
@@ -188,7 +188,7 @@ Beta (β): price movement relative to whole market
 Diversification: reducing exposure to single asset or risk
 
 #currencies
-Dinar: Iraq (IQD), Lybia (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denarius]
+Dinar: Iraq (IQD), Libya (LYD), Serbia (RSD), Algeria (DZD), Tunisia (TND) [Denarius]
 Dirham: Morocco (MAD), UAE (AED) [Drachma]
 Dollar: Eastern Caribbean dollar (XCD), Australia (AUD), US (USD), Canada (CAD), New Zealand (NZD), Singapore (SGD) [Taler]
 Euro: Europe (EUR)
@@ -209,7 +209,7 @@ Koruna: Czechia (CZK)
 Lira: Turkey (TRY)
 Naira: Nigeria (NRN)
 Rand: South Africa (ZAR)
-Real: Brazilia (BRL)
+Real: Brazil (BRL)
 Shekel: Israel (ILR)
 Sol: Peru (PEN)
 Won: Korea (KRW)
@@ -257,7 +257,7 @@ USA, 19-20th century
 - General Electric: appliances, Thomas Edison
 - Kodak: photography, George Eastman
 - Ford: vehicles, Henry Ford
-USA, 21th century
+USA, 21st century
 - News Corporation: mass media, Rupert Murdoch
 - Microsoft: operating system, Bill Gates
 - Google: search engine, Larry Page + Sergey Brin
@@ -342,7 +342,7 @@ Demand shock
 Supply shock
 Inflation: increase in price of goods and services
 Deflation: decrease in price of goods and services
-Bubble: asset prices greatly exceeding intristic value, usually due to excess liquidity
+Bubble: asset prices greatly exceeding intrinsic value, usually due to excess liquidity
 Business cycle: intervals of expansion and recession
 - Expansion: increase of economic activity
 - Recession: decrease of economic activity

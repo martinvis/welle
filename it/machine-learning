@@ -28,7 +28,7 @@ supervised learning
 #Clustering
 - grouping similar objects into clusters
 density based: finds high density areas, low density areas are noise
-k-mean clustering: k cluster centers with minimal square distance of object to center
+k-means clustering: k cluster centers with minimal square distance of object to center
 - median can be used instead of mean
 fuzzy clustering: object can belong to multiple clusters
 distribution based: finds object from same distribution - e.g. Gaussian

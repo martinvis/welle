@@ -6,9 +6,9 @@ Operation: function from set to itself
 - Subtraction: difference between terms, repeated predecessor
 - Multiplication: product of factors, repeated addition
 - Division: quotient of dividend to divisor, repeated subtraction
-- Exponentation: product of base to exponent, repeated multiplication
-- Root extraction: root of radicand to degree, inverse of exponentation for base
-- Logarithm: inverse of exponentation for exponent
+- Exponentiation: product of base to exponent, repeated multiplication
+- Root extraction: root of radicand to degree, inverse of exponentiation for base
+- Logarithm: inverse of exponentiation for exponent
 
 Prime number: natural number that is not product of two smaller natural numbers
 - Goldbach's conjecture: unproven, every even integer is sum of two primes
@@ -23,7 +23,7 @@ Prime number: natural number that is not product of two smaller natural numbers
 Composite number: natural number that is product of two smaller natural numbers
 Fundamental theorem of arithmetic: every integer is unique product of prime factors
 
-Twin prime: pair of pprime farimes with gap of two
+Twin prime: pair of primes with gap of two
 - Twin prime conjecture: unproven, infinitely many twin primes
 - Brun's theorem: sum of reciprocals of twin primes is convergent
 - Polignac's conjecture: infinitely many consecutive primes with any even-length gap
@@ -67,10 +67,10 @@ Pyramidal numbers: ∑ n^2 = n*(n+1)(2n+1) / 6
 Permutation: arrangement of elements in sequence, order matters, n!
 Combination: selection of k elements, order does not matter, (n k) = n! / [(n-k)! * k!]
 
-Pascal's triangle: binomial coeficients, each entry is sum of left and right parent
+Pascal's triangle: binomial coefficients, each entry is sum of left and right parent
 - diagonals: 1s on edges, then natural numbers, then triangular numbers, then tetrahedral numbers etc
 - rows: sum of row is 2x sum of previous row
-Binomial theorem: (x+y)^n expressed as polynomial with n-th row of Pascal's triandle as coefficients
+Binomial theorem: (x+y)^n expressed as polynomial with n-th row of Pascal's triangle as coefficients
 - (x+y)^2 = x^2 + 2xy + y^2
 - (x+y)^3 = x^3 + 3x^2y + 3xy^2 + y^3
 

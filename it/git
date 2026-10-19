@@ -10,7 +10,7 @@ tag: named commit
 HEAD: latest commit on current branch
 <branch>: latest commit on given branch
 <tag>: specified tag
-<>~: relative to commit, 1 commits backwards
+<>~: relative to commit, 1 commit backwards
 <>~X: relative to commit, X commits backwards
 
 #start (once only)

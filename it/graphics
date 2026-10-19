@@ -1,5 +1,5 @@
 Mipmapping: pre-calculated progressively smaller versions of texture stored alongside original (reduces aliasing)
-Tesselation: dynamically subdivide coarse polygons into finer triangles
+Tessellation: dynamically subdivide coarse polygons into finer triangles
 Level of detail (LOD): lower complexity representation for objects far from camera
 Signed distance function (SDF): resolution independent smooth rendering based on mathematical function (expensive close to camera)
 

@@ -14,7 +14,7 @@ Secretary problem: select best applicant, immediate decision to accept/reject, d
 - ignores cost of time
 - ignores delayed decision
 - ignores rejection by applicant
-Known distribution: cutoff is not needed, we can accept immediatelly (no looking phase)
+Known distribution: cutoff is not needed, we can accept immediately (no looking phase)
 - threshold rule: accept applicant over threshold, threshold decreases in time
 Time discounting: unlimited offers, same offer later has additional cost
 Burglar problem: retire or continue after robbery, risk of failure
@@ -33,7 +33,7 @@ A/B tests
 Hit: data found in cache
 Miss: data not found in cache
 Eviction policy
-- FIFO: replaced old data, problem - removes still useful data
+- FIFO: replaces old data, problem - removes still useful data
 - LFU (least frequently used): problem - keeps no longer useful data
 - LRU (least recently used): replaces unused data, common
 
@@ -56,7 +56,7 @@ Algorithms
 
 #Relaxation: approximation of difficult problem
 Constraint relaxation: constraint removal
-Continuous relaxation: codefinitionntinuous instead of discrete variables
+Continuous relaxation: continuous instead of discrete variables
 Lagrangian relaxation: violations penalization
 
 #Complexity
@@ -83,7 +83,7 @@ Bloom filter
 - do not remember results for any specific value
 - test element by checking if all values were reached already
 
-Interrupt coalescing: events to be process are held until certain amount or timeout reached
+Interrupt coalescing: events to be processed are held until certain amount or timeout reached
 Polling: actively sampling status of asynchronous activity
 
 #Game theory

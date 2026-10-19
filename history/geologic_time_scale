@@ -15,7 +15,7 @@ Hadean (4.5-4 By): heavy atmosphere (H2O, CO2)
 - Faint Young Sun: 70% output
 - H2O to liquid oceans, CO2 to carbonate rocks
 Late Heavy Bombardment (LHB): asteroids and comets
-Archean (4-2.5 GProterozoicy): water world, archaea + bacteria, N2 atmosphere, greenhouse gases (CO2, CH4), Fe rich oceans
+Archean (4-2.5 Gy): water world, archaea + bacteria, N2 atmosphere, greenhouse gases (CO2, CH4), Fe rich oceans
 - Primordial soup: NH3 + CH4 + H2 + H2O + energy => amino acids + nucleotides + sugars + lipids
 - Abiogenesis: monomers, mineral-assisted polymerization, lipid membrane, RNA self-replication
 - Protocell / Protobiont: cell precursor, self-replicating lipid membrane with internal metabolism
@@ -90,7 +90,7 @@ Paleomagnetism: magnetic field direction recorded in iron minerals at formation 
 
 Carbonate–silicate cycle: 
 - Silicate weathering: by carbonic acid (rainwater + CO2), 2 H2CO3 + CaSiO3 -> Ca + 2 HCO3 + SiO2 + H2O
-- Carbonate precipitation: sedimentation, Ca + 2 HCO3 -> CaCO3 + CO2 + H20
+- Carbonate precipitation: sedimentation, Ca + 2 HCO3 -> CaCO3 + CO2 + H2O
 - metamorphosis in mantle, CaCO3 + SiO2 -> CaSiO3 + CO2
 - CO2 released to atmosphere by volcanism
 
@@ -105,7 +105,7 @@ Sulfur cycle:
 Volcanic winter: temperature decrease caused by sulfuric acid droplets blocking sun
 
 #Paleoclimatology
-S34/S32 ratio: S34 increase after Great Oxidation Event due to FeS2 oxidation, ozone layer ended mass-independent fractation
+S34/S32 ratio: S34 increase after Great Oxidation Event due to FeS2 oxidation, ozone layer ended mass-independent fractionation
 =Paleothermometer: estimate of temperature at formation time of material
 O16/O18 ratio: more O18 in CaCO3 at lower temperature, less O18 in ice at low temperature
 Mg/Ca ratio: more Mg replacing Ca in CaCO3 at high temperature

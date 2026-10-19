@@ -31,7 +31,7 @@ Lemma: canonical form of set of word forms
 Lexeme: set of words related by inflection
 Inflection: modification of word to express tense, person, gender etc
 - Conjugation: inflection of verbs
-- Declesion: conjugation of non-verbs
+- Declension: conjugation of non-verbs
 Pangram: sentence using every letter of alphabet
 Anagram: word formed by letter rearrangement of another word (listen/silent)
 Palindrome: reads same backwards and forwards (madam)
@@ -52,7 +52,7 @@ Gender: noun classes
 - feminine
 - neuter
 - common (masculine or feminine)
-common/neuter: dutch, swedisch, danish
+common/neuter: dutch, swedish, danish
 masculine/feminine: romance, arabic, hindi
 masculine/feminine/neuter: german, slavic
 none: english, chinese, japanese, korean, turkish, persian, indonesian

@@ -59,7 +59,7 @@ Afrotheria
 -- Mammuthus/Mammoth: extinct, large twisted tusks, thick fur, smaller ears, grasslands
 -- Elephas: south Asia
 -- Loxodonta: large ears, Africa
-- Sirenia: see cows, large aquatic herbivores, tropical zones, 6 cervical vertebrae
+- Sirenia: sea cows, large aquatic herbivores, tropical zones, 6 cervical vertebrae
 Laurasiatheria
 - Eulipotyphla: small insectivores, poor vision
 - Chiroptera: bats, wings to fly, nocturnal, roost in caves, many use echolocation to hunt insects
@@ -187,7 +187,7 @@ Lorisidae: loris, no tail, nocturnal, Africa + South Asia
 Hylobatidae: long limbs and tail, arboreal, SE Asia
 - Symphalangus: siamang, throat pouch, black color
 - Hylobates: gibbon
-- Hoolock: white eyebrows, males dark and females bright, Barma
+- Hoolock: white eyebrows, males dark and females bright, Burma
 - Nomascus: white cheeks, males dark and females bright
 Hominidae: large, no tail, long limbs
 - Pongo: orangutan, orange color, feed on fruit, arboreal, Malay
@@ -201,7 +201,7 @@ Cercopithecidae
 - Macaca: macaque, swimmer, South Asia
 - Allenopithecus: swimmer, social, Africa
 - Erythrocebus: patas monkeys
--- feed on leaves, arboreal, long long limbs and tail
+-- feed on leaves, arboreal, long limbs and tail
 - Colobus: black with white face frame, long white fur on shoulders, tail with white tuft, arboreal, Africa
 - Nasalis: proboscis monkey, large nose, swimmer, Borneo
 - Pygathrix: doucs, long white fur on cheeks, SE Asia
@@ -289,7 +289,7 @@ Felidae: retractable claws
 - Panthera [Jaguar]: black spots in rosettes, solitary, Latin America
 - Panthera [Snow leopard]: black spots in rosettes, solitary, Himalayas
 - Neofelis: clouded leopard, solitary, SE Asia
-- Acionyx: cheetah, small black spots, small rounded head, fast on short distances, Africa
+- Acinonyx: cheetah, small black spots, small rounded head, fast on short distances, Africa
 - Felis
 - Pardofelis: marbled cat
 - Caracal: tufted pointed ears
@@ -298,7 +298,7 @@ Felidae: retractable claws
 - Leptailurus: serval
 - Lynx: tufted pointed ears, short tail
 - Puma [Cougar]: solitary, America
-Prionodontidae: lisang, large spots and banded tail, very long tail, SE Asia
+Prionodontidae: linsang, large spots and banded tail, very long tail, SE Asia
 =Viverroidea: civets
 Nandiniidae: African palm civet
 Viverridae: civets
@@ -470,7 +470,7 @@ Eschrichtiidae: gray whales, dorsal bumps instead of fin, North Pacific
 
 Raoellidae: extinct (Eocene), semi-aquatic, small, India
 - Indohyus:
-=Cetaceae
+=Cetacea
 Pakicetidae: extinct (Eocene), terrestrial, India
 - Ichthyolestes: small, fox-like
 - Pakicetus: wolf-like

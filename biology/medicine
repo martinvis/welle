@@ -12,7 +12,7 @@ Arthralgia: joint pain
 Atopy: tendency to allergic diseases
 Allodynia: pain from non-painful stimuli (eg after sunburn)
 Hypovolemia: loss of extracellular fluid
-Hemorrage: bleeding
+Hemorrhage: bleeding
 Hirsutism: excessive body hair in female
 Apoplexy: rupture of internal organ
 Cataplexy: muscle weakness
@@ -72,7 +72,7 @@ Ischemia: restriction of blood supply to tissue
 Hypergraphia: intense desire to draw or write
 Lumbago: low back pain
 - Sciatica/Ischias: pain in legs, caused by spinal disc hernia pressing nerve
-Fistula: abnormal connection of epithels (e.g. urinary and intestinal tracts)
+Fistula: abnormal connection of epithelia (e.g. urinary and intestinal tracts)
 Mydriasis: dilation of pupil
 #Neurological
 Paresthesia: abnormal sensation of skin
@@ -182,8 +182,8 @@ Petri dish: shallow transparent plate with lid, used to cultivate microorganisms
 - Agar: growth medium, polysaccharides jelly from cell walls of red algae
 
 #Therapy
-Intravenous therapy: fluids administered into vein (water, electrolytes, nutritients etc)
-- Canulla: tube for repeated usage
+Intravenous therapy: fluids administered into vein (water, electrolytes, nutrients etc)
+- Cannula: tube for repeated usage
 - Syringe pump: gradually administered fluids
 - Infusion pump: automated administration
 Catheter: tube inserted in body cavity allowing drainage of fluids or gases
@@ -194,7 +194,7 @@ Endoscopy: examines interior of body
 - Gastroscopy: stomach
 - Enteroscopy: small intestine
 Intensive care unit (ICU): life threatening cases
-Defibrillation: delivers electric shock to heart, treats arrhytmia
+Defibrillation: delivers electric shock to heart, treats arrhythmia
 Palliative care: improving quality of life for patients with serious illnesses (pain relief)
 Artificial cardiac pacemaker: implanted, generates electrical pulses to maintain heart rate
 Electroconvulsive therapy: mental disorders, electrically induced seizure
@@ -209,7 +209,7 @@ Radiation therapy: treatment using ionizing radiation delivered by linear partic
 - Parotid sparing: limit radiation dose to parotid glands, avoid xerostomia
 =Mechanical ventilation: oxygenation and/or ventilation
 Tracheal intubation: invasive, plastic tube in trachea, maintain open airway
-Positive airway pressure (PAP): non-invasive, sleep apnoe, respiratory failure, hose connects flow generator and face mask
+Positive airway pressure (PAP): non-invasive, sleep apnea, respiratory failure, hose connects flow generator and face mask
 - Continuous positive airway pressure (CPAP): single pressure, only oxygenation
 - Bi-level positive airway pressure (BPAP): different inspiratory/expiratory pressures, oxygenation + ventilation
 --
@@ -261,7 +261,7 @@ Alpha-gal syndrome: red meat allergy after tick bite, reaction to carbohydrate
 Milk allergy [1]: reaction to milk proteins, 2% of population
 Egg allergy [2]: 1% of population
 Fish allergy [3]: 1% of population
-Shellish allergy [4]: 1% of population
+Shellfish allergy [4]: 1% of population
 Tree nut allergy [5]: 1% of population
 Peanut allergy [6]: 1% of population
 Allergic rhinitis (hay fever): pollen, ~20% of population
@@ -347,7 +347,7 @@ Serotonin syndrome: serotonin excess caused by drug interactions,
 - symptoms: hyperthermia, tachycardia, sweating, agitation
 Charles Bonnet syndrome (CBS): visual hallucinations after vision loss
 Anton–Babinski syndrome: damage in occipital lobe, blind but not realizing blindness
-Riddoch syndrome: damage in occipital lobe, bllind except fast moving objects
+Riddoch syndrome: damage in occipital lobe, blind except fast moving objects
 Klüver–Bucy syndrome: lesions in temporal lobe, compulsive eating and hypersexuality
 Narcolepsy: lifelong, Orexin deficiency, excessive daytime sleepiness, cataplexy, poor sleep quality
 Status epilepticus (SE): prolonged seizure activity, emergency (brain damage risk)
@@ -366,7 +366,7 @@ Urolithiasis (kidney stone): mineral crystal formed in kidney, can block ureter
 Urinary incontinence: uncontrolled urine leakage
 Interstitial cystitis (IC): chronic bladder pain, unknown cause
 
-#congitive disorder
+#cognitive disorder
 Agnosia: inability to process sensory information
 - Anosognosia: unawareness of disability
 - Prosopagnosia: inability to recognize faces
@@ -420,10 +420,10 @@ Coronary artery disease (CAD): very common, ischemia due to atheroma plaque
 Congenital heart defect (CHD): very common at birth, defect in heart structure (valves, walls)
 - symptoms: rapid breathing, cyanosis
 Cardiomyopathy: thickened/stiffened/weakened heart muscle, can be genetic
-- symptoms: dispnea, edema
+- symptoms: dyspnea, edema
 Myocardial infarction (Heart attack): infarction of heart muscle
 - symptoms: chest pain, dizziness
-Cardiac arrest: heart suddenly stops beating, often due to arrhytmia
+Cardiac arrest: heart suddenly stops beating, often due to arrhythmia
 - symptoms: loss of consciousness, may result in coma
 Pericarditis: pericardium inflammation
 - symptoms: chest pain, fever
@@ -459,12 +459,12 @@ Luxation: joint dislocation
 #congenital
 Dolichocephaly: head long relative to width
 
-#bening tumor
+#benign tumor
 Neurofibromatosis (NF): tumors in nervous system, often inherited, usually mild symptoms, Schwann cells
 - Type I: brown skin spots, Lisch nodules (brown spots on iris), neurofibromin gene, peripheral/optic nerves
 - Type II: loss of hearing/balance, merlin gene, cranial nerve
 - Schwannomatosis: chronic pain, peripheral nerves
-Hamartoma: bening, normal tissue, slow abnormal growth, resemble neoplasm
+Hamartoma: benign, normal tissue, slow abnormal growth, resemble neoplasm
 Dermatofibroma: benign, caused by mild trauma (insect bite), hard brown papule
 
 Endometriosis: common, tissue similar to uterus lining grows elsewhere in body
@@ -479,7 +479,7 @@ Anti-oncogene: tumor suppressor, regulate cell division
 Dysplasia: abnormal cell growth
 Metastasis: spread to other body parts
 - Circulating tumor cell (CTC): detached from tumor and entered bloodstream
-=Carconigen: can cause cancer
+=Carcinogen: can cause cancer
 mutagens: radiation, PAH (tobacco smoke, coal tar, charred food)
 inflammation: asbestos, sawdust, air pollution (particulate matter)
 viruses: HPV, Hepatitis B/C, Epstein-Barr
@@ -540,7 +540,7 @@ Polyp: abnormal tissue growth, protrudes from mucous membrane
 - dysplastic: abnormal development
 - neoplastic: tumor
 Cyst: closed sac, abnormal envelope
-Abcess: pus built up in tissue, red swelled area, caused by bacterial infection
+Abscess: pus built up in tissue, red swelled area, caused by bacterial infection
 
 Muscular dystrophy: breakdown of skeletal muscles, caused by mutation in dystrophin (DMD gene)
 - Duchenne MD: X-linked recessive, mostly young males
@@ -621,14 +621,14 @@ Diabetes mellitus:
 - Type 2: very common, caused by obesity, increased cancer risk, normal c-peptide level
 - Type 1.5 / LADA (latent autoimmune diabetes in adults): slowly evolving, often mistaken for type 2
 - Gestational diabetes: during pregnancy, high c-peptide level
-- Diabetic foot: peripheral nerve disfunction, amputation risk
+- Diabetic foot: peripheral nerve dysfunction, amputation risk
 Diabetes insipidus
 - lack of vasopressin production
 - excessive urination and thirst
 Hyperthyroidism
 - excessive thyroid hormones production
 - Goiter: enlarged thyroid gland
-- symptoms: muscle weakness, fast hearthbeat, increased perspiration, heat intolerance, diarrhea, weight loss, trouble sleeping
+- symptoms: muscle weakness, fast heartbeat, increased perspiration, heat intolerance, diarrhea, weight loss, trouble sleeping
 - causes: autoimmune, tumor, inflammation, high iodine intake
 Acromegaly: excess growth of some body part, caused by excess growth hormone
 Cushing's syndrome: prolonged glucocorticoids use, excess cortisol
@@ -649,14 +649,14 @@ Necrotizing fasciitis: flesh eating bacteria, high mortality
 - symptoms: pain, fever, purple skin
 
 Hyperkalemia
-- treatment: calcium gluconate, insuline + glucose, loop diuretics, dialysis
+- treatment: calcium gluconate, insulin + glucose, loop diuretics, dialysis
 
 Schizophrenia: low patient compliance
 Bipolar Disorder: low patient compliance
 
 #Anomalies
 Male
-- Cryptorchidism: undescended testi
+- Cryptorchidism: undescended testis
 - Hypospadias: lower urinary opening
 - Epispadias: abnormal urinary opening, small penis
 Female

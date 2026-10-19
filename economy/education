@@ -24,7 +24,7 @@ Operant / Instrumental conditioning: behaviour modified by reinforcement/punishm
 =Reinforcement learning (RL): selection of action in order to maximize reward
 Credit assignment: which action was responsible for outcome
 Inverse reinforcement learning (IRL): reward function inferred from observed behaviour of expert
-Counterfactual reasoning: compare taken and not taken action, regret minimalization (what if simulation)
+Counterfactual reasoning: compare taken and not taken action, regret minimization (what if simulation)
 - limit too many options by choosing next best action or action with maximal regret
 Temporal difference learning: bootstrapping from current estimate of value function
 - Reward prediction error (RPE): difference between estimated and actual reward

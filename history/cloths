@@ -6,7 +6,7 @@ Hoodie = pullover with hood
 Camisole = sleeveless underwear
 Corset = support to shape torso
 Bra = underwear, covers breasts, fastens by hook
-Bralette = bra without underline
+Bralette = bra without underwire
 Plunge bra = top part bare
 Bodice = women, close-fitting
 Blouse = loose-fitting
@@ -21,7 +21,7 @@ Gilet = sleeveless jacket
 Puffer = jacket sewn into sections
 
 #night
-Nightgown = loose nightware
+Nightgown = loose nightwear
 Negligee = see-through nightgown
 Pajamas = loose shirt and trousers
 
@@ -55,7 +55,7 @@ Cape = short cloak
 Poncho = South American, sleeveless with opening for head
 Burqa = Muslim, loose, covers body and face
 Niqab = like Burqa, but eyes uncovered
-Apron = covers the front, over other cloths, kitchen
+Apron = covers the front, over other clothes, kitchen
 Onesie / Jumpsuit: casual, cosplay, sleeves + legs
 
 #head

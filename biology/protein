@@ -101,7 +101,7 @@ Ubiquitin (UB*): attached to substrate proteins, marks for proteolysis, alters c
 Ubiquitin-activating enzymes (E1): activate ubiquitin and pass it to E2
 Ubiquitin-conjugating enzymes (E2): carry ubiquitin and bind with E3
 Ubiquitin ligases (E3): recognize target protein, transfer ubiquitin from E2
-Proteasomes: protein complex, degrage proteins tagged by ubiquitin using proteases, at least 4 ubiquitin monomers needed
+Proteasomes: protein complex, degrade proteins tagged by ubiquitin using proteases, at least 4 ubiquitin monomers needed
 
 #Receptors
 Trk receptors: tyrosine kinases, regulate synaptic strength and plasticity
@@ -240,7 +240,7 @@ Thyroid peroxidase: oxidizes I- ion into I atom
 Aromatase: aromatization of androgens into estrogens by elimination of methyl group
 GULO: produces vitamin C, nonfunctional in primates + guinea pigs
 
-Hephaestin (HEPH): oxidizes iron exported by ferraportin
+Hephaestin (HEPH): oxidizes iron exported by ferroportin
 Cyclooxygenase (COX): synthesis of thromboxane and prostaglandins from arachidonic acid
 Carbonic anhydrase: reversible hydration of carbon dioxide, contain zinc, regulate pH
 
@@ -253,12 +253,12 @@ Protein serine/threonine phosphatase
 - Calcineurin: activates T cells
 
 =tyrosine kinase
-SRC: proto-oncogen, survival + proliferation + motility + angiogenesis
+SRC: proto-oncogene, survival + proliferation + motility + angiogenesis
 ABL1: 
 
 =Enzyme activity
 Oxidoreductase (EC1): oxidation/reduction
-Transferase (EC2): transfering functional group
+Transferase (EC2): transferring functional group
 - Kinase: transfer of phosphate from ATP to substrate
 - Polymerase: synthesis of long chains
 - Phosphorylase: addition of inorganic phosphate group (-PO4)
@@ -333,7 +333,7 @@ Hippo signaling pathway: controls organ size, regulates cell proliferation and a
 - YAP: transcription coregulator, promotes cell proliferation, suppresses apoptosis
 - TAZ/WWTR: transcription coregulator, promotes cell growth, suppresses apoptosis
 =Extrinsic apoptosis pathway
-Death-inducing signaling complex (DISC): trimerization of FASL binding FAS receptor, recruitment of FADD and CASPACE
+Death-inducing signaling complex (DISC): trimerization of FASL binding FAS receptor, recruitment of FADD and caspases
 =Intrinsic apoptosis pathway
 Mitochondrial Outer Membrane Permeabilization (MOMP): BCL2 proteins insert into membrane to form pores
 Cytochrome c (CYCS): released by MOMP, binds APAF1
@@ -367,7 +367,7 @@ Lithotroph: reductants from inorganic matter (algae, plant)
 Organotroph: reductants from organic matter (bacteria, animal, fungi)
 Chemosynthesis: conversion of CO2 or CH4 into organic matter
 
-=GPTase
+=GTPase
 RAS: small GTPase, signal transduction, proto-oncogene
 
 =Protease
@@ -408,13 +408,13 @@ Aldosterone - mineralocorticoid, stimulates Na+ and water reabsorption, K+ and H
 #Autacoids: brief duration, metabolized locally
 =Kininogen: cleaved into Kinin by Kallikrein
 Bradykinin: promote inflammation, cause vasodilation and hyperalgesia, B1+B2 receptors
-Tachykinin (TAC): promote inflammation, cause vadilation and hyperalgesia, smooth muscle contraction, NK receptors
+Tachykinin (TAC): promote inflammation, cause vasodilation and hyperalgesia, smooth muscle contraction, NK receptors
 =Eicosanoid: by oxidation of arachidonic acid
 Prostaglandins (PG): local vasodilators
 - Prostacyclin: PGI2, inhibit platelet aggregation
 - Dinoprostone: PGE2, labor induction
 - Misoprostol: PGE1, treat gastric ulcers, labor induction
-- Alprostadil: PGE1, treat erectile disfunction
+- Alprostadil: PGE1, treat erectile dysfunction
 Thromboxane: vasoconstrictor, platelet aggregation
 Leukotrienes: inflammation mediators
 
@@ -495,10 +495,10 @@ Antifreeze proteins (AFPs): lower freezing point, bind to small ice crystals (fi
 
 
 =Mevalonate pathway: converts acetyl-CoA into terpenoids
-HMG-CoA reductase (HMGCR): enzyme of rate limiting step in cholessterol synthesis
+HMG-CoA reductase (HMGCR): enzyme of rate limiting step in cholesterol synthesis
 
 =Terpenoids / Isoprenoids
-- in plants: artemisinin, beta caroten, menthol, zingiberene
+- in plants: artemisinin, beta carotene, menthol, zingiberene
 Cantharidin: secreted by male blister beetles, poisonous, wart treatment
 
 #Coagulation / Clotting
@@ -549,7 +549,7 @@ Mesenchymal movement: slow, bound to extracellular matrix
 - Crawling: leading edge adhesion -> translocation (contraction) -> end detachment (de-adhesion)
 - Actin-driven: protrusion created by actin polymerization, formation of lamellipodia
 - Lamellipodium: thin sheet-like projection, actin mesh
-- Filopodia: microspikes (actin ribs) beyond lamellipodium, adhesium with substratum
+- Filopodia: microspikes (actin ribs) beyond lamellipodium, adhesion with substratum
 Gliding: push/pull to slide, little deformation
 Swimming: flagella or cilia, no deformation
 
@@ -598,7 +598,7 @@ LSD1 / KDM1A: oxidase, remove methyl group from lysine on histone 3, overexpress
 DNA demethylation: methylation removal, after fertilization (excluding ICR), during gamete production (including ICR)
 - after fertilization demethylation is paternally active and maternally passive
 - Active demethylation: methylated cytosine modified to become damaged and be replaced via base excision repair, neuroplasticity
-- Passive demethylation: gradually throughout divisions, ommission of maintenance methylation
+- Passive demethylation: gradually throughout divisions, omission of maintenance methylation
 - TET enzymes: methylcytosine dioxygenases, active demethylation
 - ZFP57: binds methylated ICR, recruits KAP1
 - KAP1 / TRIM28: preserves imprinting by blocking TET enzymes
@@ -627,7 +627,7 @@ PDE5: phosphodiesterase enzyme, catalyzes cGMP hydrolysis
 Adenylyl cyclase (AC): lyase enzyme, converts ATP to cAMP
 cAMP: cyclic nucleotide, second messenger
 
-Opiorphin: QRFSR polypeptid, painkiller in saliva
+Opiorphin: QRFSR polypeptide, painkiller in saliva
 Ptyalin: amylase in saliva
 USAG1: BMP antagonist, inhibition could stimulate tooth regeneration
 

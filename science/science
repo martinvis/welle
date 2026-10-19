@@ -62,7 +62,7 @@ Heuristic: simple approach to problem, leads to approximate solution
 
 System: quantity of space or matter
 - open: mass can change
-- close: mass can not change
+- closed: mass can not change
 - isolated: no interactions
 Surroundings: everything outside of system
 Boundary: separates system and surroundings

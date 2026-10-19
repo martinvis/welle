@@ -4,7 +4,7 @@ chess (8x8)
 - 1 king: 1 straight / 1 diagonal
 - 2 knights: 2 + 1 straight
 - 8 pawns: 1 straight forward move / 1 diagonal forward capture
-- 1 queens: straight / diagonal
+- 1 queen: straight / diagonal
 - 2 rooks: straight
 chess piece alternatives
 - amazon: queen + knight

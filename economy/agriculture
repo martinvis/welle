@@ -139,7 +139,7 @@ Pineapple (30 MT)
 Avocado (10 MT)
 - yield: 10-30 T/ha
 - water: 10k m3/ha
-- productions: Mexico (3 MT), Colombia, Peru, Dominican Republic, Kenya, Indonesia
+- production: Mexico (3 MT), Colombia, Peru, Dominican Republic, Kenya, Indonesia
 
 Peas (30 MT)
 - yield (dry): 2 T/ha
@@ -201,7 +201,7 @@ Cocoa beans (5 MT):
 
 =Kiwifruit (5 MT):
 production: China (2.5 MT), New Zealand, Italy, Greece, Iran
-varietes
+varieties
 - green: fuzzy brown skin, green flesh
 - golden: smooth brown skin, yellow flesh, sweet, fewer seeds, more vitamin C
 - hardy: small berry-like, thin smooth skin, green flesh, sweet

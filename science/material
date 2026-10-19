@@ -46,8 +46,8 @@ Beryllium bronze: copper + 2% beryllium, good conductivity, non-magnetic, electr
 Inconel: nickel + chromium, high temperature, jet engine
 Invar: 64% Fe + 36% Ni, low thermal expansion
 Chromel: 90% nickel + 10% chromium, thermocouple
-Nicrosil: 85% nickel + 14% chromium + 1% silicone, thermocouple
-Nisil: 95% nickel + 4% silicone + magnesium, thermocouple
+Nicrosil: 85% nickel + 14% chromium + 1% silicon, thermocouple
+Nisil: 95% nickel + 4% silicon + magnesium, thermocouple
 Alumel: 95% Ni + 2% Al + 2% Mn + 1% Si, thermocouple
 =Cupronickel: silver color, coins
 Constantan: 55% copper + 45% nickel, strain gauge
@@ -59,7 +59,7 @@ Production
 - Fe2O3 + CO -> FeO + CO2
 - FeO + C -> Fe + CO2
 - C + CO2 -> CO
-- sulfur removal: FeS + CaO -> Cas + FeO
+- sulfur removal: FeS + CaO -> CaS + FeO
 - sulfur removal: Mg + S -> MgS
 - slag: CaO + SiO2 -> CaSiO3
 Stainless: chromium (10+%), corrosion-resistant
@@ -95,7 +95,7 @@ brittle, transparent, chemically inert
 use: windows, optics
 green by FeO, brown by Fe2O3
 Silicate: molten and cooled SiO2 (quartz)
-Soda-lime: with Na2CO3 lowering transition temperatrure
+Soda-lime: with Na2CO3 lowering transition temperature
 Borosilicate: with B2O3 adding resistance to thermal stress
 Tempered/toughened: rapidly cooled, stronger, shatters into small pieces
 Laminated: thin polymer layer between glass layers, prevents breaking, car windshields
@@ -111,12 +111,12 @@ Nitrocellulose/Guncotton
 - production: cellulose + nitric acid
 - use: gunpowder in firearms, celluloid
 
-Camphos
-- colorless solid, strong arome
+Camphor
+- colorless solid, strong aroma
 - found in wood of Lauraceae trees
 
 Celluloid
-- production: nitrocellulose + camphos
+- production: nitrocellulose + camphor
 - use: photographic film
 
 #Composites: matrix material embedded with fibers or granules
@@ -124,10 +124,10 @@ Fiberglass (GFK)
 - plastic reinforced with glass fiber
 - lightweight, strong
 Kevlar
-- aramid (aromatic polyamid)
+- aramid (aromatic polyamide)
 - used in bulletproof vests and protective clothing
 - lightweight, strong, heat-resistant
-Plywood: odd number of this wood layers glued by resin, strong
+Plywood: odd number of thin wood layers glued by resin, strong
 
 #Concrete
 cement + sand + water
@@ -164,7 +164,7 @@ Polytetrafluoroethylene (PTFE) / Teflon: thermoplastic, low friction, non-stick 
 Perfluoroalkoxy alkanes (PFA): piping
 Nylon: polyamide; silk-like thermoplastic, elastic, fabric
 Silicone: siloxane; repels water, cookware, coating, sealant
-Synthetic rubber: elastomere; tires, seals
+Synthetic rubber: elastomer; tires, seals
 - isoprene
 - neoprene
 Smart rubber: self-healing, tears can re-bond

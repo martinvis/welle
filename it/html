@@ -32,7 +32,7 @@
 - name="keywords"
 - name="author"
 - content="string"
-- refrest after X seconds: http-equiv="refresh" content="X"
+- refresh after X seconds: http-equiv="refresh" content="X"
 - redirect after X seconds: http-equiv="refresh" content="X;url=..."
 <script>: javascript
 - type="text/javascript"
@@ -127,11 +127,11 @@
 - target: _self | _blank (new tab) | _parent (iframe) | _top (new window)
 <map>: clickable <img> or <object> areas
 - name
-<area>: area within <Map>
+<area>: area within <map>
 - href: URL path
 - target: _self | _blank (new tab) | _parent (iframe) | _top (new window)
 - shape: rect | circle | poly
-- coords: x1,y1,y2,y2 ...
+- coords: x1,y1,x2,y2 ...
 - alt
 <ruby>: text with pronunciation
 - <rt>: pronunciation (above)
@@ -177,7 +177,7 @@
 - disabled
 - readonly
 - required
-- form: formular name (when outside of form0
+- form: formular name (when outside of form)
 - checked: default for radio/checkbox
 - min (number/date)
 - max (number/date)

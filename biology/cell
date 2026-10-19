@@ -35,12 +35,12 @@ enveloped by membrane and wall
 movement by flagella or cilia
 porosome: membrane pore for secretion of vesicles
 animalia
-- only eveloper by membrane, lacks wall
+- only enveloped by membrane, lacks wall
 
 #Cytoplasm: all material within cell
 Cytosol: liquid inside cells
 
-#Organelle: eclosed in lipid bilayer membrane
+#Organelle: enclosed in lipid bilayer membrane
 Ribosome: protein synthesis, without membrane
 - free ribosome proteins get released to cytosol
 - RER ribosome proteins get bound to membrane or secreted from cell
@@ -101,9 +101,9 @@ Motor: control muscles and glands
 Interneurons: communication between sensory and motor neurons, central nervous system
 =Glia: non-neuron cells
 Oligodendrocyte: central nervous system, axon insulation as myelin sheath (multiple)
-Astrocyte: central nervous system, star shaped, provide nutritients
+Astrocyte: central nervous system, star shaped, provide nutrients
 Microglia: central nervous system, active immune defense
-Ependymal call: central nervous system, produces cerebrospinal fluid
+Ependymal cell: central nervous system, produces cerebrospinal fluid
 Satellite cell: peripheral nervous system, protective
 Schwann cell: peripheral nervous system, support neurons
 - myelinating: axon insulation as myelin sheath (single)
@@ -136,7 +136,7 @@ Osteoblast: bone formation, produce hydroxyapatite
 =Bone
 Cortex / Cortical bone / Compact bone: outer layer, dense
 Trabecula / Cancellous bone / Spongy bone: internal tissue, porous
-Osteon / Harvesian system: functional unit of cortical bone
+Osteon / Haversian system: functional unit of cortical bone
 
 =Embryo
 Syncytiotrophoblast: multinucleate without cell boundaries, invades uterus wall, epithelium of placental villi
@@ -146,7 +146,7 @@ Paracrine signaling
 Quorum sensing: gene regulation based on cell population density
 
 #Neuroendocrine cells: release hormones based on neuronal input
-Alfa cell: in pancreas, secrete glucagon
+Alpha cell: in pancreas, secrete glucagon
 Beta cell: in pancreas, secrete insulin
 Parafollicular cell (C cell): in thyroid, secrete calcitonin
 Delta cell (D cell): in stomach + intestines + pancreas, secrete somatostatin
@@ -173,7 +173,7 @@ Blastocyst: ~200 cells, 5th day, 2 layers
 - Blastocoel: cavity filled with fluid
 - Trophoblast: outer cells of blastocyst, develop into placenta
 - Embryonic stem cell (ESC): pluripotent, from inner cell mass of blastocyst
-Gastrula: 3 layers, call differentiation and axes formation
+Gastrula: 3 layers, cell differentiation and axes formation
 - Ectoderm: produces epidermis and nervous system
 - Endoderm: produces digestive system + lungs + liver
 - Mesoderm: produces muscles + bones + heart + blood vessels

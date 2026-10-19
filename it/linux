@@ -150,7 +150,7 @@ tcpdump: capture packets
 wget URL: download file
 -O file-name
 -P folder
--b: run in backgroundk
+-b: run in background
 curl: network request
 -o file-name
 -T FTP-upload-file

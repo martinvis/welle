@@ -3,7 +3,7 @@ discrete, number of events in time interval
 λ = average number of events
 probability of k events is (λ^k * e^-λ) / k!
 
-=Causality: unidirectional cause-effect relationship between variable, cause is responsible for effect
+=Causality: unidirectional cause-effect relationship between variables, cause is responsible for effect
 =Correlation: relationship between random variables
 Correlation coefficient: measure of correlation, 0 = no correlation, 1 = perfect correlation
 Correlation does not imply causation: two variables can occur together due to third variable or coincidence

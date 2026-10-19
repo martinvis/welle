@@ -15,7 +15,7 @@ Fibonacci sequence: number is sum of two previous numbers, consecutive numbers c
 
 #Algebra
 Scalar: single field element
-- arithmetic operations: addition, substraction, multiplication, division
+- arithmetic operations: addition, subtraction, multiplication, division
 Vector: ordered list of elements
 Matrix: 2-dimensional array of elements
 - Transpose: flip over diagonal
@@ -47,7 +47,7 @@ Determinant: only square matrix, zero if matrix is singular
 - determinant of identity matrix is 1
 - in scalar multiplication, determinant multiplies by scalar
 - in matrix multiplication, determinant is product of determinants
-- if position of two rowes/columns is switched, determinant changes sign
+- if position of two rows/columns is switched, determinant changes sign
 Symmetric matrix: equal to its transpose
 Diagonal matrix: non-zero elements only on main diagonal
 Orthogonal matrix: columns and rows are orthonormal vectors
@@ -61,7 +61,7 @@ Eigendecomposition: canonical form of square matrix, represented by eigenvalues 
 - M^-1 = P * A^-1 * P^-1, if M is invertible
 
 Singular value decomposition: canonical form of matrix
-- M = U * S * V, S is rectagonal diagonal matrix, U and V are orthogonal matrices
+- M = U * S * V, S is rectangular diagonal matrix, U and V are orthogonal matrices
 - U and V represent rotation, S represents scaling
 
 Jordan canonical form  (JCF): block diagonal matrix, each block represents eigenvalue, elements above diagonals are 1

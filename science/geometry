@@ -24,7 +24,7 @@ Parallel: no intersection
 #Conic section: quadratic curve
 Focus: point defining curve
 Directrix: line defining curve
-Latus rectum: parallel to directix, through focus
+Latus rectum: parallel to directrix, through focus
 Eccentricity: characterizes shape, infinity for straight line
 Dandelin spheres: tangent to both cone and curve plane
 --
@@ -40,7 +40,7 @@ Parabola
 - eccentricity 1
 Hyperbola
 - locus of points with constant difference of distances from two focus points
-- locus of points equidistand from focus and circular directrix
+- locus of points equidistant from focus and circular directrix
 - eccentricity over 1
 
 #Circle
@@ -49,8 +49,8 @@ Hyperbola
 - Area: π*r*r
 - Perimeter: 2*π*r (circumference)
 Arc: part of circle
-Secant: straing line sharing two points with circle
-Tangent: straing line sharing one point with circle
+Secant: straight line sharing two points with circle
+Tangent: straight line sharing one point with circle
 Radius (r): distance to center
 Diameter (d): 2x radius
 
@@ -78,11 +78,11 @@ Trigonometric function
 Right-angle triangle
 - Pythagorean theorem: a^2 + b^2 = c^2 (where c is hypotenuse)
 - Pythagorean triple: side lengths of right-angle triangle
-- Inverse Pythagorean theorem: 1/a^2 + 1/b^2 = 1/h^2 (where h is perpendiculat to hypotenuse)
+- Inverse Pythagorean theorem: 1/a^2 + 1/b^2 = 1/h^2 (where h is perpendicular to hypotenuse)
 Primitive Pythagorean triple: a/b/c are coprime
 - smallest triple is 3,4,5
-- exactly one of a/b/c is dividible by each of 3/4/5
-- 60 is largest dividor of a*b*c
+- exactly one of a/b/c is divisible by each of 3/4/5
+- 60 is largest divisor of a*b*c
 Napoleon's theorem: if equilateral triangles are formed on sides then their centers form equilateral triangle, proof by symmetry
 
 #Polygon: 2D shape, closed lines connecting points
@@ -125,7 +125,7 @@ Cusp: point where direction reverses
 =parametric
 - Bézier curve: defined by paths moving along straight lines between control points
 - B-spline: defined by blending control points with basis function
-- Polynomial curve: defined by polynome
+- Polynomial curve: defined by polynomial
 =Roulette: point on curve rolling along another curve
 - Cycloid: point on circle rolling along straight line
 - Trochoid: point inside/outside circle rolling along straight line
@@ -138,7 +138,7 @@ Cusp: point where direction reverses
 
 #3D by revolving 2D
 Sphere: circle around its axis
-- Great circle: intersection of sphere and plain passing through its center
+- Great circle: intersection of sphere and plane passing through its center
 Torus: circle around external axis (doughnut)
 Spheroid: ellipse around its axis
 Lemon: circular arc of angle under 180 degrees

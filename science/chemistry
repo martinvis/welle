@@ -12,7 +12,7 @@ Colloid: microscopically dispersed insoluble particles of one substance in anoth
 - Aerogel: gas dispersed in solid
 - Aerosol: liquid or solid dispersed in gas, e.g. cloud
 - Emulsion: liquid dispersed in liquid, e.g. mayonnaise
-- Gel: liquid dipsersed in solid, e.g. jelly
+- Gel: liquid dispersed in solid, e.g. jelly
 - Sol: solid dispersed in liquid, e.g. blood / paint / mud
 
 #Matter states - depend on temperature and pressure
@@ -29,14 +29,14 @@ Supercritical fluid
 - in black smokers or atmosphere of Venus + gas giants
 
 #Phase transition - change in state of matter
-- temperatute does not change during change
+- temperature does not change during change
 Melting/Freezing - Solid/Liquid
 Vaporisation/Condensation - Liquid/Gas
 Ionization/Deionization - Gas/Plasma
 Sublimation/Deposition - Solid/Gas (e.g. CO2)
 Melting/freezing point: temperature at which solid becomes liquid 
 - increases with higher pressure if liquid is denser, otherwise decreases
-Boiling point: temperature at which liquid becomed gas
+Boiling point: temperature at which liquid becomes gas
 - increases with higher pressure
 
 Supercooling: cooling liquid below freezing point but remaining liquid (e.g. water in clouds)
@@ -64,7 +64,7 @@ luminous intensity: candela (cd)
 Boltzmann constant: 13.8 μaJ/K
 Planck constant: 663 aaJ*s
 Elementary charge: electric charge carried by single proton (160 maC)
-Avogadro constant: number of particles in mole = numer of C-12 atoms in 12g  (602kE)
+Avogadro constant: number of particles in mole = number of C-12 atoms in 12g  (602kE)
 Speed of light (c): upper limit for the speed in vacuum (300Mm/s)
 
 #SI prefixes
@@ -87,7 +87,7 @@ Speed of light (c): upper limit for the speed in vacuum (300Mm/s)
 
 #Laws
 Conservation of mass - total mass does not change by chemical reaction
-Definitive proportions - elements in compound are in fixed proportion
+Definite proportions - elements in compound are in fixed proportion
 Multiple proportions - ratios of element masses in compounds are in whole numbers
 Conservation of energy - total energy does not change
 
@@ -167,7 +167,7 @@ Metallic: bonding electrons free to move
 - molecular and atomic orbital counts equal
 - odd number of electrons creates non-integer bond order (e.g. NO)
 Bonding orbital: by adding, lower energy in molecule than atom, contains bond electrons
-Antibonding orbital: by substracting, higher energy in molecule than atom, empty unless excited, marked with * symbol
+Antibonding orbital: by subtracting, higher energy in molecule than atom, empty unless excited, marked with * symbol
 Bond order: (bonding - antibonding electrons) / 2
 - e.g. for He2+ bonding order is 1/2 (i.e. stable)
 - e.g. for He2 bonding order is 0 (i.e. not stable)
@@ -177,7 +177,7 @@ Delta bond: formed by overlapping of four lobes
 Phi bond: formed by overlapping of six lobes
 
 #Conjugated system
-Resonance/Mesomerisml: combination of several structures, non-integer bond order
+Resonance/Mesomerism: combination of several structures, non-integer bond order
 - alternating single and multiple bonds
 - starts and ends with pi bond
 - decreases energy and increases stability
@@ -185,7 +185,7 @@ Resonance/Mesomerisml: combination of several structures, non-integer bond order
 - overlap of orbitals to multiple atoms
 - longer system can capture longer wavelength (lower energy)
 - can absorb visible light to give strong color
-- present in many organical dyes (beta-carotene, porphyrins, phthalocyanine)
+- present in many organic dyes (beta-carotene, porphyrins, phthalocyanine)
 - e.g. benzene or ozone
 
 #Dipole moment
@@ -299,7 +299,7 @@ Azimuthal quantum number (l): subshell, shape of orbital, s/p/d/f
 - all orbitals have same energy unless exposed to magnetic field
 Magnetic quantum number: orbital, -l to l
 Spin quantum number: angular momentum, +1/2 or -1/2
-Degenerate orbitals: orbitals with same enegy levels
+Degenerate orbitals: orbitals with same energy levels
 Pauli exclusion principle: two electrons in atom can not have same quantum numbers
 Aufbau principle: lower-energy orbitals are filled before higher-energy
 Hund's rule: every orbital in subshell is half-full before any is full, and with same spin
@@ -312,7 +312,7 @@ Penetration: proximity of electrons in orbital to nucleus, affected by shielding
 s: sphere
 p: 3x pair of lobes
 d: 1x doughnut + pair of lobes, 4x four lobes
-f: 1x pair of doughut+lobe, 4x six lobes, 2x eight lobes
+f: 1x pair of doughnut+lobe, 4x six lobes, 2x eight lobes
 
 #Chemical reaction
 represented by equation
@@ -323,7 +323,7 @@ bond breaking always consumes energy
 does not change number and type of atoms
 energy change is difference between bond energies
 exothermic: reaction produces heat
-endothermis: reaction consumes heat
+endothermic: reaction consumes heat
 
 #Chemical equation
 g = gas
@@ -334,15 +334,15 @@ aq = aqueous solution
 #Combustion analysis
 method to determine empirical formula of compound
 combustion at high temperature and quantification of products
-usable for elements H->H20, C->CO2, N->NO2, S->SO2
+usable for elements H->H2O, C->CO2, N->NO2, S->SO2
 
 Stoichiometry: quantity of substances in chemical reactions
-Tiration: determining quantity of substance by adding tirant
+Titration: determining quantity of substance by adding titrant
 
 #Solutions
 Solvation
 - forces between solvent and solute greater than within solute
-- psysical process, does not involve chemical transformation
+- physical process, does not involve chemical transformation
 - solids with strong intermolecular bonding are usually insoluble
 - ionic substances are soluble in polar solvents
 - solubility of gases in liquids decreases with temperature
@@ -387,7 +387,7 @@ Dialysis: separation of colloid particles from solution using semi-permeable mem
 #Colligative properties
 depend on mass percentage of solutions instead of solute properties
 assumes ideal solution, ignores intermolecular forces
-Raoult's law: decres of vapor pressure (surface area occupied by solute)
+Raoult's law: decrease of vapor pressure (surface area occupied by solute)
 elevation of boiling point
 depression of boiling point
 osmotic pressure
@@ -404,7 +404,7 @@ isotonic: no pressure difference between solutions
 hypotonic/hypertonic: solution with lower/higher pressure
 
 #Polar liquids
-adjacent moleculs are held by electrostatic forces
+adjacent molecules are held by electrostatic forces
 good solvents for ionic compounds
 
 #Electrolyte
@@ -412,7 +412,7 @@ substance containing ions
 electrically conductive through ions
 can be solid-state
 
-#Water (H20)
+#Water (H2O)
 polar substance, oxygen has partial negative and hydrogen partial positive charge
 electrically conductive only when containing ions
 
@@ -429,14 +429,14 @@ Reactivity series: Li, K, Ca, Na, Mg, Al, Ti, Mn, Zn, Cr, Fe, Co, Ni, Sn, Pb, H,
 
 Corrosion: slow low-temperature oxidation, requires electrolyte (water)
 - Rusting: corrosion of iron
-#Combusion: fast oxidation chain reaction between fuel and oxidant (atmospheric oxygen), requires initial heat
+#Combustion: fast oxidation chain reaction between fuel and oxidant (atmospheric oxygen), requires initial heat
 Phlogiston theory: obsolete, phlogiston contained within combustible material and released during combustion
 
 Caloric theory: obsolete, heat is caloric fluid flowing from hot body to cold body
 
 #Metals
 metal + acid -> salt + hydrogen (M + 2HCl -> MCl2 + H2)
-metal oxid + acid -> salt + water (MO + 2HCl -> MCl2 + H2O)
+metal oxide + acid -> salt + water (MO + 2HCl -> MCl2 + H2O)
 
 #Ionization energy
 - energy required to remove electron from atom
@@ -455,7 +455,7 @@ Pseudo noble gas configuration: particularly stable (Xd10)
 produces high-quality solid materials
 substrate is exposed to volatile precursors
 byproducts removed by gas flow
-Siemens process: polysilicone production
+Siemens process: polysilicon production
 - Si + HCl -> SiHCl3 + H2
 - SiHCl3 + HCl -> SiCl4 + H2 (byproducts)
 - SiHCl3 -> Si + HCl + Cl2
@@ -485,14 +485,14 @@ Second-order reaction: rate is proportional to square of concentration, 1/A = 1/
 - in A+B -> C reactions where A and B are of first-order
 Collision model: reaction can occur only when reactants collide
 - collision frequency increases with reactant size, density and velocity
-- collision frequency = N1*N2 * (r1+r2)^2 * sqrt[(8*π*T*k)/μ] where k = Boltzman constant and μ = reduced mass
+- collision frequency = N1*N2 * (r1+r2)^2 * sqrt[(8*π*T*k)/μ] where k = Boltzmann constant and μ = reduced mass
 Activation energy: energy particles need to have to react on collision
 Steric factor: fraction of molecule orientations resulting in reaction
 Arrhenius equation: dependence of reaction rate on temperature
-Reaction mechanism: sequece of elementary reactions (intermediate products)
+Reaction mechanism: sequence of elementary reactions (intermediate products)
 - slowest step determines reaction rate
 Catalyst: substance increasing reaction rate but not consumed by reaction
-- participates only in same of elementary reactions
+- participates only in some of elementary reactions
 - heterogenous: in different phase, creates adsorption layer on solid (e.g. H2 on metal)
 - homogenous: in same phase, uniformly dispersed
 
@@ -501,7 +501,7 @@ Catalyst: substance increasing reaction rate but not consumed by reaction
 - forward and backward reactions at equal rate
 Law of mass action: reaction rate is proportional to product of concentrations of substances
 Reaction quotient: relative amount of products and reactants for reaction
-Equilibrium constant: value of reaction quatient at equilibrium
+Equilibrium constant: value of reaction quotient at equilibrium
 - high when products dominates, low when reactants dominates
 - depends on temperature
 - for reaction made by partial reactions, it is product of equilibrium constants of partial reactions
@@ -529,10 +529,10 @@ Cyanate: -O-C≡N
 Epoxide: -COC-, cyclic ether, reactive (ring strain)
 
 Hygroscopy: attracting and holding water from environment by absorption or adsorption
-- Dessicant: hygroscopic substance
+- Desiccant: hygroscopic substance
 Absorption: take in another substance
 Adsorption: adhesion of another substance to surface
-Surfactant: descrease surface tension
+Surfactant: decrease surface tension
 - hydrophilic head and hydrophobic tail
 - detergents, emulsifiers, foaming agents
 

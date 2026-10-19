@@ -1,6 +1,6 @@
 Hertzsprung–Russell diagram: shows relationship between absolute magnitude and spectral class of stars
-Absolute magniture: apparent magnitude at distance of 10 parsecs
-Apparent magniture: brightness of star observed from Earth, reverse logarithmic
+Absolute magnitude: apparent magnitude at distance of 10 parsecs
+Apparent magnitude: brightness of star observed from Earth, reverse logarithmic
 
 #Apparent magnitudes
 Sun: -26
@@ -48,9 +48,9 @@ Tully–Fisher relation (TFR): strong relationship between luminosity and rotati
 #Cosmic ray
 high energy particles from star
 moving close to speed of light
-90% solitary protons, 9% alfa particles, 1% heavier nuclei + solitary electrons + antimatter
+90% solitary protons, 9% alpha particles, 1% heavier nuclei + solitary electrons + antimatter
 produce pions + muons + neutrinos in atmosphere
-Spallation: production of unstable isotops in atmosphere
+Spallation: production of unstable isotopes in atmosphere
 - N14 to C14
 - N/O to Be / B / Li
 - Ar to various lighter nuclei
@@ -59,7 +59,7 @@ Spallation: production of unstable isotops in atmosphere
 radioactive, long life-time ~1Gy
 largest source of natural radioactivity
 K40 isotope decays to Ca40 (90%) or Ar40 (10%)
-used in K–Ar dating by measuring K40/Ar40 ration in minerals
+used in K–Ar dating by measuring K40/Ar40 ratio in minerals
 produces Ar40 in atmosphere
 
 #Star
@@ -219,7 +219,7 @@ Oxygen burning:
 Silicon burning: alpha ladder
 =Neutron capture: elements beyond iron
 r-process (rapid): another capture before decay, neutron star merger
-s-process (slow): decay before another neuron captured
+s-process (slow): decay before another neutron captured
 =Proton capture:
 rp-process (rapid): capture until decay is necessary, accreting neutron star
 =Photodisintegration: atomic nucleus excited by high energy gamma ray decays

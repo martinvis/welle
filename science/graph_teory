@@ -10,8 +10,8 @@ Cycle: closed trail
 #Graph: simple undirected
 Acyclic: without cycles
 Directed: edges with orientation
-Multigraph: allows multiple edges between same verices
-Loop: edge conntects vertex to itself
+Multigraph: allows multiple edges between same vertices
+Loop: edge connects vertex to itself
 
 #Types
 Cactus: every edge is in at most one cycle

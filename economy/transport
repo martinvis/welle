@@ -1,6 +1,6 @@
 convoy: group of vehicles, mutual protection
 charter: leasing of vessel
-logictics: supply chain process
+logistics: supply chain process
 terminal: designated area for (un)loading cargo
 
 Tare weight: weight of empty vehicle
@@ -15,7 +15,7 @@ passenger: transport of people, private or public
 largest airports:
 - America: Atlanta, Dallas, Denver, Chicago, Los Angeles, Las Vegas
 - Europe: London, Paris, Amsterdam, Frankfurt, Madrid, Barcelona, Moscow
-- East Asia: Chengdu, Chongqing, Shenzen, Shanghai, Beijing, Xi'an, Tokyo
+- East Asia: Chengdu, Chongqing, Shenzhen, Shanghai, Beijing, Xi'an, Tokyo
 - West Asia: Istanbul, Dubai, Delhi, Mumbai
 
 #cargo
@@ -87,7 +87,7 @@ track gauge: distance between two rails
 driverless: mostly only some metro lines
 
 #gauge
-historically different within a single countries 
+historically different within a single country 
 standard gauge: 1435mm, europe, north america, china, australia, 
 broad gauges: iberia, india, russia
 narrow gauges: brazil, southeast asia
@@ -95,7 +95,7 @@ narrow gauges: brazil, southeast asia
 #maritime: waterways, ~90% of international trade, annually ~10G tons
 drydocking: out of service period for repair and maintenance
 largest ports:
-- Asia: Shanghai, Singapore, Shenzen, Busan, Qingdao, Tianjin, Xiamen, Dalian
+- Asia: Shanghai, Singapore, Shenzhen, Busan, Qingdao, Tianjin, Xiamen, Dalian
 - Europe: Rotterdam, Antwerp, Hamburg, Valencia, Algeciras, Barcelona, Gdańsk, Piraeus, Amsterdam, Bremen
 - America: Los Angeles, New York
 chokepoints: narrow passage
@@ -147,7 +147,7 @@ categories
 
 #tanker:
 crude tanker: bulk transport of crude oil 
-product tanker: smaller, bult transport of refined products
+product tanker: smaller, bulk transport of refined products
 DWT: max cargo weight in tons
 worldwide capacity ~600M DWT
 categories
